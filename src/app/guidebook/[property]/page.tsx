@@ -38,13 +38,14 @@ type Tab = "home" | "guidebook" | "explore" | "messages" | "extras";
 // ─── Props ─────────────────────────────────────────────────
 interface Props {
   params: Promise<{ property: string }>;
-  searchParams: Promise<{ ref?: string; name?: string }>;
+  searchParams: Promise<{ ref?: string; name?: string; code?: string }>;
 }
 
 // ─── Page ──────────────────────────────────────────────────
 export default function GuidebookPage({ params, searchParams }: Props) {
   const [property, setProperty] = useState<PropertyGuidebook | null>(null);
   const [guestName, setGuestName] = useState<string | null>(null);
+  const [guestCode, setGuestCode] = useState<string | null>(null);
   const [tab, setTab] = useState<Tab>("home");
   const [pwaPrompt, setPwaPrompt] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -60,6 +61,7 @@ export default function GuidebookPage({ params, searchParams }: Props) {
       }
       setProperty(gb);
       if (sp.name) setGuestName(sp.name);
+      if (sp.code) setGuestCode(sp.code);
 
       // Try to fetch Guesty photos
       // (silently fall back to a generic hero)
@@ -191,8 +193,13 @@ export default function GuidebookPage({ params, searchParams }: Props) {
                   Door Code
                 </div>
                 <div className="text-sm font-bold text-stone-800 mt-0.5 tracking-widest">
-                  {p.checkIn.doorCode}
+                  {guestCode || p.checkIn.doorCode}
                 </div>
+                {guestCode && (
+                  <div className="text-[9px] text-emerald-600 font-medium mt-0.5">
+                    Your unique code
+                  </div>
+                )}
               </div>
               <div className="bg-white rounded-xl p-3.5 shadow-sm border border-stone-100">
                 <span className="text-xl">📶</span>

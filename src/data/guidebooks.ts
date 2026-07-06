@@ -202,6 +202,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
 
     videos: [
+      { title: "Finding the Building", url: "https://youtu.be/qTRxLgEop-Q" },
       { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
       { title: "Keurig K-Duo Plus", url: "https://www.youtube.com/watch?v=9VvWwr4lEzg" },
       { title: "Nest Thermostat", url: "https://www.youtube.com/watch?v=XHbRs2uq0KU" },
