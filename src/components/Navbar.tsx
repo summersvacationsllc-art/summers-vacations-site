@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -31,14 +32,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a
+          <Link
             href="/"
             className={`font-semibold text-lg tracking-tight transition-colors ${
               scrolled ? "text-stone-800" : "text-white"
             }`}
           >
             Summers Vacations LLC
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (

@@ -1,0 +1,473 @@
+// ─── Guest Guidebook Data ───────────────────────────────────
+// Per-property content for the guest app.
+// Data sourced from Hostfully guidebooks + Guesty.
+
+export interface PropertyGuidebook {
+  id: string;
+  slug: string;
+  name: string;
+  shortName: string;
+  address: string;
+  guestyListingId: string;
+  hostName: string;
+  hostBio: string;
+  hostPhone: string;
+  hostEmail: string;
+
+  checkIn: {
+    time: string;
+    type: string;
+    doorCode: string;
+    directions: string;
+    parking: string;
+    accessNote: string;
+  };
+
+  wifi: {
+    network: string;
+    password: string;
+  };
+
+  appliances: {
+    coffeeMaker: { type: string; instructions?: string; youtube?: string };
+    hvac: { type: string; instructions?: string; youtube?: string };
+    tv: { type: string; streaming: string[] };
+    washer: { instructions?: string; youtube?: string };
+    stove?: string;
+    fireplace?: { type: string; youtube?: string };
+    waterFilter?: { youtube?: string };
+    aroma360?: { youtube?: string };
+    candles?: { youtube?: string };
+  };
+
+  amenities: string[];
+  houseRules: string[];
+  trash: string;
+  emergency: {
+    hospital: string;
+    localContact: string;
+  };
+
+  videos: { title: string; url: string }[];
+}
+
+// ─── Common values shared across all properties ──────────
+const COMMON = {
+  hostName: "Brian Summers",
+  hostBio:
+    "Hi there! I'm Brian Summers, and I'm thrilled to welcome you to one of our properties in the beautiful Branson West area. I'm a full-time paramedic, fireman, and rescue specialist with 26 years of experience. I bring that same dedication to making sure your vacation is stress-free and memorable.",
+  hostPhone: "314-565-0589",
+  hostEmail: "summersvacationsllc@gmail.com",
+  checkInTime: "4:00 PM",
+  accessNote:
+    "We have keyless entry. Your door code will be emailed prior to arrival. Check your email for check-in instructions.",
+  hospital: "Cox Medical Center Branson — 525 Branson Landing Blvd, Branson, MO",
+  localContact: "Brian: 314-565-0589",
+  trash: "Dumpster located behind the building complex. Recycling bins are marked.",
+  houseRules: [
+    "No smoking inside the unit",
+    "Quiet hours: 10 PM – 8 AM",
+    "No parties or events",
+    "Pool rules must be followed at all times",
+    "Please start dishwasher and bag trash before checkout",
+  ],
+  commonVideos: [
+    { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
+    { title: "Laundry Room", url: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+    { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
+    { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
+  ],
+  commonAmenities: [
+    "High-speed WiFi",
+    "Full kitchen",
+    "Washer & dryer (coin laundry on site)",
+    "Barbecue grill",
+    "Pool access",
+    "Private lake access",
+    "Playground",
+    "Deck/patio",
+  ],
+};
+
+export const guidebooks: Record<string, PropertyGuidebook> = {
+  // ─── THE PENTHOUSE ──────────────────────────────────────
+  "the-penthouse": {
+    id: "the-penthouse",
+    slug: "the-penthouse",
+    name: "The Penthouse",
+    shortName: "Penthouse",
+    address: "550 Notch Ln, Building 9, Unit 11, Reeds Spring, MO 65737",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
+      parking:
+        "On-street parking is readily available. Park at your convenience any of the spots available.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: { network: "MyAltice 3a35c7", password: "linen-680-659" },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Keurig K-Duo Plus",
+        instructions: "Use your favorite K-Cup pods. Reservoir fills from the top.",
+        youtube: "https://www.youtube.com/watch?v=9VvWwr4lEzg",
+      },
+      hvac: { type: "Nest Thermostat", instructions: "Set between 68-72°F for comfort and efficiency." },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      fireplace: { type: "Electric Fireplace", youtube: "https://www.youtube.com/watch?v=lcq7bG2Mh8E" },
+      waterFilter: { youtube: "https://www.youtube.com/watch?v=awyb9DSggcg" },
+      aroma360: { youtube: "https://www.youtube.com/watch?v=Th_8nI2pdjM" },
+      candles: { youtube: "https://www.youtube.com/watch?v=nmuM_oBuME8" },
+    },
+
+    amenities: [
+      ...COMMON.commonAmenities,
+      "Coffee bar with Keurig K-Duo Plus",
+      "Electric fireplace",
+      "Roku Smart TV",
+      "Aroma 360 diffuser",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [
+      { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
+      { title: "Keurig K-Duo Plus", url: "https://www.youtube.com/watch?v=9VvWwr4lEzg" },
+      { title: "Aroma 360 Diffuser", url: "https://www.youtube.com/watch?v=Th_8nI2pdjM" },
+      { title: "Water Filter", url: "https://www.youtube.com/watch?v=awyb9DSggcg" },
+      { title: "Electric Fireplace", url: "https://www.youtube.com/watch?v=lcq7bG2Mh8E" },
+      { title: "Electric Candle & Lantern", url: "https://www.youtube.com/watch?v=nmuM_oBuME8" },
+      ...COMMON.commonVideos,
+    ],
+  },
+
+  // ─── RUSTIC OZARK RETREAT ──────────────────────────────
+  "rustic-ozark-retreat": {
+    id: "rustic-ozark-retreat",
+    slug: "rustic-ozark-retreat",
+    name: "Rustic Ozark Retreat",
+    shortName: "Rustic Ozark",
+    address: "550 Notch Ln, Building 9, Unit 7, Reeds Spring, MO 65737",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
+      parking:
+        "On-street parking is readily available. Park at your convenience any of the spots available.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: { network: "MyOptimum d6d285", password: "3616-cyan-52" },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Keurig K-Duo Plus",
+        instructions: "Use your favorite K-Cup pods. Reservoir fills from the top.",
+        youtube: "https://www.youtube.com/watch?v=9VvWwr4lEzg",
+      },
+      hvac: {
+        type: "Nest Thermostat",
+        instructions: "Set between 68-72°F for comfort and efficiency.",
+        youtube: "https://www.youtube.com/watch?v=XHbRs2uq0KU",
+      },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      fireplace: { type: "Electric Fireplace", youtube: "https://www.youtube.com/watch?v=ZMgLcwV4Hwc" },
+      candles: { youtube: "https://www.youtube.com/watch?v=ljN3qBYoZ7k" },
+    },
+
+    amenities: [
+      ...COMMON.commonAmenities,
+      "Coffee bar with Keurig K-Duo Plus",
+      "Electric fireplace",
+      "Roku Smart TV",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [
+      { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
+      { title: "Keurig K-Duo Plus", url: "https://www.youtube.com/watch?v=9VvWwr4lEzg" },
+      { title: "Nest Thermostat", url: "https://www.youtube.com/watch?v=XHbRs2uq0KU" },
+      { title: "Electric Fireplace", url: "https://www.youtube.com/watch?v=ZMgLcwV4Hwc" },
+      { title: "Electronic Candles & Lantern", url: "https://www.youtube.com/watch?v=ljN3qBYoZ7k" },
+      ...COMMON.commonVideos,
+    ],
+  },
+
+  // ─── DOUBLE CONDO (Penthouse + Rustic Ozark combo) ─────
+  "double-condo": {
+    id: "double-condo",
+    slug: "double-condo",
+    name: "Double Condo",
+    shortName: "Double",
+    address: "550 Notch Ln, Building 9, Units 7 & 11, Reeds Spring, MO 65737",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Separate codes for each unit (emailed prior to arrival)",
+      directions:
+        "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
+      parking:
+        "On-street parking is readily available. Please park both units' vehicles considerately.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: {
+      network: "Unit 7: MyOptimum d6d285 / Unit 11: MyAltice 3a35c7",
+      password: "Unit 7: 3616-cyan-52 / Unit 11: linen-680-659",
+    },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Keurig K-Duo Plus (both units)",
+        instructions: "Both units have Keurig K-Duo Plus coffee makers.",
+        youtube: "https://www.youtube.com/watch?v=9VvWwr4lEzg",
+      },
+      hvac: { type: "Nest Thermostats (both units)", instructions: "Set between 68-72°F." },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      fireplace: { type: "Electric Fireplace", youtube: "https://www.youtube.com/watch?v=ZMgLcwV4Hwc" },
+      waterFilter: { youtube: "https://www.youtube.com/watch?v=awyb9DSggcg" },
+      aroma360: { youtube: "https://www.youtube.com/watch?v=Th_8nI2pdjM" },
+    },
+
+    amenities: [
+      ...COMMON.commonAmenities,
+      "Two full units (sleeps larger groups)",
+      "Coffee bar in each unit",
+      "Electric fireplaces",
+      "Roku Smart TVs",
+      "Aroma 360 diffuser",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [
+      { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
+      { title: "Keurig K-Duo Plus", url: "https://www.youtube.com/watch?v=9VvWwr4lEzg" },
+      { title: "Aroma 360 Diffuser", url: "https://www.youtube.com/watch?v=Th_8nI2pdjM" },
+      { title: "Water Filter", url: "https://www.youtube.com/watch?v=awyb9DSggcg" },
+      ...COMMON.commonVideos,
+    ],
+  },
+
+  // ─── BRANSON FAMILY HAVEN ──────────────────────────────
+  "branson-family-haven": {
+    id: "branson-family-haven",
+    slug: "branson-family-haven",
+    name: "Branson Family Haven",
+    shortName: "Family Haven",
+    address: "44 Timber Trace Lane, Branson, MO 65616",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "From Highway 76: Head west toward Table Rock Lake. Turn left onto Indian Point Road. Continue 3-4 miles, turn left onto Myrtle Lane, then left onto Timber Trace Lane. 44 Timber Trace will be on your right.",
+      parking:
+        "Park in the driveway. Boat and trailer parking is in the upper lot by the blue shed.",
+      accessNote:
+        "We have keyless entry. Your door code is the last 4 digits of the phone number used when booking. Code is active at 4:00 PM on check-in day.",
+    },
+
+    wifi: { network: "44 Timber Trace", password: "welcome44" },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Keurig Coffee Maker",
+        instructions: "Keurig-style pod machine in the kitchen.",
+      },
+      hvac: { type: "Central Heating & AC", instructions: "Thermostat on main level wall." },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Washer and dryer located in unit.", youtube: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
+      stove: "Whirlpool Range",
+    },
+
+    amenities: [
+      "Full kitchen with Whirlpool range",
+      "Dishwasher",
+      "Microwave",
+      "Washer & dryer in-unit",
+      "Roku Smart TV",
+      "High-speed WiFi",
+      "Driveway parking",
+      "Boat & trailer parking",
+      "Games & activities",
+      "Dim-able can lights downstairs",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [
+      ...COMMON.commonVideos,
+    ],
+  },
+
+  // ─── WOODLAND RETREAT (499 Notch Ln, Building 14, Unit 6) ──
+  "woodland-retreat": {
+    id: "woodland-retreat",
+    slug: "woodland-retreat",
+    name: "Woodland Retreat",
+    shortName: "Woodland",
+    address: "499 Notch Ln, Building 14, Unit 6, Reeds Spring, MO 65737",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "Turn into Notch Estates. Building 14 is directly across from the small pool on the left.",
+      parking:
+        "You can park in the driveway for Building 14, Unit 6.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: { network: "My Optimum c950bf", password: "brick-148-543" },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Mr. Coffee Coffee Maker",
+        instructions: "Standard drip coffee maker in the kitchen.",
+        youtube: "https://www.youtube.com/watch?v=74MuwGbmJFc",
+      },
+      hvac: { type: "Central Heating & AC", instructions: "Thermostat in the unit." },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+    },
+
+    amenities: [
+      ...COMMON.commonAmenities,
+      "Roku Smart TV",
+      "Mr. Coffee coffee maker",
+      "Bunk beds (children's room)",
+      "Games",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [
+      { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=74MuwGbmJFc" },
+      ...COMMON.commonVideos,
+    ],
+  },
+
+  // ─── MODERN CHARMER (550 Notch Lane, Unit 8) ──────────
+  "modern-charmer": {
+    id: "modern-charmer",
+    slug: "modern-charmer",
+    name: "Modern Charmer",
+    shortName: "Modern",
+    address: "550 Notch Lane, Unit 8, Reeds Spring, MO 65737",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "Drive down Notch Ln. Follow to your assigned building.",
+      parking:
+        "On-street parking is readily available. Park at your convenience any of the spots available.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: { network: "Hunterslodge Guest 2.4", password: "72BAncWA834E" },
+
+    appliances: {
+      coffeeMaker: { type: "Coffee Bar", instructions: "Coffee bar setup in the kitchen." },
+      hvac: { type: "Central Heating & AC", instructions: "Thermostat in the unit." },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+    },
+
+    amenities: [...COMMON.commonAmenities, "Roku Smart TV", "Pack 'n Play", "Charging station"],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [...COMMON.commonVideos],
+  },
+
+  // ─── PRETTY PEACOCK (289 Notch Lane, Building 19, Unit 1) ──
+  "pretty-peacock": {
+    id: "pretty-peacock",
+    slug: "pretty-peacock",
+    name: "Pretty Peacock",
+    shortName: "Peacock",
+    address: "289 Notch Lane, Building 19, Unit 1, Reeds Spring, MO 65737",
+    guestyListingId: "",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "From Highway 76: Look for Church of Jesus Christ of Latter-day Saints. Turn onto Notch Lane between the church and Notch Inn & Suites. Continue half a mile. 289 will be on your left. Building is tan with brown trim.",
+      parking:
+        "Option 1: Park in main lot and walk down stairs. Option 2: Drive to left side of building for step-free access to lower level.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: { network: "Comfort guest 1", password: "297BCQcet970Rb4!#" },
+
+    appliances: {
+      coffeeMaker: { type: "Coffee Bar", instructions: "Coffee bar setup in the kitchen." },
+      hvac: { type: "Central Heating & AC", instructions: "Thermostat in the unit." },
+      tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+    },
+
+    amenities: [
+      ...COMMON.commonAmenities,
+      "Roku Smart TV",
+      "Pack 'n Play",
+      "Charging station",
+      "Coffee bar",
+      "Pool towels",
+      "Games",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+
+    videos: [...COMMON.commonVideos],
+  },
+};
+
+export function getGuidebook(slug: string): PropertyGuidebook | undefined {
+  return guidebooks[slug];
+}
+
+export function getAllGuidebookSlugs(): string[] {
+  return Object.keys(guidebooks);
+}
