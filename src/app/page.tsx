@@ -8,13 +8,13 @@ interface Photo { url: string; caption?: string; id?: string; }
 interface ListingInfo { guesty_id: string; title: string; nickname: string; }
 
 const PROPERTIES = [
-  { name: "The Penthouse", tag: "Top Floor • Views", guests: "Sleeps 6", bed: "2BR", color: "#2c1810", emoji: "🏠" },
-  { name: "Rustic Ozark Retreat", tag: "Cozy • Fireplace", guests: "Sleeps 6", bed: "2BR", color: "#1e3a5f", emoji: "🌲" },
-  { name: "Woodland Retreat", tag: "Family • Bunk Room", guests: "Sleeps 6", bed: "2BR", color: "#166534", emoji: "🌳" },
-  { name: "Modern Charmer", tag: "Sleek • Updated", guests: "Sleeps 4", bed: "1BR", color: "#b45309", emoji: "✨" },
-  { name: "Pretty Peacock", tag: "No Steps • Easy Access", guests: "Sleeps 6", bed: "1BR", color: "#7c3aed", emoji: "🦚" },
-  { name: "Branson Family Haven", tag: "House • Yard", guests: "Sleeps 8", bed: "3BR", color: "#be123c", emoji: "🏡" },
-  { name: "Double Condo", tag: "🔥 Bundle Deal", guests: "Sleeps 12+", bed: "4BR", color: "#f5c842", emoji: "🏢" },
+  { name: "The Penthouse", tag: "Top Floor • Views", guests: "Sleeps 6", bed: "2BR", desc: "550 Notch Lane, Unit 11", color: "#2c1810", emoji: "🏠" },
+  { name: "Rustic Ozark Retreat", tag: "Cozy • Fireplace", guests: "Sleeps 6", bed: "2BR", desc: "550 Notch Lane, Unit 7", color: "#1e3a5f", emoji: "🌲" },
+  { name: "Woodland Retreat", tag: "Family • Bunk Room", guests: "Sleeps 6", bed: "2BR", desc: "499 Notch Lane, Unit 6", color: "#166534", emoji: "🌳" },
+  { name: "Modern Charmer", tag: "Sleek • Updated", guests: "Sleeps 4", bed: "1BR", desc: "550 Notch Lane, Unit 8", color: "#b45309", emoji: "✨" },
+  { name: "Pretty Peacock", tag: "No Steps • Easy", guests: "Sleeps 6", bed: "1BR", desc: "289 Notch Lane, Unit 1", color: "#7c3aed", emoji: "🦚" },
+  { name: "Double Condo", tag: "🔥 Best Value", guests: "Sleeps 12+", bed: "4BR", desc: "Penthouse + Rustic combined", color: "#f5c842", emoji: "🏢" },
+  { name: "Branson Family Haven", tag: "🏡 Standalone House", guests: "Sleeps 16", bed: "3BR", desc: "44 Timber Trace — private yard", color: "#be123c", emoji: "🏡" },
 ];
 
 const TESTIMONIALS = [
@@ -113,8 +113,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#2c1810' }}>
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 z-10" />
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80"
-            alt="Branson Ozarks" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-tpHJ_8aMC1I?auto=format&fit=crop&w=1920&q=80"
+            alt="Table Rock Lake, Branson Missouri — morning fog over the Ozarks" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-20 w-full pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto">
@@ -223,7 +223,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-green-100 text-green-800 mb-4">🏡 Our Properties</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-stone-800" style={{ fontFamily: "'DM Serif Display', serif" }}>Seven Unique Ways to Stay</h2>
-            <p className="text-sm text-stone-500 mt-3">From cozy condos to family-sized homes — all in one incredible location.</p>
+            <p className="text-sm text-stone-500 mt-3">6 condos on Indian Point at Table Rock Lake + a standalone family house on Timber Trace. All minutes from SDC &amp; the Strip.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {PROPERTIES.map((prop, i) => (
@@ -237,6 +237,7 @@ export default function Home() {
                     <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 whitespace-nowrap">{prop.tag}</span>
                   </div>
                   <p className="text-xs text-stone-500">{prop.guests} · {prop.bed}</p>
+                  <p className="text-[10px] text-stone-400 mt-1.5">{prop.desc}</p>
                 </div>
               </div>
             ))}
@@ -275,13 +276,13 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-tpHJ_8aMC1I?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1440583070797-3b0b72f30ea4?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=600&q=80',
               ].map((url, i) => (
                 <div key={i} className={`aspect-[4/3] rounded-xl overflow-hidden bg-stone-800 ${i === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}>
