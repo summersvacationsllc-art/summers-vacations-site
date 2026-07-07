@@ -2,6 +2,85 @@
 // Per-property content for the guest app.
 // Data sourced from Hostfully guidebooks + Guesty.
 
+export interface SeasonalTheme {
+  season: 'summer' | 'harvest' | 'christmas' | 'spring';
+  name: string;
+  emoji: string;
+  sdcEvent: string;
+  primaryColor: string;
+  gradient: string;
+  accentColor: string;
+  tagline: string;
+  pushMessage: string;
+  featuredEvent: string;
+  featuredLink: string;
+  startDate: string; // MM-DD
+  endDate: string;   // MM-DD
+}
+
+export const SEASONS: SeasonalTheme[] = [
+  {
+    season: 'summer',
+    name: 'Summer Family Fun',
+    emoji: '☀️',
+    sdcEvent: 'Summer Celebration (Jun 6 – Aug 2)',
+    primaryColor: '#b45309',
+    gradient: 'linear-gradient(135deg,#b45309,#d97706)',
+    accentColor: '#f5c842',
+    tagline: '☀️ Lake days, shows & family fun',
+    pushMessage: 'Fall colors are coming — book your Harvest Fest getaway before rates go up!',
+    featuredEvent: '🎆 SDC Night Sky Drone & Fireworks',
+    featuredLink: 'https://www.silverdollarcity.com/',
+    startDate: '06-01',
+    endDate: '08-31',
+  },
+  {
+    season: 'harvest',
+    name: '🎃 Harvest Fest in Branson',
+    emoji: '🎃',
+    sdcEvent: 'Harvest Festival (Sep 11 – Oct 31)',
+    primaryColor: '#c2410c',
+    gradient: 'linear-gradient(135deg,#9a3412,#ea580c)',
+    accentColor: '#fb923c',
+    tagline: '🎃 Pumpkin nights, fall colors & cooler temps',
+    pushMessage: '🎄 Christmas in Branson is magical — book your holiday trip now! Shows sell out fast!',
+    featuredEvent: '🎃 Pumpkins in the City at SDC',
+    featuredLink: 'https://www.silverdollarcity.com/theme-park/festivals/harvest-festival/',
+    startDate: '09-01',
+    endDate: '10-31',
+  },
+  {
+    season: 'christmas',
+    name: '🎄 Christmas in Branson',
+    emoji: '🎄',
+    sdcEvent: 'An Old Time Christmas (Nov 7 – Jan 2)',
+    primaryColor: '#1e3a8a',
+    gradient: 'linear-gradient(135deg,#1e3a8a,#3b82f6)',
+    accentColor: '#fbbf24',
+    tagline: '🎄 6.5M lights, shows & holiday magic',
+    pushMessage: '🌱 Spring fishing and Dogwood blooms are right around the corner — start planning!',
+    featuredEvent: '🎄 An Old Time Christmas at SDC',
+    featuredLink: 'https://www.silverdollarcity.com/theme-park/festivals/christmas/',
+    startDate: '11-01',
+    endDate: '01-15',
+  },
+  {
+    season: 'spring',
+    name: '🌱 Spring in the Ozarks',
+    emoji: '🌱',
+    sdcEvent: 'Spring season',
+    primaryColor: '#166534',
+    gradient: 'linear-gradient(135deg,#166534,#22c55e)',
+    accentColor: '#86efac',
+    tagline: '🌱 Trout biting, trails blooming, summer ahead',
+    pushMessage: '☀️ Summer family vacation spots are filling up — book your dates before they go!',
+    featuredEvent: '🎣 Trout season & Dogwood Canyon',
+    featuredLink: 'https://dogwoodcanyon.org/',
+    startDate: '01-16',
+    endDate: '05-31',
+  },
+];
+
 export interface PropertyGuidebook {
   id: string;
   slug: string;
