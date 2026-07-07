@@ -113,8 +113,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#2c1810' }}>
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 z-10" />
-          <img src="https://images.unsplash.com/photo-tpHJ_8aMC1I?auto=format&fit=crop&w=1920&q=80"
-            alt="Table Rock Lake, Branson Missouri — morning fog over the Ozarks" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1567672585861-53c96c9c662e?auto=format&fit=crop&w=1920&q=80"
+            alt="Table Rock Lake, Branson Missouri — autumn morning fog over the Ozarks" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-20 w-full pt-24 pb-16 px-4">
           <div className="max-w-6xl mx-auto">
@@ -276,7 +276,7 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                'https://images.unsplash.com/photo-tpHJ_8aMC1I?auto=format&fit=crop&w=600&q=80',
+                'https://images.unsplash.com/photo-1567672585861-53c96c9c662e?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80',
