@@ -39,6 +39,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   if (!prop) return <div className="min-h-screen bg-stone-50 flex items-center justify-center"><p className="text-stone-400">Loading...</p></div>;
 
   const T = season();
+  const today = new Date();
+  const todayFormatted = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const styles = {
     bar: { background: T.gradient },
     tabActive: { color: T.accentColor },
@@ -120,7 +122,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           <div className="text-base font-bold tracking-wider" style={{ color: '#f5c842' }}>Summers Vacations</div>
           <div className="text-[10px]" style={{ color: '#8b7355' }}>Branson, Missouri</div>
         </div>
-        <div className="text-[10px] text-right" style={{ color: '#8b7355' }}>{mode === 'guest' ? 'July 6, 2026' : 'Checked out'}</div>
+        <div className="text-[10px] text-right" style={{ color: '#8b7355' }}>{mode === 'guest' ? todayFormatted : 'Checked out'}</div>
       </div>
 
       {/* Mode Toggle */}
@@ -242,11 +244,36 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {guideItem('#fef3c7','🔑','Check-in & Access','Door code, keyless entry','<strong>Check-in:</strong> Anytime after 4:00 PM<br><br><strong>Door Code:</strong> '+(guestCode||prop.checkIn.doorCode)+'<br><br><strong>Keyless entry</strong> — code activates at 4PM on check-in day.')}
                   {guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+prop.wifi.network+'<br><strong>Password:</strong> '+prop.wifi.password+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   {guideItem('#d1fae5','☕','Coffee Bar','Keurig K-Duo Plus','Keurig K-Duo Plus. Fill reservoir from top. ⏯️ <a href="https://www.youtube.com/watch?v=s8OHxzMKVd8" target="_blank" style="color:#166534;">Video guide</a>')}
+                  {guideItem('#fef9c3','🍳','Kitchen & Supplies','Appliances, cookware & provided items','<strong>🧊 Fridge/Freezer:</strong> You shouldn&apos;t need to adjust any settings. There is an icemaker in the freezer.<br><br><strong>🔥 Stovetop & Oven:</strong> Both the stovetop and oven are electric.<br><br><strong>📦 Supplies Provided:</strong><br>• Roll of paper towels<br>• Dish soap<br>• One dish sponge<br>• A couple trash bags<br>• Dish cloths<br>• Drying towel<br>• Pots, pans & skillet<br>• Casserole dish<br>• Pizza pan & pizza cutter<br>• Cookie sheet, cake pan & muffin pan<br>• Crockpot<br>• Coffee pot<br>• Strainers<br>• Tupperware<br>• Blender<br>• Toaster<br>• Electric can opener<br>• Measuring cups<br>• Spatula & whisk<br>• Grilling tools<br>• Large serving utensils<br>• Silverware<br>• Dinner plates<br>• Salad plates<br>• Cereal bowls<br>• Wine glasses<br>• Coffee cups<br>• Juice glasses & tumblers<br>• Mixing bowls<br>• Cutting board<br>• Knife set<br>• Wine opener<br>• Bottle opener<br>• Potholders')}
+                  {guideItem('#e0f2fe','🧺','Washer & Dryer','In-unit laundry, iron & cleaning','<strong>📍 Location:</strong> Washer and separate dryer located in the hallway by the front door.<br><br><strong>🧼 Detergent:</strong> A starter supply of detergent pods is provided. For more washes, you&apos;ll need to pick up additional pods at the store.<br><br><strong>🧹 Cleaning Supplies:</strong> Broom located next to the washer/dryer. Iron, ironing board, and vacuum cleaner are in the bedroom closets.')}
                   {guideItem('#fce7f3','🌸','Aroma 360','Essential oil diffuser','Aroma 360 diffuser pre-loaded. Plug in and enjoy. ⏯️ <a href="https://www.youtube.com/watch?v=Th_8nI2pdjM" target="_blank" style="color:#166534;">Demo</a>')}
                   {guideItem('#fee2e2','🔥','Fireplace & Ambiance','Electric fireplace & candles','Electric fireplace with remote. Flame without heat in summer. ⏯️ <a href="https://www.youtube.com/watch?v=lcq7bG2Mh8E" target="_blank" style="color:#166534;">Demo</a>')}
-                  {guideItem('#fef3c7','📋','House Rules','Stay guidelines','• No smoking • Quiet hours 10PM–8AM • No parties • Pool rules apply • Start dishwasher before checkout')}
+                  {guideItem('#fef3c7','📋','House Rules','Community guidelines & policies','<strong>🏘️ Our Community:</strong> We are located in a private community, and although this is a vacation destination, it&apos;s home to many people. Please respect their privacy and the right to a peaceful existence. Noise kept to a minimum between 10 PM and 8 AM.<br><br><strong>🔨 Breakages:</strong> Accidents happen! Please let us know immediately if something breaks. Minor issues are usually no charge. Larger issues (like a TV screen) we&apos;ll agree on cost before you leave.<br><br><strong>🚭 Smoking Policy:</strong> No smoking tobacco, marijuana, or vaping inside the buildings/units, on decks (front or rear), walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.<br><br><strong>📜 All Rules:</strong><br>• Use only plastic utensils on cookware (prevents scratching)<br>• No smoking or vaping inside or on the deck — parking lot only (per HOA rules)<br>• No pets<br>• No events, parties, or loud music<br>• No open flame or candles<br>• Discard all cooking oil in trash, not down drains<br>• Take trash out to dumpster as needed<br>• Quiet hours: 10 PM – 8 AM<br>• No unregistered guests<br>• No food or drink in bedrooms<br>• No rearranging furniture<br>• Please wash your dishes<br>• No illegal substances on premises<br>• All towels stay in the condo — do not take to pool')}
                   {guideItem('#ede9fe','🏊','Amenities','Pool, grill, lake, deck','Pool 8AM–10PM • Propane grill on deck • Private lake trail • Playground on-site')}
-                  {guideItem('#fee2e2','🆘','Emergency Info','Hospital & contacts','<strong>Brian Summers:</strong> 314-565-0589<br><strong>Hospital:</strong> Cox Medical Center, Branson Landing Blvd')}
+                  <div className="bg-white rounded-lg mb-1 border border-stone-100 overflow-hidden">
+                    <details className="group">
+                      <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base flex-shrink-0" style={{ background: '#dc2626' }}>🚨</div>
+                        <div className="flex-1">
+                          <div className="text-[13px] font-bold text-stone-800">Emergency Info</div>
+                          <div className="text-[11px] text-stone-400 mt-0.5">911 • Hospital • Urgent Care</div>
+                        </div>
+                        <span className="text-stone-300 text-sm transition-transform group-open:rotate-90">›</span>
+                      </summary>
+                      <div className="px-3 pb-2.5 ml-9 text-[12px] text-stone-600 leading-relaxed border-t border-stone-50 pt-2">
+                        <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '8px 10px', marginBottom: 10, textAlign: 'center', fontWeight: 700, color: '#991b1b', fontSize: 15 }}>🚨 CALL 911 FOR EMERGENCIES</div>
+                        <strong>Host:</strong> Brian Summers — <a href="tel:3145650589" style={{ color: '#dc2626' }}>314-565-0589</a><br />
+                        <strong>Hospital:</strong> Cox Medical Center — 525 Branson Landing Blvd<br /><br />
+                        <strong>🏥 Urgent Care &mdash; No appointment needed:</strong><br />
+                        {prop.urgentCare?.map((uc, i) => (
+                          <div key={i} style={{ margin: '6px 0' }}>
+                            <a href={uc.mapsUrl} target="_blank" rel="noopener" style={{ fontWeight: 600, color: '#1d4ed8', textDecoration: 'none' }}>📍 {uc.name}</a><br />
+                            <span style={{ color: '#6b7280', fontSize: 11 }}>{uc.address} &bull; <a href={`tel:${uc.phone.replace(/[^0-9]/g, '')}`} style={{ color: '#dc2626' }}>{uc.phone}</a> &bull; {uc.distance}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  </div>
                   <div className="bg-green-50 rounded-lg mb-1 border border-green-200 overflow-hidden">
                     <details className="group">
                       <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
@@ -359,7 +386,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {tab === 'fishing' && (
           <>
             <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Fishing Guide</h1><p className="text-[12px] mt-0.5 text-blue-300">Spots • Guides • Tackle • Report</p>
-              <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎣 July 6, 2026</span>
+              <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎣 {todayFormatted}</span>
             </div>
             {sectionTitle('📊',"Today's Fishing Report")}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}>
@@ -389,7 +416,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {tab === 'shows' && (
           <>
             <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#7c3aed,#6d28d9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Shows</h1><p className="text-[12px] mt-0.5 text-purple-300">Music • Comedy • Dinner • Family</p>
-              <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎭 July 6, 2026</span>
+              <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎭 {todayFormatted}</span>
             </div>
             {sectionTitle('🎤','County & Variety')}
             {linkCard('https://www.grandcountrymusichall.com/','🎸','Grand Jubilee','7PM • Grand Country • $39+',['a','Classic'],'Branson\'s longest-running show! High-energy variety with comedy & live band.')}
@@ -407,7 +434,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ GOLF ═══ */}
         {tab === 'golf' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#2a5e3e,#1e4a30)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Golf Guide</h1><p className="text-[12px] mt-0.5 text-green-300">Spotlight • Rates • Tee times</p><span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">⛳ July 6, 2026</span></div>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#2a5e3e,#1e4a30)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Golf Guide</h1><p className="text-[12px] mt-0.5 text-green-300">Spotlight • Rates • Tee times</p><span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">⛳ {todayFormatted}</span></div>
             {sectionTitle('⛳','Spotlight — Branson Hills')}
             <div className="mx-3.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#166534,#15803d)' }}>
               <div className="flex items-center gap-2"><span className="text-xl">🏆</span><h3 className="text-base font-bold text-white">Branson Hills Golf Club</h3></div>

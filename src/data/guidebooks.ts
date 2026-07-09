@@ -125,7 +125,9 @@ export interface PropertyGuidebook {
   emergency: {
     hospital: string;
     localContact: string;
+    call911: string;
   };
+  urgentCare: { name: string; address: string; phone: string; mapsUrl: string; distance: string }[];
 
   videos: { title: string; url: string }[];
 }
@@ -142,6 +144,7 @@ const COMMON = {
     "We have keyless entry. Your door code will be emailed prior to arrival. Check your email for check-in instructions.",
   hospital: "Cox Medical Center Branson — 525 Branson Landing Blvd, Branson, MO",
   localContact: "Brian: 314-565-0589",
+  call911: "Call 911 for life-threatening emergencies. For non-emergency police: Stone County Sheriff (417) 357-6116.",
   trash: "Dumpster located behind the building complex. Recycling bins are marked.",
   houseRules: [
     "No smoking inside the unit",
@@ -168,6 +171,40 @@ const COMMON = {
     "Deck/patio",
   ],
 };
+
+const NOTCH_URGENT_CARE = [
+  {
+    name: "CoxHealth Center Branson West (Walk-In)",
+    address: "18452 MO-13, Branson West, MO 65737",
+    phone: "(417) 272-8911",
+    mapsUrl: "https://maps.google.com/?q=CoxHealth+Center+Branson+West+18452+MO-13+Branson+West+MO+65737",
+    distance: "~5 min drive",
+  },
+  {
+    name: "CoxHealth Urgent Care Branson",
+    address: "525 Branson Landing Blvd, Suite 100, Branson, MO 65616",
+    phone: "(417) 348-8646",
+    mapsUrl: "https://maps.google.com/?q=CoxHealth+Urgent+Care+525+Branson+Landing+Blvd+Branson+MO",
+    distance: "~15 min drive",
+  },
+];
+
+const HAVEN_URGENT_CARE = [
+  {
+    name: "Total Point Urgent Care Branson",
+    address: "3250 Shepherd of the Hills Expy, Branson, MO 65616",
+    phone: "(417) 248-2093",
+    mapsUrl: "https://maps.google.com/?q=Total+Point+Urgent+Care+3250+Shepherd+of+the+Hills+Expy+Branson+MO",
+    distance: "~10 min drive",
+  },
+  {
+    name: "CoxHealth Urgent Care Branson",
+    address: "525 Branson Landing Blvd, Suite 100, Branson, MO 65616",
+    phone: "(417) 348-8646",
+    mapsUrl: "https://maps.google.com/?q=CoxHealth+Urgent+Care+525+Branson+Landing+Blvd+Branson+MO",
+    distance: "~15 min drive",
+  },
+];
 
 export const guidebooks: Record<string, PropertyGuidebook> = {
   // ─── THE PENTHOUSE ──────────────────────────────────────
@@ -217,7 +254,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
       { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
@@ -278,7 +316,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
       { title: "Finding the Building", url: "https://youtu.be/qTRxLgEop-Q" },
@@ -341,7 +380,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
       { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
@@ -401,7 +441,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: HAVEN_URGENT_CARE,
 
     videos: [
       ...COMMON.commonVideos,
@@ -451,7 +492,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
       { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=74MuwGbmJFc" },
@@ -492,7 +534,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     amenities: [...COMMON.commonAmenities, "Roku Smart TV", "Pack 'n Play", "Charging station"],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
 
     videos: [...COMMON.commonVideos],
   },
@@ -538,7 +581,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
-    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact },
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
 
     videos: [...COMMON.commonVideos],
   },
