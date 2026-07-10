@@ -177,7 +177,7 @@ const COMMON = {
     playground: "Children's playground is located near the main pool area. Equipment includes swings and a slide. Adult supervision required.",
     horseshoes: "Horseshoe pits are located by the larger pool. Horseshoes are left at the pit — no need to bring your own.",
     basketball: "A basketball court is available near the pool area. Basketballs are on the rack by the court.",
-    bbq: "Propane barbecue grills are available on the property. Please clean the grill after use. The grill is shared — be considerate of other guests. Propane is provided.",
+    bbq: "Charcoal barbecue grills are available on the property. Charcoal is NOT provided — please bring your own. Please clean the grill after use. The grill is shared — be considerate of other guests.",
     laundry: "Coin-operated laundry facility is located near the main pool. Washers and dryers accept quarters. Detergent is available for purchase. A starter supply of detergent pods is provided in the unit.",
     smoking: "No smoking tobacco, marijuana, or vaping inside the buildings/units, on decks (front or rear), walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only. This is per HOA rules.",
   },
