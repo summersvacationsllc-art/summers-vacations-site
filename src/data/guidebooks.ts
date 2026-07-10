@@ -373,7 +373,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         instructions: "Both units have Keurig K-Duo Plus coffee makers.",
         youtube: "https://www.youtube.com/watch?v=9VvWwr4lEzg",
       },
-      hvac: { type: "Nest Thermostats (both units)", instructions: "Set between 68-72°F." },
+      hvac: { type: "Ecobee Smart Thermostats (both units)", instructions: "Set between 68-72°F." },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
       fireplace: { type: "Electric Fireplaces (both units)", youtube: "https://www.youtube.com/watch?v=lcq7bG2Mh8E" },
@@ -434,8 +434,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     appliances: {
       coffeeMaker: {
-        type: "Keurig Coffee Maker",
-        instructions: "Keurig-style pod machine in the kitchen.",
+        type: "Drip Coffee Maker",
+        instructions: "Standard drip coffee maker in the kitchen.",
       },
       hvac: { type: "Ecobee Smart Thermostat", instructions: "Thermostat on main level wall." },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
