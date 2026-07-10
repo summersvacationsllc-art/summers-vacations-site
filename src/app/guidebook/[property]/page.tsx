@@ -502,10 +502,12 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.branson.com/activities/boat-ramps','🏞️','Indian Point Public Use Area','Shore fishing • 4 min • Closest!',['g','Closest'],'Free public access. Shore fishing and boat ramp. Best for bass and crappie.')}
             {linkCard('https://rocklane.com/table-rock-lake-fishing/','🌊','Aunts Creek Access','Dock & shore • Bass/Crappie',['b','Dock'],'Public dock and shore access. Good for bass, crappie, and bluegill.')}
             {linkCard('https://mdc.mo.gov/discover-nature/places/viney-creek-access','🤫','Viney Creek Access','Quiet • Off the beaten path • 15 min',['a','🤫 Secret'],'Hidden gem! Less crowded, great for kayak and shore fishing. Local favorite.')}
+            {linkCard('https://mostateparks.com/park/table-rock-state-park','🏞️','Table Rock State Park','Marina • Ramp • Swim beach',['g','State Park'],'Full-service marina, 5-lane boat ramp, campground, and swimming beach on Table Rock.')}
             {sectionTitle('💧','Lake Taneycomo — Trout')}
             {linkCard('https://www.fallcreekrvcampground.com/','🎣','Fall Creek Marina & Trout Dock','500-ft dock • Trout • 8 min',['r','🔥 Hot'],'Your go-to for trout! Free fishing dock, tackle shop, bait, rentals. 40+ fish days possible.')}
             {linkCard('https://mdc.mo.gov/discover-nature/places/cooper-creek-access','🤫','Cooper Creek Access','ADA dock • Quiet • 10 min',['a','🤫 Secret'],'Accessible fishing dock. Less pressure than Fall Creek. Trophy trout potential.')}
             {linkCard('https://mdc.mo.gov/discover-nature/places/table-rock-dam','💧','Table Rock Dam Tailwaters','Best trout water • Wade access',['r','Trophy'],'The dam tailwaters below Table Rock Dam. World-class trout fishing. Check generation schedule!')}
+            {linkCard('https://www.bransonlanding.com/','🏙️','Branson Landing Boardwalk','Dock fishing • Downtown',['b','Urban'],'Fish right off the boardwalk downtown! Stocked rainbows eager to bite. Great for kids and casual anglers.')}
             {sectionTitle('🛶','Guide Services')}
             {linkCard('https://captainbguide.com/','🎣','Captain B Guide Service','Trout specialist • Brian\'s buddy!',['r','🔥 Pick'],'Top-notch Taneycomo trout fishing with Captain B. Tell him Summers Vacations sent you!')}
             {linkCard('https://bransonguidedfishingtrips.com/','🐟','Branson Guided Fishing Trips','USCG licensed • Bass & Trout',['b','Licensed'],'Full-time professional guides for Table Rock and Taneycomo. All equipment provided.')}
