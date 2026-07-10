@@ -136,7 +136,7 @@ export interface PropertyGuidebook {
 const COMMON = {
   hostName: "Brian Summers",
   hostBio:
-    "Hi there! I'm Brian Summers, and I'm thrilled to welcome you to one of our properties in the beautiful Branson West area. I'm a full-time paramedic, fireman, and rescue specialist with 26 years of experience. I bring that same dedication to making sure your vacation is stress-free and memorable.",
+    `Hi there! I'm Brian Summers, and I'm thrilled to welcome you to one of our properties in the beautiful Branson West area. I'm a full-time paramedic, fireman, and rescue specialist with ${new Date().getFullYear() - 2000} years of experience. I bring that same dedication to making sure your vacation is stress-free and memorable.`,
   hostPhone: "314-565-0589",
   hostEmail: "summersvacationsllc@gmail.com",
   checkInTime: "4:00 PM",

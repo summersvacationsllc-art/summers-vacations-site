@@ -619,7 +619,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xl">👨‍🚒</span>
-                <div className="text-[12px] text-stone-500">Brian Summers — Firefighter/Paramedic, 26 years. Your safety and comfort are my priority.</div>
+                <div className="text-[12px] text-stone-500">Brian Summers — Firefighter/Paramedic, {new Date().getFullYear() - 2000} years. Your safety and comfort are my priority.</div>
               </div>
             </div>
             <div className="mx-3.5 my-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
