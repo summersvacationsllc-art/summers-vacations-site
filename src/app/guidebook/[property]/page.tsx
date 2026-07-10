@@ -341,16 +341,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {isNotch && guideItem('#e0f2fe','🪙','Coin Laundry','Shared facility near main pool','Coin-operated washers and dryers are located near the main pool. Machines accept quarters. A starter supply of detergent pods is provided in your unit. Additional detergent is available for purchase at the laundry facility. <strong>Hours:</strong> Available during pool hours (8 AM – 10 PM). ⏯️ <a href="https://www.youtube.com/watch?v=IlJQi1S0NRI" target="_blank" style="color:#166534;">Video walkthrough</a>')}
                   {isHaven && guideItem('#e0f2fe','🏠','In-Unit Amenities','Washer, dryer & appliances','<strong>🧺 Washer & Dryer:</strong> Full-size in-unit — no quarters needed!<br><br><strong>🍳 Whirlpool Range:</strong> Electric range with cooktop.<br><br><strong>🧼 Dishwasher:</strong> In the kitchen. Please start before checkout.<br><br><strong>📡 Microwave:</strong> Above the range.<br><br><strong>💡 Dimmer Lights:</strong> Can lights downstairs are dimmable — look for the switches on the wall.')}
                   
-                  <div className="bg-green-50 rounded-lg mb-1 border border-green-200 overflow-hidden">
-                    <details className="group">
-                      <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base flex-shrink-0" style={{ background: '#bbf7d0' }}>🧹</div>
-                        <div className="flex-1"><div className="text-[13px] font-bold text-green-700">Cleanliness Status</div><div className="text-[11px] text-green-600">✓ Inspected & ready!</div></div>
-                        <span className="text-green-400 text-sm transition-transform group-open:rotate-90">›</span>
-                      </summary>
-                      <div className="px-3 pb-2.5 ml-9 text-[12px] text-green-700 leading-relaxed border-t border-green-100 pt-2">Unit cleaned, sanitized, and inspected. If anything needs attention, text Brian.</div>
-                    </details>
-                  </div>
+
                 </div>
               </>
             ) : (
