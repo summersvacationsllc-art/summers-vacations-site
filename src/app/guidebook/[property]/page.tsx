@@ -441,8 +441,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🏔️','Mountain Coasters & Thrills')}
             {linkCard('https://theshepherdofthehills.com/coaster/','🎢','Copperhead Mountain Coaster','Longest in Branson! 3,350 ft',['a','3,350 ft'],'Control your speed down Branson\'s longest coaster. Zip lines, ropes course & observation tower too.')}
             {linkCard('https://www.bransonalpinemountaincoaster.com/','⛰️','Runaway Mountain Coaster','Branson Mountain Adventure Park',['b','Thrilling'],'Twisting mountain coaster through the Ozark hills. Control your own speed!')}
-            {linkCard('https://www.bransontrack.com/','🏎️','The Track Family Fun Parks','Go-karts, mini golf, bumper boats',['g','Family'],'Multiple tracks for all ages. Classic and high-speed go-karts, plus arcade.')}
-            {linkCard('https://www.fritzadventure.com/','🌀','Fritz\'s Adventure','Indoor ropes, climbing, 3-story slide',['p','Indoor'],'Massive indoor adventure park. Ropes course, climbing walls, slides, laser maze. Great rainy day activity!')}
+            {linkCard('https://www.bransontracks.com/','🏎️','The Track Family Fun Parks','Go-karts, mini golf, bumper boats',['g','Family'],'Multiple tracks for all ages. Classic and high-speed go-karts, plus arcade.')}
+            {linkCard('https://www.fritzsadventure.com/','🌀','Fritz\'s Adventure','Indoor ropes, climbing, 3-story slide',['p','Indoor'],'Massive indoor adventure park. Ropes course, climbing walls, slides, laser maze. Great rainy day activity!')}
             {linkCard('https://www.wonderworksbranson.com/','🧪','WonderWorks','100+ exhibits, 6D ride, laser tag',['b','All Ages'],'Upside-down building! Hands-on science exhibits, bubble lab, astronaut training, and indoor ropes.')}
             {sectionTitle('🏛️','Museums & Attractions')}
             {linkCard('https://www.titanicbranson.com/','🚢','Titanic Museum','Walk the grand staircase!',['a','Top Rated'],'World\'s largest Titanic museum. Touch an iceberg, walk the halls, hear survivor stories.')}
@@ -455,7 +455,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.mostateparks.com/park/table-rock-state-park','🏞️','Table Rock State Park','Hiking • Swimming • Boating',['g','Free'],'Beautiful state park on Table Rock Lake. Marina, trails, picnic areas, and swim beach.')}
             {sectionTitle('🎡','Strip & Family Fun')}
             <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
-              {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransonferriswheel.com/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'SDC water park!',l:'https://www.silverdollarcity.com/white-water/'},{e:'🚂',t:'Scenic Railway',d:'Scenic train ride',l:'https://www.bransonscenicrailway.com/'},{e:'🦋',t:'Butterfly Palace',d:'Live butterflies!',l:'https://www.thebutterflypalace.com/'},{e:'🥏',t:'Parakeet Pete\'s',d:'Zipline + balloon',l:'https://www.bransonlanding.com/'}].map((x,i)=>(
+              {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransontracks.com/the-branson-ferris-wheel/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'SDC water park!',l:'https://www.silverdollarcity.com/white-water/'},{e:'🚂',t:'Scenic Railway',d:'Scenic train ride',l:'https://www.bransontrain.com/'},{e:'🦋',t:'Butterfly Palace',d:'Live butterflies!',l:'https://www.thebutterflypalace.com/'},{e:'🥏',t:'Parakeet Pete\'s',d:'Zipline + balloon',l:'https://www.bransonlanding.com/'}].map((x,i)=>(
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-stone-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-stone-800 mt-0.5">{x.t}</div><div className="text-[11px] text-stone-400">{x.d}</div></a>
               ))}
             </div>
@@ -554,7 +554,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.illusionistrickthomas.com/','🪄','Rick Thomas — Mansion of Dreams','2 PM • Mansion Theatre',['p','Magic'],'Vegas-level illusionist! Award-winning magic, comedy, and grand illusions.')}
             {linkCard('https://www.grandcountry.com/branson-shows/comedy-jamboree/','😂','Comedy Jamboree','3 & 7:30 PM • Grand Country',['g','Funny'],'Slapstick comedy, music, and family-friendly laughs.')}
             {sectionTitle('🎪','More Experiences')}
-            {linkCard('https://www.bransonscenicrailway.com/','🚂','Branson Dinner Trains','Evenings • Apr–Oct',['a','Unique'],'4-course dinner on a vintage train through the Ozark foothills.')}
+            {linkCard('https://www.bransontrain.com/','🚂','Branson Dinner Trains','Evenings • Apr–Oct',['a','Unique'],'4-course dinner on a vintage train through the Ozark foothills.')}
             {linkCard('https://www.bransonducktours.com/','🦆','Branson Duck Tours','Hourly 10 AM–5 PM',['g','Fun'],'Amphibious vehicle tour — land AND water! Splash into Table Rock Lake.')}
             {linkCard('https://www.thefreedomencounter.com/','🇺🇸','Freedom Journey Experience','Ongoing • Freedom Encounter',['b','Patriotic'],'Immersive walk-through experience of America\'s founding.')}
             <div className="mx-3.5 my-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
