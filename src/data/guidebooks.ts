@@ -163,13 +163,24 @@ const COMMON = {
   commonAmenities: [
     "High-speed WiFi",
     "Full kitchen",
-    "Washer & dryer (coin laundry on site)",
     "Barbecue grill",
     "Pool access",
     "Private lake access",
     "Playground",
     "Deck/patio",
   ],
+  // Shared community info for all Notch Lane properties
+  communityInfo: {
+    pool: "The pool is open from 8 AM to 10 PM. No glass containers in the pool area. Children must be supervised at all times. Pool towels are provided in the unit — please do not take bath towels to the pool. No diving or running.",
+    lake: "The private lake (pond) is a short walk from the property. Catch-and-release fishing is allowed. The walking trail circles the lake. Please supervise children near the water.",
+    trail: "A scenic walking trail circles the private lake. The trail is maintained year-round. Perfect for a morning walk or evening stroll.",
+    playground: "Children's playground is located near the main pool area. Equipment includes swings and a slide. Adult supervision required.",
+    horseshoes: "Horseshoe pits are located near the main pool area. Horseshoes are available — check the unit closet or ask Brian.",
+    basketball: "A basketball hoop is available near the main pool area. Balls may be available in the unit.",
+    bbq: "Propane barbecue grills are available on the property. Please clean the grill after use. The grill is shared — be considerate of other guests. Propane is provided.",
+    laundry: "Coin-operated laundry facility is located near the main pool. Washers and dryers accept quarters. Detergent is available for purchase. A starter supply of detergent pods is provided in the unit.",
+    smoking: "No smoking tobacco, marijuana, or vaping inside the buildings/units, on decks (front or rear), walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only. This is per HOA rules.",
+  },
 };
 
 const NOTCH_URGENT_CARE = [
