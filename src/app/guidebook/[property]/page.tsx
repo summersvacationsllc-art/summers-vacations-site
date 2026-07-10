@@ -418,29 +418,39 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ ADVENTURE ═══ */}
         {tab === 'adventure' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={styles.bar}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Adventures</h1><p className="text-[12px] mt-0.5 text-amber-200">Thrills • Parks • Outdoors</p></div>
+            <div className="px-4 pt-3 pb-3" style={styles.bar}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Adventures</h1><p className="text-[12px] mt-0.5 text-amber-200">Theme Parks • Coasters • Museums • Outdoors</p></div>
             {sectionTitle('⭐','Featured — Silver Dollar City')}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={styles.bar}>
               <div className="flex items-center gap-2"><span className="text-xl">🎢</span><h3 className="text-base font-bold text-white">Silver Dollar City</h3></div>
-              <div className="text-[12px] mt-1 text-amber-200 leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls. 12 min drive.</div>
+              <div className="text-[12px] mt-1 text-amber-200 leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
               <div className="flex gap-2 mt-2">
                 <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#2c1810' }}>🎫 Tickets</a>
                 <a href="https://www.silverdollarcity.com/theme-park/attractions/rides/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">🎢 Rides</a>
               </div>
             </div>
             {sectionTitle('🏔️','Mountain Coasters & Thrills')}
-            {linkCard('https://theshepherdofthehills.com/coaster/','🎢','Copperhead Mountain Coaster','Longest in Branson! 3,350 ft',['a','3,350 ft'],'Control your speed down Branson\'s longest coaster. Zip lines & adventure course too.')}
-            {linkCard('https://www.bransonalpinemountaincoaster.com/','⛰️','Runaway Mountain Coaster','Branson Mountain Adventure Park',['b','Thrilling'])}
-            {linkCard('https://www.bransontrack.com/','🏎️','The Track Family Fun Parks','Go-karts, mini golf, bumper boats',['g','Family'])}
-            {linkCard('https://www.fritzadventure.com/','🌀','Fritz\'s Adventure','Indoor ropes, climbing, 3-story slide',['p','Indoor'])}
-            {linkCard('https://www.wonderworksbranson.com/','🧪','WonderWorks','100+ exhibits, 6D ride, laser tag',['b','All Ages'])}
+            {linkCard('https://theshepherdofthehills.com/coaster/','🎢','Copperhead Mountain Coaster','Longest in Branson! 3,350 ft',['a','3,350 ft'],'Control your speed down Branson\'s longest coaster. Zip lines, ropes course & observation tower too.')}
+            {linkCard('https://www.bransonalpinemountaincoaster.com/','⛰️','Runaway Mountain Coaster','Branson Mountain Adventure Park',['b','Thrilling'],'Twisting mountain coaster through the Ozark hills. Control your own speed!')}
+            {linkCard('https://www.bransontrack.com/','🏎️','The Track Family Fun Parks','Go-karts, mini golf, bumper boats',['g','Family'],'Multiple tracks for all ages. Classic and high-speed go-karts, plus arcade.')}
+            {linkCard('https://www.fritzadventure.com/','🌀','Fritz\'s Adventure','Indoor ropes, climbing, 3-story slide',['p','Indoor'],'Massive indoor adventure park. Ropes course, climbing walls, slides, laser maze. Great rainy day activity!')}
+            {linkCard('https://www.wonderworksbranson.com/','🧪','WonderWorks','100+ exhibits, 6D ride, laser tag',['b','All Ages'],'Upside-down building! Hands-on science exhibits, bubble lab, astronaut training, and indoor ropes.')}
+            {sectionTitle('🏛️','Museums & Attractions')}
+            {linkCard('https://www.titanicbranson.com/','🚢','Titanic Museum','Walk the grand staircase!',['a','Top Rated'],'World\'s largest Titanic museum. Touch an iceberg, walk the halls, hear survivor stories.')}
+            {linkCard('https://www.ripleys.com/branson/','🤯','Ripley\'s Believe It or Not!','Oddities & curiosities',['p','Fun'],'Hundreds of bizarre artifacts, interactive exhibits, and the famous Odditorium.')}
+            {linkCard('https://www.hollywoodwaxentertainment.com/branson/','🌟','Hollywood Wax Museum','Meet the stars!',['b','Photo Ops'],'Lifelike wax figures of your favorite celebrities. Great Instagram moments.')}
+            {linkCard('https://www.bransonaquarium.com/','🐠','Aquarium at the Boardwalk','Underwater tunnel!',['b','New!'],'Walk-through underwater tunnel. Jellyfish, sharks, stingrays, and touch pools.')}
+            {linkCard('https://beyondthelens.com/','🔍','Beyond the Lens!','Pop culture + tech',['p','Interactive'],'Virtual reality, escape rooms, celebrity photo ops, and conspiracy theory exhibits.')}
             {sectionTitle('🌲','Nature & Outdoors')}
-            {linkCard('https://dogwoodcanyon.org/','🌲','Dogwood Canyon Nature Park','10K acres • Waterfalls • Wildlife',['g','Must-See'])}
+            {linkCard('https://dogwoodcanyon.org/','🌲','Dogwood Canyon Nature Park','10K acres • Waterfalls • Wildlife',['g','Must-See'],'Stunning Ozarks canyon with walking trails, waterfalls, bison herd, and trout fishing. Tram tours available.')}
+            {linkCard('https://www.mostateparks.com/park/table-rock-state-park','🏞️','Table Rock State Park','Hiking • Swimming • Boating',['g','Free'],'Beautiful state park on Table Rock Lake. Marina, trails, picnic areas, and swim beach.')}
             {sectionTitle('🎡','Strip & Family Fun')}
             <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
-              {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransonferriswheel.com/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'Water park',l:'https://www.whitewaterbranson.com/'},{e:'🚂',t:'Scenic Railway',d:'1-hour train ride',l:'https://www.bransonscenicrailway.com/'}].map((x,i)=>(
+              {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransonferriswheel.com/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'Water park',l:'https://www.whitewaterbranson.com/'},{e:'🚂',t:'Scenic Railway',d:'Scenic train ride',l:'https://www.bransonscenicrailway.com/'},{e:'🦋',t:'Butterfly Palace',d:'Live butterflies!',l:'https://www.thebutterflypalace.com/'},{e:'🥏',t:'Parakeet Pete\'s',d:'Zipline + balloon',l:'https://www.bransonlanding.com/'}].map((x,i)=>(
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-stone-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-stone-800 mt-0.5">{x.t}</div><div className="text-[11px] text-stone-400">{x.d}</div></a>
               ))}
+            </div>
+            <div className="mx-3.5 my-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
+              <div className="text-[11px] text-amber-800 font-semibold">💡 Summer Tip: Buy SDC tickets online to skip the line. After 3 PM entry is discounted. Unlimited Summer Ticket: $99 for the whole season!</div>
             </div>
           </>
         )}
@@ -448,29 +458,57 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ FISHING ═══ */}
         {tab === 'fishing' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Fishing Guide</h1><p className="text-[12px] mt-0.5 text-blue-300">Spots • Guides • Tackle • Report</p>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Fishing Guide</h1><p className="text-[12px] mt-0.5 text-blue-300">Daily Report • Hot Spots • Guides • Tackle</p>
               <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎣 {todayFormatted}</span>
             </div>
             {sectionTitle('📊',"Today's Fishing Report")}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}>
               <div className="flex items-center gap-2"><span className="text-lg">🟢</span><h3 className="text-base font-bold text-white">Bite of the Day</h3></div>
-              <div className="text-[12px] mt-1 text-blue-200 leading-relaxed">Taneycomo trout biting strong on pink worms below Fall Creek. Table Rock bass on topwater at dawn. Walleye excellent — 30-50 fish per trip.</div>
-              <div className="flex gap-2 mt-1 flex-wrap"><span className="text-[11px]"><strong className="text-amber-300">Table Rock</strong> 77–80°F</span><span className="text-[11px]"><strong className="text-amber-300">Taneycomo</strong> 50–55°F</span></div>
+              <div className="text-[12px] mt-1 text-blue-200 leading-relaxed">Morning no-generation windows on Taneycomo = prime wading. Pink worms under float below Fall Creek. Table Rock bass on topwater (Whopper Plopper) at dawn before the heat.</div>
+              <div className="flex gap-3 mt-2 flex-wrap">
+                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Table Rock</strong><br />78°F • 916.9 ft • Clear</div>
+                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Taneycomo</strong><br />50°F • Mornings off<br />Gen peak ~12,800 cfs</div>
+                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Weather</strong><br />High 96°F<br />Heat index 105°F</div>
+              </div>
+              <div className="text-[10px] mt-2 text-blue-300/60">⚠️ Always check SWPA generation schedule before wading Taneycomo</div>
+            </div>
+            {sectionTitle('🐟','What\'s Biting & How')}
+            <div className="px-3.5 grid grid-cols-2 gap-1.5">
+              {[
+                ['🎯','Bass','EXCELLENT','Topwater dawn/dusk, deep cranks, jigs 10-25ft, flutter spoons','g'],
+                ['🐟','Crappie','FAIR','Standing timber 15-25ft, live minnows or jigs','b'],
+                ['🐟','Walleye','GOOD','Deep points, channel swings, 30-50 fish trips','a'],
+                ['🐟','Trout','GOOD-V.GOOD','Pink worms, 40+ fish days, Fall Creek to Cooper','r'],
+                ['🐟','Bluegill','PEAK','10-20ft, live crickets, gravel areas','g'],
+                ['🐟','Catfish','GOOD','River arms, cut bait, stink bait','b'],
+              ].map(([e,t,s,d,c]) => (
+                <div key={t} className="bg-white rounded-lg px-2.5 py-2 border border-stone-100">
+                  <div className="flex items-center gap-1"><span className="text-sm">{e}</span><span className="text-[11px] font-bold text-stone-800">{t}</span><span className={`text-[9px] font-semibold px-1 py-0.5 rounded whitespace-nowrap ${c==='g'?'bg-green-50 text-green-700':c==='r'?'bg-red-50 text-red-700':c==='b'?'bg-blue-50 text-blue-700':'bg-amber-50 text-amber-700'}`}>{s}</span></div>
+                  <div className="text-[10px] text-stone-400 mt-0.5 leading-tight">{d}</div>
+                </div>
+              ))}
             </div>
             {sectionTitle('🏞️','Table Rock — Bass, Crappie, Walleye')}
-            {linkCard('https://www.branson.com/activities/boat-ramps','🏞️','Indian Point Public Use Area','Shore fishing • 4 min • Closest!',['g','Closest'])}
-            {linkCard('https://rocklane.com/table-rock-lake-fishing/','🌊','Aunts Creek Access','Dock & shore • Bass/Crappie',['b','Dock'])}
+            {linkCard('https://www.branson.com/activities/boat-ramps','🏞️','Indian Point Public Use Area','Shore fishing • 4 min • Closest!',['g','Closest'],'Free public access. Shore fishing and boat ramp. Best for bass and crappie.')}
+            {linkCard('https://rocklane.com/table-rock-lake-fishing/','🌊','Aunts Creek Access','Dock & shore • Bass/Crappie',['b','Dock'],'Public dock and shore access. Good for bass, crappie, and bluegill.')}
+            {linkCard('https://mdc.mo.gov/discover-nature/places/viney-creek-access','🤫','Viney Creek Access','Quiet • Off the beaten path • 15 min',['a','🤫 Secret'],'Hidden gem! Less crowded, great for kayak and shore fishing. Local favorite.')}
             {sectionTitle('💧','Lake Taneycomo — Trout')}
-            {linkCard('https://www.fallcreekrvcampground.com/','🎣','Fall Creek Marina & Trout Dock','500-ft dock • Trout • 8 min',['r','🔥 Hot'],'Your go-to for trout! Free dock, tackle, bait, rentals.')}
-            {linkCard('https://mdc.mo.gov/discover-nature/places/cooper-creek-access','🤫','Cooper Creek Access','ADA dock • Quiet • 10 min',['a','🤫 Secret'])}
+            {linkCard('https://www.fallcreekrvcampground.com/','🎣','Fall Creek Marina & Trout Dock','500-ft dock • Trout • 8 min',['r','🔥 Hot'],'Your go-to for trout! Free fishing dock, tackle shop, bait, rentals. 40+ fish days possible.')}
+            {linkCard('https://mdc.mo.gov/discover-nature/places/cooper-creek-access','🤫','Cooper Creek Access','ADA dock • Quiet • 10 min',['a','🤫 Secret'],'Accessible fishing dock. Less pressure than Fall Creek. Trophy trout potential.')}
+            {linkCard('https://mdc.mo.gov/discover-nature/places/table-rock-dam','💧','Table Rock Dam Tailwaters','Best trout water • Wade access',['r','Trophy'],'The dam tailwaters below Table Rock Dam. World-class trout fishing. Check generation schedule!')}
             {sectionTitle('🛶','Guide Services')}
-            {linkCard('https://captainbguide.com/','🎣','Captain B Guide Service','Trout specialist • Brian\'s buddy!',['r','🔥 Pick'],'Your buddy Brian runs this — top-notch Taneycomo trout fishing. Tell him Summers Vacations sent you!')}
-            {linkCard('https://bransonguidedfishingtrips.com/','🐟','Branson Guided Fishing Trips','USCG licensed • Bass & Trout',['b','Licensed'])}
+            {linkCard('https://captainbguide.com/','🎣','Captain B Guide Service','Trout specialist • Brian\'s buddy!',['r','🔥 Pick'],'Top-notch Taneycomo trout fishing with Captain B. Tell him Summers Vacations sent you!')}
+            {linkCard('https://bransonguidedfishingtrips.com/','🐟','Branson Guided Fishing Trips','USCG licensed • Bass & Trout',['b','Licensed'],'Full-time professional guides for Table Rock and Taneycomo. All equipment provided.')}
+            {linkCard('https://www.focusedfishing.com/','🎯','Focused Fishing Guide Service','Full-time pro • Multi-species',['g','Pro'],'Year-round guide service. Bass, crappie, walleye, and trout trips available.')}
             {sectionTitle('🪱','Bait & Tackle')}
-            {linkCard('https://www.basspro.com/shop/en/bass-pro-shops-branson','🦌','Bass Pro Shops — Branson Landing','Full fishing dept • An experience!',['r','🔥 Must'],'Legendary outdoor store with aquarium, waterfall & arcade. Even if you don\'t need gear, it\'s worth a visit!')}
-            {linkCard('https://www.fallcreekrvcampground.com/','🪱','Fall Creek Marina Tackle','Live bait • Licenses',['b','Shop'])}
+            {linkCard('https://www.basspro.com/shop/en/bass-pro-shops-branson','🦌','Bass Pro Shops — Branson Landing','Full fishing dept • An experience!',['r','🔥 Must'],'Legendary outdoor store with aquarium, waterfall & arcade. Everything you need plus a museum experience.')}
+            {linkCard('https://www.fallcreekrvcampground.com/','🪱','Fall Creek Marina Tackle','Live bait • Licenses • 8 min',['b','Local'],'Right on Taneycomo. Live bait, tackle, fishing licenses, and local advice.')}
+            {linkCard('https://www.lilleyslanding.com/','🏕️','Lilley\'s Landing','Resort • Guide service • Pro shop',['g','Resort'],'Full-service fishing resort on Taneycomo. Pro shop, guides, and lodging available.')}
             <div className="mx-3.5 my-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
-              <div className="text-[11px] font-bold text-amber-800">🎫 Missouri fishing license required. Get one at any tackle shop or mdc.mo.gov</div>
+              <div className="text-[11px] font-bold text-amber-800">🎫 Missouri fishing license required for ages 16-64. Get one at any tackle shop or mdc.mo.gov. Trout permit also required for Taneycomo.</div>
+            </div>
+            <div className="mx-3.5 mb-2 bg-blue-50 rounded-lg px-3 py-2 border border-blue-200">
+              <div className="text-[11px] text-blue-800"><strong>💡 Summer Tip:</strong> Fish early mornings before the heat (81°F at dawn, 96°F+ by afternoon). Table Rock topwater bite is best at sunrise. Taneycomo has no-generation windows until 1-2 PM — perfect for wading.</div>
             </div>
           </>
         )}
@@ -478,18 +516,42 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ SHOWS ═══ */}
         {tab === 'shows' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#7c3aed,#6d28d9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Shows</h1><p className="text-[12px] mt-0.5 text-purple-300">Music • Comedy • Dinner • Family</p>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#7c3aed,#6d28d9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Shows</h1><p className="text-[12px] mt-0.5 text-purple-300">40+ Shows • Music • Comedy • Dinner • Magic</p>
               <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎭 {todayFormatted}</span>
             </div>
-            {sectionTitle('🎤','County & Variety')}
-            {linkCard('https://www.grandcountrymusichall.com/','🎸','Grand Jubilee','7PM • Grand Country • $39+',['a','Classic'],'Branson\'s longest-running show! High-energy variety with comedy & live band.')}
-            {linkCard('https://www.claycooper.com/','🎤','Bohemian Queen','8PM • Clay Cooper • $45+',['r','Tonight!'],'The ultimate Freddie Mercury tribute! Full costume changes & all the Queen hits.')}
-            {linkCard('https://www.haygoodshow.com/','🎻','The Haygoods','8PM • Haygood • $42+',['p','Family'],'6 siblings, 20+ genres, high-energy music & dancing. A Branson powerhouse.')}
+            {sectionTitle('🎤','Country & Variety')}
+            {linkCard('https://www.grandcountrymusichall.com/','🎸','Grand Jubilee','7:30 PM • Grand Country • $39+',['a','Classic'],'Branson\'s longest-running show! High-energy variety with comedy & live band.')}
+            {linkCard('https://presleys.com/','🎵','Presleys\' Country Jubilee','8 PM • Presleys\' Theatre',['a','Legacy'],'50+ year Branson tradition! Country music, comedy, and gospel. The show that started it all.')}
+            {linkCard('https://www.claycooper.com/','🤠','Clay Cooper\'s Country Express','7:30 PM • Clay Cooper Theatre',['b','Variety'],'High-energy country variety with comedy, dancing, and 20+ performers.')}
+            {linkCard('https://www.haygoodshow.com/','🎻','The Haygoods','8 PM • Clay Cooper Theatre • $42+',['p','Family'],'6 siblings, 20+ genres, incredible music & dancing. A Branson powerhouse.')}
+            {linkCard('https://www.hughesbrotherstheatre.com/','👨‍👩‍👦','Hughes Music Show','8 PM • Hughes Brothers Theatre',['b','Family'],'The Hughes Brothers & family — stunning harmonies and variety entertainment.')}
+            {linkCard('https://www.piercearrowshow.com/','🎤','Pierce Arrow','8 PM • Reza Live Theatre',['a','Country'],'Country music, comedy, and the legendary low bass voice.')}
+            {linkCard('https://www.sixshow.com/','🎵','SIX','8 PM • Multiple venues',['p','Unique'],'6 brothers — all vocals, no instruments. Viral sensation with incredible harmonies.')}
+            {sectionTitle('🎸','Tribute Shows')}
+            {linkCard('https://www.claycooper.com/','🎤','Bohemian Queen','8 PM • Clay Cooper • $45+',['r','🔥 Hot'],'The ultimate Freddie Mercury tribute! Full costume changes & all the Queen hits.')}
+            {linkCard('https://www.legendsinconcert.com/branson/','🌟','Legends in Concert','3 PM & 8 PM • Legends Theater',['a','Iconic'],'World-famous tribute show! Multiple artists per show — Elvis, Garth, Abba & more.')}
+            {linkCard('https://hamnervarietytheater.com/','🕺','Back to the Bee Gees','5 PM • Hamner Variety • 🆕 NEW!',['p','Disco'],'Brand new show! Disco tribute — Stayin\' Alive & all the hits.')}
+            {linkCard('https://www.elvisdean z.com/','🕺','Dean Z — Ultimate Elvis','2 PM • Multiple venues',['a','Elvis'],'The world\'s best Elvis tribute artist. Authentic costumes and voice.')}
+            {sectionTitle('🎪','Spectaculars & Acrobats')}
+            {linkCard('https://www.sight-sound.com/','🎭','Sight & Sound — DAVID','3:30 & 7:30 PM • Sight & Sound',['b','⭐ 4.8'],'Epic biblical production! Massive sets, live animals, incredible storytelling.')}
+            {linkCard('https://www.shepherdofthehills.com/','🤠','Shepherd\'s Wild West Showdown','7:30 PM • Shepherd of the Hills',['g','Action'],'Stunt show! Trick riding, gunfights, and comedy western action.')}
+            {linkCard('https://www.acrobatsofchina.com/','🤸','Amazing Acrobats — Shanghai Circus','2 & 7:30 PM',['p','Wow!'],'Mind-blowing Chinese acrobatics, contortion, and aerial acts.')}
             {sectionTitle('🍽️','Dinner Shows')}
-            {linkCard('https://www.dollypartonsstampede.com/branson/','🐴',"Dolly Parton's Stampede",'Dinner + show • $60+',['a','Iconic'],'Branson\'s most famous dinner show! 4-course feast with horse-riding stunts.')}
-            {linkCard('https://www.sight-sound.com/','🎭','Sight & Sound Theatre','Live productions • $50+',['b','⭐ 4.8'],'Spectacular live theatre with massive sets, live animals & incredible production.')}
+            {linkCard('https://www.dollypartonsstampede.com/branson/','🐴',"Dolly Parton's Stampede",'5:30 & 8 PM • $60+',['a','Iconic'],'4-course feast with 32 horses, trick riding, and musical spectacle.')}
+            {linkCard('https://www.shepherdofthehills.com/','🍗','Chuckwagon Dinner Show','5 PM • Shepherd of the Hills',['g','Western'],'Cowboy supper + live country music and comedy show.')}
+            {linkCard('https://showboatbransonbelle.com/','🚢','Showboat Branson Belle','Dinner cruise on Table Rock',['b','Lake'],'2-hour cruise + meal + live show on a 700-seat paddle wheeler.')}
+            {sectionTitle('🎭','Comedy & Magic')}
+            {linkCard('https://www.illusionistrickthomas.com/','🪄','Rick Thomas — Mansion of Dreams','2 PM • Mansion Theatre',['p','Magic'],'Vegas-level illusionist! Award-winning magic, comedy, and grand illusions.')}
+            {linkCard('https://www.grandcountry.com/branson-shows/comedy-jamboree/','😂','Comedy Jamboree','3 & 7:30 PM • Grand Country',['g','Funny'],'Slapstick comedy, music, and family-friendly laughs.')}
+            {sectionTitle('🎪','More Experiences')}
+            {linkCard('https://www.bransonscenicrailway.com/','🚂','Branson Dinner Trains','Evenings • Apr–Oct',['a','Unique'],'4-course dinner on a vintage train through the Ozark foothills.')}
+            {linkCard('https://www.bransonducktours.com/','🦆','Branson Duck Tours','Hourly 10 AM–5 PM',['g','Fun'],'Amphibious vehicle tour — land AND water! Splash into Table Rock Lake.')}
+            {linkCard('https://www.thefreedomencounter.com/','🇺🇸','Freedom Journey Experience','Ongoing • Freedom Encounter',['b','Patriotic'],'Immersive walk-through experience of America\'s founding.')}
             <div className="mx-3.5 my-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
-              <div className="text-[11px] text-amber-800 font-semibold">🏆 World Cup Watch Parties at Big Cedar Lodge — daily through Jul 19</div>
+              <div className="text-[11px] text-amber-800 font-semibold">🎵 FREE Summer Concerts at Branson Landing — next show Aug 8! Jukebox Winos & Chris Luneau. Waterfront stage, 7-10 PM.</div>
+            </div>
+            <div className="mx-3.5 mb-2 bg-purple-50 rounded-lg px-3 py-2 border border-purple-200">
+              <div className="text-[11px] text-purple-800"><strong>💡 Pro Tip:</strong> Most shows run Tue–Sat. Book 2-3 days ahead for best seats. Matinees (2-3 PM) are less crowded. Children under 12 often free or discounted.</div>
             </div>
           </>
         )}
