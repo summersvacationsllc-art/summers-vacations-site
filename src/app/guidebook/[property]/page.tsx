@@ -326,7 +326,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {guideItem('#fef9c3','🍳','Kitchen & Supplies','Appliances, cookware & provided items','<strong>🧊 Fridge/Freezer:</strong> You shouldn&apos;t need to adjust any settings. There is an icemaker in the freezer.<br><br><strong>🔥 Stovetop & Oven:</strong> Both the stovetop and oven are electric.<br><br><strong>📦 Supplies Provided:</strong><br>• Roll of paper towels<br>• Dish soap<br>• One dish sponge<br>• A couple trash bags<br>• Dish cloths<br>• Drying towel<br>• Pots, pans & skillet<br>• Casserole dish<br>• Pizza pan & pizza cutter<br>• Cookie sheet, cake pan & muffin pan<br>• Crockpot<br>• Coffee pot<br>• Strainers<br>• Tupperware<br>• Blender<br>• Toaster<br>• Electric can opener<br>• Measuring cups<br>• Spatula & whisk<br>• Grilling tools<br>• Large serving utensils<br>• Silverware<br>• Dinner plates<br>• Salad plates<br>• Cereal bowls<br>• Wine glasses<br>• Coffee cups<br>• Juice glasses & tumblers<br>• Mixing bowls<br>• Cutting board<br>• Knife set<br>• Wine opener<br>• Bottle opener<br>• Potholders')}
                   {guideItem('#d1fae5','☕','Coffee Bar','Keurig K-Duo Plus','Keurig K-Duo Plus. Fill reservoir from top. ⏯️ <a href="https://www.youtube.com/watch?v=s8OHxzMKVd8" target="_blank" style="color:#166534;">Video guide</a>')}
                   {guideItem('#e0f2fe','🧺','Washer & Dryer','In-unit laundry, iron & cleaning','<strong>📍 Location:</strong> Washer and separate dryer located in the hallway by the front door.<br><br><strong>🧼 Detergent:</strong> A starter supply of detergent pods is provided. For more washes, you&apos;ll need to pick up additional pods at the store.<br><br><strong>🧹 Cleaning Supplies:</strong> Broom located next to the washer/dryer. Iron, ironing board, and vacuum cleaner are in the bedroom closets.')}
-                  {(isPenthouse || isDouble) && guideItem('#fce7f3','🌸','Aroma 360','Essential oil diffuser','Aroma 360 diffuser pre-loaded. Plug in and enjoy. ⏯️ <a href="https://www.youtube.com/watch?v=Th_8nI2pdjM" target="_blank" style="color:#166534;">Demo</a>')}
+                  {(isPenthouse) && guideItem('#fce7f3','🌸','Aroma 360','Essential oil diffuser','Aroma 360 diffuser pre-loaded. Plug in and enjoy. ⏯️ <a href="https://www.youtube.com/watch?v=Th_8nI2pdjM" target="_blank" style="color:#166534;">Demo</a>')}
                   {(isPenthouse || isRustic) && guideItem('#fee2e2','🔥','Fireplace & Ambiance','Electric fireplace & candles','Electric fireplace with remote. Flame without heat in summer. ⏯️ <a href="https://www.youtube.com/watch?v=lcq7bG2Mh8E" target="_blank" style="color:#166534;">Demo</a>')}
                   {guideItem('#fef3c7','📋','House Rules','Community guidelines & policies','<strong>🏘️ Our Community:</strong> We are located in a private community, and although this is a vacation destination, it&apos;s home to many people. Please respect their privacy and the right to a peaceful existence. Noise kept to a minimum between 10 PM and 8 AM.<br><br><strong>🔨 Breakages:</strong> Accidents happen! Please let us know immediately if something breaks. Minor issues are usually no charge. Larger issues (like a TV screen) we&apos;ll agree on cost before you leave.<br><br><strong>🚭 Smoking Policy:</strong> No smoking tobacco, marijuana, or vaping inside the buildings/units, on decks (front or rear), walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.<br><br><strong>📜 All Rules:</strong><br>• Use only plastic utensils on cookware (prevents scratching)<br>• No smoking or vaping inside or on the deck — parking lot only (per HOA rules)<br>• No pets<br>• No events, parties, or loud music<br>• No open flame or candles<br>• Discard all cooking oil in trash, not down drains<br>• Take trash out to dumpster as needed<br>• Quiet hours: 10 PM – 8 AM<br>• No unregistered guests<br>• No food or drink in bedrooms<br>• No rearranging furniture<br>• Please wash your dishes<br>• No illegal substances on premises<br>• All towels stay in the condo — do not take to pool')}
                   {guideItem('#ede9fe','🏊','Amenities','Pool, grill, lake, deck','Pool 8AM–10PM • Propane grill on deck • Private lake trail • Playground on-site')}
@@ -338,30 +338,6 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {isNotch && guideItem('#e0f2fe','🪙','Coin Laundry','Shared facility near main pool','Coin-operated washers and dryers are located near the main pool. Machines accept quarters. A starter supply of detergent pods is provided in your unit. Additional detergent is available for purchase at the laundry facility. <strong>Hours:</strong> Available during pool hours (8 AM – 10 PM). ⏯️ <a href="https://www.youtube.com/watch?v=IlJQi1S0NRI" target="_blank" style="color:#166534;">Video walkthrough</a>')}
                   {isHaven && guideItem('#e0f2fe','🏠','In-Unit Amenities','Washer, dryer & appliances','<strong>🧺 Washer & Dryer:</strong> Full-size in-unit — no quarters needed!<br><br><strong>🍳 Whirlpool Range:</strong> Electric range with cooktop.<br><br><strong>🧼 Dishwasher:</strong> In the kitchen. Please start before checkout.<br><br><strong>📡 Microwave:</strong> Above the range.<br><br><strong>💡 Dimmer Lights:</strong> Can lights downstairs are dimmable — look for the switches on the wall.')}
                   
-                  <div className="bg-white rounded-lg mb-1 border border-stone-100 overflow-hidden">
-                    <details className="group">
-                      <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base flex-shrink-0" style={{ background: '#dc2626' }}>🚨</div>
-                        <div className="flex-1">
-                          <div className="text-[13px] font-bold text-stone-800">Emergency Info</div>
-                          <div className="text-[11px] text-stone-400 mt-0.5">911 • Hospital • Urgent Care</div>
-                        </div>
-                        <span className="text-stone-300 text-sm transition-transform group-open:rotate-90">›</span>
-                      </summary>
-                      <div className="px-3 pb-2.5 ml-9 text-[12px] text-stone-600 leading-relaxed border-t border-stone-50 pt-2">
-                        <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '8px 10px', marginBottom: 10, textAlign: 'center', fontWeight: 700, color: '#991b1b', fontSize: 15 }}>🚨 CALL 911 FOR EMERGENCIES</div>
-                        <strong>Host:</strong> Brian Summers — <a href="tel:3145650589" style={{ color: '#dc2626' }}>314-565-0589</a><br />
-                        <strong>Hospital:</strong> Cox Medical Center — 525 Branson Landing Blvd<br /><br />
-                        <strong>🏥 Urgent Care &mdash; No appointment needed:</strong><br />
-                        {prop.urgentCare?.map((uc, i) => (
-                          <div key={i} style={{ margin: '6px 0' }}>
-                            <a href={uc.mapsUrl} target="_blank" rel="noopener" style={{ fontWeight: 600, color: '#1d4ed8', textDecoration: 'none' }}>📍 {uc.name}</a><br />
-                            <span style={{ color: '#6b7280', fontSize: 11 }}>{uc.address} &bull; <a href={`tel:${uc.phone.replace(/[^0-9]/g, '')}`} style={{ color: '#dc2626' }}>{uc.phone}</a> &bull; {uc.distance}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </details>
-                  </div>
                   <div className="bg-green-50 rounded-lg mb-1 border border-green-200 overflow-hidden">
                     <details className="group">
                       <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">

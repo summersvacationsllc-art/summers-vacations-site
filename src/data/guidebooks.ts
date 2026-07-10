@@ -354,7 +354,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Separate codes for each unit (emailed prior to arrival)",
+      doorCode: "Same code for both units (emailed prior to arrival)",
       directions:
         "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
       parking:
@@ -378,7 +378,6 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
       fireplace: { type: "Electric Fireplace", youtube: "https://www.youtube.com/watch?v=ZMgLcwV4Hwc" },
       waterFilter: { youtube: "https://www.youtube.com/watch?v=awyb9DSggcg" },
-      aroma360: { youtube: "https://www.youtube.com/watch?v=Th_8nI2pdjM" },
     },
 
     amenities: [
@@ -387,7 +386,13 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Coffee bar in each unit",
       "Electric fireplaces",
       "Roku Smart TVs",
-      "Aroma 360 diffuser",
+      "Charcoal BBQ grills (in front of buildings and by pools)",
+      "2 pools",
+      "Playground",
+      "Horseshoe pit",
+      "Basketball court",
+      "Walking trails around private lake",
+      "Catch-and-release lake",
     ],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
