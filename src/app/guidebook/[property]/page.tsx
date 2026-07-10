@@ -327,6 +327,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {guideItem('#d1fae5','☕','Coffee Bar',prop.appliances.coffeeMaker.type,prop.appliances.coffeeMaker.instructions + (prop.appliances.coffeeMaker.youtube ? ' ⏯️ <a href="' + prop.appliances.coffeeMaker.youtube + '" target="_blank" style="color:#166534;">Video guide</a>' : ''))}
                   {guideItem('#e0f2fe','🧺','Washer & Dryer','In-unit laundry, iron & cleaning','<strong>📍 Location:</strong> Washer and separate dryer located in the hallway by the front door.<br><br><strong>🧼 Detergent:</strong> A starter supply of detergent pods is provided. For more washes, you&apos;ll need to pick up additional pods at the store.<br><br><strong>🧹 Cleaning Supplies:</strong> Broom located next to the washer/dryer. Iron, ironing board, and vacuum cleaner are in the bedroom closets.')}
                   {(isPenthouse) && guideItem('#fce7f3','🌸','Aroma 360','Essential oil diffuser','Aroma 360 diffuser pre-loaded. Plug in and enjoy. ⏯️ <a href="https://www.youtube.com/watch?v=Th_8nI2pdjM" target="_blank" style="color:#166534;">Demo</a>')}
+                  {(isPenthouse || isRustic) && guideItem('#d1fae5','💧','Water Filter','Drinking water filtration system','Water filter system for clean drinking water. ⏯️ <a href="https://www.youtube.com/watch?v=awyb9DSggcg" target="_blank" style="color:#166534;">Demo</a>')}
                   {(isPenthouse || isRustic || isDouble) && guideItem('#fee2e2','🔥','Fireplace & Ambiance','Electric fireplace & candles','Electric fireplace with remote. Flame without heat in summer.')}
                   {guideItem('#fef3c7','📋','House Rules','Community guidelines & policies','<strong>🏘️ Our Community:</strong> We are located in a private community, and although this is a vacation destination, it&apos;s home to many people. Please respect their privacy and the right to a peaceful existence. Noise kept to a minimum between 10 PM and 8 AM.<br><br><strong>🔨 Breakages:</strong> Accidents happen! Please let us know immediately if something breaks. Minor issues are usually no charge. Larger issues (like a TV screen) we&apos;ll agree on cost before you leave.<br><br><strong>🚭 Smoking Policy:</strong> No smoking tobacco, marijuana, or vaping inside the buildings/units, on decks (front or rear), walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.<br><br><strong>📜 All Rules:</strong><br>• Use only plastic utensils on cookware (prevents scratching)<br>• No smoking or vaping inside or on the deck — parking lot only (per HOA rules)<br>• No pets<br>• No events, parties, or loud music<br>• No open flame or candles<br>• Discard all cooking oil in trash, not down drains<br>• Take trash out to dumpster as needed<br>• Quiet hours: 10 PM – 8 AM<br>• No unregistered guests<br>• No food or drink in bedrooms<br>• No rearranging furniture<br>• Please wash your dishes<br>• No illegal substances on premises<br>• All towels stay in the condo — do not take to pool')}
                   {guideItem('#ede9fe','🏊','Amenities','Pool, grill, lake, deck','Pool 8AM–10PM • Propane grill on deck • Private lake trail • Playground on-site')}
@@ -390,21 +391,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {mode === 'guest' && (
               <div className="px-3.5">
                 <div className="font-serif text-base text-stone-800 pt-2 pb-1" style={{ fontFamily: "'DM Serif Display', serif" }}>🎬 Video Guides</div>
-                {[
-                  ['Finding Your Building','https://youtu.be/qTRxLgEop-Q'],
-                  ['Coffee Bar Tour','https://www.youtube.com/watch?v=s8OHxzMKVd8'],
-                  ['Keurig K-Duo Plus','https://www.youtube.com/watch?v=9VvWwr4lEzg'],
-                  ['Aroma 360 Diffuser','https://www.youtube.com/watch?v=Th_8nI2pdjM'],
-                  ['Water Filter','https://www.youtube.com/watch?v=awyb9DSggcg'],
-                  ['Electric Fireplace','https://www.youtube.com/watch?v=lcq7bG2Mh8E'],
-                  ['Access Codes','https://www.youtube.com/watch?v=2DvVB7xTuNk'],
-                  ['Laundry Room','https://www.youtube.com/watch?v=IlJQi1S0NRI'],
-                  ['Lake Trail','https://www.youtube.com/watch?v=VGmH8k_656A'],
-                  ['Boat Parking','https://www.youtube.com/watch?v=nCJsHxMO_Ok'],
-                  ['Playground','https://www.youtube.com/watch?v=unj-zG9wtdU'],
-                ].map(([t,u],i) => (
-                  <a key={i} href={u} target="_blank" rel="noopener" className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 mb-0.5 border border-stone-100 no-underline text-inherit">
-                    <span className="text-base">▶</span><span className="text-[12px] font-semibold text-stone-700">{t}</span>
+                {prop.videos.map((v, i) => (
+                  <a key={i} href={v.url} target="_blank" rel="noopener" className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 mb-0.5 border border-stone-100 no-underline text-inherit">
+                    <span className="text-base">▶</span><span className="text-[12px] font-semibold text-stone-700">{v.title}</span>
                   </a>
                 ))}
               </div>
