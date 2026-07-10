@@ -599,6 +599,35 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           </>
         )}
 
+        {/* ═══ CONTACT ═══ */}
+        {tab === 'contact' && (
+          <>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#2c1810,#4a3228)' }}>
+              <h1 className="font-serif text-2xl text-amber-300" style={{ fontFamily: "'DM Serif Display', serif" }}>Contact Your Host</h1>
+              <p className="text-[12px] mt-0.5 text-stone-300">Brian Summers — here to help 24/7</p>
+            </div>
+            <div className="mx-3.5 mt-3 rounded-xl px-4 py-5 text-center" style={{ background: 'linear-gradient(135deg,#f5c842,#e8b832)' }}>
+              <div className="text-5xl mb-2">📞</div>
+              <div className="text-[13px] font-semibold uppercase tracking-wider text-amber-800">Call or Text Anytime</div>
+              <a href="tel:3145650589" className="block text-3xl font-extrabold text-stone-900 mt-1 no-underline tracking-wider">314-565-0589</a>
+              <div className="text-[12px] mt-2 text-amber-800">Feel free to reach out with any questions, issues, or if you need anything during your stay. I'm here to make your vacation great!</div>
+            </div>
+            <div className="mx-3.5 mt-2 bg-white rounded-xl px-4 py-3 border border-stone-100">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xl">✉️</span>
+                <a href="mailto:summersvacationsllc@gmail.com" className="text-[13px] font-semibold text-blue-600">summersvacationsllc@gmail.com</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">👨‍🚒</span>
+                <div className="text-[12px] text-stone-500">Brian Summers — Firefighter/Paramedic, 26 years. Your safety and comfort are my priority.</div>
+              </div>
+            </div>
+            <div className="mx-3.5 my-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
+              <div className="text-[11px] text-amber-800">💡 For emergencies, call 911 first. For urgent but non-life-threatening issues, the urgent care info is in the Guide tab under Emergency Info.</div>
+            </div>
+          </>
+        )}
+
       </div>
 
       {/* Tab Bar */}
@@ -611,6 +640,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           {tabBtn('shows','M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z','Shows')}
           {tabBtn('golf','M14.5 2C15 3.5 15 5 14.5 6.5M9 16.8V20M9 4L20 7v8L9 10.5','Golf')}
           {tabBtn('dining','M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z','Dining')}
+          {tabBtn('contact','M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z','Contact')}
         </div>
       </div>
     </div>
