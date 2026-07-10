@@ -23,6 +23,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const [guestName, setGuestName] = useState('');
   const contentRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [photos, setPhotos] = useState<string[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -33,6 +34,16 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       setProp(gb);
       if (sp.code) setGuestCode(sp.code);
       if (sp.name) setGuestName(sp.name);
+      // Fetch Guesty photos
+      if (gb.guestyListingId) {
+        try {
+          const res = await fetch(`/api/photos?listingId=${gb.guestyListingId}`);
+          const data = await res.json();
+          if (data.ok && data.photos) {
+            setPhotos(data.photos.map((p: {url:string}) => p.url).slice(0, 8));
+          }
+        } catch { /* silent */ }
+      }
     })();
   }, [params, spPromise]);
 
@@ -167,6 +178,19 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="px-4 pt-3 pb-4" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}>
                 <h1 className="font-serif text-2xl text-amber-300" style={{ fontFamily: "'DM Serif Display', serif" }}>Welcome back to Branson! 🎣</h1>
                 <div className="text-[13px] mt-0.5 text-blue-200">{T.tagline}</div>
+              </div>
+            )}
+
+            {/* Photo Gallery — auto-syncs from Guesty */}
+            {photos.length > 0 && (
+              <div className="mt-2.5 px-3.5">
+                <div className="overflow-x-auto flex gap-2 pb-1" style={{ scrollSnapType: 'x mandatory' }}>
+                  {photos.map((url, i) => (
+                    <img key={i} src={url} alt={`${prop.name} photo ${i+1}`}
+                      className="flex-shrink-0 w-[140px] h-[100px] object-cover rounded-lg border border-stone-200"
+                      style={{ scrollSnapAlign: 'start' }} />
+                  ))}
+                </div>
               </div>
             )}
 
