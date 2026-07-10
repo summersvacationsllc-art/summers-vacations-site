@@ -24,6 +24,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [photos, setPhotos] = useState<string[]>([]);
+  const [fishingData, setFishingData] = useState<any>(null);
+  const [showsData, setShowsData] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
@@ -44,6 +46,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           }
         } catch { /* silent */ }
       }
+      // Fetch live data for Fishing & Shows tabs
+      try { const r=await fetch('/api/fishing-report');const d=await r.json();if(d.ok)setFishingData(d); } catch {}
+      try { const r=await fetch('/api/shows-report');const d=await r.json();if(d.ok)setShowsData(d); } catch {}
     })();
   }, [params, spPromise]);
 
@@ -474,11 +479,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('📊',"Today's Fishing Report")}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}>
               <div className="flex items-center gap-2"><span className="text-lg">🟢</span><h3 className="text-base font-bold text-white">Bite of the Day</h3></div>
-              <div className="text-[12px] mt-1 text-blue-200 leading-relaxed">Morning no-generation windows on Taneycomo = prime wading. Pink worms under float below Fall Creek. Table Rock bass on topwater (Whopper Plopper) at dawn before the heat.</div>
+              <div className="text-[12px] mt-1 text-blue-200 leading-relaxed">{fishingData?.biteOfDay || 'Taneycomo trout biting on pink worms below Fall Creek. Table Rock bass on topwater at dawn before the heat.'}</div>
               <div className="flex gap-3 mt-2 flex-wrap">
-                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Table Rock</strong><br />78°F • 916.9 ft • Clear</div>
-                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Taneycomo</strong><br />50°F • Mornings off<br />Gen peak ~12,800 cfs</div>
-                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Weather</strong><br />High 96°F<br />Heat index 105°F</div>
+                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Table Rock</strong><br />{fishingData?.conditions?.tableRock?.temp || '78°F'} • {fishingData?.conditions?.tableRock?.level || '916.9 ft'} • {fishingData?.conditions?.tableRock?.clarity || 'Clear'}</div>
+                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Taneycomo</strong><br />{fishingData?.conditions?.taneycomo?.temp || '50°F'} • {fishingData?.conditions?.taneycomo?.clarity || 'Very clear'}<br />{fishingData?.conditions?.taneycomo?.generation || 'Check SWPA schedule'}</div>
+                <div className="text-[11px] text-blue-200"><strong className="text-amber-300">Weather</strong><br />High {fishingData?.weather?.high || '96°F'}<br />Heat index {fishingData?.weather?.heatIndex || '105°F'}</div>
               </div>
               <div className="text-[10px] mt-2 text-blue-300/60">⚠️ Always check SWPA generation schedule before wading Taneycomo</div>
             </div>
@@ -520,7 +525,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="text-[11px] font-bold text-amber-800">🎫 Missouri fishing license required for ages 16-64. Get one at any tackle shop or mdc.mo.gov. Trout permit also required for Taneycomo.</div>
             </div>
             <div className="mx-3.5 mb-2 bg-blue-50 rounded-lg px-3 py-2 border border-blue-200">
-              <div className="text-[11px] text-blue-800"><strong>💡 Summer Tip:</strong> Fish early mornings before the heat (81°F at dawn, 96°F+ by afternoon). Table Rock topwater bite is best at sunrise. Taneycomo has no-generation windows until 1-2 PM — perfect for wading.</div>
+              <div className="text-[11px] text-blue-800"><strong>💡 Summer Tip:</strong> {fishingData?.tip || 'Fish early mornings before the heat. Table Rock topwater bite is best at sunrise. Taneycomo has no-generation windows until 1-2 PM — perfect for wading.'}</div>
             </div>
           </>
         )}
