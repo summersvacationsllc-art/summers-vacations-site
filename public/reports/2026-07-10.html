@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Branson Day Pass — July 10, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-feature-settings: "liga" 0;
+    letter-spacing: 0.02em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(175deg, #f5efe0 0%, #ede3d0 30%, #e0d4bd 60%, #f5efe0 100%);
+    color: #3b2e1e;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── Masthead ── */
+  .masthead {
+    background: linear-gradient(135deg, #5c3d1e 0%, #7a5230 40%, #8b6240 70%, #5c3d1e 100%);
+    color: #f5e6d0;
+    text-align: center;
+    padding: clamp(28px, 5vw, 48px) clamp(16px, 4vw, 32px);
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #c9a44b, #dbb75a, #c9a44b);
+  }
+  .masthead-date {
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #dbb75a;
+    margin-bottom: 0.5rem;
+  }
+  .masthead h1 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+  }
+  .masthead h1 .gold { color: #dbb75a; }
+  .masthead h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: rgba(245,230,208,0.75);
+    margin-bottom: 0.25rem;
+  }
+  .masthead .weather-tag {
+    display: inline-block;
+    background: rgba(219,183,90,0.15);
+    border: 1px solid rgba(219,183,90,0.3);
+    color: #dbb75a;
+    padding: 0.25rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+  }
+
+  /* ── Main content ── */
+  .main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 36px) clamp(12px, 3vw, 24px);
+  }
+
+  /* ── Section headers ── */
+  .section {
+    margin-bottom: clamp(24px, 4vw, 40px);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: clamp(14px, 2.5vw, 22px);
+    border-bottom: 2px solid #c9a44b;
+    padding-bottom: 0.5rem;
+  }
+  .section-header .icon {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+  }
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: #5c3d1e;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: #fdf9f2;
+    border: 1px solid #d4c4a8;
+    border-radius: 12px;
+    padding: clamp(14px, 2.5vw, 20px);
+    margin-bottom: 0.85rem;
+    box-shadow: 0 2px 8px rgba(92,61,30,0.06);
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .card-highlight {
+    background: linear-gradient(135deg, #faf3e5, #fdf7ed);
+    border-left: 4px solid #c9a44b;
+  }
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: #5c3d1e;
+    margin-bottom: 0.35rem;
+  }
+  .card .emoji-prefix { margin-right: 0.3rem; }
+  .card p {
+    font-size: clamp(0.82rem, 1.7vw, 0.95rem);
+    color: #5e4a30;
+    line-height: 1.55;
+    margin-bottom: 0.35rem;
+  }
+  .card .meta {
+    font-size: 0.8rem;
+    color: #9b8a6e;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .card .meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .card .price {
+    color: #8b6240;
+    font-weight: 600;
+  }
+  .card .tag {
+    display: inline-block;
+    background: #e8dcc8;
+    color: #6b5030;
+    font-size: 0.68rem;
+    padding: 0.12rem 0.55rem;
+    border-radius: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .card .hot-tag {
+    background: #d4a03c;
+    color: #fff;
+  }
+  .card .tomorrow-tag {
+    background: #c9a44b;
+    color: #fff;
+  }
+
+  /* ── Mini cards (two per row on wider screens) ── */
+  .mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .mini-card {
+    background: #fdf9f2;
+    border: 1px solid #d4c4a8;
+    border-radius: 10px;
+    padding: clamp(10px, 2vw, 16px);
+    box-shadow: 0 1px 4px rgba(92,61,30,0.04);
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .mini-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+    color: #5c3d1e;
+    margin-bottom: 0.25rem;
+  }
+  .mini-card p {
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    color: #5e4a30;
+    line-height: 1.5;
+  }
+  .mini-card .meta {
+    font-size: 0.72rem;
+    color: #9b8a6e;
+    margin-top: 0.35rem;
+  }
+
+  /* ── Rating stars ── */
+  .rating { color: #c9a44b; letter-spacing: 0.05em; }
+
+  /* ── Heat warning ── */
+  .alert-card {
+    background: #fdf3e0;
+    border: 1px solid #dbb75a;
+    border-radius: 12px;
+    padding: clamp(12px, 2.5vw, 18px);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .alert-card p {
+    font-weight: 600;
+    color: #7a5030;
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    margin-top: clamp(20px, 4vw, 36px);
+    padding-top: clamp(14px, 2.5vw, 20px);
+    border-top: 1px solid #d4c4a8;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    color: #9b8a6e;
+  }
+  .footer strong { color: #5c3d1e; }
+
+  /* ── Mobile: single-column mini grid ── */
+  @media (max-width: 480px) {
+    .mini-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ MASTHEAD ═══ -->
+<header class="masthead">
+  <div class="masthead-date">Friday, July 10, 2026</div>
+  <h1>Your <span class="gold">Branson</span> Day Pass</h1>
+  <h2>Good morning from the Ozarks</h2>
+  <div class="weather-tag">🌤️ High 96°F · Heat Index 105° · 30% Overnight T-Storms</div>
+</header>
+
+<div class="main">
+
+<!-- ═══ HEAT ALERT ═══ -->
+<div class="alert-card">
+  <p>🥵 Another hot one — heat index up to 105°F! Overcast morning clearing to partly sunny. SW wind 6–9 mph. Weekend cooling trend: Sat 91°F, Sun 87°F. Get out early, hydrate, and know where the AC is!</p>
+</div>
+
+<!-- ═══ TODAY'S HIGHLIGHTS ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">✨</span>
+    <h2>Today's Highlights</h2>
+  </div>
+
+  <div class="card card-highlight">
+    <div class="tag hot-tag">Starts Today!</div>
+    <h3>🌊 White Water Night Water & Dive-In Movies</h3>
+    <p>Extended hours until 10 PM at White Water Branson! Float under the stars, hit the night slides, and catch a Dive-In Movie at 7:30 PM. First night of the summer evening program — runs select weekends through August 15.</p>
+    <div class="meta">
+      <span>🕖 Dive-In Movie: 7:30 PM</span>
+      <span>📍 White Water Branson</span>
+      <span>🕙 Park open until 10 PM</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🚂 Branson Scenic Railway Dinner Train</h3>
+    <p>40-mile roundtrip through the Ozark foothills with a 4-course candlelit dinner. Vintage rail cars depart from the historic 1905 depot in downtown Branson. A truly memorable date night or family experience.</p>
+    <div class="meta">
+      <span>🕕 6:00 PM</span>
+      <span>📍 Historic Depot, Downtown Branson</span>
+      <span class="price">Check website for tickets</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag tomorrow-tag">Starts Tomorrow!</div>
+    <h3>🎆 SDC Night Sky Drone & Fireworks Spectacular</h3>
+    <p>The big summer kickoff at Silver Dollar City! <strong>First-ever nightly</strong> drone show and fireworks in The Plaza (~8 PM), dance parties, and night rides on Time Traveler, Outlaw Run, and Wildfire until ~10 PM. Evening food specials throughout the park.</p>
+    <div class="meta">
+      <span>📅 Begins Saturday, July 11</span>
+      <span>📍 Silver Dollar City</span>
+      <span class="price">Unlimited Summer Ticket: $99</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🎭 A Year with Frog and Toad KIDS</h3>
+    <p>Tony-nominated youth musical based on Arnold Lobel's beloved children's books. Perfect for families with young kids — a charming, low-cost theater experience.</p>
+    <div class="meta">
+      <span>📅 Saturday & Sunday, July 11–12</span>
+      <span>📍 Music City Centre, 1839 W 76 Country Blvd</span>
+    </div>
+  </div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h4>🎤 Ice-T, Tech N9ne & NicDanger</h4>
+      <p>Rap/hip-hop triple bill at Black Oak Amphitheater by Table Rock Lake.</p>
+      <div class="meta">📅 Saturday, July 11 · Lampe, MO</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎶 Music on the Lake — Dirty Truth</h4>
+      <p>FREE classic rock concert! Beer garden, food trucks, bring lawn chairs.</p>
+      <div class="meta">📅 Saturday, July 11 · 7–9 PM · Kimberling City</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FISHING REPORT ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">🎣</span>
+    <h2>Fishing Report</h2>
+  </div>
+
+  <div class="card card-highlight">
+    <h3>🎯 Bite of the Day</h3>
+    <p>Morning no-generation windows on Taneycomo = prime wading. Target rainbows on pink worms under a float below Fall Creek, or throw topwater (Whopper Plopper) for bass on Table Rock before the heat sets in. <strong>Morning is the magic window on both lakes.</strong></p>
+  </div>
+
+  <div class="card">
+    <h3>🏞️ Table Rock Lake <span class="rating">★★★★☆</span></h3>
+    <p><strong>Bass:</strong> <span class="rating">★★★★★</span> Excellent! Summer pattern fully set — fish on offshore structure in 10–25 ft. Deep crankbaits, flutter spoons, creature baits, jigs. Topwater bite still active early with Whopper Ploppers.</p>
+    <p><strong>Bluegill:</strong> <span class="rating">★★★★★</span> Quality fishing at season peak! 7–9" fish in 10–20 ft on gravel points and pockets. Live crickets or worms on light tackle.</p>
+    <p><strong>Walleye:</strong> Good. Strong reproduction in recent years — James River arm showing 100% over 15". Fish or troll near deep points and channel swings.</p>
+    <div class="meta">
+      <span>🌡️ Water: 78.6°F</span>
+      <span>📏 Level: 916.92 ft</span>
+      <span>💧 Clarity: Clear main lake, stained river arms</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🌊 Lake Taneycomo <span class="rating">★★★★☆</span></h3>
+    <p><strong>Rainbow Trout:</strong> Good to Very Good — fishing has <em>improved</em> over the past two weeks. Morning no-generation windows (water off until ~1–2 PM) give solid wading opportunity. Pink worm under float below Fall Creek is the #1 summer bait. 40+ fish days common for those who adapt to flow.</p>
+    <p><strong>Hot spot:</strong> Branson Landing area — stocked rainbows schooled up and eager to eat. Spoon throwing from the pier dock near Turkey Creek producing on nearly every cast. Some 19.5" trophies reported this week!</p>
+    <div class="meta">
+      <span>🌡️ Water: 50°F</span>
+      <span>💧 Clarity: Very clear</span>
+      <span>📈 Afternoon generation: up to 12,800 cfs</span>
+      <span>⚠️ Check SWPA schedule before wading</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">💡 Pro Tip</div>
+    <h3>2-lb Test Line is Critical</h3>
+    <p>Taneycomo water is very clear right now. If bites are slow, tie on 2-lb test (or 6x tippet for fly anglers). Light line makes a real difference. No felt-soled wading boots (banned in Missouri).</p>
+  </div>
+</section>
+
+<!-- ═══ SHOWS & ENTERTAINMENT ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">🎭</span>
+    <h2>Shows & Entertainment</h2>
+  </div>
+
+  <div class="card card-highlight">
+    <div class="tag hot-tag">Brand New!</div>
+    <h3>🕺 Back to the Bee Gees</h3>
+    <p>Just launched at Hamner Variety Theater — a brand-new disco tribute show celebrating the legendary Bee Gees catalog. Instantly recognizable hits for boomers and Gen X. Hot new thing in Branson this summer!</p>
+    <div class="meta">
+      <span>🕔 5:00 PM</span>
+      <span>📍 Hamner Variety Theater</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📖 David — FINAL YEAR at Sight & Sound</h3>
+    <p>Epic biblical stage production with live animals, massive 3-story sets, and original music. This is the <strong>last season</strong> — being replaced by Miracle of Christmas in November. Don't miss it!</p>
+    <div class="meta">
+      <span>🕞 3:30 PM & 7:30 PM</span>
+      <span>📍 Sight & Sound Theatres</span>
+      <span class="price">Tickets from $80.69</span>
+    </div>
+  </div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h4>🍗 Dolly Parton's Stampede</h4>
+      <p>Branson's iconic dinner show — horses, music, four-course feast.</p>
+      <div class="meta">🕠 5:30 & 8:00 PM · Extra 3 PM Sat</div>
+    </div>
+    <div class="mini-card">
+      <h4>🤸 Amazing Acrobats</h4>
+      <p>Grand Shanghai Circus — jaw-dropping acrobatics for all ages.</p>
+      <div class="meta">🕑 2:00 & 7:30 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎵 Clay Cooper's Country Express</h4>
+      <p>High-energy country variety show at Clay Cooper Theatre.</p>
+      <div class="meta">🕢 7:30 PM · Clay Cooper Theatre</div>
+    </div>
+    <div class="mini-card">
+      <h4>🕺 Legends in Concert</h4>
+      <p>Multi-artist tribute show — always a crowd pleaser.</p>
+      <div class="meta">🕒 3:00 PM · Legends in Concert Theater</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎸 Anthems of Rock</h4>
+      <p>Classic rock tribute at King's Castle Theatre.</p>
+      <div class="meta">🕗 8:00 PM · King's Castle Theatre</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎤 Pierce Arrow</h4>
+      <p>Country music + comedy — Branson staple at Reza Live Theatre.</p>
+      <div class="meta">🕗 8:00 PM · Reza Live Theatre</div>
+    </div>
+    <div class="mini-card">
+      <h4>🕵️ Branson Murder Mystery</h4>
+      <p>Interactive dinner theater — solve the crime while you dine!</p>
+      <div class="meta">🕓 4:15 PM · The Majestic</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎪 Grand Jubilee</h4>
+      <p>Uplifting variety show with music, comedy, and inspiration.</p>
+      <div class="meta">🕢 7:30 PM · Grand Country Music Hall</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🚢 Showboat Branson Belle</h3>
+    <p>Dinner cruise on Table Rock Lake with live entertainment. A unique Branson experience — great for couples and groups.</p>
+    <div class="meta">
+      <span>📍 Table Rock Lake</span>
+      <span>🕐 Check showtimes online</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">📅 Mark Your Calendar</div>
+    <h3>Upcoming Shows</h3>
+    <p><strong>Jul 18:</strong> Bohemian Queen (Queen tribute) at The Mansion Theatre 🎸</p>
+    <p><strong>Jul 18:</strong> Ted Nugent & Black Stone Cherry at Black Oak Amp 🤘</p>
+    <p><strong>Jul 25:</strong> Avenged Sevenfold & Good Charlotte at Thunder Ridge 🎸</p>
+    <p><strong>Jul 31:</strong> Larry Gatlin & The Nelons at Clay Cooper Theatre 🎵</p>
+    <p><strong>Aug 8:</strong> FREE Summer Concert at The Landing — Jukebox Winos 🎵</p>
+  </div>
+</section>
+
+<!-- ═══ GOLF UPDATE ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">⛳</span>
+    <h2>Golf Update</h2>
+  </div>
+
+  <div class="card card-highlight">
+    <h3>🏆 Payne's Valley — USA Today #1 Best Public Course in America 2026</h3>
+    <p>Tiger Woods' first public U.S. design. Zoysia fairways in peak summer form, bentgrass greens rolling 9.5–11 on the Stimpmeter. The famous 19th hole "Big Rock" — a dramatic par 3 with a 40-foot waterfall — caps the round. Forecaddies available.</p>
+    <div class="meta">
+      <span>💰 Resort $425 / Public $525</span>
+      <span>📍 10 min from Branson West condos</span>
+      <span>📞 1-800-225-6343</span>
+    </div>
+  </div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h4>🎯 Branson Hills GC</h4>
+      <p>#1 Public in Missouri (GolfPass 2026). #10 Public in US. Bentgrass greens, Zoysia fairways.</p>
+      <div class="meta">💰 $235–$265 · Twilight $150</div>
+    </div>
+    <div class="mini-card">
+      <h4>🏡 Ledgestone CC</h4>
+      <p>Closest to the condos — just 5 min! Demand-based pricing. Book 30 days out.</p>
+      <div class="meta">💰 $130 Sun–Thu · Twilight $85</div>
+    </div>
+    <div class="mini-card">
+      <h4>🏔️ Ozarks National</h4>
+      <p>Coore & Crenshaw design. Golfweek Top 200 #T41. Bentgrass greens.</p>
+      <div class="meta">💰 Resort $275 / Public $350</div>
+    </div>
+    <div class="mini-card">
+      <h4>🌅 Thousand Hills</h4>
+      <p>GPS-equipped carts. Best value twilight rate — just $69 after 3 PM!</p>
+      <div class="meta">💰 $108 before 3 PM · $69 after 3 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>⛰️ Buffalo Ridge Springs</h4>
+      <p>Tom Watson design. Hosting AJGA Payne Stewart Jr Championship Jul 20-23.</p>
+      <div class="meta">💰 Resort $275 / Public $350</div>
+    </div>
+    <div class="mini-card">
+      <h4>🏌️ Top of the Rock</h4>
+      <p>Jack Nicklaus par 3. NEW for 2026: 2-acre putting course + 9-hole bentgrass putting course.</p>
+      <div class="meta">💰 Resort $135 / Public $150</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">💡 Pro Tip</div>
+    <h3>Book Weekday, Save $100+</h3>
+    <p>Tee off before 8 AM to beat the July heat. Ledgestone CC at $130 weekday (vs. $145 weekend) is the best value near the condos. Thousand Hills twilight at $69 after 3 PM is a steal. Big Cedar courses — book 14 days ahead. Branson Hills — 60 days out.</p>
+  </div>
+
+  <div class="card">
+    <h3>📅 Upcoming: Big Cedar Golf Retreat</h3>
+    <p>4-day personalized instruction with LPGA Top 50 teacher & Golf Digest Best Young Teacher Megan Johnston. Each day brings new insight to your game.</p>
+    <div class="meta">
+      <span>📅 July 13–16</span>
+      <span>🕙 10 AM–12 PM daily</span>
+      <span>📍 Big Cedar Lodge</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DINING PICKS ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">🍽️</span>
+    <h2>Dining Picks</h2>
+  </div>
+
+  <div class="card card-highlight">
+    <h3>🚂 Tonight: Branson Scenic Railway Dinner Train</h3>
+    <p>4-course candlelit dinner aboard vintage rail cars through the Ozark foothills. Departs the historic 1905 depot at 6 PM. A one-of-a-kind dining experience — book ahead!</p>
+    <div class="meta">
+      <span>🕕 6:00 PM</span>
+      <span>📍 Historic Depot, Downtown Branson</span>
+    </div>
+  </div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h4>🍔 Flaming Margaritas</h4>
+      <p>American kitchen with a margarita focus. Outdoor patio on the Landing promenade.</p>
+      <div class="meta">📍 Branson Landing</div>
+    </div>
+    <div class="mini-card">
+      <h4>🐟 White River Fish House</h4>
+      <p>Lakefront dining on Taneycomo — fried catfish, hush puppies, sunset views from the deck.</p>
+      <div class="meta">📍 Bass Pro Shops, Branson Landing</div>
+    </div>
+    <div class="mini-card">
+      <h4>🦀 Crabby's Seafood</h4>
+      <p>Family-owned since 1976. Cajun/Creole with Bourbon Street vibe on the Landing.</p>
+      <div class="meta">📍 Branson Landing · Til 10 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎵 Mel's Hard Luck Diner</h4>
+      <p>Singing servers + classic diner food. Burgers, shakes, breakfast all day. A Branson institution.</p>
+      <div class="meta">📍 76 Strip · 7:30 AM–8/9 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>🥞 Billy Gail's Cafe</h4>
+      <p>Pancakes bigger than your plate. Country breakfast & lunch — fuel up before SDC.</p>
+      <div class="meta">📍 Off the Strip · 7 AM–2 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>🍷 Lindwedel Wine Garden</h4>
+      <p>Table Rock Lake's highest winery. 4-level patio, 12 wines, Ozarks sunset views.</p>
+      <div class="meta">📍 Near Table Rock State Park · 11 AM–5 PM Mon–Sat</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎳 Andy B's Bowl Social + Tiki Bar</h4>
+      <p>Bowling, arcade, and open-air tiki bar on the boardwalk. Fun for the whole family!</p>
+      <div class="meta">📍 Branson Landing</div>
+    </div>
+    <div class="mini-card">
+      <h4>🍷 Smith Creek Winery</h4>
+      <p>Ozarks winery tasting room — wine flights, local wines, gifts. Great date night stop.</p>
+      <div class="meta">📍 Branson Landing</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🍦 Sweet Treat: Northwoods Ice Cream Parlor</h3>
+    <p>Hand-dipped ice cream inside Bass Pro Shops at the Landing. The perfect cool-down stop for the kids after shopping or before the fountain show.</p>
+  </div>
+</section>
+
+<!-- ═══ EVENTS & ATTRACTIONS ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">🎪</span>
+    <h2>Events & Attractions</h2>
+  </div>
+
+  <div class="card">
+    <div class="tag hot-tag">This Weekend</div>
+    <h3>🌊 Table Rock Lake — Peak Summer!</h3>
+    <p>Water temps 75–79°F — absolutely perfect for boating, wakeboarding, tubing, and swimming. Moonshine Beach is the only sand swim beach on the lake ($5 access). Boat rentals at State Park Marina, Cricket Creek, and Big Cedar. <strong>Get out on the water!</strong></p>
+  </div>
+
+  <div class="card">
+    <h3>🏞️ Shepherd of the Hills — Great American Summer</h3>
+    <p>Jump Pad, Double Barrel Super Slide, Inspiration Tower, Mini Golf, Barnyard Animals — all included. Copperhead Mountain Coaster ($17.95 driver), Zipline Canopy Tours, and High-Ropes Course available as add-ons. <strong>Ozarks Aglow</strong> enchanted nighttime walk runs through July 31 — final month!</p>
+    <div class="meta">
+      <span>🕙 Tue–Sun, 10 AM–6 PM</span>
+      <span>📍 5585 W 76 Country Blvd</span>
+      <span class="price">Season Pass: $139 adult / $99 child</span>
+    </div>
+  </div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h4>🚀 SkyScraper — NEW!</h4>
+      <p>Branson's tallest thrill ride at Track 3. 170 ft at 60 mph, LED-lit at night. 52" & up.</p>
+      <div class="meta">💰 $29.99–$64.99 per group</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎡 Branson Ferris Wheel</h4>
+      <p>80's "Electrify" music & light spectacular at 8, 9, 10 PM. Tune to 89.1 FM. 16,000 LEDs!</p>
+      <div class="meta">💰 Adults $15.49 · Kids $12.49</div>
+    </div>
+    <div class="mini-card">
+      <h4>🧗 Fritz's Adventure</h4>
+      <p>🏆 2026 Best of Southwest Missouri! 80,000 sq ft indoor adventure — climb, zip, tunnel.</p>
+      <div class="meta">💰 $26.99–$36.99 · Open daily</div>
+    </div>
+    <div class="mini-card">
+      <h4>🔬 WonderWorks</h4>
+      <p>The upside-down building! 100+ hands-on S.T.E.A.M. exhibits. Indoor, AC, open 365 days.</p>
+      <div class="meta">📍 76 Strip · 10 AM–9 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>🎢 Copperhead Mountain Coaster</h4>
+      <p>Branson's longest downhill coaster. Loops, drops, Ozark views.</p>
+      <div class="meta">💰 $17.95 driver · 10 AM–9 PM</div>
+    </div>
+    <div class="mini-card">
+      <h4>🏁 Xtreme Racing Center</h4>
+      <p>NEW 3,500-ft concrete track! Longest racing kart track in North America. 60" & up.</p>
+      <div class="meta">💰 $10 off 3-race package</div>
+    </div>
+    <div class="mini-card">
+      <h4>🌙 Ozarks Aglow</h4>
+      <p>FINAL MONTH! Enchanted nighttime lantern walk — ends July 31. Tue–Sun from 7 PM.</p>
+      <div class="meta">💰 $19.99 adult · $17.99 child</div>
+    </div>
+    <div class="mini-card">
+      <h4>⛳ Shoot for the Stars Golf</h4>
+      <p>Hollywood-themed mini golf! Open til midnight Fri–Sat. All Access Pass: $32.99 for 4 attractions.</p>
+      <div class="meta">📍 3110 W 76 Country Blvd</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag">📅 Mark Your Calendar</div>
+    <h3>Coming Soon to Branson</h3>
+    <p><strong>Jul 14:</strong> Farmers Market at Branson Landing (every Tuesday) 🥬</p>
+    <p><strong>Jul 15:</strong> Free Summer Movies at Elite Cinema III — final shows of the series 🎬</p>
+    <p><strong>Jul 17–19:</strong> Downtown Christmas in July 🎄</p>
+    <p><strong>Jul 18:</strong> Garden Tractor Pull at Stone County Event Center 🚜</p>
+    <p><strong>Jul 18:</strong> 3C Rodeo — Bulls, Barrels & Youth Ranch Rodeo 🐂</p>
+    <p><strong>Jul 20–23:</strong> AJGA Payne Stewart Junior Championship at Buffalo Ridge ⛳</p>
+    <p><strong>Jul 25:</strong> Avenged Sevenfold & Good Charlotte at Thunder Ridge 🎸</p>
+    <p><strong>Aug 27–Sep 7:</strong> Southern Gospel Picnic at Silver Dollar City 🙌</p>
+  </div>
+</section>
+
+<!-- ═══ BRANSON LANDING ═══ -->
+<section class="section">
+  <div class="section-header">
+    <span class="icon">🏬</span>
+    <h2>Branson Landing</h2>
+  </div>
+
+  <div class="card card-highlight">
+    <h3>⛲ Fountain Show — Every Hour on the Hour</h3>
+    <p>$7.5M water/fire/light/music spectacle by the same firm that designed the Bellagio fountains. 120-ft geysers, fire cannons, choreographed to music. The 8:00 PM show is extended (~15 min). Star Spangled Banner at noon & 10 PM.</p>
+    <div class="meta">
+      <span>🕛 Mon–Sat: Noon–10 PM</span>
+      <span>🕛 Sunday: Noon–9 PM</span>
+      <span class="price">FREE</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🎉 Branson Landing — 20th Anniversary Year!</h3>
+    <p>Opened in 2006 — celebrating two decades on the Taneycomo waterfront. Farmers Market every Tuesday 2:30–6:30 PM. Free Summer Concert Series continues Aug 8 with Jukebox Winos & Chris Luneau.</p>
+  </div>
+
+  <div class="card">
+    <div class="tag">Featured Shops</div>
+    <h3>🛍️ The Spice & Tea Exchange</h3>
+    <p>Create custom spice blends, sample specialty teas, and find unique gifts. Featured store on the Branson Landing homepage — great stop for foodies and gift shoppers.</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <p>Brought to you by <strong>Summers Vacations LLC</strong> — Branson West, MO</p>
+  <p>All info sourced July 10, 2026 · Times are Central · Verify with venues before heading out</p>
+  <p style="margin-top:0.5rem;">🏡 We hope you have a wonderful Friday in the Ozarks!</p>
+</footer>
+
+</div>
+</body>
+</html>
