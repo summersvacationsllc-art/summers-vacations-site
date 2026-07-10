@@ -203,6 +203,16 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="text-[11px] text-amber-800 font-semibold">💡 {T.pushMessage}</div>
             </div>
 
+            {/* Daily Branson Report */}
+            <a href="/reports/2026-07-09.html" target="_blank" rel="noopener" className="block mx-3.5 mt-2 rounded-xl px-3.5 py-3 no-underline border border-amber-300 flex items-center gap-2" style={{ background: 'linear-gradient(135deg,#fef3c7,#fde68a)' }}>
+              <span className="text-3xl">📰</span>
+              <div className="flex-1">
+                <div className="text-[13px] font-bold text-amber-900">Today's Branson Report</div>
+                <div className="text-[11px] text-amber-700">Fishing • Shows • Golf • Events — fresh every morning</div>
+              </div>
+              <span className="text-xl text-amber-600">→</span>
+            </a>
+
             {/* Today's Highlights */}
             {sectionTitle('🎯', "Today's Highlights")}
             <div className="grid grid-cols-2 gap-2 px-3.5">
