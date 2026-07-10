@@ -376,7 +376,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       hvac: { type: "Nest Thermostats (both units)", instructions: "Set between 68-72°F." },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
-      fireplace: { type: "Electric Fireplace", youtube: "https://www.youtube.com/watch?v=ZMgLcwV4Hwc" },
+      fireplace: { type: "Electric Fireplaces (both units)", youtube: "https://www.youtube.com/watch?v=lcq7bG2Mh8E" },
       waterFilter: { youtube: "https://www.youtube.com/watch?v=awyb9DSggcg" },
     },
 
