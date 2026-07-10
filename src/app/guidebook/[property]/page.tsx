@@ -47,6 +47,16 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     })();
   }, [params, spPromise]);
 
+  // Handle browser back button for tab navigation
+  useEffect(() => {
+    const handler = (e: PopStateEvent) => {
+      const prev = (e.state as {tab?:string})?.tab;
+      if (prev) setTab(prev);
+    };
+    window.addEventListener('popstate', handler);
+    return () => window.removeEventListener('popstate', handler);
+  }, []);
+
   if (!prop) return <div className="min-h-screen bg-stone-50 flex items-center justify-center"><p className="text-stone-400">Loading...</p></div>;
 
   const T = season();
@@ -59,7 +69,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   };
 
   const tabBtn = (id: string, svg: string, label: string) => (
-    <button key={id} onClick={() => { setTab(id); contentRef.current?.scrollTo(0,0); }}
+    <button key={id} onClick={() => { setTab(id); contentRef.current?.scrollTo(0,0); window.history.pushState({tab:id}, '', ''); }}
       className={`flex-shrink-0 w-16 flex flex-col items-center justify-center gap-1 border-none font-inherit cursor-pointer transition-colors`}
       style={{ color: tab === id ? T.accentColor : '#8b7355', fontFamily: 'inherit' }}>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">{svg.includes('<') ? <g dangerouslySetInnerHTML={{ __html: svg }} /> : <path d={svg} />}</svg>
@@ -445,7 +455,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.mostateparks.com/park/table-rock-state-park','🏞️','Table Rock State Park','Hiking • Swimming • Boating',['g','Free'],'Beautiful state park on Table Rock Lake. Marina, trails, picnic areas, and swim beach.')}
             {sectionTitle('🎡','Strip & Family Fun')}
             <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
-              {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransonferriswheel.com/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'Water park',l:'https://www.whitewaterbranson.com/'},{e:'🚂',t:'Scenic Railway',d:'Scenic train ride',l:'https://www.bransonscenicrailway.com/'},{e:'🦋',t:'Butterfly Palace',d:'Live butterflies!',l:'https://www.thebutterflypalace.com/'},{e:'🥏',t:'Parakeet Pete\'s',d:'Zipline + balloon',l:'https://www.bransonlanding.com/'}].map((x,i)=>(
+              {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransonferriswheel.com/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'SDC water park!',l:'https://www.silverdollarcity.com/white-water/'},{e:'🚂',t:'Scenic Railway',d:'Scenic train ride',l:'https://www.bransonscenicrailway.com/'},{e:'🦋',t:'Butterfly Palace',d:'Live butterflies!',l:'https://www.thebutterflypalace.com/'},{e:'🥏',t:'Parakeet Pete\'s',d:'Zipline + balloon',l:'https://www.bransonlanding.com/'}].map((x,i)=>(
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-stone-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-stone-800 mt-0.5">{x.t}</div><div className="text-[11px] text-stone-400">{x.d}</div></a>
               ))}
             </div>
