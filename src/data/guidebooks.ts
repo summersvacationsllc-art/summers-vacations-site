@@ -504,6 +504,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Roku Smart TV",
       "Mr. Coffee coffee maker",
       "Bunk beds (children's room)",
+      "Electric fireplace",
       "Games",
     ],
     houseRules: COMMON.houseRules,
@@ -545,9 +546,10 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       hvac: { type: "Central Heating & AC", instructions: "Thermostat in the unit." },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      fireplace: { type: "Electric Fireplace" },
     },
 
-    amenities: [...COMMON.commonAmenities, "Roku Smart TV", "Pack 'n Play", "Charging station"],
+    amenities: [...COMMON.commonAmenities, "Roku Smart TV", "Pack 'n Play", "Charging station", "Electric fireplace"],
     houseRules: COMMON.houseRules,
     trash: COMMON.trash,
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
@@ -584,6 +586,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       hvac: { type: "Central Heating & AC", instructions: "Thermostat in the unit." },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      fireplace: { type: "Electric Fireplace" },
     },
 
     amenities: [
@@ -593,6 +596,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Charging station",
       "Coffee bar",
       "Pool towels",
+      "Electric fireplace",
       "Games",
     ],
     houseRules: COMMON.houseRules,
