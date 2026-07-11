@@ -8,13 +8,13 @@ interface Photo { url: string; caption?: string; id?: string; }
 interface ListingInfo { guesty_id: string; title: string; nickname: string; }
 
 const P = [
-  { n: "The Penthouse", t: "Top Floor • Views", g: "6", b: "2BR", d: "550 Notch Ln, Unit 11", c: "#2c1810", e: "🏠" },
-  { n: "Rustic Ozark Retreat", t: "Cozy • Fireplace", g: "6", b: "2BR", d: "550 Notch Ln, Unit 7", c: "#1e3a5f", e: "🌲" },
-  { n: "Woodland Retreat", t: "Family • Bunk Room", g: "6", b: "2BR", d: "499 Notch Ln, Unit 6", c: "#166534", e: "🌳" },
-  { n: "Modern Charmer", t: "Sleek • Updated", g: "4", b: "1BR", d: "550 Notch Ln, Unit 8", c: "#b45309", e: "✨" },
-  { n: "Pretty Peacock", t: "No Steps • Easy", g: "6", b: "1BR", d: "289 Notch Ln, Unit 1", c: "#7c3aed", e: "🦚" },
-  { n: "Double Condo", t: "🔥 Best Value", g: "12+", b: "4BR", d: "Penthouse + Rustic combined", c: "#f5c842", e: "🏢" },
-  { n: "Branson Family Haven", t: "🏡 House", g: "16", b: "3BR", d: "44 Timber Trace — private yard", c: "#be123c", e: "🏡" },
+  { n: "The Penthouse", t: "Top Floor • Views", g: "6", b: "2BR", d: "550 Notch Ln, Unit 11", c: "#2c1810", e: "🏠", s: "the-penthouse" },
+  { n: "Rustic Ozark Retreat", t: "Cozy • Fireplace", g: "6", b: "2BR", d: "550 Notch Ln, Unit 7", c: "#1e3a5f", e: "🌲", s: "rustic-ozark-retreat" },
+  { n: "Woodland Retreat", t: "Family • Bunk Room", g: "6", b: "2BR", d: "499 Notch Ln, Unit 6", c: "#166534", e: "🌳", s: "woodland-retreat" },
+  { n: "Modern Charmer", t: "Sleek • Updated", g: "4", b: "1BR", d: "550 Notch Ln, Unit 8", c: "#b45309", e: "✨", s: "modern-charmer" },
+  { n: "Pretty Peacock", t: "No Steps • Easy", g: "6", b: "1BR", d: "289 Notch Ln, Unit 1", c: "#7c3aed", e: "🦚", s: "pretty-peacock" },
+  { n: "Double Condo", t: "🔥 Best Value", g: "12+", b: "4BR", d: "Penthouse + Rustic combined", c: "#f5c842", e: "🏢", s: "double-condo" },
+  { n: "Branson Family Haven", t: "🏡 House", g: "16", b: "3BR", d: "44 Timber Trace — private yard", c: "#be123c", e: "🏡", s: "branson-family-haven" },
 ];
 
 const T = [
@@ -62,6 +62,8 @@ export default function Home() {
   const [ti, setTi] = useState(0);
   const [f, setF] = useState({ name: "", email: "", phone: "", message: "" });
   const [m, setM] = useState(false);
+  const [weather, setWeather] = useState<{ temp: number; hi: number; lo: number; desc: string } | null>(null);
+  const [shows, setShows] = useState<{ name: string; venue: string; time: string }[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -79,6 +81,11 @@ export default function Home() {
         }
       } catch {}
       setPhotos([]); setLoading(false);
+    })();
+    // Fetch weather + shows
+    (async () => {
+      try { const r = await fetch("/api/fishing-report"); const d = await r.json(); if (d.ok) setWeather({ temp: d.conditions?.tableRock?.temp || 82, hi: d.weather?.high || 94, lo: d.weather?.low || 70, desc: "☀️ Sunny" }); } catch {}
+      try { const r = await fetch("/api/shows-report"); const d = await r.json(); if (d.ok && d.shows?.length) setShows(d.shows.slice(0, 4)); } catch {}
     })();
   }, []);
 
@@ -173,7 +180,8 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {P.map((p, i) => (
-              <div key={i} className="group bg-white rounded-2xl border border-stone-100 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 shadow-sm">
+              <Link key={i} href={`/guidebook/${p.s}?code=demo&name=Guest`}
+                className="group bg-white rounded-2xl border border-stone-100 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 shadow-sm no-underline text-inherit block">
                 <div className="h-44 flex items-center justify-center relative overflow-hidden" style={{ background: `linear-gradient(135deg,${p.c},${p.c}dd)` }}>
                   <span className="text-7xl opacity-40 group-hover:scale-125 transition-transform duration-500">{p.e}</span>
                 </div>
@@ -185,7 +193,7 @@ export default function Home() {
                   <p className="text-xs text-stone-500">Sleeps {p.g} · {p.b}</p>
                   <p className="text-[10px] text-stone-400 mt-1.5">{p.d}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center mt-10">
@@ -306,17 +314,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ TODAY IN BRANSON ═══ */}
+      <section className="py-20 sm:py-28 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-700 mb-4">📰 Today in Branson</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-stone-800" style={{ fontFamily: "'DM Serif Display', serif" }}>What's Happening Now</h2>
+            <p className="text-sm text-stone-500 mt-3">Live weather, tonight's shows, and our daily Branson report — updated every morning.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Weather Card */}
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-6 text-white shadow-lg">
+              <div className="text-sm font-semibold text-blue-200 mb-2">☀️ Branson Weather</div>
+              <div className="text-5xl font-bold mb-2">{weather?.temp || 87}°</div>
+              <div className="text-blue-200 text-sm">{weather?.desc || "Sunny"}</div>
+              <div className="flex gap-4 mt-4 text-sm">
+                <div><span className="text-blue-300">H:</span> {weather?.hi || 94}°</div>
+                <div><span className="text-blue-300">L:</span> {weather?.lo || 72}°</div>
+              </div>
+            </div>
+            {/* Shows Card */}
+            <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+              <div className="text-sm font-semibold text-stone-500 mb-3">🎭 Tonight's Shows</div>
+              {shows.length > 0 ? shows.map((s, i) => (
+                <div key={i} className="flex items-center gap-2 py-1.5 border-b border-stone-50 last:border-0">
+                  <span className="text-[11px] font-bold bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded">{s.time}</span>
+                  <span className="text-[13px] font-semibold text-stone-800 flex-1">{s.name}</span>
+                  <span className="text-[10px] text-stone-400">{s.venue}</span>
+                </div>
+              )) : (
+                <div className="text-[13px] text-stone-400">Grand Jubilee · Bohemian Queen · The Haygoods — and more!</div>
+              )}
+              <a href="/reports" className="inline-block mt-3 text-[11px] font-semibold text-amber-600 no-underline hover:text-amber-700">See all shows →</a>
+            </div>
+            {/* Daily Report Card */}
+            <a href="/reports" className="block bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl p-6 shadow-lg no-underline text-inherit hover:scale-[1.02] transition-transform">
+              <div className="text-sm font-semibold text-amber-800 mb-2">📰 Daily Branson Report</div>
+              <div className="text-2xl font-bold text-stone-900 mb-2" style={{ fontFamily: "'DM Serif Display', serif" }}>Fresh Every Morning</div>
+              <div className="text-amber-800 text-sm leading-relaxed">Fishing conditions, show times, events, golf, and dining — all in one place.</div>
+              <div className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-amber-900">Open Report →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ SEASONAL ═══ */}
-      <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg,#f5c842,#e8b832)' }}>
+      <section className="py-16 px-4" style={{ background: 'linear-gradient(135deg,#2563eb,#1d4ed8)' }}>
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/30 text-stone-800 border border-white/40 mb-4">🎃 Fall in Branson</span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-stone-800" style={{ fontFamily: "'DM Serif Display', serif" }}>Harvest Festival at Silver Dollar City</h2>
-          <p className="text-sm text-stone-700 mt-3 max-w-xl mx-auto">Through October 31 — Pumpkin Nights, fall colors, cooler weather. The Ozarks are at their best.</p>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/20 text-white border border-white/30 mb-4">☀️ Summer in Branson</span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Summer Celebration at Silver Dollar City</h2>
+          <p className="text-sm text-blue-200 mt-3 max-w-xl mx-auto">Night Sky Drone & Fireworks, extended hours, live shows — all summer long. The Ozarks are at their best.</p>
           <div className="flex justify-center gap-4 mt-8">
-            <a href="https://www.silverdollarcity.com/theme-park/festivals/harvest-festival/" target="_blank" rel="noopener"
-              className="px-6 py-3 rounded-full bg-stone-800 text-amber-400 text-sm font-semibold no-underline hover:brightness-110 transition-all">🎃 Learn More</a>
+            <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener"
+              className="px-6 py-3 rounded-full bg-white text-blue-700 text-sm font-semibold no-underline hover:brightness-110 transition-all">🎢 Plan Your Visit</a>
             <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener"
-              className="px-6 py-3 rounded-full bg-white/50 text-stone-800 text-sm font-semibold no-underline hover:bg-white/70 transition-all">Book Fall Dates</a>
+              className="px-6 py-3 rounded-full bg-white/20 text-white text-sm font-semibold no-underline hover:bg-white/30 transition-all">Book Summer Dates</a>
           </div>
         </div>
       </section>
