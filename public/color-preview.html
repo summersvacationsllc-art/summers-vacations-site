@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guidebook Color Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: #f5f5f5; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; max-width: 900px; margin: 0 auto; }
+  .card { border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.12); cursor: pointer; transition: transform 0.2s; }
+  .card:hover { transform: scale(1.02); }
+  .label { font-size: 14px; font-weight: 700; padding: 8px 12px; background: #fff; text-align: center; }
+  .phone { max-width: 100%; aspect-ratio: 390/844; overflow-y: auto; }
+  .header { padding: 12px 16px; }
+  .header h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; }
+  .header p { font-size: 11px; opacity: 0.7; }
+  .section { margin: 0 12px; }
+  .section-item { border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+  .section-item .icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .section-item .title { font-size: 13px; font-weight: 700; }
+  .section-item .desc { font-size: 11px; opacity: 0.6; }
+  .tab-bar { display: flex; gap: 2px; padding: 8px 6px; justify-content: center; }
+  .tab { padding: 6px 10px; border-radius: 8px; font-size: 10px; font-weight: 600; border: none; cursor: pointer; }
+  .tab.active { color: #fff; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; }
+  .alert-box { border-radius: 10px; padding: 10px 12px; margin: 10px 12px; }
+  .alert-box .alert-title { font-size: 13px; font-weight: 700; }
+  .alert-box .alert-desc { font-size: 11px; margin-top: 2px; }
+</style>
+</head>
+<body>
+<h2 style="text-align:center;padding:20px 0 8px;font-family:'DM Serif Display',serif;font-size:28px;color:#333;">Choose a Color Scheme</h2>
+<p style="text-align:center;padding-bottom:16px;color:#888;font-size:13px;">Click any card to pick it</p>
+<div class="grid" id="grid"></div>
+
+<script>
+const schemes = [
+  {
+    name: '🌊 Ozarks Lake Summer',
+    bg: '#f0f9ff',
+    cardBg: '#ffffff',
+    border: '#e0f2fe',
+    headerBg: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)',
+    headerTitle: '#fde047',
+    headerSub: '#bae6fd',
+    iconBg: ['#dbeafe','#dcfce7','#fef3c7','#fce7f3','#ede9fe','#e0f2fe'],
+    titleColor: '#0c4a6e',
+    descColor: '#64748b',
+    alertBg: '#dbeafe',
+    alertBorder: '#93c5fd',
+    alertTitle: '#1e40af',
+    alertDesc: '#3b82f6',
+    tabBg: '#e0f2fe',
+    tabActive: '#0ea5e9',
+    tabText: '#0c4a6e',
+    badge: '#0ea5e9',
+    sectionBg: '#ffffff',
+    feel: 'Table Rock Lake on a sunny day'
+  },
+  {
+    name: '🎪 SDC Summer Celebration',
+    bg: '#fefce8',
+    cardBg: '#ffffff',
+    border: '#fef08a',
+    headerBg: 'linear-gradient(135deg,#991b1b,#dc2626)',
+    headerTitle: '#fde047',
+    headerSub: '#fecaca',
+    iconBg: ['#fef2f2','#fef9c3','#dbeafe','#f3e8ff','#dcfce7','#fce7f3'],
+    titleColor: '#7c2d12',
+    descColor: '#78716c',
+    alertBg: '#fef2f2',
+    alertBorder: '#fca5a5',
+    alertTitle: '#991b1b',
+    alertDesc: '#dc2626',
+    tabBg: '#fef9c3',
+    tabActive: '#dc2626',
+    tabText: '#7c2d12',
+    badge: '#dc2626',
+    sectionBg: '#ffffff',
+    feel: 'SDC festival banners & midway'
+  },
+  {
+    name: '🌿 Ozarks Fresh',
+    bg: '#f0fdf4',
+    cardBg: '#ffffff',
+    border: '#dcfce7',
+    headerBg: 'linear-gradient(135deg,#14532d,#16a34a)',
+    headerTitle: '#fef08a',
+    headerSub: '#bbf7d0',
+    iconBg: ['#dcfce7','#dbeafe','#fef3c7','#fce7f3','#ede9fe','#e0f2fe'],
+    titleColor: '#14532d',
+    descColor: '#78716c',
+    alertBg: '#dcfce7',
+    alertBorder: '#86efac',
+    alertTitle: '#14532d',
+    alertDesc: '#16a34a',
+    tabBg: '#dcfce7',
+    tabActive: '#16a34a',
+    tabText: '#14532d',
+    badge: '#16a34a',
+    sectionBg: '#ffffff',
+    feel: 'Dogwood Canyon, fresh Ozarks'
+  },
+  {
+    name: '☀️ Bright & Airy',
+    bg: '#fef3c7',
+    cardBg: '#ffffff',
+    border: '#fde68a',
+    headerBg: 'linear-gradient(135deg,#c2410c,#f97316)',
+    headerTitle: '#fef08a',
+    headerSub: '#fed7aa',
+    iconBg: ['#fef3c7','#dbeafe','#fce7f3','#dcfce7','#ede9fe','#fef2f2'],
+    titleColor: '#7c2d12',
+    descColor: '#a8a29e',
+    alertBg: '#fef3c7',
+    alertBorder: '#fde68a',
+    alertTitle: '#92400e',
+    alertDesc: '#f59e0b',
+    tabBg: '#fef3c7',
+    tabActive: '#f97316',
+    tabText: '#7c2d12',
+    badge: '#f97316',
+    sectionBg: '#ffffff',
+    feel: 'Summer vacation, poolside energy'
+  }
+];
+
+const sections = [
+  { icon: '🔑', title: 'Check-in & Access', desc: 'Door code, keyless entry' },
+  { icon: '📶', title: 'WiFi & Entertainment', desc: 'Network, password, streaming' },
+  { icon: '🚨', title: 'Emergency Info', desc: '911 • Hospital • Urgent Care' },
+  { icon: '🍳', title: 'Kitchen & Supplies', desc: 'Appliances, cookware & provided items' },
+  { icon: '☕', title: 'Coffee Bar', desc: 'Keurig K-Duo Plus' },
+  { icon: '🧺', title: 'Washer & Dryer', desc: 'In-unit laundry, iron & cleaning' },
+];
+
+const tabs = ['Home','Guide','Adventure','Fishing','Shows','Golf','Dining','Contact','Checkout'];
+
+function renderScheme(s) {
+  return `
+  <div class="card" onclick="select('${s.name}')">
+    <div class="label">${s.name}<br><span style="font-weight:400;font-size:11px;color:#888;">${s.feel}</span></div>
+    <div class="phone" style="background:${s.bg};">
+      <div class="header" style="background:${s.headerBg};">
+        <p style="font-size:10px;color:${s.headerSub};letter-spacing:1px;text-transform:uppercase;">Summers Vacations</p>
+        <h1 style="color:${s.headerTitle};">The Penthouse</h1>
+        <p style="color:${s.headerSub};">Your complete house manual</p>
+      </div>
+      ${sections.map((sec, i) => `
+      <div class="section" style="margin-top:6px;">
+        <div class="section-item" style="background:${s.sectionBg}; border:1px solid ${s.border};">
+          <div class="icon" style="background:${s.iconBg[i % 6]};">${sec.icon}</div>
+          <div>
+            <div class="title" style="color:${s.titleColor};">${sec.title}</div>
+            <div class="desc" style="color:${s.descColor};">${sec.desc}</div>
+          </div>
+        </div>
+      </div>
+      `).join('')}
+      <div class="alert-box" style="background:${s.alertBg}; border:1px solid ${s.alertBorder};">
+        <div class="alert-title" style="color:${s.alertTitle};">🚨 CALL 911</div>
+        <div class="alert-desc" style="color:${s.alertDesc};">For medical emergencies call 911 immediately</div>
+      </div>
+      <div class="tab-bar" style="background:${s.bg};">
+        ${tabs.map((t, i) => `<button class="tab${i===1?' active':''}" style="background:${i===1?s.tabActive:s.tabBg};color:${i===1?'#fff':s.tabText};">${t}</button>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+document.getElementById('grid').innerHTML = schemes.map(renderScheme).join('');
+
+function select(name) {
+  window.location.href = '#';
+  alert('Selected: ' + name + '\n\nI\'ll apply this scheme to the guidebook. Just say "go with ' + name.split(' ')[0] + '"');
+}
+</script>
+</body>
+</html>
