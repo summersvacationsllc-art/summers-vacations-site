@@ -609,7 +609,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 };
 
 export function getGuidebook(slug: string): PropertyGuidebook | undefined {
-  return guidebooks[slug];
+  // Try slug match first, then name match for Guesty listing names
+  return guidebooks[slug] || Object.values(guidebooks).find(gb => gb.name.toLowerCase() === slug.toLowerCase() || gb.shortName.toLowerCase() === slug.toLowerCase());
 }
 
 export function getGuidebookByName(name: string): PropertyGuidebook | undefined {

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
-import { guidebooks } from "@/data/guidebooks";
 
 const season = (): SeasonalTheme => {
   const now = new Date();
@@ -49,7 +48,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       const sp = await spPromise;
       // Accept both slug and Guesty listing name
       const raw = p.property.replace(/-/g, '-');
-      const gb = getGuidebook(raw) || Object.values(guidebooks).find((g: PropertyGuidebook) => g.name.toLowerCase() === raw.toLowerCase() || g.shortName.toLowerCase() === raw.toLowerCase());
+      const gb = getGuidebook(raw);
       if (!gb) return;
       setProp(gb);
       if (sp.code) setGuestCode(sp.code);
