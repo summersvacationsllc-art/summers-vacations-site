@@ -224,7 +224,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "the-penthouse",
     name: "The Penthouse",
     shortName: "Penthouse",
-    address: "550 Notch Ln, Building 9, Unit 11, Reeds Spring, MO 65737",
+    address: "550 Notch Ln, Building 9, Unit 11, Branson West, MO 65737",
     guestyListingId: "68eeb58d873b002c39d38657",
     ...COMMON,
 
@@ -285,7 +285,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "rustic-ozark-retreat",
     name: "Rustic Ozark Retreat",
     shortName: "Rustic Ozark",
-    address: "550 Notch Ln, Building 9, Unit 7, Reeds Spring, MO 65737",
+    address: "550 Notch Ln, Building 9, Unit 7, Branson West, MO 65737",
     guestyListingId: "68eeb5866f48002c3d470a6c",
     ...COMMON,
 
@@ -347,7 +347,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "double-condo",
     name: "Double Condo",
     shortName: "Double",
-    address: "550 Notch Ln, Building 9, Units 7 & 11, Reeds Spring, MO 65737",
+    address: "550 Notch Ln, Building 9, Units 7 & 11, Branson West, MO 65737",
     guestyListingId: "68eeb561cce1002c364dfb89",
     ...COMMON,
 
@@ -471,7 +471,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "woodland-retreat",
     name: "Woodland Retreat",
     shortName: "Woodland",
-    address: "499 Notch Ln, Building 14, Unit 6, Reeds Spring, MO 65737",
+    address: "499 Notch Ln, Building 14, Unit 6, Branson West, MO 65737",
     guestyListingId: "68eecd33a359002c338a2a55",
     ...COMMON,
 
@@ -524,7 +524,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "modern-charmer",
     name: "Modern Charmer",
     shortName: "Modern",
-    address: "550 Notch Lane, Unit 8, Reeds Spring, MO 65737",
+    address: "550 Notch Lane, Unit 8, Branson West, MO 65737",
     guestyListingId: "696679519399002c92ac4ec4",
     ...COMMON,
 
@@ -564,7 +564,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "pretty-peacock",
     name: "Pretty Peacock",
     shortName: "Peacock",
-    address: "289 Notch Lane, Building 19, Unit 1, Reeds Spring, MO 65737",
+    address: "289 Notch Lane, Building 19, Unit 1, Branson West, MO 65737",
     guestyListingId: "699911d27b1a001efccbf235",
     ...COMMON,
 
