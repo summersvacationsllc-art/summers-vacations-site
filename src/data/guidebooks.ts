@@ -571,7 +571,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Last 4 digits of booking phone",
+      doorCode: "3251",
       directions:
         "From Highway 76: Look for Church of Jesus Christ of Latter-day Saints. Turn onto Notch Lane between the church and Notch Inn & Suites. Continue half a mile. 289 will be on your left. Building is tan with brown trim.",
       parking:
@@ -610,6 +610,11 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
 export function getGuidebook(slug: string): PropertyGuidebook | undefined {
   return guidebooks[slug];
+}
+
+export function getGuidebookByName(name: string): PropertyGuidebook | undefined {
+  const lower = name.toLowerCase().trim();
+  return Object.values(guidebooks).find(gb => gb.name.toLowerCase() === lower || gb.shortName.toLowerCase() === lower);
 }
 
 export function getAllGuidebookSlugs(): string[] {

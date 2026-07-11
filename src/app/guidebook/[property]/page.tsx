@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
+import { getGuidebook, getGuidebookByName, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
 
 const season = (): SeasonalTheme => {
   const now = new Date();
@@ -12,15 +12,30 @@ const season = (): SeasonalTheme => {
 const T = season();
 const S = (light = '', dark = '') => ({ backgroundColor: T.primaryColor, backgroundImage: T.gradient, ...(light ? { color: light } : {}), ...(dark ? { color: dark } : {}) });
 
+// Convert "4:00 PM" → "16:00:00" for Date constructor
+function convertTime(t: string): string {
+  const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!m) return '16:00:00';
+  let h = parseInt(m[1]);
+  const min = m[2];
+  const ampm = m[3].toUpperCase();
+  if (ampm === 'PM' && h !== 12) h += 12;
+  if (ampm === 'AM' && h === 12) h = 0;
+  return `${String(h).padStart(2,'0')}:${min}:00`;
+}
+
 export default function GuidebookPage({ params, searchParams: spPromise }: {
   params: Promise<{ property: string }>;
-  searchParams: Promise<{ code?: string; name?: string }>;
+  searchParams: Promise<{ code?: string; name?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string }>;
 }) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
   const [mode, setMode] = useState<'guest'|'branson'>('guest');
   const [guestCode, setGuestCode] = useState('');
   const [guestName, setGuestName] = useState('');
+  const [checkin, setCheckin] = useState('');
+  const [checkout, setCheckout] = useState('');
+  const [checkinTime, setCheckinTime] = useState('');
   const contentRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [photos, setPhotos] = useState<string[]>([]);
@@ -31,11 +46,14 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     (async () => {
       const p = await params;
       const sp = await spPromise;
-      const gb = getGuidebook(p.property.replace(/-/g, '-'));
+      const gb = getGuidebook(p.property.replace(/-/g, '-')) || (sp.listing ? getGuidebookByName(sp.listing) : undefined);
       if (!gb) return;
       setProp(gb);
       if (sp.code) setGuestCode(sp.code);
       if (sp.name) setGuestName(sp.name);
+      if (sp.checkin) setCheckin(sp.checkin);
+      if (sp.checkout) setCheckout(sp.checkout);
+      if (sp.checkintime) setCheckinTime(sp.checkintime);
       // Fetch Guesty photos
       if (gb.guestyListingId) {
         try {
@@ -74,6 +92,42 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const isModern = prop && prop.id === 'modern-charmer';
   const isPeacock = prop && prop.id === 'pretty-peacock';
   const today = new Date();
+  // ── Time-gated door code (all properties) ──────
+  let doorState: 'before' | 'early' | 'ready' | 'after' = 'ready';
+  let doorDisplay = guestCode || prop.checkIn.doorCode;
+  let checkinLabel = '';
+  let doorNote = '';
+  if (checkin && checkout) {
+    const ciDate = new Date(checkin + 'T07:00:00'); // 7AM — code visible
+    const ciTime = checkinTime || '4:00 PM';
+    const ciActive = new Date(checkin + 'T' + convertTime(ciTime)); // actual check-in
+    const co = new Date(checkout + 'T11:00:00'); // 11AM checkout
+    if (today < ciDate) {
+      doorState = 'before';
+      doorDisplay = 'Available at check-in';
+      checkinLabel = ciDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    } else if (today < ciActive) {
+      doorState = 'early';
+      doorNote = 'Not active until ' + ciTime;
+      checkinLabel = ciDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    } else if (today > co) {
+      doorState = 'after';
+      doorDisplay = 'Stay ended';
+    }
+  }
+  const doorBg = doorState === 'ready'
+    ? { background: 'linear-gradient(135deg,#f5c842,#e8b832)' }
+    : doorState === 'early'
+      ? { background: 'linear-gradient(135deg,#fbbf24,#f59e0b)' }
+      : doorState === 'before'
+        ? { background: 'linear-gradient(135deg,#93c5fd,#60a5fa)' }
+        : { background: 'linear-gradient(135deg,#d1d5db,#9ca3af)' };
+  const doorTag = doorState === 'ready' ? '✦ Ready'
+    : doorState === 'early' ? '⏳ Waiting'
+    : doorState === 'before' ? '🕐 Upcoming' : '🏁 Ended';
+  const isActive = doorState === 'ready' || doorState === 'early';
+  const wifiVisible = isActive ? prop.wifi.network : 'Available at check-in';
+  const wifiNote = isActive ? '' : '🔒';
   const todayFormatted = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const styles = {
     bar: { background: T.gradient },
@@ -189,12 +243,18 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   </h1>
                   <div className="text-[13px] mt-0.5" style={{ color: '#c4b5a0' }}>{prop.name} • Check-in at {prop.checkIn.time}</div>
                 </div>
-                <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 flex items-center gap-2.5 shadow-lg" style={{ background: 'linear-gradient(135deg,#f5c842,#e8b832)' }}>
+                <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 flex items-center gap-2.5 shadow-lg" style={doorBg}>
                   <div>
-                    <div className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: '#5c3d1e' }}>Your Door Code</div>
-                    <div className="text-3xl font-extrabold tracking-[4px]" style={{ color: '#2c1810' }}>{guestCode || prop.checkIn.doorCode}</div>
+                    <div className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: doorState === 'ready' ? '#5c3d1e' : doorState === 'early' ? '#92400e' : doorState === 'before' ? '#1e40af' : '#6b7280' }}>Your Door Code</div>
+                    <div className={`font-extrabold tracking-[4px] ${doorState === 'ready' || doorState === 'early' ? 'text-3xl' : 'text-lg'}`} style={{ color: doorState === 'ready' ? '#2c1810' : doorState === 'early' ? '#78350f' : doorState === 'before' ? '#1e3a5f' : '#4b5563' }}>{doorDisplay}</div>
+                    {checkinLabel && <div className="text-[11px] mt-0.5" style={{ color: doorState === 'early' ? '#92400e' : doorState === 'before' ? '#1e40af' : '#6b7280' }}>Check-in: {checkinLabel} at 4PM</div>}
+                    {doorNote && <div className="text-[10px] mt-0.5 font-semibold" style={{ color: '#b45309' }}>⏳ {doorNote}</div>}
                   </div>
-                  <span className="ml-auto text-[11px] font-semibold px-2 py-1 rounded-full whitespace-nowrap" style={{ background: 'rgba(44,24,16,.15)', color: '#5c3d1e' }}>✦ Ready</span>
+                  <span className="ml-auto text-[11px] font-semibold px-2 py-1 rounded-full whitespace-nowrap"
+                    style={doorState === 'ready' ? { background: 'rgba(44,24,16,.15)', color: '#5c3d1e' }
+                      : doorState === 'early' ? { background: 'rgba(180,83,9,.15)', color: '#92400e' }
+                      : doorState === 'before' ? { background: 'rgba(30,64,175,.15)', color: '#1e40af' }
+                      : { background: 'rgba(0,0,0,.08)', color: '#6b7280' }}>{doorTag}</span>
                 </div>
               </>
             ) : (
@@ -225,7 +285,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
 
             <div className="flex gap-2 px-3.5 pt-1.5">
-              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-stone-100"><div className="text-[10px] uppercase tracking-wide text-stone-400 font-semibold">WiFi</div><div className="text-[12px] font-bold text-stone-800 mt-0.5">{prop.wifi.network}</div></div>
+              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-stone-100"><div className="text-[10px] uppercase tracking-wide text-stone-400 font-semibold">WiFi {wifiNote}</div><div className="text-[12px] font-bold text-stone-800 mt-0.5">{wifiVisible}</div></div>
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-stone-100"><div className="text-[10px] uppercase tracking-wide text-stone-400 font-semibold">Check-out</div><div className="text-[13px] font-bold text-stone-800 mt-0.5">10 AM</div></div>
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-stone-100"><div className="text-[10px] uppercase tracking-wide text-stone-400 font-semibold">Pool</div><div className="text-[13px] font-bold text-stone-800 mt-0.5">8–10PM</div></div>
             </div>
@@ -299,8 +359,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 </div>
                 <div className="px-3.5 pt-3">
                   {isNotch && guideItem('#fce7f3','🎒','Things to Bring','Recommended packing list','🧴 Sunblock & bug spray<br>🩴 Pool/beach towels for the lake<br>🎣 Fishing gear if you plan to fish<br>🪵 Charcoal for the BBQ grills (not provided)<br>🧺 Cooler for lake days<br>🧼 Extra laundry detergent if doing multiple loads<br>🪙 Quarters for coin laundry<br>🥾 Sturdy shoes or hiking boots for the rocky trail<br><br>⏯️ <a href="https://www.youtube.com/watch?v=2DvVB7xTuNk" target="_blank" style="color:#166534;">Watch: Things to Bring video guide</a>')}
-                  {guideItem('#fef3c7','🔑','Check-in & Access','Door code, keyless entry','<strong>Check-in:</strong> Anytime after 4:00 PM<br><br><strong>Door Code:</strong> '+(guestCode||prop.checkIn.doorCode)+'<br><br><strong>Keyless entry</strong> — code activates at 4PM on check-in day.')}
-                  {guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+prop.wifi.network+'<br><strong>Password:</strong> '+prop.wifi.password+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
+                  {guideItem('#fef3c7','🔑','Check-in & Access','Door code, keyless entry','<strong>Check-in:</strong> Anytime after 4:00 PM<br><br><strong>Door Code:</strong> '+(doorState === "ready" || doorState === "early" ? doorDisplay : "Revealed on your check-in day")+'<br><br><strong>Keyless entry</strong> — code activates at 4PM on check-in day.')}
+                  {guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   <div className="bg-white rounded-lg mb-1 border border-stone-100 overflow-hidden">
                     <details className="group">
                       <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
