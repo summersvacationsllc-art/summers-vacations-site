@@ -722,6 +722,46 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
       </div>
 
+        {/* ═══ CHECKOUT ═══ */}
+        {tab === 'checkout' && (
+          <>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#1e3a5f,#2d5a8e)' }}>
+              <h1 className="font-serif text-2xl text-amber-300" style={{ fontFamily: "'DM Serif Display', serif" }}>Checkout</h1>
+              <p className="text-[12px] mt-0.5 text-stone-300">Safe travels — we hope you enjoyed your stay!</p>
+            </div>
+            <div className="mx-3.5 mt-3 bg-red-50 rounded-lg px-3 py-2 border border-red-200">
+              <div className="text-[13px] font-bold text-red-700">⏰ Checkout by 10:00 AM</div>
+              <div className="text-[11px] text-red-600 mt-0.5">Late checkout is rarely possible if guests are arriving that day. Please plan ahead!</div>
+            </div>
+            <div className="mx-3.5 mt-2 text-[12px] text-stone-500 uppercase tracking-wider font-semibold">Before you leave:</div>
+            {[
+              { icon: '🛏️', title: 'Leave beds unmade', body: 'No need to strip the sheets — just leave them as-is. If you used the sleeper sofa, leave the cushions off the couch.' },
+              { icon: '🛁', title: isHaven ? 'Towels in downstairs bathroom' : 'Towels on bathroom floor', body: isHaven ? 'Place used towels in the downstairs front bathroom shower floor.' : 'Place used towels on the hallway bathroom shower floor.' },
+              { icon: '🗑️', title: 'Take trash to dumpster', body: isHaven ? 'Take all trash to the dumpster.' : 'Take all trash to the dumpster located in front of the building to the left.' },
+              { icon: '🍽️', title: isHaven ? 'Start the dishwasher' : 'Wash and dry dishes', body: isHaven ? 'Put any remaining dishes in the dishwasher and start a cycle.' : 'Please hand wash any remaining dishes and leave them to dry. Our staff will put them away.' },
+              { icon: '💡', title: 'Turn everything off', body: 'Turn off the stove, heater, lights, and all electronics.' },
+              { icon: '🪑', title: 'Move furniture back', body: 'Return any furniture or items you moved back to their original locations.' },
+              { icon: '🔒', title: 'Lock all doors & windows', body: 'Check every door and window to make sure theyâre locked before you leave.' },
+            ].map((item, i) => (
+              <div key={i} className="mx-3.5 mt-2 bg-white rounded-lg px-3 py-2.5 border border-stone-100">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">{item.icon}</span>
+                  <div className="text-[13px] font-bold text-stone-800">{item.title}</div>
+                </div>
+                <div className="text-[11px] text-stone-500 mt-0.5 ml-7">{item.body}</div>
+              </div>
+            ))}
+            <div className="mx-3.5 mt-3 mb-2 bg-amber-50 rounded-lg px-3 py-2 border border-amber-200">
+              <div className="text-[12px] text-amber-800 font-semibold">⭐ Leave us a review!</div>
+              <div className="text-[11px] text-amber-700 mt-0.5">VRBO and Airbnb will send you a review request. If you can't give us 5 stars, please let us know why — your feedback helps our next guests have a great stay!</div>
+            </div>
+            <div className="text-center pb-4">
+              <div className="text-[12px] text-stone-400">Thank you for staying with us!</div>
+              <div className="text-[11px] text-stone-300 mt-0.5">— Brian & Chantel Summers</div>
+            </div>
+          </>
+        )}
+
       {/* Tab Bar */}
       <div className="overflow-x-auto flex-shrink-0" style={styles.tabBar}>
         <div className="flex h-[60px] pb-1" style={{ minWidth: 'fit-content' }}>
@@ -733,6 +773,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           {tabBtn('golf','M14.5 2C15 3.5 15 5 14.5 6.5M9 16.8V20M9 4L20 7v8L9 10.5','Golf')}
           {tabBtn('dining','M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z','Dining')}
           {tabBtn('contact','M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z','Contact')}
+          {tabBtn('checkout','M9 5l7 7-7 7','Checkout')}
         </div>
       </div>
     </div>
