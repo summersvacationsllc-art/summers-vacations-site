@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Brief — July 11, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #faf6f0;
+    color: #3b2f1f;
+    line-height: 1.6;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    padding: 48px 24px 32px;
+    background: linear-gradient(135deg, #2c1810 0%, #5c3a1e 50%, #8b5e34 100%);
+    border-radius: 16px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0c060' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .masthead h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: #f5e6c8;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .masthead .subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: #d4a95a;
+    font-size: 1.1rem;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+  .masthead .date-badge {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 20px;
+    background: rgba(212, 169, 90, 0.2);
+    border: 1px solid #d4a95a;
+    border-radius: 20px;
+    color: #f5e6c8;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section cards */
+  .section {
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(59,47,31,0.06);
+    border: 1px solid #ede6db;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #5c3a1e;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8dcc8;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .emoji { font-size: 1.4rem; }
+
+  /* Status tags */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .tag-ok { background: #e3f5e3; color: #2d6a2d; }
+  .tag-warn { background: #fef3d9; color: #8b5e00; }
+  .tag-issue { background: #fde8e8; color: #b91c1c; }
+  .tag-info { background: #e0edf7; color: #2563eb; }
+
+  /* Stats grid */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .stat-card {
+    background: #faf6f0;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .stat-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: #5c3a1e;
+    line-height: 1.1;
+  }
+  .stat-card .label {
+    font-size: 0.75rem;
+    color: #8b7355;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Agent fleet list */
+  .agent-list { list-style: none; }
+  .agent-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0eae0;
+    font-size: 0.9rem;
+  }
+  .agent-list li:last-child { border-bottom: none; }
+  .agent-list .agent-name { flex: 1; }
+  .agent-list .agent-time { color: #8b7355; font-size: 0.8rem; min-width: 54px; }
+
+  /* Reservation table */
+  .res-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .res-table th {
+    text-align: left;
+    padding: 8px 10px;
+    background: #faf6f0;
+    font-weight: 600;
+    color: #5c3a1e;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid #e8dcc8;
+  }
+  .res-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f0eae0;
+  }
+  .res-table .today { background: #fff8e8; font-weight: 500; }
+
+  /* Health bar */
+  .health-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+  }
+  .health-bar .bar {
+    flex: 1;
+    height: 8px;
+    background: #e8dcc8;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .health-bar .bar .fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s;
+  }
+  .fill-green { background: #2d9a2d; }
+  .fill-red { background: #b91c1c; }
+
+  /* NVIDIA table */
+  .model-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .model-table th {
+    text-align: left;
+    padding: 6px 10px;
+    background: #faf6f0;
+    font-weight: 600;
+    color: #5c3a1e;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid #e8dcc8;
+  }
+  .model-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #f0eae0;
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: 0.78rem;
+  }
+
+  .alert-box {
+    background: #fff8e8;
+    border-left: 4px solid #e8a020;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-size: 0.9rem;
+  }
+  .alert-box.issue {
+    background: #fde8e8;
+    border-left-color: #b91c1c;
+  }
+  .alert-box.success {
+    background: #e3f5e3;
+    border-left-color: #2d6a2d;
+  }
+
+  .gold-line { height: 2px; background: linear-gradient(90deg, #d4a95a, #f0c060, #d4a95a); margin: 6px 0 18px; }
+
+  @media (max-width: 600px) {
+    .container { padding: 16px; }
+    .masthead h1 { font-size: 1.6rem; }
+    .section { padding: 20px 16px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <h1>☕ Morning Brief</h1>
+  <div class="subtitle">Summers Vacations — Branson Content Engine</div>
+  <div class="date-badge">📅 Saturday, July 11, 2026</div>
+</div>
+
+<!-- ====== 1. STR MANAGER DASHBOARD ====== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🏡</span> STR Manager Dashboard</div>
+
+  <div class="alert-box success">
+    <strong>✅ Build: Passed</strong> (npm run build — exit 0, 6.0s + 6.9s TS + 0.64s static gen)<br>
+    <strong>⚠️ Lint:</strong> Failed — 29 problems (2 errors, 27 warnings) — should be addressed.
+  </div>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">📥 Today's Check-Ins <span class="tag tag-ok">2 guests</span></h3>
+  <table class="res-table">
+    <thead><tr><th>Guest</th><th>Property</th><th>Nights</th><th>Guests</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr class="today"><td>Allie Rowland</td><td>Rustic Ozark</td><td>Jul 11–13 (2)</td><td>4</td><td>Airbnb</td></tr>
+      <tr class="today"><td>Dominik Sillas</td><td>Woodland Retreat</td><td>Jul 11–13 (2)</td><td>3</td><td>Airbnb</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">📤 Today's Check-Outs <span class="tag tag-warn">2 guests</span></h3>
+  <table class="res-table">
+    <thead><tr><th>Guest</th><th>Property</th><th>Stay</th><th>Guests</th></tr></thead>
+    <tbody>
+      <tr class="today"><td>Bobbie Wood</td><td>Woodland Retreat</td><td>Jul 7–11</td><td>6</td></tr>
+      <tr class="today"><td>Beverly Wroten</td><td>Rustic Ozark</td><td>Jul 8–11</td><td>2</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">🏠 Currently In-House</h3>
+  <table class="res-table">
+    <thead><tr><th>Guest</th><th>Property</th><th>Check-In</th><th>Check-Out</th><th>Guests</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Amber Urich</td><td>Peacock</td><td>Jul 5</td><td>Jul 12</td><td>5</td><td>VRBO</td></tr>
+      <tr><td>Kooper Rogers</td><td>Indian Point</td><td>Jul 10</td><td>Jul 12</td><td>11</td><td>Airbnb</td></tr>
+      <tr><td>Kerry Anthony</td><td>Modern Charmer</td><td>Jul 10</td><td>Jul 12</td><td>5</td><td>Airbnb</td></tr>
+      <tr><td>Henry Córdova</td><td>Penthouse</td><td>Jul 10</td><td>Jul 12</td><td>3</td><td>Airbnb</td></tr>
+      <tr><td>Allie Rowland</td><td>Rustic Ozark</td><td>Jul 11</td><td>Jul 13</td><td>4</td><td>Airbnb</td></tr>
+      <tr><td>Dominik Sillas</td><td>Woodland Retreat</td><td>Jul 11</td><td>Jul 13</td><td>3</td><td>Airbnb</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box" style="margin-top: 16px;">
+    <strong>📊 3-night avg booking length</strong> — 27 total guests in-house tonight across 6 properties.<br>
+    <strong>👑 Brian Summers</strong> checking into Penthouse Jul 13–18 (owner stay, 4 combined bookings).<br>
+    <strong>Indian Point</strong> heavy traffic: check-out today (Bobbie Wood), check-in tomorrow (Robert Pollard, 14 guests Jul 14–18).
+  </div>
+</div>
+
+<!-- ====== 2. CONTENT PIPELINE STATUS ====== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">📰</span> Content Pipeline Status</div>
+
+  <div class="alert-box success">
+    <strong>🎉 PIPELINE BREAKTHROUGH!</strong> After 38+ consecutive zero-output cycles, Social Studio finally produced content today. First successful batch since Jun 25 posts / Jul 3 flyers.
+  </div>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">Scout Reports — July 11</h3>
+  <ul class="agent-list">
+    <li><span class="tag tag-ok">04:30</span> <span class="agent-name">🌍 Intel Scout</span><span class="tag tag-ok">14 items</span></li>
+    <li><span class="tag tag-ok">04:45</span> <span class="agent-name">🏬 Landing Scout</span><span class="tag tag-ok">Farmers Market + concerts</span></li>
+    <li><span class="tag tag-ok">04:50</span> <span class="agent-name">🎣 Fishing Report</span><span class="tag tag-ok">Table Rock 75–79°F / Taneycomo hot</span></li>
+    <li><span class="tag tag-ok">05:00</span> <span class="agent-name">🎭 Shows Scout</span><span class="tag tag-ok">30+ shows, SDC extended hours</span></li>
+    <li><span class="tag tag-ok">05:30</span> <span class="agent-name">🍽️ Food Scout</span><span class="tag tag-ok">18 restaurants, Level 2 Wine Dinner</span></li>
+    <li><span class="tag tag-ok">05:40</span> <span class="agent-name">⛳ Golf Scout</span><span class="tag tag-ok">Branson Hills #1 in MO</span></li>
+    <li><span class="tag tag-ok">05:45</span> <span class="agent-name">🏎️ Strip Scout</span><span class="tag tag-ok">20+ attractions</span></li>
+    <li><span class="tag tag-ok">06:00</span> <span class="agent-name">📸 Photo Scout</span><span class="tag tag-ok">+27 photos (473 total)</span></li>
+    <li><span class="tag tag-ok">06:15</span> <span class="agent-name">📱 Social Studio</span><span class="tag tag-ok">3 posts + 3 flyers + PNGs</span></li>
+    <li><span class="tag tag-ok">06:15</span> <span class="agent-name">📋 Morning Brief</span><span class="tag tag-ok">Compiled (this report)</span></li>
+  </ul>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">📱 Social Studio Output</h3>
+  <table class="res-table">
+    <thead><tr><th>#</th><th>Post</th><th>Pillar</th><th>Flyer</th><th>PNG</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>SDC Night Sky Drone & Fireworks</td><td>🎪 Events</td><td>✅ 01-events.html</td><td>✅ 419KB</td></tr>
+      <tr><td>2</td><td>Table Rock + Taneycomo Fishing</td><td>🌲 Outdoors</td><td>✅ 02-fishing.html</td><td>✅ 485KB</td></tr>
+      <tr><td>3</td><td>Pickin Porch Grill local gem</td><td>🥧 Local Secrets</td><td>✅ 03-feature.html</td><td>✅ 674KB</td></tr>
+    </tbody>
+  </table>
+
+  <div class="stats" style="margin-top: 16px;">
+    <div class="stat-card"><div class="number">7/7</div><div class="label">Scouts Completed</div></div>
+    <div class="stat-card"><div class="number">3</div><div class="label">Posts Written</div></div>
+    <div class="stat-card"><div class="number">3</div><div class="label">Flyers Rendered</div></div>
+    <div class="stat-card"><div class="number">473</div><div class="label">Photo Catalog</div></div>
+  </div>
+</div>
+
+<!-- ====== 3. NVIDIA AI STACK ====== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🧠</span> NVIDIA AI Stack</div>
+
+  <div class="alert-box success">
+    <strong>19 new chat models added!</strong> Stack expanded from 4 → 23 chat models in one day. Total: 25 models from 1 API key.
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="number">23</div><div class="label">Chat Models</div></div>
+    <div class="stat-card"><div class="number">1</div><div class="label">Vision Model</div></div>
+    <div class="stat-card"><div class="number">1</div><div class="label">Embedding Model</div></div>
+    <div class="stat-card"><div class="number">25</div><div class="label">Total Models</div></div>
+  </div>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">New Model Highlights</h3>
+  <table class="model-table">
+    <thead><tr><th>Flag</th><th>Model</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><code>deepseek</code></td><td>deepseek-v4-flash</td><td style="color:#5c3a1e;">Fast, general-purpose</td></tr>
+      <tr><td><code>mistral-large</code></td><td>mistral-large-3-675b-instruct</td><td style="color:#5c3a1e;">Heavyweight reasoning</td></tr>
+      <tr><td><code>nemotron-super</code></td><td>nemotron-3-super-120b-a12b</td><td style="color:#5c3a1e;">MoE reasoning powerhouse</td></tr>
+      <tr><td><code>nemotron-omni</code></td><td>nemotron-3-nano-omni-30b</td><td style="color:#5c3a1e;">Omni-modal reasoning</td></tr>
+      <tr><td><code>qwen</code></td><td>qwen3.5-122b-a10b</td><td style="color:#5c3a1e;">Strong open-source alt</td></tr>
+      <tr><td><code>phi4</code></td><td>phi-4-mini-instruct</td><td style="color:#5c3a1e;">Microsoft compact</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box" style="margin-top: 12px;">
+    <strong>⚠️ 15 models unavailable (timeout/404):</strong> deepseek-v4-pro, gemma-4-31b, llama-4-maverick, llama-3.1-70b, llama-3.2-1b/3b, qwen3-next-80b, gemma-3-12b/4b, nemotron-70b/51b, mistral-large-2, mixtral-8x22b, yi-large, step-3.7-flash.
+  </div>
+</div>
+
+<!-- ====== 4. BIZDEV INTEL ====== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">📈</span> BizDev Intelligence</div>
+
+  <div class="alert-box">
+    <strong>📊 Growth Division SITREP — Jul 7, 2026</strong><br>
+    Status: <span class="tag tag-warn">AMBER</span> — Content Engine operating reliably, but Market Scout & Opportunity Analyst ran silent (no new findings). Risk: potential intelligence gaps.
+    <br><br>
+    <strong>No newer reports</strong> since Jul 7. BizDev pipeline appears idle.
+  </div>
+
+  <p style="font-size: 0.85rem; color: #8b7355; margin-top: 8px;">
+    📁 Files checked: <code>data/sitreps/growth/2026-07-07.md</code> (latest), <code>data/competitors/</code> (last Jul 4), <code>data/intel/</code> (last Jul 9).<br>
+    No Division Chief (11:45 PM CT) assessment yet for tonight — expected to verify social health in nightly report.
+  </p>
+</div>
+
+<!-- ====== 5. AGENT FLEET STATUS ====== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🤖</span> Agent Fleet Status</div>
+
+  <div class="health-bar">
+    <span style="font-size: 0.85rem; font-weight: 600;">Fleet Health</span>
+    <div class="bar"><div class="fill fill-green" style="width:100%"></div></div>
+    <span style="font-size: 0.85rem; color: #2d6a2d;">38/38 <span class="tag tag-ok">HEALTHY</span></span>
+  </div>
+
+  <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">Today's Runs (July 11)</h3>
+  <ul class="agent-list">
+    <li><span class="tag tag-ok">04:30</span> <span class="agent-name">🌍 Intel Scout</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">04:45</span> <span class="agent-name">🏬 Landing Scout</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">04:50</span> <span class="agent-name">🎣 Fishing Report</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">05:00</span> <span class="agent-name">🎭 Shows & Entertainment</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">05:30</span> <span class="agent-name">🍽️ Food & Beverage Scout</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">05:40</span> <span class="agent-name">⛳ Golf Scout</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">05:45</span> <span class="agent-name">🏎️ Strip Scout</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">06:00</span> <span class="agent-name">📸 Photo Scout (R1)</span><span class="tag tag-ok">+18 photos</span></li>
+    <li><span class="tag tag-ok">06:00</span> <span class="agent-name">📸 Photo Scout (R2)</span><span class="tag tag-ok">+9 photos</span></li>
+    <li><span class="tag tag-ok">06:15</span> <span class="agent-name">📱 Social Studio</span><span class="tag tag-ok">3 posts + 3 flyers</span></li>
+    <li><span class="tag tag-ok">06:15</span> <span class="agent-name">📋 Morning Brief</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">07:20</span> <span class="agent-name">📋 Guest Daily Report</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">08:05</span> <span class="agent-name">🔍 Intel Scout (watchdog)</span><span class="tag tag-ok">retry succeeded</span></li>
+    <li><span class="tag tag-ok">08:08</span> <span class="agent-name">🎣 Fishing (watchdog)</span><span class="tag tag-ok">retry succeeded</span></li>
+    <li><span class="tag tag-ok">08:08</span> <span class="agent-name">🐕 Social Watchdog</span><span class="tag tag-ok">ok</span></li>
+    <li><span class="tag tag-ok">08:33</span> <span class="agent-name">🛡️ Gatekeeper (R1)</span><span class="tag tag-ok">13/13 retries ok</span></li>
+    <li><span class="tag tag-ok">09:00</span> <span class="agent-name">🛡️ Gatekeeper (R2)</span><span class="tag tag-ok">38/38 healthy</span></li>
+    <li><span class="tag tag-ok">09:01–13:30</span> <span class="agent-name">🐕 Social Watchdog</span><span class="tag tag-ok">multi-cycle, all ok</span></li>
+    <li><span class="tag tag-ok">10:11</span> <span class="agent-name">🛡️ Gatekeeper (R3)</span><span class="tag tag-ok">38/38 healthy</span></li>
+    <li><span class="tag tag-ok">11:15</span> <span class="agent-name">🛡️ Gatekeeper (R4)</span><span class="tag tag-ok">38/38 healthy</span></li>
+    <li><span class="tag tag-issue">12:00</span> <span class="agent-name">🛡️ Gatekeeper (R5)</span><span class="tag tag-issue">FB token expired</span></li>
+    <li><span class="tag tag-ok">14:08</span> <span class="agent-name">🛡️ Gatekeeper (R6)</span><span class="tag tag-ok">38/38 healthy</span></li>
+  </ul>
+
+  <div class="alert-box" style="margin-top: 12px;">
+    <strong>🔄 Watchdog coverage:</strong> 6 AM – 8 PM CT, every 30 min. All 13 Branson LLM jobs healthy across every cycle today.<br>
+    <strong>🛡️ Gatekeeper:</strong> 6 full sweeps today — fixed 1 run-log corruption, 3 nudge scripts, 1 model pin, 1 morning-brief model switch (Hermes-4-405B → deepseek/v4-flash).
+  </div>
+</div>
+
+<!-- ====== 6. TODAY'S FOCUS ACTIONS ====== -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🎯</span> Today's Focus Actions</div>
+
+  <div class="alert-box issue">
+    <strong>🔴 CRITICAL: Facebook Auto-Publish Token Expired</strong><br>
+    Facebook access token has been expired since June 30 (Day 11). Flyers and PNGs are ready in <code>output/flyers/2026-07-11/</code> but cannot be posted. <strong>Requires Brian to manually renew the FB token.</strong> Gatekeeper has escalated this every sweep today.
+  </div>
+
+  <div class="alert-box">
+    <strong>🟡 MORNING BRIEF macOS TCC Block</strong><br>
+    Cannot write to <code>~/Desktop/Morning hermes report/</code> due to macOS Transparency, Consent, & Control restrictions. Brief is being saved to <code>reports/morning-brief/2026-07-11.html</code> as fallback.
+  </div>
+
+  <div class="alert-box success">
+    <strong>✅ PIPELINE UNBLOCKED</strong> — After 38+ zero-output cycles, Social Studio produced 3 posts + 3 HTML flyers with PNG renders. This is the first successful content output since Jun 25 (posts) and Jul 3 (flyers). Keep monitoring for continued output.
+  </div>
+
+  <div class="alert-box">
+    <strong>🟢 STR Build</strong> — Build passes but lint has 29 issues (2 errors). Should be addressed for code quality.<br>
+    <strong>🟢 NVIDIA Stack</strong> — 25 models operational after today's expansion. 15 models failed (timeout/404). Monitor for future retries.<br>
+    <strong>🟢 BizDev</strong> — Last SITREP Jul 7 (AMBER). No activity since. Market Scout and Opportunity Analyst ran silent — potential gap to address.<br>
+    <strong>🟢 Upcoming:</strong> AJGA Payne Stewart Jr Championship Jul 20-23, Big Cedar Golf Retreat Jul 13-16, Narnia Live opens Jul 14, Bohemian Queen Jul 18.
+  </div>
+
+  <hr style="border: none; border-top: 1px solid #e8dcc8; margin: 20px 0;">
+
+  <div style="font-family: 'DM Serif Display', serif; text-align: center; font-size: 0.9rem; color: #8b7355; font-style: italic;">
+    "The Ozarks in July — warm water, cold shows, and starry nights."<br>
+    <span style="font-size: 0.8rem;">— Morning Brief, July 11, 2026</span>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
