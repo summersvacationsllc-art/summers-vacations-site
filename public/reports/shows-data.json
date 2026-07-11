@@ -1,0 +1,26 @@
+{
+  "date": "2026-07-11",
+  "shows": [
+    {"name": "Awesome 80's", "time": "2:00 PM", "venue": "Americana Theatre", "type": "Tribute", "url": ""},
+    {"name": "#1 Hits of the 60's (& 50's, Too!)", "time": "2:00 PM", "venue": "—", "type": "Variety", "url": ""},
+    {"name": "British Invasion", "time": "2:00 PM", "venue": "The Showroom Theater", "type": "Tribute", "url": ""},
+    {"name": "DOO WOP!", "time": "2:00 PM", "venue": "—", "type": "Tribute", "url": ""},
+    {"name": "Dublin's Irish Tenors with The Celtic Ladies", "time": "2:00 PM", "venue": "—", "type": "Variety", "url": ""},
+    {"name": "Dolly Parton's Stampede (Extra Matinee)", "time": "3:00 PM, 5:30 & 8 PM", "venue": "Stampede Arena", "type": "Dinner", "url": "https://www.dollypartonsstampede.com/branson/"},
+    {"name": "Great American Chuckwagon Dinner Show", "time": "5:00 PM", "venue": "Shepherd of the Hills", "type": "Dinner", "url": ""},
+    {"name": "ReVibe Dinner Show", "time": "5:00 PM", "venue": "Hughes Brothers Theatre", "type": "Dinner", "url": ""},
+    {"name": "Comedy Jamboree", "time": "7:30 PM", "venue": "Grand Country Music Hall", "type": "Comedy", "url": ""},
+    {"name": "Shepherd of the Hills Outdoor Drama", "time": "7:30 PM", "venue": "Shepherd of the Hills Amphitheater", "type": "Outdoor", "url": ""},
+    {"name": "The Haygoods", "time": "7:30 PM", "venue": "Clay Cooper Theatre", "type": "Family", "url": "https://www.haygoodshow.com/"},
+    {"name": "Hughes Music Show", "time": "8:00 PM", "venue": "Hughes Brothers Theatre", "type": "Family", "url": "https://www.hughesbrotherstheatre.com/"},
+    {"name": "Legends in Concert", "time": "8:00 PM", "venue": "Legends in Concert Theater", "type": "Tribute", "url": "https://www.legendsinconcert.com/branson/"},
+    {"name": "MJ The Illusion: Re-living The King of Pop!", "time": "8:00 PM", "venue": "—", "type": "Tribute", "url": ""},
+    {"name": "Nashville Roadhouse Live", "time": "8:00 PM", "venue": "—", "type": "Country", "url": ""},
+    {"name": "WhoDunnit Hoedown Murder Mystery", "time": "8:00 PM", "venue": "—", "type": "Interactive", "url": ""}
+  ],
+  "freeEvents": [
+    "Music on the Lake — Dirty Truth (Classic Rock) at Kimberling City Shopping Mall, 7-9 PM. FREE. Beer garden, food trucks, bring lawn chairs.",
+    "Disc Golf at Little Heroes Park — Wed-Sat 9 AM-5 PM. 9-hole free disc golf with mountain views.",
+    "White Water Night Water — Extended hours until 10 PM select weekends. Dive-In Movies at 7:30 PM."
+  ]
+}

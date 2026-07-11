@@ -46,7 +46,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     (async () => {
       const p = await params;
       const sp = await spPromise;
-      const gb = getGuidebook(p.property.replace(/-/g, '-')) || (sp.listing ? getGuidebookByName(sp.listing) : undefined);
+      // Accept both slug and Guesty listing name
+      const raw = p.property.replace(/-/g, '-');
+      const gb = getGuidebook(raw) || getGuidebookByName(raw);
       if (!gb) return;
       setProp(gb);
       if (sp.code) setGuestCode(sp.code);
