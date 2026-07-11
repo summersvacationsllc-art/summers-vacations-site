@@ -266,6 +266,19 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             )}
 
+            {/* Address — tap to open in maps */}
+            <a href={`https://maps.google.com/?q=${encodeURIComponent(prop.address)}`} target="_blank" rel="noopener"
+              className="block mx-3.5 mt-2 bg-white rounded-lg px-3.5 py-2.5 border border-stone-100 no-underline text-inherit">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">📍</span>
+                <div className="flex-1">
+                  <div className="text-[11px] font-semibold text-stone-800">{prop.address}</div>
+                  <div className="text-[10px] text-stone-400 mt-0.5">Tap to open in maps</div>
+                </div>
+                <span className="text-stone-300 text-sm">›</span>
+              </div>
+            </a>
+
             {/* Photo Gallery — auto-syncs from Guesty */}
             {photos.length > 0 && (
               <div className="mt-2.5 px-3.5">
