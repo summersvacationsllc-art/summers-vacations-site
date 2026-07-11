@@ -180,7 +180,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {P.map((p, i) => (
-              <Link key={i} href={`/guidebook/${p.s}?code=demo&name=Guest`}
+              <Link key={i} href={`/property/${p.s}`}
                 className="group bg-white rounded-2xl border border-stone-100 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 shadow-sm no-underline text-inherit block">
                 <div className="h-44 flex items-center justify-center relative overflow-hidden" style={{ background: `linear-gradient(135deg,${p.c},${p.c}dd)` }}>
                   <span className="text-7xl opacity-40 group-hover:scale-125 transition-transform duration-500">{p.e}</span>
@@ -409,7 +409,7 @@ export default function Home() {
                 <p className="text-sm text-green-600 mt-1">Brian will reply shortly. Thanks!</p>
               </div>
             ) : (
-              <form onSubmit={async (e) => { e.preventDefault(); await new Promise(r => setTimeout(r, 800)); setSubmitted(true); }}
+              <form onSubmit={async (e) => { e.preventDefault(); try { await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f) }); } catch {} setSubmitted(true); }}
                 className="bg-stone-50 rounded-xl p-6 border border-stone-100 space-y-4">
                 <input type="text" placeholder="Name *" required value={f.name} onChange={e => setF({ ...f, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg border border-stone-200 text-sm focus:outline-none focus:border-amber-400 transition-colors bg-white" />
