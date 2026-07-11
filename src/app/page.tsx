@@ -39,16 +39,16 @@ export default function Home() {
         setGalleryPhotos(exciting.slice(0, 12));
       } catch {}
     })();
-    // Cover photos for property cards
+    // Cover photos from local property-photos directories
     (async () => {
       const covers: Record<string, string> = {};
-      await Promise.all(P.map(async (p) => {
+      for (const p of P) {
         try {
-          const r = await fetch(`/api/photos?listingId=${p.gid}`);
+          const r = await fetch(`/api/property-photos?slug=${p.s}`);
           const d = await r.json();
-          if (d.ok && d.photos?.length) covers[p.s] = d.photos[0].url;
+          if (d.ok && d.photos?.length) covers[p.s] = d.photos[0];
         } catch {}
-      }));
+      }
       setCoverPhotos(covers);
     })();
   }, []);
