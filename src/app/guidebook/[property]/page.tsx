@@ -46,8 +46,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     (async () => {
       const p = await params;
       const sp = await spPromise;
-      // Accept both slug and Guesty listing name
-      const raw = p.property.replace(/-/g, '-');
+      // Accept both slug and Guesty listing name (decode URI encoding first)
+      const raw = decodeURIComponent(p.property);
       const gb = getGuidebook(raw);
       if (!gb) return;
       setProp(gb);
