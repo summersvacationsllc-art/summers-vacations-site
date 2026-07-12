@@ -82,7 +82,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     return () => window.removeEventListener('popstate', handler);
   }, []);
 
-  if (!prop) return <div className="min-h-screen bg-sky-50 flex items-center justify-center"><p className="text-sky-200">Loading...</p></div>;
+  if (!prop) return <div className="min-h-screen bg-sky-50 flex items-center justify-center"><p className="text-sky-700">Loading...</p></div>;
 
   const T = season();
   const isNotch = prop && prop.id !== 'branson-family-haven';
@@ -162,7 +162,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         </div>
         {tag && <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 ${tag[0] === 'r' ? 'bg-teal-50 text-teal-800' : tag[0] === 'b' ? 'bg-blue-50 text-blue-800' : tag[0] === 'g' ? 'bg-green-50 text-green-800' : 'bg-sky-100 text-sky-700'}`}>{tag[1]}</span>}
       </div>
-      {desc && <div className="text-[11px] text-sky-200 mt-1.5 ml-9 leading-relaxed">{desc}</div>}
+      {desc && <div className="text-[11px] text-sky-700 mt-1.5 ml-9 leading-relaxed">{desc}</div>}
     </div>
   );
 
@@ -172,11 +172,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         <span className="text-2xl flex-shrink-0">{icon}</span>
         <div className="flex-1">
           <div className="text-[13px] font-bold text-sky-900">{title}</div>
-          <div className="text-[11px] text-sky-200 mt-0.5">{meta}</div>
+          <div className="text-[11px] text-sky-700 mt-0.5">{meta}</div>
         </div>
         {tag && <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 ${tag[0] === 'r' ? 'bg-red-50 text-red-800' : tag[0] === 'b' ? 'bg-blue-50 text-blue-800' : tag[0] === 'g' ? 'bg-green-50 text-green-800' : tag[0] === 'p' ? 'bg-purple-50 text-purple-800' : 'bg-teal-50 text-teal-800'}`}>{tag[1]}</span>}
       </div>
-      {desc && <div className="text-[11px] text-sky-200 mt-1.5 ml-9 leading-relaxed">{desc}</div>}
+      {desc && <div className="text-[11px] text-sky-700 mt-1.5 ml-9 leading-relaxed">{desc}</div>}
     </a>
   );
 
@@ -187,7 +187,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base flex-shrink-0" style={{ background: iconBg }}>{icon}</div>
           <div className="flex-1">
             <div className="text-[13px] font-bold text-sky-900">{title}</div>
-            <div className="text-[11px] text-sky-200 mt-0.5">{desc}</div>
+            <div className="text-[11px] text-sky-700 mt-0.5">{desc}</div>
           </div>
           <span className="text-sky-200 text-sm transition-transform group-open:rotate-90">›</span>
         </summary>
@@ -217,9 +217,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
       {/* Mode Toggle */}
       <div className="flex gap-2 px-3.5 py-1 flex-shrink-0 justify-center" style={{ background: '#0c4a6e' }}>
-        <button onClick={() => setMode('guest')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'guest' ? 'text-stone-900' : 'text-sky-200'}`}
+        <button onClick={() => setMode('guest')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'guest' ? 'text-stone-900' : 'text-sky-700'}`}
           style={{ background: mode === 'guest' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🏠 Guest Mode</button>
-        <button onClick={() => setMode('branson')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'branson' ? 'text-stone-900' : 'text-sky-200'}`}
+        <button onClick={() => setMode('branson')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'branson' ? 'text-stone-900' : 'text-sky-700'}`}
           style={{ background: mode === 'branson' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🌊 Branson Mode</button>
       </div>
 
@@ -275,7 +275,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   <div className="text-[11px] font-semibold text-sky-900">{prop.address}</div>
                   <div className="text-[10px] text-sky-200 mt-0.5">Tap to open in maps</div>
                 </div>
-                <span className="text-sky-200 text-sm">›</span>
+                <span className="text-sky-700 text-sm">›</span>
               </div>
             </a>
 
@@ -296,7 +296,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             <div className="mx-3.5 mt-2.5 bg-white rounded-xl px-3.5 py-3 border border-sky-100 flex items-center gap-2">
               <span className="text-3xl font-bold text-sky-900">87°</span>
               <div className="flex-1"><div className="text-[12px] font-semibold text-sky-900">Branson, MO</div><div className="text-[11px] text-sky-200">☀️ Sunny</div></div>
-              <div className="flex gap-2"><div className="text-center text-[11px] text-sky-200"><div className="font-semibold text-sky-700">Wed</div>☀️ 89°</div><div className="text-center text-[11px] text-sky-200"><div className="font-semibold text-sky-700">Thu</div>⛅ 86°</div></div>
+              <div className="flex gap-2"><div className="text-center text-[11px] text-sky-200"><div className="font-semibold text-sky-200">Wed</div>☀️ 89°</div><div className="text-center text-[11px] text-sky-700"><div className="font-semibold text-sky-200">Thu</div>⛅ 86°</div></div>
             </div>
 
             <div className="flex gap-2 px-3.5 pt-1.5">
@@ -339,7 +339,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🎯', "Today's Highlights")}
             <div className="grid grid-cols-2 gap-2 px-3.5">
               {[{e:'🎆',t:'Fireworks',d:'SDC Night Sky',l:'https://www.silverdollarcity.com/'},{e:'🎸',t:'Bohemian Queen',d:'Freddie Tribute',l:'https://www.claycooper.com/'},{e:'🎬',t:'Free Movies',d:'Last 2 weeks!',l:'https://www.bransonimax.com/'},{e:'⛳',t:'Golf Camp',d:'Ozarks National',l:'https://bigcedar.com/golf/ozarks-national/'}].map((x,i) => (
-                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-200">{x.d}</div></a>
+                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
               ))}
             </div>
 
@@ -349,7 +349,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <a key={i} href={x.l} target="_blank" rel="noopener" className="flex items-center gap-2 mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit">
                 <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#2c1810', color: '#ffffff' }}>{x.t}</span>
                 <span className="text-[12px] font-semibold flex-1 text-sky-900">{x.n}</span>
-                <span className="text-[10px] text-sky-200">{x.v}</span>
+                <span className="text-[10px] text-sky-700">{x.v}</span>
               </a>
             ))}
 
@@ -382,9 +382,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                         <div className="w-8 h-8 rounded-lg flex items-center justify-center text-base flex-shrink-0" style={{ background: '#dc2626' }}>🚨</div>
                         <div className="flex-1">
                           <div className="text-[13px] font-bold text-sky-900">Emergency Info</div>
-                          <div className="text-[11px] text-sky-200 mt-0.5">911 • Hospital • Urgent Care</div>
+                          <div className="text-[11px] text-sky-700 mt-0.5">911 • Hospital • Urgent Care</div>
                         </div>
-                        <span className="text-sky-200 text-sm transition-transform group-open:rotate-90">›</span>
+                        <span className="text-sky-700 text-sm transition-transform group-open:rotate-90">›</span>
                       </summary>
                       <div className="px-3 pb-2.5 ml-9 text-[12px] text-sky-700 leading-relaxed border-t border-stone-50 pt-2">
                         <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '8px 10px', marginBottom: 10, textAlign: 'center', fontWeight: 700, color: '#991b1b', fontSize: 15 }}>🚨 CALL 911 FOR EMERGENCIES</div>
@@ -458,7 +458,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     {icon:'🏢',name:'Double Condo',meta:'Penthouse + Rustic • Sleeps 12+',desc:'🔥 Bundle & save! Two units, one booking'},
                   ].map((p,i) => (
                     <a key={i} href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-sky-400':''}`}>
-                      <div className="flex items-center gap-2"><span className="text-3xl">{p.icon}</span><div className="flex-1"><div className="text-[13px] font-bold text-sky-900">{p.name}</div><div className="text-[11px] text-sky-200">{p.meta}</div></div>
+                      <div className="flex items-center gap-2"><span className="text-3xl">{p.icon}</span><div className="flex-1"><div className="text-[13px] font-bold text-sky-900">{p.name}</div><div className="text-[11px] text-sky-700">{p.meta}</div></div>
                         {i>0 && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-green-50 text-teal-700 whitespace-nowrap">Book Now</span>}</div>
                       <div className="text-[10px] text-teal-700 font-semibold mt-1 ml-9">{p.desc}</div>
                     </a>
@@ -521,7 +521,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🎡','Strip & Family Fun')}
             <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
               {[{e:'🎡',t:'Ferris Wheel',d:'The Boardwalk',l:'https://www.bransontracks.com/the-branson-ferris-wheel/'},{e:'⚡',t:'Xtreme Racing',d:'Indoor go-karts',l:'https://www.xtremeracingcenter.com/'},{e:'🌊',t:'White Water',d:'SDC water park!',l:'https://www.silverdollarcity.com/white-water/'},{e:'🚂',t:'Scenic Railway',d:'Scenic train ride',l:'https://www.bransontrain.com/'},{e:'🦋',t:'Butterfly Palace',d:'Live butterflies!',l:'https://www.thebutterflypalace.com/'},{e:'🥏',t:'Parakeet Pete\'s',d:'Zipline + balloon',l:'https://www.bransonlanding.com/'}].map((x,i)=>(
-                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-200">{x.d}</div></a>
+                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
               ))}
             </div>
             <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
@@ -559,7 +559,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               ].map(([e,t,s,d,c]) => (
                 <div key={t} className="bg-white rounded-lg px-2.5 py-2 border border-sky-100">
                   <div className="flex items-center gap-1"><span className="text-sm">{e}</span><span className="text-[11px] font-bold text-sky-900">{t}</span><span className={`text-[9px] font-semibold px-1 py-0.5 rounded whitespace-nowrap ${c==='g'?'bg-green-50 text-teal-700':c==='r'?'bg-red-50 text-red-700':c==='b'?'bg-blue-50 text-blue-700':'bg-teal-50 text-teal-700'}`}>{s}</span></div>
-                  <div className="text-[10px] text-sky-200 mt-0.5 leading-tight">{d}</div>
+                  <div className="text-[10px] text-sky-700 mt-0.5 leading-tight">{d}</div>
                 </div>
               ))}
             </div>
@@ -685,7 +685,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🍦','Sweet Treats')}
             <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
               {[{e:'🍦',t:"Billy Bob's Dairyland",d:'Old-school ice cream',l:'https://www.billybobsdairyland.com/'},{e:'🌳',t:"Crazy Craig's Treehouse",d:'Frozen custard',l:'https://cheekymonkeybar.com/'}].map((x,i)=>(
-                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-200">{x.d}</div></a>
+                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
               ))}
             </div>
           </>
@@ -711,7 +711,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xl">👨‍🚒</span>
-                <div className="text-[12px] text-sky-600">Brian Summers — Firefighter/Paramedic, {new Date().getFullYear() - 2000} years. Your safety and comfort are my priority.</div>
+                <div className="text-[12px] text-sky-900">Brian Summers — Firefighter/Paramedic, {new Date().getFullYear() - 2000} years. Your safety and comfort are my priority.</div>
               </div>
             </div>
             <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
@@ -733,7 +733,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="text-[13px] font-bold text-red-700">⏰ Checkout by 10:00 AM</div>
               <div className="text-[11px] text-red-600 mt-0.5">Late checkout is rarely possible if guests are arriving that day. Please plan ahead!</div>
             </div>
-            <div className="mx-3.5 mt-2 text-[12px] text-sky-600 uppercase tracking-wider font-semibold">Before you leave:</div>
+            <div className="mx-3.5 mt-2 text-[12px] text-sky-900 uppercase tracking-wider font-semibold">Before you leave:</div>
             {[
               { icon: '🛏️', title: 'Leave beds unmade', body: 'No need to strip the sheets — just leave them as-is. If you used the sleeper sofa, leave the cushions off the couch.' },
               { icon: '🛁', title: isHaven ? 'Towels in downstairs bathroom' : 'Towels on bathroom floor', body: isHaven ? 'Place used towels in the downstairs front bathroom shower floor.' : 'Place used towels on the hallway bathroom shower floor.' },
@@ -748,7 +748,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   <span className="text-lg">{item.icon}</span>
                   <div className="text-[13px] font-bold text-sky-900">{item.title}</div>
                 </div>
-                <div className="text-[11px] text-sky-600 mt-0.5 ml-7">{item.body}</div>
+                <div className="text-[11px] text-sky-900 mt-0.5 ml-7">{item.body}</div>
               </div>
             ))}
             <div className="mx-3.5 mt-3 mb-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
@@ -757,7 +757,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
             <div className="text-center pb-4">
               <div className="text-[12px] text-sky-200">Thank you for staying with us!</div>
-              <div className="text-[11px] text-sky-200 mt-0.5">— Brian & Chantel Summers</div>
+              <div className="text-[11px] text-sky-700 mt-0.5">— Brian & Chantel Summers</div>
             </div>
           </>
         )}
