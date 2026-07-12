@@ -1,0 +1,25 @@
+{
+  "updated": "2026-07-12",
+  "attractions": [
+    {"name": "Silver Dollar City", "tag": "🎢 #1 Theme Park", "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!", "url": "https://www.silverdollarcity.com/", "featured": true},
+    {"name": "Copperhead Mountain Coaster", "tag": "3,350 ft", "desc": "Longest in Branson! Control your speed down Branson's longest coaster. Zip lines, ropes course & observation tower too.", "url": "https://theshepherdofthehills.com/coaster/", "category": "thrills"},
+    {"name": "Runaway Mountain Coaster", "tag": "Thrilling", "desc": "Twisting mountain coaster through the Ozark hills. Control your own speed!", "url": "https://www.bransonalpinemountaincoaster.com/", "category": "thrills"},
+    {"name": "The Track Family Fun Parks", "tag": "Family", "desc": "Multiple tracks for all ages. Classic and high-speed go-karts, plus arcade.", "url": "https://www.bransontracks.com/", "category": "thrills"},
+    {"name": "Fritz's Adventure", "tag": "Indoor", "desc": "Massive indoor adventure park. Ropes course, climbing walls, slides, laser maze. Great rainy day activity!", "url": "https://www.fritzsadventure.com/", "category": "thrills"},
+    {"name": "WonderWorks", "tag": "All Ages", "desc": "Upside-down building! 100+ hands-on science exhibits, bubble lab, astronaut training, and indoor ropes.", "url": "https://www.wonderworksbranson.com/", "category": "thrills"},
+    {"name": "Titanic Museum", "tag": "Top Rated", "desc": "World's largest Titanic museum. Touch an iceberg, walk the halls, hear survivor stories.", "url": "https://www.titanicbranson.com/", "category": "museums"},
+    {"name": "Ripley's Believe It or Not!", "tag": "Fun", "desc": "Hundreds of bizarre artifacts, interactive exhibits, and the famous Odditorium.", "url": "https://www.ripleys.com/branson/", "category": "museums"},
+    {"name": "Hollywood Wax Museum", "tag": "Photo Ops", "desc": "Lifelike wax figures of your favorite celebrities. Great Instagram moments.", "url": "https://www.hollywoodwaxentertainment.com/branson/", "category": "museums"},
+    {"name": "Aquarium at the Boardwalk", "tag": "New!", "desc": "Walk-through underwater tunnel. Jellyfish, sharks, stingrays, and touch pools.", "url": "https://www.aquariumattheboardwalk.com/", "category": "museums"},
+    {"name": "Branson Landing", "tag": "Shopping", "desc": "Branson's premier outdoor shopping, dining and entertainment district. Waterfront boardwalk, fountain shows, and live music.", "url": "https://www.bransonlanding.com/", "category": "museums"},
+    {"name": "Dogwood Canyon Nature Park", "tag": "Must-See", "desc": "Stunning 10K-acre Ozarks canyon with walking trails, waterfalls, bison herd, and trout fishing. Tram tours available.", "url": "https://dogwoodcanyon.org/", "category": "nature"},
+    {"name": "Table Rock State Park", "tag": "Free", "desc": "Beautiful state park on Table Rock Lake. Marina, trails, picnic areas, and swim beach.", "url": "https://www.mostateparks.com/park/table-rock-state-park", "category": "nature"},
+    {"name": "Ferris Wheel", "tag": "Boardwalk", "desc": "The Branson Boardwalk", "url": "https://bransontracks.com/", "category": "strip", "compact": true},
+    {"name": "Xtreme Racing Center", "tag": "Indoor", "desc": "Indoor go-karts", "url": "https://www.xtremeracingcenter.com/", "category": "strip", "compact": true},
+    {"name": "White Water", "tag": "SDC Water Park", "desc": "SDC water park!", "url": "https://www.silverdollarcity.com/white-water/", "category": "strip", "compact": true},
+    {"name": "Branson Scenic Railway", "tag": "Scenic", "desc": "Scenic train ride", "url": "https://www.bransontrain.com/", "category": "strip", "compact": true},
+    {"name": "Butterfly Palace", "tag": "Live", "desc": "Live butterflies!", "url": "https://www.thebutterflypalace.com/", "category": "strip", "compact": true},
+    {"name": "Parakeet Pete's", "tag": "Zipline", "desc": "Zipline + balloon", "url": "https://bransonlandingattractions.com/", "category": "strip", "compact": true}
+  ],
+  "summerTip": "Buy SDC tickets online to skip the line. After 3 PM entry is discounted. Unlimited Summer Ticket: $99 for the whole season!"
+}

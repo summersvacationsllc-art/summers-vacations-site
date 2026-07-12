@@ -1,0 +1,16 @@
+{
+  "updated": "2026-07-12",
+  "courses": [
+    {"name": "Branson Hills Golf Club", "designer": "", "rates": "$235–$265", "drive": "15 min", "par": "72", "yards": "7,000", "tag": "⭐ Top Rated", "desc": "#1 Public in MO (Golfpass 2026). Ranked #10 Public in the U.S.! Dramatic 130-ft elevation changes. Missouri golf history museum.", "url": "https://bransonhillsgolfclub.com/", "featured": true, "funFact": "The first tee drops 130+ ft — that's a 13-story building!"},
+    {"name": "Payne's Valley — Big Cedar", "designer": "Tiger Woods", "rates": "$425+", "drive": "12 min", "par": "", "yards": "", "tag": "Premium", "desc": "#1 USA TODAY 2026! Tiger's first public design. Bonus 19th island green.", "url": "https://bigcedar.com/golf/paynes-valley/"},
+    {"name": "Ozarks National — Big Cedar", "designer": "Coore & Crenshaw", "rates": "", "drive": "", "par": "", "yards": "", "tag": "Top 100", "desc": "Stunning design by Coore & Crenshaw. Consistently ranked in national top 100.", "url": "https://bigcedar.com/golf/ozarks-national/"},
+    {"name": "Buffalo Ridge Springs", "designer": "Tom Fazio", "rates": "", "drive": "", "par": "", "yards": "", "tag": "Top 100", "desc": "Tom Fazio masterpiece at Big Cedar. Ranked among America's top public courses.", "url": "https://bigcedar.com/golf/buffalo-ridge/"},
+    {"name": "Ledgestone Country Club", "designer": "", "rates": "$70–$160", "drive": "5 min", "par": "", "yards": "", "tag": "Closest", "desc": "Award-winning mountain golf just 5 min from the condo! Great value and stunning views.", "url": "https://www.ledstonegolf.com/"},
+    {"name": "Top of the Rock — Big Cedar", "designer": "Tom Watson", "rates": "$135+", "drive": "", "par": "3", "yards": "", "tag": "⭐ 4.5", "desc": "Tom Watson par-3 course with stunning views. Also features the Lost Canyon Cave tour.", "url": "https://bigcedar.com/golf/top-of-the-rock/"},
+    {"name": "Cliffhangers at Big Cedar", "designer": "Jack Nicklaus", "rates": "$225+", "drive": "", "par": "3", "yards": "", "tag": "Nicklaus", "desc": "Jack Nicklaus par-3 course. Dramatic elevation changes and stunning Ozark views.", "url": "https://bigcedar.com/golf/cliffhangers/"},
+    {"name": "Thousand Hills Golf Resort", "designer": "", "rates": "$50–$90", "drive": "", "par": "", "yards": "", "tag": "Budget", "desc": "Resort course in the heart of Branson. Affordable and fun for all skill levels.", "url": "https://www.thousandhillsresorthotel.com/"},
+    {"name": "Holiday Hills Golf Club", "designer": "", "rates": "$40–$70", "drive": "", "par": "", "yards": "", "tag": "Great Value", "desc": "Public course with great rates. Relaxed, friendly atmosphere.", "url": "https://holidayhills.com/"},
+    {"name": "Mountain Top — Big Cedar", "designer": "", "rates": "$100+", "drive": "", "par": "", "yards": "", "tag": "Unique", "desc": "Walking-only 13-hole course. Pure golf experience — no carts, just you and the game.", "url": "https://bigcedar.com/golf/mountain-top/"}
+  ],
+  "tip": "Weekday tee times save $50-100+. Book 30 days ahead for Big Cedar courses."
+}

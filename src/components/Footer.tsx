@@ -1,37 +1,54 @@
 import { Phone, Mail } from "lucide-react";
+import Link from "next/link";
+import { BOOK_URL, PHONE, PHONE_HREF, EMAIL, FACEBOOK } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-800 text-stone-300 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-          <div className="flex items-center gap-4">
+    <footer className="bg-[#0c4a6e] text-sky-100 py-10 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-5 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="tel:+13145650589"
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
+              href={PHONE_HREF}
+              className="flex items-center gap-1.5 hover:text-amber-300 transition-colors no-underline"
             >
               <Phone size={14} />
-              +1 314-565-0589
+              {PHONE}
             </a>
             <a
-              href="mailto:summersvacationsllc@gmail.com"
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
+              href={`mailto:${EMAIL}`}
+              className="flex items-center gap-1.5 hover:text-amber-300 transition-colors no-underline"
             >
               <Mail size={14} />
-              summersvacationsllc@gmail.com
+              {EMAIL}
             </a>
+            <a
+              href={FACEBOOK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-amber-300 transition-colors no-underline"
+            >
+              Facebook
+            </a>
+            <Link
+              href="/reports"
+              className="hover:text-amber-300 transition-colors no-underline"
+            >
+              Daily Reports
+            </Link>
           </div>
           <a
-            href="https://www.facebook.com/summersvacations/"
+            href={BOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
+            className="btn-book px-5 py-2 rounded-full text-sm no-underline"
           >
-            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 18.11 4.388 23.242 10.125 24V15.56H7.078v-3.487h3.047V9.458c0-3.007 1.792-4.669 4.533-4.669 1.313 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.487h-2.796V24C19.612 23.242 24 18.11 24 12.073z" />
-            </svg>
-            Facebook
+            Book Your Stay
           </a>
+        </div>
+        <div className="mt-6 text-center text-xs text-sky-400">
+          &copy; {new Date().getFullYear()} Summers Vacations LLC · My Branson
+          Vacation
         </div>
       </div>
     </footer>

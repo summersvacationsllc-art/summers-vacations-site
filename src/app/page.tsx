@@ -1,265 +1,771 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Phone, Mail, MapPin, Star, X } from "lucide-react";
+import { useState } from "react";
 import Link from "next/link";
-
-interface CatalogPhoto { url: string; thumb: string; title: string; category: string; source: string; }
-
-const P = [
-  { n: "The Penthouse", t: "Top Floor • Views", g: "6", b: "2BR", d: "Branson West", s: "the-penthouse", gid: "68eeb58d873b002c39d38657" },
-  { n: "Rustic Ozark Retreat", t: "Cozy • Fireplace", g: "6", b: "2BR", d: "Branson West", s: "rustic-ozark-retreat", gid: "68eeb5866f48002c3d470a6c" },
-  { n: "Woodland Retreat", t: "Family • Bunk Room", g: "6", b: "2BR", d: "Branson West", s: "woodland-retreat", gid: "68eecd33a359002c338a2a55" },
-  { n: "Modern Charmer", t: "Sleek • Updated", g: "4", b: "1BR", d: "Branson West", s: "modern-charmer", gid: "696679519399002c92ac4ec4" },
-  { n: "Pretty Peacock", t: "No Steps • Easy", g: "6", b: "1BR", d: "Branson West", s: "pretty-peacock", gid: "699911d27b1a001efccbf235" },
-  { n: "Double Condo", t: "🔥 Best Value", g: "12+", b: "4BR", d: "Branson West", s: "double-condo", gid: "68eeb561cce1002c364dfb89" },
-  { n: "Branson Family Haven", t: "🏡 House", g: "16", b: "3BR", d: "Branson", s: "branson-family-haven", gid: "6993c5d31547001e711bc7ed" },
-];
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Star,
+  X,
+  Menu,
+  Heart,
+  Shield,
+  Sparkles,
+  Users,
+  Waves,
+  TreePine,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
+import {
+  BOOK_URL,
+  PHONE,
+  PHONE_HREF,
+  EMAIL,
+  FACEBOOK,
+  PROPERTIES,
+  GALLERY_PHOTOS,
+  ACTIVITIES,
+} from "@/lib/site";
 
 export default function Home() {
-  const [galleryPhotos, setGalleryPhotos] = useState<CatalogPhoto[]>([]);
-  const [coverPhotos, setCoverPhotos] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [f, setF] = useState({ name: "", email: "", phone: "", message: "" });
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  useEffect(() => {
-    // Load gallery photos from catalog
-    (async () => {
-      try {
-        const r = await fetch("/photos-catalog.json");
-        const d = await r.json();
-        // Pick the most exciting/adventurous ones for the mosaic
-        const exciting = d.filter((p: CatalogPhoto) =>
-          p.category.includes("Thrill") || p.category.includes("Fishing") ||
-          p.category.includes("Kayak") || p.category.includes("Coaster") ||
-          p.category.includes("Show") || p.category.includes("Concert") ||
-          p.category.includes("Lake") || p.category.includes("SDC")
-        );
-        setGalleryPhotos(exciting.slice(0, 12));
-      } catch {}
-    })();
-    // Cover photos from local property-photos directories
-    (async () => {
-      const covers: Record<string, string> = {};
-      for (const p of P) {
-        try {
-          const r = await fetch(`/api/property-photos?slug=${p.s}`);
-          const d = await r.json();
-          if (d.ok && d.photos?.length) covers[p.s] = d.photos[0];
-        } catch {}
-      }
-      setCoverPhotos(covers);
-    })();
-  }, []);
-
   return (
-    <main className="bg-white">
-      {/* ═══════════ HERO ═══════════ */}
-      <section className="relative min-h-screen flex items-end pb-0"
-        style={{ background: 'linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
-        <div className="absolute inset-0 overflow-hidden">
-          <img src="https://images.pexels.com/photos/31798407/pexels-photo-31798407.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Branson adventure" className="w-full h-full object-cover opacity-50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        </div>
+    <main className="bg-white text-slate-900">
+      {/* ═══════════ NAV ═══════════ */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-sky-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5 no-underline group">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-extrabold text-sm shadow-md bg-gradient-to-br from-[#0c4a6e] to-[#0ea5e9]">
+              MB
+            </div>
+            <div className="leading-tight">
+              <div className="text-[15px] font-extrabold text-[#0c4a6e] tracking-tight group-hover:text-[#0ea5e9] transition-colors">
+                My Branson Vacation
+              </div>
+              <div className="text-[10px] font-semibold text-teal-600 tracking-wide uppercase hidden sm:block">
+                We take care of you
+              </div>
+            </div>
+          </Link>
 
-        {/* Nav */}
-        <nav className="absolute top-0 left-0 right-0 z-20">
-          <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-extrabold"
-                style={{ background: 'linear-gradient(135deg,#f5c842,#e8b832)', color: '#2c1810' }}>SV</div>
-              <span className="text-lg font-bold text-white hidden sm:block" style={{ fontFamily: "'Playfair Display', serif" }}>Summers Vacations</span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              {["Properties","Gallery","Reviews","Contact"].map(l => (
-                <a key={l} href={`#${l.toLowerCase()}`} className="text-sm text-white/80 no-underline hover:text-white transition-colors tracking-wide">{l}</a>
-              ))}
-              <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener"
-                className="px-6 py-2.5 rounded text-sm font-semibold no-underline text-white border-2 border-white/30 hover:bg-white/10 transition-colors">Book Now</a>
-            </div>
-            <button onClick={() => setMobileMenu(!mobileMenu)} className="md:hidden text-white">
-              {mobileMenu ? <X size={24} /> : <span className="text-2xl">☰</span>}
+          <nav className="hidden lg:flex items-center gap-1">
+            {[
+              { label: "Stays", href: "#stays" },
+              { label: "Why Us", href: "#why-us" },
+              { label: "Adventures", href: "#adventures" },
+              { label: "Photos", href: "#photos" },
+              { label: "Reviews", href: "#reviews" },
+              { label: "Contact", href: "#contact" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-[#0c4a6e] hover:bg-sky-50 transition-colors no-underline"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-book hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm no-underline"
+            >
+              Book Your Stay
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </a>
+            <button
+              onClick={() => setMobileMenu(!mobileMenu)}
+              className="lg:hidden p-2 rounded-lg text-[#0c4a6e] hover:bg-sky-50"
+              aria-label="Toggle menu"
+            >
+              {mobileMenu ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
-          {mobileMenu && (
-            <div className="md:hidden bg-black/90 px-4 py-4 space-y-3">
-              {["Properties","Gallery","Reviews","Contact"].map(l => (
-                <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setMobileMenu(false)} className="block text-white/80 no-underline text-sm"> {l}</a>
-              ))}
-              <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className="block text-white no-underline text-sm font-semibold">Book Now</a>
-            </div>
-          )}
-        </nav>
+        </div>
 
-        {/* Hero content */}
-        <div className="relative z-10 w-full px-4 pb-20 pt-32">
+        {mobileMenu && (
+          <div className="lg:hidden bg-white border-t border-sky-100 px-4 py-4 space-y-1 shadow-lg">
+            {[
+              { label: "Stays", href: "#stays" },
+              { label: "Why Us", href: "#why-us" },
+              { label: "Adventures", href: "#adventures" },
+              { label: "Photos", href: "#photos" },
+              { label: "Reviews", href: "#reviews" },
+              { label: "Contact", href: "#contact" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenu(false)}
+                className="block px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-sky-50 rounded-lg no-underline"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-book block text-center mt-2 px-4 py-3 rounded-full text-sm no-underline"
+            >
+              Book Your Stay
+            </a>
+          </div>
+        )}
+      </header>
+
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="relative min-h-[92vh] flex items-end pt-16">
+        <div className="absolute inset-0 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/property-photos/penthouse/12E2EDDB-A38A-4D5A-B209-CBB1F9AD1830_1_105_c.jpeg"
+            alt="Screened porch overlooking the Ozarks — real Summers Vacations property"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0c4a6e] via-[#0c4a6e]/70 to-[#0c4a6e]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/80 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 w-full px-4 sm:px-6 pb-16 sm:pb-20 pt-24">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-amber-400 border border-white/10 mb-6">
-                <MapPin size={12} /> Branson, Missouri — Indian Point on Table Rock Lake
+            <div className="max-w-2xl animate-fade-up">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/15 text-amber-300 border border-white/20 backdrop-blur-sm mb-5">
+                <MapPin size={13} />
+                Branson West · Indian Point · Table Rock Lake
               </div>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Your Branson<br /><span className="text-amber-400">Adventure Awaits</span>
-              </h1>
-              <p className="text-lg text-white/70 mt-6 max-w-xl leading-relaxed">
-                Stay steps from Table Rock Lake and minutes from SDC, mountain coasters, the Strip & every thrill Branson has to offer.
-              </p>
-            </div>
 
-            {/* Booking Widget */}
-            <div className="mt-12 bg-white rounded-2xl shadow-2xl p-6 max-w-lg">
-              <div className="text-sm font-semibold text-stone-800 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Check Availability</div>
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                <div><div className="text-[10px] uppercase tracking-wider text-stone-400 mb-1">Check-in</div>
-                  <div className="text-sm font-semibold text-stone-800 border-b border-stone-200 pb-1">Select date</div></div>
-                <div><div className="text-[10px] uppercase tracking-wider text-stone-400 mb-1">Check-out</div>
-                  <div className="text-sm font-semibold text-stone-800 border-b border-stone-200 pb-1">Select date</div></div>
-                <div><div className="text-[10px] uppercase tracking-wider text-stone-400 mb-1">Guests</div>
-                  <div className="text-sm font-semibold text-stone-800 border-b border-stone-200 pb-1">1 Guest</div></div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight">
+                Your family&apos;s best
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-300 to-teal-300">
+                  Branson adventure
+                </span>{" "}
+                starts here
+              </h1>
+
+              <p className="mt-5 text-lg sm:text-xl text-sky-100/90 max-w-xl leading-relaxed">
+                Clean condos, a local host who actually cares, and everything
+                Branson has to offer — lakes, coasters, shows, and memories —
+                minutes from your door.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a
+                  href={BOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-book inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base no-underline"
+                >
+                  Book Your Stay
+                  <ArrowRight size={18} strokeWidth={2.5} />
+                </a>
+                <a
+                  href="#stays"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white border-2 border-white/40 hover:bg-white/10 transition-colors no-underline backdrop-blur-sm"
+                >
+                  See Our Homes
+                </a>
               </div>
-              <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener"
-                className="block w-full text-center py-3 rounded-lg text-sm font-bold no-underline bg-stone-900 text-white hover:bg-stone-800 transition-colors">Search</a>
+
+              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-sky-100/80">
+                {[
+                  "Local family host",
+                  "Spotless & stocked",
+                  "Pools · Lake · Playground",
+                  "Near Silver Dollar City",
+                ].map((t) => (
+                  <span key={t} className="inline-flex items-center gap-1.5">
+                    <CheckCircle2 size={15} className="text-teal-300" />
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ TRUST STRIP ═══════════ */}
+      <section className="relative z-10 -mt-6 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              {
+                icon: Heart,
+                title: "We take care of you",
+                desc: "Real local host, real responses",
+              },
+              {
+                icon: Shield,
+                title: "Firefighter host",
+                desc: "Safety & reliability baked in",
+              },
+              {
+                icon: Sparkles,
+                title: "High-value stays",
+                desc: "More home, more fun per dollar",
+              },
+              {
+                icon: Users,
+                title: "Built for families",
+                desc: "From couples to reunions of 16",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="bg-white rounded-2xl p-4 sm:p-5 shadow-lg shadow-sky-900/5 border border-sky-100 flex gap-3 items-start"
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-100 to-teal-100 flex items-center justify-center flex-shrink-0">
+                  <Icon size={18} className="text-[#0c4a6e]" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-[#0c4a6e]">{title}</div>
+                  <div className="text-xs text-slate-500 mt-0.5">{desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ═══════════ PROPERTIES ═══════════ */}
-      <section id="properties" className="py-24 px-4">
+      <section id="stays" className="py-20 sm:py-28 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-stone-900" style={{ fontFamily: "'Playfair Display', serif" }}>Seven Ways to Stay</h2>
-            <p className="text-stone-500 mt-4 text-lg">6 condos on Indian Point + a standalone family house. All minutes from the fun.</p>
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-[#0ea5e9] mb-3">
+              Your home base
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e]">
+              Homes made for family fun
+            </h2>
+            <p className="mt-4 text-slate-600 text-lg leading-relaxed">
+              Six Indian Point condos plus a standalone house — all real photos
+              of our real places. Pick the fit, we handle the rest.
+            </p>
           </div>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {P.map((p, i) => (
-              <Link key={i} href={`/property/${p.s}`} className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 no-underline text-inherit border border-stone-100">
-                <div className="aspect-[4/3] bg-stone-100 overflow-hidden">
-                  {coverPhotos[p.s] ? (
-                    <img src={coverPhotos[p.s]} alt={p.n} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            {PROPERTIES.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/property/${p.slug}`}
+                className="group block bg-white rounded-2xl overflow-hidden border border-sky-100 shadow-sm hover:shadow-xl hover:shadow-sky-900/10 hover:-translate-y-1 transition-all duration-300 no-underline text-inherit"
+              >
+                <div className="aspect-[4/3] bg-sky-50 overflow-hidden relative">
+                  {p.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={p.photo}
+                      alt={p.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-stone-200 text-stone-400 text-5xl">🏠</div>
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#0c4a6e] to-[#0ea5e9] text-white p-6 text-center">
+                      <span className="text-4xl mb-2">🏡</span>
+                      <span className="font-bold">Family Haven</span>
+                      <span className="text-xs text-sky-100 mt-1">
+                        Standalone house · Sleeps 16
+                      </span>
+                    </div>
+                  )}
+                  {(p.badge || p.tag) && (
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#0c4a6e] shadow-sm">
+                      {p.badge || p.tag}
+                    </span>
                   )}
                 </div>
                 <div className="p-5">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-lg font-bold text-stone-900">{p.n}</h3>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">{p.t}</span>
+                  <h3 className="text-lg font-extrabold text-[#0c4a6e] group-hover:text-[#0ea5e9] transition-colors">
+                    {p.name}
+                  </h3>
+                  <p className="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                    {p.blurb}
+                  </p>
+                  <div className="mt-3 flex items-center gap-3 text-xs font-semibold text-slate-500">
+                    <span className="inline-flex items-center gap-1 text-teal-700">
+                      <Users size={12} /> Sleeps {p.sleeps}
+                    </span>
+                    <span>·</span>
+                    <span>{p.beds}</span>
+                    <span>·</span>
+                    <span>{p.area}</span>
                   </div>
-                  <p className="text-sm text-stone-500">Sleeps {p.g} · {p.b} · {p.d}</p>
                 </div>
               </Link>
             ))}
           </div>
+
           <div className="text-center mt-12">
-            <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener"
-              className="inline-block px-10 py-4 bg-stone-900 text-white rounded-lg text-sm font-bold no-underline hover:bg-stone-800 transition-colors">Check Availability</a>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-book inline-flex items-center gap-2 px-10 py-4 rounded-full text-base no-underline"
+            >
+              Book Your Stay
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </a>
+            <p className="mt-3 text-sm text-slate-500">
+              Direct booking · Best rates · Instant peace of mind
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ PHOTO GALLERY ═══════════ */}
-      <section id="gallery" className="bg-stone-50">
-        <div className="text-center pt-20 pb-10 px-4">
-          <h2 className="text-4xl sm:text-5xl font-bold text-stone-900" style={{ fontFamily: "'Playfair Display', serif" }}>Experience Branson</h2>
-          <p className="text-stone-500 mt-4 text-lg">Thrills, lakes, shows, and adventures waiting for you.</p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4">
-          {galleryPhotos.map((photo, i) => (
-            <div key={i} className="aspect-square bg-stone-200 overflow-hidden">
-              <img src={photo.thumb} alt={photo.title} loading="lazy"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                onError={(e) => { (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23e5e7eb" width="400" height="400"/><text x="200" y="200" text-anchor="middle" fill="%239ca3af" font-size="40">🏞️</text></svg>'; }} />
+      {/* ═══════════ WHY US ═══════════ */}
+      <section
+        id="why-us"
+        className="py-20 sm:py-28 px-4 sm:px-6 bg-gradient-to-b from-sky-50 to-white"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-teal-600 mb-3">
+                Local host energy
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e] leading-tight">
+                Not a faceless rental.
+                <br />
+                <span className="text-[#0ea5e9]">A host who has your back.</span>
+              </h2>
+              <p className="mt-5 text-slate-600 text-lg leading-relaxed">
+                Hi — I&apos;m Brian. I&apos;m a full-time paramedic, firefighter,
+                and rescue specialist. That same &ldquo;we&apos;ve got this&rdquo;
+                mindset goes into every stay: clear check-in, stocked kitchens,
+                fast replies, and homes you&apos;ll actually want to come back to.
+              </p>
+              <ul className="mt-8 space-y-3">
+                {[
+                  "Keyless entry & simple arrival instructions",
+                  "Coffee bars, full kitchens, Roku TVs, WiFi that works",
+                  "Community pools, playground, private lake trail",
+                  "Honest local tips for shows, fishing, and family days",
+                  "You text, I answer — vacation stress stays at home",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-slate-700"
+                  >
+                    <CheckCircle2
+                      size={20}
+                      className="text-teal-500 flex-shrink-0 mt-0.5"
+                    />
+                    <span className="text-[15px]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-lake inline-flex items-center gap-2 mt-8 px-7 py-3.5 rounded-full text-sm no-underline"
+              >
+                Reserve Your Dates
+                <ArrowRight size={16} />
+              </a>
             </div>
-          ))}
-        </div>
-        <div className="text-center pb-20 pt-10">
-          <Link href="/photos" className="inline-block px-10 py-4 bg-stone-900 text-white rounded-lg text-sm font-bold no-underline hover:bg-stone-800 transition-colors">View Full Gallery →</Link>
+
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {[
+                GALLERY_PHOTOS[0],
+                GALLERY_PHOTOS[1],
+                GALLERY_PHOTOS[2],
+                GALLERY_PHOTOS[3],
+              ].map((photo, i) => (
+                <div
+                  key={photo.src}
+                  className={`rounded-2xl overflow-hidden shadow-md ${
+                    i % 2 === 1 ? "mt-6 sm:mt-10" : ""
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ═══════════ QUICK LINKS ═══════════ */}
-      <section className="py-20 px-4" style={{ background: '#f5f0eb' }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-stone-900 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Quick Links to Popular Tickets</h2>
-          <div className="grid sm:grid-cols-2 gap-4 mt-10">
-            {[
-              { t: "Silver Dollar City", u: "https://www.silverdollarcity.com/" },
-              { t: "Dogwood Canyon", u: "https://dogwoodcanyon.org/" },
-              { t: "Sight & Sound Theatre", u: "https://www.sight-sound.com/" },
-              { t: "Branson Shows & Events", u: "https://www.explorebranson.com/" },
-            ].map((l, i) => (
-              <a key={i} href={l.u} target="_blank" rel="noopener"
-                className="flex items-center gap-3 bg-stone-900 text-white rounded-lg px-6 py-5 no-underline hover:bg-stone-800 transition-colors text-left">
-                <span className="text-amber-400 text-xl">★</span>
-                <span className="text-sm font-bold">{l.t} tickets</span>
+      {/* ═══════════ COMMUNITY PERKS ═══════════ */}
+      <section className="py-16 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="rounded-3xl bg-gradient-to-br from-[#0c4a6e] via-[#0c4a6e] to-[#0ea5e9] p-8 sm:p-12 text-white overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-400/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+            <div className="relative">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-center">
+                Stay where the fun never ends
+              </h2>
+              <p className="text-center text-sky-100 mt-2 max-w-xl mx-auto">
+                Condos share amazing community amenities — so after the thrills,
+                you still have a splashy, easy evening.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
+                {[
+                  { icon: Waves, label: "Pools" },
+                  { icon: TreePine, label: "Private lake trail" },
+                  { icon: Users, label: "Playground" },
+                  { icon: Sparkles, label: "BBQ · Games · Courts" },
+                ].map(({ icon: Icon, label }) => (
+                  <div
+                    key={label}
+                    className="bg-white/10 backdrop-blur rounded-2xl p-5 text-center border border-white/15"
+                  >
+                    <Icon size={28} className="mx-auto text-amber-300" />
+                    <div className="mt-2 text-sm font-bold">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ ADVENTURES ═══════════ */}
+      <section id="adventures" className="py-20 sm:py-28 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-amber-600 mb-3">
+              Local adventures
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e]">
+              Branson thrills, minutes away
+            </h2>
+            <p className="mt-4 text-slate-600 text-lg leading-relaxed">
+              Wake up near Table Rock Lake, hit Silver Dollar City before the
+              lines, catch a show, then crash on your porch. We&apos;ll help you
+              plan it.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {ACTIVITIES.map((a) => (
+              <a
+                key={a.title}
+                href={a.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative rounded-2xl overflow-hidden border border-sky-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 no-underline text-inherit p-6"
+              >
+                <div
+                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${a.color} flex items-center justify-center text-2xl shadow-md mb-4 group-hover:scale-110 transition-transform`}
+                >
+                  {a.emoji}
+                </div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#0ea5e9] mb-1">
+                  {a.tip}
+                </div>
+                <h3 className="text-xl font-extrabold text-[#0c4a6e] group-hover:text-[#0ea5e9] transition-colors">
+                  {a.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  {a.desc}
+                </p>
+                <span className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-teal-600">
+                  Explore
+                  <ArrowRight
+                    size={14}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </span>
               </a>
             ))}
           </div>
-          <div className="mt-10">
-            <Link href="/reports" className="inline-block text-amber-600 text-sm font-semibold no-underline hover:text-amber-700">
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/reports"
+              className="text-sm font-bold text-[#0c4a6e] hover:text-[#0ea5e9] no-underline"
+            >
               📰 Daily Branson Report — fishing, shows & events →
             </Link>
           </div>
         </div>
       </section>
 
+      {/* ═══════════ PHOTO MOSAIC ═══════════ */}
+      <section id="photos" className="py-20 sm:py-24 bg-sky-50">
+        <div className="text-center px-4 mb-10">
+          <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-teal-600 mb-3">
+            Real places · Real photos
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e]">
+            Peek inside your getaway
+          </h2>
+          <p className="mt-3 text-slate-600 max-w-xl mx-auto">
+            Every shot is from our properties — porches, bedrooms, kitchens, and
+            Ozark views. No stock photos.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5 sm:gap-2 px-1.5 sm:px-2 max-w-[1600px] mx-auto">
+          {GALLERY_PHOTOS.map((photo, i) => (
+            <div
+              key={photo.src}
+              className={`overflow-hidden bg-sky-100 ${
+                i === 0 || i === 5
+                  ? "md:col-span-1 aspect-square"
+                  : "aspect-square"
+              }`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a
+            href={BOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-book inline-flex items-center gap-2 px-10 py-4 rounded-full text-base no-underline"
+          >
+            Book Your Stay
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </a>
+        </div>
+      </section>
+
       {/* ═══════════ REVIEWS ═══════════ */}
-      <section id="reviews" className="py-24 px-4 bg-white">
+      <section id="reviews" className="py-20 sm:py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-stone-900 text-center mb-14" style={{ fontFamily: "'Playfair Display', serif" }}>Testimonials</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-amber-600 mb-3">
+              Happy families
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e]">
+              Guests keep coming back
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { t: "We loved our time at Woodland Retreat! The place was spotless and the surroundings were absolutely beautiful. The deck was a favorite of ours and my daughter loved watching the deer frolic in the woods each morning.", a: "Krystal", l: "Saint Charles, MO" },
-              { t: "Check in and out went seamlessly, and the place was very cozy and clean. Close to all the fun of SDC but still felt like a secluded mountain getaway!", a: "Jennifer", l: "Arkadelphia, AR" },
-              { t: "We could see the fireworks from Silver Dollar City from the deck! Great communication from Brian. We would definitely stay here again.", a: "Gary", l: "Lincoln, NE" },
-              { t: "Brian's place is awesome for a larger family! Condos were clean and comfortable. Fantastic hiking and close to SDC. Highly recommend!", a: "Aaron", l: "Kansas" },
-            ].map((r, i) => (
-              <div key={i} className="bg-stone-50 rounded-xl p-6 text-left">
-                <div className="flex gap-1 mb-3">{Array(5).fill(0).map((_, j) => <Star key={j} size={14} className="fill-amber-400 text-amber-400" />)}</div>
-                <p className="text-sm text-stone-600 leading-relaxed italic">&ldquo;{r.t}&rdquo;</p>
-                <div className="mt-4"><div className="text-sm font-bold text-stone-800">{r.a}</div><div className="text-xs text-stone-400">{r.l}</div></div>
+              {
+                t: "We loved our time at Woodland Retreat! Spotless, beautiful surroundings. The deck was a favorite — my daughter loved watching the deer each morning.",
+                a: "Krystal",
+                l: "Saint Charles, MO",
+              },
+              {
+                t: "Check-in went seamlessly. Cozy, clean, close to SDC but still felt like a secluded mountain getaway!",
+                a: "Jennifer",
+                l: "Arkadelphia, AR",
+              },
+              {
+                t: "We could see the fireworks from Silver Dollar City from the deck! Great communication from Brian. We would definitely stay here again.",
+                a: "Gary",
+                l: "Lincoln, NE",
+              },
+              {
+                t: "Awesome for a larger family! Clean, comfortable, fantastic hiking, and close to SDC. Highly recommend!",
+                a: "Aaron",
+                l: "Kansas",
+              },
+            ].map((r) => (
+              <div
+                key={r.a}
+                className="bg-gradient-to-b from-sky-50 to-white rounded-2xl p-6 border border-sky-100 shadow-sm"
+              >
+                <div className="flex gap-0.5 mb-3">
+                  {Array(5)
+                    .fill(0)
+                    .map((_, j) => (
+                      <Star
+                        key={j}
+                        size={14}
+                        className="fill-amber-400 text-amber-400"
+                      />
+                    ))}
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed italic">
+                  &ldquo;{r.t}&rdquo;
+                </p>
+                <div className="mt-4 pt-4 border-t border-sky-100">
+                  <div className="text-sm font-bold text-[#0c4a6e]">{r.a}</div>
+                  <div className="text-xs text-slate-400">{r.l}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ═══════════ BIG CTA ═══════════ */}
+      <section className="px-4 sm:px-6 pb-8">
+        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden relative">
+          <div className="absolute inset-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/property-photos/pretty-peacock/IMG_0368.PNG"
+              alt="Family porch ready for vacation"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/95 via-[#0c4a6e]/85 to-teal-700/80" />
+          </div>
+          <div className="relative px-6 py-14 sm:py-16 text-center">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+              Ready for an amazing Branson vacation?
+            </h2>
+            <p className="mt-3 text-sky-100 text-lg max-w-xl mx-auto">
+              Book direct for the best value. We&apos;ll take care of the rest —
+              so your family can just show up and have fun.
+            </p>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-book inline-flex items-center gap-2 mt-8 px-12 py-4 rounded-full text-lg no-underline"
+            >
+              Book Your Stay
+              <ArrowRight size={20} strokeWidth={2.5} />
+            </a>
+            <p className="mt-4 text-sm text-sky-200">
+              Questions? Call or text{" "}
+              <a href={PHONE_HREF} className="font-bold text-white underline">
+                {PHONE}
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ CONTACT ═══════════ */}
-      <section id="contact" className="py-24 px-4 bg-stone-50">
+      <section id="contact" className="py-20 sm:py-24 px-4 sm:px-6 bg-sky-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-stone-900 text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Let's talk!</h2>
-          <div className="grid md:grid-cols-2 gap-12 mt-12">
-            <div>
-              <h3 className="text-lg font-bold text-stone-800 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Business Hours</h3>
-              <div className="text-stone-600 space-y-1 mb-6">
-                <div>Mon - Sun: Always Open</div>
-                <div className="text-sm text-stone-400">(I might be on a 911 call — I'm a firefighter!)</div>
-              </div>
-              <div className="space-y-3">
-                <a href="tel:3145650589" className="flex items-center gap-2 text-stone-800 no-underline hover:text-amber-600"><Phone size={16} /> 314-565-0589</a>
-                <a href="mailto:summersvacationsllc@gmail.com" className="flex items-center gap-2 text-stone-800 no-underline hover:text-amber-600"><Mail size={16} /> summersvacationsllc@gmail.com</a>
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#0c4a6e]">
+              Let&apos;s plan your trip
+            </h2>
+            <p className="mt-3 text-slate-600">
+              Tell us your dates, group size, or questions — Brian will help you
+              pick the perfect place.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl p-6 border border-sky-100 shadow-sm">
+                <h3 className="font-bold text-[#0c4a6e] mb-3">Reach us anytime</h3>
+                <div className="space-y-3">
+                  <a
+                    href={PHONE_HREF}
+                    className="flex items-center gap-3 text-slate-700 no-underline hover:text-[#0ea5e9] font-medium"
+                  >
+                    <span className="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center">
+                      <Phone size={16} className="text-[#0c4a6e]" />
+                    </span>
+                    {PHONE}
+                  </a>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="flex items-center gap-3 text-slate-700 no-underline hover:text-[#0ea5e9] font-medium break-all"
+                  >
+                    <span className="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center flex-shrink-0">
+                      <Mail size={16} className="text-teal-700" />
+                    </span>
+                    {EMAIL}
+                  </a>
+                  <a
+                    href={FACEBOOK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-slate-700 no-underline hover:text-[#0ea5e9] font-medium"
+                  >
+                    <span className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
+                      <span className="text-sm font-bold text-amber-700">f</span>
+                    </span>
+                    Summers Vacations on Facebook
+                  </a>
+                </div>
+                <p className="mt-5 text-xs text-slate-500 leading-relaxed">
+                  Hours: Always open for guests. (If I&apos;m on a 911 call, I&apos;ll
+                  get back to you ASAP — firefighter life!)
+                </p>
               </div>
             </div>
+
             {submitted ? (
-              <div className="bg-green-50 rounded-xl p-8 flex flex-col items-center justify-center text-center">
-                <div className="text-4xl mb-3">✅</div>
-                <h3 className="text-lg font-bold text-green-800">Message Sent!</h3>
-                <p className="text-sm text-green-600 mt-1">Brian will reply shortly. Thanks!</p>
+              <div className="bg-teal-50 rounded-2xl p-10 flex flex-col items-center justify-center text-center border border-teal-100">
+                <div className="text-4xl mb-3">🎉</div>
+                <h3 className="text-lg font-bold text-teal-900">Message sent!</h3>
+                <p className="text-sm text-teal-700 mt-1">
+                  Brian will reply shortly. Can&apos;t wait to host you!
+                </p>
               </div>
             ) : (
-              <form onSubmit={async (e) => { e.preventDefault(); try { await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f) }); } catch {} setSubmitted(true); }}>
-                <input type="text" placeholder="Name" required value={f.name} onChange={e => setF({ ...f, name: e.target.value })}
-                  className="w-full px-0 py-3 border-b border-stone-300 text-sm focus:outline-none focus:border-stone-900 bg-transparent mb-4 placeholder:text-stone-400" />
-                <input type="email" placeholder="Email" required value={f.email} onChange={e => setF({ ...f, email: e.target.value })}
-                  className="w-full px-0 py-3 border-b border-stone-300 text-sm focus:outline-none focus:border-stone-900 bg-transparent mb-4 placeholder:text-stone-400" />
-                <input type="tel" placeholder="Phone" value={f.phone} onChange={e => setF({ ...f, phone: e.target.value })}
-                  className="w-full px-0 py-3 border-b border-stone-300 text-sm focus:outline-none focus:border-stone-900 bg-transparent mb-4 placeholder:text-stone-400" />
-                <textarea placeholder="Message" required rows={4} value={f.message} onChange={e => setF({ ...f, message: e.target.value })}
-                  className="w-full px-0 py-3 border-b border-stone-300 text-sm focus:outline-none focus:border-stone-900 bg-transparent mb-6 placeholder:text-stone-400 resize-none" />
-                <button type="submit" className="px-10 py-4 bg-stone-900 text-white rounded-lg text-sm font-bold border-none cursor-pointer hover:bg-stone-800 transition-colors">Send Message</button>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  try {
+                    await fetch("/api/contact", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(f),
+                    });
+                  } catch {
+                    /* still show success for UX */
+                  }
+                  setSubmitted(true);
+                }}
+                className="bg-white rounded-2xl p-6 sm:p-8 border border-sky-100 shadow-sm space-y-4"
+              >
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  required
+                  value={f.name}
+                  onChange={(e) => setF({ ...f, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-sky-100 bg-sky-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/40 focus:border-[#0ea5e9]"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  value={f.email}
+                  onChange={(e) => setF({ ...f, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-sky-100 bg-sky-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/40 focus:border-[#0ea5e9]"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone (optional)"
+                  value={f.phone}
+                  onChange={(e) => setF({ ...f, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-sky-100 bg-sky-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/40 focus:border-[#0ea5e9]"
+                />
+                <textarea
+                  placeholder="Dates, group size, or questions..."
+                  required
+                  rows={4}
+                  value={f.message}
+                  onChange={(e) => setF({ ...f, message: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-sky-100 bg-sky-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#0ea5e9]/40 focus:border-[#0ea5e9] resize-none"
+                />
+                <button
+                  type="submit"
+                  className="btn-lake w-full py-3.5 rounded-xl text-sm border-none cursor-pointer"
+                >
+                  Send Message
+                </button>
               </form>
             )}
           </div>
@@ -267,19 +773,48 @@ export default function Home() {
       </section>
 
       {/* ═══════════ FOOTER ═══════════ */}
-      <footer className="py-12 px-4 bg-stone-900 text-center">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-extrabold"
-            style={{ background: 'linear-gradient(135deg,#f5c842,#e8b832)', color: '#2c1810' }}>SV</div>
-          <div className="text-lg font-bold text-amber-400" style={{ fontFamily: "'Playfair Display', serif" }}>Summers Vacations</div>
+      <footer className="bg-[#0c4a6e] text-sky-100 py-12 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-extrabold text-sm bg-gradient-to-br from-[#0ea5e9] to-[#14b8a6]">
+                MB
+              </div>
+              <div>
+                <div className="font-extrabold text-white">My Branson Vacation</div>
+                <div className="text-xs text-sky-300">
+                  Summers Vacations LLC · We take care of you
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-5 text-sm font-semibold">
+              <a href={PHONE_HREF} className="hover:text-amber-300 no-underline">
+                Call
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="hover:text-amber-300 no-underline"
+              >
+                Email
+              </a>
+              <Link href="/reports" className="hover:text-amber-300 no-underline">
+                Daily Reports
+              </Link>
+              <a
+                href={BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-300 hover:text-amber-200 no-underline"
+              >
+                Book Your Stay
+              </a>
+            </div>
+          </div>
+          <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-sky-400">
+            &copy; {new Date().getFullYear()} Summers Vacations LLC · Branson,
+            Missouri
+          </div>
         </div>
-        <div className="flex justify-center gap-6 text-sm text-stone-400">
-          <a href="tel:3145650589" className="no-underline hover:text-amber-400">Call</a>
-          <a href="mailto:summersvacationsllc@gmail.com" className="no-underline hover:text-amber-400">Email</a>
-          <Link href="/reports" className="no-underline hover:text-amber-400">Daily Reports</Link>
-          <Link href="/photos" className="no-underline hover:text-amber-400">Photos</Link>
-        </div>
-        <div className="mt-8 text-xs text-stone-600">&copy; {new Date().getFullYear()} Summers Vacations LLC</div>
       </footer>
     </main>
   );

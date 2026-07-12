@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
-// Keep backward compatibility — serve the unified shows data
 export async function GET() {
   try {
     const path = join(process.cwd(), "public", "reports", "shows-data.json");

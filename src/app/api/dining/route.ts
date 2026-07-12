@@ -2,13 +2,12 @@ import { NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
-// Keep backward compatibility — serve the unified shows data
 export async function GET() {
   try {
-    const path = join(process.cwd(), "public", "reports", "shows-data.json");
+    const path = join(process.cwd(), "public", "reports", "dining-data.json");
     const data = await readFile(path, "utf-8");
     return NextResponse.json({ ok: true, ...JSON.parse(data) });
   } catch {
-    return NextResponse.json({ ok: false, error: "Shows data not available" }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "Dining data not available" }, { status: 500 });
   }
 }

@@ -1,0 +1,17 @@
+{
+  "updated": "2026-07-12",
+  "restaurants": [
+    {"name": "White River Fish House", "cuisine": "Lakeside • American", "price": "$$", "tag": "Host Pick", "desc": "Fresh fish with a view of Lake Taneycomo! Bass Pro's signature restaurant on the water.", "url": "https://www.whitefishhouse.com/"},
+    {"name": "Big D's BBQ", "cuisine": "BBQ", "price": "$", "tag": "Host Pick", "desc": "Best ribs in Branson! Casual, affordable, absolutely delicious. Local favorite.", "url": "https://www.bigdsbbq.com/"},
+    {"name": "Osage Restaurant — Top of the Rock", "cuisine": "Fine Dining", "price": "$$$", "tag": "Scenic", "desc": "Fine dining with stunning Ozark views at Big Cedar's Top of the Rock.", "url": "https://bigcedar.com/dining/"},
+    {"name": "Buffalo Bar & Grill", "cuisine": "American", "price": "$$", "tag": "Casual", "desc": "Casual dining with golf course views at Big Cedar Lodge.", "url": "https://bigcedar.com/dining/"},
+    {"name": "Tall Tales Bar & Grill", "cuisine": "American", "price": "$$", "tag": "Fun Vibe", "desc": "Outdoor dining, live music, fire pits at Big Cedar. Great atmosphere!", "url": "https://bigcedar.com/dining/tall-tales/"},
+    {"name": "The Lake House — Indian Point", "cuisine": "Bar & Grill", "price": "$$", "tag": "🔥 Closest!", "desc": "Right down the road! Beautiful lake views, full bar, live entertainment.", "url": "https://www.thelakehouseindianpoint.com/"},
+    {"name": "Crazy Craig's Cheeky Monkey Bar", "cuisine": "Bar & Grill", "price": "$", "tag": "Crazy Fun", "desc": "Branson icon! Crazy decor, games, treehouse bar, dancing. Open til 1AM.", "url": "https://cheekymonkeybar.com/"},
+    {"name": "Rock Lane Resort Tiki Bar", "cuisine": "Tiki Bar", "price": "$$", "tag": "Tiki Bar", "desc": "Swim-up bar on Table Rock Lake! Order drinks right from the water. Courtesy docks — boat right up.", "url": "https://rocklane.com/bars-table-rock-lake/"},
+    {"name": "Flaming Margaritas at the Landing", "cuisine": "Mexican • Bar", "price": "$$", "tag": "Hot Spot", "desc": "Famous margs, rooftop views, live music, fountain show views at Branson Landing!", "url": "https://www.flamingmargaritas.com/"},
+    {"name": "Laketime Bistro — Kimberling City", "cuisine": "Seafood • Steak", "price": "$$$", "tag": "Worth the Drive", "desc": "Cozy lakeside hideaway! 4.5 ⭐ seafood & steak. Full bar. 20 min drive.", "url": "https://tableagent.com/springfield-mo/laketime-bistro/"},
+    {"name": "Billy Bob's Dairyland", "cuisine": "Ice Cream", "price": "$", "tag": "Sweet Treat", "desc": "Old-school ice cream parlor. Classic shakes, malts, and burgers.", "url": "https://www.billybobsdairyland.com/"},
+    {"name": "Crazy Craig's Treehouse", "cuisine": "Frozen Custard", "price": "$", "tag": "Sweet Treat", "desc": "Frozen custard and treats at the famous treehouse bar.", "url": "https://cheekymonkeybar.com/"}
+  ]
+}

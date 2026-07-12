@@ -41,6 +41,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const [photos, setPhotos] = useState<string[]>([]);
   const [fishingData, setFishingData] = useState<any>(null);
   const [showsData, setShowsData] = useState<any>(null);
+  const [golfData, setGolfData] = useState<any>(null);
+  const [diningData, setDiningData] = useState<any>(null);
+  const [attractionsData, setAttractionsData] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
@@ -68,9 +71,12 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           }
         } catch { /* silent */ }
       }
-      // Fetch live data for Fishing & Shows tabs
+      // Fetch live data for all tabs
       try { const r=await fetch('/api/fishing-report');const d=await r.json();if(d.ok)setFishingData(d); } catch {}
-      try { const r=await fetch('/api/shows-report');const d=await r.json();if(d.ok)setShowsData(d); } catch {}
+      try { const r=await fetch('/api/shows');const d=await r.json();if(d.ok)setShowsData(d); } catch {}
+      try { const r=await fetch('/api/golf');const d=await r.json();if(d.ok)setGolfData(d); } catch {}
+      try { const r=await fetch('/api/dining');const d=await r.json();if(d.ok)setDiningData(d); } catch {}
+      try { const r=await fetch('/api/attractions');const d=await r.json();if(d.ok)setAttractionsData(d); } catch {}
     })();
   }, [params, spPromise]);
 
@@ -354,7 +360,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             ))}
 
             {/* Book Again */}
-            <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
+            <a href="https://branson-condo.com" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
               <span className="text-3xl">🏠</span>
               <div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates • Summers Vacations</div></div>
               <span className="text-xl text-teal-800">›</span>
@@ -457,7 +463,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     {icon:'🏡',name:'Branson Family Haven',meta:'3BR house • Sleeps 8 • Private yard',desc:'Standalone home, full kitchen, washer/dryer'},
                     {icon:'🏢',name:'Double Condo',meta:'Penthouse + Rustic • Sleeps 12+',desc:'🔥 Bundle & save! Two units, one booking'},
                   ].map((p,i) => (
-                    <a key={i} href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-sky-400':''}`}>
+                    <a key={i} href="https://branson-condo.com" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-sky-400':''}`}>
                       <div className="flex items-center gap-2"><span className="text-3xl">{p.icon}</span><div className="flex-1"><div className="text-[13px] font-bold text-sky-900">{p.name}</div><div className="text-[11px] text-sky-700">{p.meta}</div></div>
                         {i>0 && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-green-50 text-teal-700 whitespace-nowrap">Book Now</span>}</div>
                       <div className="text-[10px] text-teal-700 font-semibold mt-1 ml-9">{p.desc}</div>
@@ -484,7 +490,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             )}
 
-            <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
+            <a href="https://branson-condo.com" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
               <span className="text-3xl">🏠</span><div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates</div></div><span className="text-xl text-teal-800">›</span>
             </a>
           </>
@@ -596,71 +602,42 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#7c3aed,#6d28d9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Shows</h1><p className="text-[12px] mt-0.5 text-purple-300">40+ Shows • Music • Comedy • Dinner • Magic</p>
               <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎭 {todayFormatted}</span>
             </div>
-            {sectionTitle('🎤','Country & Variety')}
-            {linkCard('https://www.grandcountrylivemusic.com/grand-jubilee','🎸','Grand Jubilee','7:30 PM • Grand Country • $39+',['a','Classic'],'Branson\'s longest-running show! High-energy variety with comedy & live band.')}
-            {linkCard('https://presleys.com/','🎵','Presleys\' Country Jubilee','8 PM • Presleys\' Theatre',['a','Legacy'],'50+ year Branson tradition! Country music, comedy, and gospel. The show that started it all.')}
-            {linkCard('https://www.themansiontheatre.com/','🤠','Clay Cooper\'s Country Express','7:30 PM • Clay Cooper Theatre',['b','Variety'],'High-energy country variety with comedy, dancing, and 20+ performers.')}
-            {linkCard('https://thehaygoods.com/','🎻','The Haygoods','8 PM • Clay Cooper Theatre • $42+',['p','Family'],'6 siblings, 20+ genres, incredible music & dancing. A Branson powerhouse.')}
-            {linkCard('https://www.hughesbrotherstheatre.com/','👨‍👩‍👦','Hughes Music Show','8 PM • Hughes Brothers Theatre',['b','Family'],'The Hughes Brothers & family — stunning harmonies and variety entertainment.')}
-            {linkCard('https://www.piercearrowshow.com/','🎤','Pierce Arrow','8 PM • Reza Live Theatre',['a','Country'],'Country music, comedy, and the legendary low bass voice.')}
-            {linkCard('https://www.sixshow.com/','🎵','SIX','8 PM • Multiple venues',['p','Unique'],'6 brothers — all vocals, no instruments. Viral sensation with incredible harmonies.')}
-            {sectionTitle('🎸','Tribute Shows')}
-            {linkCard('https://www.themansiontheatre.com/','🎤','Bohemian Queen','8 PM • Clay Cooper • $45+',['r','🔥 Hot'],'The ultimate Freddie Mercury tribute! Full costume changes & all the Queen hits.')}
-            {linkCard('https://www.legendsinconcert.com/branson/','🌟','Legends in Concert','3 PM & 8 PM • Legends Theater',['a','Iconic'],'World-famous tribute show! Multiple artists per show — Elvis, Garth, Abba & more.')}
-            {linkCard('https://hamnervarietytheater.com/','🕺','Back to the Bee Gees','5 PM • Hamner Variety • 🆕 NEW!',['p','Disco'],'Brand new show! Disco tribute — Stayin\' Alive & all the hits.')}
-            {linkCard('https://www.elvisdean z.com/','🕺','Dean Z — Ultimate Elvis','2 PM • Multiple venues',['a','Elvis'],'The world\'s best Elvis tribute artist. Authentic costumes and voice.')}
-            {sectionTitle('🎪','Spectaculars & Acrobats')}
-            {linkCard('https://www.sight-sound.com/','🎭','Sight & Sound — DAVID','3:30 & 7:30 PM • Sight & Sound',['b','⭐ 4.8'],'Epic biblical production! Massive sets, live animals, incredible storytelling.')}
-            {linkCard('https://www.shepherdofthehills.com/','🤠','Shepherd\'s Wild West Showdown','7:30 PM • Shepherd of the Hills',['g','Action'],'Stunt show! Trick riding, gunfights, and comedy western action.')}
-            {linkCard('https://www.acrobatsofchina.com/','🤸','Amazing Acrobats — Shanghai Circus','2 & 7:30 PM',['p','Wow!'],'Mind-blowing Chinese acrobatics, contortion, and aerial acts.')}
-            {sectionTitle('🍽️','Dinner Shows')}
-            {linkCard('https://www.dollypartonsstampede.com/branson/','🐴',"Dolly Parton's Stampede",'5:30 & 8 PM • $60+',['a','Iconic'],'4-course feast with 32 horses, trick riding, and musical spectacle.')}
-            {linkCard('https://www.shepherdofthehills.com/','🍗','Chuckwagon Dinner Show','5 PM • Shepherd of the Hills',['g','Western'],'Cowboy supper + live country music and comedy show.')}
-            {linkCard('https://showboatbransonbelle.com/','🚢','Showboat Branson Belle','Dinner cruise on Table Rock',['b','Lake'],'2-hour cruise + meal + live show on a 700-seat paddle wheeler.')}
-            {sectionTitle('🎭','Comedy & Magic')}
-            {linkCard('https://www.illusionistrickthomas.com/','🪄','Rick Thomas — Mansion of Dreams','2 PM • Mansion Theatre',['p','Magic'],'Vegas-level illusionist! Award-winning magic, comedy, and grand illusions.')}
-            {linkCard('https://www.grandcountry.com/branson-shows/comedy-jamboree/','😂','Comedy Jamboree','3 & 7:30 PM • Grand Country',['g','Funny'],'Slapstick comedy, music, and family-friendly laughs.')}
-            {sectionTitle('🎪','More Experiences')}
-            {linkCard('https://www.bransontrain.com/','🚂','Branson Dinner Trains','Evenings • Apr–Oct',['a','Unique'],'4-course dinner on a vintage train through the Ozark foothills.')}
-            {linkCard('https://www.bransonducktours.com/','🦆','Branson Duck Tours','Hourly 10 AM–5 PM',['g','Fun'],'Amphibious vehicle tour — land AND water! Splash into Table Rock Lake.')}
-            {linkCard('https://www.thefreedomencounter.com/','🇺🇸','Freedom Journey Experience','Ongoing • Freedom Encounter',['b','Patriotic'],'Immersive walk-through experience of America\'s founding.')}
-            <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
-              <div className="text-[11px] text-teal-800 font-semibold">🎵 FREE Summer Concerts at Branson Landing — next show Aug 8! Jukebox Winos & Chris Luneau. Waterfront stage, 7-10 PM.</div>
-            </div>
-            <div className="mx-3.5 mb-2 bg-purple-50 rounded-lg px-3 py-2 border border-purple-200">
-              <div className="text-[11px] text-purple-800"><strong>💡 Pro Tip:</strong> Most shows run Tue–Sat. Book 2-3 days ahead for best seats. Matinees (2-3 PM) are less crowded. Children under 12 often free or discounted.</div>
-            </div>
-          </>
+            {showsData?.shows ? showsData.shows.map((x:any,i:number) => {
+                const tagColors: Record<string,[string,string]> = {'Classic':['a','Classic'],'Legacy':['a','Legacy'],'Family':['b','Family'],'⭐ 4.9':['b','⭐ 4.9'],'Country':['a','Country'],'Unique':['p','Unique'],'🔥 Hot':['r','🔥 Hot'],'Iconic':['a','Iconic'],'🆕 NEW!':['p','🆕 NEW!'],'Elvis':['a','Elvis'],'⭐ 4.8':['b','⭐ 4.8'],'Action':['g','Action'],'Wow!':['p','Wow!'],'Western':['g','Western'],'Lake':['b','Lake'],'Magic':['p','Magic'],'Funny':['g','Funny'],'Fun':['g','Fun'],'Patriotic':['b','Patriotic']};
+                const tag = tagColors[x.tag] || ['b',x.tag];
+                return linkCard(x.url, x.type==='Dinner'&&x.name.includes('Stampede')?'🐴':x.type==='Dinner'&&x.name.includes('Chuckwagon')?'🍗':x.type==='Dinner'?'🚢':x.type==='Magic'?'🪄':x.type==='Comedy'?'😂':x.type==='Experience'?'🚂':x.type==='Acrobatics'?'🤸':x.type==='Production'?'🎭':x.type==='Tribute'&&x.name.includes('Bohemian')?'🎤':x.type==='Tribute'&&x.name.includes('Legends')?'🌟':x.type==='Tribute'&&x.name.includes('Bee Gees')?'🕺':x.type==='Tribute'?'🕺':x.type==='Variety'?'🎸':'🎵', x.name, (x.time||'') + (x.venue?' • '+x.venue:'') + (x.price?' • '+x.price:''), tag, x.desc)
+              }) : <div className="px-3.5 py-10 text-center text-sky-700 text-sm">Loading shows...</div>}</>
         )}
 
         {/* ═══ GOLF ═══ */}
         {tab === 'golf' && (
           <>
             <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#2a5e3e,#1e4a30)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Golf Guide</h1><p className="text-[12px] mt-0.5 text-green-300">Spotlight • Rates • Tee times</p><span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">⛳ {todayFormatted}</span></div>
-            {sectionTitle('⛳','Spotlight — Branson Hills')}
-            <div className="mx-3.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#166534,#15803d)' }}>
-              <div className="flex items-center gap-2"><span className="text-xl">🏆</span><h3 className="text-base font-bold text-white">Branson Hills Golf Club</h3></div>
-              <div className="text-[12px] mt-1 text-green-200 leading-relaxed">#1 Public in MO (Golfpass 2026). Ranked #10 Public in the U.S.! Dramatic 130-ft elevation changes. Missouri golf history museum.</div>
-              <div className="text-[11px] mt-1 text-yellow-300 px-2 py-1 rounded bg-black/20 leading-relaxed">🤯 Fun Fact: The first tee drops 130+ ft — that&apos;s a 13-story building!</div>
-              <div className="flex gap-2 mt-1 flex-wrap"><span className="text-[11px]"><strong className="text-yellow-300">Rates</strong> $235–$265</span><span className="text-[11px]"><strong className="text-yellow-300">15 min</strong></span><span className="text-[11px]"><strong className="text-yellow-300">Par 72</strong> 7,000 yds</span></div>
-              <div className="flex gap-2 mt-2">
-                <a href="https://bransonhillsgolfclub.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: '#f5c842', color: '#ffffff' }}>📅 Book Tee Time</a>
-                <a href="https://bransonhillsgolfclub.com/rates/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">💰 Rates</a>
-              </div>
-            </div>
-            {sectionTitle('🏌️','All Courses')}
-            {linkCard('https://bigcedar.com/golf/paynes-valley/','⭐',"Payne's Valley — Big Cedar",'Tiger Woods • 12 min • $425+',['r','Premium'],'#1 USA TODAY 2026! Tiger\'s first public design. Bonus 19th island green.')}
-            {linkCard('https://bigcedar.com/golf/ozarks-national/','🌊','Ozarks National — Big Cedar','Coore & Crenshaw • Top 100',['a','Top 100'])}
-            {linkCard('https://bigcedar.com/golf/buffalo-ridge/','🏔️','Buffalo Ridge Springs','Tom Fazio • Top 100',['a','Top 100'])}
-            {linkCard('https://www.ledstonegolf.com/','⛳','Ledgestone Country Club','Public • 5 min • $70–$160',['g','Closest'],'Award-winning mountain golf just 5 min from the condo!')}
-            {linkCard('https://bransonhillsgolfclub.com/','🏆','Branson Hills Golf Club','#1 in MO • 15 min • $235+',['a','Top Rated'])}
-            {linkCard('https://bigcedar.com/golf/top-of-the-rock/','⛰️','Top of the Rock — Big Cedar','Tom Watson par 3 • $135+',['b','⭐ 4.5'])}
-            {linkCard('https://bigcedar.com/golf/cliffhangers/','🧗','Cliffhangers at Big Cedar','Jack Nicklaus par 3 • $225+',['p','Nicklaus'])}
-            {linkCard('https://www.thousandhillsresorthotel.com/','🏙️','Thousand Hills Golf Resort','Resort course • $50–$90',['g','Budget'])}
-            {linkCard('https://holidayhills.com/','🌄','Holiday Hills Golf Club','Public • $40–$70',['g','Great Value'])}
-            {linkCard('https://bigcedar.com/golf/mountain-top/','🥾','Mountain Top — Big Cedar','Walking only • 13 holes • $100+',['p','Unique'])}
+            {golfData?.courses ? (<>
+              {golfData.courses.filter((c:any)=>c.featured).map((c:any,i:number)=>(
+                <div key={i}>
+                  {sectionTitle('⛳','Spotlight — '+c.name.split(' ').slice(0,2).join(' '))}
+                  <div className="mx-3.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#166534,#15803d)' }}>
+                    <div className="flex items-center gap-2"><span className="text-xl">🏆</span><h3 className="text-base font-bold text-white">{c.name}</h3></div>
+                    <div className="text-[12px] mt-1 text-green-200 leading-relaxed">{c.desc}</div>
+                    {c.funFact && <div className="text-[11px] mt-1 text-yellow-300 px-2 py-1 rounded bg-black/20 leading-relaxed">🤯 {c.funFact}</div>}
+                    <div className="flex gap-2 mt-1 flex-wrap">{c.rates && <span className="text-[11px]"><strong className="text-yellow-300">Rates</strong> {c.rates}</span>}{c.drive && <span className="text-[11px]"><strong className="text-yellow-300">{c.drive}</strong></span>}{c.par && <span className="text-[11px]"><strong className="text-yellow-300">Par {c.par}</strong> {c.yards ? c.yards+' yds' : ''}</span>}</div>
+                    <div className="flex gap-2 mt-2">
+                      <a href={c.url} target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: '#f5c842', color: '#ffffff' }}>📅 Book Tee Time</a>
+                      <a href={c.url} target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">💰 Rates</a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </>) : <div className="px-3.5 py-10 text-center text-sky-700 text-sm">Loading featured course...</div>}
+            {golfData?.courses ? golfData.courses.filter((c:any)=>!c.featured).map((x:any,i:number) => {
+                const tagColors: Record<string,[string,string]> = {'Premium':['r','Premium'],'Top 100':['a','Top 100'],'Closest':['g','Closest'],'Top Rated':['a','Top Rated'],'⭐ 4.5':['b','⭐ 4.5'],'Nicklaus':['p','Nicklaus'],'Budget':['g','Budget'],'Great Value':['g','Great Value'],'Unique':['p','Unique']};
+                const tag = tagColors[x.tag] || ['b',x.tag];
+                const meta = [x.designer, x.rates, x.drive].filter(Boolean).join(' • ');
+                return linkCard(x.url, x.name.includes("Payne")?'⭐':x.name.includes('Ozarks')?'🌊':x.name.includes('Buffalo')?'🏔️':x.name.includes('Ledgestone')?'⛳':x.name.includes('Branson Hills')?'🏆':x.name.includes('Top of the Rock')?'⛰️':x.name.includes('Cliffhangers')?'🧗':x.name.includes('Thousand')?'🏙️':x.name.includes('Holiday')?'🌄':'🥾', x.name, meta || x.tag, tag, x.desc)
+              }) : <div className="px-3.5 py-10 text-center text-sky-700 text-sm">Loading golf courses...</div>}
             <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
-              <div className="text-[11px] text-teal-800 font-semibold">💡 Weekday tee times save $50-100+. Book 30 days ahead for Big Cedar courses.</div>
+              <div className="text-[11px] text-teal-800 font-semibold">💡 {golfData?.tip || 'Weekday tee times save $50-100+. Book 30 days ahead for Big Cedar courses.'}</div>
             </div>
           </>
         )}
@@ -669,25 +646,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {tab === 'dining' && (
           <>
             <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#be123c,#e11d48)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Dining</h1><p className="text-[12px] mt-0.5 text-red-300">Restaurants • Bars • Waterfront</p></div>
-            {sectionTitle('🍖',"Host's Top Picks")}
-            {linkCard('https://www.whitefishhouse.com/','🥩','White River Fish House','Lakeside • American • $$',['a','Host Pick'],'Fresh fish with a view of Lake Taneycomo!')}
-            {linkCard('https://www.bigdsbbq.com/','🍖',"Big D's BBQ",'BBQ • $',['a','Host Pick'],'Best ribs in Branson! Casual, affordable, delicious.')}
-            {sectionTitle('🌊','Big Cedar Lodge Dining')}
-            {linkCard('https://bigcedar.com/dining/','🏔️','Osage Restaurant — Top of the Rock','Fine dining • Lake views • $$$',['b','Scenic'])}
-            {linkCard('https://bigcedar.com/dining/','🍔','Buffalo Bar & Grill','Casual • Golf course views • $$',['g','Casual'])}
-            {linkCard('https://bigcedar.com/dining/tall-tales/','🎪','Tall Tales Bar & Grill','Outdoor • Live music • Fire pits',['g','Fun Vibe'])}
-            {sectionTitle('🍺','Bars & Waterfront')}
-            {linkCard('https://www.thelakehouseindianpoint.com/','🍹','The Lake House — Indian Point','Table Rock Lake • Live music • 4 min',['r','🔥 Closest!'],'Right down the road! Beautiful lake views, full bar, live entertainment.')}
-            {linkCard('https://cheekymonkeybar.com/','🐒',"Crazy Craig's Cheeky Monkey Bar",'Lake views • Food • Fun • Open til 1AM',['a','Crazy Fun'],'Branson icon! Crazy decor, games, treehouse bar, dancing.')}
-            {linkCard('https://rocklane.com/bars-table-rock-lake/','🏖️','Rock Lane Resort Tiki Bar','Swim-up bar on Table Rock Lake',['b','Tiki Bar'],'Order drinks right from the water! Courtesy docks — boat right up.')}
-            {linkCard('https://www.flamingmargaritas.com/','🔥','Flaming Margaritas at the Landing','Landing • Waterfront • Margaritas',['r','Hot Spot'],'Famous margs, rooftop views, live music, fountain show views!')}
-            {linkCard('https://tableagent.com/springfield-mo/laketime-bistro/','🌅','Laketime Bistro — Kimberling City','Lakeside • Seafood • Full bar • 20 min',['b','Worth the drive'],'Cozy lakeside hideaway! 4.5 ⭐ seafood & steak. Full bar.')}
-            {sectionTitle('🍦','Sweet Treats')}
-            <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
-              {[{e:'🍦',t:"Billy Bob's Dairyland",d:'Old-school ice cream',l:'https://www.billybobsdairyland.com/'},{e:'🌳',t:"Crazy Craig's Treehouse",d:'Frozen custard',l:'https://cheekymonkeybar.com/'}].map((x,i)=>(
-                <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
-              ))}
-            </div>
+            {diningData?.restaurants ? diningData.restaurants.map((x:any,i:number) => {
+                const tagColors: Record<string,[string,string]> = {'Host Pick':['a','Host Pick'],'Scenic':['b','Scenic'],'Casual':['g','Casual'],'Fun Vibe':['g','Fun Vibe'],'🔥 Closest!':['r','🔥 Closest!'],'Crazy Fun':['a','Crazy Fun'],'Tiki Bar':['b','Tiki Bar'],'Hot Spot':['r','Hot Spot'],'Worth the Drive':['b','Worth the Drive'],'Sweet Treat':['g','Sweet Treat']};
+                const tag = tagColors[x.tag] || ['g',x.tag];
+                return linkCard(x.url, x.name.includes('White River')?'🥩':x.name.includes("Big D")?'🍖':x.name.includes('Osage')?'🏔️':x.name.includes('Buffalo Bar')?'🍔':x.name.includes('Tall Tales')?'🎪':x.name.includes('Lake House')?'🍹':x.name.includes('Cheeky')?'🐒':x.name.includes('Rock Lane')?'🏖️':x.name.includes('Flaming')?'🔥':x.name.includes('Laketime')?'🌅':'🍦', x.name, x.cuisine + ' • ' + x.price, tag, x.desc)
+              }) : <div className="px-3.5 py-10 text-center text-sky-700 text-sm">Loading dining...</div>}
           </>
         )}
 
