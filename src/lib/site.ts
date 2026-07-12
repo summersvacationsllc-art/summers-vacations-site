@@ -152,6 +152,34 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   },
 ];
 
+/** Adventure carousel photos — real Branson thrills */
+export const ADVENTURE_PHOTOS = [
+  { src: "https://images.unsplash.com/photo-1567095761054-7a6e89f70b3b?w=400&h=500&fit=crop", label: "Roller Coaster Thrills" },
+  { src: "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?w=400&h=500&fit=crop", label: "Silver Dollar City" },
+  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=500&fit=crop", label: "Zipline Adventure" },
+  { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=500&fit=crop", label: "Scuba & Water Fun" },
+  { src: "https://images.unsplash.com/photo-1508182314993-09bdab4a0b55?w=400&h=500&fit=crop", label: "Table Rock Lake" },
+  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=500&fit=crop", label: "Lake Days" },
+  { src: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=500&fit=crop", label: "Go-Kart Racing" },
+  { src: "https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=400&h=500&fit=crop", label: "Water Skiing" },
+  { src: "https://images.unsplash.com/photo-1605040566590-6e9e97294e3c?w=400&h=500&fit=crop", label: "Mountain Coaster" },
+  { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=500&fit=crop", label: "Family Dinner" },
+  { src: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=500&fit=crop", label: "Trout Fishing" },
+  { src: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=500&fit=crop", label: "Hiking Trails" },
+  { src: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?w=400&h=500&fit=crop", label: "Showboat Cruise" },
+  { src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=500&fit=crop", label: "Fireworks Show" },
+  { src: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=400&h=500&fit=crop", label: "Amusement Park" },
+  { src: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=400&h=500&fit=crop", label: "Mini Golf Fun" },
+  { src: "https://images.unsplash.com/photo-1558904541-efa843b3b4df?w=400&h=500&fit=crop", label: "Dogwood Canyon" },
+  { src: "https://images.unsplash.com/photo-1537565266759-34bbc16be345?w=400&h=500&fit=crop", label: "Swimming Pool" },
+  { src: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=500&fit=crop", label: "Sunset on the Lake" },
+  { src: "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=400&h=500&fit=crop", label: "Road Trip Views" },
+  { src: "https://images.unsplash.com/photo-1526491109672-74740652b963?w=400&h=500&fit=crop", label: "Live Music Show" },
+  { src: "https://images.unsplash.com/photo-1513618827672-0a1e6e9423e8?w=400&h=500&fit=crop", label: "Woodland Retreat" },
+  { src: "https://images.unsplash.com/photo-1532330393533-443990d51f10?w=400&h=500&fit=crop", label: "Summer Vacation" },
+  { src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=500&fit=crop", label: "Explore the Ozarks" },
+];
+
 export const ACTIVITIES = [
   {
     emoji: "🎢",

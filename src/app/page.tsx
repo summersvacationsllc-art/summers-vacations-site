@@ -27,6 +27,7 @@ import {
   PROPERTIES,
   GALLERY_PHOTOS,
   ACTIVITIES,
+  ADVENTURE_PHOTOS,
 } from "@/lib/site";
 
 export default function Home() {
@@ -438,6 +439,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══════════ GUIDEBOOK GIFT ═══════════ */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-white to-sky-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wide mb-6">
+            🎁 Free Gift
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#0c4a6e]">
+            Your personal Branson guidebook —
+            <span className="text-[#0ea5e9]"> free on your phone</span>
+          </h2>
+          <p className="mt-4 text-slate-600 text-lg max-w-xl mx-auto leading-relaxed">
+            Live fishing reports, show times, golf conditions, restaurant picks, and
+            weather — <strong>updated every morning</strong>. It&apos;s like having a local
+            concierge in your pocket.
+          </p>
+          <div className="mt-8 bg-white rounded-2xl border-2 border-sky-200 shadow-lg p-6 sm:p-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="text-4xl">📱</span>
+              <span className="text-2xl">→</span>
+              <span className="text-4xl">🏠</span>
+            </div>
+            <h3 className="font-bold text-lg text-[#0c4a6e]">How to install</h3>
+            <div className="grid sm:grid-cols-2 gap-4 mt-4 text-left">
+              <div className="bg-sky-50 rounded-xl p-4">
+                <div className="font-bold text-sm text-[#0c4a6e] mb-1">📱 iPhone / iPad</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Open in Safari → tap <strong>Share</strong> (square with arrow) →
+                  scroll down → <strong>Add to Home Screen</strong> → name it →
+                  <strong>Add</strong>
+                </p>
+              </div>
+              <div className="bg-sky-50 rounded-xl p-4">
+                <div className="font-bold text-sm text-[#0c4a6e] mb-1">🤖 Android</div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Open in Chrome → tap <strong>three dots</strong> (⋮) →
+                  <strong>Add to Home Screen</strong> → name it →
+                  <strong>Add</strong>
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-xs text-slate-400">
+              Acts like a real app — opens full screen, no browser bars.
+              Works offline for saved content.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="https://mybransonvacation.com/guidebook/the-penthouse?code=guest&name=Guest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-book inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm no-underline"
+              >
+                📖 Preview the Guidebook
+                <ArrowRight size={16} strokeWidth={2} />
+              </a>
+              <span className="text-xs text-slate-400">
+                Updates daily at 6 AM — fishing, shows, events & more
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ ADVENTURES ═══════════ */}
       <section id="adventures" className="py-20 sm:py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -487,6 +550,79 @@ export default function Home() {
                 </span>
               </a>
             ))}
+          </div>
+
+          {/* Adventure Photo Carousel — 20+ thrilling Branson images */}
+          <div className="mt-16">
+            <div className="text-center mb-6">
+              <h3 className="font-display text-2xl font-bold text-[#0c4a6e]">
+                🎢 Vacation memories start here
+              </h3>
+              <p className="text-slate-500 mt-1 text-sm">
+                Pink Jeep tours · Duck boats · SDC coasters · Trout fishing · Ziplines · Lake days
+              </p>
+            </div>
+            <div className="relative overflow-hidden">
+              <style>{`
+                @keyframes scrollPhotos {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .photo-scroll {
+                  animation: scrollPhotos 40s linear infinite;
+                  display: flex;
+                  gap: 12px;
+                  width: max-content;
+                }
+                .photo-scroll:hover {
+                  animation-play-state: paused;
+                }
+                .photo-card {
+                  flex-shrink: 0;
+                  width: 180px;
+                  height: 240px;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                  position: relative;
+                }
+                .photo-card img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 0.5s;
+                }
+                .photo-card:hover img {
+                  transform: scale(1.08);
+                }
+                .photo-card .label {
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  padding: 8px 10px;
+                  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+                  color: white;
+                  font-size: 11px;
+                  font-weight: 700;
+                }
+                @media (max-width: 640px) {
+                  .photo-card { width: 150px; height: 200px; }
+                }
+              `}</style>
+              <div className="photo-scroll">
+                {[
+                  ...ADVENTURE_PHOTOS,
+                  ...ADVENTURE_PHOTOS, // duplicate for seamless loop
+                ].map((p, i) => (
+                  <div key={i} className="photo-card">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.src} alt={p.label} loading="lazy" />
+                    <div className="label">{p.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
