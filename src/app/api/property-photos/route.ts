@@ -14,6 +14,7 @@ const SLUG_TO_FOLDER: Record<string, string> = {
 
 export async function GET() {
   const photos: Record<string, string> = {};
+  const gallery: { src: string; alt: string }[] = [];
 
   for (const [slug, folder] of Object.entries(SLUG_TO_FOLDER)) {
     try {
@@ -22,11 +23,18 @@ export async function GET() {
       const images = files.filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !f.startsWith("."));
       if (images.length > 0) {
         photos[slug] = `/property-photos/${folder}/${images[0]}`;
+        // Add all images to gallery
+        for (const img of images) {
+          gallery.push({
+            src: `/property-photos/${folder}/${img}`,
+            alt: `${folder.replace(/-/g, " ")} photo`,
+          });
+        }
       }
     } catch {
       // folder missing or empty — skip
     }
   }
 
-  return NextResponse.json({ ok: true, photos });
+  return NextResponse.json({ ok: true, photos, gallery });
 }
