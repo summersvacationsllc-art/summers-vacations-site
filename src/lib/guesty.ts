@@ -124,3 +124,48 @@ export async function fetchGuestyListings(): Promise<GuestyListing[]> {
   }
   return out;
 }
+
+export interface GuestyReview {
+  reviewerName: string;
+  body: string;
+  rating: number; // 1-5
+  channel: string;
+  createdAt: string;
+  listingId: string;
+}
+
+/** Fetch reviews across all listings, optionally filtered by listing IDs. */
+export async function fetchGuestyReviews(
+  listingIds: string[],
+  limit = 20
+): Promise<GuestyReview[]> {
+  if (!listingIds.length) return [];
+  try {
+    const all: GuestyReview[] = [];
+    // Fetch reviews for each listing
+    for (const listingId of listingIds) {
+      const json = await guestyGet(
+        `/v1/reviews?listingId=${listingId}&limit=${Math.ceil(limit / listingIds.length)}&includeCustomChannels=false`
+      );
+      const results = (json.results as Record<string, unknown>[]) || [];
+      for (const r of results) {
+        const contents = (r.contents as Record<string, unknown>) || {};
+        all.push({
+          reviewerName: String(contents.reviewerName || r.reviewerName || "Guest"),
+          body: String(contents.body || r.bodyText || ""),
+          rating: Math.round(Number(contents.rating || r.rating || 5) / 2), // Guesty doubles ratings
+          channel: String(r.channelId || ""),
+          createdAt: String(r.createdAt || r.updatedAt || ""),
+          listingId: String(r.listingId || listingId),
+        });
+      }
+    }
+    // Sort by newest first, take top N
+    return all
+      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+      .slice(0, limit);
+  } catch (e) {
+    console.error("Failed to fetch Guesty reviews:", e);
+    return [];
+  }
+}
