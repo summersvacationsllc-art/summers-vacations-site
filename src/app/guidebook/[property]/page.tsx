@@ -207,7 +207,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
       {/* Brand Bar */}
       <div className="flex items-center gap-2 px-3.5 pb-2.5 flex-shrink-0" style={{ background: '#2c1810', paddingTop: '8px' }}>
-        <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[13px] font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)', color: '#2c1810' }}>SV</div>
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[13px] font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)', color: '#fde047' }}>SV</div>
         <div className="flex-1 text-center">
           <div className="text-base font-bold tracking-wider" style={{ color: '#f5c842' }}>Summers Vacations</div>
           <div className="text-[10px]" style={{ color: '#8b7355' }}>Branson, Missouri</div>
@@ -227,7 +227,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       <div className="px-3.5 py-1.5 flex items-center gap-2 flex-shrink-0" style={styles.bar}>
         <span className="text-lg">{T.emoji}</span>
         <span className="text-[12px] font-semibold text-white flex-1">{T.name}</span>
-        <a href={T.featuredLink} target="_blank" rel="noopener" className="text-[10px] font-semibold px-2 py-0.5 rounded-full no-underline" style={{ background: T.accentColor, color: '#2c1810' }}>See Event</a>
+        <a href={T.featuredLink} target="_blank" rel="noopener" className="text-[10px] font-semibold px-2 py-0.5 rounded-full no-underline" style={{ background: T.accentColor, color: '#fde047' }}>See Event</a>
       </div>
 
       {/* Content */}
@@ -315,7 +315,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             <div className="mx-3.5 mt-2 rounded-xl px-3.5 py-3" style={styles.bar}>
               <div className="flex items-center gap-2"><span className="text-xl">{T.emoji}</span><h3 className="text-base font-bold text-white flex-1">{T.featuredEvent}</h3></div>
               <div className="flex gap-2 mt-2">
-                <a href={T.featuredLink} target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#2c1810' }}>🎫 Learn More</a>
+                <a href={T.featuredLink} target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#fde047' }}>🎫 Learn More</a>
                 <span className="text-[11px] text-white/70 self-center">{T.sdcEvent}</span>
               </div>
             </div>
@@ -326,10 +326,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
 
             {/* Daily Branson Report */}
-            <a href="/reports/2026-07-09.html" target="_blank" rel="noopener" className="block mx-3.5 mt-2 rounded-xl px-3.5 py-3 no-underline border border-amber-300 flex items-center gap-2" style={{ background: 'linear-gradient(135deg,#fef3c7,#fde68a)' }}>
+            <a href="/reports/2026-07-09.html" target="_blank" rel="noopener" className="block mx-3.5 mt-2 rounded-xl px-3.5 py-3 no-underline border border-blue-300 flex items-center gap-2" style={{ background: 'linear-gradient(135deg,#dbeafe,#bfdbfe)' }}>
               <span className="text-3xl">📰</span>
               <div className="flex-1">
-                <div className="text-[13px] font-bold text-amber-900">Today's Branson Report</div>
+                <div className="text-[13px] font-bold text-blue-900">Today's Branson Report</div>
                 <div className="text-[11px] text-yellow-700">Fishing • Shows • Golf • Events — fresh every morning</div>
               </div>
               <span className="text-xl text-yellow-600">→</span>
@@ -367,7 +367,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           <>
             {mode === 'guest' ? (
               <>
-                <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#3d2b1f,#5c4033)', color: 'white', overflow: 'hidden', position: 'relative' }}>
+                <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)', color: 'white', overflow: 'hidden', position: 'relative' }}>
                   <div style={{ position: 'absolute', right: 10, bottom: -8, fontSize: 60, opacity: 0.08 }}>📖</div>
                   <h1 className="font-serif text-2xl" style={{ fontFamily: "'DM Serif Display', serif" }}>{prop.name} Guidebook</h1>
                   <p className="text-[12px] mt-0.5" style={{ color: '#c4b5a0' }}>Your complete house manual</p>
@@ -499,7 +499,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="flex items-center gap-2"><span className="text-xl">🎢</span><h3 className="text-base font-bold text-white">Silver Dollar City</h3></div>
               <div className="text-[12px] mt-1 text-yellow-200 leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
               <div className="flex gap-2 mt-2">
-                <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#2c1810' }}>🎫 Tickets</a>
+                <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#fde047' }}>🎫 Tickets</a>
                 <a href="https://www.silverdollarcity.com/theme-park/attractions/rides/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">🎢 Rides</a>
               </div>
             </div>
@@ -644,7 +644,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="text-[11px] mt-1 text-yellow-300 px-2 py-1 rounded bg-black/20 leading-relaxed">🤯 Fun Fact: The first tee drops 130+ ft — that&apos;s a 13-story building!</div>
               <div className="flex gap-2 mt-1 flex-wrap"><span className="text-[11px]"><strong className="text-yellow-300">Rates</strong> $235–$265</span><span className="text-[11px]"><strong className="text-yellow-300">15 min</strong></span><span className="text-[11px]"><strong className="text-yellow-300">Par 72</strong> 7,000 yds</span></div>
               <div className="flex gap-2 mt-2">
-                <a href="https://bransonhillsgolfclub.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: '#f5c842', color: '#2c1810' }}>📅 Book Tee Time</a>
+                <a href="https://bransonhillsgolfclub.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: '#f5c842', color: '#fde047' }}>📅 Book Tee Time</a>
                 <a href="https://bransonhillsgolfclub.com/rates/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">💰 Rates</a>
               </div>
             </div>
