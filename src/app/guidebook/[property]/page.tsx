@@ -30,7 +30,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 }) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
-  const [mode, setMode] = useState<'guest'|'branson'>(() => { if (checkin && checkout) { const co = new Date(checkout + 'T11:00:00'); return new Date() > co ? 'branson' : 'guest'; } return 'guest'; });
+  const [mode, setMode] = useState<'guest'|'branson'>('guest');
   const [guestCode, setGuestCode] = useState('');
   const [guestName, setGuestName] = useState('');
   const [checkin, setCheckin] = useState('');
@@ -56,6 +56,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       if (sp.checkin) setCheckin(sp.checkin);
       if (sp.checkout) setCheckout(sp.checkout);
       if (sp.checkintime) setCheckinTime(sp.checkintime);
+      // Auto-detect mode based on checkout date
+      if (sp.checkout) { const co = new Date(sp.checkout + 'T11:00:00'); setMode(new Date() > co ? 'branson' : 'guest'); } else if (sp.checkin) { setMode('guest'); }
       // Fetch Guesty photos
       if (gb.guestyListingId) {
         try {
