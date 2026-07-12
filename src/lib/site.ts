@@ -93,7 +93,8 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "3BR",
     area: "Branson",
     slug: "branson-family-haven",
-    photo: null,
+    photo:
+      "/property-photos/branson-family-haven/3CAE200A-210A-4B6C-A553-EF5F1F1111E0_1_105_c.jpeg",
     blurb: "Standalone house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
   },
