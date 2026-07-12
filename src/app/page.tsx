@@ -35,6 +35,7 @@ export default function Home() {
   const [f, setF] = useState({ name: "", email: "", phone: "", message: "" });
   const [mobileMenu, setMobileMenu] = useState(false);
   const [reviews, setReviews] = useState<{t:string,a:string,l:string}[]>([]);
+  const [adventurePhotos, setAdventurePhotos] = useState<{src:string,label:string}[]>([]);
 
   useEffect(() => {
     fetch("/api/reviews")
@@ -48,6 +49,18 @@ export default function Home() {
               l: r.channel === "airbnb2" ? "Airbnb" : r.channel === "bookingCom" ? "Booking.com" : r.channel === "homeaway2" ? "Vrbo" : "Verified Guest",
             }))
           );
+        }
+      })
+      .catch(() => {});
+    // Load adventure photos from manifest
+    fetch("/adventure-photos/manifest.json")
+      .then((r) => r.json())
+      .then((photos) => {
+        if (Array.isArray(photos) && photos.length) {
+          setAdventurePhotos(photos.map((p: {file:string;label:string}) => ({
+            src: `/adventure-photos/${p.file}`,
+            label: p.label,
+          })));
         }
       })
       .catch(() => {});
@@ -630,8 +643,8 @@ export default function Home() {
               `}</style>
               <div className="photo-scroll">
                 {[
-                  ...ADVENTURE_PHOTOS,
-                  ...ADVENTURE_PHOTOS, // duplicate for seamless loop
+                  ...(adventurePhotos.length > 0 ? adventurePhotos : ADVENTURE_PHOTOS),
+                  ...(adventurePhotos.length > 0 ? adventurePhotos : ADVENTURE_PHOTOS), // duplicate for seamless loop
                 ].map((p, i) => (
                   <div key={i} className="photo-card">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

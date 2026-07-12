@@ -152,33 +152,9 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   },
 ];
 
-/** Adventure carousel — keyword-matched Branson adventure photos via LoremFlickr */
-export const ADVENTURE_PHOTOS = [
-  { src: "https://loremflickr.com/400/500/roller+coaster", label: "Silver Dollar City Coasters" },
-  { src: "https://loremflickr.com/400/500/amusement+park+ride", label: "Wildfire at SDC" },
-  { src: "https://loremflickr.com/400/500/zipline", label: "Zipline Through the Ozarks" },
-  { src: "https://loremflickr.com/400/500/go+kart+racing", label: "Go-Kart Family Racing" },
-  { src: "https://loremflickr.com/400/500/lake+beach+summer", label: "Table Rock Lake Beaches" },
-  { src: "https://loremflickr.com/400/500/fly+fishing+trout", label: "Taneycomo Trout Fishing" },
-  { src: "https://loremflickr.com/400/500/wakeboarding", label: "Water Skiing Table Rock" },
-  { src: "https://loremflickr.com/400/500/alpine+slide+mountain", label: "Mountain Coaster Thrills" },
-  { src: "https://loremflickr.com/400/500/paddle+boat", label: "Showboat Branson Belle" },
-  { src: "https://loremflickr.com/400/500/fireworks+night", label: "SDC Night Fireworks" },
-  { src: "https://loremflickr.com/400/500/hiking+forest+trail", label: "Ozark Hiking Trails" },
-  { src: "https://loremflickr.com/400/500/waterfall+forest", label: "Dogwood Canyon Waterfalls" },
-  { src: "https://loremflickr.com/400/500/mini+golf", label: "Mini Golf with the Family" },
-  { src: "https://loremflickr.com/400/500/swimming+pool+family", label: "Community Pool Days" },
-  { src: "https://loremflickr.com/400/500/lake+sunset+boat", label: "Ozark Sunset Views" },
-  { src: "https://loremflickr.com/400/500/scenic+mountain+road", label: "Scenic Ozark Byways" },
-  { src: "https://loremflickr.com/400/500/live+concert+music", label: "Live Music on the Strip" },
-  { src: "https://loremflickr.com/400/500/kayaking+lake", label: "Kayaking Table Rock" },
-  { src: "https://loremflickr.com/400/500/family+vacation+summer", label: "Summer Vacation Fun" },
-  { src: "https://loremflickr.com/400/500/offroad+jeep", label: "Pink Jeep Tours" },
-  { src: "https://loremflickr.com/400/500/dinner+restaurant+show", label: "Branson Dinner Shows" },
-  { src: "https://loremflickr.com/400/500/amphibious+vehicle+water", label: "Ride the Ducks" },
-  { src: "https://loremflickr.com/400/500/cave+tour", label: "Marvel Cave at SDC" },
-  { src: "https://loremflickr.com/400/500/butterfly+garden", label: "Butterfly Palace" },
-];
+/** Adventure carousel — loaded from public/adventure-photos/manifest.json.
+ *  Drop photos in public/adventure-photos/, update manifest.json with filenames and captions. */
+export const ADVENTURE_PHOTOS: { src: string; label: string }[] = [];
 
 export const ACTIVITIES = [
   {
