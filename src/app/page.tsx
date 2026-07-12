@@ -52,15 +52,12 @@ export default function Home() {
         }
       })
       .catch(() => {});
-    // Load adventure photos from manifest
-    fetch("/adventure-photos/manifest.json")
+    // Load adventure photos from folder API
+    fetch("/api/adventure-photos")
       .then((r) => r.json())
-      .then((photos) => {
-        if (Array.isArray(photos) && photos.length) {
-          setAdventurePhotos(photos.map((p: {file:string;label:string}) => ({
-            src: `/adventure-photos/${p.file}`,
-            label: p.label,
-          })));
+      .then((d) => {
+        if (d.ok && d.photos?.length) {
+          setAdventurePhotos(d.photos);
         }
       })
       .catch(() => {});
