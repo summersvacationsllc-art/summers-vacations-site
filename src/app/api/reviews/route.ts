@@ -14,8 +14,10 @@ const LISTING_IDS = [
 
 export async function GET() {
   try {
-    const reviews = await fetchGuestyReviews(LISTING_IDS, 12);
-    return NextResponse.json({ ok: true, reviews });
+    const reviews = await fetchGuestyReviews(LISTING_IDS, 20);
+    // Only return 5-star reviews — we're a Superhost with 4 years running
+    const fiveStar = reviews.filter((r) => r.rating >= 5);
+    return NextResponse.json({ ok: true, reviews: fiveStar });
   } catch {
     return NextResponse.json({ ok: false, reviews: [] }, { status: 500 });
   }

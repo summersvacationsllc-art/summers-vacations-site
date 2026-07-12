@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Phone,
@@ -34,6 +34,24 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [f, setF] = useState({ name: "", email: "", phone: "", message: "" });
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [reviews, setReviews] = useState<{t:string,a:string,l:string}[]>([]);
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.ok && d.reviews?.length) {
+          setReviews(
+            d.reviews.map((r: {reviewerName:string;body:string;channel:string}) => ({
+              t: r.body,
+              a: r.reviewerName,
+              l: r.channel === "airbnb2" ? "Airbnb" : r.channel === "bookingCom" ? "Booking.com" : r.channel === "homeaway2" ? "Vrbo" : "Verified Guest",
+            }))
+          );
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <main className="bg-white text-slate-900">
@@ -690,14 +708,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-amber-600 mb-3">
-              Happy families
+              {reviews.length > 0 ? "Verified reviews" : "Happy families"}
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e]">
-              Guests keep coming back
+              {reviews.length > 0 ? "What our guests say" : "Guests keep coming back"}
             </h2>
+            {reviews.length > 0 && (
+              <p className="mt-2 text-sm text-slate-400">
+                🏆 Superhost 4 years running — only 5-star reviews shown
+              </p>
+            )}
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
+            {(reviews.length > 0 ? reviews.slice(0, 4) : [
               {
                 t: "We loved our time at Woodland Retreat! Spotless, beautiful surroundings. The deck was a favorite — my daughter loved watching the deer each morning.",
                 a: "Krystal",
@@ -718,7 +741,7 @@ export default function Home() {
                 a: "Aaron",
                 l: "Kansas",
               },
-            ].map((r) => (
+            ]).map((r) => (
               <div
                 key={r.a}
                 className="bg-gradient-to-b from-sky-50 to-white rounded-2xl p-6 border border-sky-100 shadow-sm"
