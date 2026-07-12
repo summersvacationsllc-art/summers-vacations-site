@@ -36,6 +36,7 @@ export default function Home() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [reviews, setReviews] = useState<{t:string,a:string,l:string}[]>([]);
   const [adventurePhotos, setAdventurePhotos] = useState<{src:string,label:string}[]>([]);
+  const [propertyPhotos, setPropertyPhotos] = useState<Record<string,string>>({});
 
   useEffect(() => {
     fetch("/api/reviews")
@@ -56,9 +57,14 @@ export default function Home() {
     fetch("/api/adventure-photos")
       .then((r) => r.json())
       .then((d) => {
-        if (d.ok && d.photos?.length) {
-          setAdventurePhotos(d.photos);
-        }
+        if (d.ok && d.photos?.length) setAdventurePhotos(d.photos);
+      })
+      .catch(() => {});
+    // Load property photos from folder API
+    fetch("/api/property-photos")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.ok && d.photos) setPropertyPhotos(d.photos);
       })
       .catch(() => {});
   }, []);
@@ -291,10 +297,10 @@ export default function Home() {
                 className="group block bg-white rounded-2xl overflow-hidden border border-sky-100 shadow-sm hover:shadow-xl hover:shadow-sky-900/10 hover:-translate-y-1 transition-all duration-300 no-underline text-inherit"
               >
                 <div className="aspect-[4/3] bg-sky-50 overflow-hidden relative">
-                  {p.photo ? (
+                  {(propertyPhotos[p.slug] || p.photo) ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={p.photo}
+                      src={propertyPhotos[p.slug] || p.photo || ""}
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"

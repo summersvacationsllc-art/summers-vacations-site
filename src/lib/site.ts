@@ -18,7 +18,7 @@ export type PropertyCard = {
   badge?: string;
 };
 
-/** Curated real property photos (local assets only — no stock). */
+/** Curated real property photos — fetched from /api/property-photos at runtime. */
 export const PROPERTIES: PropertyCard[] = [
   {
     name: "The Penthouse",
@@ -27,8 +27,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "the-penthouse",
-    photo:
-      "/property-photos/penthouse/12E2EDDB-A38A-4D5A-B209-CBB1F9AD1830_1_105_c.jpeg",
+    photo: null,
     blurb: "Screened porch with mountain views and a cozy top-floor retreat.",
   },
   {
@@ -38,8 +37,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "rustic-ozark-retreat",
-    photo:
-      "/property-photos/rustic-ozark-retreat/170A99D0-37F1-40D1-87E0-88172D6E6E1D_1_105_c.jpeg",
+    photo: null,
     blurb: "Ozark charm, electric fireplace, and that mountain-getaway feel.",
   },
   {
@@ -49,8 +47,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "woodland-retreat",
-    photo:
-      "/property-photos/woodland-retreat/2988F6CE-F08F-47A8-B37B-3369F82A636F_1_105_c.jpeg",
+    photo: null,
     blurb: "Kids love the bunk room. Parents love the open living space.",
   },
   {
@@ -60,8 +57,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "1BR",
     area: "Branson West",
     slug: "modern-charmer",
-    photo:
-      "/property-photos/modern-charmer/1773378876798_JmrcRDaVzRXfXABYeOaFHq4aroXFHm67XTjlxz17.jpg",
+    photo: null,
     blurb: "Fresh finishes, coffee bar, and perfect for couples or small crews.",
   },
   {
@@ -71,7 +67,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "1BR",
     area: "Branson West",
     slug: "pretty-peacock",
-    photo: "/property-photos/pretty-peacock/IMG_0368.PNG",
+    photo: null,
     blurb: "Ground-floor ease, porch hangouts, and zero stairs to worry about.",
   },
   {
@@ -81,8 +77,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "4BR",
     area: "Branson West",
     slug: "double-condo",
-    photo:
-      "/property-photos/double-condo/0A6EF612-360C-46FD-AD00-F1FA8B459CDE_1_105_c.jpeg",
+    photo: null,
     blurb: "Two units, two kitchens — reunions and big families done right.",
     badge: "🔥 Best Value",
   },
@@ -93,8 +88,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "3BR",
     area: "Branson",
     slug: "branson-family-haven",
-    photo:
-      "/property-photos/branson-family-haven/3CAE200A-210A-4B6C-A553-EF5F1F1111E0_1_105_c.jpeg",
+    photo: null,
     blurb: "Standalone house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
   },

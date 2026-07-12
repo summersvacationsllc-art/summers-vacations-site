@@ -1,17 +1,32 @@
 import { NextResponse } from "next/server";
-import { readdirSync } from "fs";
+import { readdir } from "fs/promises";
 import { join } from "path";
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const slug = searchParams.get("slug") || "";
+const PROPERTY_SLUGS = [
+  "penthouse",
+  "rustic-ozark-retreat",
+  "woodland-retreat",
+  "modern-charmer",
+  "pretty-peacock",
+  "double-condo",
+  "branson-family-haven",
+];
 
-  try {
-    const dir = join(process.cwd(), "public", "property-photos", slug);
-    const files = readdirSync(dir).filter(f => /\.(jpg|jpeg|png|PNG|webp)$/i.test(f));
-    const photos = files.map(f => `/property-photos/${slug}/${f}`);
-    return NextResponse.json({ ok: true, photos, total: photos.length });
-  } catch {
-    return NextResponse.json({ ok: false, photos: [], total: 0 });
+export async function GET() {
+  const photos: Record<string, string> = {};
+
+  for (const slug of PROPERTY_SLUGS) {
+    try {
+      const dir = join(process.cwd(), "public", "property-photos", slug);
+      const files = await readdir(dir);
+      const images = files.filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !f.startsWith("."));
+      if (images.length > 0) {
+        photos[slug] = `/property-photos/${slug}/${images[0]}`;
+      }
+    } catch {
+      // folder missing or empty — skip
+    }
   }
+
+  return NextResponse.json({ ok: true, photos });
 }
