@@ -27,8 +27,9 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "the-penthouse",
-    photo: null,
-    blurb: "Screened porch with mountain views and a cozy top-floor retreat.",
+    photo:
+      "/property-photos/penthouse/aaa-deck.jpeg",
+    blurb: "Deck with mountain views and a cozy top-floor retreat.",
   },
   {
     name: "Rustic Ozark Retreat",
@@ -37,8 +38,9 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "rustic-ozark-retreat",
-    photo: null,
-    blurb: "Ozark charm, electric fireplace, and that mountain-getaway feel.",
+    photo:
+      "/property-photos/rustic-ozark-retreat/aaa-rusticporch.jpeg",
+    blurb: "Porch overlooking the Ozarks — that mountain-getaway feel.",
   },
   {
     name: "Woodland Retreat",
@@ -67,8 +69,9 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "1BR",
     area: "Branson West",
     slug: "pretty-peacock",
-    photo: null,
-    blurb: "Ground-floor ease, porch hangouts, and zero stairs to worry about.",
+    photo:
+      "/property-photos/pretty-peacock/aaa-peacockporch.jpg",
+    blurb: "Family porch with turquoise chairs — ground-floor ease.",
   },
   {
     name: "Double Condo",
@@ -77,7 +80,8 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "4BR",
     area: "Branson West",
     slug: "double-condo",
-    photo: null,
+    photo:
+      "/property-photos/double-condo/aaa-doublecondo.jpg",
     blurb: "Two units, two kitchens — reunions and big families done right.",
     badge: "🔥 Best Value",
   },
@@ -96,54 +100,32 @@ export const PROPERTIES: PropertyCard[] = [
 
 /** Real property photos for the mosaic / gallery strip. */
 export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
-  {
-    src: "/property-photos/penthouse/12E2EDDB-A38A-4D5A-B209-CBB1F9AD1830_1_105_c.jpeg",
-    alt: "Screened porch overlooking the Ozarks",
-  },
-  {
-    src: "/property-photos/pretty-peacock/IMG_0368.PNG",
-    alt: "Family porch with turquoise chairs",
-  },
-  {
-    src: "/property-photos/woodland-retreat/2988F6CE-F08F-47A8-B37B-3369F82A636F_1_105_c.jpeg",
-    alt: "Open living and dining at Woodland Retreat",
-  },
-  {
-    src: "/property-photos/penthouse/0FA8D7A4-80EC-456F-BB9E-23829038A59D_1_105_c.jpeg",
-    alt: "Bright master bedroom with balcony access",
-  },
-  {
-    src: "/property-photos/rustic-ozark-retreat/170A99D0-37F1-40D1-87E0-88172D6E6E1D_1_105_c.jpeg",
-    alt: "Ozark hillside views from the property",
-  },
-  {
-    src: "/property-photos/modern-charmer/1773378876798_JmrcRDaVzRXfXABYeOaFHq4aroXFHm67XTjlxz17.jpg",
-    alt: "Modern Charmer bedroom",
-  },
-  {
-    src: "/property-photos/double-condo/0A6EF612-360C-46FD-AD00-F1FA8B459CDE_1_105_c.jpeg",
-    alt: "Sunny guest bedroom ready for family",
-  },
-  {
-    src: "/property-photos/pretty-peacock/IMG_0370.PNG",
-    alt: "Welcome entrance at Pretty Peacock",
-  },
-  {
-    src: "/property-photos/woodland-retreat/1827C3E6-ED59-49E6-92A6-1D0EC7A6DC7F_1_105_c.jpeg",
-    alt: "Full kitchen ready for family meals",
-  },
-  {
-    src: "/property-photos/double-condo/0849C14C-3CDE-471E-9D7F-85A81FA21DD2_1_105_c.jpeg",
-    alt: "Fully stocked kitchen cabinets",
-  },
-  {
-    src: "/property-photos/pretty-peacock/IMG_0369.PNG",
-    alt: "Covered porch hangout space",
-  },
-  {
-    src: "/property-photos/penthouse/0A6EF612-360C-46FD-AD00-F1FA8B459CDE_1_105_c.jpeg",
-    alt: "Comfortable bedroom with Table Rock Lake map art",
-  },
+  // Penthouse
+  { src: "/property-photos/penthouse/aaa-deck.jpeg", alt: "Deck with Ozark views" },
+  { src: "/property-photos/penthouse/aaa-coffeebar.jpeg", alt: "Coffee bar ready for mornings" },
+  { src: "/property-photos/penthouse/IMG_7909.jpeg", alt: "Bright penthouse living room" },
+  { src: "/property-photos/penthouse/0FA8D7A4-80EC-456F-BB9E-23829038A59D_1_105_c.jpeg", alt: "Master bedroom with balcony" },
+  // Rustic Ozark
+  { src: "/property-photos/rustic-ozark-retreat/aaa-rusticporch.jpeg", alt: "Porch overlooking the Ozarks" },
+  { src: "/property-photos/rustic-ozark-retreat/IMG_8094.jpeg", alt: "Cozy rustic living space" },
+  // Woodland
+  { src: "/property-photos/woodland-retreat/aaa-woodland-deck.jpeg", alt: "Woodland deck retreat" },
+  { src: "/property-photos/woodland-retreat/aaa-woodland-living-room.jpeg", alt: "Open living and dining" },
+  { src: "/property-photos/woodland-retreat/2988F6CE-F08F-47A8-B37B-3369F82A636F_1_105_c.jpeg", alt: "Family bunk room" },
+  // Modern Charmer
+  { src: "/property-photos/modern-charmer/Image 37.jpg", alt: "Sleek modern living room" },
+  { src: "/property-photos/modern-charmer/Image 38.jpg", alt: "Modern Charmer kitchen" },
+  // Pretty Peacock
+  { src: "/property-photos/pretty-peacock/aaa-peacockporch.jpg", alt: "Family porch with turquoise chairs" },
+  { src: "/property-photos/pretty-peacock/Image 63.jpg", alt: "Bright and welcoming entry" },
+  { src: "/property-photos/pretty-peacock/Image 66.jpg", alt: "Cozy Peacock living space" },
+  // Double Condo
+  { src: "/property-photos/double-condo/aaa-doublecondo.jpg", alt: "Double condo living area" },
+  { src: "/property-photos/double-condo/0849C14C-3CDE-471E-9D7F-85A81FA21DD2_1_105_c.jpeg", alt: "Kitchen ready for groups" },
+  // Branson Family Haven
+  { src: "/property-photos/branson-family-haven/DJI_0197.jpeg", alt: "Family Haven from above" },
+  { src: "/property-photos/branson-family-haven/IMG_9172.jpeg", alt: "Haven living room" },
+  { src: "/property-photos/branson-family-haven/114C6EBF-D9C1-4E79-8777-DDB797DD6931_1_105_c.jpeg", alt: "Bright family living space" },
 ];
 
 /** Adventure carousel — loaded from public/adventure-photos/manifest.json.
