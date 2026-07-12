@@ -134,7 +134,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const styles = {
     bar: { background: T.gradient },
     tabActive: { color: T.accentColor },
-    tabBar: { background: '#2c1810' },
+    tabBar: { background: '#0c4a6e' },
   };
 
   const tabBtn = (id: string, svg: string, label: string) => (
@@ -206,10 +206,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       <div className="h-[34px]" />
 
       {/* Brand Bar */}
-      <div className="flex items-center gap-2 px-3.5 pb-2.5 flex-shrink-0" style={{ background: '#2c1810', paddingTop: '8px' }}>
+      <div className="flex items-center gap-2 px-3.5 pb-2.5 flex-shrink-0" style={{ background: '#0c4a6e', paddingTop: '8px' }}>
         <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[13px] font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)', color: '#fde047' }}>SV</div>
         <div className="flex-1 text-center">
-          <div className="text-base font-bold tracking-wider" style={{ color: '#f5c842' }}>Summers Vacations</div>
+          <div className="text-base font-bold tracking-wider" style={{ color: '#fde047' }}>Summers Vacations</div>
           <div className="text-[10px]" style={{ color: '#8b7355' }}>Branson, Missouri</div>
         </div>
         <div className="text-[10px] text-right" style={{ color: '#8b7355' }}>{mode === 'guest' ? todayFormatted : 'Checked out'}</div>
@@ -240,7 +240,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {mode === 'guest' ? (
               <>
                 <div className="px-4 pt-3 pb-4" style={styles.bar}>
-                  <h1 className="font-serif text-2xl" style={{ fontFamily: "'DM Serif Display', serif", color: '#f5c842' }}>
+                  <h1 className="font-serif text-2xl" style={{ fontFamily: "'DM Serif Display', serif", color: '#fde047' }}>
                     {guestName ? `Welcome, ${guestName}!` : `Welcome to ${prop.name}!`} 🤠
                   </h1>
                   <div className="text-[13px] mt-0.5" style={{ color: '#c4b5a0' }}>{prop.name} • Check-in at {prop.checkIn.time}</div>
@@ -347,7 +347,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🎭', "Tonight's Shows")}
             {[{t:'7PM',n:'Grand Jubilee',v:'Grand Country',l:'https://www.grandcountrymusichall.com/'},{t:'8PM',n:'Bohemian Queen',v:'Clay Cooper',l:'https://www.claycooper.com/'},{t:'8PM',n:'The Haygoods',v:'Haygood Theater',l:'https://www.haygoodshow.com/'}].map((x,i) => (
               <a key={i} href={x.l} target="_blank" rel="noopener" className="flex items-center gap-2 mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit">
-                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#2c1810', color: '#f5c842' }}>{x.t}</span>
+                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#2c1810', color: '#fde047' }}>{x.t}</span>
                 <span className="text-[12px] font-semibold flex-1 text-sky-900">{x.n}</span>
                 <span className="text-[10px] text-sky-200">{x.v}</span>
               </a>
