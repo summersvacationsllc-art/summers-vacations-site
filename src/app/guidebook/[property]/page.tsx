@@ -217,10 +217,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
       {/* Mode Toggle */}
       <div className="flex gap-2 px-3.5 py-1 flex-shrink-0 justify-center" style={{ background: '#0c4a6e' }}>
-        <button onClick={() => setMode('guest')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'guest' ? 'text-stone-900' : 'text-sky-700'}`}
-          style={{ background: mode === 'guest' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🏠 Guest Mode</button>
-        <button onClick={() => setMode('branson')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'branson' ? 'text-stone-900' : 'text-sky-700'}`}
-          style={{ background: mode === 'branson' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🌊 Branson Mode</button>
+        <button onClick={() => setMode("guest")} className="text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit text-white"
+          style={{ background: T.accentColor }}>🏠 Guest Mode</button>
+        <button onClick={() => setMode("branson")} className="text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit text-white"
+          style={{ background: T.accentColor }}>🌊 Branson Mode</button>
       </div>
 
       {/* Seasonal Banner */}
