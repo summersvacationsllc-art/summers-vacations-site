@@ -30,6 +30,18 @@ import {
   ADVENTURE_PHOTOS,
 } from "@/lib/site";
 
+type HomeListing = {
+  name: string;
+  slug: string;
+  photo: string | null;
+  sleeps: string;
+  tag?: string;
+  beds?: string;
+  area?: string;
+  blurb?: string;
+  badge?: string;
+};
+
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [f, setF] = useState({ name: "", email: "", phone: "", message: "" });
@@ -37,6 +49,8 @@ export default function Home() {
   const [reviews, setReviews] = useState<{t:string,a:string,l:string}[]>([]);
   const [adventurePhotos, setAdventurePhotos] = useState<{src:string,label:string}[]>([]);
   const [propertyPhotos, setPropertyPhotos] = useState<Record<string,string>>({});
+  // Start with hardcoded PROPERTIES; replace when Guesty /api/listings succeeds
+  const [listings, setListings] = useState<HomeListing[]>(PROPERTIES);
 
   useEffect(() => {
     fetch("/api/reviews")
@@ -53,6 +67,47 @@ export default function Home() {
         }
       })
       .catch(() => {});
+    // Auto-detect all Guesty listings (name, photo, sleeps); fall back to PROPERTIES on failure
+    fetch("/api/listings")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.ok && Array.isArray(d.listings) && d.listings.length > 0) {
+          setListings(
+            d.listings.map(
+              (l: {
+                name?: string;
+                title?: string;
+                slug: string;
+                photo?: string | null;
+                sleeps?: string;
+                accommodates?: number;
+                tag?: string;
+                beds?: string;
+                area?: string;
+                blurb?: string;
+                badge?: string;
+              }) => ({
+                name: l.name || l.title || "Untitled",
+                slug: l.slug,
+                photo: l.photo || null,
+                sleeps:
+                  l.sleeps ||
+                  (l.accommodates && l.accommodates > 0
+                    ? String(l.accommodates)
+                    : "?"),
+                tag: l.tag,
+                beds: l.beds,
+                area: l.area,
+                blurb: l.blurb,
+                badge: l.badge,
+              })
+            )
+          );
+        }
+      })
+      .catch(() => {
+        /* keep hardcoded PROPERTIES */
+      });
     // Load adventure photos from folder API
     fetch("/api/adventure-photos")
       .then((r) => r.json())
@@ -60,7 +115,7 @@ export default function Home() {
         if (d.ok && d.photos?.length) setAdventurePhotos(d.photos);
       })
       .catch(() => {});
-    // Load property photos from folder API
+    // Load property photos from folder API (fallback heroes for known slugs)
     fetch("/api/property-photos")
       .then((r) => r.json())
       .then((d) => {
@@ -284,23 +339,26 @@ export default function Home() {
               Homes made for family fun
             </h2>
             <p className="mt-4 text-slate-600 text-lg leading-relaxed">
-              Six Indian Point condos plus a standalone house — all real photos
-              of our real places. Pick the fit, we handle the rest.
+              {listings.length} family-friendly{" "}
+              {listings.length === 1 ? "home" : "homes"} — real photos of our
+              real places. Pick the fit, we handle the rest.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PROPERTIES.map((p) => (
+            {listings.map((p) => {
+              const photo = p.photo || propertyPhotos[p.slug] || null;
+              return (
               <Link
                 key={p.slug}
                 href={`/property/${p.slug}`}
                 className="group block bg-white rounded-2xl overflow-hidden border border-sky-100 shadow-sm hover:shadow-xl hover:shadow-sky-900/10 hover:-translate-y-1 transition-all duration-300 no-underline text-inherit"
               >
                 <div className="aspect-[4/3] bg-sky-50 overflow-hidden relative">
-                  {(propertyPhotos[p.slug] || p.photo) ? (
+                  {photo ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={propertyPhotos[p.slug] || p.photo || ""}
+                      src={photo}
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
@@ -308,9 +366,9 @@ export default function Home() {
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#0c4a6e] to-[#0ea5e9] text-white p-6 text-center">
                       <span className="text-4xl mb-2">🏡</span>
-                      <span className="font-bold">Family Haven</span>
+                      <span className="font-bold">{p.name}</span>
                       <span className="text-xs text-sky-100 mt-1">
-                        Standalone house · Sleeps 16
+                        Sleeps {p.sleeps}
                       </span>
                     </div>
                   )}
@@ -324,21 +382,32 @@ export default function Home() {
                   <h3 className="text-lg font-extrabold text-[#0c4a6e] group-hover:text-[#0ea5e9] transition-colors">
                     {p.name}
                   </h3>
-                  <p className="text-sm text-slate-500 mt-1.5 leading-relaxed">
-                    {p.blurb}
-                  </p>
-                  <div className="mt-3 flex items-center gap-3 text-xs font-semibold text-slate-500">
+                  {p.blurb && (
+                    <p className="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                      {p.blurb}
+                    </p>
+                  )}
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-slate-500">
                     <span className="inline-flex items-center gap-1 text-teal-700">
                       <Users size={12} /> Sleeps {p.sleeps}
                     </span>
-                    <span>·</span>
-                    <span>{p.beds}</span>
-                    <span>·</span>
-                    <span>{p.area}</span>
+                    {p.beds && (
+                      <>
+                        <span>·</span>
+                        <span>{p.beds}</span>
+                      </>
+                    )}
+                    {p.area && (
+                      <>
+                        <span>·</span>
+                        <span>{p.area}</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
@@ -792,7 +861,7 @@ export default function Home() {
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/property-photos/pretty-peacock/IMG_0368.PNG"
+              src="/property-photos/pretty-peacock/aaa-peacockporch.jpg"
               alt="Family porch ready for vacation"
               className="w-full h-full object-cover"
             />

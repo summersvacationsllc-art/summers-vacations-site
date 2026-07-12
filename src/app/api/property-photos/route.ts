@@ -19,9 +19,13 @@ export async function GET() {
     try {
       const dir = join(process.cwd(), "public", "property-photos", folder);
       const files = await readdir(dir);
-      const images = files.filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !f.startsWith("."));
-      if (images.length > 0) {
-        photos[slug] = `/property-photos/${folder}/${images[0]}`;
+      const images = files
+        .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !f.startsWith("."))
+        .sort((a, b) => a.localeCompare(b));
+      // Prefer curated aaa-* hero shots; otherwise first alphabetically
+      const hero = images.find((f) => f.toLowerCase().startsWith("aaa-")) ?? images[0];
+      if (hero) {
+        photos[slug] = `/property-photos/${folder}/${hero}`;
       }
     } catch {
       // folder missing or empty — skip
