@@ -30,7 +30,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 }) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
-  const [mode, setMode] = useState<'guest'|'branson'>('guest');
+  const [mode, setMode] = useState<'guest'|'branson'>(() => { if (checkin && checkout) { const co = new Date(checkout + 'T11:00:00'); return new Date() > co ? 'branson' : 'guest'; } return 'guest'; });
   const [guestCode, setGuestCode] = useState('');
   const [guestName, setGuestName] = useState('');
   const [checkin, setCheckin] = useState('');
@@ -217,10 +217,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
       {/* Mode Toggle */}
       <div className="flex gap-2 px-3.5 py-1 flex-shrink-0 justify-center" style={{ background: '#0c4a6e' }}>
-        <button onClick={() => setMode("guest")} className="text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit text-white"
-          style={{ background: T.accentColor }}>🏠 Guest Mode</button>
-        <button onClick={() => setMode("branson")} className="text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit text-white"
-          style={{ background: T.accentColor }}>🌊 Branson Mode</button>
+        <div className="text-[10px] font-semibold px-3 py-1 rounded-full text-white"
+          style={{ background: T.accentColor }}>{mode === 'guest' ? '🏠 Guest Mode' : '🌊 Branson Mode'}</div>
       </div>
 
       {/* Seasonal Banner */}
