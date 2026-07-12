@@ -338,14 +338,14 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {/* Today's Highlights */}
             {sectionTitle('🎯', "Today's Highlights")}
             <div className="grid grid-cols-2 gap-2 px-3.5">
-              {[{e:'🎆',t:'Fireworks',d:'SDC Night Sky',l:'https://www.silverdollarcity.com/theme-park/festivals/summer-celebration/'},{e:'🎸',t:'Bohemian Queen',d:'Freddie Tribute',l:'https://www.claycooper.com/'},{e:'🎬',t:'Free Movies',d:'Last 2 weeks!',l:'https://www.bransonimax.com/'},{e:'⛳',t:'Golf Camp',d:'Ozarks National',l:'https://bigcedar.com/golf/ozarks-national/'}].map((x,i) => (
+              {[{e:'🎆',t:'Fireworks',d:'SDC Night Sky',l:'https://www.silverdollarcity.com/theme-park/festivals/summer-celebration/'},{e:'🎸',t:'Bohemian Queen',d:'Freddie Tribute',l:'https://www.themansiontheatre.com/'},{e:'🎬',t:'Free Movies',d:'Last 2 weeks!',l:'https://www.bransonimax.com/'},{e:'⛳',t:'Golf Camp',d:'Ozarks National',l:'https://bigcedar.com/golf/ozarks-national/'}].map((x,i) => (
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
               ))}
             </div>
 
             {/* Tonight's Shows */}
             {sectionTitle('🎭', "Tonight's Shows")}
-            {[{t:'7PM',n:'Grand Jubilee',v:'Grand Country',l:'https://www.grandcountrylivemusic.com/grand-jubilee'},{t:'8PM',n:'Bohemian Queen',v:'Clay Cooper',l:'https://www.claycooper.com/'},{t:'8PM',n:'The Haygoods',v:'Haygood Theater',l:'https://thehaygoods.com/'}].map((x,i) => (
+            {[{t:'7PM',n:'Grand Jubilee',v:'Grand Country',l:'https://www.grandcountrylivemusic.com/grand-jubilee'},{t:'8PM',n:'Bohemian Queen',v:'Clay Cooper',l:'https://www.themansiontheatre.com/'},{t:'8PM',n:'The Haygoods',v:'Haygood Theater',l:'https://thehaygoods.com/'}].map((x,i) => (
               <a key={i} href={x.l} target="_blank" rel="noopener" className="flex items-center gap-2 mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit">
                 <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#2c1810', color: '#ffffff' }}>{x.t}</span>
                 <span className="text-[12px] font-semibold flex-1 text-sky-900">{x.n}</span>
@@ -599,13 +599,13 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🎤','Country & Variety')}
             {linkCard('https://www.grandcountrylivemusic.com/grand-jubilee','🎸','Grand Jubilee','7:30 PM • Grand Country • $39+',['a','Classic'],'Branson\'s longest-running show! High-energy variety with comedy & live band.')}
             {linkCard('https://presleys.com/','🎵','Presleys\' Country Jubilee','8 PM • Presleys\' Theatre',['a','Legacy'],'50+ year Branson tradition! Country music, comedy, and gospel. The show that started it all.')}
-            {linkCard('https://www.claycooper.com/','🤠','Clay Cooper\'s Country Express','7:30 PM • Clay Cooper Theatre',['b','Variety'],'High-energy country variety with comedy, dancing, and 20+ performers.')}
+            {linkCard('https://www.themansiontheatre.com/','🤠','Clay Cooper\'s Country Express','7:30 PM • Clay Cooper Theatre',['b','Variety'],'High-energy country variety with comedy, dancing, and 20+ performers.')}
             {linkCard('https://thehaygoods.com/','🎻','The Haygoods','8 PM • Clay Cooper Theatre • $42+',['p','Family'],'6 siblings, 20+ genres, incredible music & dancing. A Branson powerhouse.')}
             {linkCard('https://www.hughesbrotherstheatre.com/','👨‍👩‍👦','Hughes Music Show','8 PM • Hughes Brothers Theatre',['b','Family'],'The Hughes Brothers & family — stunning harmonies and variety entertainment.')}
             {linkCard('https://www.piercearrowshow.com/','🎤','Pierce Arrow','8 PM • Reza Live Theatre',['a','Country'],'Country music, comedy, and the legendary low bass voice.')}
             {linkCard('https://www.sixshow.com/','🎵','SIX','8 PM • Multiple venues',['p','Unique'],'6 brothers — all vocals, no instruments. Viral sensation with incredible harmonies.')}
             {sectionTitle('🎸','Tribute Shows')}
-            {linkCard('https://www.claycooper.com/','🎤','Bohemian Queen','8 PM • Clay Cooper • $45+',['r','🔥 Hot'],'The ultimate Freddie Mercury tribute! Full costume changes & all the Queen hits.')}
+            {linkCard('https://www.themansiontheatre.com/','🎤','Bohemian Queen','8 PM • Clay Cooper • $45+',['r','🔥 Hot'],'The ultimate Freddie Mercury tribute! Full costume changes & all the Queen hits.')}
             {linkCard('https://www.legendsinconcert.com/branson/','🌟','Legends in Concert','3 PM & 8 PM • Legends Theater',['a','Iconic'],'World-famous tribute show! Multiple artists per show — Elvis, Garth, Abba & more.')}
             {linkCard('https://hamnervarietytheater.com/','🕺','Back to the Bee Gees','5 PM • Hamner Variety • 🆕 NEW!',['p','Disco'],'Brand new show! Disco tribute — Stayin\' Alive & all the hits.')}
             {linkCard('https://www.elvisdean z.com/','🕺','Dean Z — Ultimate Elvis','2 PM • Multiple venues',['a','Elvis'],'The world\'s best Elvis tribute artist. Authentic costumes and voice.')}
