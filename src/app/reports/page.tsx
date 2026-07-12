@@ -31,8 +31,7 @@ export default function ReportsPage() {
     setReports(dates);
   }, []);
 
-  const reportUrl = (date: string) =>
-    activeTab === 'fleet' ? `/reports/fleet-${date}.html` : `/reports/${date}.html`;
+  const reportUrl = (date: string) => `/reports/${date}.html`;
 
   const reportTitle = (date: string) =>
     activeTab === 'fleet' ? `${formatDate(date)} — Fleet Briefing` : `${formatDate(date)} — Branson Report`;
@@ -58,16 +57,9 @@ export default function ReportsPage() {
       {/* Report type tabs */}
       <div className="bg-white border-b border-stone-200">
         <div className="flex gap-1 px-4 py-2">
-          {(['branson', 'fleet'] as ReportType[]).map(t => (
-            <button key={t} onClick={() => setActiveTab(t)}
-              className={`flex-1 text-[13px] font-bold py-2.5 rounded-lg border-none cursor-pointer transition-colors ${
-                activeTab === t
-                  ? 'bg-amber-400 text-stone-900'
-                  : 'bg-stone-100 text-stone-500'
-              }`}>
-              {t === 'branson' ? '🏖️ Branson' : '🛡️ Fleet'}
-            </button>
-          ))}
+          <button className="flex-1 text-[13px] font-bold py-2.5 rounded-lg border-none bg-amber-400 text-stone-900">
+            🏖️ Branson Daily Report
+          </button>
         </div>
       </div>
 
@@ -75,23 +67,19 @@ export default function ReportsPage() {
         {/* Today's Report — big card */}
         <a href={reportUrl(todayStr())} target="_blank" rel="noopener"
           className="block rounded-xl px-4 py-5 no-underline shadow-lg"
-          style={{ background: activeTab === 'fleet'
-            ? 'linear-gradient(135deg,#1a1a4e,#2d1b4e)'
-            : 'linear-gradient(135deg,#f5c842,#e8b832)' }}>
+          style={{ background: 'linear-gradient(135deg,#f5c842,#e8b832)' }}>
           <div className="text-[10px] font-semibold uppercase tracking-wider mb-1"
-            style={{ color: activeTab === 'fleet' ? '#a78bfa' : '#78350f' }}>
-            {activeTab === 'fleet' ? '🛡️ Today' : '📰 Today'}
+            style={{ color: '#78350f' }}>
+            📰 Today
           </div>
           <div className="text-lg font-bold"
-            style={{ fontFamily: "'DM Serif Display', serif", color: activeTab === 'fleet' ? '#fff' : '#1a1a2e' }}>
-            {reportTitle(todayStr())}
+            style={{ fontFamily: "'DM Serif Display', serif", color: '#1a1a2e' }}>
+            {formatDate(todayStr())} — Branson Report
           </div>
-          <div className="text-[12px] mt-1"
-            style={{ color: activeTab === 'fleet' ? '#c4b5ff' : '#78350f' }}>
-            {reportDesc}
+          <div className="text-[12px] mt-1" style={{ color: '#78350f' }}>
+            Fishing, shows, events, golf, dining — fresh every morning
           </div>
-          <div className="mt-3 text-[11px] font-semibold"
-            style={{ color: activeTab === 'fleet' ? '#a78bfa' : '#78350f' }}>
+          <div className="mt-3 text-[11px] font-semibold" style={{ color: '#78350f' }}>
             Tap to open →
           </div>
         </a>
@@ -104,7 +92,7 @@ export default function ReportsPage() {
           {reports.slice(1).map(date => (
             <a key={date} href={reportUrl(date)} target="_blank" rel="noopener"
               className="flex items-center gap-3 bg-white rounded-lg px-3.5 py-3 border border-stone-100 no-underline text-inherit hover:shadow-sm transition-shadow">
-              <span className="text-lg">{activeTab === 'fleet' ? '🛡️' : '📄'}</span>
+              <span className="text-lg">📄</span>
               <span className="text-[13px] font-semibold text-stone-800 flex-1">{formatDate(date)}</span>
               <span className="text-stone-300 text-sm">→</span>
             </a>

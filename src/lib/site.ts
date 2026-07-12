@@ -165,7 +165,7 @@ export const ACTIVITIES = [
     title: "Table Rock Lake",
     desc: "Boating, swimming, pontoons, and sunsets that stop the whole family mid-sentence.",
     tip: "Indian Point access",
-    href: "https://www.explorebranson.com/outdoor/table-rock-lake",
+    href: "https://www.mostateparks.com/park/table-rock-state-park",
     color: "from-lake to-navy",
   },
   {
@@ -173,7 +173,7 @@ export const ACTIVITIES = [
     title: "Shows & Theaters",
     desc: "From Sight & Sound epics to country, comedy, and magic on the Strip.",
     tip: "Book seats early",
-    href: "https://www.explorebranson.com/",
+    href: "https://www.explorebranson.com/events-branson/shows/",
     color: "from-amber-500 to-orange-500",
   },
   {
@@ -189,7 +189,7 @@ export const ACTIVITIES = [
     title: "Fishing Fun",
     desc: "Bass on Table Rock, trout on Taneycomo — or cast at our private lake.",
     tip: "Catch & release on-site",
-    href: "https://www.explorebranson.com/outdoor/fishing",
+    href: "https://mdc.mo.gov/fishing/fishing-prospects/areas/lake-taneycomo",
     color: "from-cyan-500 to-sky-600",
   },
   {
