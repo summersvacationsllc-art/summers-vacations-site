@@ -326,7 +326,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
 
             {/* Daily Branson Report */}
-            <a href="/reports/2026-07-09.html" target="_blank" rel="noopener" className="block mx-3.5 mt-2 rounded-xl px-3.5 py-3 no-underline border border-blue-300 flex items-center gap-2" style={{ background: 'linear-gradient(135deg,#dbeafe,#bfdbfe)' }}>
+            <a href={`/reports/${today.toISOString().slice(0,10)}.html`} target="_blank" rel="noopener" className="block mx-3.5 mt-2 rounded-xl px-3.5 py-3 no-underline border border-blue-300 flex items-center gap-2" style={{ background: 'linear-gradient(135deg,#dbeafe,#bfdbfe)' }}>
               <span className="text-3xl">📰</span>
               <div className="flex-1">
                 <div className="text-[13px] font-bold text-blue-900">Today's Branson Report</div>
