@@ -210,9 +210,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[13px] font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)', color: '#ffffff' }}>SV</div>
         <div className="flex-1 text-center">
           <div className="text-base font-bold tracking-wider" style={{ color: '#ffffff' }}>Summers Vacations</div>
-          <div className="text-[10px]" style={{ color: '#7dd3fc' }}>Branson, Missouri</div>
+          <div className="text-[10px]" style={{ color: '#ffffff' }}>Branson, Missouri</div>
         </div>
-        <div className="text-[10px] text-right" style={{ color: '#7dd3fc' }}>{mode === 'guest' ? todayFormatted : 'Checked out'}</div>
+        <div className="text-[10px] text-right" style={{ color: '#ffffff' }}>{mode === 'guest' ? todayFormatted : 'Checked out'}</div>
       </div>
 
       {/* Mode Toggle */}
@@ -497,7 +497,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('⭐','Featured — Silver Dollar City')}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={styles.bar}>
               <div className="flex items-center gap-2"><span className="text-xl">🎢</span><h3 className="text-base font-bold text-white">Silver Dollar City</h3></div>
-              <div className="text-[12px] mt-1 text-sky-200 leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
+              <div className="text-[12px] mt-1 text-white leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
               <div className="flex gap-2 mt-2">
                 <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#ffffff' }}>🎫 Tickets</a>
                 <a href="https://www.silverdollarcity.com/theme-park/attractions/rides/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">🎢 Rides</a>
