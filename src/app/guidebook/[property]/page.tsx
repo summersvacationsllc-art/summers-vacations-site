@@ -514,7 +514,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.ripleys.com/branson/','🤯','Ripley\'s Believe It or Not!','Oddities & curiosities',['p','Fun'],'Hundreds of bizarre artifacts, interactive exhibits, and the famous Odditorium.')}
             {linkCard('https://www.hollywoodwaxentertainment.com/branson/','🌟','Hollywood Wax Museum','Meet the stars!',['b','Photo Ops'],'Lifelike wax figures of your favorite celebrities. Great Instagram moments.')}
             {linkCard('https://www.aquariumattheboardwalk.com/','🐠','Aquarium at the Boardwalk','Underwater tunnel!',['b','New!'],'Walk-through underwater tunnel. Jellyfish, sharks, stingrays, and touch pools.')}
-            {linkCard('https://www.bransonlanding.com/','🔍','Beyond the Lens!','Pop culture + tech',['p','Interactive'],'Virtual reality, escape rooms, celebrity photo ops, and conspiracy theory exhibits.')}
+            {linkCard('https://www.bransonlanding.com/','🏙️','Branson Landing','Shopping, dining & waterfront',['b','Shopping'],'Branson\'s premier outdoor shopping, dining and entertainment district. Waterfront boardwalk, fountain shows, and live music.')}
             {sectionTitle('🌊','Nature & Outdoors')}
             {linkCard('https://dogwoodcanyon.org/','🌊','Dogwood Canyon Nature Park','10K acres • Waterfalls • Wildlife',['g','Must-See'],'Stunning Ozarks canyon with walking trails, waterfalls, bison herd, and trout fishing. Tram tours available.')}
             {linkCard('https://www.mostateparks.com/park/table-rock-state-park','🏞️','Table Rock State Park','Hiking • Swimming • Boating',['g','Free'],'Beautiful state park on Table Rock Lake. Marina, trails, picnic areas, and swim beach.')}
