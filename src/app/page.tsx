@@ -37,7 +37,6 @@ export default function Home() {
   const [reviews, setReviews] = useState<{t:string,a:string,l:string}[]>([]);
   const [adventurePhotos, setAdventurePhotos] = useState<{src:string,label:string}[]>([]);
   const [propertyPhotos, setPropertyPhotos] = useState<Record<string,string>>({});
-  const [galleryPhotos, setGalleryPhotos] = useState<{src:string,alt:string}[]>([]);
 
   useEffect(() => {
     fetch("/api/reviews")
@@ -65,10 +64,7 @@ export default function Home() {
     fetch("/api/property-photos")
       .then((r) => r.json())
       .then((d) => {
-        if (d.ok && d.photos) {
-          setPropertyPhotos(d.photos);
-          if (d.gallery?.length) setGalleryPhotos(d.gallery);
-        }
+        if (d.ok && d.photos) setPropertyPhotos(d.photos);
       })
       .catch(() => {});
   }, []);
@@ -167,7 +163,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/property-photos/penthouse/12E2EDDB-A38A-4D5A-B209-CBB1F9AD1830_1_105_c.jpeg"
+            src="/property-photos/penthouse/aaa-deck.jpeg"
             alt="Screened porch overlooking the Ozarks — real Summers Vacations property"
             className="w-full h-full object-cover"
           />
@@ -690,7 +686,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5 sm:gap-2 px-1.5 sm:px-2 max-w-[1600px] mx-auto">
-          {(galleryPhotos.length > 0 ? galleryPhotos : GALLERY_PHOTOS).map((photo, i) => (
+          {GALLERY_PHOTOS.map((photo, i) => (
             <div
               key={photo.src}
               className={`overflow-hidden bg-sky-100 ${

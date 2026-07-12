@@ -94,9 +94,56 @@ export const PROPERTIES: PropertyCard[] = [
   },
 ];
 
-/** Gallery photos — populated at runtime from /api/property-photos, with SSR-safe fallback. */
+/** Real property photos for the mosaic / gallery strip. */
 export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
-  { src: "/property-photos/penthouse/011F73D2-6245-49FF-80B8-9BCC5537672B_1_105_c.jpeg", alt: "Summers Vacations property" },
+  {
+    src: "/property-photos/penthouse/12E2EDDB-A38A-4D5A-B209-CBB1F9AD1830_1_105_c.jpeg",
+    alt: "Screened porch overlooking the Ozarks",
+  },
+  {
+    src: "/property-photos/pretty-peacock/IMG_0368.PNG",
+    alt: "Family porch with turquoise chairs",
+  },
+  {
+    src: "/property-photos/woodland-retreat/2988F6CE-F08F-47A8-B37B-3369F82A636F_1_105_c.jpeg",
+    alt: "Open living and dining at Woodland Retreat",
+  },
+  {
+    src: "/property-photos/penthouse/0FA8D7A4-80EC-456F-BB9E-23829038A59D_1_105_c.jpeg",
+    alt: "Bright master bedroom with balcony access",
+  },
+  {
+    src: "/property-photos/rustic-ozark-retreat/170A99D0-37F1-40D1-87E0-88172D6E6E1D_1_105_c.jpeg",
+    alt: "Ozark hillside views from the property",
+  },
+  {
+    src: "/property-photos/modern-charmer/1773378876798_JmrcRDaVzRXfXABYeOaFHq4aroXFHm67XTjlxz17.jpg",
+    alt: "Modern Charmer bedroom",
+  },
+  {
+    src: "/property-photos/double-condo/0A6EF612-360C-46FD-AD00-F1FA8B459CDE_1_105_c.jpeg",
+    alt: "Sunny guest bedroom ready for family",
+  },
+  {
+    src: "/property-photos/pretty-peacock/IMG_0370.PNG",
+    alt: "Welcome entrance at Pretty Peacock",
+  },
+  {
+    src: "/property-photos/woodland-retreat/1827C3E6-ED59-49E6-92A6-1D0EC7A6DC7F_1_105_c.jpeg",
+    alt: "Full kitchen ready for family meals",
+  },
+  {
+    src: "/property-photos/double-condo/0849C14C-3CDE-471E-9D7F-85A81FA21DD2_1_105_c.jpeg",
+    alt: "Fully stocked kitchen cabinets",
+  },
+  {
+    src: "/property-photos/pretty-peacock/IMG_0369.PNG",
+    alt: "Covered porch hangout space",
+  },
+  {
+    src: "/property-photos/penthouse/0A6EF612-360C-46FD-AD00-F1FA8B459CDE_1_105_c.jpeg",
+    alt: "Comfortable bedroom with Table Rock Lake map art",
+  },
 ];
 
 /** Adventure carousel — loaded from public/adventure-photos/manifest.json.
