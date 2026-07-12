@@ -243,7 +243,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   <h1 className="font-serif text-2xl" style={{ fontFamily: "'DM Serif Display', serif", color: '#ffffff' }}>
                     {guestName ? `Welcome, ${guestName}!` : `Welcome to ${prop.name}!`} 🤠
                   </h1>
-                  <div className="text-[13px] mt-0.5" style={{ color: '#c4b5a0' }}>{prop.name} • Check-in at {prop.checkIn.time}</div>
+                  <div className="text-[13px] mt-0.5" style={{ color: '#ffffff' }}>{prop.name} • Check-in at {prop.checkIn.time}</div>
                 </div>
                 <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 flex items-center gap-2.5 shadow-lg" style={doorBg}>
                   <div>
@@ -262,7 +262,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             ) : (
               <div className="px-4 pt-3 pb-4" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)' }}>
                 <h1 className="font-serif text-2xl text-yellow-300" style={{ fontFamily: "'DM Serif Display', serif" }}>Welcome back to Branson! 🎣</h1>
-                <div className="text-[13px] mt-0.5 text-blue-200">{T.tagline}</div>
+                <div className="text-[13px] mt-0.5 text-white">{T.tagline}</div>
               </div>
             )}
 
@@ -273,9 +273,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <span className="text-xl">📍</span>
                 <div className="flex-1">
                   <div className="text-[11px] font-semibold text-sky-900">{prop.address}</div>
-                  <div className="text-[10px] text-sky-200 mt-0.5">Tap to open in maps</div>
+                  <div className="text-[10px] text-sky-900 mt-0.5">Tap to open in maps</div>
                 </div>
-                <span className="text-sky-700 text-sm">›</span>
+                <span className="text-sky-900 text-sm">›</span>
               </div>
             </a>
 
@@ -295,14 +295,14 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {/* Weather & Quick Info */}
             <div className="mx-3.5 mt-2.5 bg-white rounded-xl px-3.5 py-3 border border-sky-100 flex items-center gap-2">
               <span className="text-3xl font-bold text-sky-900">87°</span>
-              <div className="flex-1"><div className="text-[12px] font-semibold text-sky-900">Branson, MO</div><div className="text-[11px] text-sky-200">☀️ Sunny</div></div>
-              <div className="flex gap-2"><div className="text-center text-[11px] text-sky-200"><div className="font-semibold text-sky-200">Wed</div>☀️ 89°</div><div className="text-center text-[11px] text-sky-700"><div className="font-semibold text-sky-200">Thu</div>⛅ 86°</div></div>
+              <div className="flex-1"><div className="text-[12px] font-semibold text-sky-900">Branson, MO</div><div className="text-[11px] text-sky-900">☀️ Sunny</div></div>
+              <div className="flex gap-2"><div className="text-center text-[11px] text-sky-900"><div className="font-semibold text-sky-900">Wed</div>☀️ 89°</div><div className="text-center text-[11px] text-sky-900"><div className="font-semibold text-sky-900">Thu</div>⛅ 86°</div></div>
             </div>
 
             <div className="flex gap-2 px-3.5 pt-1.5">
-              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-200 font-semibold">WiFi {wifiNote}</div><div className="text-[12px] font-bold text-sky-900 mt-0.5">{wifiVisible}</div></div>
-              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-200 font-semibold">Check-out</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">10 AM</div></div>
-              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-200 font-semibold">Pool</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">8–10PM</div></div>
+              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {wifiNote}</div><div className="text-[12px] font-bold text-sky-900 mt-0.5">{wifiVisible}</div></div>
+              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">Check-out</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">10 AM</div></div>
+              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">Pool</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">8–10PM</div></div>
             </div>
 
             {mode === 'branson' && (
@@ -370,7 +370,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)', color: 'white', overflow: 'hidden', position: 'relative' }}>
                   <div style={{ position: 'absolute', right: 10, bottom: -8, fontSize: 60, opacity: 0.08 }}>📖</div>
                   <h1 className="font-serif text-2xl" style={{ fontFamily: "'DM Serif Display', serif" }}>{prop.name} Guidebook</h1>
-                  <p className="text-[12px] mt-0.5" style={{ color: '#c4b5a0' }}>Your complete house manual</p>
+                  <p className="text-[12px] mt-0.5" style={{ color: '#ffffff' }}>Your complete house manual</p>
                 </div>
                 <div className="px-3.5 pt-3">
                   {isNotch && guideItem('#fce7f3','🎒','Things to Bring','Recommended packing list','🧴 Sunblock & bug spray<br>🩴 Pool/beach towels for the lake<br>🎣 Fishing gear if you plan to fish<br>🪵 Charcoal for the BBQ grills (not provided)<br>🧺 Cooler for lake days<br>🧼 Extra laundry detergent if doing multiple loads<br>🪙 Quarters for coin laundry<br>🥾 Sturdy shoes or hiking boots for the rocky trail<br><br>⏯️ <a href="https://www.youtube.com/watch?v=2DvVB7xTuNk" target="_blank" style="color:#166534;">Watch: Things to Bring video guide</a>')}
@@ -441,7 +441,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <div className="px-4 pt-3 pb-3" style={{ background: T.gradient, color: 'white', overflow: 'hidden', position: 'relative' }}>
                   <div style={{ position: 'absolute', right: 10, bottom: -8, fontSize: 60, opacity: 0.08 }}>🏡</div>
                   <h1 className="font-serif text-2xl" style={{ fontFamily: "'DM Serif Display', serif" }}>Our Properties</h1>
-                  <p className="text-[12px] mt-0.5" style={{ color: '#c4b5a0' }}>Browse all Summers Vacations rentals</p>
+                  <p className="text-[12px] mt-0.5" style={{ color: '#ffffff' }}>Browse all Summers Vacations rentals</p>
                 </div>
                 <div className="px-3.5 pt-3">
                   <div className="bg-green-50 rounded-lg px-3.5 py-3 mb-2 border border-green-200">
