@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☀️ Morning Brief — July 12, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #faf6f0;
+    color: #3d2e1e;
+    line-height: 1.6;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #5c3a1e 0%, #8b5e34 40%, #c4964a 100%);
+    color: #fef9ef;
+    padding: 48px 20px 36px;
+    text-align: center;
+    border-bottom: 4px solid #e8c66a;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 1.05rem;
+    opacity: 0.88;
+    font-weight: 400;
+  }
+  .header .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .header .emoji-row {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 6px;
+  }
+
+  /* Sections */
+  .section { margin: 36px 0; }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #5c3a1e;
+    border-bottom: 3px solid #e8c66a;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon { font-size: 1.4rem; }
+
+  /* Cards */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(92,58,30,0.06);
+    border: 1px solid #ebe4d8;
+  }
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: #5c3a1e;
+    margin-bottom: 8px;
+  }
+  .card .label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .label-green { background: #dcfce7; color: #166534; }
+  .label-amber { background: #fef3c7; color: #92400e; }
+  .label-red { background: #fee2e2; color: #991b1b; }
+  .label-blue { background: #dbeafe; color: #1e40af; }
+  .label-gold { background: #fef9e7; color: #7c5a00; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .stat-box {
+    background: #f8f4ed;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: #5c3a1e;
+    line-height: 1.2;
+  }
+  .stat-box .desc {
+    font-size: 0.78rem;
+    color: #7a6a58;
+  }
+  .stat-box.wide { grid-column: span 2; }
+
+  .ok-list { list-style: none; }
+  .ok-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0e8dd;
+    font-size: 0.92rem;
+  }
+  .ok-list li:last-child { border: none; }
+  .ok-list .check { color: #166534; }
+  .ok-list .fail { color: #991b1b; }
+  .ok-list .warn { color: #92400e; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .event-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0e8dd;
+  }
+  .event-item:last-child { border: none; }
+  .event-item .event-name {
+    font-weight: 600;
+    color: #5c3a1e;
+  }
+  .event-item .event-detail {
+    font-size: 0.83rem;
+    color: #7a6a58;
+  }
+
+  .fishing-tip {
+    background: #e8f4f0;
+    border-left: 4px solid #2d8a6e;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    margin: 12px 0;
+  }
+
+  .bizdev-urgent {
+    background: #fef2e8;
+    border-left: 4px solid #c2410c;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    margin: 12px 0;
+  }
+  .bizdev-urgent strong { color: #c2410c; }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0 10px;
+    border-top: 2px solid #e8c66a;
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: #7a6a58;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .model-chip {
+    display: inline-block;
+    background: #f0e8dd;
+    border-radius: 14px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    margin: 2px;
+    color: #5c3a1e;
+  }
+
+  @media (max-width: 600px) {
+    .two-col, .stat-grid, .grid-3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="emoji-row">☀️ 🏔️ 🎣</div>
+  <h1>Good Morning, Brian</h1>
+  <div class="subtitle">Sunday, July 12, 2026 — Branson Content Engine</div>
+  <div class="date-badge">📋 Morning Brief</div>
+</div>
+
+<div class="container">
+
+  <!-- ============ 1. STR MANAGER DASHBOARD ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏡</span> STR Manager Dashboard</div>
+
+    <div class="card">
+      <span class="label label-green">✅ Build: Passed</span>
+      <span class="label label-red" style="margin-left:6px;">❌ Lint: 29 issues</span>
+      <p style="margin-top:10px;font-size:0.9rem;color:#7a6a58;">
+        Last build (Jul 10): <strong>npm run build</strong> succeeded (exit 0), but lint failed with 29 problems (2 errors, 27 warnings). No critical runtime issues.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📅 Today's Calendar — Sunday, July 12</h3>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="num">4</div><div class="desc">Check-outs Today</div></div>
+        <div class="stat-box"><div class="num">2</div><div class="desc">Check-ins Today</div></div>
+        <div class="stat-box"><div class="num">~4</div><div class="desc">Occupied Tonight</div></div>
+        <div class="stat-box"><div class="num">7</div><div class="desc">Total Properties</div></div>
+        <div class="stat-box wide"><div class="num">~57%</div><div class="desc">Tonight's Occupancy</div></div>
+      </div>
+
+      <h4 style="margin:14px 0 6px;font-size:0.85rem;color:#7a6a58;">🚪 Checking Out Today</h4>
+      <ul class="ok-list">
+        <li><span class="check">✅</span> <strong>Amber Urich</strong> — Peacock (5 guests, check-in Jul 5)</li>
+        <li><span class="check">✅</span> <strong>Kooper Rogers</strong> — Indian Point (11 guests, check-in Jul 10)</li>
+        <li><span class="check">✅</span> <strong>Kerry Anthony</strong> — Modern Charmer (5 guests, check-in Jul 10)</li>
+        <li><span class="check">✅</span> <strong>Henry Córdova</strong> — Penthouse (3 guests, check-in Jul 10)</li>
+      </ul>
+
+      <h4 style="margin:14px 0 6px;font-size:0.85rem;color:#7a6a58;">📥 Checking In Today</h4>
+      <ul class="ok-list">
+        <li><span class="check">✅</span> <strong>Samuel Eken</strong> — Modern Charmer (5 guests, Jul 12–14)</li>
+        <li><span class="check">✅</span> <strong>Amrita Mukherjee</strong> — Peacock (7 guests, Jul 12–13)</li>
+      </ul>
+
+      <h4 style="margin:14px 0 6px;font-size:0.85rem;color:#7a6a58;">🛏️ Staying Over Tonight</h4>
+      <ul class="ok-list">
+        <li>📌 Allie Rowland — Rustic Ozark (out Jul 13)</li>
+        <li>📌 Dominik Sillas — Woodland Retreat (out Jul 13)</li>
+        <li>📌 Samuel Eken — Modern Charmer (check-in today, out Jul 14)</li>
+        <li>📌 Amrita Mukherjee — Peacock (check-in today, out Jul 13)</li>
+      </ul>
+
+      <h4 style="margin:14px 0 6px;font-size:0.85rem;color:#7a6a58;">🔜 Tomorrow (Jul 13) — Big Day</h4>
+      <ul class="ok-list">
+        <li><span class="check">✅</span> <strong>Brian Summers</strong> — Penthouse (4 reservations, Jul 13–18) 🏠 Owner stay</li>
+        <li><span class="check">✅</span> <strong>Sylee Gibson</strong> — Rustic Ozark (Jul 13–17)</li>
+        <li><span class="check">✅</span> <strong>Amber Swank</strong> — Woodland Retreat (Jul 13–17)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🔧 Repo Health</h3>
+      <ul class="ok-list">
+        <li><span class="check">✅</span> Git: clean working tree, up to date with origin/main</li>
+        <li><span class="check">✅</span> Recent commits: photo upload for maintenance tickets, ops dashboard, cron calendar endpoint</li>
+        <li><span class="check">✅</span> Python 3.9.6 env healthy, dependencies satisfied</li>
+        <li><span class="warn">⚠️</span> Flake8: style issues in PDF gen scripts — not blocking</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 2. CONTENT PIPELINE STATUS ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📡</span> Content Pipeline Status</div>
+
+    <div class="card">
+      <h3>🕐 Agent Run Log — July 12, 2026</h3>
+      <ul class="ok-list">
+        <li><span class="check">✅</span> <strong>4:30 AM</strong> 🌍 Intel Scout — 14 items found, all sources loaded. Silver Dollar City summer celebration, A Year with Frog & Toad (final day!), Branson train, farmers market, Bohemian Queen, Avenged Sevenfold, much more.</li>
+        <li><span class="check">✅</span> <strong>4:45 AM</strong> 🎣 Fishing Report — Table Rock + Taneycomo. Pink worm under float = can't-miss bait. 40+ walleye days continuing. USA Bassin tournament on Taneycomo today.</li>
+        <li><span class="check">✅</span> <strong>5:00 AM</strong> 🏬 Landing Scout — Farmers market Tuesday. August 8 concert coming. Flaming Margaritas reopened. Fountain show runs Sunday schedule (Noon–9 PM).</li>
+        <li><span class="check">✅</span> <strong>5:15 AM</strong> 🎭 Shows & Entertainment — 50+ shows captured. The Haygoods SOLD OUT tonight. A Year with Frog & Toad FINAL DAY. Amazing Acrobats only 11 seats left. DAVID at Sight & Sound.</li>
+        <li><span class="check">✅</span> <strong>5:30 AM</strong> 🍽️ Food & Beverage — 8 restaurant spotlights. Branson Cafe (116 years!). Gettin' Basted NEW breakfast menu! Chateau Grille Sunday brunch. The Social Birdy (4.9★).</li>
+        <li><span class="check">✅</span> <strong>5:40 AM</strong> ⛳ Golf Scout — Branson Hills #1 in MO, #10 in US. AJGA Payne Stewart Jr Championship Jul 20–23 at Buffalo Ridge. Big Cedar Golf Retreat starts tomorrow.</li>
+        <li><span class="check">✅</span> <strong>5:45 AM</strong> 🏎️ Strip Scout — 12 attractions: The Track (3 parks + Ferris Wheel), Xtreme Racing, Fun Spot, Shepherd of the Hills, WonderWorks, Fritz's, Pirate's Cove, more.</li>
+        <li><span class="check">✅</span> <strong>6:00 AM</strong> 📸 Photo Scout — 15 new stock photos tagged to businesses (Bags/Beers/Birds, USA Bassin, Kids Fishing Camp, Gettin' Basted, Saltgrass, more). 13 businesses resolved. 20 still unmatched.</li>
+        <li><span class="check">✅</span> <strong>6:02 AM</strong> 🐕 Social Watchdog — All 11 Branson LLM jobs OK. Pipeline healthy.</li>
+        <li><span class="check">✅</span> <strong>6:05 AM</strong> 📋 Morning Brief — This briefing! All scouts completed 🎯</li>
+      </ul>
+      <p style="margin-top:12px;color:#7a6a58;font-size:0.85rem;">All 10 scouts completed successfully. No failures in the content pipeline today.</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Social Studio Status</h3>
+      <ul class="ok-list">
+        <li><span class="check">✅</span> Jul 11 posts generated: 3 posts (Events, Fishing, Feature) + 3 PNG flyers</li>
+        <li><span class="warn">⚠️</span> <strong>Jul 12 posts pending</strong> — Social Studio runs at 6:15 AM. Check output/<wbr>content/posts/ for today's batch.</li>
+        <li><span class="fail">🔴</span> <strong>Facebook Auto-Publish token expired</strong> — Day 13 without renewal. Content is queued but can't post until you renew in Meta Business Dashboard. <em>This is the highest-leverage single action you can take — ~15 min fix.</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 3. NVIDIA AI STACK ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🧠</span> NVIDIA AI Stack</div>
+
+    <div class="card">
+      <span class="label label-blue">📊 Updated July 11</span>
+      <h3 style="margin-top:12px;">🚀 19 New Chat Models — Stack Grew from 4 → 23 Chat Models</h3>
+      <p style="margin-bottom:10px;color:#7a6a58;font-size:0.9rem;">The NVIDIA Scout ran a major expansion, discovering and wiring 19 new chat models. Total stack: <strong>25 models</strong> from a single API key.</p>
+
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.85rem;color:#5c3a1e;margin-bottom:6px;">New Models</h4>
+        <span class="model-chip">deepseek-v4-flash</span>
+        <span class="model-chip">mistral-medium-3.5-128b</span>
+        <span class="model-chip">mistral-small-4-119b</span>
+        <span class="model-chip">mistral-large-3-675b</span>
+        <span class="model-chip">mistral-nemotron</span>
+        <span class="model-chip">ministral-14b</span>
+        <span class="model-chip">mixtral-8x7b</span>
+        <span class="model-chip">qwen3.5-122b</span>
+        <span class="model-chip">nemotron-3-super-120b</span>
+        <span class="model-chip">nemotron-3-nano-omni-30b</span>
+        <span class="model-chip">nemotron-49b</span>
+        <span class="model-chip">nemotron-mini-4b</span>
+        <span class="model-chip">nemotron-nano-9b</span>
+        <span class="model-chip">llama-3.1-8b</span>
+        <span class="model-chip">gpt-oss-120b</span>
+        <span class="model-chip">gpt-oss-20b</span>
+        <span class="model-chip">step-3.5-flash</span>
+        <span class="model-chip">phi-4-mini</span>
+        <span class="model-chip">seed-oss-36b</span>
+      </div>
+
+      <h4 style="font-size:0.85rem;color:#7a6a58;margin-bottom:6px;">Stack Summary</h4>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="num">23</div><div class="desc">Chat Models</div></div>
+        <div class="stat-box"><div class="num">1</div><div class="desc">Vision Model</div></div>
+        <div class="stat-box"><div class="num">1</div><div class="desc">Embedding Model</div></div>
+        <div class="stat-box"><div class="num">25</div><div class="desc">Total Models</div></div>
+      </div>
+
+      <details style="margin-top:12px;">
+        <summary style="cursor:pointer;font-size:0.85rem;color:#7a6a58;">⚠️ 15 models failed (timeout/404) — click to see</summary>
+        <p style="font-size:0.8rem;color:#7a6a58;margin-top:6px;">
+        deepseek-v4-pro, gemma-4-31b, llama-4-maverick, llama-3.1-70b, llama-3.2-1b, llama-3.2-3b, qwen3-next-80b (all timeout) — gemma-3-12b/4b, nemotron-70b/51b, mistral-large-2, mixtral-8x22b, yi-large (404) — step-3.7-flash (non-chat)
+        </p>
+      </details>
+    </div>
+  </div>
+
+  <!-- ============ 4. BIZDEV INTEL ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">💼</span> BizDev Intelligence</div>
+
+    <div class="card" style="border-left: 4px solid #c2410c;">
+      <span class="label label-red">🔥 URGENT</span>
+      <h3>🥇 Warm Lead — Branson West STR Owner (Family Health Issue)</h3>
+      <div class="bizdev-urgent">
+        <strong>🔴 ACTION NEEDED TODAY:</strong> A Branson West STR condo owner posted in a Facebook owners group seeking management recommendations due to a family health issue. This is a time-sensitive, trust-based warm lead — window closes in hours/days. <strong>Reply in the thread today</strong> with a brief, helpful introduction as Summers Vacations.
+      </div>
+      <p style="font-size:0.85rem;color:#7a6a58;margin-top:6px;">
+        📍 Branson West condo | 🎯 Highly motivated (not price-shopping) | ⚡ First quality responder wins
+      </p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <span class="label label-amber">🥈 Opportunity</span>
+        <h3>Grand Welcome's Reject Pool</h3>
+        <p style="font-size:0.88rem;color:#7a6a58;">
+          Grand Welcome now at ~400 properties (17 employees, 1:23 ratio). They're explicitly being "selective" — turning away owners. Those rejects = your perfect prospects. Pitch: "We manage 7 units with the same team focus yours deserves."
+        </p>
+      </div>
+      <div class="card">
+        <span class="label label-amber">🥉 Watch</span>
+        <h3>July 14 Council Meeting</h3>
+        <p style="font-size:0.88rem;color:#7a6a58;">
+          Branson Board of Aldermen meets <strong>Tuesday July 14 at 6 PM CT</strong>. STR regulatory changes could create owner anxiety = recruiting opportunity. Check published agenda tomorrow afternoon before the meeting.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📊 Market Scout Note</h3>
+      <p style="font-size:0.88rem;color:#7a6a58;">
+        <span class="fail">🔴</span> The Market Scout failed today (3rd time in ~15 days) with a tool-call error. The Opportunity Analyst compensated with live web research, but the Scout's automated intel feed has a recurring reliability gap that needs a root-cause fix.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ 5. AGENT FLEET STATUS ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🤖</span> Agent Fleet Status</div>
+
+    <div class="card">
+      <h3>📡 All 10 Morning Scouts — Status: ✅ ALL GREEN</h3>
+      <div class="grid-3" style="margin-top:8px;">
+        <div>
+          <span class="label label-green">✅ 4:30</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🌍 Intel Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 4:45</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🎣 Fishing Report</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 5:00</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🏬 Landing Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 5:15</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🎭 Shows Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 5:30</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🍽️ Food Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 5:40</span>
+          <div style="font-size:0.82rem;padding-top:4px;">⛳ Golf Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 5:45</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🏎️ Strip Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 6:00</span>
+          <div style="font-size:0.82rem;padding-top:4px;">📸 Photo Scout</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 6:02</span>
+          <div style="font-size:0.82rem;padding-top:4px;">🐕 Watchdog</div>
+        </div>
+        <div>
+          <span class="label label-green">✅ 6:05</span>
+          <div style="font-size:0.82rem;padding-top:4px;">📋 Morning Brief</div>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-size:0.85rem;color:#7a6a58;">
+        <strong>Still pending:</strong> 📱 Social Studio (6:15 AM) | 📱 Facebook Auto-Publish (6:30 AM)
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 BizDev Division</h3>
+      <ul class="ok-list">
+        <li><span class="fail">🔴</span> <strong>Market Scout</strong> — Failed (3rd time in 15d). Tool-call error.</li>
+        <li><span class="check">✅</span> <strong>Opportunity Analyst</strong> — Compensated with live research. Full analysis delivered with 3 ranked opportunities and competitive gaps.</li>
+        <li><span class="warn">⚠️</span> <strong>BD Chief</strong> — Analysis from yesterday indicates Content Engine producing but FB token day 13 expired. SITREP path mismatch noted.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ 6. TODAY'S FOCUS ACTIONS ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎯</span> Today's Focus Actions</div>
+
+    <div class="card" style="border-left:4px solid #c2410c;">
+      <h3>🔥 Priority 1 — Respond to Branson West Owner Lead</h3>
+      <p style="font-size:0.9rem;">
+        A Branson West STR owner posted in a Facebook owners group asking for management recommendations due to a family health issue. This is the warmest lead the engine has found. <strong>Reply in the thread today.</strong> Sample intro: <em>"Hi, I'm Brian with Summers Vacations — Branson West is our home market. We manage 7 units locally and can handle the transition quickly."</em>
+      </p>
+    </div>
+
+    <div class="card" style="border-left:4px solid #2563eb;">
+      <h3>🔵 Priority 2 — Renew Facebook Auto-Publish Token</h3>
+      <p style="font-size:0.9rem;">
+        <strong>Day 13 without renewal.</strong> Social content is generated and queued but cannot post. Visit Meta Business Dashboard (15 min fix). This is the single highest-leverage action for your social media presence.
+      </p>
+    </div>
+
+    <div class="card" style="border-left:4px solid #92400e;">
+      <h3>🟡 Priority 3 — Tomorrow's Big Day</h3>
+      <p style="font-size:0.9rem;">
+        <strong>July 13</strong> has 6 check-ins including your own Penthouse stay (Jul 13–18), plus Sylee Gibson (Rustic Ozark, Jul 13–17) and Amber Swank (Woodland Retreat, Jul 13–17). Make sure cleaning crew is scheduled after today's 4 check-outs.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📋 Quick Checklist</h3>
+      <ul class="ok-list">
+        <li><span class="warn">⬜</span> Reply to Branson West owner on Facebook — <strong>TODAY</strong></li>
+        <li><span class="warn">⬜</span> Renew Facebook Auto-Publish token in Meta Dashboard</li>
+        <li><span class="warn">⬜</span> Schedule cleaning crew for 4 check-outs today + 3 check-ins tomorrow</li>
+        <li><span class="warn">⬜</span> Check July 14 City Council agenda (check Monday afternoon ~3-4 PM)</li>
+        <li><span class="warn">⬜</span> Consider joining Branson STR Owner Facebook groups for daily monitoring</li>
+        <li><span class="warn">⬜</span> Read Social Studio output after 6:15 AM for today's 3 posts + flyers</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ TODAY'S HIGHLIGHTS ============ -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🌟</span> Today's Branson Highlights</div>
+
+    <div class="card">
+      <h3>🎪 Final Day: A Year with Frog and Toad Kids</h3>
+      <p style="font-size:0.88rem;color:#7a6a58;">Music City Centre — 2 shows — only $10/ticket. Last chance!</p>
+    </div>
+
+    <div class="card">
+      <h3>🎵 Shows Tonight</h3>
+      <p style="font-size:0.88rem;color:#7a6a58;">
+        DAVID at Sight & Sound (3:30/7:30) · Legends in Concert (3/8 PM) · The Haygoods SOLD OUT · Amazing Acrobats ~11 seats left · Presleys' Country Jubilee · Dolly Stampede (5:30/8 PM) · Reza Edge of Illusion (8 PM) · Narnia Live: Prince Caspian (2 PM)
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🎣 Fishing Tip of the Day</h3>
+      <div class="fishing-tip">
+        <strong>Pink worm under a float on Taneycomo</strong> before generation kicks in (~1-2 PM). USA Bassin tournament on Taneycomo today = extra boat traffic. Table Rock: topwater at dawn, dropshot on main-lake points. 40+ walleye days continue.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🍽️ Dining Idea</h3>
+      <p style="font-size:0.88rem;color:#7a6a58;">
+        <strong>Gettin' Basted</strong> just launched a brand-new breakfast menu (7 AM daily!) — Pancake Flight, Brisket Breakfast Tacos, Pull-Apart Cinnamon Bread. Or hit <strong>Chateau Grille</strong> for Sunday brunch with sushi, carving station, and Table Rock Lake views.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>⛳ Golf Tip</h3>
+      <p style="font-size:0.88rem;color:#7a6a58;">
+        Play <strong>Branson Hills</strong> (#1 in MO, #10 in US) Sunday–Thursday for $235 vs $265+ weekends. Twilight after 4 PM: $150 with sunset at 8:34 PM. Locals get $50 off. On the calendar: AJGA Payne Stewart Jr Championship Jul 20–23 at Buffalo Ridge.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🏎️ 76 Strip Tonight</h3>
+      <p style="font-size:0.88rem;color:#7a6a58;">
+        The Track (3 parks + Ferris Wheel with 16,000 LEDs at night) · Xtreme Racing (longest high-speed kart track in NA) · Copperhead Mountain Coaster · WonderWorks upside-down building · Fritz's Adventure indoor park · Pirate's Cove mini golf open till 11 PM.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    ☀️ Morning Brief — July 12, 2026 — Compiled by Hermes Agent<br>
+    Branson Content Engine · Summers Vacations LLC · Branson, MO
+  </div>
+
+</div>
+
+</body>
+</html>

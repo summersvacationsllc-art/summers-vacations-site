@@ -1,20 +1,31 @@
 {
-  "date": "2026-07-11",
-  "biteOfDay": "Morning no-generation windows on Taneycomo = prime wading conditions. Pink worms under floats below Fall Creek for rainbows. Table Rock: Whopper Plopper at dawn before the heat sets in.",
+  "date": "2026-07-12",
+  "biteOfDay": "Pink worm under a float on Taneycomo early morning (before generation kicks in) — still the can't-miss play. On Table Rock, hit topwater at dawn then switch to dropshot or Carolina rig on main-lake points.",
   "conditions": {
-    "tableRock": {"temp": "78.6°F", "level": "916.9 ft", "clarity": "Clear main lake; stained river arms"},
-    "taneycomo": {"temp": "50°F", "clarity": "Very clear", "generation": "Mornings off until ~1-2 PM (past 4+ days). Afternoons ramp to ~12,800 cfs from 4-8 PM."}
+    "tableRock": {
+      "temp": "78°F",
+      "level": "917.0 ft",
+      "clarity": "Stained to clear; James River beginning to stain near Point 15"
+    },
+    "taneycomo": {
+      "temp": "50°F",
+      "clarity": "Very clear — clean presentations critical",
+      "generation": "Mornings off until ~1:00–2:00 PM, then ramps to ~12,800 cfs through afternoon"
+    }
   },
   "species": [
-    {"name": "Largemouth & Spotted Bass", "rating": "EXCELLENT", "depth": "10-25 ft", "technique": "Topwater at dawn (Whopper Plopper), deep crankbaits, flutter spoons, jigs over main lake points"},
-    {"name": "Smallmouth Bass", "rating": "GOOD", "depth": "Varies", "technique": "Hwy 86 bridge to Campbell Point area"},
-    {"name": "Crappie", "rating": "FAIR", "depth": "15-25 ft", "technique": "Standing timber, docks. Live minnows or soft plastic Swimming Minnows"},
-    {"name": "Walleye", "rating": "GOOD", "depth": "Deep points, channel swings", "technique": "Trolling near channel swings, deep points. James River, Kings River, upper White River arms"},
-    {"name": "Rainbow Trout", "rating": "GOOD-V.GOOD", "depth": "Varies with flow", "technique": "Pink worm under float below Fall Creek. Branson Landing area — spoon from pier. Scuds, mega worm, zebra midges in trophy area"},
-    {"name": "Brown Trout", "rating": "FAIR", "depth": "Deep channels", "technique": "Available but selective. Night crawlers Fall Creek to Cooper Creek"},
-    {"name": "Bluegill", "rating": "PEAK", "depth": "10-20 ft", "technique": "Live crickets or worms, gravel areas and points. Peak season through early July"},
-    {"name": "Catfish", "rating": "GOOD", "depth": "River arms", "technique": "Cut bait, stink bait near woody structure. 751 brush piles added Nov 2022-Mar 2024"}
+    {"name": "Bass", "rating": "EXCELLENT", "depth": "6-25 ft", "technique": "Topwater at dawn, drop shot, Carolina rig, jigs on points near shad schools"},
+    {"name": "Walleye", "rating": "EXCELLENT", "depth": "Deep gravel points", "technique": "Drop shot with live nightcrawler on extended main lake points and ledges"},
+    {"name": "Crappie", "rating": "FAIR", "depth": "10-15 ft", "technique": "Brush/fallen timber near river channel, small jigs in white/chartreuse"},
+    {"name": "Trout", "rating": "GOOD", "depth": "Varies with flow", "technique": "Pink worm under a float, jig under a float, drifting eggs, nightcrawlers, PowerBait"},
+    {"name": "Bluegill", "rating": "PEAK", "depth": "4-10 ft", "technique": "Live nightcrawlers, small minnows near boat docks and standing timber"},
+    {"name": "Catfish", "rating": "GOOD", "depth": "3-15 ft", "technique": "Cut bait (small bluegill preferred) near flat points, early morning or late evening"}
   ],
-  "weather": {"high": "91°F", "heatIndex": "~101°F", "dawn": "81°F", "wind": "SW 6-9 mph", "rain": "60% chance PM thunderstorms. Weekend cooling — Sun 87°F"},
-  "tip": "Morning is the magic window on both lakes. Taneycomo no-generation until ~1-2 PM — best wading before noon. Table Rock topwater at sunrise. Stay hydrated, heat index ~101°F."
+  "weather": {
+    "high": "88°F",
+    "heatIndex": "93°F",
+    "dawn": "72°F",
+    "wind": "S/SE 3-7 mph"
+  },
+  "tip": "Get out early — water is off on Taneycomo until 1-2 PM. Best fishing window is 5:30 AM – noon. Pink worm is the can't-miss bait right now. Light line (2 lb test) for spooky clear water. Check generation before wading — afternoon water comes up hard and fast."
 }
