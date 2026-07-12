@@ -1,28 +1,26 @@
 {
-  "updated": "2026-07-12",
+  "date": "2026-07-12",
   "shows": [
-    {"name": "Grand Jubilee", "time": "7:30 PM", "venue": "Grand Country", "price": "$39+", "type": "Variety", "tag": "Classic", "desc": "Branson's longest-running show! High-energy variety with comedy & live band.", "url": "https://www.grandcountrylivemusic.com/grand-jubilee"},
-    {"name": "Presleys' Country Jubilee", "time": "8 PM", "venue": "Presleys' Theatre", "price": "", "type": "Country", "tag": "Legacy", "desc": "50+ year Branson tradition! Country music, comedy, and gospel. The show that started it all.", "url": "https://presleys.com/"},
-    {"name": "Clay Cooper's Country Express", "time": "7:30 PM", "venue": "Clay Cooper Theatre", "price": "", "type": "Variety", "tag": "Family", "desc": "High-energy country variety with comedy, dancing, and 20+ performers.", "url": "https://www.claycooper.com/"},
-    {"name": "The Haygoods", "time": "8 PM", "venue": "Clay Cooper Theatre", "price": "$42+", "type": "Family", "tag": "⭐ 4.9", "desc": "6 siblings, 20+ genres, incredible music & dancing. A Branson powerhouse.", "url": "https://thehaygoods.com/"},
-    {"name": "Hughes Music Show", "time": "8 PM", "venue": "Hughes Brothers Theatre", "price": "", "type": "Family", "tag": "Family", "desc": "The Hughes Brothers & family — stunning harmonies and variety entertainment.", "url": "https://www.hughesbrotherstheatre.com/"},
-    {"name": "Pierce Arrow", "time": "8 PM", "venue": "Reza Live Theatre", "price": "", "type": "Country", "tag": "Country", "desc": "Country music, comedy, and the legendary low bass voice.", "url": "https://piercearrow.com/"},
-    {"name": "SIX", "time": "8 PM", "venue": "Multiple venues", "price": "", "type": "Unique", "tag": "Unique", "desc": "6 brothers — all vocals, no instruments. Viral sensation with incredible harmonies.", "url": "https://www.sixshow.com/"},
-    {"name": "Bohemian Queen", "time": "8 PM", "venue": "Clay Cooper Theatre", "price": "$45+", "type": "Tribute", "tag": "🔥 Hot", "desc": "The ultimate Freddie Mercury tribute! Full costume changes & all the Queen hits.", "url": "https://www.themansiontheatre.com/"},
-    {"name": "Legends in Concert", "time": "3 & 8 PM", "venue": "Legends Theater", "price": "", "type": "Tribute", "tag": "Iconic", "desc": "World-famous tribute show! Multiple artists per show — Elvis, Garth, Abba & more.", "url": "https://www.legendsinconcert.com/branson/"},
-    {"name": "Back to the Bee Gees", "time": "5 PM", "venue": "Hamner Variety", "price": "", "type": "Tribute", "tag": "🆕 NEW!", "desc": "Brand new show! Disco tribute — Stayin' Alive & all the hits.", "url": "https://hamnervarietytheater.com/"},
-    {"name": "Dean Z — Ultimate Elvis", "time": "2 PM", "venue": "Multiple venues", "price": "", "type": "Tribute", "tag": "Elvis", "desc": "The world's best Elvis tribute artist. Authentic costumes and voice.", "url": "https://www.claycooper.com/dean-z"},
-    {"name": "Sight & Sound — DAVID", "time": "3:30 & 7:30 PM", "venue": "Sight & Sound Theatre", "price": "", "type": "Production", "tag": "⭐ 4.8", "desc": "Epic biblical production! Massive sets, live animals, incredible storytelling. Branson's #1 production show.", "url": "https://www.sight-sound.com/"},
-    {"name": "Shepherd's Wild West Showdown", "time": "7:30 PM", "venue": "Shepherd of the Hills", "price": "", "type": "Action", "tag": "Action", "desc": "Stunt show! Trick riding, gunfights, and comedy western action.", "url": "https://www.shepherdofthehills.com/"},
-    {"name": "Amazing Acrobats — Shanghai Circus", "time": "2 & 7:30 PM", "venue": "Multiple venues", "price": "", "type": "Acrobatics", "tag": "Wow!", "desc": "Mind-blowing Chinese acrobatics, contortion, and aerial acts.", "url": "https://www.acrobatsofchina.com/"},
-    {"name": "Dolly Parton's Stampede", "time": "5:30 & 8 PM", "venue": "Stampede Arena", "price": "$60+", "type": "Dinner", "tag": "Iconic", "desc": "4-course feast with 32 horses, trick riding, and musical spectacle.", "url": "https://www.dollypartonsstampede.com/branson/"},
-    {"name": "Chuckwagon Dinner Show", "time": "5 PM", "venue": "Shepherd of the Hills", "price": "", "type": "Dinner", "tag": "Western", "desc": "Cowboy supper + live country music and comedy show.", "url": "https://www.shepherdofthehills.com/"},
-    {"name": "Showboat Branson Belle", "time": "Cruise times vary", "venue": "Table Rock Lake", "price": "", "type": "Dinner", "tag": "Lake", "desc": "2-hour cruise + meal + live show on a 700-seat paddle wheeler.", "url": "https://showboatbransonbelle.com/"},
-    {"name": "Rick Thomas — Mansion of Dreams", "time": "2 PM", "venue": "Mansion Theatre", "price": "", "type": "Magic", "tag": "Magic", "desc": "Vegas-level illusionist! Award-winning magic, comedy, and grand illusions.", "url": "https://www.illusionistrickthomas.com/"},
-    {"name": "Comedy Jamboree", "time": "3 & 7:30 PM", "venue": "Grand Country", "price": "", "type": "Comedy", "tag": "Funny", "desc": "Slapstick comedy, music, and family-friendly laughs.", "url": "https://www.grandcountry.com/branson-shows/comedy-jamboree/"},
-    {"name": "Branson Dinner Trains", "time": "Evenings (Apr–Oct)", "venue": "Branson Scenic Railway", "price": "", "type": "Experience", "tag": "Unique", "desc": "4-course dinner on a vintage train through the Ozark foothills.", "url": "https://www.bransontrain.com/"},
-    {"name": "Branson Duck Tours", "time": "Hourly 10 AM–5 PM", "venue": "Hwy 76", "price": "", "type": "Experience", "tag": "Fun", "desc": "Amphibious vehicle tour — land AND water! Splash into Table Rock Lake.", "url": "https://www.bransonducktours.com/"},
-    {"name": "Freedom Journey Experience", "time": "Ongoing", "venue": "Freedom Encounter", "price": "", "type": "Experience", "tag": "Patriotic", "desc": "Immersive walk-through experience of America's founding.", "url": "https://www.thefreedomencounter.com/"}
+    {"name": "DAVID", "time": "3:30 PM, 7:30 PM", "venue": "Sight & Sound Theatres", "type": "Production", "url": "https://www.sight-sound.com/"},
+    {"name": "Legends in Concert", "time": "3:00 PM, 8:00 PM", "venue": "Pepsi Legends Theater", "type": "Tribute", "url": "https://www.legendsinconcert.com/branson/"},
+    {"name": "The Haygoods", "time": "7:30 PM", "venue": "Clay Cooper Theatre", "type": "Family", "url": "https://www.haygoodshow.com/"},
+    {"name": "Clay Cooper's Country Express", "time": "7:30 PM", "venue": "Clay Cooper Theatre", "type": "Variety", "url": "https://www.claycooper.com/"},
+    {"name": "Presleys' Country Jubilee", "time": "8:00 PM", "venue": "Presley's Theater", "type": "Country", "url": "https://presleys.com/"},
+    {"name": "Dolly Parton's Stampede", "time": "5:30 PM, 8:00 PM", "venue": "Dolly Parton's Stampede", "type": "Dinner", "url": "https://www.dollypartonsstampede.com/branson/"},
+    {"name": "Pierce Arrow Country", "time": "8:00 PM", "venue": "Reza Live Theatre", "type": "Country", "url": "https://piercearrow.com/"},
+    {"name": "SIX", "time": "8:00 PM", "venue": "Pepsi Legends Theater", "type": "Variety", "url": "https://www.legendsinconcert.com/branson/"},
+    {"name": "Dean Z — The Ultimate Elvis", "time": "2:00 PM", "venue": "Clay Cooper Theatre", "type": "Tribute", "url": "https://www.claycooper.com/dean-z"},
+    {"name": "Amazing Acrobats of Shanghai", "time": "2:00 PM, 7:30 PM", "venue": "Mickey Gilley Grand Shanghai Theatre", "type": "Acrobats", "url": "https://www.explorebranson.com/"},
+    {"name": "Reza Edge of Illusion", "time": "8:00 PM", "venue": "Reza Live Theatre", "type": "Magic", "url": "https://www.rezashow.com/"},
+    {"name": "Baldknobbers Jamboree", "time": "8:00 PM", "venue": "Hughes Brothers Celebrity Theater", "type": "Country", "url": "https://www.hughesbrotherstheatre.com/"},
+    {"name": "A Year with Frog and Toad Kids", "time": "Final Show!", "venue": "Music City Centre", "type": "Family", "url": "https://www.explorebranson.com/"},
+    {"name": "Showboat Branson Belle", "time": "Dinner cruise", "venue": "Table Rock Lake", "type": "Dinner", "url": "https://showboatbransonbelle.com/"},
+    {"name": "Spirit of America", "time": "8:00 PM", "venue": "King's Castle Theatre", "type": "Patriotic", "url": "https://www.kingscastletheatre.com/"}
   ],
-  "tip": "Most shows run Tue–Sat. Book 2-3 days ahead for best seats. Matinees (2-3 PM) are less crowded. Children under 12 often free or discounted."
+  "freeEvents": [
+    "FREE Summer Concerts at Branson Landing — next: Aug 8 (Jukebox Winos & Chris Luneau) and Sep 5 (96 Miles & Eastern Heights)",
+    "Branson Farmers Market at Branson Landing — Tuesdays 2:30-6:30 PM through Oct 27",
+    "Free Summer Movies at Branson IMAX — Wednesdays 10 AM through July 16 (only 2 left!)",
+    "Disc Golf at Little Heroes Park — free, bring your own discs"
+  ]
 }
