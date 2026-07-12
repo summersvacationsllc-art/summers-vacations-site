@@ -94,8 +94,10 @@ export const PROPERTIES: PropertyCard[] = [
   },
 ];
 
-/** Gallery photos — built dynamically from all property folders at runtime. */
-export const GALLERY_PHOTOS: { src: string; alt: string }[] = [];
+/** Gallery photos — populated at runtime from /api/property-photos, with SSR-safe fallback. */
+export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
+  { src: "/property-photos/penthouse/011F73D2-6245-49FF-80B8-9BCC5537672B_1_105_c.jpeg", alt: "Summers Vacations property" },
+];
 
 /** Adventure carousel — loaded from public/adventure-photos/manifest.json.
  *  Drop photos in public/adventure-photos/, update manifest.json with filenames and captions. */
