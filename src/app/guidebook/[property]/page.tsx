@@ -160,7 +160,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           <div className="text-[13px] font-bold text-sky-900">{title}</div>
           <div className="text-[11px] text-sky-200 mt-0.5">{meta}</div>
         </div>
-        {tag && <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 ${tag[0] === 'r' ? 'bg-yellow-50 text-yellow-800' : tag[0] === 'b' ? 'bg-blue-50 text-blue-800' : tag[0] === 'g' ? 'bg-green-50 text-green-800' : 'bg-sky-100 text-sky-700'}`}>{tag[1]}</span>}
+        {tag && <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 ${tag[0] === 'r' ? 'bg-teal-50 text-teal-800' : tag[0] === 'b' ? 'bg-blue-50 text-blue-800' : tag[0] === 'g' ? 'bg-green-50 text-green-800' : 'bg-sky-100 text-sky-700'}`}>{tag[1]}</span>}
       </div>
       {desc && <div className="text-[11px] text-sky-200 mt-1.5 ml-9 leading-relaxed">{desc}</div>}
     </div>
@@ -174,7 +174,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           <div className="text-[13px] font-bold text-sky-900">{title}</div>
           <div className="text-[11px] text-sky-200 mt-0.5">{meta}</div>
         </div>
-        {tag && <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 ${tag[0] === 'r' ? 'bg-red-50 text-red-800' : tag[0] === 'b' ? 'bg-blue-50 text-blue-800' : tag[0] === 'g' ? 'bg-green-50 text-green-800' : tag[0] === 'p' ? 'bg-purple-50 text-purple-800' : 'bg-yellow-50 text-yellow-800'}`}>{tag[1]}</span>}
+        {tag && <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded whitespace-nowrap flex-shrink-0 ${tag[0] === 'r' ? 'bg-red-50 text-red-800' : tag[0] === 'b' ? 'bg-blue-50 text-blue-800' : tag[0] === 'g' ? 'bg-green-50 text-green-800' : tag[0] === 'p' ? 'bg-purple-50 text-purple-800' : 'bg-teal-50 text-teal-800'}`}>{tag[1]}</span>}
       </div>
       {desc && <div className="text-[11px] text-sky-200 mt-1.5 ml-9 leading-relaxed">{desc}</div>}
     </a>
@@ -216,11 +216,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       </div>
 
       {/* Mode Toggle */}
-      <div className="flex gap-2 px-3.5 py-1 flex-shrink-0 justify-center" style={{ background: '#3d2b1f' }}>
+      <div className="flex gap-2 px-3.5 py-1 flex-shrink-0 justify-center" style={{ background: '#0c4a6e' }}>
         <button onClick={() => setMode('guest')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'guest' ? 'text-stone-900' : 'text-sky-200'}`}
           style={{ background: mode === 'guest' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🏠 Guest Mode</button>
         <button onClick={() => setMode('branson')} className={`text-[10px] font-semibold px-3 py-1 rounded-full border-none cursor-pointer font-inherit transition-colors ${mode === 'branson' ? 'text-stone-900' : 'text-sky-200'}`}
-          style={{ background: mode === 'branson' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🌲 Branson Mode</button>
+          style={{ background: mode === 'branson' ? T.accentColor : 'rgba(255,255,255,.1)' }}>🌊 Branson Mode</button>
       </div>
 
       {/* Seasonal Banner */}
@@ -307,7 +307,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
             {mode === 'branson' && (
               <div className="mx-3.5 mt-2 bg-green-50 rounded-lg px-3.5 py-3 border border-green-200">
-                <div className="flex items-center gap-2"><span className="text-xl">🌲</span><div><div className="text-[13px] font-bold text-green-700">Your stay has ended</div><div className="text-[11px] text-green-600">But Branson is still here! Check shows, fishing, golf, and dining below.</div></div></div>
+                <div className="flex items-center gap-2"><span className="text-xl">🌊</span><div><div className="text-[13px] font-bold text-teal-700">Your stay has ended</div><div className="text-[11px] text-teal-600">But Branson is still here! Check shows, fishing, golf, and dining below.</div></div></div>
               </div>
             )}
 
@@ -321,8 +321,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
 
             {/* Push Message */}
-            <div className="mx-3.5 mt-1.5 mb-1 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[11px] text-yellow-800 font-semibold">💡 {T.pushMessage}</div>
+            <div className="mx-3.5 mt-1.5 mb-1 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[11px] text-teal-800 font-semibold">💡 {T.pushMessage}</div>
             </div>
 
             {/* Daily Branson Report */}
@@ -330,9 +330,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <span className="text-3xl">📰</span>
               <div className="flex-1">
                 <div className="text-[13px] font-bold text-blue-900">Today's Branson Report</div>
-                <div className="text-[11px] text-yellow-700">Fishing • Shows • Golf • Events — fresh every morning</div>
+                <div className="text-[11px] text-teal-700">Fishing • Shows • Golf • Events — fresh every morning</div>
               </div>
-              <span className="text-xl text-yellow-600">→</span>
+              <span className="text-xl text-teal-600">→</span>
             </a>
 
             {/* Today's Highlights */}
@@ -356,8 +356,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {/* Book Again */}
             <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
               <span className="text-3xl">🏠</span>
-              <div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-yellow-800">Direct booking • Best rates • Summers Vacations</div></div>
-              <span className="text-xl text-yellow-800">›</span>
+              <div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates • Summers Vacations</div></div>
+              <span className="text-xl text-teal-800">›</span>
             </a>
           </>
         )}
@@ -445,28 +445,28 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 </div>
                 <div className="px-3.5 pt-3">
                   <div className="bg-green-50 rounded-lg px-3.5 py-3 mb-2 border border-green-200">
-                    <div className="flex items-center gap-2"><span className="text-xl">🌲</span><div><div className="text-[13px] font-bold text-green-700">Your stay at {prop.name} has ended</div><div className="text-[11px] text-green-600">But there are 6 more properties to explore!</div></div></div>
+                    <div className="flex items-center gap-2"><span className="text-xl">🌊</span><div><div className="text-[13px] font-bold text-teal-700">Your stay at {prop.name} has ended</div><div className="text-[11px] text-teal-600">But there are 6 more properties to explore!</div></div></div>
                   </div>
 
                   {[
                     {icon:'🏠',name:'The Penthouse',meta:'🌟 You stayed here! • 2BR • Sleeps 6',desc:'Top-floor with fireplace, coffee bar, Aroma 360'},
-                    {icon:'🌲',name:'Rustic Ozark Retreat',meta:'2BR • Sleeps 6 • Cozy mountain vibe',desc:'Keurig, Nest Thermostat, fireplace, deck'},
+                    {icon:'🌊',name:'Rustic Ozark Retreat',meta:'2BR • Sleeps 6 • Cozy mountain vibe',desc:'Keurig, Nest Thermostat, fireplace, deck'},
                     {icon:'🌳',name:'Woodland Retreat',meta:'2BR • Sleeps 6 • Bunk beds',desc:'Great for families! Mr. Coffee, bunk room'},
                     {icon:'✨',name:'Modern Charmer',meta:'1BR • Sleeps 4 • Sleek & stylish',desc:'Updated finishes, coffee bar, Pack \'n Play'},
                     {icon:'🦚',name:'Pretty Peacock',meta:'1BR • Sleeps 6 • No steps',desc:'Bottom floor, charging station, easy access'},
                     {icon:'🏡',name:'Branson Family Haven',meta:'3BR house • Sleeps 8 • Private yard',desc:'Standalone home, full kitchen, washer/dryer'},
                     {icon:'🏢',name:'Double Condo',meta:'Penthouse + Rustic • Sleeps 12+',desc:'🔥 Bundle & save! Two units, one booking'},
                   ].map((p,i) => (
-                    <a key={i} href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-amber-400':''}`}>
+                    <a key={i} href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-sky-400':''}`}>
                       <div className="flex items-center gap-2"><span className="text-3xl">{p.icon}</span><div className="flex-1"><div className="text-[13px] font-bold text-sky-900">{p.name}</div><div className="text-[11px] text-sky-200">{p.meta}</div></div>
-                        {i>0 && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-green-50 text-green-700 whitespace-nowrap">Book Now</span>}</div>
-                      <div className="text-[10px] text-green-700 font-semibold mt-1 ml-9">{p.desc}</div>
+                        {i>0 && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-green-50 text-teal-700 whitespace-nowrap">Book Now</span>}</div>
+                      <div className="text-[10px] text-teal-700 font-semibold mt-1 ml-9">{p.desc}</div>
                     </a>
                   ))}
 
-                  <div className="bg-yellow-50 rounded-lg px-3.5 py-3 my-2 border border-yellow-200">
-                    <div className="text-[12px] font-bold text-yellow-800">💡 Bundle & Save</div>
-                    <div className="text-[11px] text-yellow-700 mt-1">Planning a family reunion or group trip? Book <strong>2+ units</strong> and save! All properties are in the same complex. Contact Brian for custom multi-unit pricing: <strong>314-565-0589</strong></div>
+                  <div className="bg-teal-50 rounded-lg px-3.5 py-3 my-2 border border-teal-200">
+                    <div className="text-[12px] font-bold text-teal-800">💡 Bundle & Save</div>
+                    <div className="text-[11px] text-teal-700 mt-1">Planning a family reunion or group trip? Book <strong>2+ units</strong> and save! All properties are in the same complex. Contact Brian for custom multi-unit pricing: <strong>314-565-0589</strong></div>
                   </div>
                 </div>
               </>
@@ -485,7 +485,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             )}
 
             <a href="https://notchcondos.guestywebsites.com/" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
-              <span className="text-3xl">🏠</span><div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-yellow-800">Direct booking • Best rates</div></div><span className="text-xl text-yellow-800">›</span>
+              <span className="text-3xl">🏠</span><div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates</div></div><span className="text-xl text-teal-800">›</span>
             </a>
           </>
         )}
@@ -493,11 +493,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ ADVENTURE ═══ */}
         {tab === 'adventure' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={styles.bar}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Adventures</h1><p className="text-[12px] mt-0.5 text-yellow-200">Theme Parks • Coasters • Museums • Outdoors</p></div>
+            <div className="px-4 pt-3 pb-3" style={styles.bar}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Adventures</h1><p className="text-[12px] mt-0.5 text-sky-200">Theme Parks • Coasters • Museums • Outdoors</p></div>
             {sectionTitle('⭐','Featured — Silver Dollar City')}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={styles.bar}>
               <div className="flex items-center gap-2"><span className="text-xl">🎢</span><h3 className="text-base font-bold text-white">Silver Dollar City</h3></div>
-              <div className="text-[12px] mt-1 text-yellow-200 leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
+              <div className="text-[12px] mt-1 text-sky-200 leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
               <div className="flex gap-2 mt-2">
                 <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#fde047' }}>🎫 Tickets</a>
                 <a href="https://www.silverdollarcity.com/theme-park/attractions/rides/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">🎢 Rides</a>
@@ -515,8 +515,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.hollywoodwaxentertainment.com/branson/','🌟','Hollywood Wax Museum','Meet the stars!',['b','Photo Ops'],'Lifelike wax figures of your favorite celebrities. Great Instagram moments.')}
             {linkCard('https://www.bransonaquarium.com/','🐠','Aquarium at the Boardwalk','Underwater tunnel!',['b','New!'],'Walk-through underwater tunnel. Jellyfish, sharks, stingrays, and touch pools.')}
             {linkCard('https://beyondthelens.com/','🔍','Beyond the Lens!','Pop culture + tech',['p','Interactive'],'Virtual reality, escape rooms, celebrity photo ops, and conspiracy theory exhibits.')}
-            {sectionTitle('🌲','Nature & Outdoors')}
-            {linkCard('https://dogwoodcanyon.org/','🌲','Dogwood Canyon Nature Park','10K acres • Waterfalls • Wildlife',['g','Must-See'],'Stunning Ozarks canyon with walking trails, waterfalls, bison herd, and trout fishing. Tram tours available.')}
+            {sectionTitle('🌊','Nature & Outdoors')}
+            {linkCard('https://dogwoodcanyon.org/','🌊','Dogwood Canyon Nature Park','10K acres • Waterfalls • Wildlife',['g','Must-See'],'Stunning Ozarks canyon with walking trails, waterfalls, bison herd, and trout fishing. Tram tours available.')}
             {linkCard('https://www.mostateparks.com/park/table-rock-state-park','🏞️','Table Rock State Park','Hiking • Swimming • Boating',['g','Free'],'Beautiful state park on Table Rock Lake. Marina, trails, picnic areas, and swim beach.')}
             {sectionTitle('🎡','Strip & Family Fun')}
             <div className="grid grid-cols-2 gap-2 px-3.5 pb-1.5">
@@ -524,8 +524,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-200">{x.d}</div></a>
               ))}
             </div>
-            <div className="mx-3.5 my-2 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[11px] text-yellow-800 font-semibold">💡 Summer Tip: Buy SDC tickets online to skip the line. After 3 PM entry is discounted. Unlimited Summer Ticket: $99 for the whole season!</div>
+            <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[11px] text-teal-800 font-semibold">💡 Summer Tip: Buy SDC tickets online to skip the line. After 3 PM entry is discounted. Unlimited Summer Ticket: $99 for the whole season!</div>
             </div>
           </>
         )}
@@ -558,7 +558,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 ['🐟','Catfish','GOOD','River arms, cut bait, stink bait','b'],
               ].map(([e,t,s,d,c]) => (
                 <div key={t} className="bg-white rounded-lg px-2.5 py-2 border border-sky-100">
-                  <div className="flex items-center gap-1"><span className="text-sm">{e}</span><span className="text-[11px] font-bold text-sky-900">{t}</span><span className={`text-[9px] font-semibold px-1 py-0.5 rounded whitespace-nowrap ${c==='g'?'bg-green-50 text-green-700':c==='r'?'bg-red-50 text-red-700':c==='b'?'bg-blue-50 text-blue-700':'bg-yellow-50 text-yellow-700'}`}>{s}</span></div>
+                  <div className="flex items-center gap-1"><span className="text-sm">{e}</span><span className="text-[11px] font-bold text-sky-900">{t}</span><span className={`text-[9px] font-semibold px-1 py-0.5 rounded whitespace-nowrap ${c==='g'?'bg-green-50 text-teal-700':c==='r'?'bg-red-50 text-red-700':c==='b'?'bg-blue-50 text-blue-700':'bg-teal-50 text-teal-700'}`}>{s}</span></div>
                   <div className="text-[10px] text-sky-200 mt-0.5 leading-tight">{d}</div>
                 </div>
               ))}
@@ -581,8 +581,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.basspro.com/shop/en/bass-pro-shops-branson','🦌','Bass Pro Shops — Branson Landing','Full fishing dept • An experience!',['r','🔥 Must'],'Legendary outdoor store with aquarium, waterfall & arcade. Everything you need plus a museum experience.')}
             {linkCard('https://www.fallcreekrvcampground.com/','🪱','Fall Creek Marina Tackle','Live bait • Licenses • 8 min',['b','Local'],'Right on Taneycomo. Live bait, tackle, fishing licenses, and local advice.')}
             {linkCard('https://www.lilleyslanding.com/','🏕️','Lilley\'s Landing','Resort • Guide service • Pro shop',['g','Resort'],'Full-service fishing resort on Taneycomo. Pro shop, guides, and lodging available.')}
-            <div className="mx-3.5 my-2 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[11px] font-bold text-yellow-800">🎫 Missouri fishing license required for ages 16-64. Get one at any tackle shop or mdc.mo.gov. Trout permit also required for Taneycomo.</div>
+            <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[11px] font-bold text-teal-800">🎫 Missouri fishing license required for ages 16-64. Get one at any tackle shop or mdc.mo.gov. Trout permit also required for Taneycomo.</div>
             </div>
             <div className="mx-3.5 mb-2 bg-blue-50 rounded-lg px-3 py-2 border border-blue-200">
               <div className="text-[11px] text-blue-800"><strong>💡 Summer Tip:</strong> {fishingData?.tip || 'Fish early mornings before the heat. Table Rock topwater bite is best at sunrise. Taneycomo has no-generation windows until 1-2 PM — perfect for wading.'}</div>
@@ -624,8 +624,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.bransontrain.com/','🚂','Branson Dinner Trains','Evenings • Apr–Oct',['a','Unique'],'4-course dinner on a vintage train through the Ozark foothills.')}
             {linkCard('https://www.bransonducktours.com/','🦆','Branson Duck Tours','Hourly 10 AM–5 PM',['g','Fun'],'Amphibious vehicle tour — land AND water! Splash into Table Rock Lake.')}
             {linkCard('https://www.thefreedomencounter.com/','🇺🇸','Freedom Journey Experience','Ongoing • Freedom Encounter',['b','Patriotic'],'Immersive walk-through experience of America\'s founding.')}
-            <div className="mx-3.5 my-2 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[11px] text-yellow-800 font-semibold">🎵 FREE Summer Concerts at Branson Landing — next show Aug 8! Jukebox Winos & Chris Luneau. Waterfront stage, 7-10 PM.</div>
+            <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[11px] text-teal-800 font-semibold">🎵 FREE Summer Concerts at Branson Landing — next show Aug 8! Jukebox Winos & Chris Luneau. Waterfront stage, 7-10 PM.</div>
             </div>
             <div className="mx-3.5 mb-2 bg-purple-50 rounded-lg px-3 py-2 border border-purple-200">
               <div className="text-[11px] text-purple-800"><strong>💡 Pro Tip:</strong> Most shows run Tue–Sat. Book 2-3 days ahead for best seats. Matinees (2-3 PM) are less crowded. Children under 12 often free or discounted.</div>
@@ -650,7 +650,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
             {sectionTitle('🏌️','All Courses')}
             {linkCard('https://bigcedar.com/golf/paynes-valley/','⭐',"Payne's Valley — Big Cedar",'Tiger Woods • 12 min • $425+',['r','Premium'],'#1 USA TODAY 2026! Tiger\'s first public design. Bonus 19th island green.')}
-            {linkCard('https://bigcedar.com/golf/ozarks-national/','🌲','Ozarks National — Big Cedar','Coore & Crenshaw • Top 100',['a','Top 100'])}
+            {linkCard('https://bigcedar.com/golf/ozarks-national/','🌊','Ozarks National — Big Cedar','Coore & Crenshaw • Top 100',['a','Top 100'])}
             {linkCard('https://bigcedar.com/golf/buffalo-ridge/','🏔️','Buffalo Ridge Springs','Tom Fazio • Top 100',['a','Top 100'])}
             {linkCard('https://www.ledstonegolf.com/','⛳','Ledgestone Country Club','Public • 5 min • $70–$160',['g','Closest'],'Award-winning mountain golf just 5 min from the condo!')}
             {linkCard('https://bransonhillsgolfclub.com/','🏆','Branson Hills Golf Club','#1 in MO • 15 min • $235+',['a','Top Rated'])}
@@ -659,8 +659,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {linkCard('https://www.thousandhillsresorthotel.com/','🏙️','Thousand Hills Golf Resort','Resort course • $50–$90',['g','Budget'])}
             {linkCard('https://holidayhills.com/','🌄','Holiday Hills Golf Club','Public • $40–$70',['g','Great Value'])}
             {linkCard('https://bigcedar.com/golf/mountain-top/','🥾','Mountain Top — Big Cedar','Walking only • 13 holes • $100+',['p','Unique'])}
-            <div className="mx-3.5 my-2 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[11px] text-yellow-800 font-semibold">💡 Weekday tee times save $50-100+. Book 30 days ahead for Big Cedar courses.</div>
+            <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[11px] text-teal-800 font-semibold">💡 Weekday tee times save $50-100+. Book 30 days ahead for Big Cedar courses.</div>
             </div>
           </>
         )}
@@ -672,7 +672,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('🍖',"Host's Top Picks")}
             {linkCard('https://www.whitefishhouse.com/','🥩','White River Fish House','Lakeside • American • $$',['a','Host Pick'],'Fresh fish with a view of Lake Taneycomo!')}
             {linkCard('https://www.bigdsbbq.com/','🍖',"Big D's BBQ",'BBQ • $',['a','Host Pick'],'Best ribs in Branson! Casual, affordable, delicious.')}
-            {sectionTitle('🌲','Big Cedar Lodge Dining')}
+            {sectionTitle('🌊','Big Cedar Lodge Dining')}
             {linkCard('https://bigcedar.com/dining/','🏔️','Osage Restaurant — Top of the Rock','Fine dining • Lake views • $$$',['b','Scenic'])}
             {linkCard('https://bigcedar.com/dining/','🍔','Buffalo Bar & Grill','Casual • Golf course views • $$',['g','Casual'])}
             {linkCard('https://bigcedar.com/dining/tall-tales/','🎪','Tall Tales Bar & Grill','Outdoor • Live music • Fire pits',['g','Fun Vibe'])}
@@ -700,9 +700,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
             <div className="mx-3.5 mt-3 rounded-xl px-4 py-5 text-center" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
               <div className="text-5xl mb-2">📞</div>
-              <div className="text-[13px] font-semibold uppercase tracking-wider text-yellow-800">Call or Text Anytime</div>
+              <div className="text-[13px] font-semibold uppercase tracking-wider text-teal-800">Call or Text Anytime</div>
               <a href="tel:3145650589" className="block text-3xl font-extrabold text-stone-900 mt-1 no-underline tracking-wider">314-565-0589</a>
-              <div className="text-[12px] mt-2 text-yellow-800">Feel free to reach out with any questions, issues, or if you need anything during your stay. I'm here to make your vacation great!</div>
+              <div className="text-[12px] mt-2 text-teal-800">Feel free to reach out with any questions, issues, or if you need anything during your stay. I'm here to make your vacation great!</div>
             </div>
             <div className="mx-3.5 mt-2 bg-white rounded-xl px-4 py-3 border border-sky-100">
               <div className="flex items-center gap-2 mb-2">
@@ -714,8 +714,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <div className="text-[12px] text-sky-600">Brian Summers — Firefighter/Paramedic, {new Date().getFullYear() - 2000} years. Your safety and comfort are my priority.</div>
               </div>
             </div>
-            <div className="mx-3.5 my-2 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[11px] text-yellow-800">💡 For emergencies, call 911 first. For urgent but non-life-threatening issues, the urgent care info is in the Guide tab under Emergency Info.</div>
+            <div className="mx-3.5 my-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[11px] text-teal-800">💡 For emergencies, call 911 first. For urgent but non-life-threatening issues, the urgent care info is in the Guide tab under Emergency Info.</div>
             </div>
           </>
         )}
@@ -751,9 +751,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <div className="text-[11px] text-sky-600 mt-0.5 ml-7">{item.body}</div>
               </div>
             ))}
-            <div className="mx-3.5 mt-3 mb-2 bg-yellow-50 rounded-lg px-3 py-2 border border-yellow-200">
-              <div className="text-[12px] text-yellow-800 font-semibold">⭐ Leave us a review!</div>
-              <div className="text-[11px] text-yellow-700 mt-0.5">VRBO and Airbnb will send you a review request. If you can't give us 5 stars, please let us know why — your feedback helps our next guests have a great stay!</div>
+            <div className="mx-3.5 mt-3 mb-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
+              <div className="text-[12px] text-teal-800 font-semibold">⭐ Leave us a review!</div>
+              <div className="text-[11px] text-teal-700 mt-0.5">VRBO and Airbnb will send you a review request. If you can't give us 5 stars, please let us know why — your feedback helps our next guests have a great stay!</div>
             </div>
             <div className="text-center pb-4">
               <div className="text-[12px] text-sky-200">Thank you for staying with us!</div>
