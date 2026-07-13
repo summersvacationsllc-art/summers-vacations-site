@@ -11,8 +11,8 @@
 html { font-size: 16px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5efe6;
-  color: #3d2b1a;
+  background: #f0f9ff;
+  color: #0c4a6e;
   line-height: 1.6;
   padding: 0;
   font-feature-settings: "liga" 0;
@@ -20,10 +20,10 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
 }
-.container { max-width: 480px; margin: 0 auto; background: #fffdf9; }
+.container { max-width: 480px; margin: 0 auto; background: #ffffff; }
 .header {
-  background: linear-gradient(135deg, #5c3a1e 0%, #8b5e3c 50%, #5c3a1e 100%);
-  color: #fdf6e3;
+  background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 50%, #0c4a6e 100%);
+  color: #ffffff;
   padding: clamp(20px, 5vw, 36px) clamp(16px, 4vw, 24px);
   text-align: center;
   position: relative;
@@ -33,7 +33,7 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #c9a96e, #d4b87a, #c9a96e);
+  background: linear-gradient(90deg, #14b8a6, #f59e0b, #14b8a6);
 }
 .header h1 {
   font-family: 'DM Serif Display', serif;
@@ -53,7 +53,7 @@ body {
   font-style: italic;
 }
 .weather-bar {
-  background: #e8dcc8;
+  background: #e0f2fe;
   padding: clamp(10px, 3vw, 14px) clamp(16px, 4vw, 24px);
   display: flex;
   justify-content: space-between;
@@ -61,20 +61,20 @@ body {
   flex-wrap: wrap;
   gap: 6px;
   font-size: clamp(0.75rem, 2.5vw, 0.88rem);
-  color: #4a3725;
+  color: #0c4a6e;
 }
 .weather-bar .label { font-weight: 600; opacity: 0.7; }
-.weather-bar .temp { font-weight: 700; color: #8b4513; }
+.weather-bar .temp { font-weight: 700; color: #0ea5e9; }
 .section {
   padding: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
-  border-bottom: 1px solid #e8dcc8;
+  border-bottom: 1px solid #e0f2fe;
 }
 .section:last-child { border-bottom: none; }
 .section h2 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(1.2rem, 4vw, 1.5rem);
   font-weight: 400;
-  color: #5c3a1e;
+  color: #0c4a6e;
   margin-bottom: clamp(10px, 2.5vw, 14px);
   display: flex;
   align-items: center;
@@ -82,92 +82,92 @@ body {
 }
 .section h2 .emoji { font-size: clamp(1.1rem, 3.5vw, 1.4rem); }
 .card {
-  background: #faf6ef;
+  background: #f0f9ff;
   border-radius: 12px;
   padding: clamp(12px, 3vw, 16px);
   margin-bottom: 10px;
-  border: 1px solid #e8dcc8;
+  border: 1px solid #bae6fd;
 }
 .card:last-child { margin-bottom: 0; }
 .card h3 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(0.95rem, 3vw, 1.1rem);
   font-weight: 400;
-  color: #5c3a1e;
+  color: #0c4a6e;
   margin-bottom: 4px;
 }
 .card .meta {
   font-size: clamp(0.7rem, 2.2vw, 0.8rem);
-  color: #8b7355;
+  color: #0ea5e9;
   margin-bottom: 6px;
 }
 .card p {
   font-size: clamp(0.78rem, 2.5vw, 0.88rem);
-  color: #4a3725;
+  color: #334155;
   line-height: 1.5;
 }
 .badge {
   display: inline-block;
-  background: #c9a96e;
-  color: #3d2b1a;
+  background: #0ea5e9;
+  color: #ffffff;
   font-size: clamp(0.6rem, 2vw, 0.7rem);
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 4px;
   margin-right: 4px;
 }
-.badge-green { background: #a8d5a2; color: #2d5a27; }
-.badge-gold { background: #d4b87a; color: #4a3725; }
-.badge-blue { background: #a3c4dc; color: #1e4060; }
-.badge-red { background: #e8a0a0; color: #6b2020; }
+.badge-green { background: #14b8a6; color: #ffffff; }
+.badge-gold { background: #f59e0b; color: #0c4a6e; }
+.badge-blue { background: #7dd3fc; color: #0c4a6e; }
+.badge-red { background: #fca5a5; color: #7f1d1d; }
 .row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 8px;
   padding: 6px 0;
-  border-bottom: 1px dashed #e8dcc8;
+  border-bottom: 1px dashed #bae6fd;
   font-size: clamp(0.75rem, 2.4vw, 0.85rem);
 }
 .row:last-child { border-bottom: none; }
-.row .name { font-weight: 500; color: #4a3725; flex: 1; }
+.row .name { font-weight: 500; color: #0c4a6e; flex: 1; }
 .row .rating { font-weight: 700; font-size: clamp(0.65rem, 2vw, 0.75rem); }
-.row .detail { color: #8b7355; font-size: clamp(0.65rem, 2vw, 0.75rem); }
+.row .detail { color: #64748b; font-size: clamp(0.65rem, 2vw, 0.75rem); }
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
 .mini-card {
-  background: #faf6ef;
+  background: #f0f9ff;
   border-radius: 8px;
   padding: clamp(8px, 2.5vw, 12px);
-  border: 1px solid #e8dcc8;
+  border: 1px solid #bae6fd;
 }
 .mini-card h4 {
   font-size: clamp(0.75rem, 2.4vw, 0.85rem);
   font-weight: 600;
-  color: #5c3a1e;
+  color: #0c4a6e;
   margin-bottom: 2px;
 }
 .mini-card p {
   font-size: clamp(0.65rem, 2.2vw, 0.78rem);
-  color: #8b7355;
+  color: #64748b;
 }
 .tip-box {
-  background: linear-gradient(135deg, #f5efe6, #e8dcc8);
-  border-left: 4px solid #c9a96e;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-left: 4px solid #0ea5e9;
   border-radius: 8px;
   padding: clamp(10px, 3vw, 14px) clamp(12px, 3vw, 16px);
   margin-top: 10px;
   font-size: clamp(0.75rem, 2.4vw, 0.85rem);
-  color: #4a3725;
+  color: #334155;
 }
-.tip-box strong { color: #5c3a1e; }
+.tip-box strong { color: #0c4a6e; }
 .show-list { list-style: none; }
 .show-list li {
   padding: 8px 0;
-  border-bottom: 1px dashed #ede4d4;
+  border-bottom: 1px dashed #bae6fd;
   font-size: clamp(0.75rem, 2.4vw, 0.85rem);
   display: flex;
   align-items: baseline;
@@ -176,34 +176,34 @@ body {
 .show-list li:last-child { border-bottom: none; }
 .show-list .show-time {
   font-weight: 600;
-  color: #8b5e3c;
+  color: #0ea5e9;
   white-space: nowrap;
   min-width: 60px;
 }
-.show-list .show-name { flex: 1; color: #3d2b1a; }
+.show-list .show-name { flex: 1; color: #0c4a6e; }
 .show-list .show-venue {
   font-size: clamp(0.6rem, 2vw, 0.7rem);
-  color: #8b7355;
+  color: #64748b;
 }
 .footer {
-  background: #5c3a1e;
-  color: #e8dcc8;
+  background: #0c4a6e;
+  color: #bae6fd;
   text-align: center;
   padding: clamp(14px, 4vw, 20px) clamp(16px, 4vw, 24px);
   font-size: clamp(0.65rem, 2.2vw, 0.78rem);
   line-height: 1.6;
 }
-.footer strong { color: #d4b87a; }
+.footer strong { color: #f59e0b; }
 .emoji-lg { font-size: clamp(1.3rem, 4vw, 1.8rem); }
 .mt-2 { margin-top: 8px; }
 .mb-1 { margin-bottom: 4px; }
 .tag {
   display: inline-block;
-  background: #ede4d4;
+  background: #e0f2fe;
   border-radius: 4px;
   padding: 1px 6px;
   font-size: clamp(0.55rem, 1.8vw, 0.65rem);
-  color: #5c3a1e;
+  color: #0c4a6e;
 }
 </style>
 </head>
