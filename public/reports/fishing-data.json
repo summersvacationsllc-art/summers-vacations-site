@@ -1,31 +1,18 @@
 {
-  "date": "2026-07-12",
-  "biteOfDay": "Pink worm under a float on Taneycomo early morning (before generation kicks in) — still the can't-miss play. On Table Rock, hit topwater at dawn then switch to dropshot or Carolina rig on main-lake points.",
+  "date": "2026-07-13",
+  "biteOfDay": "Table Rock walleye are on fire — 40+ fish days on gravel points. Taneycomo trout biting early before generation kicks in; pink worms and nightcrawlers top producers.",
   "conditions": {
-    "tableRock": {
-      "temp": "78°F",
-      "level": "917.0 ft",
-      "clarity": "Stained to clear; James River beginning to stain near Point 15"
-    },
-    "taneycomo": {
-      "temp": "50°F",
-      "clarity": "Very clear — clean presentations critical",
-      "generation": "Mornings off until ~1:00–2:00 PM, then ramps to ~12,800 cfs through afternoon"
-    }
+    "tableRock": {"temp": "70s°F", "level": "917.0 ft (+2.0 ft above full pool)", "clarity": "Clear"},
+    "taneycomo": {"temp": "50°F", "clarity": "Very clear", "generation": "Off until ~9 AM, then ramps to ~12,800 cfs holding through evening"}
   },
   "species": [
-    {"name": "Bass", "rating": "EXCELLENT", "depth": "6-25 ft", "technique": "Topwater at dawn, drop shot, Carolina rig, jigs on points near shad schools"},
-    {"name": "Walleye", "rating": "EXCELLENT", "depth": "Deep gravel points", "technique": "Drop shot with live nightcrawler on extended main lake points and ledges"},
-    {"name": "Crappie", "rating": "FAIR", "depth": "10-15 ft", "technique": "Brush/fallen timber near river channel, small jigs in white/chartreuse"},
-    {"name": "Trout", "rating": "GOOD", "depth": "Varies with flow", "technique": "Pink worm under a float, jig under a float, drifting eggs, nightcrawlers, PowerBait"},
-    {"name": "Bluegill", "rating": "PEAK", "depth": "4-10 ft", "technique": "Live nightcrawlers, small minnows near boat docks and standing timber"},
-    {"name": "Catfish", "rating": "GOOD", "depth": "3-15 ft", "technique": "Cut bait (small bluegill preferred) near flat points, early morning or late evening"}
+    {"name": "Bass", "rating": "EXCELLENT", "depth": "20-35 ft", "technique": "Topwater at dawn, deep crankbaits, football jigs on offshore structure"},
+    {"name": "Crappie", "rating": "FAIR-GOOD", "depth": "15-25 ft", "technique": "Brush piles and submerged timber in creek arms, live minnows or tube jigs"},
+    {"name": "Walleye", "rating": "EXCELLENT", "depth": "Gravel points", "technique": "Crankbaits and live bait on gravel points — hottest bite on the lake"},
+    {"name": "Trout", "rating": "GOOD-V.GOOD", "depth": "Varies with flow", "technique": "Pink worm under float, nightcrawlers, scuds, zebra midges (fly); PowerBait, small spoons (spin)"},
+    {"name": "Bluegill", "rating": "EXCELLENT", "depth": "Shallows", "technique": "Worms, small poppers — fantastic for kids and family fun"},
+    {"name": "Catfish", "rating": "GOOD", "depth": "River arms", "technique": "Cut bait, stink bait"}
   ],
-  "weather": {
-    "high": "88°F",
-    "heatIndex": "93°F",
-    "dawn": "72°F",
-    "wind": "S/SE 3-7 mph"
-  },
-  "tip": "Get out early — water is off on Taneycomo until 1-2 PM. Best fishing window is 5:30 AM – noon. Pink worm is the can't-miss bait right now. Light line (2 lb test) for spooky clear water. Check generation before wading — afternoon water comes up hard and fast."
+  "weather": {"high": "90°F", "heatIndex": "93°F", "dawn": "~70°F", "wind": "Calm → NE 5 mph afternoon"},
+  "tip": "Fish early mornings. Table Rock topwater at sunrise. Taneycomo no-generation window until ~9 AM — pink worm under a float is the top producer. After generation kicks on, drift nightcrawlers. Stay hydrated (heat index 93°F+)."
 }
