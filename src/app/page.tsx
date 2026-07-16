@@ -730,7 +730,7 @@ export default function Home() {
 
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/reports"
+              href="/reports?section=branson"
               className="text-sm font-bold text-[#0c4a6e] hover:text-[#0ea5e9] no-underline"
             >
               📰 Daily Branson Report — fishing, shows & events →

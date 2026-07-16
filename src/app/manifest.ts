@@ -6,10 +6,10 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "Summers Stay",
     description:
       "Your personal guidebook for your Summers Vacations stay in Branson, MO.",
-    start_url: "/guidebook/the-penthouse",
+    start_url: "/",
     display: "standalone",
-    background_color: "#f8f7f4",
-    theme_color: "#1a1a2e",
+    background_color: "#ffffff",
+    theme_color: "#0c4a6e",
     icons: [
       {
         src: "/icons/icon-192.svg",
