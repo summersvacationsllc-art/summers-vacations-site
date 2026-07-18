@@ -1,4 +1,3 @@
-
 export const dynamic = 'force-dynamic';
 export async function GET(req: Request) {
   const t = new URL(req.url).searchParams.get("supersekret");
@@ -30,7 +29,7 @@ export async function GET(req: Request) {
 
     const res2 = await fetch(`${GUESTY_BASE}/v1/reservations?limit=15`, {
       headers: {
-        Authorization: *** ${token}\`,
+        Authorization: "Bearer " + token,
         accept: "application/json",
       }
     });
@@ -39,7 +38,7 @@ export async function GET(req: Request) {
     const data = await res2.json();
     let s = "Found past reservations: " + data.count + "\n";
     for (const r of data.results) {
-        s += \`- ${r.guest?.fullName} (${r.status}): ${r.checkIn} to ${r.checkOut}\n\`;
+        s += `- ${r.guest?.fullName} (${r.status}): ${r.checkIn} to ${r.checkOut}\n`;
     }
     return new Response(s);
   } catch (e) {
