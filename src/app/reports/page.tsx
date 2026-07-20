@@ -22,11 +22,7 @@ function ReportsContent() {
   const sectionParam = searchParams.get('section') as ReportType | null;
   const lockedSection = (sectionParam === 'branson' || sectionParam === 'fleet') ? sectionParam : null;
 
-  const [reports, setReports] = useState<string[]>([]);
-  const [visible, setVisible] = useState(true);
-  const [activeTab, setActiveTab] = useState<ReportType>(lockedSection || 'branson');
-
-  useEffect(() => {
+  const [reports, setReports] = useState<string[]>(() => {
     const dates: string[] = [];
     const d = new Date();
     for (let i = 0; i < 14; i++) {
@@ -34,7 +30,24 @@ function ReportsContent() {
       dates.push(ds);
       d.setDate(d.getDate() - 1);
     }
-    setReports(dates);
+    return dates;
+  });
+  const [visible, setVisible] = useState(true);
+  const [activeTab, setActiveTab] = useState<ReportType>(lockedSection || 'branson');
+  const [todayReport, setTodayReport] = useState<string>(todayStr());
+
+  // Fallback: if today's report isn't generated yet, open the latest available
+  // one instead of 404ing.
+  useEffect(() => {
+    fetch('/reports/manifest.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(m => {
+        if (!m) return;
+        const t = todayStr();
+        if (m.available && m.available.includes(t)) setTodayReport(t);
+        else if (m.latest) setTodayReport(m.latest);
+      })
+      .catch(() => {});
   }, []);
 
   const reportUrl = (date: string) =>
@@ -81,7 +94,7 @@ function ReportsContent() {
 
       <div className="max-w-lg mx-auto px-4 py-4 space-y-3">
         {/* Today's Report — big card */}
-        <a href={reportUrl(todayStr())} target="_blank" rel="noopener"
+        <a href={reportUrl(todayReport)} target="_blank" rel="noopener"
           className="block rounded-xl px-4 py-5 no-underline shadow-lg"
           style={{ background: activeTab === 'fleet'
             ? 'linear-gradient(135deg,#0c4a6e,#1e3a5f)'
@@ -92,7 +105,7 @@ function ReportsContent() {
           </div>
           <div className="text-lg font-bold text-white"
             style={{ fontFamily: "'DM Serif Display', serif" }}>
-            {reportTitle(todayStr())}
+            {reportTitle(todayReport)}
           </div>
           <div className="text-[12px] mt-1 text-sky-100">
             {reportDesc}
