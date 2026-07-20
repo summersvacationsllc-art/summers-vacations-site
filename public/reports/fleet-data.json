@@ -1,0 +1,17 @@
+{
+  "date": "2026-07-20",
+  "turnovers": [],
+  "reminder": {
+    "enabled": true,
+    "time": "07:00",
+    "channel": "email",
+    "lastSent": null,
+    "sentToday": false
+  },
+  "guestySync": {
+    "ok": false,
+    "lastRun": null,
+    "syncedCount": 0,
+    "note": "No Guesty sync record found in cron_runs (table empty)."
+  }
+}
