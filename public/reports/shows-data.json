@@ -2,45 +2,38 @@
   "date": "2026-07-22",
   "shows": [
     {
-      "name": "The Petersens",
+      "name": "Dublin's Irish Tenors & The Celtic Ladies",
       "time": "2:00 PM",
-      "venue": "Little Opry Theatre",
-      "type": "Bluegrass",
-      "url": "https://concertfix.com/concerts/branson-mo"
+      "venue": "King's Castle Theatre",
+      "type": "Irish Music & Dance",
+      "url": "https://www.bransonshows.com/showByDate.cfm"
     },
     {
-      "name": "Rick McEwen Presents The Gambler",
+      "name": "Awesome 80's",
       "time": "2:00 PM",
+      "venue": "Americana Theatre",
+      "type": "80s Tribute",
+      "url": "https://www.bransonshows.com/showByDate.cfm"
+    },
+    {
+      "name": "Amazing Acrobats Of Shanghai",
+      "time": "2:00 PM",
+      "venue": "Grand Shanghai Theatre",
+      "type": "Acrobatics",
+      "url": "https://www.bransonshows.com/showByDate.cfm"
+    },
+    {
+      "name": "Patsy Cline And Friends Tribute",
+      "time": "5:00 PM",
       "venue": "Americana Theatre",
       "type": "Country Tribute",
-      "url": "https://concertfix.com/concerts/branson-mo"
+      "url": "https://www.bransonshows.com/showByDate.cfm"
     },
     {
-      "name": "#1 Hits of the 60's (& 50's, Too!)",
-      "time": "2:00 PM",
-      "venue": "Clay Cooper Theatre",
-      "type": "Classic Hits",
-      "url": "https://www.claycooper.com/"
-    },
-    {
-      "name": "Legends in Concert",
-      "time": "8:00 PM",
-      "venue": "Pepsi Legends Theater",
-      "type": "Tribute",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
-    },
-    {
-      "name": "Presleys' Country Jubilee",
-      "time": "8:00 PM",
-      "venue": "Presleys' Country Jubilee",
-      "type": "Country Comedy",
-      "url": ""
-    },
-    {
-      "name": "C.J. Newsom's Classic Country & Comedy",
-      "time": "8:00 PM",
-      "venue": "Americana Theatre",
-      "type": "Country Comedy",
+      "name": "Riga Tony's Branson Murder Mystery Dinner",
+      "time": "5:00 PM",
+      "venue": "Various / Dinner Venue",
+      "type": "Interactive Dinner Show",
       "url": ""
     },
     {
@@ -51,47 +44,52 @@
       "url": "https://www.claycooper.com/"
     },
     {
-      "name": "Grand Jubilee",
+      "name": "Shepherd of the Hills Outdoor Drama",
+      "time": "7:30 PM & 8:00 PM",
+      "venue": "Shepherd of the Hills",
+      "type": "Outdoor Historical Drama",
+      "url": "https://www.bransonshows.com/showByDate.cfm"
+    },
+    {
+      "name": "Narnia Live On Stage (Prince Caspian)",
       "time": "7:30 PM",
-      "venue": "Grand Country Music Hall",
-      "type": "Music / Comedy / Dance",
-      "url": "https://www.grandcountrylivemusic.com/grand-jubilee"
-    },
-    {
-      "name": "Dolly Parton's Stampede Dinner Attraction",
-      "time": "3:00, 5:30 & 8:00 PM",
-      "venue": "Dolly Parton's Stampede",
-      "type": "Dinner Show",
+      "venue": "Theater Venue",
+      "type": "Family Theater",
       "url": ""
     },
     {
-      "name": "Anthems of Rock",
+      "name": "Legends in Concert",
       "time": "8:00 PM",
-      "venue": "King's Castle Theatre",
-      "type": "Classic Rock Tribute",
+      "venue": "Pepsi Legends Theater",
+      "type": "Celebrity Tributes",
+      "url": "https://legendsinconcert.com/location/branson-mo/"
+    },
+    {
+      "name": "Presleys' Country Jubilee",
+      "time": "8:00 PM",
+      "venue": "Presleys' Country Jubilee",
+      "type": "Country Comedy & Music",
       "url": ""
     },
     {
-      "name": "REZA \u2014 Edge of Illusion",
+      "name": "REZA — Edge of Illusion",
       "time": "8:00 PM",
       "venue": "Reza Live Theatre",
-      "type": "Magic",
+      "type": "Magic / Illusion",
       "url": ""
     },
     {
-      "name": "Amazing Acrobats \u2013 Grand Shanghai Circus",
-      "time": "7:30 PM",
-      "venue": "Grand Shanghai Theatre",
-      "type": "Acrobatics",
+      "name": "Hamners' Magic",
+      "time": "8:00 PM",
+      "venue": "Hamners' Theater",
+      "type": "Magic",
       "url": ""
     }
   ],
   "freeEvents": [
-    "Deadline-guard: show grid carried/partial for 2026-07-22 \u2014 confirm box office.",
-    "FREE: Branson Farmers Market at Branson Landing \u2014 Tuesdays 2:30-6:30 PM (Tue Jul 21)",
-    "FREE: Hollister Farmers Market & Summer Street Fair \u2014 Tue Jul 21, Downtown Hollister (per 07-20 intel carry)",
-    "FREE: Branson Landing Fountain Show \u2014 nightly fire & light on the promenade when operating",
-    "FREE: Branson Landing Summer Concert Series \u2014 next Aug 8 (Jukebox Winos & Chris Luneau and The White Buffalo); Sep 5 (96 Miles & Eastern Heights)",
-    "Note: Full Tue grid partially recovered from prior ConcertFix week-ahead; confirm times with box office."
+    "FREE: Branson Farmers Market at Branson Landing — Tuesdays 2:30–6:30 PM (next: July 28)",
+    "FREE: Branson Landing Fountain Shows — nightly (Fire & Water Attraction)",
+    "FREE: Branson Landing Summer Concert Series — next on Aug 8 (Jukebox Winos & Chris Luneau)",
+    "Note: Many shows offer BOGO deals online. Schedule changes frequently — verify with box office. Scout sourced from bransonshows.com live selector (verified 2026-07-22)."
   ]
 }
