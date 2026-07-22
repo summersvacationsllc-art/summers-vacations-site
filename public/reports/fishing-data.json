@@ -1,31 +1,61 @@
 {
-  "date": "2026-07-20",
-  "biteOfDay": "Mid-summer rhythm—hit topwater for Table Rock bass at first light, then time your Taneycomo trout trip to the light overnight/early-morning flows before generation ramps back up in the afternoon!",
+  "date": "2026-07-21",
+  "biteOfDay": "Low-flow Taneycomo morning (~20 cfs overnight into 9 AM) then heavy afternoon generation (~11.6k cfs) \u2014 fish early, then switch to drifting when water moves. Table Rock near full pool for dawn topwater.",
   "conditions": {
     "tableRock": {
-      "temp": "Verify locally (typically low–mid 80s°F; guide-report sources unreachable this morning)",
-      "level": "916.98 ft MSL (at full power pool of 917.0 ft — verified USACE gage 4 AM CT)",
-      "clarity": "Clear (especially near the dam)"
+      "temp": "Verify locally (typically low-mid 80s F surface mid-summer)",
+      "level": "916.91 ft MSL at 08:00 CT 07/21; 916.85 ft by 21:00 CT (USACE TRZM7) \u2014 near full power pool 917.0",
+      "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
-      "temp": "50°F",
+      "temp": "Verify locally (~50 F regime common below dam with generation)",
       "clarity": "Very clear",
-      "generation": "Light overnight/early-morning flow (~3,400 cfs at 4 AM 07-20), ramping to heavy afternoon/evening generation (~11,600 cfs). Fish the low-flow morning window before the afternoon ramp-up."
+      "generation": "07/21 USACE: ~20 cfs 02:00-09:00 CT; ramp midday (~3-6k cfs); heavy ~11,500-11,700 cfs 15:00-21:00 CT. Call SWPA 866-494-1993 to confirm live."
     }
   },
   "species": [
-    { "name": "Black Bass (Largemouth, Smallmouth, Spotted)", "rating": "GOOD", "depth": "Dawn points/gravel banks; mid-day 15–35 ft brush", "technique": "Topwater at dawn (Pop-R/walking bait); deep spoon, shakey head, deep crankbait mid-day" },
-    { "name": "Walleye", "rating": "EXCELLENT", "depth": "Gravel points, 15–25 ft", "technique": "Crankbaits, live bait (carried from 07-14 report — not re-scouted today)" },
-    { "name": "Crappie", "rating": "FAIR-GOOD", "depth": "Deep timber & brush piles (James River/Long Creek arms)", "technique": "Small white or yellow jigs under deep-water docks" },
-    { "name": "Trout (Taneycomo)", "rating": "GOOD-VERY GOOD", "depth": "Varies with flow", "technique": "Pink worms, mega worms, jigs, zebra midges, scuds under float; drift nightcrawlers in Trophy Area (Fall Creek–Cooper Creek)" },
-    { "name": "Bluegill", "rating": "EXCELLENT", "depth": "Shallows, shoreline", "technique": "Worms, small poppers — fantastic for kids (carried from 07-14 report)" },
-    { "name": "Catfish (Channel/Flathead)", "rating": "GOOD", "depth": "Indian Point & near dam, shallows after dark", "technique": "Stink bait, hot dogs, cut/frozen bait — evening/night" }
+    {
+      "name": "Bass",
+      "rating": "GOOD",
+      "depth": "Dawn points/gravel; mid-day 15-35 ft brush",
+      "technique": "Topwater at dawn; deep spoon, shakey head, deep crank mid-day"
+    },
+    {
+      "name": "Walleye",
+      "rating": "GOOD",
+      "depth": "Gravel points, 15-25 ft",
+      "technique": "Crankbaits, live bait (carried mid-summer pattern \u2014 not freshly guide-verified 07-21)"
+    },
+    {
+      "name": "Crappie",
+      "rating": "FAIR-GOOD",
+      "depth": "Deep timber & brush piles (James River/Long Creek arms)",
+      "technique": "Small white or yellow jigs under deep-water docks"
+    },
+    {
+      "name": "Trout",
+      "rating": "GOOD",
+      "depth": "Varies with flow",
+      "technique": "Low-flow morning window; pink worms/jigs/midges; drift when generation heavy (Trophy Area nightcrawlers)"
+    },
+    {
+      "name": "Bluegill",
+      "rating": "EXCELLENT",
+      "depth": "Shallows, shoreline",
+      "technique": "Worms, small poppers \u2014 great for kids (mid-summer pattern carry)"
+    },
+    {
+      "name": "Catfish",
+      "rating": "GOOD",
+      "depth": "Indian Point & near dam, shallows after dark",
+      "technique": "Stink bait, hot dogs, cut/frozen bait \u2014 evening/night"
+    }
   ],
   "weather": {
-    "high": "Verify locally (local forecast not pulled this run)",
+    "high": "Verify locally",
     "heatIndex": "Verify locally",
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Fish early mornings. Table Rock topwater at sunrise. On Taneycomo, fish the low-flow morning window before the afternoon generation ramp-up; when generation kicks on, switch to drifting — trout turn on when water moves. Confirm generation by calling SWPA at 866-494-1993."
+  "tip": "Fish early. Table Rock topwater at sunrise. On Taneycomo, use the near-idle morning flows then drift when afternoon generation hits ~11.6k cfs. Confirm generation: SWPA 866-494-1993."
 }
