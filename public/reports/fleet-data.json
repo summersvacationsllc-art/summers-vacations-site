@@ -1,17 +1,62 @@
 {
-  "date": "2026-07-20",
-  "turnovers": [],
+  "date": "2026-07-23",
+  "turnovers": [
+    {
+      "property": "Indian Point ",
+      "propertyId": "prop_uiue2y1",
+      "cleaner": "—",
+      "cleanerId": null,
+      "status": "pending",
+      "checkout": "10:00 AM",
+      "nextCheckin": "4:00 PM",
+      "sameDay": true,
+      "guestyTaskId": null
+    },
+    {
+      "property": "Rustic Ozark",
+      "propertyId": "prop_fvhuyem",
+      "cleaner": "—",
+      "cleanerId": null,
+      "status": "pending",
+      "checkout": "10:00 AM",
+      "nextCheckin": "4:00 PM",
+      "sameDay": true,
+      "guestyTaskId": null
+    },
+    {
+      "property": "Woodland Retreat",
+      "propertyId": "prop_axd3ku8",
+      "cleaner": "—",
+      "cleanerId": null,
+      "status": "pending",
+      "checkout": "10:00 AM",
+      "nextCheckin": "4:00 PM",
+      "sameDay": true,
+      "guestyTaskId": null
+    },
+    {
+      "property": "Modern Charmer",
+      "propertyId": "prop_8bcl8j3",
+      "cleaner": "—",
+      "cleanerId": null,
+      "status": "pending",
+      "checkout": "10:00 AM",
+      "nextCheckin": "—",
+      "sameDay": false,
+      "guestyTaskId": null
+    }
+  ],
   "reminder": {
     "enabled": true,
     "time": "07:00",
-    "channel": "email",
-    "lastSent": null,
-    "sentToday": false
+    "channel": "sms",
+    "lastSent": "2026-07-23",
+    "sentToday": true
   },
   "guestySync": {
-    "ok": false,
-    "lastRun": null,
-    "syncedCount": 0,
-    "note": "No Guesty sync record found in cron_runs (table empty)."
+    "ok": true,
+    "lastRun": "2026-07-23T17:43:00.561Z",
+    "syncedCount": 112,
+    "note": "Synced: 0 new / 7 updated listings, 105 reservations, 0 turnover tasks created"
   }
 }
