@@ -17,6 +17,20 @@ function formatDate(ds: string): string {
 
 type ReportType = 'branson' | 'fleet';
 
+interface GuestToday {
+  date: string;
+  generated_at?: string;
+  headline?: {
+    check_ins?: number;
+    check_outs?: number;
+    turnovers?: number;
+    same_day_turnovers?: number;
+    in_house_units?: number;
+    units_total?: number;
+  };
+  sync_notes?: { cleaner_app?: string; guesty_window?: string };
+}
+
 function ReportsContent() {
   const searchParams = useSearchParams();
   const sectionParam = searchParams.get('section') as ReportType | null;
@@ -35,6 +49,7 @@ function ReportsContent() {
   const [visible, setVisible] = useState(true);
   const [activeTab, setActiveTab] = useState<ReportType>(lockedSection || 'branson');
   const [todayReport, setTodayReport] = useState<string>(todayStr());
+  const [guestToday, setGuestToday] = useState<GuestToday | null>(null);
 
   // Fallback: if today's report isn't generated yet, open the latest available
   // one instead of 404ing.
@@ -47,6 +62,12 @@ function ReportsContent() {
         if (m.available && m.available.includes(t)) setTodayReport(t);
         else if (m.latest) setTodayReport(m.latest);
       })
+      .catch(() => {});
+
+    // Live Guesty snapshot — never cached. Failures fall through gracefully.
+    fetch('/api/guest-today', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d && d.headline) setGuestToday(d); })
       .catch(() => {});
   }, []);
 
@@ -93,6 +114,38 @@ function ReportsContent() {
       )}
 
       <div className="max-w-lg mx-auto px-4 py-4 space-y-3">
+        {/* Live ops snapshot — reads guest-today.json straight from Guesty */}
+        {guestToday?.headline && (
+          <div className="rounded-xl border border-sky-100 bg-white px-4 py-3 shadow-sm">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-sky-700">
+                🛏️ Live Ops — Guesty today
+              </span>
+              <span className="text-[10px] text-slate-400">
+                updated {guestToday.generated_at?.slice(11, 16)} CT
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-2 text-center">
+              {([
+                ['check-ins', guestToday.headline.check_ins, '#0c4a6e'],
+                ['check-outs', guestToday.headline.check_outs, '#0c4a6e'],
+                ['turnovers', guestToday.headline.turnovers, '#0c4a6e'],
+                ['same-day', guestToday.headline.same_day_turnovers, '#ea580c'],
+                ['in-house units', `${guestToday.headline.in_house_units}/${guestToday.headline.units_total}`, '#0c4a6e'],
+              ] as const).map(([lbl, v, color]) => (
+                <div key={lbl} className="rounded-lg bg-sky-50 p-2">
+                  <div className="text-[10px] text-slate-500">{lbl}</div>
+                  <div className="text-lg font-bold" style={{ color }}>{v ?? '—'}</div>
+                </div>
+              ))}
+            </div>
+            <a href="/reports/guest" target="_blank" rel="noopener"
+              className="mt-2 block text-center text-[12px] font-semibold text-sky-700">
+              Open Guest Ops live →
+            </a>
+          </div>
+        )}
+
         {/* Today's Report — big card */}
         <a href={reportUrl(todayReport)} target="_blank" rel="noopener"
           className="block rounded-xl px-4 py-5 no-underline shadow-lg"
@@ -114,6 +167,38 @@ function ReportsContent() {
             Tap to open →
           </div>
         </a>
+
+        {/* Fleet: secondary live-snapshot row */}
+        {activeTab === 'fleet' && (
+          <a href="/reports/fleet" target="_blank" rel="noopener"
+            className="block rounded-xl px-4 py-3 bg-white border border-sky-100 shadow-sm no-underline">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-[#0c4a6e]">
+              ⚡ Live fleet (auto-updates)
+            </div>
+            <div className="text-[13px] font-semibold text-slate-800 mt-0.5">
+              Open Live Fleet →
+            </div>
+            <div className="text-[11px] text-slate-500 mt-0.5">
+              Reads str-manager-one /api/tasks every refresh — never stale.
+            </div>
+          </a>
+        )}
+
+        {/* Branson: secondary live-snapshot row */}
+        {activeTab === 'branson' && (
+          <a href="/reports/guest" target="_blank" rel="noopener"
+            className="block rounded-xl px-4 py-3 bg-white border border-sky-100 shadow-sm no-underline">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-[#0c4a6e]">
+              🛏️ Live guest ops (auto-updates)
+            </div>
+            <div className="text-[13px] font-semibold text-slate-800 mt-0.5">
+              Open Guest Ops Live →
+            </div>
+            <div className="text-[11px] text-slate-500 mt-0.5">
+              Check-ins, check-outs, turnovers — real Guesty state, not a static snapshot.
+            </div>
+          </a>
+        )}
 
         {/* Previous reports */}
         <h2 className="font-serif text-base text-[#0c4a6e] pt-2" style={{ fontFamily: "'DM Serif Display', serif" }}>
