@@ -1,0 +1,172 @@
+{
+  "date": "2026-07-24",
+  "generated_at": "2026-07-24T09:56:27-05:00",
+  "headline": {
+    "check_ins": 3,
+    "check_outs": 2,
+    "turnovers": 4,
+    "same_day_turnovers": 2,
+    "in_house_units": 6,
+    "units_total": 7
+  },
+  "check_ins": [
+    {
+      "property": "Modern Charmer",
+      "guest": "Delinda  Rhyne",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_sjfpyt9",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Peacock",
+      "guest": "Coy Cobin",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_ck4zycs",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Delinda  Rhyne",
+      "guests": 6,
+      "platform": "website",
+      "reservation_id": "res_tpk0hwo",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Peacock",
+      "guest": "Kim Weed",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_gs23ryh",
+      "time": "10:00 AM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Nicole Balza",
+      "guests": 5,
+      "platform": "vrbo",
+      "reservation_id": "res_w1wc6jk",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [
+    {
+      "property": "Peacock",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a488a2a4aace20013b56f25"
+    },
+    {
+      "property": "Rustic Ozark",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a4dc66a11855e0014a31216"
+    },
+    {
+      "property": "Indian Point",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "\u2014",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": false,
+      "reservation_id": "69a59cc90181d9001593411d"
+    },
+    {
+      "property": "Double Condo",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "\u2014",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": false,
+      "reservation_id": "696029d60ceb3d003c575c30"
+    }
+  ],
+  "in_house": [
+    {
+      "property": "Indian Point",
+      "guest": "Amanda Mixer",
+      "guests": 12,
+      "platform": "airbnb2",
+      "reservation_id": "res_ebzvh1p",
+      "check_in": "2026-07-23",
+      "check_out": "2026-07-27",
+      "nights": 4
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Andrea Minnerath",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_0ko555l",
+      "check_in": "2026-07-23",
+      "check_out": "2026-07-26",
+      "nights": 3
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Lana Mitchell",
+      "guests": 2,
+      "platform": "website",
+      "reservation_id": "res_9iopaz6",
+      "check_in": "2026-07-23",
+      "check_out": "2026-07-26",
+      "nights": 3
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Delinda  Rhyne",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_sjfpyt9",
+      "check_in": "2026-07-24",
+      "check_out": "2026-07-26",
+      "nights": 2
+    },
+    {
+      "property": "Peacock",
+      "guest": "Coy Cobin",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_ck4zycs",
+      "check_in": "2026-07-24",
+      "check_out": "2026-07-26",
+      "nights": 2
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Delinda  Rhyne",
+      "guests": 6,
+      "platform": "website",
+      "reservation_id": "res_tpk0hwo",
+      "check_in": "2026-07-24",
+      "check_out": "2026-07-26",
+      "nights": 2
+    }
+  ],
+  "sync_notes": {
+    "cleaner_app": "Cleaner assignments: pulled live from str-manager-one /api/tasks. Open https://str-manager-one.vercel.app/ops to assign any turnover where cleaner_assigned is false.",
+    "guesty_window": "Guesty Pro data appears from Jul 2026 forward. Pre-July actuals live in Airbnb/Vrbo CSV exports."
+  }
+}
