@@ -380,7 +380,14 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 </div>
                 <div className="px-3.5 pt-3">
                   {isNotch && guideItem('#fce7f3','🎒','Things to Bring','Recommended packing list','🧴 Sunblock & bug spray<br>🩴 Pool/beach towels for the lake<br>🎣 Fishing gear if you plan to fish<br>🪵 Charcoal for the BBQ grills (not provided)<br>🧺 Cooler for lake days<br>🧼 Extra laundry detergent if doing multiple loads<br>🪙 Quarters for coin laundry<br>🥾 Sturdy shoes or hiking boots for the rocky trail<br><br>⏯️ <a href="https://www.youtube.com/watch?v=2DvVB7xTuNk" target="_blank" style="color:#166534;">Watch: Things to Bring video guide</a>')}
-                  {guideItem('#fef3c7','🔑','Check-in & Access','Door code, keyless entry','<strong>Check-in:</strong> Anytime after 4:00 PM<br><br><strong>Door Code:</strong> '+(doorState === "ready" || doorState === "early" ? doorDisplay : "Revealed on your check-in day")+'<br><br><strong>Keyless entry</strong> — code activates at 4PM on check-in day.')}
+                  {guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure', 
+                    '<strong>🛏️ Check-in:</strong> Anytime after 4:00 PM<br /><br />'+
+                    '<strong>🔑 Door Code:</strong> '+(doorState === "ready" || doorState === "early" ? doorDisplay : "Revealed on your check-in day")+'<br /><br />'+
+                    '<strong>🚪 Keyless entry</strong> — code activates at 4 PM on check-in day.<br /><br />'+
+                    '<hr style="border:none;border-top:1px dashed #bae6fd;margin:10px 0;" />'+
+                    '<strong>🚗 Check-out:</strong> ' + (isHaven ? 'By 10:00 AM' : 'By 11:00 AM') + '<br /><br />' +
+                    '<em style="color:#0369a1;">📝 Check-out procedures coming soon — Brian is finalizing the exact step list.</em>'
+                  )}
                   {guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   <div className="bg-white rounded-lg mb-1 border border-sky-100 overflow-hidden">
                     <details className="group">
