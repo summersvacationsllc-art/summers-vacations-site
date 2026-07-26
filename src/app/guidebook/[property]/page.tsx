@@ -60,7 +60,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       if (sp.checkout) setCheckout(sp.checkout);
       if (sp.checkintime) setCheckinTime(sp.checkintime);
       // Auto-detect mode based on checkout date
-      if (sp.checkout) { const co = new Date(sp.checkout + 'T11:00:00'); setMode(new Date() > co ? 'branson' : 'guest'); } else if (sp.checkin) { setMode('guest'); }
+      if (sp.checkout) { const co = new Date(sp.checkout + 'T10:00:00'); setMode(new Date() > co ? 'branson' : 'guest'); } else if (sp.checkin) { setMode('guest'); }
       // Fetch Guesty photos
       if (gb.guestyListingId) {
         try {
@@ -111,7 +111,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     const ciDate = new Date(checkin + 'T07:00:00'); // 7AM — code visible
     const ciTime = checkinTime || '4:00 PM';
     const ciActive = new Date(checkin + 'T' + convertTime(ciTime)); // actual check-in
-    const co = new Date(checkout + 'T11:00:00'); // 11AM checkout
+    const co = new Date(checkout + 'T10:00:00'); // 10AM checkout
     if (today < ciDate) {
       doorState = 'before';
       doorDisplay = 'Available at check-in';
@@ -380,13 +380,32 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 </div>
                 <div className="px-3.5 pt-3">
                   {isNotch && guideItem('#fce7f3','🎒','Things to Bring','Recommended packing list','🧴 Sunblock & bug spray<br>🩴 Pool/beach towels for the lake<br>🎣 Fishing gear if you plan to fish<br>🪵 Charcoal for the BBQ grills (not provided)<br>🧺 Cooler for lake days<br>🧼 Extra laundry detergent if doing multiple loads<br>🪙 Quarters for coin laundry<br>🥾 Sturdy shoes or hiking boots for the rocky trail<br><br>⏯️ <a href="https://www.youtube.com/watch?v=2DvVB7xTuNk" target="_blank" style="color:#166534;">Watch: Things to Bring video guide</a>')}
-                  {guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure', 
+                  {guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure',
                     '<strong>🛏️ Check-in:</strong> Anytime after 4:00 PM<br /><br />'+
                     '<strong>🔑 Door Code:</strong> '+(doorState === "ready" || doorState === "early" ? doorDisplay : "Revealed on your check-in day")+'<br /><br />'+
                     '<strong>🚪 Keyless entry</strong> — code activates at 4 PM on check-in day.<br /><br />'+
-                    '<hr style="border:none;border-top:1px dashed #bae6fd;margin:10px 0;" />'+
-                    '<strong>🚗 Check-out:</strong> ' + (isHaven ? 'By 10:00 AM' : 'By 11:00 AM') + '<br /><br />' +
-                    '<em style="color:#0369a1;">📝 Check-out procedures coming soon — Brian is finalizing the exact step list.</em>'
+                    '<hr style="border:none;border-top:1px dashed #bae6fd;margin:12px 0;" />'+
+                    '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:8px 10px;margin-bottom:10px;">'+
+                    '<strong style="color:#b91c1c;">⏰ Check-out by 10:00 AM</strong><br />'+
+                    '<span style="color:#dc2626;font-size:12px;">Late checkout is rarely possible if guests are arriving that day. Please plan ahead!</span></div>'+
+                    '<strong>Before you leave:</strong><br /><br />'+
+                    '🛏️ <strong>Leave beds unmade</strong> — No need to strip the sheets. If you used the sleeper sofa, leave the cushions off the couch.<br /><br />'+
+                    (isHaven
+                      ? '🛁 <strong>Towels in downstairs bathroom</strong> — Place used towels in the downstairs front bathroom shower floor.<br /><br />'
+                      : '🛁 <strong>Towels on bathroom floor</strong> — Place used towels on the hallway bathroom shower floor.<br /><br />')+
+                    (isHaven
+                      ? '🗑️ <strong>Take trash to dumpster</strong> — Take all trash to the dumpster.<br /><br />'
+                      : '🗑️ <strong>Take trash to dumpster</strong> — Take all trash to the dumpster located in front of the building to the left.<br /><br />')+
+                    (isHaven
+                      ? '🍽️ <strong>Start the dishwasher</strong> — Put any remaining dishes in the dishwasher and start a cycle.<br /><br />'
+                      : '🍽️ <strong>Wash and dry dishes</strong> — Please hand wash any remaining dishes and leave them to dry. Our staff will put them away.<br /><br />')+
+                    '💡 <strong>Turn everything off</strong> — Stove, heater, lights, and all electronics.<br /><br />'+
+                    '🪑 <strong>Move furniture back</strong> — Return any furniture or items you moved to their original locations.<br /><br />'+
+                    '🔒 <strong>Lock all doors &amp; windows</strong> — Check every door and window before you leave.<br /><br />'+
+                    '<div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:8px;padding:8px 10px;">'+
+                    '<strong style="color:#0f766e;">⭐ Leave us a review!</strong><br />'+
+                    '<span style="color:#0f766e;font-size:12px;">VRBO and Airbnb will send a review request. If you can\'t give 5 stars, please tell us why — your feedback helps our next guests.</span></div>'+
+                    '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel Summers</div>'
                   )}
                   {guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   <div className="bg-white rounded-lg mb-1 border border-sky-100 overflow-hidden">
@@ -692,47 +711,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
       </div>
 
-        {/* ═══ CHECKOUT ═══ */}
-        {tab === 'checkout' && (
-          <>
-            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)' }}>
-              <h1 className="font-serif text-2xl text-yellow-300" style={{ fontFamily: "'DM Serif Display', serif" }}>Checkout</h1>
-              <p className="text-[12px] mt-0.5 text-sky-200">Safe travels — we hope you enjoyed your stay!</p>
-            </div>
-            <div className="mx-3.5 mt-3 bg-red-50 rounded-lg px-3 py-2 border border-red-200">
-              <div className="text-[13px] font-bold text-red-700">⏰ Checkout by 10:00 AM</div>
-              <div className="text-[11px] text-red-600 mt-0.5">Late checkout is rarely possible if guests are arriving that day. Please plan ahead!</div>
-            </div>
-            <div className="mx-3.5 mt-2 text-[12px] text-sky-900 uppercase tracking-wider font-semibold">Before you leave:</div>
-            {[
-              { icon: '🛏️', title: 'Leave beds unmade', body: 'No need to strip the sheets — just leave them as-is. If you used the sleeper sofa, leave the cushions off the couch.' },
-              { icon: '🛁', title: isHaven ? 'Towels in downstairs bathroom' : 'Towels on bathroom floor', body: isHaven ? 'Place used towels in the downstairs front bathroom shower floor.' : 'Place used towels on the hallway bathroom shower floor.' },
-              { icon: '🗑️', title: 'Take trash to dumpster', body: isHaven ? 'Take all trash to the dumpster.' : 'Take all trash to the dumpster located in front of the building to the left.' },
-              { icon: '🍽️', title: isHaven ? 'Start the dishwasher' : 'Wash and dry dishes', body: isHaven ? 'Put any remaining dishes in the dishwasher and start a cycle.' : 'Please hand wash any remaining dishes and leave them to dry. Our staff will put them away.' },
-              { icon: '💡', title: 'Turn everything off', body: 'Turn off the stove, heater, lights, and all electronics.' },
-              { icon: '🪑', title: 'Move furniture back', body: 'Return any furniture or items you moved back to their original locations.' },
-              { icon: '🔒', title: 'Lock all doors & windows', body: 'Check every door and window to make sure theyâre locked before you leave.' },
-            ].map((item, i) => (
-              <div key={i} className="mx-3.5 mt-2 bg-white rounded-lg px-3 py-2.5 border border-sky-100">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">{item.icon}</span>
-                  <div className="text-[13px] font-bold text-sky-900">{item.title}</div>
-                </div>
-                <div className="text-[11px] text-sky-900 mt-0.5 ml-7">{item.body}</div>
-              </div>
-            ))}
-            <div className="mx-3.5 mt-3 mb-2 bg-teal-50 rounded-lg px-3 py-2 border border-teal-200">
-              <div className="text-[12px] text-teal-800 font-semibold">⭐ Leave us a review!</div>
-              <div className="text-[11px] text-teal-700 mt-0.5">VRBO and Airbnb will send you a review request. If you can't give us 5 stars, please let us know why — your feedback helps our next guests have a great stay!</div>
-            </div>
-            <div className="text-center pb-4">
-              <div className="text-[12px] text-sky-200">Thank you for staying with us!</div>
-              <div className="text-[11px] text-sky-700 mt-0.5">— Brian & Chantel Summers</div>
-            </div>
-          </>
-        )}
-
-      {/* Tab Bar */}
+        {/* Tab Bar — Checkout removed; procedures live under Guide → Check In / Check Out */}
       <div className="overflow-x-auto flex-shrink-0" style={styles.tabBar}>
         <div className="flex h-[60px] pb-1" style={{ minWidth: 'fit-content' }}>
           {tabBtn('home','M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z','Home')}
@@ -743,7 +722,6 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
           {tabBtn('golf','M14.5 2C15 3.5 15 5 14.5 6.5M9 16.8V20M9 4L20 7v8L9 10.5','Golf')}
           {tabBtn('dining','M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z','Dining')}
           {tabBtn('contact','M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z','Contact')}
-          {tabBtn('checkout','M9 5l7 7-7 7','Checkout')}
         </div>
       </div>
     </div>
