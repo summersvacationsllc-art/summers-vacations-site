@@ -1,6 +1,6 @@
 {
   "date": "2026-07-26",
-  "generated_at": "2026-07-26T05:33:04-05:00",
+  "generated_at": "2026-07-26T06:01:24-05:00",
   "headline": {
     "check_ins": 3,
     "check_outs": 5,
@@ -54,7 +54,7 @@
     },
     {
       "property": "Modern Charmer",
-      "guest": "Delinda  Rhyne",
+      "guest": "Delinda Rhyne",
       "guests": 6,
       "platform": "airbnb2",
       "reservation_id": "res_sjfpyt9",
@@ -70,7 +70,7 @@
     },
     {
       "property": "Rustic Ozark",
-      "guest": "Delinda  Rhyne",
+      "guest": "Delinda Rhyne",
       "guests": 6,
       "platform": "website",
       "reservation_id": "res_tpk0hwo",
