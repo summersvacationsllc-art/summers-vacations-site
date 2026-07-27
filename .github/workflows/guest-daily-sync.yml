@@ -48,6 +48,10 @@ jobs:
         id: sync
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+          GUESTY_API_KEY: ${{ secrets.GUESTY_API_KEY }}
+          GUESTY_ACCOUNT_ID: ${{ secrets.GUESTY_ACCOUNT_ID }}
         run: |
           set -euo pipefail
           DATE=$(date -u +%Y-%m-%d)
