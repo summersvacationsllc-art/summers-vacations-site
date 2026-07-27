@@ -1,62 +1,29 @@
 {
-  "date": "2026-07-26",
-  "generated_at": "2026-07-26T15:01:26-05:00",
+  "date": "2026-07-27",
+  "generated_at": "2026-07-27T06:34:34-05:00",
   "units_total": 6,
   "turnovers": [
+    {
+      "property": "Indian Point",
+      "property_id": "prop_uiue2y1",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "69efd3773b0a2e0010352421"
+    },
     {
       "property": "Penthouse",
       "property_id": "prop_c84gb5j",
       "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "status": "pending",
-      "same_day": true,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a39e55710b524001396e928"
-    },
-    {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
-      "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "status": "pending",
-      "same_day": true,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "69e9842ae510b50013d7cd41"
-    },
-    {
-      "property": "Peacock",
-      "property_id": "prop_stunkz5",
-      "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "status": "pending",
-      "same_day": true,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a4db12aaae3f300111448bf"
-    },
-    {
-      "property": "Woodland Retreat",
-      "property_id": "prop_axd3ku8",
-      "checkout": "10:00 AM",
       "next_checkin": "\u2014",
       "status": "pending",
       "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a2c4d7d7af123524c1ad116"
-    },
-    {
-      "property": "Rustic Ozark",
-      "property_id": "prop_fvhuyem",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "69eb83f36a7a667d59a3380f"
+      "reservation_id": "697fb8ad1dd4fb001d912133"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
