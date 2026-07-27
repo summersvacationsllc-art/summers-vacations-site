@@ -1,0 +1,114 @@
+name: Branson Guest Daily Sync
+
+on:
+  schedule:
+    # 5:30 AM CT = 10:30 UTC (standard time) / 10:30 UTC (CDT)
+    # Cron runs in UTC. CDT is UTC-5, so 5:30 AM CT = 10:30 UTC
+    - cron: '30 10 * * *'
+  workflow_dispatch:  # allow manual trigger
+
+permissions:
+  contents: write  # needed to push to the repo
+  actions: read
+
+env:
+  # These will be set as GitHub repository secrets
+  CRON_SECRET: ${{ secrets.CRON_SECRET }}
+  TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+  TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+  GUESTY_API_KEY: ${{ secrets.GUESTY_API_KEY }}
+  GUESTY_ACCOUNT_ID: ${{ secrets.GUESTY_ACCOUNT_ID }}
+
+jobs:
+  guest-daily-sync:
+    name: Guest Daily Sync (5:30 AM CT)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout summers-vacations-site
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # The build scripts use only stdlib (urllib, json, datetime, pathlib)
+          # No additional packages needed, but keep this step for future deps
+
+      - name: Run Guest Daily Sync
+        id: sync
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          set -euo pipefail
+          DATE=$(date -u +%Y-%m-%d)
+          echo "Running Guest Daily Sync for $DATE (CT date)"
+          
+          # Step 1: Generate live snapshots from str-manager-one
+          echo "=== Building guest-today.json ==="
+          python3 scripts/build_guest_today.py --date "$DATE"
+          
+          echo "=== Building fleet-today.json ==="
+          python3 scripts/build_fleet_today.py --date "$DATE"
+          
+          # Step 2: Generate the magazine HTML report from scout data
+          echo "=== Building magazine report (YYYY-MM-DD.html) ==="
+          python3 scripts/build_today_reports.py --date "$DATE"
+          
+          # Step 3: Verify outputs exist and have content
+          echo "=== Verification ==="
+          ls -la public/reports/
+          
+          # Check HTML has substance (not thin guard HTML)
+          HTML_SIZE=$(wc -c < "public/reports/$DATE.html" 2>/dev/null || echo 0)
+          if [ "$HTML_SIZE" -lt 8000 ]; then
+            echo "WARNING: HTML size is $HTML_SIZE bytes (expected >= 8000). May be thin."
+          else
+            echo "HTML size: $HTML_SIZE bytes ✓"
+          fi
+          
+          # Verify JSONs have today's date
+          for f in fishing-data.json shows-data.json manifest.json guest-today.json fleet-today.json; do
+            if [ -f "public/reports/$f" ]; then
+              DATE_IN_FILE=$(jq -r '.date // .latest // .updated // empty' "public/reports/$f" 2>/dev/null || echo "missing")
+              echo "$f date: $DATE_IN_FILE"
+            else
+              echo "$f: MISSING"
+            fi
+          done
+
+      - name: Commit and push reports
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "Summers Vacations Bot"
+          git config user.email "summersvacationsllc-art@users.noreply.github.com"
+          
+          # Only add the reports folder (safety)
+          git add public/reports/
+          
+          # Check if there's anything to commit
+          if git diff --cached --quiet; then
+            echo "No changes to public/reports/ — skipping commit"
+            exit 0
+          fi
+          
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "guest daily sync: $DATE Branson report data"
+          git push origin HEAD:main
+          echo "Pushed updated reports to main"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Guest Daily Sync failed — check workflow logs"
+          # Could add Slack/email/webhook notification here later
