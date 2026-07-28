@@ -1,0 +1,44 @@
+{
+  "date": "2026-07-28",
+  "metrics": {
+    "check_ins": 1,
+    "check_outs": 1,
+    "turnovers": 1,
+    "same_day": 1,
+    "in_house": 6,
+    "units_total": 7,
+    "unassigned_cleaners": 1
+  },
+  "pacing": {
+    "penthouse": {
+      "pct": "+12%",
+      "adr": "$420"
+    },
+    "rustic_ozark": {
+      "pct": "+8%",
+      "adr": "$310"
+    },
+    "double_condo": {
+      "pct": "flat",
+      "adr": "$285"
+    },
+    "woodland_retreat": {
+      "pct": "-5%",
+      "adr": "$295"
+    },
+    "peacock": {
+      "pct": "+15%",
+      "adr": "$340"
+    },
+    "modern_charmer": {
+      "pct": "+3%",
+      "adr": "$290"
+    },
+    "family_haven": {
+      "pct": "+18%",
+      "adr": "$380"
+    }
+  },
+  "events": [],
+  "intel_summary": ""
+}
