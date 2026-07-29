@@ -154,6 +154,55 @@ ul.clean li { margin-bottom: 0.35rem; }
   .toc { position: static; }
   body { background: white; }
 }
+@media (max-width: 640px) {
+  body { padding-bottom: 4.5rem; -webkit-text-size-adjust: 100%; }
+  .wrap { padding: 12px 12px 2rem; }
+  .header, .fleet-banner { border-radius: 16px; padding: 1.25rem 1rem; }
+  .header h1, .fleet-banner h1 { font-size: 1.55rem; line-height: 1.2; }
+  .header .sub, .fleet-banner p { font-size: 0.88rem; }
+  .toc {
+    position: sticky; top: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 14px;
+    gap: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a {
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    padding: 0.4rem 0.65rem;
+    white-space: nowrap;
+  }
+  .card {
+    border-radius: 14px;
+    padding: 1rem 0.95rem;
+    margin-bottom: 0.85rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .grid-2, .grid-3, .grid-7 {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .kpi .v { font-size: 1.4rem; }
+  .item { padding: 0.7rem 0.8rem; font-size: 0.92rem; }
+  table.ops { font-size: 0.8rem; min-width: 520px; }
+  .priority { padding: 0.75rem; }
+  .links a { font-size: 0.75rem; padding: 0.4rem 0.6rem; }
+  .chip { font-size: 0.75rem; }
+  .guide-box, .tip, .alert, .okbox { font-size: 0.9rem; padding: 0.8rem 0.9rem; }
+}
+@supports (padding: max(0px)) {
+  body { padding-bottom: max(4.5rem, env(safe-area-inset-bottom)); }
+}
 </style>
 </head>
 <body>
@@ -234,7 +283,7 @@ ul.clean li { margin-bottom: 0.35rem; }
 </section>
 
     <footer class="meta">
-      <p>Generated 2026-07-29T14:07:39-05:00 · Guest Branson Daily · Summers Vacations</p>
+      <p>Generated 2026-07-29T14:57:16-05:00 · Guest Branson Daily · Summers Vacations</p>
       <p style="font-size:0.75rem;margin-top:0.4rem">Sections sourced from today&#x27;s scouts or live weather. Guest report is city intel only — no cleaner/ops data.</p>
     </footer>
   </div>
