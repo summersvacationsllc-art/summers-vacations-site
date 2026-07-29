@@ -1,18 +1,18 @@
 {
-  "date": "2026-07-28",
-  "generated_at": "2026-07-28T05:31:59-05:00",
+  "date": "2026-07-29",
+  "generated_at": "2026-07-29T07:16:29-05:00",
   "units_total": 6,
   "turnovers": [
     {
-      "property": "Peacock",
-      "property_id": "prop_stunkz5",
+      "property": "Modern Charmer",
+      "property_id": "prop_8bcl8j3",
       "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
+      "next_checkin": "\u2014",
       "status": "pending",
-      "same_day": true,
+      "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a5550c0ab3b060013ba8397"
+      "reservation_id": "6a3d5fe2154b8d00129d2794"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
