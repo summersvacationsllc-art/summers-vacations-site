@@ -1,18 +1,18 @@
 {
-  "date": "2026-07-29",
-  "generated_at": "2026-07-29T10:52:06-05:00",
+  "date": "2026-07-30",
+  "generated_at": "2026-07-30T07:07:43-05:00",
   "units_total": 6,
   "turnovers": [
     {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
+      "property": "Indian Point",
+      "property_id": "prop_uiue2y1",
       "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
+      "next_checkin": "4:00 PM",
       "status": "pending",
-      "same_day": false,
+      "same_day": true,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a3d5fe2154b8d00129d2794"
+      "reservation_id": "6a4c1e655aff660013818f85"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"

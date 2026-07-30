@@ -1,37 +1,54 @@
 {
-  "date": "2026-07-29",
-  "generated_at": "2026-07-29T10:52:04-05:00",
+  "date": "2026-07-30",
+  "generated_at": "2026-07-30T07:07:41-05:00",
   "headline": {
-    "check_ins": 0,
+    "check_ins": 2,
     "check_outs": 1,
     "turnovers": 1,
-    "same_day_turnovers": 0,
-    "in_house_units": 5,
+    "same_day_turnovers": 1,
+    "in_house_units": 6,
     "units_total": 7
   },
-  "check_ins": [],
-  "check_outs": [
+  "check_ins": [
+    {
+      "property": "Indian Point",
+      "guest": "Piper Lust",
+      "guests": 13,
+      "platform": "airbnb2",
+      "reservation_id": "res_c18sxgk",
+      "time": "4:00 PM"
+    },
     {
       "property": "Modern Charmer",
-      "guest": "Jennifer Carrillo",
-      "guests": 6,
+      "guest": "Clint Maddix",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_4u93lz3",
+      "reservation_id": "res_hcjj2w6",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Indian Point",
+      "guest": "Diane Fitzpatrick",
+      "guests": 12,
+      "platform": "airbnb2",
+      "reservation_id": "res_3ybb5b8",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [
     {
-      "property": "Modern Charmer",
+      "property": "Indian Point",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
+      "next_checkin": "4:00 PM",
       "cleaner_id": null,
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a3d5fe2154b8d00129d2794"
+      "same_day": true,
+      "reservation_id": "6a4c1e655aff660013818f85"
     }
   ],
   "in_house": [
@@ -44,16 +61,6 @@
       "check_in": "2026-07-26",
       "check_out": "2026-07-31",
       "nights": 5
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Diane Fitzpatrick",
-      "guests": 12,
-      "platform": "airbnb2",
-      "reservation_id": "res_3ybb5b8",
-      "check_in": "2026-07-27",
-      "check_out": "2026-07-30",
-      "nights": 3
     },
     {
       "property": "Rustic Ozark",
@@ -84,6 +91,26 @@
       "check_in": "2026-07-28",
       "check_out": "2026-07-31",
       "nights": 3
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Piper Lust",
+      "guests": 13,
+      "platform": "airbnb2",
+      "reservation_id": "res_c18sxgk",
+      "check_in": "2026-07-30",
+      "check_out": "2026-08-02",
+      "nights": 3
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Clint Maddix",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_hcjj2w6",
+      "check_in": "2026-07-30",
+      "check_out": "2026-08-04",
+      "nights": 5
     }
   ],
   "sync_notes": {

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branson Daily · 2026-07-30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --brand-blue: #0369a1;
+  --blue-gradient-start: #0ea5e9;
+  --blue-gradient-end: #0284c7;
+  --border-blue: #bae6fd;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --soft: #f0f9ff;
+  --card: #ffffff;
+  --ok: #16a34a;
+  --warn: #ea580c;
+  --bad: #dc2626;
+}
+* { font-feature-settings: "liga" 0; letter-spacing: 0.015em; overflow-wrap: break-word; word-break: break-word; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--soft);
+  color: #1e3a8a;
+  padding: 0 0 3rem;
+  margin: 0;
+  line-height: 1.55;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: clamp(16px, 4vw, 32px); }
+.header {
+  background: linear-gradient(135deg, var(--blue-gradient-start), var(--blue-gradient-end));
+  color: white;
+  padding: clamp(1.75rem, 5vw, 3rem);
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 15px 35px rgba(14, 165, 233, 0.25);
+}
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin: 0 0 0.4rem;
+  font-weight: 400;
+}
+.header .sub { opacity: 0.95; margin: 0; font-size: 1rem; }
+.toc {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center;
+  background: rgba(240,249,255,0.92); backdrop-filter: blur(10px);
+  border: 1px solid var(--border-blue); border-radius: 999px;
+  padding: 0.55rem 0.75rem; margin: 0 auto 1.5rem; max-width: 960px;
+  box-shadow: 0 4px 18px rgba(14,165,233,0.12);
+}
+.toc a {
+  text-decoration: none; color: var(--brand-blue); font-size: 0.78rem; font-weight: 600;
+  padding: 0.35rem 0.7rem; border-radius: 999px; background: #fff; border: 1px solid var(--border-blue);
+}
+.toc a:hover { background: #e0f2fe; }
+.card {
+  background: var(--card);
+  border: 2px solid var(--border-blue);
+  border-radius: 18px;
+  padding: clamp(1.25rem, 4vw, 2.2rem);
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.08);
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  color: var(--brand-blue);
+  font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+  border-bottom: 3px solid #bae6fd;
+  margin: 0 0 1rem;
+  padding-bottom: 0.45rem;
+}
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 1rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: #e0f2fe; color: #0c4a6e; border: 1px solid #bae6fd;
+  border-radius: 999px; padding: 0.35rem 0.8rem; font-size: 0.82rem; font-weight: 600;
+}
+.chip.hot { background: #fff7ed; border-color: #fdba74; color: #9a3412; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.85rem; }
+.grid-7 { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; }
+.kpi {
+  background: #f8fafc; border: 1px solid var(--border-blue); border-radius: 14px;
+  padding: 1rem; text-align: center;
+}
+.kpi .v { font-size: 1.65rem; font-weight: 800; color: var(--brand-blue); line-height: 1.1; }
+.kpi .l { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.kpi.warn .v { color: var(--warn); }
+.kpi.bad .v { color: var(--bad); }
+.kpi.ok .v { color: var(--ok); }
+.item {
+  background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 0.85rem 1rem; margin-bottom: 0.55rem;
+}
+.item strong { color: var(--ink); }
+.event-time {
+  display: inline-block; background: #bae6fd; color: var(--brand-blue);
+  padding: 3px 10px; border-radius: 9999px; font-size: 0.78rem; font-weight: 700; margin-right: 0.4rem;
+}
+.tip { background: #e0f2fe; border-left: 5px solid #0ea5e9; padding: 0.95rem 1.15rem; border-radius: 8px; color: #1e40af; }
+.alert {
+  background: #fff7ed; border-left: 5px solid #f97316; padding: 1rem 1.2rem;
+  border-radius: 10px; color: #9a3412; margin: 0.75rem 0;
+}
+.alert a { color: #c2410c; font-weight: 700; }
+.okbox {
+  background: #f0fdf4; border-left: 5px solid #22c55e; padding: 1rem 1.2rem;
+  border-radius: 10px; color: #166534; margin: 0.75rem 0;
+}
+.guide-box {
+  background: #f0fdfa; border-left: 5px solid #0d9488; padding: 1rem 1.2rem;
+  border-radius: 10px; color: #134e4a; margin: 0.75rem 0;
+}
+.guide-name { font-weight: 700; color: #0f766e; }
+.mini h4 { margin: 0 0 0.4rem; color: var(--brand-blue); font-size: 0.95rem; }
+.mini p, .mini div { margin: 0; font-size: 0.9rem; color: #334155; }
+.source { font-size: 0.78rem; color: var(--muted); border-top: 2px dashed #bae6fd; padding-top: 0.9rem; margin-top: 1.2rem; }
+.meta { font-size: 0.85rem; color: var(--muted); text-align: center; margin-top: 1.5rem; }
+table.ops { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.ops th, table.ops td { text-align: left; padding: 0.65rem 0.55rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+table.ops th { color: var(--brand-blue); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.badge {
+  display: inline-block; font-size: 0.72rem; font-weight: 700; border-radius: 999px;
+  padding: 0.15rem 0.55rem; text-transform: uppercase;
+}
+.badge.bad { background: #fee2e2; color: #991b1b; }
+.badge.warn { background: #ffedd5; color: #9a3412; }
+.badge.ok { background: #dcfce7; color: #166534; }
+.badge.blue { background: #dbeafe; color: #1e40af; }
+.priority { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.9rem 1rem; background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid #0ea5e9; border-radius: 10px; margin-bottom: 0.6rem; }
+.priority .n { font-size: 1.2rem; font-weight: 800; color: #0ea5e9; min-width: 1.5rem; }
+.links a {
+  display: inline-block; margin: 0.2rem 0.3rem 0.2rem 0; padding: 0.35rem 0.7rem;
+  background: #e0f2fe; color: #0369a1; border-radius: 8px; font-size: 0.8rem; font-weight: 600; text-decoration: none;
+}
+.fleet-banner {
+  background: linear-gradient(135deg, #0f172a, #0369a1); color: white;
+  padding: clamp(1.5rem, 4vw, 2.4rem); border-radius: 18px; margin-bottom: 1rem;
+}
+.fleet-banner h1 { font-family: 'DM Serif Display', serif; margin: 0 0 0.35rem; font-size: clamp(1.7rem, 4.5vw, 2.4rem); font-weight: 400; }
+.fleet-banner p { margin: 0; opacity: 0.92; }
+h3.subh { color: var(--brand-blue); margin: 1.1rem 0 0.55rem; font-size: 1.05rem; }
+ul.clean { margin: 0.4rem 0 0.8rem 1.1rem; padding: 0; }
+ul.clean li { margin-bottom: 0.35rem; }
+@media print {
+  .toc { position: static; }
+  body { background: white; }
+}
+@media (max-width: 640px) {
+  body { padding-bottom: 4.5rem; -webkit-text-size-adjust: 100%; }
+  .wrap { padding: 12px 12px 2rem; }
+  .header, .fleet-banner { border-radius: 16px; padding: 1.25rem 1rem; }
+  .header h1, .fleet-banner h1 { font-size: 1.55rem; line-height: 1.2; }
+  .header .sub, .fleet-banner p { font-size: 0.88rem; }
+  .toc {
+    position: sticky; top: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 14px;
+    gap: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a {
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    padding: 0.4rem 0.65rem;
+    white-space: nowrap;
+  }
+  .card {
+    border-radius: 14px;
+    padding: 1rem 0.95rem;
+    margin-bottom: 0.85rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .grid-2, .grid-3, .grid-7 {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .kpi .v { font-size: 1.4rem; }
+  .item { padding: 0.7rem 0.8rem; font-size: 0.92rem; }
+  table.ops { font-size: 0.8rem; min-width: 520px; }
+  .priority { padding: 0.75rem; }
+  .links a { font-size: 0.75rem; padding: 0.4rem 0.6rem; }
+  .chip { font-size: 0.75rem; }
+  .guide-box, .tip, .alert, .okbox { font-size: 0.9rem; padding: 0.8rem 0.9rem; }
+}
+@supports (padding: max(0px)) {
+  body { padding-bottom: max(4.5rem, env(safe-area-inset-bottom)); }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    
+<header class="header">
+  <h1>Branson Daily</h1>
+  <p class="sub">Thursday, July 30, 2026 · Guest city guide · Summers Vacations</p>
+  <p style="margin:1rem auto 0;max-width:36rem;font-size:0.98rem;opacity:0.95">Today: 90°F · Mostly Sunny.</p>
+</header>
+<nav class="toc" aria-label="Sections">
+  <a href="#weather">Weather</a>
+  <a href="#fishing">Fishing</a>
+  <a href="#shows">Shows</a>
+  <a href="#events">Events</a>
+  <a href="#eat">Eat</a>
+  <a href="#golf">Golf</a>
+  <a href="#strip">Strip</a>
+  <a href="#landing">Landing</a>
+</nav>
+
+    <section class="card" id="weather">
+      <h2 class="section-title">🌤️ Weather</h2>
+      <div class='grid-2'><div class='item'><strong>Today</strong><div>90°F · Mostly Sunny</div><div style='color:#64748b;font-size:0.82rem;margin-top:0.25rem'>Wind 5 mph</div></div><div class='item'><strong>Tonight</strong><div>73°F · Partly Cloudy then Slight Chance Showers And Thunderstorms</div><div style='color:#64748b;font-size:0.82rem;margin-top:0.25rem'>Wind 3 to 9 mph</div></div><div class='item'><strong>Friday</strong><div>90°F · Showers And Thunderstorms</div><div style='color:#64748b;font-size:0.82rem;margin-top:0.25rem'>Wind 10 mph</div></div><div class='item'><strong>Friday Night</strong><div>69°F · Chance Showers And Thunderstorms then Showers And Thunderstorms</div><div style='color:#64748b;font-size:0.82rem;margin-top:0.25rem'>Wind 6 to 10 mph</div></div></div>
+      <p class="source">National Weather Service · SGF grid · live at build time</p>
+    </section>
+    
+<section class="card" id="fishing">
+  <h2 class="section-title">🎣 Fishing</h2>
+  <div class="chip-row"><span class='chip'>Table Rock · 916.91 ft MSL at 08:00 CT 07/21; 916.85 ft by 21:00 CT (USACE TRZM7) — near full power pool 917.0 · Verify locally (typically low-mid 80s F surface mid-summer)</span><span class='chip'>Taneycomo · 07/21 USACE: ~20 cfs 02:00-09:00 CT; ramp midday (~3-6k cfs); heavy ~11,500-11,700 cfs 15:00-21:00 CT. Call SWPA 866-494-1993 to confirm live.</span></div>
+  <div class='guide-box'><span class='guide-name'>Bite of the day:</span> Low-flow Taneycomo morning (~20 cfs overnight into 9 AM) then heavy afternoon generation (~11.6k cfs) — fish early, then switch to drifting when water moves. Table Rock near full pool for dawn topwater.</div>
+  <div class='grid-3' style='margin-top:1rem'><div class='kpi'><div class='v' style='font-size:1rem'>Bass</div><div class='l'>GOOD</div><div style='font-size:0.8rem;color:#475569;margin-top:0.35rem'>Topwater at dawn; deep spoon, shakey head, deep crank mid-day</div></div><div class='kpi'><div class='v' style='font-size:1rem'>Walleye</div><div class='l'>GOOD</div><div style='font-size:0.8rem;color:#475569;margin-top:0.35rem'>Crankbaits, live bait (carried mid-summer pattern — not freshly guide-verified 07-21)</div></div><div class='kpi'><div class='v' style='font-size:1rem'>Crappie</div><div class='l'>FAIR-GOOD</div><div style='font-size:0.8rem;color:#475569;margin-top:0.35rem'>Small white or yellow jigs under deep-water docks</div></div><div class='kpi'><div class='v' style='font-size:1rem'>Trout</div><div class='l'>GOOD</div><div style='font-size:0.8rem;color:#475569;margin-top:0.35rem'>Low-flow morning window; pink worms/jigs/midges; drift when generation heavy (Trophy Area nightcrawlers)</div></div><div class='kpi'><div class='v' style='font-size:1rem'>Bluegill</div><div class='l'>EXCELLENT</div><div style='font-size:0.8rem;color:#475569;margin-top:0.35rem'>Worms, small poppers — great for kids (mid-summer pattern carry)</div></div><div class='kpi'><div class='v' style='font-size:1rem'>Catfish</div><div class='l'>GOOD</div><div style='font-size:0.8rem;color:#475569;margin-top:0.35rem'>Stink bait, hot dogs, cut/frozen bait — evening/night</div></div></div>
+  <p class='tip'>Carrying forward last verified conditions — verify gage & generation locally.</p>
+  <p class="source">USACE / SWPA / scout notes · 2026-07-30. Never invent water readings.</p>
+</section>
+
+    
+<section class="card" id="shows">
+  <h2 class="section-title">🎭 Shows</h2>
+  <div class="grid-2"><div class='item'><span class='event-time'>2:00 PM</span><strong>Dublin&#x27;s Irish Tenors &amp; The Celtic Ladies</strong> · King&#x27;s Castle Theatre · Irish Music &amp; Dance</div><div class='item'><span class='event-time'>2:00 PM</span><strong>Awesome 80&#x27;s</strong> · Americana Theatre · 80s Tribute</div><div class='item'><span class='event-time'>2:00 PM</span><strong>Amazing Acrobats Of Shanghai</strong> · Grand Shanghai Theatre · Acrobatics</div><div class='item'><span class='event-time'>5:00 PM</span><strong>Patsy Cline And Friends Tribute</strong> · Americana Theatre · Country Tribute</div><div class='item'><span class='event-time'>5:00 PM</span><strong>Riga Tony&#x27;s Branson Murder Mystery Dinner</strong> · Various / Dinner Venue · Interactive Dinner Show</div><div class='item'><span class='event-time'>7:30 PM</span><strong>Clay Cooper&#x27;s Country Express</strong> · Clay Cooper Theatre · Country Variety</div><div class='item'><span class='event-time'>7:30 PM &amp; 8:00 PM</span><strong>Shepherd of the Hills Outdoor Drama</strong> · Shepherd of the Hills · Outdoor Historical Drama</div><div class='item'><span class='event-time'>7:30 PM</span><strong>Narnia Live On Stage (Prince Caspian)</strong> · Theater Venue · Family Theater</div><div class='item'><span class='event-time'>8:00 PM</span><strong>Legends in Concert</strong> · Pepsi Legends Theater · Celebrity Tributes</div><div class='item'><span class='event-time'>8:00 PM</span><strong>Presleys&#x27; Country Jubilee</strong> · Presleys&#x27; Country Jubilee · Country Comedy &amp; Music</div><div class='item'><span class='event-time'>8:00 PM</span><strong>REZA — Edge of Illusion</strong> · Reza Live Theatre · Magic / Illusion</div><div class='item'><span class='event-time'>8:00 PM</span><strong>Hamners&#x27; Magic</strong> · Hamners&#x27; Theater · Magic</div></div>
+  <h3 class='subh'>Free / outdoor</h3><div class='item'>Deadline-guard: show grid carried/partial for 2026-07-29 — confirm box office.</div><div class='item'>Deadline-guard: show grid carried/partial for 2026-07-28 — confirm box office.</div><div class='item'>Deadline-guard: show grid carried/partial for 2026-07-27 — confirm box office.</div><div class='item'>Deadline-guard: show grid carried/partial for 2026-07-26 — confirm box office.</div><div class='item'>Deadline-guard: show grid carried/partial for 2026-07-25 — confirm box office.</div><div class='item'>Deadline-guard: show grid carried/partial for 2026-07-24 — confirm box office.</div>
+  <p class="source">Venue calendars + shows scout · 2026-07-30</p>
+</section>
+
+    
+<section class="card" id="events">
+  <h2 class="section-title">🎉 Events / Things To Do</h2>
+  <div class='grid-2'><div class='mini'><h4>Intel — 2026-07-30</h4><p class='tip'>No details.</p></div><div class='mini'><h4>Status</h4><div class='item'>Could not complete a full fresh scout for 2026-07-30. Do **not** treat the bullets</div><div class='item'>below as verified field conditions — carry-forward / verify locally only.</div></div><div class='mini'><h4>Carry-forward note</h4><div class='item'>No fabricated events, prices, water readings, or showtimes.</div><div class='item'>Downstream Guest Sync / Deadline Guard may carry last valid JSON and stamp honesty.</div><div class='item'>Watchdog may re-trigger this scout before 10:00 CT if still missing real content.</div></div><div class='mini'><h4>Next action</h4><div class='item'>Re-run `intel` scout or verify primary sources manually.</div></div></div>
+  <p class="source">Intel scout · 2026-07-30</p>
+</section>
+
+    
+<section class="card" id="eat">
+  <h2 class="section-title">🍽️ Eat</h2>
+  <div class='grid-2'><div class='mini'><h4>🍽️ Food &amp; Beverage — 2026-07-30</h4><div class='item'>**Thursday in Branson** — mid-week summer dining continues strong with reliable lakeside and family-friendly options across the area. No major one-day food festivals or new limited-time specials confirmed today; focus remains on recurring local favorites, Branson Landing waterfront spots, dinner shows, and stable beverage experiences.</div></div><div class='mini'><h4>🍽️ Popular Dining Highlights (Summer Thursday Vibes)</h4><div class='item'>Branson offers a wide range of Ozarks-inspired and American fare suitable for multi-generational groups. Many venues emphasize fresh, approachable meals with lakeside or entertainment-district views.</div><div class='item'>**Branson Landing Waterfront Spots** — Central hub with patios overlooking Lake Taneycomo and fountain shows (typically running in summer evenings). Options include:</div><div class='item'>Guy Fieri&#x27;s Kitchen + Bar: Bold American comfort food with flair, great for families.</div><div class='item'>LandShark Bar &amp; Grill: Beachy menu featuring fish tacos, burgers, and frozen drinks; outdoor seating with live music energy.</div><div class='item'>White River Fish House: Floating restaurant specializing in fresh trout, catfish, and Ozarks seafood classics.</div><div class='item'>Big Whiskey&#x27;s American Restaurant &amp; Bar: Casual American dishes, craft cocktails, and beers in the promenade area.</div><div class='item'>Additional variety: Cantina Laredo (Mexican), Black Oak Grill, Bricktown Brewery, PaPPo’s Pizzeria, Saltgrass Steak House, and Level 2 Steakhouse for upscale steaks.</div><div class='item'>**Dinner Shows with Meals** — Popular family experiences combining entertainment and dining (verify current schedules):</div></div><div class='mini'><h4>🥃 Wineries, Distilleries &amp; Taprooms (Recurring Options)</h4><div class='item'>**Smith Creek Moonshine** (Branson Landing): Convenient tastings with multiple flavors — ideal stop while exploring the promenade.</div><div class='item'>**Bear Creek Wine Company &amp; Small Batch Brewery** (north of Branson, ~10mi): Family-operated with 11 wines, rotating beers on tap, rustic pizza/small bites, Ozarks views, ponds/gardens. Live music most weekends; open typical summer hours (verify locally for Thu). Great for relaxed tastings or family visits with cabins onsite.</div></div></div>
+  <p class="source">Food scout · 2026-07-30</p>
+</section>
+
+    
+<section class="card" id="golf">
+  <h2 class="section-title">⛳ Golf</h2>
+  <div class='grid-2'><div class='mini'><h4>⛳ Branson Golf Report — July 30, 2026</h4><div class='item'>**Report prepared:** 07:10 AM CT</div><div class='item'>**Season:** Peak summer (most courses April–mid October)</div><div class='item'>**Weather today (NWS/AccuWeather):** Hot and humid with highs 89–95°F, lows ~72–75°F. Scattered thunderstorms possible (30–60% chance in afternoon/evening per forecasts). Heat index near 100°F — play early, hydrate, and monitor lightning. No extreme heat warnings noted.</div></div><div class='mini'><h4>Key Course Status (as of July 30)</h4><div class='item'>Primary daily conditions pages (explorebranson.com/golf, bransoncreek.com/conditions, ledgestonegolf.com/daily-conditions) returned no live granular updates, green speeds, or fairway reports for today. Booking platforms show general availability with heat policies in effect at many courses. **Call pro shops directly for real-time tee times, cart rules, or heat-related cancellations.** No major tournaments listed for today.</div></div><div class='mini'><h4>Course Spotlight: Branson Hills Golf Club</h4><div class='item'>**Why visit:** Consistently ranked #1 public course in Missouri (GolfPass 2026) and top-10 nationally. Dramatic Ozarks layout with elevation changes, rock outcroppings, waterfalls, and pristine Zoysia fairways. ~15-minute drive from Branson West/Summers Vacations properties.</div><div class='item'>**Status:** Good-to-excellent conditions reported in recent reviews despite summer heat. No specific daily maintenance or closure notes found. Tee times appear available on booking sites (subject to heat policy).</div><div class='item'>**Peak Season Rates (April 13–Oct 31, includes cart + tax):**</div><div class='item'>Sun–Thu before 4pm: $235</div><div class='item'>Sun–Thu twilight (after 4pm): $150</div><div class='item'>Fri–Sat peak (before 1pm): $265</div><div class='item'>Fri–Sat midday (1–4pm): $235</div><div class='item'>Weekend twilight (after 4pm): $150</div></div><div class='mini'><h4>Other Notable Courses</h4><div class='item'>**Thousand Hills Golf Resort** (~10 min from Branson West): Popular 18-hole par-66 executive course (5,111 yards back tees) with Zoysia fairways, USGA Bentgrass greens, and 4 tee sets for all skill levels. Strong recent reviews for conditions and pace. **2026 rates (May–Oct 17, includes GPS cart + tax/fees):** Before 3pm $108, after 3pm $69 (18 holes not guaranteed late). Book up to 30 days ahead online or call (417) 334-4553 / (877) 262-0430. Rider fee ~$24, rentals available.</div></div></div>
+  <p class="source">Golf scout · 2026-07-30</p>
+</section>
+
+    
+<section class="card" id="strip">
+  <h2 class="section-title">🎢 76 Strip</h2>
+  <div class='grid-2'><div class='mini'><h4>🏎️ Branson Strip — 2026-07-30</h4><p class='tip'>No details.</p></div><div class='mini'><h4>Overview</h4><div class='item'>Scouted the 76 Country Blvd (Highway 76) Strip today (Thursday, July 30, 2026). Peak summer season continues with full daily operations at all major family attractions. The Track Family Fun Parks (multiple locations), Fritz&#x27;s Adventure, WonderWorks Branson, and Shepherd of the Hills Adventure Park with its mountain coaster remain key draws. No major new events or closures reported specifically for today. Emphasis on indoor cooling options during hot summer days and variety for multi-generational families. Sources: bransontracks.com, fritzsadventure.com/calendar, wonderworksonline.com/branson, explorebranson.com (verified July 30, 2026).</div></div><div class='mini'><h4>Attraction Spotlights</h4><p class='tip'>No details.</p></div><div class='mini'><h4>The Track Family Fun Parks (multiple locations on/near 76 Strip)</h4><div class='item'>**Type**: High-rise go-karts (Xtreme Racing — North America&#x27;s longest high-speed concrete raceway at ~3,500 ft), classic/kiddie karts, wooden coasters (Lumberjack, Wild Woody), laser tag, bumper boats, arcades, iconic Branson Ferris Wheel with LED lights and evening shows, glow mini-golf.</div><div class='item'>**Vibe**: Operating 45+ years with three interconnected parks offering thrills for all ages. Perfect for families seeking variety in an air-conditioned or shaded environment on hot summer days.</div><div class='item'>**Highlights**:</div><div class='item'>Season passes available for unlimited visits across parks.</div><div class='item'>Branson Ferris Wheel delivers panoramic views and nightly light/music spectaculars.</div><div class='item'>Adventure Ziplines nearby with Ozark mountain and city views (climate-controlled lodge).</div><div class='item'>**Best for**: Multi-generational families, thrill-seekers, groups wanting all-day fun.</div><div class='item'>**Source**: https://bransontracks.com/ (accessed July 30, 2026). Typical summer hours ~10 AM–10 PM (verify locally).</div></div><div class='mini'><h4>Fritz&#x27;s Adventure (1425 W 76 Country Blvd)</h4><div class='item'>**Type**: 80,000+ sq ft multi-level indoor/outdoor adventure center with Via Ferrata climbing, massive slides, ropes courses, laser maze, treehouses, warped walls.</div><div class='item'>**Vibe**: Ultimate summer cool-down spot with all-day passes for unlimited play. Strong family appeal and recent local media features.</div><div class='item'>**Hours (July 30, 2026)**: 10am - 6pm (per current operating calendar).</div><div class='item'>**Best for**: Active families, kids and adults seeking physical challenges and indoor/outdoor variety.</div><div class='item'>**Source**: https://www.fritzsadventure.com/calendar/ (accessed July 30, 2026).</div></div><div class='mini'><h4>WonderWorks Branson (2835 W 76 Country Blvd)</h4><div class='item'>**Type**: Upside-down &quot;edu-tainment&quot; science center with 48,000 sq ft and 100+ hands-on STEAM exhibits (meteorology, physics, space, light/sound, elements, American innovation, Route 66, Ozarks history, military exhibits).</div><div class='item'>**Vibe**: Landmark inverted building offering excellent indoor escape from summer heat. Features special exhibits and OZART young artist collection.</div></div></div>
+  <p class="source">Strip scout · 2026-07-30</p>
+</section>
+
+    
+<section class="card" id="landing">
+  <h2 class="section-title">🏬 Branson Landing</h2>
+  <div class='grid-2'><div class='mini'><h4>🏬 Branson Landing – 2026-07-30</h4><div class='item'>*Scouted Thursday, July 30, 2026 (Central Time) for Summers Vacations LLC.*</div><div class='item'>*Warm, local take on what&#x27;s happening down at the Landing this week and coming up this summer.*</div></div><div class='mini'><h4>🎶 Current &amp; Upcoming Landing Events</h4><p class='tip'>No details.</p></div><div class='mini'><h4>Branson Landing FREE Summer Concert Series</h4><div class='item'>The Landing&#x27;s free lakeside concert series runs in front of the **Fire &amp; Water Attraction** on the Branson Landing promenade. Beer garden sponsored by Wil Fischer Budweiser opens at **6:30 PM**, opening bands hit the stage at **7 PM**, and headliners take over at **8:30 PM**. Free to attend — just bring a lawn chair and a friend.</div><div class='item'>| Date | Headliner(s) | Notes |</div><div class='item'>|------|--------------|-------|</div><div class='item'>| **Saturday, August 8, 2026** | Jukebox Winos &amp; Chris Luneau and The White Buffalo | Beer garden 6:30 PM · opening 7 PM · headliners 8:30 PM |</div><div class='item'>| **Saturday, September 5, 2026** | 96 Miles &amp; Eastern Heights | Beer garden 6:30 PM · opening 7 PM · headliners 8:30 PM |</div></div><div class='mini'><h4>Branson Farmers Market at Branson Landing</h4><div class='item'>A true locals&#x27; favorite. The Branson Farmers Market runs **every Tuesday from 2:30 PM to 6:30 PM**, now in season **May 5 – October 27, 2026**. It brings the best locally grown produce and unique handmade products right to downtown Branson. **Location:** Branson Landing&#x27;s South Parking Lot, next to Bass Pro Shops.</div><div class='item'>Next market: **Tuesday, August 4, 2026** (2:30–6:30 PM).</div><div class='item'>Quote: &quot;this vibrant market offers a variety of fresh, locally grown produce, including tomatoes, cucumbers, peaches, and more. You&#x27;ll also find handmade goods like soaps, candles, jellies, and baked treats, along with live music and family-friendly entertainment.&quot;</div></div><div class='mini'><h4>🏪 Notable Landing Businesses &amp; Venues</h4><div class='item'>The Landing is Branson&#x27;s lakefront shopping, dining, and entertainment district. A few anchor tenants and guest-favorite stops worth featuring (full directory via the official site):</div><div class='item'>**Bass Pro Shops** – The lakeside flagship and the natural meetup point at the north end of the Landing.</div><div class='item'>**Hilton Convention Center Hotel / Hilton Promenade** – The Landing&#x27;s on-site hotel and meeting space.</div><div class='item'>**The Fountains (Fire &amp; Water Attraction)** – The free choreographed fountain, fire, and light show on the promenade; the backdrop for the Summer Concert Series. Shows daily from Noon (weather permitting).</div><div class='item'>**Guy Fieri&#x27;s Kitchen + Bar**, **Joe&#x27;s Crab Shack**, **LandShark Bar &amp; Grill**, **Margaritaville**, **Big Whiskey&#x27;s**, **Bricktown Brewery** and more – the Landing&#x27;s lakeside food row.</div><div class='item'>**Branson Jet Boats**, **Marina Lake Cruise Rental**, **7D Dark Ride Adventure**, **Andy B&#x27;s Bowl Social &amp; Tiki Bar**, **Arcade City**, **Lindwedel Winery** – family-friendly adventures and experiences.</div></div></div>
+  <p class="source">Landing scout · 2026-07-30</p>
+</section>
+
+    <footer class="meta">
+      <p>Generated 2026-07-30T07:07:45-05:00 · Guest Branson Daily · Summers Vacations</p>
+      <p style="font-size:0.75rem;margin-top:0.4rem">Sections sourced from today&#x27;s scouts or live weather. Guest report is city intel only — no cleaner/ops data.</p>
+    </footer>
+  </div>
+</body>
+</html>
