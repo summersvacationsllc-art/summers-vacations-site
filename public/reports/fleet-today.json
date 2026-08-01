@@ -1,29 +1,29 @@
 {
-  "date": "2026-07-31",
-  "generated_at": "2026-07-31T12:29:23+00:00",
-  "units_total": 6,
+  "date": "2026-08-01",
+  "generated_at": "2026-08-01T11:44:01+00:00",
+  "units_total": 7,
   "turnovers": [
+    {
+      "property": "Rustic Ozark",
+      "property_id": "prop_fvhuyem",
+      "checkout": "10:00 AM",
+      "next_checkin": "\u2014",
+      "status": "pending",
+      "same_day": false,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a3c248316d52100246428e8"
+    },
     {
       "property": "Penthouse",
       "property_id": "prop_c84gb5j",
       "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
+      "next_checkin": "\u2014",
       "status": "pending",
-      "same_day": true,
+      "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a1c45464c48780010c00ee4"
-    },
-    {
-      "property": "Peacock",
-      "property_id": "prop_stunkz5",
-      "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "status": "pending",
-      "same_day": true,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a276b6a6fe94c0019bdb002"
+      "reservation_id": "6a51ac251c4627001128efca"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
