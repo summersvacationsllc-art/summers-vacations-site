@@ -1,29 +1,40 @@
 {
-  "date": "2026-08-01",
-  "generated_at": "2026-08-01T11:44:01+00:00",
-  "units_total": 7,
+  "date": "2026-08-02",
+  "generated_at": "2026-08-02T11:43:12+00:00",
+  "units_total": 5,
   "turnovers": [
     {
-      "property": "Rustic Ozark",
-      "property_id": "prop_fvhuyem",
+      "property": "Woodland Retreat",
+      "property_id": "prop_axd3ku8",
       "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
+      "next_checkin": "4:00 PM",
       "status": "pending",
-      "same_day": false,
+      "same_day": true,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a3c248316d52100246428e8"
+      "reservation_id": "6a287fe6568929ec52854980"
     },
     {
-      "property": "Penthouse",
-      "property_id": "prop_c84gb5j",
+      "property": "Indian Point",
+      "property_id": "prop_uiue2y1",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "699fbedc31dce000150a8614"
+    },
+    {
+      "property": "Peacock",
+      "property_id": "prop_stunkz5",
       "checkout": "10:00 AM",
       "next_checkin": "\u2014",
       "status": "pending",
       "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a51ac251c4627001128efca"
+      "reservation_id": "69ef7ac82adf0400101cf953"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
