@@ -1,96 +1,17 @@
 {
-  "date": "2026-08-02",
-  "generated_at": "2026-08-02T11:43:12+00:00",
+  "date": "2026-08-03",
+  "generated_at": "2026-08-03T13:25:54+00:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 3,
-    "turnovers": 3,
-    "same_day_turnovers": 2,
+    "check_ins": 0,
+    "check_outs": 0,
+    "turnovers": 0,
+    "same_day_turnovers": 0,
     "in_house_units": 4,
     "units_total": 7
   },
-  "check_ins": [
-    {
-      "property": "Indian Point",
-      "guest": "Sarah Pincus",
-      "guests": 1,
-      "platform": "vrbo",
-      "reservation_id": "res_5z51isb",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Allison Carney",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_9t3ptkf",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Tara Dickson",
-      "guests": 2,
-      "platform": "website",
-      "reservation_id": "res_g2dgbd2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Piper Lust",
-      "guests": 13,
-      "platform": "airbnb2",
-      "reservation_id": "res_c18sxgk",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Peacock",
-      "guest": "Rachel Gamber",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_3jrnrdy",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [
-    {
-      "property": "Woodland Retreat",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a287fe6568929ec52854980"
-    },
-    {
-      "property": "Indian Point",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "699fbedc31dce000150a8614"
-    },
-    {
-      "property": "Peacock",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "69ef7ac82adf0400101cf953"
-    }
-  ],
+  "check_ins": [],
+  "check_outs": [],
+  "turnovers": [],
   "in_house": [
     {
       "property": "Modern Charmer",
