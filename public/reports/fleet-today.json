@@ -1,7 +1,30 @@
 {
-  "date": "2026-08-03",
-  "generated_at": "2026-08-03T16:23:51-05:00",
-  "units_total": 4,
-  "turnovers": [],
+  "date": "2026-08-04",
+  "generated_at": "2026-08-04T12:27:20+00:00",
+  "units_total": 5,
+  "turnovers": [
+    {
+      "property": "Indian Point",
+      "property_id": "prop_uiue2y1",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a3dc841ba715d001538da78"
+    },
+    {
+      "property": "Modern Charmer",
+      "property_id": "prop_8bcl8j3",
+      "checkout": "10:00 AM",
+      "next_checkin": "\u2014",
+      "status": "pending",
+      "same_day": false,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "69eab7ef9e07b30013500ea2"
+    }
+  ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
