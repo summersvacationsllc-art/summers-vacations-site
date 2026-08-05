@@ -1,73 +1,28 @@
 {
-  "date": "2026-08-04",
-  "generated_at": "2026-08-04T12:27:20+00:00",
+  "date": "2026-08-05",
+  "generated_at": "2026-08-05T06:16:11-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 2,
-    "turnovers": 2,
-    "same_day_turnovers": 1,
-    "in_house_units": 5,
+    "check_ins": 0,
+    "check_outs": 1,
+    "turnovers": 1,
+    "same_day_turnovers": 0,
+    "in_house_units": 4,
     "units_total": 7
   },
-  "check_ins": [
-    {
-      "property": "Indian Point",
-      "guest": "Tina Ryan-Ellis",
-      "guests": 13,
-      "platform": "airbnb2",
-      "reservation_id": "res_4jo09v7",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Modern Charmer",
-      "guest": "Kathy Meloy",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_pqqsgnf",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Peacock",
-      "guest": "Robert Redford",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_afw0j1d",
-      "time": "4:00 PM"
-    }
-  ],
+  "check_ins": [],
   "check_outs": [
     {
-      "property": "Modern Charmer",
-      "guest": "Clint Maddix",
-      "guests": 4,
+      "property": "Woodland Retreat",
+      "guest": "Allison Carney",
+      "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_hcjj2w6",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Sarah Pincus",
-      "guests": 1,
-      "platform": "vrbo",
-      "reservation_id": "res_5z51isb",
+      "reservation_id": "res_9t3ptkf",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [
     {
-      "property": "Indian Point",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a3dc841ba715d001538da78"
-    },
-    {
-      "property": "Modern Charmer",
+      "property": "Woodland Retreat",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
@@ -76,7 +31,7 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": false,
-      "reservation_id": "69eab7ef9e07b30013500ea2"
+      "reservation_id": "6a544d323c80ee0013ded757"
     }
   ],
   "in_house": [
@@ -89,16 +44,6 @@
       "check_in": "2026-08-01",
       "check_out": "2026-08-09",
       "nights": 8
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Allison Carney",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_9t3ptkf",
-      "check_in": "2026-08-02",
-      "check_out": "2026-08-05",
-      "nights": 3
     },
     {
       "property": "Indian Point",
