@@ -1,19 +1,16 @@
 {
   "date": "2026-08-05",
-  "generated_at": "2026-08-05T11:00:36-05:00",
-  "units_total": 5,
-  "turnovers": [
+  "generated_at": "2026-08-05T11:00:31-05:00",
+  "units": 5,
+  "turnovers": 1,
+  "unassigned": 1,
+  "tasks": [
     {
       "property": "Woodland Retreat",
-      "property_id": "prop_axd3ku8",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
+      "type": "turnover",
       "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a544d323c80ee0013ded757"
+      "cleaner": null,
+      "note": "Unassigned in cleaners app — sync wanted"
     }
-  ],
-  "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
+  ]
 }
