@@ -1,6 +1,6 @@
 {
   "date": "2026-08-05",
-  "generated_at": "2026-08-05T11:00:31-05:00",
+  "generated_at": "2026-08-05T14:21:18-05:00",
   "headline": {
     "check_ins": 0,
     "check_outs": 1,
@@ -26,10 +26,10 @@
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
-      "next_checkin": "—",
+      "next_checkin": "\u2014",
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app — sync wanted",
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": false,
       "reservation_id": "6a544d323c80ee0013ded757"
     }
@@ -44,6 +44,40 @@
       "check_in": "2026-08-01",
       "check_out": "2026-08-09",
       "nights": 8
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Tina Ryan-Ellis",
+      "guests": 13,
+      "platform": "airbnb2",
+      "reservation_id": "res_4jo09v7",
+      "check_in": "2026-08-04",
+      "check_out": "2026-08-09",
+      "nights": 5
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Kathy Meloy",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_pqqsgnf",
+      "check_in": "2026-08-04",
+      "check_out": "2026-08-06",
+      "nights": 2
+    },
+    {
+      "property": "Peacock",
+      "guest": "Robert Redford",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_afw0j1d",
+      "check_in": "2026-08-04",
+      "check_out": "2026-08-06",
+      "nights": 2
     }
-  ]
+  ],
+  "sync_notes": {
+    "cleaner_app": "Cleaner assignments: pulled live from str-manager-one /api/tasks. Open https://str-manager-one.vercel.app/ops to assign any turnover where cleaner_assigned is false.",
+    "guesty_window": "Guesty Pro data appears from Jul 2026 forward. Pre-July actuals live in Airbnb/Vrbo CSV exports."
+  }
 }
