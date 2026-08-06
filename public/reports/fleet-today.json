@@ -1,18 +1,29 @@
 {
-  "date": "2026-08-05",
-  "generated_at": "2026-08-05T14:21:19-05:00",
+  "date": "2026-08-06",
+  "generated_at": "2026-08-06T05:20:31-05:00",
   "units_total": 5,
   "turnovers": [
     {
-      "property": "Woodland Retreat",
-      "property_id": "prop_axd3ku8",
+      "property": "Modern Charmer",
+      "property_id": "prop_8bcl8j3",
       "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
+      "next_checkin": "4:00 PM",
       "status": "pending",
-      "same_day": false,
+      "same_day": true,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a544d323c80ee0013ded757"
+      "reservation_id": "6a6ec0be9209b6575a3f585e"
+    },
+    {
+      "property": "Peacock",
+      "property_id": "prop_stunkz5",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a70c370b256de83520e670c"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
