@@ -1,84 +1,17 @@
 {
-  "date": "2026-08-06",
-  "generated_at": "2026-08-06T05:30:28-05:00",
+  "date": "2026-08-07",
+  "generated_at": "2026-08-07T07:24:45-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 2,
-    "turnovers": 2,
-    "same_day_turnovers": 2,
+    "check_ins": 0,
+    "check_outs": 0,
+    "turnovers": 0,
+    "same_day_turnovers": 0,
     "in_house_units": 5,
     "units_total": 7
   },
-  "check_ins": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Peggy Keiser",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_g8uy2d9",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Peacock",
-      "guest": "Fallon Reagans",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_tc2v6ot",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Nick Brown",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_s8dk6rf",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Kathy Meloy",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_pqqsgnf",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Peacock",
-      "guest": "Robert Redford",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_afw0j1d",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [
-    {
-      "property": "Modern Charmer",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a6ec0be9209b6575a3f585e"
-    },
-    {
-      "property": "Peacock",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a70c370b256de83520e670c"
-    }
-  ],
+  "check_ins": [],
+  "check_outs": [],
+  "turnovers": [],
   "in_house": [
     {
       "property": "Double Condo",
