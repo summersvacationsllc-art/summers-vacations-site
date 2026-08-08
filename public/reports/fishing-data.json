@@ -1,10 +1,10 @@
 {
-  "date": "2026-08-07",
-  "biteOfDay": "Low-flow Taneycomo morning (~20 cfs overnight into 9 AM) then heavy afternoon generation (~11.6k cfs) \u2014 fish early, then switch to drifting when water moves. Table Rock near full pool for dawn topwater.",
+  "date": "2026-08-08",
+  "biteOfDay": "& What's Biting **Table Rock Lake (bass, crappie, walleye focus):** Summer pattern holds: Fish holding on deep structure, brush piles, ledges, gravel points, and channel swings in 15\u201335 ft. Clear water (main lake getting very clear) makes electronics (LiveScope/forward-facing sonar) valuable for locating suspended or stacked schools. Recent intel (Table Rock Fishing Intel reports from 08/06\u201308/07)",
   "conditions": {
     "tableRock": {
-      "temp": "Verify locally (typically low-mid 80s F surface mid-summer)",
-      "level": "916.91 ft MSL at 08:00 CT 07/21; 916.85 ft by 21:00 CT (USACE TRZM7) \u2014 near full power pool 917.0",
+      "temp": "76.2\u00b0F Kimberling dawn",
+      "level": "915.7 ft (USACE)",
       "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
@@ -57,5 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Fish early. Table Rock topwater at sunrise. On Taneycomo, use the near-idle morning flows then drift when afternoon generation hits ~11.6k cfs. Confirm generation: SWPA 866-494-1993. Deadline-guard carry from 2026-07-21."
+  "tip": "Fish early. Table Rock topwater at sunrise. On Taneycomo, use the near-idle morning flows then drift when afternoon generation hits ~11.6k cfs. Confirm generation: SWPA 866-494-1993. Deadline-guard carry from 2026-07-21.",
+  "source": "scout",
+  "last_verified": "2026-08-08T10:02:28-05:00"
 }
