@@ -1,67 +1,106 @@
 {
-  "date": "2026-08-08",
-  "generated_at": "2026-08-08T16:46:21-05:00",
+  "date": "2026-08-10",
+  "generated_at": "2026-08-10T10:31:40-04:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 0,
-    "turnovers": 0,
+    "check_ins": 2,
+    "check_outs": 1,
+    "turnovers": 1,
     "same_day_turnovers": 0,
     "in_house_units": 5,
     "units_total": 7
   },
-  "check_ins": [],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_ins": [
     {
-      "property": "Double Condo",
-      "guest": "Robert Parker",
-      "guests": 6,
+      "property": "Rustic Ozark",
+      "guest": "Edgar Julian Davila-Trujillo",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_1c0o333",
-      "check_in": "2026-08-01",
-      "check_out": "2026-08-09",
-      "nights": 8
+      "reservation_id": "res_ep3w110",
+      "time": "4:00 PM"
     },
     {
-      "property": "Indian Point",
-      "guest": "Tina Ryan-Ellis",
-      "guests": 13,
+      "property": "Woodland Retreat",
+      "guest": "Danielle Jones",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_4jo09v7",
-      "check_in": "2026-08-04",
-      "check_out": "2026-08-09",
-      "nights": 5
-    },
+      "reservation_id": "res_g1flf8n",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
     {
       "property": "Modern Charmer",
       "guest": "Peggy Keiser",
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_g8uy2d9",
-      "check_in": "2026-08-06",
-      "check_out": "2026-08-10",
-      "nights": 4
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [
+    {
+      "property": "Modern Charmer",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "\u2014",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": false,
+      "reservation_id": "6a4d9f9ff9abf40014631845"
+    }
+  ],
+  "in_house": [
+    {
+      "property": "Indian Point",
+      "guest": "Berenice Rueda",
+      "guests": 14,
+      "platform": "airbnb2",
+      "reservation_id": "res_audt4v8",
+      "check_in": "2026-08-09",
+      "check_out": "2026-08-12",
+      "nights": 3
     },
     {
       "property": "Peacock",
-      "guest": "Fallon Reagans",
-      "guests": 4,
+      "guest": "Yohannis Kali",
+      "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_tc2v6ot",
-      "check_in": "2026-08-06",
-      "check_out": "2026-08-09",
+      "reservation_id": "res_0286xfq",
+      "check_in": "2026-08-09",
+      "check_out": "2026-08-12",
       "nights": 3
     },
     {
-      "property": "Woodland Retreat",
-      "guest": "Nick Brown",
+      "property": "Penthouse",
+      "guest": "Allison Dale",
       "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_s8dk6rf",
-      "check_in": "2026-08-06",
-      "check_out": "2026-08-09",
-      "nights": 3
+      "reservation_id": "res_u0t6bg5",
+      "check_in": "2026-08-09",
+      "check_out": "2026-08-11",
+      "nights": 2
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Edgar Julian Davila-Trujillo",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_ep3w110",
+      "check_in": "2026-08-10",
+      "check_out": "2026-08-12",
+      "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Danielle Jones",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_g1flf8n",
+      "check_in": "2026-08-10",
+      "check_out": "2026-08-15",
+      "nights": 5
     }
   ],
   "sync_notes": {
