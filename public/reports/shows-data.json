@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-12",
+  "date": "2026-08-13",
   "shows": [
     {
       "name": "Dublin's Irish Tenors & The Celtic Ladies",
@@ -87,6 +87,7 @@
     }
   ],
   "freeEvents": [
+    "Deadline-guard: show grid carried/partial for 2026-08-13 \u2014 confirm box office.",
     "Deadline-guard: show grid carried/partial for 2026-08-12 \u2014 confirm box office.",
     "Deadline-guard: show grid carried/partial for 2026-08-11 \u2014 confirm box office.",
     "Deadline-guard: show grid carried/partial for 2026-08-10 \u2014 confirm box office.",
@@ -97,7 +98,6 @@
     "Deadline-guard: show grid carried/partial for 2026-08-05 \u2014 confirm box office.",
     "Deadline-guard: show grid carried/partial for 2026-08-04 \u2014 confirm box office.",
     "Deadline-guard: show grid carried/partial for 2026-08-03 \u2014 confirm box office.",
-    "Deadline-guard: show grid carried/partial for 2026-07-31 \u2014 confirm box office.",
-    "Deadline-guard: show grid carried/partial for 2026-07-30 \u2014 confirm box office."
+    "Deadline-guard: show grid carried/partial for 2026-07-31 \u2014 confirm box office."
   ]
 }
