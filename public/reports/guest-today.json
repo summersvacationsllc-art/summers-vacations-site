@@ -1,37 +1,69 @@
 {
-  "date": "2026-08-13",
-  "generated_at": "2026-08-13T06:55:23-05:00",
+  "date": "2026-08-14",
+  "generated_at": "2026-08-14T11:21:05+00:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 1,
-    "turnovers": 1,
-    "same_day_turnovers": 1,
-    "in_house_units": 4,
+    "check_ins": 4,
+    "check_outs": 2,
+    "turnovers": 3,
+    "same_day_turnovers": 2,
+    "in_house_units": 6,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Modern Charmer",
-      "guest": "Elijah Doll",
+      "property": "Indian Point",
+      "guest": "Rachel Beard",
+      "guests": 12,
+      "platform": "airbnb2",
+      "reservation_id": "res_qeswquw",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Peacock",
+      "guest": "Brittany Schuster",
       "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_kod0odx",
+      "reservation_id": "res_zwj4kxx",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Corey Chevalier",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_x3mzp4s",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Cheryl Reed-Kuelbs",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_effnwvb",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Modern Charmer",
-      "guest": "Louis Lattray",
-      "guests": 5,
+      "property": "Penthouse",
+      "guest": "Seth Auchterlonie",
+      "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_tzse8es",
+      "reservation_id": "res_y59ubwl",
+      "time": "10:00 AM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Amanda Miller",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_hilxnf8",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [
     {
-      "property": "Modern Charmer",
+      "property": "Peacock",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
@@ -40,7 +72,31 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": true,
-      "reservation_id": "6a34263af14a040014ba5bf6"
+      "reservation_id": "6a08dfcd39d7f20013699a47"
+    },
+    {
+      "property": "Penthouse",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a5e0fca5158e20013b3b74c"
+    },
+    {
+      "property": "Rustic Ozark",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "\u2014",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": false,
+      "reservation_id": "6a511fc26e79ce0010ab7330"
     }
   ],
   "in_house": [
@@ -55,26 +111,6 @@
       "nights": 5
     },
     {
-      "property": "Penthouse",
-      "guest": "Seth Auchterlonie",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_y59ubwl",
-      "check_in": "2026-08-11",
-      "check_out": "2026-08-14",
-      "nights": 3
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Amanda Miller",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_hilxnf8",
-      "check_in": "2026-08-12",
-      "check_out": "2026-08-14",
-      "nights": 2
-    },
-    {
       "property": "Modern Charmer",
       "guest": "Elijah Doll",
       "guests": 5,
@@ -83,6 +119,46 @@
       "check_in": "2026-08-13",
       "check_out": "2026-08-16",
       "nights": 3
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Rachel Beard",
+      "guests": 12,
+      "platform": "airbnb2",
+      "reservation_id": "res_qeswquw",
+      "check_in": "2026-08-14",
+      "check_out": "2026-08-15",
+      "nights": 1
+    },
+    {
+      "property": "Peacock",
+      "guest": "Brittany Schuster",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_zwj4kxx",
+      "check_in": "2026-08-14",
+      "check_out": "2026-08-17",
+      "nights": 3
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Corey Chevalier",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_x3mzp4s",
+      "check_in": "2026-08-14",
+      "check_out": "2026-08-17",
+      "nights": 3
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Cheryl Reed-Kuelbs",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_effnwvb",
+      "check_in": "2026-08-14",
+      "check_out": "2026-08-18",
+      "nights": 4
     }
   ],
   "sync_notes": {
