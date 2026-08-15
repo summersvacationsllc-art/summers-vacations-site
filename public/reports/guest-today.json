@@ -1,10 +1,10 @@
 {
-  "date": "2026-08-14",
-  "generated_at": "2026-08-14T11:08:39-05:00",
+  "date": "2026-08-15",
+  "generated_at": "2026-08-15T05:01:30-05:00",
   "headline": {
-    "check_ins": 4,
+    "check_ins": 2,
     "check_outs": 2,
-    "turnovers": 3,
+    "turnovers": 2,
     "same_day_turnovers": 2,
     "in_house_units": 6,
     "units_total": 6
@@ -12,104 +12,66 @@
   "check_ins": [
     {
       "property": "Indian Point",
-      "guest": "Rachel Beard",
-      "guests": 12,
+      "guest": "Randolf Escobar",
+      "guests": 10,
       "platform": "airbnb2",
-      "reservation_id": "res_qeswquw",
+      "reservation_id": "res_dlmynrm",
       "time": "4:00 PM"
     },
     {
-      "property": "Peacock",
-      "guest": "Brittany Schuster",
-      "guests": 5,
+      "property": "Woodland Retreat",
+      "guest": "Nick Peters",
+      "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_zwj4kxx",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Corey Chevalier",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_x3mzp4s",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Cheryl Reed-Kuelbs",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_effnwvb",
+      "reservation_id": "res_kqhjgtl",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "Seth Auchterlonie",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_y59ubwl",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Amanda Miller",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_hilxnf8",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [
-    {
-      "property": "Peacock",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a08dfcd39d7f20013699a47"
-    },
-    {
-      "property": "Penthouse",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a5e0fca5158e20013b3b74c"
-    },
-    {
-      "property": "Rustic Ozark",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a511fc26e79ce0010ab7330"
-    }
-  ],
-  "in_house": [
     {
       "property": "Woodland Retreat",
       "guest": "Danielle Jones",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_g1flf8n",
-      "check_in": "2026-08-10",
-      "check_out": "2026-08-15",
-      "nights": 5
+      "time": "10:00 AM"
     },
+    {
+      "property": "Indian Point",
+      "guest": "Rachel Beard",
+      "guests": 12,
+      "platform": "airbnb2",
+      "reservation_id": "res_qeswquw",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [
+    {
+      "property": "Woodland Retreat",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a5191b524d7930010e91a17"
+    },
+    {
+      "property": "Indian Point",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a6fbfe39209b6575a51c39f"
+    }
+  ],
+  "in_house": [
     {
       "property": "Modern Charmer",
       "guest": "Elijah Doll",
@@ -119,16 +81,6 @@
       "check_in": "2026-08-13",
       "check_out": "2026-08-16",
       "nights": 3
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Rachel Beard",
-      "guests": 12,
-      "platform": "airbnb2",
-      "reservation_id": "res_qeswquw",
-      "check_in": "2026-08-14",
-      "check_out": "2026-08-15",
-      "nights": 1
     },
     {
       "property": "Peacock",
@@ -159,6 +111,26 @@
       "check_in": "2026-08-14",
       "check_out": "2026-08-18",
       "nights": 4
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Randolf Escobar",
+      "guests": 10,
+      "platform": "airbnb2",
+      "reservation_id": "res_dlmynrm",
+      "check_in": "2026-08-15",
+      "check_out": "2026-08-16",
+      "nights": 1
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Nick Peters",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_kqhjgtl",
+      "check_in": "2026-08-15",
+      "check_out": "2026-08-16",
+      "nights": 1
     }
   ],
   "sync_notes": {

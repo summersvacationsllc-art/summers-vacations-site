@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-14",
+  "date": "2026-08-15",
   "shows": [
     {
       "name": "Dublin's Irish Tenors & The Celtic Ladies",
@@ -86,5 +86,7 @@
       "url": ""
     }
   ],
-  "freeEvents": []
+  "freeEvents": [
+    "Deadline-guard: show grid carried/partial for 2026-08-15 \u2014 confirm box office."
+  ]
 }
