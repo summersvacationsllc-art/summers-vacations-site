@@ -1,22 +1,40 @@
 {
-  "date": "2026-08-15",
-  "generated_at": "2026-08-15T05:39:28-05:00",
+  "date": "2026-08-16",
+  "generated_at": "2026-08-16T06:40:00-05:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 2,
-    "turnovers": 2,
-    "same_day_turnovers": 2,
-    "in_house_units": 6,
+    "check_ins": 1,
+    "check_outs": 3,
+    "turnovers": 3,
+    "same_day_turnovers": 1,
+    "in_house_units": 4,
     "units_total": 6
   },
   "check_ins": [
+    {
+      "property": "Woodland Retreat",
+      "guest": "Caitlyn Morris",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_u27b0t9",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Modern Charmer",
+      "guest": "Elijah Doll",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_kod0odx",
+      "time": "10:00 AM"
+    },
     {
       "property": "Indian Point",
       "guest": "Randolf Escobar",
       "guests": 10,
       "platform": "airbnb2",
       "reservation_id": "res_dlmynrm",
-      "time": "4:00 PM"
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
@@ -24,24 +42,6 @@
       "guests": 6,
       "platform": "airbnb2",
       "reservation_id": "res_kqhjgtl",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Danielle Jones",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_g1flf8n",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Rachel Beard",
-      "guests": 12,
-      "platform": "airbnb2",
-      "reservation_id": "res_qeswquw",
       "time": "10:00 AM"
     }
   ],
@@ -56,32 +56,34 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": true,
-      "reservation_id": "6a5191b524d7930010e91a17"
+      "reservation_id": "6a5b8fad883e080013f66f22"
+    },
+    {
+      "property": "Modern Charmer",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "\u2014",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": false,
+      "reservation_id": "6a2c82fe2a54770014e1a6f8"
     },
     {
       "property": "Indian Point",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
+      "next_checkin": "\u2014",
       "cleaner_id": null,
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a6fbfe39209b6575a51c39f"
+      "same_day": false,
+      "reservation_id": "6a6ac3c852645a1ddebc854b"
     }
   ],
   "in_house": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Elijah Doll",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_kod0odx",
-      "check_in": "2026-08-13",
-      "check_out": "2026-08-16",
-      "nights": 3
-    },
     {
       "property": "Peacock",
       "guest": "Brittany Schuster",
@@ -113,24 +115,14 @@
       "nights": 4
     },
     {
-      "property": "Indian Point",
-      "guest": "Randolf Escobar",
-      "guests": 10,
-      "platform": "airbnb2",
-      "reservation_id": "res_dlmynrm",
-      "check_in": "2026-08-15",
-      "check_out": "2026-08-16",
-      "nights": 1
-    },
-    {
       "property": "Woodland Retreat",
-      "guest": "Nick Peters",
-      "guests": 6,
+      "guest": "Caitlyn Morris",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_kqhjgtl",
-      "check_in": "2026-08-15",
-      "check_out": "2026-08-16",
-      "nights": 1
+      "reservation_id": "res_u27b0t9",
+      "check_in": "2026-08-16",
+      "check_out": "2026-08-21",
+      "nights": 5
     }
   ],
   "sync_notes": {
