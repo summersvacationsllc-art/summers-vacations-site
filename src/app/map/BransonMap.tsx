@@ -49,7 +49,7 @@ function FlyTo({ spot }: { spot: MapSpot | undefined }) {
   return null;
 }
 
-export default function BransonMap() {
+export default function BransonMap({ embed = false }: { embed?: boolean }) {
   const router = useRouter();
   const params = useSearchParams();
   const initial = params.get("spot");
@@ -106,12 +106,14 @@ export default function BransonMap() {
 
   function select(id: string | null) {
     setSelectedId(id);
-    const url = id ? `/map?spot=${id}` : "/map";
-    router.replace(url, { scroll: false });
+    if (!embed) {
+      router.replace(id ? `/map?spot=${id}` : "/map", { scroll: false });
+    }
   }
 
   return (
-    <div className="min-h-screen bg-[#f0f9ff] flex flex-col">
+    <div className={embed ? "h-full bg-[#f0f9ff] flex flex-col" : "min-h-screen bg-[#f0f9ff] flex flex-col"}>
+      {!embed && (
       <header className="sticky top-0 z-[1000] bg-white/90 backdrop-blur-md border-b border-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
           <Link href="/" className="flex items-center gap-2.5 no-underline">
@@ -146,8 +148,11 @@ export default function BransonMap() {
           </div>
         </div>
       </header>
+      )}
 
-      <div className="px-4 sm:px-6 pt-4 pb-2 max-w-7xl mx-auto w-full">
+      <div className={embed ? "px-2 pt-1 pb-1 w-full" : "px-4 sm:px-6 pt-4 pb-2 max-w-7xl mx-auto w-full"}>
+        {!embed && (
+          <>
         <h1 className="font-display text-2xl sm:text-3xl font-bold text-[#0c4a6e]">
           Your Branson playground
         </h1>
@@ -155,7 +160,9 @@ export default function BransonMap() {
           Hover a pin, tap for tickets or a live cam. Same bright-blue guide —
           just on a map.
         </p>
-        <div className="flex gap-2 overflow-x-auto py-3 -mx-1 px-1">
+          </>
+        )}
+        <div className="flex gap-2 overflow-x-auto py-2 -mx-1 px-1">
           {MAP_CATEGORIES.map((c) => {
             const on = filter === c.id;
             return (
@@ -183,8 +190,8 @@ export default function BransonMap() {
         </div>
       </div>
 
-      <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-4">
-        <div className="sv-map-wrap relative rounded-2xl overflow-hidden border-2 border-sky-200 shadow-lg h-[62vh] min-h-[420px] lg:h-[calc(100vh-230px)]">
+      <div className={embed ? "flex-1 min-h-0 w-full px-2 pb-2" : "flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-4"}>
+        <div className={embed ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 h-full min-h-[360px]" : "sv-map-wrap relative rounded-2xl overflow-hidden border-2 border-sky-200 shadow-lg h-[62vh] min-h-[420px] lg:h-[calc(100vh-230px)]"}>
           <MapContainer
             center={[36.64, -93.27]}
             zoom={12}
@@ -277,7 +284,7 @@ export default function BransonMap() {
                     href={selected.ourPath}
                     className="text-center text-xs font-bold text-[#0369a1] no-underline hover:underline"
                   >
-                    Open on our map · mybransonvacation.com{selected.ourPath}
+                    {embed ? "Open full map" : `Open on our map · mybransonvacation.com${selected.ourPath}`}
                   </Link>
                 </div>
               </div>

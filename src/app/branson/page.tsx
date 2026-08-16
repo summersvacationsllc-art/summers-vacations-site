@@ -19,6 +19,9 @@ import {
   type TenantProperty,
 } from "@/data/tenants";
 import { FACEBOOK, PHONE } from "@/lib/site";
+import dynamic from "next/dynamic";
+
+const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
 const LS_PREFIX = "sv-branson-card-v1";
 
@@ -89,7 +92,7 @@ function bookHref(p: TenantProperty, catalog: CatalogResolution) {
   return u.toString();
 }
 
-type Tab = "home" | "adventure" | "shows" | "food" | "fish" | "golf" | "stay";
+type Tab = "home" | "adventure" | "map" | "shows" | "food" | "fish" | "golf" | "stay";
 
 type ShowItem = {
   name: string;
@@ -408,6 +411,7 @@ function BransonCardPage() {
                 What you&apos;ll unlock
               </div>
               <ul className="text-[12px] text-sky-800 space-y-1 leading-relaxed">
+                <li>🗺️ Live map — stays, eats, shows, cams</li>
                 <li>🎭 Today&apos;s shows & entertainment picks</li>
                 <li>🍽️ Dining · 🎣 fishing · ⛳ golf</li>
                 <li>🏡 Stays from {brand.displayName}</li>
@@ -572,6 +576,19 @@ function BransonCardPage() {
                   ))}
                 </div>
 
+                <button
+                  type="button"
+                  onClick={() => setTab("map")}
+                  className="mx-3.5 mt-1.5 w-[calc(100%-1.75rem)] bg-white rounded-lg border border-sky-100 px-3 py-2.5 text-left cursor-pointer"
+                >
+                  <div className="text-[12px] font-bold text-sky-900">
+                    🗺️ Live Branson map
+                  </div>
+                  <div className="text-[10px] text-sky-600">
+                    Stays · restaurants · shows · cams — tap a pin
+                  </div>
+                </button>
+
                 {fishing?.biteOfDay && (
                   <div className="mx-3.5 mt-2 rounded-lg px-3 py-2.5 border border-sky-200 bg-white">
                     <div className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">
@@ -675,6 +692,12 @@ function BransonCardPage() {
                   </button>
                 </div>
               </>
+            )}
+
+            {tab === "map" && (
+              <div className="px-0 pt-1" style={{ height: "calc(100dvh - 11.5rem)" }}>
+                <GuideMap />
+              </div>
             )}
 
             {tab === "adventure" && (
@@ -882,6 +905,7 @@ function BransonCardPage() {
             [
               ["home", "🏠", "Home"],
               ["adventure", "🏞️", "Adventure"],
+              ["map", "🗺️", "Map"],
               ["shows", "🎭", "Shows"],
               ["food", "🍽️", "Food"],
               ["fish", "🎣", "Fish"],
