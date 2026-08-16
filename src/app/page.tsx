@@ -558,13 +558,44 @@ export default function Home() {
             concierge in your pocket.
           </p>
           <div className="mt-8 bg-white rounded-2xl border-2 border-sky-200 shadow-lg p-6 sm:p-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-4xl">📱</span>
-              <span className="text-2xl">→</span>
-              <span className="text-4xl">🏠</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+              <div className="shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/mybransonapp-qr.png"
+                  alt="QR code — scan to open mybransonapp.com"
+                  width={176}
+                  height={176}
+                  className="w-40 h-40 sm:w-44 sm:h-44 mx-auto rounded-xl border border-sky-100 bg-white p-2"
+                />
+                <p className="mt-2 text-xs font-bold text-[#0c4a6e]">Scan to open the app</p>
+              </div>
+              <div className="text-center sm:text-left max-w-sm">
+                <h3 className="font-bold text-lg text-[#0c4a6e]">Get it in 10 seconds</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  Scan the code, or tap{" "}
+                  <a
+                    href="https://mybransonapp.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#0284c7] underline underline-offset-2"
+                  >
+                    mybransonapp.com
+                  </a>
+                  . Then add it to your home screen — it opens like a real app.
+                </p>
+                <a
+                  href="https://mybransonapp.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-book inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm no-underline mt-4"
+                >
+                  Open the app
+                  <ArrowRight size={16} strokeWidth={2} />
+                </a>
+              </div>
             </div>
-            <h3 className="font-bold text-lg text-[#0c4a6e]">How to install</h3>
-            <div className="grid sm:grid-cols-2 gap-4 mt-4 text-left">
+            <div className="grid sm:grid-cols-2 gap-4 mt-6 text-left">
               <div className="bg-sky-50 rounded-xl p-4">
                 <div className="font-bold text-sm text-[#0c4a6e] mb-1">📱 iPhone / iPad</div>
                 <p className="text-xs text-slate-600 leading-relaxed">
@@ -584,22 +615,8 @@ export default function Home() {
             </div>
             <p className="mt-4 text-xs text-slate-400">
               Acts like a real app — opens full screen, no browser bars.
-              Works offline for saved content.
+              Works offline for saved content. Updates daily at 6 AM.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="https://mybransonvacation.com/guidebook/the-penthouse?code=guest&name=Guest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-book inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm no-underline"
-              >
-                📖 Preview the Guidebook
-                <ArrowRight size={16} strokeWidth={2} />
-              </a>
-              <span className="text-xs text-slate-400">
-                Updates daily at 6 AM — fishing, shows, events & more
-              </span>
-            </div>
           </div>
         </div>
       </section>
