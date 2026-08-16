@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Branson Guide">
+<meta name="theme-color" content="#0284c7">
+<title>Summers Vacations · Guest Tablet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sky: #0ea5e9;
+    --sky-dark: #0284c7;
+    --ink: #0c4a6e;
+    --link: #0369a1;
+    --muted: #0369a1;
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --line: #bae6fd;
+    --soft: #e0f2fe;
+    --danger: #b91c1c;
+    --ok: #0f766e;
+  }
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    touch-action: pan-y;
+  }
+  body { position: relative; }
+  #deck {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transition: transform .45s cubic-bezier(.22,.9,.28,1);
+    will-change: transform;
+  }
+  .screen {
+    flex: 0 0 25%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1rem 7.25rem;
+  }
+  .hero {
+    background: linear-gradient(135deg,#0ea5e9,#0284c7);
+    color: #fff;
+    border-radius: 16px;
+    padding: 1.15rem 1.15rem 1.25rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "☀️";
+    position: absolute;
+    right: .4rem;
+    bottom: -.4rem;
+    font-size: 4.2rem;
+    opacity: .12;
+  }
+  .eyebrow {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: .9;
+  }
+  h1 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(1.55rem, 6vw, 2.05rem);
+    line-height: 1.15;
+    margin: .2rem 0 .45rem;
+  }
+  h2 {
+    font-family: "DM Serif Display", Georgia, serif;
+    color: var(--ink);
+    font-size: clamp(1.45rem, 5.4vw, 1.9rem);
+    margin-bottom: .85rem;
+  }
+  h3 {
+    font-family: "DM Serif Display", Georgia, serif;
+    color: var(--ink);
+    font-size: 1.15rem;
+    margin-bottom: .4rem;
+  }
+  .hero p { color: #fff; font-size: 1rem; opacity: .95; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1rem 1.05rem;
+    margin-bottom: .75rem;
+  }
+  .wifi-val {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg,#0ea5e9,#0284c7);
+    color: #fff;
+    font-weight: 700;
+    padding: .95rem 1rem;
+    border-radius: 12px;
+    margin-top: .65rem;
+    font-size: 1.02rem;
+  }
+  .btn.ghost {
+    background: #fff;
+    color: var(--link);
+    border: 1.5px solid var(--line);
+  }
+  ul.rules { list-style: none; }
+  ul.rules li {
+    padding: .55rem 0 .55rem 1.7rem;
+    position: relative;
+    border-bottom: 1px solid #e0f2fe;
+    font-size: .98rem;
+    color: var(--ink);
+  }
+  ul.rules li:last-child { border-bottom: 0; }
+  ul.rules li::before { content: "✓"; position: absolute; left: 0; color: var(--sky-dark); font-weight: 700; }
+  .checkout {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: .85rem 1rem;
+    color: var(--danger);
+    font-weight: 700;
+    margin-bottom: .75rem;
+  }
+  .step { margin: .65rem 0; font-size: .96rem; color: var(--ink); }
+  iframe#brief {
+    width: 100%;
+    height: calc(100vh - 10.5rem);
+    border: 0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .wx-now { font-size: 2.6rem; font-weight: 700; color: var(--ink); line-height: 1; }
+  .wx-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .45rem;
+  }
+  .wx-day {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .7rem .3rem;
+    text-align: center;
+  }
+  .wx-day .ico { font-size: 1.45rem; }
+  .wx-day .hi { font-weight: 700; color: var(--ink); }
+  .wx-day .lo { color: var(--link); font-size: .85rem; }
+  .chrome {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: rgba(240,249,255,.94);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    padding: .45rem .75rem calc(.55rem + env(safe-area-inset-bottom));
+    z-index: 20;
+  }
+  .dots { display: flex; justify-content: center; gap: .45rem; margin-bottom: .35rem; }
+  .dot {
+    width: 9px; height: 9px; border-radius: 99px;
+    background: #7dd3fc; border: 0;
+  }
+  .dot.on { background: var(--sky-dark); width: 22px; }
+  .foot {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-size: .78rem;
+    color: var(--link);
+  }
+  .foot img { width: 42px; height: 42px; border-radius: 6px; background: #fff; }
+  .edge {
+    position: fixed;
+    top: 0; bottom: 5.6rem;
+    width: 28px;
+    z-index: 15;
+  }
+  .edge.left { left: 0; }
+  .edge.right { right: 0; }
+  #picker {
+    display: none;
+    position: fixed; inset: 0;
+    background: var(--bg);
+    z-index: 40;
+    overflow-y: auto;
+    padding: 1.25rem 1rem 2rem;
+  }
+  #picker.on { display: block; }
+  .pick {
+    display: block; width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    margin: .45rem 0;
+    font: inherit;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .warn { background: #e0f2fe; border: 1px solid var(--line); border-radius: 12px; padding: .8rem 1rem; color: var(--ink); }
+  @media (prefers-reduced-motion: reduce) {
+    #deck { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div id="picker">
+  <div class="hero">
+    <div class="eyebrow">Summers Vacations</div>
+    <h1>Which home is this tablet in?</h1>
+    <p>Pick once. Fully Kiosk can also lock the URL with ?unit=slug.</p>
+  </div>
+  <div id="picker-list"></div>
+</div>
+
+<div id="deck">
+  <section class="screen" id="welcome"></section>
+  <section class="screen" id="rules"></section>
+  <section class="screen" id="brief-screen">
+    <h2>Today in Branson</h2>
+    <iframe id="brief" title="Branson morning brief"></iframe>
+  </section>
+  <section class="screen" id="weather"></section>
+</div>
+
+<div class="edge left" id="edge-l"></div>
+<div class="edge right" id="edge-r"></div>
+
+<div class="chrome">
+  <div class="dots" id="dots"></div>
+  <div class="foot">
+    <div id="qr"></div>
+    <div>
+      <strong>Brian · 314-565-0589</strong><br>
+      Emergency 911 · Stone County Sheriff (417) 357-6116
+    </div>
+  </div>
+</div>
+
+<script>
+const UNITS = {
+  "the-penthouse": {
+    name: "The Penthouse", aliases: ["penthouse", "the penthouse"],
+    isHaven: false, guidebook: "the-penthouse",
+    network: "MyAltice 3a35c7", password: "linen-680-659"
+  },
+  "rustic-ozark-retreat": {
+    name: "Rustic Ozark Retreat", aliases: ["rustic ozark", "rustic ozark retreat"],
+    isHaven: false, guidebook: "rustic-ozark-retreat",
+    network: "MyOptimum d6d285", password: "3616-cyan-52"
+  },
+  "double-condo": {
+    name: "Double Condo", aliases: ["double condo"],
+    isHaven: false, guidebook: "double-condo",
+    network: "Unit 7: MyOptimum d6d285 / Unit 11: MyAltice 3a35c7",
+    password: "Unit 7: 3616-cyan-52 / Unit 11: linen-680-659"
+  },
+  "branson-family-haven": {
+    name: "Branson Family Haven", aliases: ["family haven", "haven", "branson family haven"],
+    isHaven: true, guidebook: "branson-family-haven",
+    network: "44 Timber Trace", password: "welcome44"
+  },
+  "woodland-retreat": {
+    name: "Woodland Retreat", aliases: ["woodland retreat"],
+    isHaven: false, guidebook: "woodland-retreat",
+    network: "My Optimum c950bf", password: "brick-148-543"
+  },
+  "modern-charmer": {
+    name: "Modern Charmer", aliases: ["modern charmer"],
+    isHaven: false, guidebook: "modern-charmer",
+    network: "Hunterslodge Guest 2.4", password: "72BAncWA834E"
+  },
+  "pretty-peacock": {
+    name: "Pretty Peacock", aliases: ["peacock", "pretty peacock"],
+    isHaven: false, guidebook: "pretty-peacock",
+    network: "Comfort guest 1", password: "297BCQcet970Rb4!#"
+  }
+};
+
+const BOOK_URL = "https://branson-condo.com";
+const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
+const REPORTS = "https://www.mybransonvacation.com/reports";
+const STORE = "sv-kiosk-unit";
+
+function qs(name) {
+  return new URLSearchParams(location.search).get(name);
+}
+function ctDate() {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "America/Chicago" });
+}
+function prettyDate(iso) {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+}
+function firstName(full) {
+  return (full || "Guest").trim().split(/\s+/)[0];
+}
+function resolveSlug() {
+  const fromUrl = (qs("unit") || "").trim().toLowerCase();
+  if (fromUrl && UNITS[fromUrl]) return fromUrl;
+  try {
+    const saved = localStorage.getItem(STORE);
+    if (saved && UNITS[saved]) return saved;
+  } catch (e) {}
+  return "";
+}
+function matchStay(inHouse, slug) {
+  const unit = UNITS[slug];
+  if (!unit || !Array.isArray(inHouse)) return null;
+  const aliases = unit.aliases.map((a) => a.toLowerCase());
+  return inHouse.find((row) => {
+    const p = String(row.property || "").toLowerCase();
+    return aliases.some((a) => p === a || p.includes(a) || a.includes(p));
+  }) || null;
+}
+function wxIcon(code) {
+  if (code === 0) return "☀️";
+  if (code === 1) return "🌤️";
+  if (code === 2) return "⛅";
+  if (code === 3) return "☁️";
+  if (code === 45 || code === 48) return "🌫️";
+  if (code >= 51 && code <= 67) return "🌦️";
+  if (code >= 71 && code <= 77) return "❄️";
+  if (code >= 80 && code <= 82) return "🌧️";
+  if (code >= 85 && code <= 86) return "🌨️";
+  if (code >= 95) return "⛈️";
+  return "🌡️";
+}
+function wxLabel(code) {
+  const map = {
+    0: "Clear sky", 1: "Mostly sunny", 2: "Partly cloudy", 3: "Overcast",
+    45: "Fog", 48: "Icy fog", 51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
+    61: "Light rain", 63: "Rain", 65: "Heavy rain", 71: "Light snow", 73: "Snow",
+    75: "Heavy snow", 80: "Showers", 81: "Rain showers", 82: "Downpours",
+    95: "Thunderstorm", 96: "Storm + hail", 99: "Severe hail"
+  };
+  return map[code] || "Branson weather";
+}
+
+let slug = resolveSlug();
+let screenIndex = 0;
+const SCREEN_COUNT = 4;
+let idleTimer = null;
+
+function goTo(i) {
+  screenIndex = Math.max(0, Math.min(i, SCREEN_COUNT - 1));
+  document.getElementById("deck").style.transform = "translateX(-" + (screenIndex * 25) + "%)";
+  document.querySelectorAll(".dot").forEach((el, n) => el.classList.toggle("on", n === screenIndex));
+  bumpIdle();
+}
+function bumpIdle() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => goTo(0), 120000);
+}
+
+function renderPicker() {
+  const box = document.getElementById("picker-list");
+  box.innerHTML = Object.entries(UNITS).map(([id, u]) =>
+    `<button class="pick" data-unit="${id}">${u.name}</button>`
+  ).join("");
+  box.querySelectorAll(".pick").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      slug = btn.getAttribute("data-unit");
+      try { localStorage.setItem(STORE, slug); } catch (e) {}
+      document.getElementById("picker").classList.remove("on");
+      bootUnit();
+    });
+  });
+}
+
+function renderWelcome(stay) {
+  const unit = UNITS[slug];
+  const vacant = !stay;
+  const greet = vacant
+    ? `Welcome to ${unit.name}`
+    : `Hello, ${firstName(stay.guest)}`;
+  const dates = vacant
+    ? "This home is between stays. Wi-Fi below is for this unit."
+    : `${prettyDate(stay.check_in)} → ${prettyDate(stay.check_out)} · ${stay.nights || ""} night${stay.nights === 1 ? "" : "s"}`;
+  const party = stay && stay.guests ? `<p>${stay.guests} guests</p>` : "";
+  document.getElementById("welcome").innerHTML = `
+    <div class="hero">
+      <div class="eyebrow">${unit.name}</div>
+      <h1>${greet}</h1>
+      <p>${dates}</p>
+      ${party}
+    </div>
+    <div class="card">
+      <div class="label">Wi-Fi</div>
+      <h3>Network</h3>
+      <div class="wifi-val">${unit.network}</div>
+      <h3 style="margin-top:.7rem">Password</h3>
+      <div class="wifi-val">${unit.password}</div>
+    </div>
+    <a class="btn" href="${BOOK_URL}" target="_blank" rel="noopener">Save 10% on Branson plans</a>
+    <a class="btn ghost" href="https://www.mybransonvacation.com/guidebook/${unit.guidebook}" target="_blank" rel="noopener">Open full house guide</a>
+  `;
+}
+
+function renderRules() {
+  const unit = UNITS[slug];
+  const dishes = unit.isHaven
+    ? "Start the dishwasher on any remaining dishes."
+    : "Hand wash and dry remaining dishes. Staff will put them away.";
+  const towels = unit.isHaven
+    ? "Used towels go on the downstairs front bathroom shower floor."
+    : "Used towels go on the hallway bathroom shower floor.";
+  const trash = unit.isHaven
+    ? "Take all trash to the dumpster."
+    : "Take all trash to the dumpster in front of the building, to the left.";
+  document.getElementById("rules").innerHTML = `
+    <h2>House rules</h2>
+    <div class="card">
+      <ul class="rules">
+        <li>Private community — keep noise down 10 PM to 8 AM</li>
+        <li>No parties, events, or unregistered guests</li>
+        <li>No smoking or vaping inside, on decks, walkways, pool, or playground. Parking lot / street only (HOA)</li>
+        <li>No pets</li>
+        <li>No open flame or candles</li>
+        <li>No food or drink in bedrooms</li>
+        <li>Towels stay in the condo — do not take bath towels to the pool</li>
+        <li>Pool 8 AM – 10 PM. No glass. Kids supervised. No diving or running</li>
+        <li>Tell us right away if something breaks</li>
+      </ul>
+    </div>
+    <div class="checkout">Check-out is 10:00 AM — all units</div>
+    <div class="card">
+      <h3>Before you leave</h3>
+      <div class="step">🛏️ Leave beds unmade. If you used the sleeper, leave the cushions off.</div>
+      <div class="step">🛁 ${towels}</div>
+      <div class="step">🗑️ ${trash}</div>
+      <div class="step">🍽️ ${dishes}</div>
+      <div class="step">💡 Turn off stove, heater, lights, and electronics.</div>
+      <div class="step">🪑 Move furniture back. Lock every door and window.</div>
+    </div>
+  `;
+}
+
+async function loadBrief() {
+  const frame = document.getElementById("brief");
+  let day = ctDate();
+  try {
+    const man = await fetch(REPORTS + "/manifest.json", { cache: "no-store" }).then((r) => r.json());
+    if (man && man.latest) day = man.latest;
+  } catch (e) {}
+  frame.src = REPORTS + "/" + day + ".html";
+}
+
+async function loadWeather() {
+  const el = document.getElementById("weather");
+  try {
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=36.6509&longitude=-93.3691&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FChicago&forecast_days=4";
+    const data = await fetch(url).then((r) => r.json());
+    const c = data.current;
+    const d = data.daily;
+    const days = d.time.map((iso, i) => {
+      const label = i === 0 ? "Today" : new Date(iso + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
+      return `<div class="wx-day">
+        <div class="ico">${wxIcon(d.weather_code[i])}</div>
+        <div><strong>${label}</strong></div>
+        <div class="hi">${Math.round(d.temperature_2m_max[i])}°</div>
+        <div class="lo">${Math.round(d.temperature_2m_min[i])}°</div>
+        <div class="lo">${d.precipitation_probability_max[i]}%</div>
+      </div>`;
+    }).join("");
+    el.innerHTML = `
+      <h2>Branson weather</h2>
+      <div class="card">
+        <div class="label">Now</div>
+        <div class="wx-now">${Math.round(c.temperature_2m)}°</div>
+        <p style="margin:.35rem 0 .15rem">${wxIcon(c.weather_code)} ${wxLabel(c.weather_code)}</p>
+        <p>Humidity ${c.relative_humidity_2m}% · Wind ${Math.round(c.wind_speed_10m)} mph</p>
+      </div>
+      <div class="wx-grid">${days}</div>
+    `;
+  } catch (err) {
+    el.innerHTML = `<h2>Branson weather</h2><div class="warn">Weather is offline right now. Try again in a minute.</div>`;
+  }
+}
+
+async function loadWelcome() {
+  let stay = null;
+  try {
+    const data = await fetch(GUEST_API, { cache: "no-store" }).then((r) => r.json());
+    stay = matchStay(data.in_house || [], slug);
+  } catch (e) {}
+  renderWelcome(stay);
+}
+
+function loadQR() {
+  const payload = encodeURIComponent("Summers Vacations\nBrian 314-565-0589\nsummersvacationsllc@gmail.com\nEmergency 911");
+  document.getElementById("qr").innerHTML =
+    `<img alt="Contact QR" src="https://api.qrserver.com/v1/create-qr-code/?size=84x84&data=${payload}">`;
+}
+
+function buildDots() {
+  const labels = ["Welcome", "Rules", "Today", "Weather"];
+  document.getElementById("dots").innerHTML = labels.map((name, i) =>
+    `<button class="dot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="${name}"></button>`
+  ).join("");
+  document.querySelectorAll(".dot").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goTo(Number(btn.getAttribute("data-i")));
+    });
+  });
+}
+
+function bindNav() {
+  document.getElementById("edge-l").addEventListener("click", () => goTo(screenIndex - 1));
+  document.getElementById("edge-r").addEventListener("click", () => goTo(screenIndex + 1));
+  let startX = 0;
+  document.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener("touchend", (e) => {
+    const dx = startX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 60) goTo(screenIndex + (dx > 0 ? 1 : -1));
+  }, { passive: true });
+}
+
+async function bootUnit() {
+  renderRules();
+  await Promise.all([loadWelcome(), loadWeather(), loadBrief()]);
+}
+
+function scheduleRefresh() {
+  setInterval(() => {
+    loadWelcome();
+    loadWeather();
+    loadBrief();
+  }, 15 * 60 * 1000);
+  const tick = () => {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Chicago", hour: "numeric", minute: "numeric", hour12: false
+    }).formatToParts(new Date());
+    const hh = Number(parts.find((p) => p.type === "hour").value);
+    const mm = Number(parts.find((p) => p.type === "minute").value);
+    if (hh === 6 && mm < 2) loadBrief();
+  };
+  setInterval(tick, 60 * 1000);
+}
+
+function init() {
+  buildDots();
+  bindNav();
+  loadQR();
+  bumpIdle();
+  renderPicker();
+  if (!slug) {
+    document.getElementById("picker").classList.add("on");
+    return;
+  }
+  bootUnit();
+  scheduleRefresh();
+}
+init();
+</script>
+</body>
+</html>
