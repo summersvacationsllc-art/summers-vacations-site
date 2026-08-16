@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Branson Guide">
+<meta name="apple-mobile-web-app-title" content="Summers Guide">
 <meta name="theme-color" content="#0284c7">
 <title>Summers Vacations · Guest Tablet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,32 +53,33 @@
   .hero {
     background: linear-gradient(135deg,#0ea5e9,#0284c7);
     color: #fff;
-    border-radius: 16px;
-    padding: 1.15rem 1.15rem 1.25rem;
+    border-radius: 22px;
+    padding: 1.4rem 1.3rem 1.65rem;
     margin-bottom: 1rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 12px 32px -16px rgba(2,132,199,.55);
   }
   .hero::after {
-    content: "☀️";
+    content: "🏡";
     position: absolute;
-    right: .4rem;
-    bottom: -.4rem;
-    font-size: 4.2rem;
-    opacity: .12;
+    right: .3rem;
+    bottom: -.5rem;
+    font-size: 5rem;
+    opacity: .14;
   }
   .eyebrow {
     font-size: .72rem;
-    letter-spacing: .12em;
+    letter-spacing: .14em;
     text-transform: uppercase;
     font-weight: 700;
-    opacity: .9;
+    opacity: .92;
   }
   h1 {
     font-family: "DM Serif Display", Georgia, serif;
-    font-size: clamp(1.55rem, 6vw, 2.05rem);
-    line-height: 1.15;
-    margin: .2rem 0 .45rem;
+    font-size: clamp(1.95rem, 7.5vw, 2.7rem);
+    line-height: 1.05;
+    margin: .35rem 0 .55rem;
   }
   h2 {
     font-family: "DM Serif Display", Georgia, serif;
@@ -89,16 +90,17 @@
   h3 {
     font-family: "DM Serif Display", Georgia, serif;
     color: var(--ink);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     margin-bottom: .4rem;
   }
+  p { font-size: 1rem; color: var(--ink); }
   .hero p { color: #fff; font-size: 1rem; opacity: .95; }
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 1rem 1.05rem;
-    margin-bottom: .75rem;
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    margin-bottom: .8rem;
   }
   .wifi-val {
     font-size: 1.18rem;
@@ -106,7 +108,7 @@
     color: var(--ink);
     word-break: break-word;
   }
-  .label { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
+  .label { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--link); }
   .btn {
     display: block;
     width: 100%;
@@ -115,60 +117,63 @@
     background: linear-gradient(135deg,#0ea5e9,#0284c7);
     color: #fff;
     font-weight: 700;
-    padding: .95rem 1rem;
-    border-radius: 12px;
-    margin-top: .65rem;
-    font-size: 1.02rem;
+    padding: 1rem 1rem;
+    border-radius: 14px;
+    margin-top: .7rem;
+    font-size: 1.05rem;
+    box-shadow: 0 10px 24px -14px rgba(2,132,199,.6);
   }
   .btn.ghost {
     background: #fff;
     color: var(--link);
     border: 1.5px solid var(--line);
+    box-shadow: none;
   }
   ul.rules { list-style: none; }
   ul.rules li {
-    padding: .55rem 0 .55rem 1.7rem;
+    padding: .6rem 0 .6rem 1.85rem;
     position: relative;
     border-bottom: 1px solid #e0f2fe;
     font-size: .98rem;
     color: var(--ink);
   }
   ul.rules li:last-child { border-bottom: 0; }
-  ul.rules li::before { content: "✓"; position: absolute; left: 0; color: var(--sky-dark); font-weight: 700; }
+  ul.rules li::before { content: "✓"; position: absolute; left: 0; top: .55rem; color: var(--sky-dark); font-weight: 700; }
   .checkout {
     background: #fef2f2;
     border: 1px solid #fecaca;
-    border-radius: 12px;
-    padding: .85rem 1rem;
+    border-radius: 14px;
+    padding: .9rem 1.05rem;
     color: var(--danger);
     font-weight: 700;
-    margin-bottom: .75rem;
+    margin-bottom: .8rem;
   }
-  .step { margin: .65rem 0; font-size: .96rem; color: var(--ink); }
-  iframe#brief {
-    width: 100%;
-    height: calc(100vh - 10.5rem);
-    border: 0;
+  .step { margin: .6rem 0; font-size: .98rem; color: var(--ink); }
+  .forecast {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+  }
+  .forecast.less { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .fx-day {
+    background: linear-gradient(180deg,#f0f9ff,#ffffff);
+    border: 1px solid var(--line);
     border-radius: 14px;
+    padding: .85rem .35rem;
+    text-align: center;
+  }
+  .fx-day .ico { font-size: 1.6rem; }
+  .fx-day .hi { font-weight: 700; color: var(--ink); font-size: 1.05rem; }
+  .fx-day .lo { color: var(--link); font-size: .82rem; }
+  .fx-day .date { color: var(--link); font-size: .78rem; margin-bottom: .15rem; }
+  iframe#map, iframe#guide {
+    width: 100%;
+    height: calc(100vh - 10rem);
+    border: 0;
+    border-radius: 16px;
     background: #fff;
     box-shadow: 0 0 0 1px var(--line);
   }
-  .wx-now { font-size: 2.6rem; font-weight: 700; color: var(--ink); line-height: 1; }
-  .wx-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: .45rem;
-  }
-  .wx-day {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: .7rem .3rem;
-    text-align: center;
-  }
-  .wx-day .ico { font-size: 1.45rem; }
-  .wx-day .hi { font-weight: 700; color: var(--ink); }
-  .wx-day .lo { color: var(--link); font-size: .85rem; }
   .chrome {
     position: fixed;
     left: 0; right: 0; bottom: 0;
@@ -239,12 +244,15 @@
 
 <div id="deck">
   <section class="screen" id="welcome"></section>
-  <section class="screen" id="rules"></section>
-  <section class="screen" id="brief-screen">
-    <h2>Today in Branson</h2>
-    <iframe id="brief" title="Branson morning brief"></iframe>
+  <section class="screen" id="wifi"></section>
+  <section class="screen" id="guide-screen">
+    <h2>House guide</h2>
+    <iframe id="guide" title="Digital guidebook"></iframe>
   </section>
-  <section class="screen" id="weather"></section>
+  <section class="screen" id="map-screen">
+    <h2>Around Branson</h2>
+    <iframe id="map" title="Branson map"></iframe>
+  </section>
 </div>
 
 <div class="edge left" id="edge-l"></div>
@@ -303,7 +311,7 @@ const UNITS = {
 
 const BOOK_URL = "https://branson-condo.com";
 const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
-const REPORTS = "https://www.mybransonvacation.com/reports";
+const MAP_URL = "https://www.mybransonvacation.com/map";
 const STORE = "sv-kiosk-unit";
 
 function qs(name) {
@@ -351,25 +359,17 @@ function wxIcon(code) {
   if (code >= 95) return "⛈️";
   return "🌡️";
 }
-function wxLabel(code) {
-  const map = {
-    0: "Clear sky", 1: "Mostly sunny", 2: "Partly cloudy", 3: "Overcast",
-    45: "Fog", 48: "Icy fog", 51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
-    61: "Light rain", 63: "Rain", 65: "Heavy rain", 71: "Light snow", 73: "Snow",
-    75: "Heavy snow", 80: "Showers", 81: "Rain showers", 82: "Downpours",
-    95: "Thunderstorm", 96: "Storm + hail", 99: "Severe hail"
-  };
-  return map[code] || "Branson weather";
-}
 
 let slug = resolveSlug();
 let screenIndex = 0;
 const SCREEN_COUNT = 4;
 let idleTimer = null;
+let stayCache = null;
+let forecastCache = null;
 
 function goTo(i) {
   screenIndex = Math.max(0, Math.min(i, SCREEN_COUNT - 1));
-  document.getElementById("deck").style.transform = "translateX(-" + (screenIndex * 25) + "%)";
+  document.getElementById("deck").style.transform = "translateX(-" + (screenIndex * (100 / SCREEN_COUNT)) + "%)";
   document.querySelectorAll(".dot").forEach((el, n) => el.classList.toggle("on", n === screenIndex));
   bumpIdle();
 }
@@ -393,113 +393,87 @@ function renderPicker() {
   });
 }
 
+function buildForecast(stay) {
+  if (!forecastCache || !forecastCache.daily) return "";
+  const daily = forecastCache.daily;
+  const todayISO = ctDate();
+  let startIdx = daily.time.findIndex((t) => t >= todayISO);
+  if (startIdx < 0) startIdx = 0;
+  let endIdx = daily.time.length - 1;
+  if (stay && stay.check_out) {
+    const outIdx = daily.time.indexOf(stay.check_out);
+    if (outIdx >= 0) endIdx = Math.max(outIdx, startIdx);
+  }
+  const span = daily.time.slice(startIdx, endIdx + 1).slice(0, 6);
+  if (!span.length) return "";
+  const cards = span.map((iso, k) => {
+    const i = startIdx + k;
+    const label = k === 0 ? "Today" : new Date(iso + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
+    return `<div class="fx-day">
+      <div class="date">${prettyDate(iso)}</div>
+      <div class="ico">${wxIcon(daily.weather_code[i])}</div>
+      <div class="hi">${Math.round(daily.temperature_2m_max[i])}°</div>
+      <div class="lo">${Math.round(daily.temperature_2m_min[i])}°</div>
+      <div class="lo">${daily.precipitation_probability_max[i]}%</div>
+    </div>`;
+  }).join("");
+  return `<div class="forecast${span.length <= 3 ? " less" : ""}">${cards}</div>`;
+}
+
 function renderWelcome(stay) {
   const unit = UNITS[slug];
   const vacant = !stay;
-  const greet = vacant
-    ? `Welcome to ${unit.name}`
-    : `Hello, ${firstName(stay.guest)}`;
-  const dates = vacant
-    ? "This home is between stays. Wi-Fi below is for this unit."
-    : `${prettyDate(stay.check_in)} → ${prettyDate(stay.check_out)} · ${stay.nights || ""} night${stay.nights === 1 ? "" : "s"}`;
-  const party = stay && stay.guests ? `<p>${stay.guests} guests</p>` : "";
+  const name = vacant ? `Welcome to ${unit.name}` : `${firstName(stay.guest)}, your vacation forecast`;
+  const sub = vacant
+    ? "This home is between stays. Your stay forecast will appear here on arrival day."
+    : `${prettyDate(stay.check_in)} to ${prettyDate(stay.check_out)}`;
+  const party = stay && stay.guests ? `${stay.guests} ${stay.guests === 1 ? "guest" : "guests"} · ${stay.nights || ""} night${stay.nights === 1 ? "" : "s"}` : "";
   document.getElementById("welcome").innerHTML = `
     <div class="hero">
-      <div class="eyebrow">${unit.name}</div>
-      <h1>${greet}</h1>
-      <p>${dates}</p>
-      ${party}
+      <div class="eyebrow">${unit.name} · Summers Vacations</div>
+      <h1>${name}</h1>
+      <p>${sub}</p>
+      ${party ? `<p>${party}</p>` : ""}
     </div>
-    <div class="card">
-      <div class="label">Wi-Fi</div>
-      <h3>Network</h3>
-      <div class="wifi-val">${unit.network}</div>
-      <h3 style="margin-top:.7rem">Password</h3>
-      <div class="wifi-val">${unit.password}</div>
-    </div>
-    <a class="btn" href="${BOOK_URL}" target="_blank" rel="noopener">Save 10% on Branson plans</a>
-    <a class="btn ghost" href="https://www.mybransonvacation.com/guidebook/${unit.guidebook}" target="_blank" rel="noopener">Open full house guide</a>
+    ${vacant
+      ? `<div class="card"><div class="label">Stay forecast</div><p style="margin-top:.35rem">${buildForecast(null) || '<div class="warn">Forecast loads on arrival day.</div>'}</p></div>`
+      : `<div class="card"><div class="label">Your vacation forecast</div><h3 style="margin-top:.2rem">${prettyDate(stay.check_in)} → ${prettyDate(stay.check_out)}</h3>${buildForecast(stay) || '<div class="warn" style="margin-top:.5rem">Forecast loading…</div>'}</div>`}
+    <a class="btn" href="${MAP_URL}" target="_blank" rel="noopener">Explore Branson</a>
   `;
 }
 
-function renderRules() {
+function renderWifi() {
   const unit = UNITS[slug];
-  const dishes = unit.isHaven
-    ? "Start the dishwasher on any remaining dishes."
-    : "Hand wash and dry remaining dishes. Staff will put them away.";
-  const towels = unit.isHaven
-    ? "Used towels go on the downstairs front bathroom shower floor."
-    : "Used towels go on the hallway bathroom shower floor.";
-  const trash = unit.isHaven
-    ? "Take all trash to the dumpster."
-    : "Take all trash to the dumpster in front of the building, to the left.";
-  document.getElementById("rules").innerHTML = `
-    <h2>House rules</h2>
+  document.getElementById("wifi").innerHTML = `
+    <h2>Wi-Fi & quick start</h2>
     <div class="card">
-      <ul class="rules">
-        <li>Private community — keep noise down 10 PM to 8 AM</li>
+      <div class="label">Network</div>
+      <h3>${unit.network}</h3>
+      <div class="label" style="margin-top:.7rem">Password</div>
+      <h3>${unit.password}</h3>
+    </div>
+    <div class="card">
+      <div class="label">House rules</div>
+      <ul class="rules" style="margin-top:.35rem">
+        <li>Quiet hours 10 PM – 8 AM (private community)</li>
+        <li>No smoking or vaping inside, on decks, or by the pool — parking lot only</li>
         <li>No parties, events, or unregistered guests</li>
-        <li>No smoking or vaping inside, on decks, walkways, pool, or playground. Parking lot / street only (HOA)</li>
-        <li>No pets</li>
-        <li>No open flame or candles</li>
-        <li>No food or drink in bedrooms</li>
-        <li>Towels stay in the condo — do not take bath towels to the pool</li>
-        <li>Pool 8 AM – 10 PM. No glass. Kids supervised. No diving or running</li>
+        <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
+        <li>Towels stay in the condo</li>
         <li>Tell us right away if something breaks</li>
       </ul>
     </div>
     <div class="checkout">Check-out is 10:00 AM — all units</div>
-    <div class="card">
-      <h3>Before you leave</h3>
-      <div class="step">🛏️ Leave beds unmade. If you used the sleeper, leave the cushions off.</div>
-      <div class="step">🛁 ${towels}</div>
-      <div class="step">🗑️ ${trash}</div>
-      <div class="step">🍽️ ${dishes}</div>
-      <div class="step">💡 Turn off stove, heater, lights, and electronics.</div>
-      <div class="step">🪑 Move furniture back. Lock every door and window.</div>
-    </div>
   `;
 }
 
-async function loadBrief() {
-  const frame = document.getElementById("brief");
-  let day = ctDate();
+async function loadForecast() {
+  const url = "https://api.open-meteo.com/v1/forecast?latitude=36.6509&longitude=-93.3691&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&timezone=America%2FChicago&forecast_days=14";
   try {
-    const man = await fetch(REPORTS + "/manifest.json", { cache: "no-store" }).then((r) => r.json());
-    if (man && man.latest) day = man.latest;
-  } catch (e) {}
-  frame.src = REPORTS + "/" + day + ".html";
-}
-
-async function loadWeather() {
-  const el = document.getElementById("weather");
-  try {
-    const url = "https://api.open-meteo.com/v1/forecast?latitude=36.6509&longitude=-93.3691&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FChicago&forecast_days=4";
-    const data = await fetch(url).then((r) => r.json());
-    const c = data.current;
-    const d = data.daily;
-    const days = d.time.map((iso, i) => {
-      const label = i === 0 ? "Today" : new Date(iso + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
-      return `<div class="wx-day">
-        <div class="ico">${wxIcon(d.weather_code[i])}</div>
-        <div><strong>${label}</strong></div>
-        <div class="hi">${Math.round(d.temperature_2m_max[i])}°</div>
-        <div class="lo">${Math.round(d.temperature_2m_min[i])}°</div>
-        <div class="lo">${d.precipitation_probability_max[i]}%</div>
-      </div>`;
-    }).join("");
-    el.innerHTML = `
-      <h2>Branson weather</h2>
-      <div class="card">
-        <div class="label">Now</div>
-        <div class="wx-now">${Math.round(c.temperature_2m)}°</div>
-        <p style="margin:.35rem 0 .15rem">${wxIcon(c.weather_code)} ${wxLabel(c.weather_code)}</p>
-        <p>Humidity ${c.relative_humidity_2m}% · Wind ${Math.round(c.wind_speed_10m)} mph</p>
-      </div>
-      <div class="wx-grid">${days}</div>
-    `;
-  } catch (err) {
-    el.innerHTML = `<h2>Branson weather</h2><div class="warn">Weather is offline right now. Try again in a minute.</div>`;
+    const data = await fetch(url, { cache: "no-store" }).then((r) => r.json());
+    forecastCache = data;
+  } catch (e) {
+    forecastCache = null;
   }
 }
 
@@ -509,7 +483,16 @@ async function loadWelcome() {
     const data = await fetch(GUEST_API, { cache: "no-store" }).then((r) => r.json());
     stay = matchStay(data.in_house || [], slug);
   } catch (e) {}
+  stayCache = stay;
   renderWelcome(stay);
+}
+
+function loadGuide() {
+  const unit = UNITS[slug];
+  document.getElementById("guide").src = "https://www.mybransonvacation.com/guidebook/" + unit.guidebook;
+}
+function loadMap() {
+  document.getElementById("map").src = MAP_URL;
 }
 
 function loadQR() {
@@ -519,7 +502,7 @@ function loadQR() {
 }
 
 function buildDots() {
-  const labels = ["Welcome", "Rules", "Today", "Weather"];
+  const labels = ["Welcome", "Wi-Fi", "Guide", "Map"];
   document.getElementById("dots").innerHTML = labels.map((name, i) =>
     `<button class="dot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="${name}"></button>`
   ).join("");
@@ -543,25 +526,18 @@ function bindNav() {
 }
 
 async function bootUnit() {
-  renderRules();
-  await Promise.all([loadWelcome(), loadWeather(), loadBrief()]);
+  renderWifi();
+  loadGuide();
+  loadMap();
+  await Promise.all([loadWelcome(), loadForecast()]);
+  renderWelcome(stayCache);
 }
 
 function scheduleRefresh() {
   setInterval(() => {
     loadWelcome();
-    loadWeather();
-    loadBrief();
+    loadForecast().then(() => renderWelcome(stayCache));
   }, 15 * 60 * 1000);
-  const tick = () => {
-    const parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/Chicago", hour: "numeric", minute: "numeric", hour12: false
-    }).formatToParts(new Date());
-    const hh = Number(parts.find((p) => p.type === "hour").value);
-    const mm = Number(parts.find((p) => p.type === "minute").value);
-    if (hh === 6 && mm < 2) loadBrief();
-  };
-  setInterval(tick, 60 * 1000);
 }
 
 function init() {
