@@ -44,6 +44,13 @@
   box-shadow: 0 12px 24px rgba(14, 165, 233, 0.45);
 }
 
+.sv-pin-stay {
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  box-shadow: 0 10px 22px rgba(245, 158, 11, 0.4);
+}
+
 .sv-tooltip {
   background: #0c4a6e !important;
   color: #fff !important;

@@ -1,4 +1,4 @@
-export type MapCategory = "webcam" | "marina" | "attraction" | "show";
+export type MapCategory = "stay" | "webcam" | "marina" | "attraction" | "show";
 
 export type MapSpot = {
   id: string;
@@ -23,6 +23,7 @@ export const MAP_CATEGORIES: {
   color: string;
 }[] = [
   { id: "all", label: "All", emoji: "🗺️", color: "#0ea5e9" },
+  { id: "stay", label: "Our stays", emoji: "🏡", color: "#f59e0b" },
   { id: "webcam", label: "Live cams", emoji: "📹", color: "#22d3ee" },
   { id: "marina", label: "Marinas", emoji: "⚓", color: "#14b8a6" },
   { id: "attraction", label: "Attractions", emoji: "🎢", color: "#0ea5e9" },
@@ -33,6 +34,7 @@ export const MAP_CATEGORY_META: Record<
   MapCategory,
   { label: string; emoji: string; color: string }
 > = {
+  stay: { label: "Our stay", emoji: "🏡", color: "#f59e0b" },
   webcam: { label: "Live cam", emoji: "📹", color: "#22d3ee" },
   marina: { label: "Marina", emoji: "⚓", color: "#14b8a6" },
   attraction: { label: "Attraction", emoji: "🎢", color: "#0ea5e9" },
@@ -40,6 +42,34 @@ export const MAP_CATEGORY_META: Record<
 };
 
 export const BRANSON_MAP_SPOTS: MapSpot[] = [
+  // ── Our stays (neighborhood only — never exact unit addresses) ──
+  {
+    id: "stays-branson-west",
+    name: "Our Branson West condos",
+    venue: "Notch Estates area · Branson West",
+    category: "stay",
+    lat: 36.712,
+    lng: -93.361,
+    description:
+      "Six condos in the Notch Estates neighborhood — Penthouse, Rustic Ozark, Woodland Retreat, Modern Charmer, Pretty Peacock, and Double Condo. Pin is the area, not a door.",
+    href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_west",
+    cta: "Book these stays",
+    ourPath: "/map?spot=stays-branson-west",
+  },
+  {
+    id: "stays-indian-point",
+    name: "Branson Family Haven",
+    venue: "Indian Point · near Table Rock & Silver Dollar City",
+    category: "stay",
+    lat: 36.645,
+    lng: -93.343,
+    description:
+      "Our 5-bedroom house for the whole crew — yard, fire pit, and a short hop to the lake and SDC. Pin is the neighborhood, not the driveway.",
+    href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_haven",
+    cta: "Book this house",
+    ourPath: "/map?spot=stays-indian-point",
+  },
+
   // ── Webcams ──────────────────────────────────────────
   {
     id: "landing-cam",

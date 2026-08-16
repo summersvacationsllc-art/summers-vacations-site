@@ -25,12 +25,14 @@ import "./map.css";
 
 function pinIcon(spot: MapSpot, active: boolean) {
   const meta = MAP_CATEGORY_META[spot.category];
+  const stay = spot.category === "stay";
+  const size = stay ? 44 : 38;
   return L.divIcon({
     className: "",
-    iconSize: [38, 38],
-    iconAnchor: [19, 38],
-    tooltipAnchor: [0, -40],
-    html: `<div class="sv-pin${active ? " is-active" : ""}" style="background:${meta.color}">${meta.emoji}</div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size],
+    tooltipAnchor: [0, -size],
+    html: `<div class="sv-pin${active ? " is-active" : ""}${stay ? " sv-pin-stay" : ""}" style="background:${meta.color}">${meta.emoji}</div>`,
   });
 }
 
