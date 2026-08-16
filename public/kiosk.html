@@ -50,6 +50,72 @@
     -webkit-overflow-scrolling: touch;
     padding: 1rem 1rem 7.25rem;
   }
+  #welcome.screen {
+    padding: 0;
+    overflow: hidden;
+    background: #042033;
+  }
+  .cover {
+    position: relative;
+    height: 100%;
+    background: #042033 url("/kiosk/hero.jpg") 68% 42%/cover no-repeat;
+    color: #fff;
+  }
+  .cover::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(2,20,36,.78) 0%,
+      rgba(2,20,36,.28) 28%,
+      rgba(2,20,36,.08) 48%,
+      rgba(2,20,36,.55) 72%,
+      rgba(2,20,36,.9) 100%);
+  }
+  .cover-top, .cover-bottom { position: relative; z-index: 1; }
+  .cover-top { padding: 1.15rem 1.15rem 0; }
+  .cover-bottom {
+    position: absolute;
+    left: 1.15rem; right: 1.15rem;
+    bottom: 6.6rem;
+  }
+  .brand {
+    display: inline-block;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #fff;
+    background: rgba(2,132,199,.88);
+    border: 1px solid rgba(125,211,252,.55);
+    border-radius: 999px;
+    padding: .38rem .75rem .4rem;
+    margin-bottom: .7rem;
+  }
+  .cover h1 {
+    color: #fff;
+    font-size: clamp(2.3rem, 10vw, 3.5rem);
+    line-height: .94;
+    margin: .35rem 0 .45rem;
+    text-shadow: 0 8px 28px rgba(0,0,0,.4);
+  }
+  .cover h1 em { font-style: italic; color: #7dd3fc; }
+  .cover .lede { color: #fff; font-size: 1.05rem; max-width: 22rem; opacity: .95; }
+  .cover .days {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .4rem;
+  }
+  .cover .day {
+    background: rgba(255,255,255,.14);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 12px;
+    padding: .65rem .2rem;
+    text-align: center;
+    color: #fff;
+    font: inherit;
+  }
+  .cover .day b { display: block; font-size: 1.05rem; }
+  .cover .day span { font-size: .7rem; opacity: .9; }
   .hero {
     background: linear-gradient(135deg,#0ea5e9,#0284c7);
     color: #fff;
@@ -404,41 +470,37 @@ function buildForecast(stay) {
     const outIdx = daily.time.indexOf(stay.check_out);
     if (outIdx >= 0) endIdx = Math.max(outIdx, startIdx);
   }
-  const span = daily.time.slice(startIdx, endIdx + 1).slice(0, 6);
+  const span = daily.time.slice(startIdx, endIdx + 1).slice(0, 4);
   if (!span.length) return "";
-  const cards = span.map((iso, k) => {
+  return span.map((iso, k) => {
     const i = startIdx + k;
-    const label = k === 0 ? "Today" : new Date(iso + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
-    return `<div class="fx-day">
-      <div class="date">${prettyDate(iso)}</div>
-      <div class="ico">${wxIcon(daily.weather_code[i])}</div>
-      <div class="hi">${Math.round(daily.temperature_2m_max[i])}°</div>
-      <div class="lo">${Math.round(daily.temperature_2m_min[i])}°</div>
-      <div class="lo">${daily.precipitation_probability_max[i]}%</div>
-    </div>`;
+    const label = k === 0 ? "Now" : new Date(iso + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
+    return `<div class="day"><span>${label}</span><b>${wxIcon(daily.weather_code[i])} ${Math.round(daily.temperature_2m_max[i])}°</b></div>`;
   }).join("");
-  return `<div class="forecast${span.length <= 3 ? " less" : ""}">${cards}</div>`;
 }
 
 function renderWelcome(stay) {
   const unit = UNITS[slug];
   const vacant = !stay;
-  const name = vacant ? `Welcome to ${unit.name}` : `${firstName(stay.guest)}, your vacation forecast`;
-  const sub = vacant
-    ? "This home is between stays. Your stay forecast will appear here on arrival day."
-    : `${prettyDate(stay.check_in)} to ${prettyDate(stay.check_out)}`;
-  const party = stay && stay.guests ? `${stay.guests} ${stay.guests === 1 ? "guest" : "guests"} · ${stay.nights || ""} night${stay.nights === 1 ? "" : "s"}` : "";
+  const headline = vacant
+    ? `This is why<br>they <em>come</em>.`
+    : `${firstName(stay.guest)},<br>this is why<br>you <em>came</em>.`;
+  const lede = vacant
+    ? `${unit.name} is between stays. The Ozarks are still out there.`
+    : `Ozarks under the track. Sun in the loops. ${prettyDate(stay.check_in)} to ${prettyDate(stay.check_out)}.`;
+  const days = buildForecast(stay) || `<div class="day"><span>Stay</span><b>Forecast…</b></div>`;
   document.getElementById("welcome").innerHTML = `
-    <div class="hero">
-      <div class="eyebrow">${unit.name} · Summers Vacations</div>
-      <h1>${name}</h1>
-      <p>${sub}</p>
-      ${party ? `<p>${party}</p>` : ""}
+    <div class="cover">
+      <div class="cover-top">
+        <div class="brand">mybransonvacation.com</div>
+        <div class="eyebrow">${unit.name} · Branson</div>
+        <h1>${headline}</h1>
+        <p class="lede">${lede}</p>
+      </div>
+      <div class="cover-bottom">
+        <div class="days">${days}</div>
+      </div>
     </div>
-    ${vacant
-      ? `<div class="card"><div class="label">Stay forecast</div><p style="margin-top:.35rem">${buildForecast(null) || '<div class="warn">Forecast loads on arrival day.</div>'}</p></div>`
-      : `<div class="card"><div class="label">Your vacation forecast</div><h3 style="margin-top:.2rem">${prettyDate(stay.check_in)} → ${prettyDate(stay.check_out)}</h3>${buildForecast(stay) || '<div class="warn" style="margin-top:.5rem">Forecast loading…</div>'}</div>`}
-    <a class="btn" href="${MAP_URL}" target="_blank" rel="noopener">Explore Branson</a>
   `;
 }
 
