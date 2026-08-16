@@ -148,6 +148,7 @@ export default function Home() {
               { label: "Stays", href: "#stays" },
               { label: "Why Us", href: "#why-us" },
               { label: "Adventures", href: "#adventures" },
+              { label: "Map", href: "/map" },
               { label: "Photos", href: "#photos" },
               { label: "Reviews", href: "#reviews" },
               { label: "Contact", href: "#contact" },
@@ -188,6 +189,7 @@ export default function Home() {
               { label: "Stays", href: "#stays" },
               { label: "Why Us", href: "#why-us" },
               { label: "Adventures", href: "#adventures" },
+              { label: "Map", href: "/map" },
               { label: "Photos", href: "#photos" },
               { label: "Reviews", href: "#reviews" },
               { label: "Contact", href: "#contact" },
@@ -636,6 +638,13 @@ export default function Home() {
               lines, catch a show, then crash on your porch. We&apos;ll help you
               plan it.
             </p>
+            <a
+              href="/map"
+              className="inline-flex items-center gap-2 mt-5 text-sm font-bold text-[#0369a1] no-underline hover:underline"
+            >
+              Open the live map — cams, shows & lake
+              <ArrowRight size={16} />
+            </a>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
