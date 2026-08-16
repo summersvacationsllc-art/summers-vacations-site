@@ -2,6 +2,39 @@
   "updated": "2026-08-16",
   "restaurants": [
     {
+      "name": "Steamy Joe Cafe",
+      "cuisine": "Breakfast • Cafe",
+      "price": "$$",
+      "tag": "Brian's favorite",
+      "desc": "Family-owned cafe at The Bradford — breakfast, brunch, lunch, espresso, and an Ozark view. Open daily 7am–2pm.",
+      "url": "https://steamyjoe.com/",
+      "venue": "3590 State Hwy 265 · The Bradford",
+      "lat": 36.65102,
+      "lng": -93.31748
+    },
+    {
+      "name": "Ozark Mountain Pizza",
+      "cuisine": "Pizza",
+      "price": "$$",
+      "tag": "Brian's favorite",
+      "desc": "Hand-tossed pizza on Hwy 265 — easy family dinner on the way to Indian Point / SDC.",
+      "url": "https://ozarkmtpizza.com/",
+      "venue": "5378 State Hwy 265",
+      "lat": 36.66977,
+      "lng": -93.32717
+    },
+    {
+      "name": "Farmhouse Restaurant",
+      "cuisine": "Home-style • Breakfast",
+      "price": "$$",
+      "tag": "Brian's favorite",
+      "desc": "Downtown Main Street classic since 1976 — biscuits, gravy, and a short walk to the Landing.",
+      "url": "https://www.farmhouserestaurantbranson.com/",
+      "venue": "119 W Main St · by the Landing",
+      "lat": 36.64419,
+      "lng": -93.21727
+    },
+    {
       "name": "White River Fish House",
       "cuisine": "Lakeside • American",
       "price": "$$",

@@ -21,9 +21,15 @@ from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[1]
 DINING = SITE / "public" / "reports" / "dining-data.json"
+SHOWS = SITE / "public" / "reports" / "shows-data.json"
+VENUES = SITE / "public" / "reports" / "map-venues.json"
 FOOD_DIR = Path(
     os.environ.get("FOOD_SCOUT_DIR")
     or str(Path.home() / "projects" / "branson-content-engine" / "data" / "food")
+)
+SHOWS_DIR = Path(
+    os.environ.get("SHOWS_SCOUT_DIR")
+    or str(Path.home() / "projects" / "branson-content-engine" / "data" / "shows")
 )
 
 # Reject geocodes that land outside greater Branson / Table Rock.
@@ -218,7 +224,101 @@ def main() -> int:
             f"no dining map changes (food={'missing' if not food else food.name} "
             f"existing={len(restaurants)})"
         )
+
+    sync_show_venues()
     return 0
+
+
+VENUE_SEEDS = {
+    "clay cooper theatre": (36.63733, -93.27964, "3216 W 76 Country Blvd"),
+    "clay cooper theater": (36.63733, -93.27964, "3216 W 76 Country Blvd"),
+    "king s castle theatre": (36.64044, -93.26808, "2701 W 76 Country Blvd"),
+    "kings castle theatre": (36.64044, -93.26808, "2701 W 76 Country Blvd"),
+    "shepherd of the hills": (36.667, -93.30589, "5586 W 76 Country Blvd"),
+    "pepsi legends theater": (36.64151, -93.24753, "1600 W 76 Country Blvd"),
+    "legends in concert": (36.64151, -93.24753, "1600 W 76 Country Blvd"),
+    "presleys country jubilee": (36.64035, -93.24015, "1209 W 76 Country Blvd"),
+    "presley s country jubilee": (36.64035, -93.24015, "1209 W 76 Country Blvd"),
+    "hamners theater": (36.65395, -93.27957, "3090 Shepherd of the Hills Expwy"),
+    "hamners theatre": (36.65395, -93.27957, "3090 Shepherd of the Hills Expwy"),
+    "hamners magic": (36.65395, -93.27957, "3090 Shepherd of the Hills Expwy"),
+    "moon river theatre": (36.6401, -93.2658, "2500 W 76 Country Blvd"),
+    "dutton family theater": (36.64244, -93.28687, "3454 W 76 Country Blvd"),
+    "sight sound": (36.6654, -93.26219, "1001 Shepherd of the Hills Expwy"),
+    "hughes brothers theatre": (36.64046, -93.28431, "3425 W 76 Country Blvd"),
+    "baldknobbers": (36.63854, -93.27153, "2835 W 76 Country Blvd"),
+    "grand shanghai theatre": (36.64161, -93.28505, "3455 W 76 Country Blvd"),
+    "grand shanghai theater": (36.64161, -93.28505, "3455 W 76 Country Blvd"),
+    "reza live theatre": (36.63218, -93.28011, "645 State Hwy 165"),
+    "reza live theater": (36.63218, -93.28011, "645 State Hwy 165"),
+}
+
+
+def venue_key(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", (name or "").lower()).strip()
+
+
+def load_venues() -> dict:
+    if VENUES.exists():
+        try:
+            return json.loads(VENUES.read_text())
+        except Exception:
+            pass
+    return {"updated": "", "venues": {}}
+
+
+def lookup_venue(cache: dict, name: str) -> dict | None:
+    key = venue_key(name)
+    venues = cache.get("venues") or {}
+    if key in venues:
+        return venues[key]
+    for k, v in VENUE_SEEDS.items():
+        if k in key or key in k:
+            lat, lng, addr = v
+            return {"lat": lat, "lng": lng, "address": addr}
+    for k, v in venues.items():
+        if k and (k in key or key in k):
+            return v
+    return None
+
+
+def sync_show_venues() -> None:
+    if not SHOWS.exists():
+        print("no shows-data.json — skip show venue sync")
+        return
+    shows_data = json.loads(SHOWS.read_text())
+    shows = list(shows_data.get("shows") or [])
+    cache = load_venues()
+    venues = dict(cache.get("venues") or {})
+    stamped = 0
+    new_geo = 0
+    for show in shows:
+        venue = (show.get("venue") or "").strip()
+        if not venue or venue.lower() in ("various / dinner venue", "theater venue", "tba"):
+            continue
+        hit = lookup_venue({"venues": venues}, venue)
+        if not hit:
+            geo = geocode(venue + " Theatre")
+            if not geo:
+                geo = geocode(venue)
+            if not geo:
+                print(f"skip show venue (no geo): {venue}")
+                continue
+            lat, lng, addr = geo
+            hit = {"lat": lat, "lng": lng, "address": addr}
+            venues[venue_key(venue)] = hit
+            new_geo += 1
+            print(f"show venue: {venue} @ {lat:.5f},{lng:.5f}")
+        show["lat"] = hit["lat"]
+        show["lng"] = hit["lng"]
+        if hit.get("address"):
+            show.setdefault("venueAddress", hit["address"])
+        stamped += 1
+    cache["venues"] = venues
+    cache["updated"] = date.today().isoformat()
+    VENUES.write_text(json.dumps(cache, indent=2) + "\n")
+    SHOWS.write_text(json.dumps(shows_data, indent=2) + "\n")
+    print(f"show venues stamped={stamped} newly-geocoded={new_geo} cache={len(venues)}")
 
 
 if __name__ == "__main__":

@@ -6,28 +6,40 @@
       "time": "2:00 PM",
       "venue": "King's Castle Theatre",
       "type": "Irish Music & Dance",
-      "url": "https://www.bransonshows.com/showByDate.cfm"
+      "url": "https://www.bransonshows.com/showByDate.cfm",
+      "lat": 36.64044,
+      "lng": -93.26808,
+      "venueAddress": "2701 W 76 Country Blvd"
     },
     {
       "name": "Awesome 80's",
       "time": "2:00 PM",
       "venue": "Americana Theatre",
       "type": "80s Tribute",
-      "url": "https://www.bransonshows.com/showByDate.cfm"
+      "url": "https://www.bransonshows.com/showByDate.cfm",
+      "lat": 36.6386381,
+      "lng": -93.2735125,
+      "venueAddress": "W 76 Country Blvd Branson"
     },
     {
       "name": "Amazing Acrobats Of Shanghai",
       "time": "2:00 PM",
       "venue": "Grand Shanghai Theatre",
       "type": "Acrobatics",
-      "url": "https://www.bransonshows.com/showByDate.cfm"
+      "url": "https://www.bransonshows.com/showByDate.cfm",
+      "lat": 36.64161,
+      "lng": -93.28505,
+      "venueAddress": "3455 W 76 Country Blvd"
     },
     {
       "name": "Patsy Cline And Friends Tribute",
       "time": "5:00 PM",
       "venue": "Americana Theatre",
       "type": "Country Tribute",
-      "url": "https://www.bransonshows.com/showByDate.cfm"
+      "url": "https://www.bransonshows.com/showByDate.cfm",
+      "lat": 36.6386381,
+      "lng": -93.2735125,
+      "venueAddress": "W 76 Country Blvd Branson"
     },
     {
       "name": "Riga Tony's Branson Murder Mystery Dinner",
@@ -41,14 +53,20 @@
       "time": "7:30 PM",
       "venue": "Clay Cooper Theatre",
       "type": "Country Variety",
-      "url": "https://www.claycooper.com/"
+      "url": "https://www.claycooper.com/",
+      "lat": 36.63733,
+      "lng": -93.27964,
+      "venueAddress": "3216 W 76 Country Blvd"
     },
     {
       "name": "Shepherd of the Hills Outdoor Drama",
       "time": "7:30 PM & 8:00 PM",
       "venue": "Shepherd of the Hills",
       "type": "Outdoor Historical Drama",
-      "url": "https://www.bransonshows.com/showByDate.cfm"
+      "url": "https://www.bransonshows.com/showByDate.cfm",
+      "lat": 36.667,
+      "lng": -93.30589,
+      "venueAddress": "5586 W 76 Country Blvd"
     },
     {
       "name": "Narnia Live On Stage (Prince Caspian)",
@@ -62,28 +80,40 @@
       "time": "8:00 PM",
       "venue": "Pepsi Legends Theater",
       "type": "Celebrity Tributes",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
+      "url": "https://legendsinconcert.com/location/branson-mo/",
+      "lat": 36.64151,
+      "lng": -93.24753,
+      "venueAddress": "1600 W 76 Country Blvd"
     },
     {
       "name": "Presleys' Country Jubilee",
       "time": "8:00 PM",
       "venue": "Presleys' Country Jubilee",
       "type": "Country Comedy & Music",
-      "url": ""
+      "url": "",
+      "lat": 36.64035,
+      "lng": -93.24015,
+      "venueAddress": "1209 W 76 Country Blvd"
     },
     {
       "name": "REZA \u2014 Edge of Illusion",
       "time": "8:00 PM",
       "venue": "Reza Live Theatre",
       "type": "Magic / Illusion",
-      "url": ""
+      "url": "",
+      "lat": 36.63218,
+      "lng": -93.28011,
+      "venueAddress": "645 State Hwy 165"
     },
     {
       "name": "Hamners' Magic",
       "time": "8:00 PM",
       "venue": "Hamners' Theater",
       "type": "Magic",
-      "url": ""
+      "url": "",
+      "lat": 36.65395,
+      "lng": -93.27957,
+      "venueAddress": "3090 Shepherd of the Hills Expwy"
     }
   ],
   "freeEvents": [

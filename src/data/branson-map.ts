@@ -571,3 +571,81 @@ export function diningToMapSpot(r: {
     ourPath: `/map?spot=${diningId(r.name)}`,
   };
 }
+
+export function showVenueId(venue: string) {
+  return (
+    "show-" +
+    venue
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+  );
+}
+
+function normPlace(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function placeOverlap(a: string, b: string) {
+  const na = normPlace(a);
+  const nb = normPlace(b);
+  if (!na || !nb) return false;
+  if (na === nb || na.includes(nb) || nb.includes(na)) return true;
+  const words = na.split(" ").filter((w) => w.length > 3);
+  return words.filter((w) => nb.includes(w)).length >= 2;
+}
+
+export function showsToMapSpots(
+  shows: {
+    name: string;
+    time?: string;
+    venue?: string;
+    type?: string;
+    url?: string;
+    lat?: number;
+    lng?: number;
+    venueAddress?: string;
+  }[],
+  existing: MapSpot[],
+): MapSpot[] {
+  const byVenue = new Map<string, typeof shows>();
+  for (const s of shows) {
+    const venue = (s.venue || "").trim();
+    if (!venue) continue;
+    if (typeof s.lat !== "number" || typeof s.lng !== "number") continue;
+    const key = normPlace(venue);
+    const list = byVenue.get(key) || [];
+    list.push(s);
+    byVenue.set(key, list);
+  }
+  const out: MapSpot[] = [];
+  for (const group of byVenue.values()) {
+    const first = group[0];
+    const venue = first.venue || "Branson theatre";
+    const dup = existing.some(
+      (e) =>
+        e.category === "show" &&
+        (placeOverlap(e.name, venue) ||
+          placeOverlap(e.venue, venue) ||
+          group.some((g) => placeOverlap(e.name, g.name))),
+    );
+    if (dup) continue;
+    const lines = group
+      .map((g) => `${g.name}${g.time ? ` · ${g.time}` : ""}`)
+      .join(" · ");
+    out.push({
+      id: showVenueId(venue),
+      name: group.length === 1 ? group[0].name : venue,
+      venue,
+      category: "show",
+      lat: first.lat as number,
+      lng: first.lng as number,
+      description: lines,
+      href:
+        first.url || "https://www.mybransonvacation.com/branson",
+      cta: first.url ? "Tickets" : "See today's shows",
+      ourPath: `/map?spot=${showVenueId(venue)}`,
+    });
+  }
+  return out;
+}

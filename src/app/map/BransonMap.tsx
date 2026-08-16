@@ -17,6 +17,7 @@ import {
   MAP_CATEGORIES,
   MAP_CATEGORY_META,
   diningToMapSpot,
+  showsToMapSpots,
   type MapCategory,
   type MapSpot,
 } from "@/data/branson-map";
@@ -55,6 +56,7 @@ export default function BransonMap() {
   const [filter, setFilter] = useState<MapCategory | "all">("all");
   const [selectedId, setSelectedId] = useState<string | null>(initial);
   const [diningSpots, setDiningSpots] = useState<MapSpot[]>([]);
+  const [liveShowSpots, setLiveShowSpots] = useState<MapSpot[]>([]);
 
   useEffect(() => {
     fetch("/api/dining")
@@ -70,11 +72,18 @@ export default function BransonMap() {
         );
       })
       .catch(() => {});
+    fetch("/api/shows")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d?.ok || !Array.isArray(d.shows)) return;
+        setLiveShowSpots(showsToMapSpots(d.shows, BRANSON_MAP_SPOTS));
+      })
+      .catch(() => {});
   }, []);
 
   const allSpots = useMemo(
-    () => [...BRANSON_MAP_SPOTS, ...diningSpots],
-    [diningSpots],
+    () => [...BRANSON_MAP_SPOTS, ...diningSpots, ...liveShowSpots],
+    [diningSpots, liveShowSpots],
   );
 
   const spots = useMemo(
