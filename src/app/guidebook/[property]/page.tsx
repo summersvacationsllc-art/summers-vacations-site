@@ -1,7 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
+
+const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
 const season = (): SeasonalTheme => {
   const now = new Date();
@@ -30,7 +33,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 }) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
-  const [mode, setMode] = useState<'guest'|'branson'>('guest');
+  const [mode, setMode] = useState<'guest'|'branson'>('branson');
   const [guestCode, setGuestCode] = useState('');
   const [guestName, setGuestName] = useState('');
   const [checkin, setCheckin] = useState('');
@@ -60,7 +63,15 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       if (sp.checkout) setCheckout(sp.checkout);
       if (sp.checkintime) setCheckinTime(sp.checkintime);
       // Auto-detect mode based on checkout date
-      if (sp.checkout) { const co = new Date(sp.checkout + 'T10:00:00'); setMode(new Date() > co ? 'branson' : 'guest'); } else if (sp.checkin) { setMode('guest'); }
+      // City guidebook is the base. Property house-manual only while booked.
+      if (sp.checkout) {
+        const co = new Date(sp.checkout + 'T10:00:00');
+        setMode(new Date() > co ? 'branson' : 'guest');
+      } else if (sp.checkin) {
+        setMode('guest');
+      } else {
+        setMode('branson');
+      }
       // Fetch Guesty photos
       if (gb.guestyListingId) {
         try {
@@ -89,6 +100,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     window.addEventListener('popstate', handler);
     return () => window.removeEventListener('popstate', handler);
   }, []);
+
+  useEffect(() => {
+    if (mode === 'branson' && tab === 'guide') setTab('home');
+  }, [mode, tab]);
 
   if (!prop) return <div className="min-h-screen bg-sky-50 flex items-center justify-center"><p className="text-sky-700">Loading...</p></div>;
 
@@ -272,7 +287,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             )}
 
-            {/* Address — tap to open in maps */}
+            {/* Address — stay only (unit street, not city mode) */}
+            {mode === 'guest' && (
             <a href={`https://maps.google.com/?q=${encodeURIComponent(prop.address)}`} target="_blank" rel="noopener"
               className="block mx-3.5 mt-2 bg-white rounded-lg px-3.5 py-2.5 border border-sky-100 no-underline text-inherit">
               <div className="flex items-center gap-2">
@@ -284,9 +300,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <span className="text-sky-900 text-sm">›</span>
               </div>
             </a>
+            )}
 
             {/* Photo Gallery — auto-syncs from Guesty */}
-            {photos.length > 0 && (
+            {mode === 'guest' && photos.length > 0 && (
               <div className="mt-2.5 px-3.5">
                 <div className="overflow-x-auto flex gap-2 pb-1" style={{ scrollSnapType: 'x mandatory' }}>
                   {photos.map((url, i) => (
@@ -305,17 +322,28 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="flex gap-2"><div className="text-center text-[11px] text-sky-900"><div className="font-semibold text-sky-900">Wed</div>☀️ 89°</div><div className="text-center text-[11px] text-sky-900"><div className="font-semibold text-sky-900">Thu</div>⛅ 86°</div></div>
             </div>
 
+            {mode === 'guest' && (
             <div className="flex gap-2 px-3.5 pt-1.5">
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {wifiNote}</div><div className="text-[12px] font-bold text-sky-900 mt-0.5">{wifiVisible}</div></div>
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">Check-out</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">10 AM</div></div>
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">Pool</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">8–10PM</div></div>
             </div>
+            )}
 
-            {mode === 'branson' && (
+            {mode === 'branson' && checkout && (
               <div className="mx-3.5 mt-2 bg-green-50 rounded-lg px-3.5 py-3 border border-green-200">
-                <div className="flex items-center gap-2"><span className="text-xl">🌊</span><div><div className="text-[13px] font-bold text-teal-700">Your stay has ended</div><div className="text-[11px] text-teal-600">But Branson is still here! Check shows, fishing, golf, and dining below.</div></div></div>
+                <div className="flex items-center gap-2"><span className="text-xl">🌊</span><div><div className="text-[13px] font-bold text-teal-700">Your stay has ended</div><div className="text-[11px] text-teal-600">Branson is still here — map, shows, fishing, golf, and dining stay live.</div></div></div>
               </div>
             )}
+
+            <button
+              type="button"
+              onClick={() => { setTab('map'); contentRef.current?.scrollTo(0,0); window.history.pushState({tab:'map'}, '', ''); }}
+              className="mx-3.5 mt-2 w-[calc(100%-1.75rem)] bg-white rounded-lg border border-sky-100 px-3.5 py-3 text-left cursor-pointer"
+            >
+              <div className="text-[13px] font-bold text-sky-900">🗺️ Live Branson map</div>
+              <div className="text-[11px] text-sky-600">Stays · restaurants · shows · cams — tap a pin</div>
+            </button>
 
             {/* Seasonal Feature */}
             <div className="mx-3.5 mt-2 rounded-xl px-3.5 py-3" style={styles.bar}>
@@ -351,9 +379,17 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
             {/* Tonight's Shows */}
             {sectionTitle('🎭', "Tonight's Shows")}
-            {[{t:'7PM',n:'Grand Jubilee',v:'Grand Country',l:'https://www.grandcountrylivemusic.com/grand-jubilee'},{t:'8PM',n:'Bohemian Queen',v:'Clay Cooper',l:'https://www.themansiontheatre.com/'},{t:'8PM',n:'The Haygoods',v:'Haygood Theater',l:'https://thehaygoods.com/'}].map((x,i) => (
+            {(showsData?.shows || []).length
+              ? (showsData.shows as {time?:string;name:string;venue?:string;url?:string}[]).slice(0, 5).map((x, i) => (
+              <a key={i} href={x.url || 'https://www.bransonshows.com/showByDate.cfm'} target="_blank" rel="noopener" className="flex items-center gap-2 mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit">
+                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#0c4a6e', color: '#ffffff' }}>{x.time || 'TBD'}</span>
+                <span className="text-[12px] font-semibold flex-1 text-sky-900">{x.name}</span>
+                <span className="text-[10px] text-sky-700">{x.venue}</span>
+              </a>
+              ))
+              : [{t:'7PM',n:'Grand Jubilee',v:'Grand Country',l:'https://www.grandcountrylivemusic.com/grand-jubilee'},{t:'8PM',n:'Bohemian Queen',v:'Clay Cooper',l:'https://www.themansiontheatre.com/'},{t:'8PM',n:'The Haygoods',v:'Haygood Theater',l:'https://thehaygoods.com/'}].map((x,i) => (
               <a key={i} href={x.l} target="_blank" rel="noopener" className="flex items-center gap-2 mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit">
-                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#2c1810', color: '#ffffff' }}>{x.t}</span>
+                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#0c4a6e', color: '#ffffff' }}>{x.t}</span>
                 <span className="text-[12px] font-semibold flex-1 text-sky-900">{x.n}</span>
                 <span className="text-[10px] text-sky-700">{x.v}</span>
               </a>
@@ -477,7 +513,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 </div>
                 <div className="px-3.5 pt-3">
                   <div className="bg-green-50 rounded-lg px-3.5 py-3 mb-2 border border-green-200">
-                    <div className="flex items-center gap-2"><span className="text-xl">🌊</span><div><div className="text-[13px] font-bold text-teal-700">Your stay at {prop.name} has ended</div><div className="text-[11px] text-teal-600">But there are 6 more properties to explore!</div></div></div>
+                    <div className="flex items-center gap-2"><span className="text-xl">🌊</span><div><div className="text-[13px] font-bold text-teal-700">{checkout ? `Your stay at ${prop.name} has ended` : 'Summers Vacations stays'}</div><div className="text-[11px] text-teal-600">{checkout ? 'Book another unit — or browse the live Branson map, shows, and fishing.' : 'Book a stay to unlock the house manual, door code, and Wi‑Fi.'}</div></div></div>
                   </div>
 
                   {[
@@ -520,6 +556,13 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <span className="text-3xl">🏠</span><div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates</div></div><span className="text-xl text-teal-800">›</span>
             </a>
           </>
+        )}
+
+        {/* ═══ MAP ═══ */}
+        {tab === 'map' && (
+          <div className="px-0 pt-1" style={{ height: 'calc(100dvh - 13.5rem)' }}>
+            <GuideMap />
+          </div>
         )}
 
         {/* ═══ ADVENTURE ═══ */}
@@ -715,7 +758,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       <div className="overflow-x-auto flex-shrink-0" style={styles.tabBar}>
         <div className="flex h-[60px] pb-1" style={{ minWidth: 'fit-content' }}>
           {tabBtn('home','M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z','Home')}
-          {tabBtn('guide','M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z','Guide')}
+          {mode === 'guest' && tabBtn('guide','M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z','Guide')}
+          {tabBtn('map','M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z','Map')}
           {tabBtn('adventure','M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z','Adventure')}
           {tabBtn('fishing','M18 12v-3M6 12v-3M3 9h18v3M8 18a4 4 0 0 0 8 0','Fishing')}
           {tabBtn('shows','M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z','Shows')}
