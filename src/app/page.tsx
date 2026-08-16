@@ -555,9 +555,9 @@ export default function Home() {
             <span className="text-[#0ea5e9]"> free on your phone</span>
           </h2>
           <p className="mt-4 text-slate-600 text-lg max-w-xl mx-auto leading-relaxed">
-            Live fishing reports, show times, golf conditions, restaurant picks, and
-            weather — <strong>updated every morning</strong>. It&apos;s like having a local
-            concierge in your pocket.
+            Live fishing reports, show times, golf conditions, restaurant picks, a
+            live map, and weather — <strong>updated every morning</strong>. It&apos;s like
+            having a local concierge in your pocket.
           </p>
           <div className="mt-8 bg-white rounded-2xl border-2 border-sky-200 shadow-lg p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
@@ -620,6 +620,40 @@ export default function Home() {
               Works offline for saved content. Updates daily at 6 AM.
             </p>
           </div>
+
+          <a
+            href="/map"
+            className="group mt-6 block bg-white rounded-2xl border-2 border-sky-200 shadow-lg overflow-hidden no-underline text-inherit hover:shadow-xl hover:border-[#0ea5e9] transition-all"
+          >
+            <div className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/map-preview.jpg"
+                alt="Interactive Branson map — stays, restaurants, shows, and live cams"
+                width={1280}
+                height={720}
+                className="w-full h-48 sm:h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0c4a6e]/80 via-[#0c4a6e]/15 to-transparent" />
+              <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0ea5e9] text-white text-[11px] font-extrabold uppercase tracking-wide shadow-md">
+                🗺️ New · Live map
+              </div>
+              <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3">
+                <div>
+                  <div className="text-white font-display font-bold text-xl sm:text-2xl leading-tight">
+                    See it on the map
+                  </div>
+                  <div className="text-sky-100 text-sm font-semibold mt-0.5">
+                    Our stays · restaurants · shows · live cams
+                  </div>
+                </div>
+                <span className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-[#0c4a6e] text-sm font-bold group-hover:bg-[#0ea5e9] group-hover:text-white transition-colors">
+                  Open map
+                  <ArrowRight size={16} />
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 
