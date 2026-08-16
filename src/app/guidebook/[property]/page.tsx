@@ -372,7 +372,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {/* Today's Highlights */}
             {sectionTitle('🎯', "Today's Highlights")}
             <div className="grid grid-cols-2 gap-2 px-3.5">
-              {[{e:'🎆',t:'Fireworks',d:'SDC Night Sky',l:'https://www.silverdollarcity.com/theme-park/festivals/summer-celebration/'},{e:'🎸',t:'Bohemian Queen',d:'Freddie Tribute',l:'https://www.themansiontheatre.com/'},{e:'🎬',t:'Free Movies',d:'Last 2 weeks!',l:'https://www.bransonimax.com/'},{e:'⛳',t:'Golf Camp',d:'Ozarks National',l:'https://bigcedar.com/golf/ozarks-national/'}].map((x,i) => (
+              {[{e:'🙌',t:'Gospel Picnic',d:'SDC Aug 27–Sep 7',l:'https://www.silverdollarcity.com/theme-park/festivals/southern-gospel-picnic/'},{e:'🎸',t:'Bohemian Queen',d:'Freddie Tribute',l:'https://www.themansiontheatre.com/'},{e:'🎬',t:'Free Movies',d:'Last 2 weeks!',l:'https://www.bransonimax.com/'},{e:'⛳',t:'Golf Camp',d:'Ozarks National',l:'https://bigcedar.com/golf/ozarks-national/'}].map((x,i) => (
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
               ))}
             </div>
@@ -572,7 +572,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('⭐','Featured — Silver Dollar City')}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={styles.bar}>
               <div className="flex items-center gap-2"><span className="text-xl">🎢</span><h3 className="text-base font-bold text-white">Silver Dollar City</h3></div>
-              <div className="text-[12px] mt-1 text-white leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!</div>
+              <div className="text-[12px] mt-1 text-white leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic Aug 27–Sep 7.</div>
               <div className="flex gap-2 mt-2">
                 <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#ffffff' }}>🎫 Tickets</a>
                 <a href="https://www.silverdollarcity.com/theme-park/attractions/rides/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">🎢 Rides</a>

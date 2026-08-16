@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-12",
+  "updated": "2026-08-16",
   "attractions": [
-    {"name": "Silver Dollar City", "tag": "🎢 #1 Theme Park", "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Summer Celebration with extended hours!", "url": "https://www.silverdollarcity.com/", "featured": true},
+    {"name": "Silver Dollar City", "tag": "🎢 #1 Theme Park", "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic Aug 27–Sep 7.", "url": "https://www.silverdollarcity.com/", "featured": true},
     {"name": "Copperhead Mountain Coaster", "tag": "3,350 ft", "desc": "Longest in Branson! Control your speed down Branson's longest coaster. Zip lines, ropes course & observation tower too.", "url": "https://theshepherdofthehills.com/coaster/", "category": "thrills"},
     {"name": "Runaway Mountain Coaster", "tag": "Thrilling", "desc": "Twisting mountain coaster through the Ozark hills. Control your own speed!", "url": "https://www.bransonalpinemountaincoaster.com/", "category": "thrills"},
     {"name": "The Track Family Fun Parks", "tag": "Family", "desc": "Multiple tracks for all ages. Classic and high-speed go-karts, plus arcade.", "url": "https://www.bransontracks.com/", "category": "thrills"},
