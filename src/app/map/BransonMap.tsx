@@ -16,6 +16,7 @@ import {
   BRANSON_MAP_SPOTS,
   MAP_CATEGORIES,
   MAP_CATEGORY_META,
+  diningToMapSpot,
   type MapCategory,
   type MapSpot,
 } from "@/data/branson-map";
@@ -53,23 +54,46 @@ export default function BransonMap() {
   const initial = params.get("spot");
   const [filter, setFilter] = useState<MapCategory | "all">("all");
   const [selectedId, setSelectedId] = useState<string | null>(initial);
+  const [diningSpots, setDiningSpots] = useState<MapSpot[]>([]);
+
+  useEffect(() => {
+    fetch("/api/dining")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d?.ok || !Array.isArray(d.restaurants)) return;
+        setDiningSpots(
+          d.restaurants
+            .map((row: Parameters<typeof diningToMapSpot>[0]) =>
+              diningToMapSpot(row),
+            )
+            .filter((s: MapSpot | null): s is MapSpot => Boolean(s)),
+        );
+      })
+      .catch(() => {});
+  }, []);
+
+  const allSpots = useMemo(
+    () => [...BRANSON_MAP_SPOTS, ...diningSpots],
+    [diningSpots],
+  );
 
   const spots = useMemo(
     () =>
       filter === "all"
-        ? BRANSON_MAP_SPOTS
-        : BRANSON_MAP_SPOTS.filter((s) => s.category === filter),
-    [filter],
+        ? allSpots
+        : allSpots.filter((s) => s.category === filter),
+    [filter, allSpots],
   );
 
-  const selected = spots.find((s) => s.id === selectedId) ||
-    BRANSON_MAP_SPOTS.find((s) => s.id === selectedId);
+  const selected =
+    spots.find((s) => s.id === selectedId) ||
+    allSpots.find((s) => s.id === selectedId);
 
   useEffect(() => {
-    if (initial && BRANSON_MAP_SPOTS.some((s) => s.id === initial)) {
+    if (initial && allSpots.some((s) => s.id === initial)) {
       setSelectedId(initial);
     }
-  }, [initial]);
+  }, [initial, allSpots]);
 
   function select(id: string | null) {
     setSelectedId(id);
@@ -90,7 +114,7 @@ export default function BransonMap() {
                 Branson Map
               </div>
               <div className="text-[10px] font-semibold text-teal-600 uppercase tracking-wide hidden sm:block">
-                Cams · lake · shows
+                Cams · eats · shows
               </div>
             </div>
           </Link>

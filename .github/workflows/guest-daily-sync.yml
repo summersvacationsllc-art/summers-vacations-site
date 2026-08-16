@@ -32,6 +32,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
+      - name: Checkout Food Scout files
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: summersvacationsllc-art/branson-content-engine
+          path: _food_scouts
+          sparse-checkout: data/food
+          sparse-checkout-cone-mode: true
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -67,6 +76,13 @@ jobs:
           # Step 2: Generate the magazine HTML report from scout data
           echo "=== Building magazine report (YYYY-MM-DD.html) ==="
           python3 scripts/build_today_reports.py --date "$DATE"
+
+          echo "=== Sync dining pins from Food Scout (map) ==="
+          if [ -d _food_scouts/data/food ]; then
+            FOOD_SCOUT_DIR="_food_scouts/data/food" python3 scripts/sync_map_places.py || echo "map dining sync skipped"
+          else
+            python3 scripts/sync_map_places.py || echo "map dining sync skipped"
+          fi
           
           # Step 3: Verify outputs exist and have content
           echo "=== Verification ==="

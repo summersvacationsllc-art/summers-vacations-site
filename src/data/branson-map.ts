@@ -1,4 +1,4 @@
-export type MapCategory = "stay" | "webcam" | "marina" | "attraction" | "show";
+export type MapCategory = "stay" | "eat" | "webcam" | "marina" | "attraction" | "show";
 
 export type MapSpot = {
   id: string;
@@ -24,6 +24,7 @@ export const MAP_CATEGORIES: {
 }[] = [
   { id: "all", label: "All", emoji: "🗺️", color: "#0ea5e9" },
   { id: "stay", label: "Our stays", emoji: "🏡", color: "#f59e0b" },
+  { id: "eat", label: "Eat & drink", emoji: "🍽️", color: "#f97316" },
   { id: "webcam", label: "Live cams", emoji: "📹", color: "#22d3ee" },
   { id: "marina", label: "Marinas", emoji: "⚓", color: "#14b8a6" },
   { id: "attraction", label: "Attractions", emoji: "🎢", color: "#0ea5e9" },
@@ -35,6 +36,7 @@ export const MAP_CATEGORY_META: Record<
   { label: string; emoji: string; color: string }
 > = {
   stay: { label: "Our stay", emoji: "🏡", color: "#f59e0b" },
+  eat: { label: "Eat & drink", emoji: "🍽️", color: "#f97316" },
   webcam: { label: "Live cam", emoji: "📹", color: "#22d3ee" },
   marina: { label: "Marina", emoji: "⚓", color: "#14b8a6" },
   attraction: { label: "Attraction", emoji: "🎢", color: "#0ea5e9" },
@@ -530,4 +532,42 @@ export const BRANSON_MAP_SPOTS: MapSpot[] = [
 export function getMapSpot(id: string | null | undefined) {
   if (!id) return undefined;
   return BRANSON_MAP_SPOTS.find((s) => s.id === id);
+}
+
+export function diningId(name: string) {
+  return (
+    "eat-" +
+    name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+  );
+}
+
+export function diningToMapSpot(r: {
+  name: string;
+  url?: string;
+  cuisine?: string;
+  price?: string;
+  tag?: string;
+  desc?: string;
+  venue?: string;
+  lat?: number;
+  lng?: number;
+}): MapSpot | null {
+  if (typeof r.lat !== "number" || typeof r.lng !== "number") return null;
+  if (!Number.isFinite(r.lat) || !Number.isFinite(r.lng)) return null;
+  const bits = [r.cuisine, r.price, r.tag].filter(Boolean).join(" · ");
+  return {
+    id: diningId(r.name),
+    name: r.name,
+    venue: r.venue || bits || "Branson",
+    category: "eat",
+    lat: r.lat,
+    lng: r.lng,
+    description: r.desc || bits || "Local dining pick from the guest guide.",
+    href: r.url || "https://www.mybransonvacation.com/branson",
+    cta: r.url ? "Menu / site" : "See in our guide",
+    ourPath: `/map?spot=${diningId(r.name)}`,
+  };
 }
