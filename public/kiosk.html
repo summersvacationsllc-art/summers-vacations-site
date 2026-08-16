@@ -293,6 +293,40 @@
     font-weight: 600;
   }
   .warn { background: #e0f2fe; border: 1px solid var(--line); border-radius: 12px; padding: .8rem 1rem; color: var(--ink); }
+  .go-card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: .9rem 1rem;
+    margin-bottom: .65rem;
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .go-card .meta { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
+  .go-card b { display: block; font-size: 1.08rem; color: var(--ink); margin: .15rem 0 .2rem; }
+  .go-card span { font-size: .9rem; color: var(--link); }
+  .home-btn {
+    border: 0;
+    background: #0284c7;
+    color: #fff;
+    font: inherit;
+    font-size: .78rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: .35rem .7rem;
+    margin-left: auto;
+  }
+  .foot { justify-content: flex-start; }
+  .map-open {
+    display: block;
+    text-align: center;
+    margin-bottom: .55rem;
+  }
   @media (prefers-reduced-motion: reduce) {
     #deck { transition: none; }
   }
@@ -311,12 +345,13 @@
 <div id="deck">
   <section class="screen" id="welcome"></section>
   <section class="screen" id="wifi"></section>
-  <section class="screen" id="guide-screen">
-    <h2>House guide</h2>
-    <iframe id="guide" title="Digital guidebook"></iframe>
+  <section class="screen" id="go-screen">
+    <h2>Go do something</h2>
+    <div id="go"></div>
   </section>
   <section class="screen" id="map-screen">
     <h2>Around Branson</h2>
+    <button class="btn map-open" id="map-open" type="button">Open the live map</button>
     <iframe id="map" title="Branson map"></iframe>
   </section>
 </div>
@@ -332,6 +367,7 @@
       <strong>Brian · 314-565-0589</strong><br>
       Emergency 911 · Stone County Sheriff (417) 357-6116
     </div>
+    <button class="home-btn" id="home-btn" type="button">Home</button>
   </div>
 </div>
 
@@ -549,10 +585,73 @@ async function loadWelcome() {
   renderWelcome(stay);
 }
 
-function loadGuide() {
+function stayGuideUrl() {
   const unit = UNITS[slug];
-  document.getElementById("guide").src = "https://www.mybransonvacation.com/guidebook/" + unit.guidebook;
+  const u = new URL("https://www.mybransonvacation.com/guidebook/" + unit.guidebook);
+  if (stayCache) {
+    if (stayCache.guest) u.searchParams.set("name", firstName(stayCache.guest));
+    if (stayCache.check_in) u.searchParams.set("checkin", stayCache.check_in);
+    if (stayCache.check_out) u.searchParams.set("checkout", stayCache.check_out);
+  }
+  return u.toString();
 }
+
+function openOut(url) {
+  if (!url) return;
+  try {
+    if (typeof fully !== "undefined" && fully.loadUrl) {
+      fully.loadUrl(url);
+      return;
+    }
+  } catch (e) {}
+  location.href = url;
+}
+
+function goHome() {
+  try {
+    if (typeof fully !== "undefined" && fully.loadStartUrl) {
+      fully.loadStartUrl();
+      return;
+    }
+  } catch (e) {}
+  location.href = location.pathname + location.search;
+}
+
+function card(meta, title, sub, url) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "go-card";
+  btn.innerHTML = `<div class="meta">${meta}</div><b>${title}</b><span>${sub || ""}</span>`;
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openOut(url);
+  });
+  return btn;
+}
+
+async function loadGo() {
+  const box = document.getElementById("go");
+  box.innerHTML = "";
+  box.appendChild(card("House", "Open the house guide", "Live guest app — Shows, Dining, Map, Adventure", stayGuideUrl()));
+  try {
+    const [att, shows, dining] = await Promise.all([
+      fetch("https://www.mybransonvacation.com/api/attractions", { cache: "no-store" }).then((r) => r.json()),
+      fetch("https://www.mybransonvacation.com/api/shows", { cache: "no-store" }).then((r) => r.json()),
+      fetch("https://www.mybransonvacation.com/api/dining", { cache: "no-store" }).then((r) => r.json())
+    ]);
+    const featured = (att.attractions || []).find((a) => a.featured) || (att.attractions || [])[0];
+    if (featured) box.appendChild(card(featured.tag || "Park", featured.name, featured.desc || "", featured.url));
+    (shows.shows || []).slice(0, 4).forEach((s) => {
+      box.appendChild(card(s.time || "Show", s.name, (s.venue || "") + (s.type ? " · " + s.type : ""), s.url));
+    });
+    (dining.restaurants || []).slice(0, 3).forEach((d) => {
+      box.appendChild(card(d.tag || d.cuisine || "Eat", d.name, d.desc || d.venue || "", d.url));
+    });
+  } catch (e) {
+    box.appendChild(card("Live", "Couldn’t load tonight’s board", "Home, then try again", stayGuideUrl()));
+  }
+}
+
 function loadMap() {
   document.getElementById("map").src = MAP_URL;
 }
@@ -564,7 +663,7 @@ function loadQR() {
 }
 
 function buildDots() {
-  const labels = ["Welcome", "Wi-Fi", "Guide", "Map"];
+  const labels = ["Welcome", "Wi-Fi", "Go", "Map"];
   document.getElementById("dots").innerHTML = labels.map((name, i) =>
     `<button class="dot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="${name}"></button>`
   ).join("");
@@ -589,16 +688,17 @@ function bindNav() {
 
 async function bootUnit() {
   renderWifi();
-  loadGuide();
   loadMap();
-  await Promise.all([loadWelcome(), loadForecast()]);
+  await Promise.all([loadWelcome(), loadForecast(), loadGo()]);
   renderWelcome(stayCache);
+  await loadGo();
 }
 
 function scheduleRefresh() {
   setInterval(() => {
     loadWelcome();
     loadForecast().then(() => renderWelcome(stayCache));
+    loadGo();
   }, 15 * 60 * 1000);
 }
 
@@ -608,6 +708,14 @@ function init() {
   loadQR();
   bumpIdle();
   renderPicker();
+  document.getElementById("home-btn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    goHome();
+  });
+  document.getElementById("map-open").addEventListener("click", (e) => {
+    e.stopPropagation();
+    openOut(MAP_URL);
+  });
   if (!slug) {
     document.getElementById("picker").classList.add("on");
     return;
