@@ -46,12 +46,12 @@ export const BRANSON_MAP_SPOTS: MapSpot[] = [
   {
     id: "stays-branson-west",
     name: "Our Branson West condos",
-    venue: "Notch Estates area · Branson West",
+    venue: "Notch Lane · Branson West",
     category: "stay",
-    lat: 36.712,
-    lng: -93.361,
+    lat: 36.68554,
+    lng: -93.3319,
     description:
-      "Six condos in the Notch Estates neighborhood — Penthouse, Rustic Ozark, Woodland Retreat, Modern Charmer, Pretty Peacock, and Double Condo. Pin is the area, not a door.",
+      "Six condos on Notch Lane — Penthouse, Rustic Ozark, Woodland Retreat, Modern Charmer, Pretty Peacock, and Double Condo. Pin is the street, not a door number.",
     href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_west",
     cta: "Book these stays",
     ourPath: "/map?spot=stays-branson-west",
@@ -59,12 +59,12 @@ export const BRANSON_MAP_SPOTS: MapSpot[] = [
   {
     id: "stays-indian-point",
     name: "Branson Family Haven",
-    venue: "Indian Point · near Table Rock & Silver Dollar City",
+    venue: "Timber Trace Lane · Indian Point",
     category: "stay",
-    lat: 36.645,
-    lng: -93.343,
+    lat: 36.62888,
+    lng: -93.34261,
     description:
-      "Our 5-bedroom house for the whole crew — yard, fire pit, and a short hop to the lake and SDC. Pin is the neighborhood, not the driveway.",
+      "Our 5-bedroom house on Timber Trace Lane — yard, fire pit, short hop to the lake and SDC. Pin is the street, not the driveway.",
     href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_haven",
     cta: "Book this house",
     ourPath: "/map?spot=stays-indian-point",
