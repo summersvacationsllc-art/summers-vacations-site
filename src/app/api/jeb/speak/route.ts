@@ -1,14 +1,48 @@
 import { NextResponse } from "next/server";
-import { JEB_VOICE, XAI_TTS_URL, clientKey, rateLimit, wrapJebSpeech, xaiKey } from "@/lib/jeb";
+import { EdgeTTS } from "edge-tts-universal";
+import {
+  JEB_EDGE_RATE,
+  JEB_VOICE,
+  XAI_TTS_URL,
+  clientKey,
+  rateLimit,
+  wrapJebSpeech,
+  xaiKey,
+} from "@/lib/jeb";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 
-export async function POST(req: Request) {
+async function speakEdge(text: string): Promise<Buffer> {
+  const tts = new EdgeTTS(text, JEB_VOICE, { rate: JEB_EDGE_RATE });
+  const result = await tts.synthesize();
+  const buf = Buffer.from(await result.audio.arrayBuffer());
+  if (buf.length < 200) throw new Error("empty edge audio");
+  return buf;
+}
+
+async function speakXai(text: string): Promise<Buffer> {
   const key = xaiKey();
-  if (!key) {
-    return NextResponse.json({ ok: false, error: "Jeb is off duty." }, { status: 503 });
-  }
+  if (!key) throw new Error("no xai");
+  const res = await fetch(XAI_TTS_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      text: wrapJebSpeech(text),
+      voice_id: "orion",
+      language: "en",
+      speed: 1.08,
+    }),
+  });
+  if (!res.ok) throw new Error(`xAI TTS ${res.status}`);
+  return Buffer.from(await res.arrayBuffer());
+}
+
+export async function POST(req: Request) {
   if (!rateLimit(`speak:${clientKey(req)}`, 40)) {
     return NextResponse.json({ ok: false, error: "Easy now." }, { status: 429 });
   }
@@ -24,34 +58,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Nothing to say." }, { status: 400 });
   }
 
-  const res = await fetch(XAI_TTS_URL, {
-    method: "POST",
-    headers: {
-      ["Author" + "ization"]: "Bear" + "er " + key,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      text: wrapJebSpeech(text),
-      voice_id: JEB_VOICE,
-      language: "en",
-      speed: 1.08,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text().catch(() => "");
-    return NextResponse.json(
-      { ok: false, error: err.slice(0, 200) || `TTS ${res.status}` },
-      { status: 502 }
-    );
+  try {
+    const buf = await speakEdge(text);
+    return new NextResponse(new Uint8Array(buf), {
+      status: 200,
+      headers: { "Content-Type": "audio/mpeg", "Cache-Control": "no-store", "X-Jeb-Voice": "edge" },
+    });
+  } catch {
+    try {
+      const buf = await speakXai(text);
+      return new NextResponse(new Uint8Array(buf), {
+        status: 200,
+        headers: { "Content-Type": "audio/mpeg", "Cache-Control": "no-store", "X-Jeb-Voice": "xai" },
+      });
+    } catch {
+      return NextResponse.json({ ok: false, error: "Jeb lost his voice." }, { status: 502 });
+    }
   }
-
-  const buf = Buffer.from(await res.arrayBuffer());
-  return new NextResponse(buf, {
-    status: 200,
-    headers: {
-      "Content-Type": res.headers.get("content-type") || "audio/mpeg",
-      "Cache-Control": "no-store",
-    },
-  });
 }

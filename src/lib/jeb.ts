@@ -1,7 +1,8 @@
 export const JEB_PHONE = "314-565-0589";
 export const JEB_MODEL = process.env.JEB_MODEL || "grok-4-1-fast-non-reasoning";
 export const JEB_MODEL_FALLBACK = process.env.JEB_MODEL_FALLBACK || "grok-4.6";
-export const JEB_VOICE = process.env.JEB_VOICE || "orion";
+export const JEB_VOICE = process.env.JEB_VOICE || "en-US-ChristopherNeural";
+export const JEB_EDGE_RATE = process.env.JEB_EDGE_RATE || "-15%";
 export const XAI_CHAT_URL = "https://api.x.ai/v1/chat/completions";
 export const XAI_TTS_URL = "https://api.x.ai/v1/tts";
 export const XAI_STT_URL = "https://api.x.ai/v1/stt";
