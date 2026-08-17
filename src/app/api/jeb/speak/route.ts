@@ -3,6 +3,7 @@ import { EdgeTTS } from "edge-tts-universal";
 import {
   JEB_EDGE_RATE,
   JEB_ELEVEN_MODEL,
+  JEB_ELEVEN_SPEED,
   JEB_ELEVEN_VOICE,
   JEB_VOICE,
   XAI_TTS_URL,
@@ -30,6 +31,7 @@ async function speakEleven(text: string): Promise<Buffer> {
     body: JSON.stringify({
       text,
       model_id: JEB_ELEVEN_MODEL,
+      speed: JEB_ELEVEN_SPEED,
       voice_settings: {
         stability: 0.42,
         similarity_boost: 0.75,
