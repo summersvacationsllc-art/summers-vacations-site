@@ -2,9 +2,12 @@ import { NextResponse } from "next/server";
 import { EdgeTTS } from "edge-tts-universal";
 import {
   JEB_EDGE_RATE,
+  JEB_ELEVEN_MODEL,
+  JEB_ELEVEN_VOICE,
   JEB_VOICE,
   XAI_TTS_URL,
   clientKey,
+  elevenKey,
   rateLimit,
   wrapJebSpeech,
   xaiKey,
@@ -13,6 +16,33 @@ import {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
+
+async function speakEleven(text: string): Promise<Buffer> {
+  const key = elevenKey();
+  if (!key) throw new Error("no eleven");
+  const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${JEB_ELEVEN_VOICE}`, {
+    method: "POST",
+    headers: {
+      "xi-api-key": key,
+      "Content-Type": "application/json",
+      Accept: "audio/mpeg",
+    },
+    body: JSON.stringify({
+      text,
+      model_id: JEB_ELEVEN_MODEL,
+      voice_settings: {
+        stability: 0.42,
+        similarity_boost: 0.75,
+        style: 0.4,
+        use_speaker_boost: true,
+      },
+    }),
+  });
+  if (!res.ok) throw new Error(`eleven ${res.status}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.length < 200) throw new Error("empty eleven audio");
+  return buf;
+}
 
 async function speakEdge(text: string): Promise<Buffer> {
   const tts = new EdgeTTS(text, JEB_VOICE, { rate: JEB_EDGE_RATE });
@@ -58,21 +88,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Nothing to say." }, { status: 400 });
   }
 
-  try {
-    const buf = await speakEdge(text);
-    return new NextResponse(new Uint8Array(buf), {
-      status: 200,
-      headers: { "Content-Type": "audio/mpeg", "Cache-Control": "no-store", "X-Jeb-Voice": "edge" },
-    });
-  } catch {
+  const attempts: Array<[string, () => Promise<Buffer>]> = [
+    ["elevenlabs", () => speakEleven(text)],
+    ["edge", () => speakEdge(text)],
+    ["xai", () => speakXai(text)],
+  ];
+  for (const [name, fn] of attempts) {
     try {
-      const buf = await speakXai(text);
+      const buf = await fn();
       return new NextResponse(new Uint8Array(buf), {
         status: 200,
-        headers: { "Content-Type": "audio/mpeg", "Cache-Control": "no-store", "X-Jeb-Voice": "xai" },
+        headers: { "Content-Type": "audio/mpeg", "Cache-Control": "no-store", "X-Jeb-Voice": name },
       });
     } catch {
-      return NextResponse.json({ ok: false, error: "Jeb lost his voice." }, { status: 502 });
+      /* next provider */
     }
   }
+  return NextResponse.json({ ok: false, error: "Jeb lost his voice." }, { status: 502 });
 }

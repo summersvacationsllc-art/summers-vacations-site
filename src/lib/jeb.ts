@@ -3,6 +3,8 @@ export const JEB_MODEL = process.env.JEB_MODEL || "grok-4-1-fast-non-reasoning";
 export const JEB_MODEL_FALLBACK = process.env.JEB_MODEL_FALLBACK || "grok-4.6";
 export const JEB_VOICE = process.env.JEB_VOICE || "en-US-GuyNeural";
 export const JEB_EDGE_RATE = process.env.JEB_EDGE_RATE || "-12%";
+export const JEB_ELEVEN_VOICE = process.env.JEB_ELEVEN_VOICE || "nPczCjzI2devNBz1zQrb"; // Brian — mature US male
+export const JEB_ELEVEN_MODEL = process.env.JEB_ELEVEN_MODEL || "eleven_multilingual_v2";
 export const XAI_CHAT_URL = "https://api.x.ai/v1/chat/completions";
 export const XAI_TTS_URL = "https://api.x.ai/v1/tts";
 export const XAI_STT_URL = "https://api.x.ai/v1/stt";
@@ -101,4 +103,8 @@ export function clientKey(req: Request): string {
 
 export function xaiKey(): string {
   return process.env.XAI_API_KEY || "";
+}
+
+export function elevenKey(): string {
+  return process.env.ELEVENLABS_API_KEY || "";
 }
