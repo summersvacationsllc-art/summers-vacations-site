@@ -151,6 +151,7 @@ export default function Home() {
               { label: "Map", href: "/map" },
               { label: "Photos", href: "#photos" },
               { label: "Reviews", href: "#reviews" },
+              { label: "Talk to Jeb", href: "/jeb" },
               { label: "Contact", href: "#contact" },
             ].map((item) => (
               <a
@@ -192,6 +193,7 @@ export default function Home() {
               { label: "Map", href: "/map" },
               { label: "Photos", href: "#photos" },
               { label: "Reviews", href: "#reviews" },
+              { label: "Talk to Jeb", href: "/jeb" },
               { label: "Contact", href: "#contact" },
             ].map((item) => (
               <a
@@ -266,6 +268,19 @@ export default function Home() {
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white border-2 border-white/40 hover:bg-white/10 transition-colors no-underline backdrop-blur-sm"
                 >
                   See Our Homes
+                </a>
+                <a
+                  href="/jeb"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white no-underline"
+                  style={{ background: "linear-gradient(135deg,#0ea5e9,#0284c7)" }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/jeb/portrait.jpg"
+                    alt=""
+                    className="w-8 h-8 rounded-full object-cover object-[center_18%] border border-white/70"
+                  />
+                  Need Help? Talk to Jeb
                 </a>
               </div>
 

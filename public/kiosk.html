@@ -327,6 +327,36 @@
     text-align: center;
     margin-bottom: .55rem;
   }
+  .jeb-btn {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    width: 100%;
+    margin-bottom: .65rem;
+    background: rgba(2,132,199,.92);
+    border: 1px solid rgba(125,211,252,.55);
+    color: #fff;
+    border-radius: 999px;
+    padding: .45rem .7rem;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-align: left;
+  }
+  .jeb-btn img {
+    width: 44px;
+    height: 44px;
+    border-radius: 99px;
+    object-fit: cover;
+    object-position: center 18%;
+    background: #fff;
+  }
+  .jeb-btn small {
+    display: block;
+    font-weight: 600;
+    font-size: .72rem;
+    opacity: .9;
+  }
   @media (prefers-reduced-motion: reduce) {
     #deck { transition: none; }
   }
@@ -534,10 +564,21 @@ function renderWelcome(stay) {
         <p class="lede">${lede}</p>
       </div>
       <div class="cover-bottom">
+        <button class="jeb-btn" id="jeb-btn" type="button">
+          <img src="/jeb/portrait.jpg" alt="">
+          <span>Talk to Jeb<small>Need help? Tap here</small></span>
+        </button>
         <div class="days">${days}</div>
       </div>
     </div>
   `;
+  const jebBtn = document.getElementById("jeb-btn");
+  if (jebBtn) {
+    jebBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openOut(jebUrl());
+    });
+  }
 }
 
 function renderWifi() {
@@ -583,6 +624,14 @@ async function loadWelcome() {
   } catch (e) {}
   stayCache = stay;
   renderWelcome(stay);
+}
+
+function jebUrl() {
+  const u = new URL("https://www.mybransonvacation.com/jeb");
+  if (slug) u.searchParams.set("unit", slug);
+  u.searchParams.set("from", "kiosk");
+  if (stayCache && stayCache.guest) u.searchParams.set("name", firstName(stayCache.guest));
+  return u.toString();
 }
 
 function stayGuideUrl() {
