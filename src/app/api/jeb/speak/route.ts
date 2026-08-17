@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { JEB_VOICE, XAI_TTS_URL, clientKey, rateLimit, xaiKey } from "@/lib/jeb";
+import { JEB_VOICE, XAI_TTS_URL, clientKey, rateLimit, wrapJebSpeech, xaiKey } from "@/lib/jeb";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
@@ -31,9 +31,10 @@ export async function POST(req: Request) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      text,
+      text: wrapJebSpeech(text),
       voice_id: JEB_VOICE,
       language: "en",
+      speed: 0.78,
     }),
   });
 

@@ -7,28 +7,24 @@ import { openingGreeting } from "@/lib/jeb";
 
 type Turn = { role: "jeb" | "guest"; text: string };
 
-type Recog = {
-  lang: string;
-  interimResults: boolean;
-  maxAlternatives: number;
-  onresult: ((ev: { results: { [i: number]: { [j: number]: { transcript: string } } } }) => void) | null;
-  onerror: ((ev: { error?: string }) => void) | null;
-  onend: (() => void) | null;
-  start: () => void;
-  stop: () => void;
-};
+function pickRecorderMime(): string {
+  if (typeof MediaRecorder === "undefined") return "";
+  for (const type of ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/aac"]) {
+    if (MediaRecorder.isTypeSupported(type)) return type;
+  }
+  return "";
+}
 
-function speechEngine(): Recog | null {
-  if (typeof window === "undefined") return null;
-  const Ctor =
-    (window as unknown as { SpeechRecognition?: new () => Recog }).SpeechRecognition ||
-    (window as unknown as { webkitSpeechRecognition?: new () => Recog }).webkitSpeechRecognition;
-  if (!Ctor) return null;
-  const rec = new Ctor();
-  rec.lang = "en-US";
-  rec.interimResults = false;
-  rec.maxAlternatives = 1;
-  return rec;
+function micFailHint(err: unknown): string {
+  const name = err instanceof Error ? err.name : "";
+  const msg = err instanceof Error ? err.message : "";
+  if (name === "NotAllowedError" || name === "PermissionDeniedError" || /denied|not allowed/i.test(msg)) {
+    return "This device blocked the microphone. Allow the mic for mybransonvacation.com, then tap again — or type below.";
+  }
+  if (name === "NotFoundError") {
+    return "No microphone on this device. Type your question below.";
+  }
+  return "Mic didn't open. Type your question below.";
 }
 
 async function speakJeb(text: string, audioRef: HTMLAudioElement | null) {
@@ -51,8 +47,8 @@ async function speakJeb(text: string, audioRef: HTMLAudioElement | null) {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.rate = 0.88;
-  u.pitch = 0.85;
+  u.rate = 0.72;
+  u.pitch = 0.7;
   const voices = window.speechSynthesis.getVoices();
   const male =
     voices.find((v) => /en-US/i.test(v.lang) && /male|daniel|fred|david|google us/i.test(v.name)) ||
@@ -74,8 +70,8 @@ export default function JebTalk() {
   const [hint, setHint] = useState("Tap the microphone each time you want to speak.");
   const listRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const recRef = useRef<Recog | null>(null);
   const mediaRef = useRef<MediaRecorder | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const greeted = useRef(false);
 
@@ -135,27 +131,24 @@ export default function JebTalk() {
     [busy, name, turns, unit]
   );
 
-  const stopBrowserRec = () => {
-    try {
-      recRef.current?.stop();
-    } catch {
-      /* already stopped */
-    }
-    recRef.current = null;
-  };
-
   const stopMedia = () => {
     const rec = mediaRef.current;
     mediaRef.current = null;
-    if (!rec) return;
-    if (rec.state !== "inactive") rec.stop();
-    rec.stream?.getTracks().forEach((track) => track.stop());
+    if (rec && rec.state !== "inactive") rec.stop();
+    streamRef.current?.getTracks().forEach((track) => track.stop());
+    streamRef.current = null;
   };
 
   const finishClip = async (blob: Blob) => {
+    if (blob.size < 800) {
+      setHint("Didn't catch that — tap the mic, talk, then tap again.");
+      setBusy(false);
+      return;
+    }
     setHint("Makin' sure I heard you…");
     const fd = new FormData();
-    fd.append("file", blob, "speech.webm");
+    const ext = blob.type.includes("mp4") || blob.type.includes("aac") ? "m4a" : "webm";
+    fd.append("file", blob, `speech.${ext}`);
     const res = await fetch("/api/jeb/listen", { method: "POST", body: fd });
     const data = (await res.json()) as { ok?: boolean; text?: string; error?: string };
     if (data.ok && data.text) {
@@ -167,8 +160,11 @@ export default function JebTalk() {
   };
 
   const startMediaRec = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const mime = MediaRecorder.isTypeSupported("audio/webm") ? "audio/webm" : "";
+    const stream = await navigator.mediaDevices.getUserMedia({
+      audio: { echoCancellation: true, noiseSuppression: true },
+    });
+    streamRef.current = stream;
+    const mime = pickRecorderMime();
     const rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream);
     chunksRef.current = [];
     rec.ondataavailable = (e) => {
@@ -176,11 +172,12 @@ export default function JebTalk() {
     };
     rec.onstop = () => {
       stream.getTracks().forEach((t) => t.stop());
-      const blob = new Blob(chunksRef.current, { type: rec.mimeType || "audio/webm" });
+      streamRef.current = null;
+      const blob = new Blob(chunksRef.current, { type: rec.mimeType || mime || "audio/webm" });
       void finishClip(blob);
     };
     mediaRef.current = rec;
-    rec.start();
+    rec.start(250);
     setListening(true);
     setHint("I'm listenin' — tap the mic again when you're done.");
   };
@@ -189,7 +186,6 @@ export default function JebTalk() {
     if (busy && !listening) return;
     if (listening) {
       setListening(false);
-      stopBrowserRec();
       stopMedia();
       return;
     }
@@ -197,35 +193,16 @@ export default function JebTalk() {
       window.speechSynthesis?.cancel();
       audioRef.current?.pause();
     }
-    const rec = speechEngine();
-    if (rec) {
-      rec.onresult = (ev) => {
-        const said = ev.results?.[0]?.[0]?.transcript || "";
-        setListening(false);
-        if (said) void askJeb(said);
-        else setHint("Didn't catch that — tap the mic and try again.");
-      };
-      rec.onerror = () => {
-        setListening(false);
-        void startMediaRec().catch(() => {
-          setHint("Mic didn't open. Type your question below.");
-        });
-      };
-      rec.onend = () => setListening(false);
-      recRef.current = rec;
-      try {
-        rec.start();
-        setListening(true);
-        setHint("I'm listenin' — tap the mic again when you're done.");
-        return;
-      } catch {
-        recRef.current = null;
-      }
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setHint("This browser has no microphone. Type your question below.");
+      return;
     }
+    setHint("Openin' the microphone…");
     try {
       await startMediaRec();
-    } catch {
-      setHint("Mic didn't open. Type your question below.");
+    } catch (err) {
+      setListening(false);
+      setHint(micFailHint(err));
     }
   };
 

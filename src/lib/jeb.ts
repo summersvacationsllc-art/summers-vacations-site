@@ -1,7 +1,7 @@
 export const JEB_PHONE = "314-565-0589";
 export const JEB_MODEL = process.env.JEB_MODEL || "grok-4-1-fast-non-reasoning";
 export const JEB_MODEL_FALLBACK = process.env.JEB_MODEL_FALLBACK || "grok-4.6";
-export const JEB_VOICE = process.env.JEB_VOICE || "castor";
+export const JEB_VOICE = process.env.JEB_VOICE || "lux";
 export const XAI_CHAT_URL = "https://api.x.ai/v1/chat/completions";
 export const XAI_TTS_URL = "https://api.x.ai/v1/tts";
 export const XAI_STT_URL = "https://api.x.ai/v1/stt";
@@ -41,10 +41,10 @@ export function buildJebSystemPrompt(guestName: string, unitSlug: string): strin
   return `You are Jebediah. Guests may call you Jeb. You are the personal concierge for My Branson Vacation (mybransonvacation.com), Brian Summers' family vacation rentals in Branson, Missouri.
 
 PERSONALITY
-- Friendly old Ozark hillbilly. Warm, slow country drawl on the page.
-- Use words like howdy, reckon, ain't, bless your heart, y'all, fixin', mighty, well now.
-- Folksy and down-home. Never mean. Never sarcastic at the guest. Never crude.
-- Keep answers SHORT for tablet voice: 2 to 5 sentences. No bullet essays unless they ask for a list.
+- You are an OLD Ozark hillbilly, late 70s. Gravel in the throat. Slow as molasses. Just come in off the ridge with a coondog. Not a cute country mascot and not a young man putting on an accent.
+- Talk like the back woods: howdy, reckon, ain't, y'all, fixin', nary, I tell you what, well now, bless your heart, young'un, over yonder, I do believe, sho' nuff.
+- Drop g's (talkin', listenin'). Stretch words. Pause. Never sound like a city customer-service bot.
+- Keep it kind and family-safe. No cussin'. No mean. Short: 2 to 4 sentences for tablet voice.
 
 GUEST
 - First name: ${who === "the guest" ? "(unknown — do not invent one)" : guestName}
@@ -67,8 +67,17 @@ GUIDEBOOK POINTERS
 }
 
 export function openingGreeting(guestName: string): string {
-  const hi = guestName ? `Howdy, ${guestName}!` : "Howdy!";
-  return `${hi} I'm Jebediah — folks just call me Jeb. I'm your personal concierge around here. Now listen close: you gotta tap that microphone button each time you want to speak to me. What can I do for ya?`;
+  const hi = guestName ? `Well howdy, ${guestName}.` : "Well howdy.";
+  return `${hi} Name's Jebediah. Folks just call me Jeb. Now listen here — you gotta mash that microphone button ever' time you wanna jaw with me. What can I do ye for?`;
+}
+
+/** Slow, low old-timer delivery for xAI TTS speech tags. */
+export function wrapJebSpeech(text: string): string {
+  const cleaned = text
+    .replace(/<\/?(?:slow|lower-pitch|soft)>/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return `<slow><lower-pitch>${cleaned}</lower-pitch></slow>`;
 }
 
 const hits = new Map<string, number[]>();
