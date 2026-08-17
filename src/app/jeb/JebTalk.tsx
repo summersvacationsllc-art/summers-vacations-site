@@ -119,7 +119,8 @@ export default function JebTalk() {
               "Bless your heart, I lost the signal. Try again, or text Brian at 314-565-0589.";
         setTurns((prev) => [...prev, { role: "jeb", text: reply }]);
         setHint("Tap the microphone each time you want to speak.");
-        await speakJeb(reply, audioRef.current);
+        setBusy(false);
+        void speakJeb(reply, audioRef.current);
       } catch {
         const fallback = "Line went quiet on me. Tap that mic again, or text Brian at 314-565-0589.";
         setTurns((prev) => [...prev, { role: "jeb", text: fallback }]);

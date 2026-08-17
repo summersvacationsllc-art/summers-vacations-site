@@ -76,10 +76,21 @@ async function readJson(name: string): Promise<Record<string, unknown> | null> {
 }
 
 async function townBoard(): Promise<string> {
-  const [shows, dining] = await Promise.all([readJson("shows-data.json"), readJson("dining-data.json")]);
+  const [shows, dining, fishing, golf, attractions] = await Promise.all([
+    readJson("shows-data.json"),
+    readJson("dining-data.json"),
+    readJson("fishing-data.json"),
+    readJson("golf-data.json"),
+    readJson("attractions-data.json"),
+  ]);
   const showRows = Array.isArray(shows?.shows) ? (shows?.shows as { name?: string; time?: string; venue?: string }[]) : [];
   const eatRows = Array.isArray(dining?.restaurants)
     ? (dining?.restaurants as { name?: string; tag?: string; venue?: string }[])
+    : [];
+  const fishBits = [fishing?.headline, fishing?.summary, fishing?.report].filter(Boolean).join(" ");
+  const golfBits = [golf?.headline, golf?.summary].filter(Boolean).join(" ");
+  const attRows = Array.isArray(attractions?.attractions)
+    ? (attractions?.attractions as { name?: string; desc?: string }[])
     : [];
   const showLines = showRows
     .slice(0, 14)
@@ -89,8 +100,51 @@ async function townBoard(): Promise<string> {
     .slice(0, 8)
     .map((d) => `- ${d.name || "Restaurant"}${d.tag ? ` · ${d.tag}` : ""}${d.venue ? ` · ${d.venue}` : ""}`)
     .join("\n");
+  const attLines = attRows
+    .slice(0, 6)
+    .map((a) => `- ${a.name || "Attraction"}`)
+    .join("\n");
   if (!showLines && !eatLines) return "";
-  return `\n\nTODAY'S BRANSON BOARD (use this first for town questions; web-search if the guest asks about something not listed, like Sight & Sound):\nShows:\n${showLines || "- none loaded"}\nEat:\n${eatLines || "- none loaded"}`;
+  return `\n\nTODAY'S BRANSON BOARD (answer from this when it covers the question; web-search only if it does not):\nShows:\n${showLines || "- none loaded"}\nEat:\n${eatLines || "- none loaded"}\n${attLines ? `Around town:\n${attLines}\n` : ""}${fishBits ? `Fishing: ${String(fishBits).slice(0, 280)}\n` : ""}${golfBits ? `Golf: ${String(golfBits).slice(0, 200)}\n` : ""}`;
+}
+
+function boardCoversQuestion(board: string, question: string): boolean {
+  const stop = new Set([
+    "what",
+    "whats",
+    "where's",
+    "wheres",
+    "where",
+    "when",
+    "which",
+    "that",
+    "this",
+    "with",
+    "from",
+    "have",
+    "they",
+    "them",
+    "playing",
+    "playin",
+    "tonight",
+    "today",
+    "there",
+    "about",
+    "good",
+    "best",
+    "some",
+    "place",
+    "places",
+  ]);
+  const words = question
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length > 3 && !stop.has(w));
+  if (!words.length) return false;
+  const hay = board.toLowerCase();
+  const hits = words.filter((w) => hay.includes(w));
+  return hits.length >= Math.min(2, words.length);
 }
 
 function extractResponseText(data: {
@@ -150,7 +204,7 @@ async function askWithSearch(system: string, history: JebChatMessage[], key: str
       model: JEB_SEARCH_MODEL,
       input: [{ role: "system", content: system }, ...history],
       tools: [{ type: "web_search" }],
-      max_output_tokens: 280,
+      max_output_tokens: 220,
     }),
   });
   if (!r.ok) throw new Error(`search ${r.status}`);
@@ -223,9 +277,10 @@ export async function POST(req: Request) {
   const board = await townBoard();
   const system = buildJebSystemPrompt(guest, unit) + board;
   const town = !isHouseOrHost(question);
+  const canSkipSearch = town && boardCoversQuestion(board, question);
 
   try {
-    if (town) {
+    if (town && !canSkipSearch) {
       try {
         const reply = await askWithSearch(system, incoming, key);
         return NextResponse.json({ ok: true, reply, source: "jeb-search" });
@@ -235,7 +290,7 @@ export async function POST(req: Request) {
       }
     }
     const reply = await askPlain(system, incoming, key);
-    return NextResponse.json({ ok: true, reply, source: "jeb" });
+    return NextResponse.json({ ok: true, reply, source: canSkipSearch ? "jeb-board" : "jeb" });
   } catch {
     return NextResponse.json({ ok: true, reply: fallbackReply(question, guest), source: "fallback" });
   }

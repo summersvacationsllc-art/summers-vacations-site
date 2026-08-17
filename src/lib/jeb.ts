@@ -8,7 +8,7 @@ export const JEB_ELEVEN_MODEL = process.env.JEB_ELEVEN_MODEL || "eleven_turbo_v2
 export const JEB_ELEVEN_SPEED = Number(process.env.JEB_ELEVEN_SPEED || "0.92");
 export const XAI_CHAT_URL = "https://api.x.ai/v1/chat/completions";
 export const XAI_RESPONSES_URL = "https://api.x.ai/v1/responses";
-export const JEB_SEARCH_MODEL = process.env.JEB_SEARCH_MODEL || "grok-4.6";
+export const JEB_SEARCH_MODEL = process.env.JEB_SEARCH_MODEL || "grok-4-1-fast-non-reasoning";
 export const XAI_TTS_URL = "https://api.x.ai/v1/tts";
 export const XAI_STT_URL = "https://api.x.ai/v1/stt";
 
