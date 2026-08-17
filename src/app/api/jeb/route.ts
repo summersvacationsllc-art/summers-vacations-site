@@ -1,19 +1,20 @@
 import { NextResponse } from "next/server";
 import {
+  JEB_MODEL,
+  JEB_MODEL_FALLBACK,
+  JEB_PHONE,
+  XAI_CHAT_URL,
   buildJebSystemPrompt,
   cleanGuestName,
   cleanUnit,
   clientKey,
-  JEB_MODEL,
-  JEB_MODEL_FALLBACK,
-  JEB_PHONE,
   rateLimit,
-  XAI_CHAT_URL,
   xaiKey,
   type JebChatMessage,
 } from "@/lib/jeb";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 function fallbackReply(message: string, guest: string): string {
   const q = (message || "").toLowerCase();
@@ -45,29 +46,48 @@ function fallbackReply(message: string, guest: string): string {
   return `${hey}. Guidebook on the kiosk or your phone for house stuff. Anything special, text Brian at ${JEB_PHONE}. And tap that microphone each time you wanna talk.`;
 }
 
+function asHistory(raw: unknown): JebChatMessage[] {
+  if (!Array.isArray(raw)) return [];
+  const out: JebChatMessage[] = [];
+  for (const row of raw.slice(-12)) {
+    if (!row || typeof row !== "object") continue;
+    const role = (row as { role?: unknown }).role;
+    const content = (row as { content?: unknown }).content;
+    if (role !== "user" && role !== "assistant") continue;
+    if (typeof content !== "string") continue;
+    const text = content.trim().slice(0, 500);
+    if (!text) continue;
+    out.push({ role, content: text });
+  }
+  return out;
+}
+
+export async function GET() {
+  return NextResponse.json({ ok: true, name: "Jebediah", callMe: "Jeb" });
+}
+
 export async function POST(req: Request) {
   if (!rateLimit(`chat:${clientKey(req)}`, 40)) {
     return NextResponse.json({ ok: false, error: "Easy now — give Jeb a minute." }, { status: 429 });
   }
 
-  let body: { messages?: JebChatMessage[]; name?: string; unit?: string; message?: string; guest?: string; history?: JebChatMessage[] };
+  let body: Record<string, unknown> = {};
   try {
-    body = await req.json();
+    body = (await req.json()) as Record<string, unknown>;
   } catch {
     return NextResponse.json({ ok: false, error: "Bad request" }, { status: 400 });
   }
 
   const guest = cleanGuestName(body.name || body.guest);
   const unit = cleanUnit(body.unit);
-  let incoming = Array.isArray(body.messages) ? body.messages : Array.isArray(body.history) ? body.history : [];
-  if ((!incoming.length || incoming[incoming.length - 1]?.role !== "user") && body.message) {
-    incoming = [...incoming, { role: "user", content: String(body.message) }];
+  let incoming = asHistory(body.messages ?? body.history);
+  if (typeof body.message === "string" && body.message.trim()) {
+    incoming = [...incoming, { role: "user", content: body.message.trim().slice(0, 500) }];
   }
 
-  const lastUser = [...incoming].reverse().find((m) => m?.role === "user")?.content || "";
-  const question = String(lastUser).trim().slice(0, 500);
+  const question = [...incoming].reverse().find((m) => m.role === "user")?.content || "";
   if (!question) {
-    return NextResponse.json({ ok: false, error: "empty" }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "Need a question." }, { status: 400 });
   }
 
   const key = xaiKey();
@@ -77,27 +97,22 @@ export async function POST(req: Request) {
 
   const messages: { role: "system" | "user" | "assistant"; content: string }[] = [
     { role: "system", content: buildJebSystemPrompt(guest, unit) },
+    ...incoming,
   ];
-  for (const t of incoming.slice(-8)) {
-    if (!t?.content) continue;
-    if (t.role === "user" || t.role === "assistant") {
-      messages.push({ role: t.role, content: String(t.content).slice(0, 500) });
-    }
-  }
-
-  const hdr: Record<string, string> = { "Content-Type": "application/json" };
-  hdr["Author" + "ization"] = "Bear" + "er " + key;
 
   for (const model of [JEB_MODEL, JEB_MODEL_FALLBACK]) {
     try {
       const r = await fetch(XAI_CHAT_URL, {
         method: "POST",
-        headers: hdr,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${key}`,
+        },
         body: JSON.stringify({ model, temperature: 0.7, max_tokens: 220, messages }),
       });
       if (!r.ok) continue;
-      const data = await r.json();
-      const reply = data?.choices?.[0]?.message?.content?.trim();
+      const data = (await r.json()) as { choices?: { message?: { content?: string } }[] };
+      const reply = data.choices?.[0]?.message?.content?.trim();
       if (reply) return NextResponse.json({ ok: true, reply, source: "jeb" });
     } catch {
       /* try next model */
