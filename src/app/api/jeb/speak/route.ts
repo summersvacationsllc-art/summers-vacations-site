@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       text: wrapJebSpeech(text),
       voice_id: JEB_VOICE,
       language: "en",
-      speed: 1.12,
+      speed: 1.08,
     }),
   });
 
