@@ -47,8 +47,8 @@ async function speakJeb(text: string, audioRef: HTMLAudioElement | null) {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.rate = 0.72;
-  u.pitch = 0.7;
+  u.rate = 1.05;
+  u.pitch = 0.9;
   const voices = window.speechSynthesis.getVoices();
   const male =
     voices.find((v) => /en-US/i.test(v.lang) && /male|daniel|fred|david|google us/i.test(v.name)) ||
