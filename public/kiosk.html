@@ -197,14 +197,25 @@
   }
   ul.rules { list-style: none; }
   ul.rules li {
-    padding: .6rem 0 .6rem 1.85rem;
+    padding: .55rem 0 .55rem 1.85rem;
     position: relative;
     border-bottom: 1px solid #e0f2fe;
-    font-size: .98rem;
+    font-size: .96rem;
     color: var(--ink);
   }
   ul.rules li:last-child { border-bottom: 0; }
-  ul.rules li::before { content: "✓"; position: absolute; left: 0; top: .55rem; color: var(--sky-dark); font-weight: 700; }
+  ul.rules li::before { content: "✓"; position: absolute; left: 0; top: .5rem; color: var(--sky-dark); font-weight: 700; }
+  .smoke {
+    background: #fff7ed;
+    border: 1px solid #fdba74;
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    margin-bottom: .8rem;
+  }
+  .smoke .label { color: #9a3412; }
+  .smoke h3 { color: #9a3412; font-size: 1.08rem; line-height: 1.25; margin: .2rem 0 .45rem; }
+  .smoke p { color: #7c2d12; font-size: .95rem; line-height: 1.4; }
+  .note { font-size: .92rem; color: var(--ink); line-height: 1.4; margin-bottom: .65rem; }
   .checkout {
     background: #fef2f2;
     border: 1px solid #fecaca;
@@ -591,15 +602,32 @@ function renderWifi() {
       <div class="label" style="margin-top:.7rem">Password</div>
       <h3>${unit.password}</h3>
     </div>
+    <div class="smoke">
+      <div class="label">Posted no-smoking rule</div>
+      <h3>NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds.</h3>
+      <p><strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.</p>
+    </div>
     <div class="card">
       <div class="label">House rules</div>
-      <ul class="rules" style="margin-top:.35rem">
-        <li>Quiet hours 10 PM – 8 AM (private community)</li>
-        <li>No smoking or vaping inside, on decks, or by the pool — parking lot only</li>
-        <li>No parties, events, or unregistered guests</li>
+      <p class="note">We are in a private community. This is a vacation destination, and it is home to many people. Please respect their privacy and a peaceful stay. Quiet hours are 10 PM – 8 AM.</p>
+      <p class="note">Accidents happen. If you break anything, tell us right away. Minor items are usually no charge. Larger issues (like a TV) we will agree on the cost before you leave.</p>
+      <ul class="rules">
+        <li>Quiet hours 10 PM – 8 AM</li>
+        <li>No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)</li>
+        <li>No pets</li>
+        <li>No events, parties, or loud music</li>
+        <li>No unregistered guests</li>
+        <li>No open flame or candles</li>
+        <li>Use only plastic utensils on cookware (prevents scratching)</li>
+        <li>Discard cooking oil in the trash — not down the drain</li>
+        <li>Take trash to the dumpster as needed</li>
+        <li>Please wash your dishes</li>
+        <li>No food or drink in the bedrooms</li>
+        <li>No rearranging the furniture</li>
+        <li>All towels stay in the condo — do not take them to the pool</li>
+        <li>No illegal substances on the premises</li>
+        <li>Tell us immediately if something breaks</li>
         <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
-        <li>Towels stay in the condo</li>
-        <li>Tell us right away if something breaks</li>
       </ul>
     </div>
     <div class="checkout">Check-out is 10:00 AM — all units</div>
