@@ -1,40 +1,29 @@
 {
-  "date": "2026-08-16",
-  "generated_at": "2026-08-16T07:31:43-05:00",
-  "units_total": 6,
+  "date": "2026-08-17",
+  "generated_at": "2026-08-17T05:30:22-05:00",
+  "units_total": 5,
   "turnovers": [
     {
-      "property": "Woodland Retreat",
-      "property_id": "prop_axd3ku8",
+      "property": "Penthouse",
+      "property_id": "prop_c84gb5j",
       "checkout": "10:00 AM",
       "next_checkin": "4:00 PM",
       "status": "pending",
       "same_day": true,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a5b8fad883e080013f66f22"
+      "reservation_id": "6a4436b89ec77f0013f28cc6"
     },
     {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
+      "property": "Peacock",
+      "property_id": "prop_stunkz5",
       "checkout": "10:00 AM",
       "next_checkin": "\u2014",
       "status": "pending",
       "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a2c82fe2a54770014e1a6f8"
-    },
-    {
-      "property": "Indian Point",
-      "property_id": "prop_uiue2y1",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a6ac3c852645a1ddebc854b"
+      "reservation_id": "6a05bfd4ef6ea60013b890eb"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
