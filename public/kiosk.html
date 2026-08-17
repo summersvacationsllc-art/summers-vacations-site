@@ -549,11 +549,11 @@ function renderWelcome(stay) {
   const unit = UNITS[slug];
   const vacant = !stay;
   const headline = vacant
-    ? `This is why<br>they <em>come</em>.`
-    : `${firstName(stay.guest)},<br>this is why<br>you <em>came</em>.`;
+    ? `Your Branson<br>vacation starts <em>now</em>.`
+    : `${firstName(stay.guest)},<br>your Branson vacation<br>starts <em>now</em>.`;
   const lede = vacant
     ? `${unit.name} is between stays. The Ozarks are still out there.`
-    : `Ozarks under the track. Sun in the loops. ${prettyDate(stay.check_in)} to ${prettyDate(stay.check_out)}.`;
+    : `Glad you're here. ${prettyDate(stay.check_in)} to ${prettyDate(stay.check_out)}.`;
   const days = buildForecast(stay) || `<div class="day"><span>Stay</span><b>Forecast…</b></div>`;
   document.getElementById("welcome").innerHTML = `
     <div class="cover">
