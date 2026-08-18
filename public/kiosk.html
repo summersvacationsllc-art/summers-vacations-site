@@ -612,7 +612,6 @@
   </div>
   <div class="dots" id="dots"></div>
   <div class="foot">
-    <div id="qr"></div>
     <div>
       <strong>Brian · 314-565-0589</strong><br>
       Emergency 911 · Stone County Sheriff (417) 357-6116
@@ -1113,12 +1112,6 @@ function loadMap() {
   document.getElementById("map").src = MAP_URL;
 }
 
-function loadQR() {
-  const payload = encodeURIComponent("Summers Vacations\nBrian 314-565-0589\nsummersvacationsllc@gmail.com\nEmergency 911");
-  document.getElementById("qr").innerHTML =
-    `<img alt="Contact QR" src="https://api.qrserver.com/v1/create-qr-code/?size=84x84&data=${payload}">`;
-}
-
 function buildDots() {
   const labels = ["Welcome", "Wi-Fi", "How-to", "Daily", "App", "Map"];
   document.getElementById("dots").innerHTML = labels.map((name, i) =>
@@ -1191,7 +1184,6 @@ function init() {
   buildDots();
   bindNav();
   goTo(0);
-  loadQR();
   bumpIdle();
   renderPicker();
   document.getElementById("home-btn").addEventListener("click", (e) => {
