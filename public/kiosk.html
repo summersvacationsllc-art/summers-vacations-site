@@ -245,7 +245,7 @@
   .fx-day .hi { font-weight: 700; color: var(--ink); font-size: 1.05rem; }
   .fx-day .lo { color: var(--link); font-size: .82rem; }
   .fx-day .date { color: var(--link); font-size: .78rem; margin-bottom: .15rem; }
-  iframe#map, iframe#guide {
+  iframe#map, iframe#guide, iframe#daily {
     width: 100%;
     height: calc(100vh - 10rem);
     border: 0;
@@ -253,6 +253,10 @@
     background: #fff;
     box-shadow: 0 0 0 1px var(--line);
   }
+  #go-screen { padding-top: .75rem; }
+  #go-screen h2 { font-family: "DM Serif Display", Georgia, serif; font-size: 1.55rem; margin: 0 0 .45rem; }
+  #go-screen .daily-bar { display: flex; gap: .45rem; margin-bottom: .55rem; }
+  #go-screen .daily-bar .btn { flex: 1; text-align: center; }
   .chrome {
     position: fixed;
     left: 0; right: 0; bottom: 0;
@@ -478,8 +482,12 @@
   <section class="screen" id="wifi"></section>
   <section class="screen" id="howto"></section>
   <section class="screen" id="go-screen">
-    <h2>Go do something</h2>
-    <div id="go"></div>
+    <h2>The Branson Daily</h2>
+    <div class="daily-bar">
+      <button class="btn" id="daily-guide" type="button">House guide</button>
+    </div>
+    <iframe id="daily" title="The Branson Daily"></iframe>
+    <div id="go" hidden></div>
   </section>
   <section class="screen" id="map-screen">
     <h2>Around Branson</h2>
@@ -687,7 +695,7 @@ function wxIcon(code) {
 }
 
 let slug = resolveSlug();
-const PAGE_NAMES = ["Welcome", "Wi-Fi", "How-to", "Go", "Map"];
+const PAGE_NAMES = ["Welcome", "Wi-Fi", "How-to", "Daily", "Map"];
 let screenIndex = 0;
 const SCREEN_COUNT = 5;
 let idleTimer = null;
@@ -944,27 +952,25 @@ function card(meta, title, sub, url) {
   return btn;
 }
 
-async function loadGo() {
-  const box = document.getElementById("go");
-  box.innerHTML = "";
-  box.appendChild(card("House", "Open the house guide", "Live guest app — Shows, Dining, Map, Adventure", stayGuideUrl()));
+async function loadDaily() {
+  const frame = document.getElementById("daily");
+  let date = "";
   try {
-    const [att, shows, dining] = await Promise.all([
-      fetch("https://www.mybransonvacation.com/api/attractions", { cache: "no-store" }).then((r) => r.json()),
-      fetch("https://www.mybransonvacation.com/api/shows", { cache: "no-store" }).then((r) => r.json()),
-      fetch("https://www.mybransonvacation.com/api/dining", { cache: "no-store" }).then((r) => r.json())
-    ]);
-    const featured = (att.attractions || []).find((a) => a.featured) || (att.attractions || [])[0];
-    if (featured) box.appendChild(card(featured.tag || "Park", featured.name, featured.desc || "", featured.url));
-    (shows.shows || []).slice(0, 4).forEach((s) => {
-      box.appendChild(card(s.time || "Show", s.name, (s.venue || "") + (s.type ? " · " + s.type : ""), s.url));
-    });
-    (dining.restaurants || []).slice(0, 3).forEach((d) => {
-      box.appendChild(card(d.tag || d.cuisine || "Eat", d.name, d.desc || d.venue || "", d.url));
-    });
-  } catch (e) {
-    box.appendChild(card("Live", "Couldn’t load tonight’s board", "Home, then try again", stayGuideUrl()));
+    const man = await fetch("/reports/manifest.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
+    const avail = man.available || [];
+    date = man.latest || avail[0] || "";
+    // Prefer a dated issue that actually exists; Tuesday+ can sit ahead of latest.
+    if (avail[0] && avail[0] > date) date = avail[0];
+  } catch (e) {}
+  if (!date) {
+    const d = new Date();
+    date = d.toISOString().slice(0, 10);
   }
+  frame.src = "/reports/" + date + ".html";
+}
+
+async function loadGo() {
+  await loadDaily();
 }
 
 function loadMap() {
@@ -978,7 +984,7 @@ function loadQR() {
 }
 
 function buildDots() {
-  const labels = ["Welcome", "Wi-Fi", "How-to", "Go", "Map"];
+  const labels = ["Welcome", "Wi-Fi", "How-to", "Daily", "Map"];
   document.getElementById("dots").innerHTML = labels.map((name, i) =>
     `<button class="dot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="${name}"></button>`
   ).join("");
@@ -1069,6 +1075,10 @@ function init() {
   document.getElementById("map-open").addEventListener("click", (e) => {
     e.stopPropagation();
     openOut(MAP_URL);
+  });
+  document.getElementById("daily-guide").addEventListener("click", (e) => {
+    e.stopPropagation();
+    openOut(stayGuideUrl());
   });
   let cornerTaps = 0;
   let cornerTimer = null;
