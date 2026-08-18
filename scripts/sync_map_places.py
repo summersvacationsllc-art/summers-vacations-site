@@ -27,6 +27,29 @@ FOOD_DIR = Path(
     os.environ.get("FOOD_SCOUT_DIR")
     or str(Path.home() / "projects" / "branson-content-engine" / "data" / "food")
 )
+GOLF_DIR = Path(
+    os.environ.get("GOLF_SCOUT_DIR")
+    or str(Path.home() / "projects" / "branson-content-engine" / "data" / "golf")
+)
+FISH_DIR = Path(
+    os.environ.get("FISH_SCOUT_DIR")
+    or str(Path.home() / "projects" / "branson-content-engine" / "data" / "fishing")
+)
+INTEL_DIR = Path(
+    os.environ.get("INTEL_SCOUT_DIR")
+    or str(Path.home() / "projects" / "branson-content-engine" / "data" / "intel")
+)
+STRIP_DIR = Path(
+    os.environ.get("STRIP_SCOUT_DIR")
+    or str(Path.home() / "projects" / "branson-content-engine" / "data" / "strip")
+)
+LANDING_DIR = Path(
+    os.environ.get("LANDING_SCOUT_DIR")
+    or str(Path.home() / "projects" / "branson-content-engine" / "data" / "landing")
+)
+GOLF = SITE / "public" / "reports" / "golf-data.json"
+ATTRACTIONS = SITE / "public" / "reports" / "attractions-data.json"
+FISHING_SPOTS = SITE / "public" / "reports" / "fishing-spots.json"
 SHOWS_DIR = Path(
     os.environ.get("SHOWS_SCOUT_DIR")
     or str(Path.home() / "projects" / "branson-content-engine" / "data" / "shows")
@@ -154,12 +177,290 @@ def load_dining() -> dict:
     return {"updated": "", "restaurants": []}
 
 
-def already(restaurants: list[dict], name: str) -> dict | None:
+GOLF_SEEDS = {
+    "branson-hills-golf-club": (36.66953, -93.22545, "203 Branson Hills Pkwy"),
+    "payne-s-valley-big-cedar": (36.5308, -93.2684, "Big Cedar Lodge · Ridgedale"),
+    "ozarks-national-big-cedar": (36.55946, -93.17929, "Ozarks National · Ridgedale"),
+    "buffalo-ridge-springs": (36.5482, -93.2415, "Hwy 165 · Ridgedale"),
+    "ledgestone-country-club": (36.69277, -93.32388, "Branson West"),
+    "top-of-the-rock-big-cedar": (36.53735, -93.27632, "Top of the Rock"),
+    "cliffhangers-at-big-cedar": (36.5364, -93.2778, "Top of the Rock"),
+    "thousand-hills-golf-resort": (36.63449, -93.2643, "245 S Wildwood Dr"),
+    "holiday-hills-golf-club": (36.63338, -93.1866, "630 E Rockford Dr"),
+    "mountain-top-big-cedar": (36.5382, -93.2749, "Top of the Rock"),
+}
+
+FISH_SEEDS_COORDS = {
+    "dewey-short-visitor-center": (36.59395, -93.31236, "Table Rock Dam"),
+    "table-rock-dam-tailwater": (36.59597, -93.31105, "Lake Taneycomo"),
+    "aunts-creek-recreation-area": (36.5912, -93.4015, "Aunts Creek · Table Rock"),
+    "campbell-point-recreation-area": (36.6045, -93.355, "Campbell Point · Table Rock"),
+}
+
+
+def seed_coords(name: str) -> tuple[float, float, str] | None:
     key = slug(name)
-    for r in restaurants:
-        if slug(r.get("name") or "") == key:
+    if key in GOLF_SEEDS:
+        return GOLF_SEEDS[key]
+    if key in FISH_SEEDS_COORDS:
+        return FISH_SEEDS_COORDS[key]
+    for k, v in {**GOLF_SEEDS, **FISH_SEEDS_COORDS}.items():
+        if k in key or key in k:
+            return v
+    return None
+
+
+def already(rows: list[dict], name: str) -> dict | None:
+    key = slug(name)
+    for r in rows:
+        other = slug(r.get("name") or "")
+        if not other:
+            continue
+        if other == key or other in key or key in other:
             return r
     return None
+
+
+def fill_coords(rows: list[dict], kind: str) -> int:
+    filled = 0
+    for r in rows:
+        seeded = seed_coords(r.get("name") or "")
+        if seeded:
+            lat, lng, venue = seeded
+            r["lat"], r["lng"] = lat, lng
+            r.setdefault("venue", venue)
+            filled += 1
+            print(f"{kind} seed: {r.get('name')} @ {lat:.5f},{lng:.5f}")
+            continue
+        if isinstance(r.get("lat"), (int, float)) and isinstance(r.get("lng"), (int, float)):
+            continue
+        hit = geocode(r.get("name") or "")
+        if not hit:
+            print(f"skip {kind} (no geo): {r.get('name')}")
+            continue
+        lat, lng, venue = hit
+        r["lat"], r["lng"] = lat, lng
+        r.setdefault("venue", venue)
+        filled += 1
+        print(f"{kind} coord: {r.get('name')} @ {lat:.5f},{lng:.5f}")
+    return filled
+
+
+def latest_md(folder: Path) -> Path | None:
+    if not folder.is_dir():
+        return None
+    files = sorted(folder.glob("20*.md"))
+    return files[-1] if files else None
+
+
+SKIP_HEADINGS = (
+    "notes",
+    "popular",
+    "this ",
+    "verify",
+    "output",
+    "sunday",
+    "sources",
+    "weather",
+    "highlights",
+    "also checked",
+    "other notable",
+    "additional",
+    "upcoming",
+    "tournament",
+    "championship",
+    "junior golf",
+    "events",
+)
+
+
+def parse_named_md(
+    text: str,
+    skip_prefixes: tuple[str, ...] = (),
+    strip_prefixes: tuple[str, ...] = (),
+) -> list[dict]:
+    found: list[dict] = []
+    parts = re.split(r"\n(?=###\s+)", text)
+    for part in parts:
+        m = re.match(r"###\s+(.+)", part)
+        if not m:
+            continue
+        raw = re.sub(r"[*#]", "", m.group(1)).strip()
+        for pref in strip_prefixes:
+            if raw.lower().startswith(pref):
+                raw = raw[len(pref) :].strip()
+        name = re.split(r"\s+[—–-]\s+|\s+\(", raw)[0].strip()
+        if len(name) < 4:
+            continue
+        low = name.lower()
+        if low.startswith(SKIP_HEADINGS + skip_prefixes):
+            continue
+        src_m = SOURCE_RE.search(part)
+        url = ""
+        if src_m:
+            url = src_m.group(1).split(",")[0].strip().rstrip(".,)")
+            if not url.startswith("http"):
+                url = ""
+        loc_m = re.search(r"\(([^)]+)\)", raw)
+        found.append(
+            {
+                "name": name,
+                "tag": "Scout find",
+                "desc": "",
+                "url": url,
+                "venue": loc_m.group(1).strip() if loc_m else "",
+            }
+        )
+    return found
+
+
+def sync_named_list(
+    path: Path,
+    key: str,
+    scout_dir: Path | None,
+    extra_dirs: tuple[Path, ...] = (),
+    skip_prefixes: tuple[str, ...] = (),
+    strip_prefixes: tuple[str, ...] = (),
+    kind: str = "place",
+) -> None:
+    data = json.loads(path.read_text()) if path.exists() else {"updated": "", key: []}
+    rows: list[dict] = list(data.get(key) or [])
+    filled = fill_coords(rows, kind)
+    added = 0
+    dirs = []
+    if scout_dir:
+        dirs.append(scout_dir)
+    dirs.extend(extra_dirs)
+    for folder in dirs:
+        latest = latest_md(folder)
+        if not latest:
+            continue
+        for cand in parse_named_md(
+            latest.read_text(errors="replace"),
+            skip_prefixes=skip_prefixes,
+            strip_prefixes=strip_prefixes,
+        ):
+            if already(rows, cand["name"]):
+                continue
+            hit = geocode(cand["name"])
+            if not hit:
+                print(f"skip {kind} find (no geo): {cand['name']}")
+                continue
+            lat, lng, venue = hit
+            rows.append(
+                {
+                    "name": cand["name"],
+                    "tag": cand.get("tag") or "Scout find",
+                    "desc": cand.get("desc") or f"New find from scout ({latest.stem}).",
+                    "url": cand.get("url") or "",
+                    "venue": cand.get("venue") or venue,
+                    "lat": lat,
+                    "lng": lng,
+                    "source": f"scout:{latest.stem}",
+                }
+            )
+            added += 1
+            print(f"added {kind}: {cand['name']} @ {lat:.5f},{lng:.5f}")
+    if added or filled:
+        data[key] = rows
+        data["updated"] = date.today().isoformat()
+        path.write_text(json.dumps(data, indent=2) + "\n")
+        print(f"wrote {path.name} added={added} filled={filled} total={len(rows)}")
+    else:
+        print(f"no {kind} map changes (existing={len(rows)})")
+
+
+FISH_SEEDS = [
+    {
+        "name": "Dewey Short Visitor Center",
+        "tag": "Dam overlook",
+        "desc": "Table Rock Dam visitor center — tailwater trout just below, lake above.",
+        "url": "https://www.swl.usace.army.mil/",
+        "venue": "Table Rock Dam",
+    },
+    {
+        "name": "Table Rock Dam tailwater",
+        "tag": "Trout",
+        "desc": "Taneycomo trout water immediately below Table Rock Dam.",
+        "url": "https://mdc.mo.gov/",
+        "venue": "Lake Taneycomo",
+    },
+    {
+        "name": "Aunts Creek Recreation Area",
+        "tag": "Ramp",
+        "desc": "USACE ramp and park on Table Rock — bass and crappie access.",
+        "url": "https://www.swl.usace.army.mil/",
+        "venue": "Table Rock Lake",
+    },
+    {
+        "name": "Campbell Point Recreation Area",
+        "tag": "Ramp",
+        "desc": "USACE campground and boat ramp on Table Rock.",
+        "url": "https://www.swl.usace.army.mil/",
+        "venue": "Table Rock Lake",
+    },
+]
+
+
+def looks_like_fish_place(name: str) -> bool:
+    low = name.lower()
+    keys = (
+        "marina",
+        "ramp",
+        "landing",
+        "creek",
+        "dam",
+        "visitor",
+        "point",
+        "park",
+        "lake",
+        "access",
+        "dock",
+        "harbor",
+        "cove",
+    )
+    return any(k in low for k in keys)
+
+
+def sync_fishing_spots() -> None:
+    data = json.loads(FISHING_SPOTS.read_text()) if FISHING_SPOTS.exists() else {"updated": "", "spots": []}
+    spots: list[dict] = list(data.get("spots") or [])
+    for seed in FISH_SEEDS:
+        if not already(spots, seed["name"]):
+            spots.append(dict(seed))
+    filled = fill_coords(spots, "fish")
+    added = 0
+    latest = latest_md(FISH_DIR)
+    if latest:
+        for cand in parse_named_md(latest.read_text(errors="replace")):
+            if not looks_like_fish_place(cand["name"]):
+                continue
+            if already(spots, cand["name"]):
+                continue
+            hit = geocode(cand["name"])
+            if not hit:
+                print(f"skip fish find (no geo): {cand['name']}")
+                continue
+            lat, lng, venue = hit
+            spots.append(
+                {
+                    "name": cand["name"],
+                    "tag": "Scout find",
+                    "desc": f"Named in fishing scout ({latest.stem}).",
+                    "url": cand.get("url") or "",
+                    "venue": cand.get("venue") or venue,
+                    "lat": lat,
+                    "lng": lng,
+                    "source": f"fishing-scout:{latest.stem}",
+                }
+            )
+            added += 1
+            print(f"added fish: {cand['name']} @ {lat:.5f},{lng:.5f}")
+    if added or filled or spots:
+        data["spots"] = spots
+        data["updated"] = date.today().isoformat()
+        FISHING_SPOTS.write_text(json.dumps(data, indent=2) + "\n")
+        print(f"wrote fishing-spots.json added={added} filled={filled} total={len(spots)}")
 
 
 def latest_food_file() -> Path | None:
@@ -226,6 +527,50 @@ def main() -> int:
         )
 
     sync_show_venues()
+    sync_named_list(
+        GOLF,
+        "courses",
+        GOLF_DIR,
+        skip_prefixes=(
+            "other notable",
+            "additional",
+            "also checked",
+            "upcoming",
+            "tournament",
+            "championship",
+            "junior",
+            "events",
+            "other events",
+            "other tournaments",
+        ),
+        strip_prefixes=("course spotlight:",),
+        kind="golf",
+    )
+    sync_named_list(
+        ATTRACTIONS,
+        "attractions",
+        None,
+        extra_dirs=(INTEL_DIR, STRIP_DIR, LANDING_DIR),
+        skip_prefixes=(
+            "notes",
+            "weather",
+            "this ",
+            "verify",
+            "sources",
+            "output",
+            "highlights",
+            "events",
+            "also",
+            "sunday",
+            "monday",
+            "today",
+            "intel",
+            "strip",
+            "landing",
+        ),
+        kind="attraction",
+    )
+    sync_fishing_spots()
     return 0
 
 

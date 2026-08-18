@@ -2,13 +2,22 @@ import { NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
+async function readJson(name: string) {
+  const path = join(process.cwd(), "public", "reports", name);
+  return JSON.parse(await readFile(path, "utf-8"));
+}
+
 export async function GET() {
   try {
-    const path = join(process.cwd(), "public", "reports", "fishing-data.json");
-    const data = await readFile(path, "utf-8");
-    return NextResponse.json({ ok: true, ...JSON.parse(data) });
+    const data = await readJson("fishing-data.json");
+    try {
+      const spots = await readJson("fishing-spots.json");
+      if (Array.isArray(spots.spots)) data.spots = spots.spots;
+    } catch {
+      /* no spots file yet */
+    }
+    return NextResponse.json({ ok: true, ...data });
   } catch {
-    // Return fallback data if file doesn't exist yet
     return NextResponse.json({
       ok: true,
       date: new Date().toISOString().split("T")[0],

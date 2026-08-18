@@ -18,6 +18,9 @@ import {
   MAP_CATEGORY_META,
   diningToMapSpot,
   showsToMapSpots,
+  golfToMapSpot,
+  attractionToMapSpot,
+  fishingToMapSpot,
   type MapCategory,
   type MapSpot,
 } from "@/data/branson-map";
@@ -57,6 +60,9 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
   const [selectedId, setSelectedId] = useState<string | null>(initial);
   const [diningSpots, setDiningSpots] = useState<MapSpot[]>([]);
   const [liveShowSpots, setLiveShowSpots] = useState<MapSpot[]>([]);
+  const [golfSpots, setGolfSpots] = useState<MapSpot[]>([]);
+  const [attractionSpots, setAttractionSpots] = useState<MapSpot[]>([]);
+  const [fishSpots, setFishSpots] = useState<MapSpot[]>([]);
 
   useEffect(() => {
     fetch("/api/dining")
@@ -79,11 +85,48 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
         setLiveShowSpots(showsToMapSpots(d.shows, BRANSON_MAP_SPOTS));
       })
       .catch(() => {});
+    fetch("/api/golf")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d?.ok || !Array.isArray(d.courses)) return;
+        setGolfSpots(
+          d.courses
+            .map((row: Parameters<typeof golfToMapSpot>[0]) => golfToMapSpot(row))
+            .filter((s: MapSpot | null): s is MapSpot => Boolean(s)),
+        );
+      })
+      .catch(() => {});
+    fetch("/api/attractions")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d?.ok || !Array.isArray(d.attractions)) return;
+        setAttractionSpots(
+          d.attractions
+            .map((row: Parameters<typeof attractionToMapSpot>[0]) =>
+              attractionToMapSpot(row, BRANSON_MAP_SPOTS),
+            )
+            .filter((s: MapSpot | null): s is MapSpot => Boolean(s)),
+        );
+      })
+      .catch(() => {});
+    fetch("/api/fishing-report")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d?.ok || !Array.isArray(d.spots)) return;
+        setFishSpots(
+          d.spots
+            .map((row: Parameters<typeof fishingToMapSpot>[0]) =>
+              fishingToMapSpot(row, BRANSON_MAP_SPOTS),
+            )
+            .filter((s: MapSpot | null): s is MapSpot => Boolean(s)),
+        );
+      })
+      .catch(() => {});
   }, []);
 
   const allSpots = useMemo(
-    () => [...BRANSON_MAP_SPOTS, ...diningSpots, ...liveShowSpots],
-    [diningSpots, liveShowSpots],
+    () => [...BRANSON_MAP_SPOTS, ...diningSpots, ...liveShowSpots, ...golfSpots, ...attractionSpots, ...fishSpots],
+    [diningSpots, liveShowSpots, golfSpots, attractionSpots, fishSpots],
   );
 
   const spots = useMemo(

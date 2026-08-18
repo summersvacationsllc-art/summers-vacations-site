@@ -1,0 +1,41 @@
+{
+  "updated": "2026-08-17",
+  "spots": [
+    {
+      "name": "Dewey Short Visitor Center",
+      "tag": "Dam overlook",
+      "desc": "Table Rock Dam visitor center \u2014 tailwater trout just below, lake above.",
+      "url": "https://www.swl.usace.army.mil/",
+      "venue": "Table Rock Dam",
+      "lat": 36.59395,
+      "lng": -93.31236
+    },
+    {
+      "name": "Table Rock Dam tailwater",
+      "tag": "Trout",
+      "desc": "Taneycomo trout water immediately below Table Rock Dam.",
+      "url": "https://mdc.mo.gov/",
+      "venue": "Lake Taneycomo",
+      "lat": 36.59597,
+      "lng": -93.31105
+    },
+    {
+      "name": "Aunts Creek Recreation Area",
+      "tag": "Ramp",
+      "desc": "USACE ramp and park on Table Rock \u2014 bass and crappie access.",
+      "url": "https://www.swl.usace.army.mil/",
+      "venue": "Table Rock Lake",
+      "lat": 36.5912,
+      "lng": -93.4015
+    },
+    {
+      "name": "Campbell Point Recreation Area",
+      "tag": "Ramp",
+      "desc": "USACE campground and boat ramp on Table Rock.",
+      "url": "https://www.swl.usace.army.mil/",
+      "venue": "Table Rock Lake",
+      "lat": 36.6045,
+      "lng": -93.355
+    }
+  ]
+}

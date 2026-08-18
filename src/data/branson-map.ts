@@ -1,4 +1,4 @@
-export type MapCategory = "stay" | "eat" | "webcam" | "marina" | "attraction" | "show";
+export type MapCategory = "stay" | "eat" | "webcam" | "marina" | "attraction" | "show" | "golf" | "fish";
 
 export type MapSpot = {
   id: string;
@@ -28,6 +28,8 @@ export const MAP_CATEGORIES: {
   { id: "webcam", label: "Live cams", emoji: "📹", color: "#22d3ee" },
   { id: "marina", label: "Marinas", emoji: "⚓", color: "#14b8a6" },
   { id: "attraction", label: "Attractions", emoji: "🎢", color: "#0ea5e9" },
+  { id: "golf", label: "Golf", emoji: "⛳", color: "#16a34a" },
+  { id: "fish", label: "Fishing", emoji: "🎣", color: "#0f766e" },
   { id: "show", label: "Shows", emoji: "🎭", color: "#38bdf8" },
 ];
 
@@ -40,6 +42,8 @@ export const MAP_CATEGORY_META: Record<
   webcam: { label: "Live cam", emoji: "📹", color: "#22d3ee" },
   marina: { label: "Marina", emoji: "⚓", color: "#14b8a6" },
   attraction: { label: "Attraction", emoji: "🎢", color: "#0ea5e9" },
+  golf: { label: "Golf", emoji: "⛳", color: "#16a34a" },
+  fish: { label: "Fishing", emoji: "🎣", color: "#0f766e" },
   show: { label: "Show", emoji: "🎭", color: "#38bdf8" },
 };
 
@@ -648,4 +652,111 @@ export function showsToMapSpots(
     });
   }
   return out;
+}
+
+function slugId(prefix: string, name: string) {
+  return (
+    prefix +
+    name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+  );
+}
+
+export function golfToMapSpot(r: {
+  name: string;
+  url?: string;
+  designer?: string;
+  rates?: string;
+  tag?: string;
+  desc?: string;
+  venue?: string;
+  lat?: number;
+  lng?: number;
+}): MapSpot | null {
+  if (typeof r.lat !== "number" || typeof r.lng !== "number") return null;
+  if (!Number.isFinite(r.lat) || !Number.isFinite(r.lng)) return null;
+  const bits = [r.designer, r.rates, r.tag].filter(Boolean).join(" · ");
+  return {
+    id: slugId("golf-", r.name),
+    name: r.name,
+    venue: r.venue || bits || "Branson golf",
+    category: "golf",
+    lat: r.lat,
+    lng: r.lng,
+    description: r.desc || bits || "Local golf pick from the guest guide.",
+    href: r.url || "https://www.mybransonvacation.com/branson",
+    cta: r.url ? "Tee times" : "See in our guide",
+    ourPath: `/map?spot=${slugId("golf-", r.name)}`,
+  };
+}
+
+export function attractionToMapSpot(
+  r: {
+    name: string;
+    url?: string;
+    tag?: string;
+    desc?: string;
+    category?: string;
+    venue?: string;
+    lat?: number;
+    lng?: number;
+  },
+  existing: MapSpot[],
+): MapSpot | null {
+  if (typeof r.lat !== "number" || typeof r.lng !== "number") return null;
+  if (!Number.isFinite(r.lat) || !Number.isFinite(r.lng)) return null;
+  const dup = existing.some(
+    (e) =>
+      (e.category === "attraction" || e.category === "marina") &&
+      (placeOverlap(e.name, r.name) || placeOverlap(e.venue, r.name)),
+  );
+  if (dup) return null;
+  return {
+    id: slugId("do-", r.name),
+    name: r.name,
+    venue: r.venue || r.tag || "Branson",
+    category: "attraction",
+    lat: r.lat,
+    lng: r.lng,
+    description: r.desc || r.tag || "Local attraction from the guest guide.",
+    href: r.url || "https://www.mybransonvacation.com/branson",
+    cta: r.url ? "Hours / tickets" : "See in our guide",
+    ourPath: `/map?spot=${slugId("do-", r.name)}`,
+  };
+}
+
+export function fishingToMapSpot(
+  r: {
+    name: string;
+    url?: string;
+    tag?: string;
+    desc?: string;
+    venue?: string;
+    lat?: number;
+    lng?: number;
+  },
+  existing: MapSpot[],
+): MapSpot | null {
+  if (typeof r.lat !== "number" || typeof r.lng !== "number") return null;
+  if (!Number.isFinite(r.lat) || !Number.isFinite(r.lng)) return null;
+  const dup = existing.some(
+    (e) =>
+      (e.category === "marina" || e.category === "fish") &&
+      (placeOverlap(e.name, r.name) || placeOverlap(e.venue, r.name)),
+  );
+  if (dup) return null;
+  return {
+    id: slugId("fish-", r.name),
+    name: r.name,
+    venue: r.venue || r.tag || "Table Rock / Taneycomo",
+    category: "fish",
+    lat: r.lat,
+    lng: r.lng,
+    description: r.desc || r.tag || "Fishing access from the guest guide.",
+    href: r.url || "https://www.mybransonvacation.com/branson",
+    cta: r.url ? "Access info" : "See fishing report",
+    ourPath: `/map?spot=${slugId("fish-", r.name)}`,
+  };
 }
