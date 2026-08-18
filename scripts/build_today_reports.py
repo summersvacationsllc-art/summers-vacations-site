@@ -41,8 +41,38 @@ from pathlib import Path
 
 # ---------- paths ----------
 SITE = Path(__file__).resolve().parents[1]
-ENG = Path("/Users/briansummers/projects/branson-content-engine")
-DATE_RE = re.compile(r"^(\\d{4}-\\d{2}-\\d{2})\\.md$")
+
+
+def resolve_engine() -> Path:
+    """Find branson-content-engine scouts on Mac host OR GitHub Actions checkout.
+
+    2026-08-17: GH Actions Guest Daily used hardcoded ~/projects/... which does
+    not exist on ubuntu-latest → empty scout_file() → ~6.5KB thin HTML that
+    overwrote Hermes' full ~33KB magazine mid-morning. Prefer env, then local
+    _food_scouts checkout, then the Mac absolute path.
+    """
+    env = os.environ.get("BRANSON_ENGINE") or os.environ.get("CONTENT_ENGINE")
+    candidates: list[Path] = []
+    if env:
+        candidates.append(Path(env).expanduser())
+    candidates.extend(
+        [
+            SITE / "_food_scouts",  # GH Actions sparse checkout path
+            SITE.parent / "branson-content-engine",
+            Path.home() / "projects/branson-content-engine",
+            Path("/Users/briansummers/projects/branson-content-engine"),
+        ]
+    )
+    for c in candidates:
+        if (c / "data").is_dir():
+            return c
+    return candidates[-1]
+
+
+ENG = resolve_engine()
+DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.md$")
+# Floor for "real magazine" vs thin guard/GH-empty shell (2026-08-17 clobber)
+MAGAZINE_MIN_BYTES = 14000
 
 # ---------- shared helpers ----------
 def hero_meta(d: str) -> tuple[str, str, str]:
@@ -621,6 +651,44 @@ def build_fleet(date_str: str) -> str:
     return html
 
 # ---------- main ----------
+def _is_magazine_body(text: str, size: int) -> bool:
+    if size < 10000:
+        return False
+    head = (text or "")[:4000]
+    if "Deadline guard edition" in head or "guest_deadline_guard.py" in head:
+        return False
+    return True
+
+
+def write_guest_html(path: Path, new_html: str) -> tuple[int, str]:
+    """Write guest magazine HTML with no-shrink protect.
+
+    Never replace an existing full magazine with a thinner shell (GH Actions
+    empty-scout builds, deadline-guard race). Returns (bytes_on_disk, action).
+    """
+    new_bytes = new_html.encode("utf-8")
+    new_size = len(new_bytes)
+    if path.is_file():
+        try:
+            old = path.read_text(encoding="utf-8", errors="replace")
+            old_size = path.stat().st_size
+        except OSError:
+            old, old_size = "", 0
+        if _is_magazine_body(old, old_size):
+            # Keep prior magazine when new is thinner or under floor
+            shrink = new_size < int(old_size * 0.85) or (
+                new_size < MAGAZINE_MIN_BYTES and old_size >= MAGAZINE_MIN_BYTES
+            )
+            if shrink:
+                print(
+                    f"KEEP guest magazine {path.name}: existing {old_size}B > new {new_size}B "
+                    f"(no-shrink protect; engine={ENG})"
+                )
+                return old_size, "kept-existing-magazine"
+    path.write_text(new_html, encoding="utf-8")
+    return new_size, "wrote"
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date")
@@ -628,12 +696,19 @@ def main() -> None:
     today = args.date or dt.date.today().isoformat()
     out_dir = SITE / "public/reports"
     out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"ENG scouts root: {ENG} (data exists={(ENG / 'data').is_dir()})")
     guest_html = build_guest(today)
     fleet_html = build_fleet(today)
-    (out_dir / f"{today}.html").write_text(guest_html, encoding="utf-8")
+    guest_path = out_dir / f"{today}.html"
+    gsz, gact = write_guest_html(guest_path, guest_html)
     (out_dir / f"fleet-{today}.html").write_text(fleet_html, encoding="utf-8")
-    print(f"Wrote guest {len(guest_html)} bytes")
+    print(f"Guest {guest_path.name}: {gsz} bytes ({gact}); built={len(guest_html)}B")
     print(f"Wrote fleet {len(fleet_html)} bytes")
+    if gsz < MAGAZINE_MIN_BYTES:
+        print(
+            f"WARNING: guest HTML {gsz}B < {MAGAZINE_MIN_BYTES} magazine floor "
+            f"— check scout path / dual writers"
+        )
 
 if __name__ == "__main__":
     main()

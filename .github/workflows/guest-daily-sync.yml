@@ -45,6 +45,8 @@ jobs:
             data/intel
             data/strip
             data/landing
+            data/shows
+            data/photo-tags
           sparse-checkout-cone-mode: true
 
       - name: Setup Python
@@ -67,10 +69,28 @@ jobs:
           TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
           GUESTY_API_KEY: ${{ secrets.GUESTY_API_KEY }}
           GUESTY_ACCOUNT_ID: ${{ secrets.GUESTY_ACCOUNT_ID }}
+          # Scout root for build_today_reports (must match checkout path; never Mac absolute)
+          BRANSON_ENGINE: ${{ github.workspace }}/_food_scouts
         run: |
           set -euo pipefail
-          DATE=$(date -u +%Y-%m-%d)
+          # America/Chicago calendar day — UTC date alone is wrong near midnight CT
+          DATE=$(python3 - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          print(datetime.now(ZoneInfo("America/Chicago")).strftime("%Y-%m-%d"))
+          PY
+          )
           echo "Running Guest Daily Sync for $DATE (CT date)"
+          echo "BRANSON_ENGINE=$BRANSON_ENGINE"
+          ls -la "$BRANSON_ENGINE/data" 2>/dev/null || echo "WARNING: scout data dir missing"
+
+          # Snapshot prior magazine (if any) so empty-scout rebuild cannot clobber Hermes
+          PRIOR="public/reports/$DATE.html"
+          PRIOR_BAK="/tmp/prior-$DATE.html"
+          if [ -f "$PRIOR" ]; then
+            cp "$PRIOR" "$PRIOR_BAK"
+            echo "Prior magazine bytes: $(wc -c < "$PRIOR_BAK")"
+          fi
           
           # Step 1: Generate live snapshots from str-manager-one
           echo "=== Building guest-today.json ==="
@@ -82,6 +102,17 @@ jobs:
           # Step 2: Generate the magazine HTML report from scout data
           echo "=== Building magazine report (YYYY-MM-DD.html) ==="
           python3 scripts/build_today_reports.py --date "$DATE"
+
+          # Hard no-shrink: if builder still wrote under floor and prior was magazine, restore
+          HTML_SIZE=$(wc -c < "public/reports/$DATE.html" 2>/dev/null || echo 0)
+          if [ -f "$PRIOR_BAK" ]; then
+            PRIOR_SIZE=$(wc -c < "$PRIOR_BAK")
+            if [ "$HTML_SIZE" -lt 14000 ] && [ "$PRIOR_SIZE" -ge 14000 ]; then
+              echo "RESTORE prior magazine (${PRIOR_SIZE}B) over thin build (${HTML_SIZE}B)"
+              cp "$PRIOR_BAK" "public/reports/$DATE.html"
+              HTML_SIZE=$PRIOR_SIZE
+            fi
+          fi
 
           echo "=== Sync map pins from scouts ==="
           if [ -d _food_scouts/data ]; then
@@ -102,8 +133,8 @@ jobs:
           
           # Check HTML has substance (not thin guard HTML)
           HTML_SIZE=$(wc -c < "public/reports/$DATE.html" 2>/dev/null || echo 0)
-          if [ "$HTML_SIZE" -lt 8000 ]; then
-            echo "WARNING: HTML size is $HTML_SIZE bytes (expected >= 8000). May be thin."
+          if [ "$HTML_SIZE" -lt 14000 ]; then
+            echo "WARNING: HTML size is $HTML_SIZE bytes (expected >= 14000 magazine floor)."
           else
             echo "HTML size: $HTML_SIZE bytes ✓"
           fi
