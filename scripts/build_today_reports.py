@@ -152,12 +152,18 @@ def build_guest(date_str: str) -> str:
     # eat from dining
     eat_items = []
     for r in dining.get("restaurants", [])[:6]:
-        eat_items.append(f'<div class="item"><strong>{esc(r.get("name",""))}</strong><br/>{esc(r.get("tip",""))}</div>')
+        eat_items.append(
+            f'<div class="item"><strong>{esc(r.get("name",""))}</strong><br/>'
+            f'{esc(r.get("desc") or r.get("tag") or r.get("cuisine") or "")}</div>'
+        )
     eat_html = grid(eat_items, 2) if eat_items else '<p>No dining data</p>'
     # golf from golf
     golf_items = []
     for c in golf.get("courses", [])[:6]:
-        golf_items.append(f'<div class="item"><strong>{esc(c.get("name",""))}</strong><br/>{esc(c.get("tip",""))}</div>')
+        golf_items.append(
+            f'<div class="item"><strong>{esc(c.get("name",""))}</strong><br/>'
+            f'{esc(c.get("desc") or c.get("tag") or "")}</div>'
+        )
     golf_html = grid(golf_items, 2) if golf_items else '<p>No golf data</p>'
     # strip from scout
     strip_html = esc(strip_md).replace("\n", "<br/>")
