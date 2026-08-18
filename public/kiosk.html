@@ -48,7 +48,7 @@
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 1rem 1rem 10.5rem;
+    padding: 1rem 1rem 8.25rem;
   }
   #welcome.screen {
     padding: 0;
@@ -76,7 +76,7 @@
   .cover-bottom {
     position: absolute;
     left: 1.15rem; right: 1.15rem;
-    bottom: 6.6rem;
+    bottom: 7.5rem;
   }
   .brand {
     display: inline-block;
@@ -102,20 +102,22 @@
   .cover .days {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: .4rem;
+    gap: .35rem;
   }
   .cover .day {
-    background: rgba(255,255,255,.14);
+    background: rgba(255,255,255,.18);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,.22);
+    border: 1px solid rgba(255,255,255,.28);
     border-radius: 12px;
-    padding: .65rem .2rem;
+    padding: .42rem .15rem .48rem;
     text-align: center;
     color: #fff;
     font: inherit;
+    box-shadow: 0 8px 18px -12px rgba(0,0,0,.55);
   }
-  .cover .day b { display: block; font-size: 1.05rem; }
-  .cover .day span { font-size: .7rem; opacity: .9; }
+  .cover .day b { display: block; font-size: 1rem; letter-spacing: -.02em; }
+  .cover .day i { display: block; font-style: normal; font-size: .68rem; opacity: .88; font-weight: 600; }
+  .cover .day span { font-size: .68rem; opacity: .92; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
   .hero {
     background: linear-gradient(135deg,#0ea5e9,#0284c7);
     color: #fff;
@@ -257,38 +259,37 @@
     background: rgba(240,249,255,.94);
     backdrop-filter: blur(10px);
     border-top: 1px solid var(--line);
-    padding: .45rem .75rem calc(.55rem + env(safe-area-inset-bottom));
+    padding: .35rem .7rem calc(.4rem + env(safe-area-inset-bottom));
     z-index: 20;
   }
   .pager {
     display: flex;
     align-items: center;
-    gap: .55rem;
-    margin-bottom: .45rem;
+    gap: .4rem;
+    margin-bottom: .3rem;
   }
   .page-btn {
     flex: 1;
-    min-height: 3.1rem;
+    min-height: 2.15rem;
     border: 0;
-    border-radius: 14px;
+    border-radius: 999px;
     background: #0284c7;
     color: #fff;
     font: inherit;
-    font-size: 1.05rem;
+    font-size: .92rem;
     font-weight: 800;
-    padding: .55rem .7rem;
+    padding: .35rem .65rem;
   }
   .page-btn:disabled {
     background: #bae6fd;
     color: #7dd3fc;
   }
-  .page-btn span { display: block; font-size: .72rem; font-weight: 600; opacity: .9; }
-  .dots { display: flex; justify-content: center; gap: .45rem; margin-bottom: .35rem; }
+  .dots { display: flex; justify-content: center; gap: .4rem; margin-bottom: .25rem; }
   .dot {
-    width: 14px; height: 14px; border-radius: 99px;
+    width: 10px; height: 10px; border-radius: 99px;
     background: #7dd3fc; border: 0;
   }
-  .dot.on { background: var(--sky-dark); width: 28px; }
+  .dot.on { background: var(--sky-dark); width: 22px; }
   .foot {
     display: flex;
     align-items: center;
@@ -296,7 +297,7 @@
     font-size: .78rem;
     color: var(--link);
   }
-  .foot img { width: 42px; height: 42px; border-radius: 6px; background: #fff; }
+  .foot img { width: 34px; height: 34px; border-radius: 6px; background: #fff; }
   .edge {
     position: fixed;
     top: 0; bottom: 5.6rem;
@@ -366,20 +367,20 @@
     align-items: center;
     gap: .7rem;
     width: 100%;
-    margin-bottom: .65rem;
+    margin-bottom: .45rem;
     background: rgba(2,132,199,.92);
     border: 1px solid rgba(125,211,252,.55);
     color: #fff;
     border-radius: 999px;
-    padding: .45rem .7rem;
+    padding: .35rem .65rem;
     font: inherit;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: .98rem;
     text-align: left;
   }
   .jeb-btn img {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     border-radius: 99px;
     object-fit: cover;
     object-position: center 18%;
@@ -492,8 +493,8 @@
 
 <div class="chrome">
   <div class="pager">
-    <button class="page-btn" id="prev-page" type="button"><span>Back</span>← Welcome</button>
-    <button class="page-btn" id="next-page" type="button"><span>Next</span>Wi-Fi →</button>
+    <button class="page-btn" id="prev-page" type="button">← Back</button>
+    <button class="page-btn" id="next-page" type="button">Wi-Fi →</button>
   </div>
   <div class="dots" id="dots"></div>
   <div class="foot">
@@ -701,12 +702,8 @@ function goTo(i) {
   const next = document.getElementById("next-page");
   prev.disabled = screenIndex === 0;
   next.disabled = screenIndex === SCREEN_COUNT - 1;
-  prev.innerHTML = screenIndex === 0
-    ? "<span>Back</span>←"
-    : "<span>Back</span>← " + PAGE_NAMES[screenIndex - 1];
-  next.innerHTML = screenIndex === SCREEN_COUNT - 1
-    ? "<span>Next</span>→"
-    : "<span>Next</span>" + PAGE_NAMES[screenIndex + 1] + " →";
+  prev.innerHTML = screenIndex === 0 ? "← Back" : "← " + PAGE_NAMES[screenIndex - 1];
+  next.innerHTML = screenIndex === SCREEN_COUNT - 1 ? "Next →" : PAGE_NAMES[screenIndex + 1] + " →";
   bumpIdle();
 }
 function bumpIdle() {
@@ -746,7 +743,7 @@ function buildForecast(stay) {
   return span.map((iso, k) => {
     const i = startIdx + k;
     const label = k === 0 ? "Now" : new Date(iso + "T12:00:00").toLocaleDateString("en-US", { weekday: "short" });
-    return `<div class="day"><span>${label}</span><b>${wxIcon(daily.weather_code[i])} ${Math.round(daily.temperature_2m_max[i])}°</b></div>`;
+    return `<div class="day"><span>${label}</span><b>${wxIcon(daily.weather_code[i])} ${Math.round(daily.temperature_2m_max[i])}°</b><i>${Math.round(daily.temperature_2m_min[i])}° low</i></div>`;
   }).join("");
 }
 
