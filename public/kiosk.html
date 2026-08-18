@@ -368,6 +368,64 @@
     font-size: .72rem;
     opacity: .9;
   }
+  .howto-list { display: grid; gap: .65rem; margin-top: .45rem; }
+  .howto-card {
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background: #f0f9ff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .45rem;
+    font: inherit;
+    color: inherit;
+  }
+  .howto-card img {
+    width: 7.2rem;
+    height: 4.05rem;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e0f2fe;
+    flex-shrink: 0;
+  }
+  .howto-card b { display: block; font-size: .98rem; color: var(--ink); }
+  .howto-card span { font-size: .8rem; color: var(--link); }
+  #player {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: #042033;
+    flex-direction: column;
+  }
+  #player.on { display: flex; }
+  .player-bar {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    padding: .7rem .85rem calc(.7rem + env(safe-area-inset-bottom));
+    background: #0c4a6e;
+    color: #fff;
+  }
+  .player-bar b { font-size: .95rem; }
+  .player-back {
+    border: 0;
+    background: #0284c7;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: .55rem .85rem;
+    white-space: nowrap;
+  }
+  #player-frame {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    background: #000;
+  }
   @media (prefers-reduced-motion: reduce) {
     #deck { transition: none; }
   }
@@ -381,6 +439,14 @@
     <p>Pick once. Fully Kiosk can also lock the URL with ?unit=slug.</p>
   </div>
   <div id="picker-list"></div>
+</div>
+
+<div id="player">
+  <div class="player-bar">
+    <button type="button" class="player-back" id="player-close">← Back to tablet</button>
+    <b id="player-title">How-to</b>
+  </div>
+  <iframe id="player-frame" title="How-to video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <div id="deck">
@@ -456,6 +522,72 @@ const BOOK_URL = "https://branson-condo.com";
 const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
 const MAP_URL = "https://www.mybransonvacation.com/map";
 const STORE = "sv-kiosk-unit";
+
+const HOWTO = {
+  "the-penthouse": [
+    { title: "Coffee Bar Tour", id: "s8OHxzMKVd8" },
+    { title: "Keurig K-Duo Plus", id: "9VvWwr4lEzg" },
+    { title: "Aroma 360 Diffuser", id: "Th_8nI2pdjM" },
+    { title: "Water Filter", id: "awyb9DSggcg" },
+    { title: "Electric Fireplace", id: "lcq7bG2Mh8E" },
+    { title: "Electric Candle & Lantern", id: "nmuM_oBuME8" },
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "rustic-ozark-retreat": [
+    { title: "Finding the Building", id: "qTRxLgEop-Q" },
+    { title: "Coffee Bar Tour", id: "s8OHxzMKVd8" },
+    { title: "Keurig K-Duo Plus", id: "9VvWwr4lEzg" },
+    { title: "Nest Thermostat", id: "XHbRs2uq0KU" },
+    { title: "Electric Fireplace", id: "ZMgLcwV4Hwc" },
+    { title: "Electronic Candles & Lantern", id: "ljN3qBYoZ7k" },
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "double-condo": [
+    { title: "Coffee Bar Tour", id: "s8OHxzMKVd8" },
+    { title: "Keurig K-Duo Plus", id: "9VvWwr4lEzg" },
+    { title: "Aroma 360 Diffuser", id: "Th_8nI2pdjM" },
+    { title: "Water Filter", id: "awyb9DSggcg" },
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "woodland-retreat": [
+    { title: "Mr. Coffee Coffee Maker", id: "74MuwGbmJFc" },
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "modern-charmer": [
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "pretty-peacock": [
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "branson-family-haven": [
+    { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ]
+};
 
 function qs(name) {
   return new URLSearchParams(location.search).get(name);
@@ -630,6 +762,7 @@ function renderWifi() {
         <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
       </ul>
     </div>
+    ${howtoBlock()}
     <div class="checkout">Check-out is 10:00 AM — all units</div>
   `;
 }
@@ -665,6 +798,8 @@ function jebUrl() {
 function stayGuideUrl() {
   const unit = UNITS[slug];
   const u = new URL("https://www.mybransonvacation.com/guidebook/" + unit.guidebook);
+  u.searchParams.set("from", "kiosk");
+  if (slug) u.searchParams.set("unit", slug);
   if (stayCache) {
     if (stayCache.guest) u.searchParams.set("name", firstName(stayCache.guest));
     if (stayCache.check_in) u.searchParams.set("checkin", stayCache.check_in);
@@ -673,8 +808,53 @@ function stayGuideUrl() {
   return u.toString();
 }
 
+function youtubeIdFromUrl(url) {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes("youtu.be")) return (u.pathname.replace(/^\//, "").split("/")[0] || "");
+    return u.searchParams.get("v") || "";
+  } catch (e) {
+    return "";
+  }
+}
+
+function playHowTo(id, title) {
+  if (!id) return;
+  document.getElementById("player-title").textContent = title || "How-to";
+  document.getElementById("player-frame").src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0";
+  document.getElementById("player").classList.add("on");
+}
+
+function closePlayer() {
+  document.getElementById("player").classList.remove("on");
+  document.getElementById("player-frame").src = "";
+}
+
+function howtoBlock() {
+  const vids = HOWTO[slug] || [];
+  if (!vids.length) return "";
+  return `
+    <div class="card">
+      <div class="label">How-to videos</div>
+      <p class="note">Walkthroughs for this home. Tap one to watch here. Then tap Back to tablet.</p>
+      <div class="howto-list">
+        ${vids.map((v) => `
+          <button type="button" class="howto-card" data-yt="${v.id}" data-title="${v.title}">
+            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="">
+            <div><b>${v.title}</b><span>Watch here</span></div>
+          </button>
+        `).join("")}
+      </div>
+    </div>`;
+}
+
 function openOut(url) {
   if (!url) return;
+  const yt = youtubeIdFromUrl(url);
+  if (yt) {
+    playHowTo(yt, "Video");
+    return;
+  }
   try {
     if (typeof fully !== "undefined" && fully.loadUrl) {
       fully.loadUrl(url);
@@ -710,7 +890,6 @@ async function loadGo() {
   const box = document.getElementById("go");
   box.innerHTML = "";
   box.appendChild(card("House", "Open the house guide", "Live guest app — Shows, Dining, Map, Adventure", stayGuideUrl()));
-  box.appendChild(card("How-to", "Watch how-to videos", "Coffee, laundry, fireplace, and more for this home", "https://www.mybransonvacation.com/howto/" + slug));
   try {
     const [att, shows, dining] = await Promise.all([
       fetch("https://www.mybransonvacation.com/api/attractions", { cache: "no-store" }).then((r) => r.json()),
@@ -788,7 +967,17 @@ function init() {
   renderPicker();
   document.getElementById("home-btn").addEventListener("click", (e) => {
     e.stopPropagation();
+    closePlayer();
     goHome();
+  });
+  document.getElementById("player-close").addEventListener("click", (e) => {
+    e.stopPropagation();
+    closePlayer();
+  });
+  document.getElementById("wifi").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-yt]");
+    if (!btn) return;
+    playHowTo(btn.getAttribute("data-yt"), btn.getAttribute("data-title") || "How-to");
   });
   document.getElementById("map-open").addEventListener("click", (e) => {
     e.stopPropagation();

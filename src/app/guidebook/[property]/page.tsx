@@ -29,7 +29,7 @@ function convertTime(t: string): string {
 
 export default function GuidebookPage({ params, searchParams: spPromise }: {
   params: Promise<{ property: string }>;
-  searchParams: Promise<{ code?: string; name?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string }>;
+  searchParams: Promise<{ code?: string; name?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string; from?: string; unit?: string }>;
 }) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
@@ -39,6 +39,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const [checkin, setCheckin] = useState('');
   const [checkout, setCheckout] = useState('');
   const [checkinTime, setCheckinTime] = useState('');
+  const [fromKiosk, setFromKiosk] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [photos, setPhotos] = useState<string[]>([]);
@@ -62,6 +63,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       if (sp.checkin) setCheckin(sp.checkin);
       if (sp.checkout) setCheckout(sp.checkout);
       if (sp.checkintime) setCheckinTime(sp.checkintime);
+      if (sp.from === 'kiosk') setFromKiosk(true);
       // Auto-detect mode based on checkout date
       // City guidebook is the base. Property house-manual only while booked.
       if (sp.checkout) {
@@ -223,10 +225,32 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     <a href={href} target="_blank" rel="noopener" className={`text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline inline-block ${style}`}>{label}</a>
   );
 
+  const backToTablet = () => {
+    try {
+      const fully = (window as unknown as { fully?: { loadStartUrl?: () => void } }).fully;
+      if (fully?.loadStartUrl) {
+        fully.loadStartUrl();
+        return;
+      }
+    } catch { /* browser */ }
+    const unit = prop?.slug || '';
+    window.location.href = unit ? `/kiosk.html?unit=${encodeURIComponent(unit)}` : '/kiosk.html';
+  };
+
   return (
     <div className="min-h-screen bg-sky-50 flex flex-col max-w-md mx-auto relative" style={{ fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}>
+      {fromKiosk && (
+        <button
+          type="button"
+          onClick={backToTablet}
+          className="sticky top-0 z-30 w-full text-left font-bold text-white px-4 py-3 border-0"
+          style={{ background: '#0284c7' }}
+        >
+          ← Back to tablet
+        </button>
+      )}
       {/* Notch spacer */}
-      <div className="h-[34px]" />
+      {!fromKiosk && <div className="h-[34px]" />}
 
       {/* Brand Bar */}
       <div className="flex items-center gap-2 px-3.5 pb-2.5 flex-shrink-0" style={{ background: '#0c4a6e', paddingTop: '8px' }}>

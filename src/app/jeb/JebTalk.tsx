@@ -220,9 +220,21 @@ export default function JebTalk() {
       <header className="flex items-center gap-3 px-4 py-3 border-b border-sky-200 bg-white/90 backdrop-blur">
         <Link
           href={backHref}
-          className="text-sm font-bold text-[#0369a1] no-underline px-3 py-2 rounded-full border border-sky-200 bg-white"
+          onClick={(e) => {
+            if (!fromKiosk) return;
+            e.preventDefault();
+            try {
+              const fully = (window as unknown as { fully?: { loadStartUrl?: () => void } }).fully;
+              if (fully?.loadStartUrl) {
+                fully.loadStartUrl();
+                return;
+              }
+            } catch { /* browser */ }
+            window.location.href = backHref;
+          }}
+          className={fromKiosk ? "text-sm font-bold text-white no-underline px-3 py-2 rounded-full bg-[#0284c7]" : "text-sm font-bold text-[#0369a1] no-underline px-3 py-2 rounded-full border border-sky-200 bg-white"}
         >
-          ← Back
+          {fromKiosk ? "← Back to tablet" : "← Back"}
         </Link>
         <div className="min-w-0">
           <div className="font-display text-lg font-semibold leading-tight">Talk to Jeb</div>

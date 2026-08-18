@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllGuidebookSlugs, getGuidebook } from "@/data/guidebooks";
 import { videosForUnit } from "@/lib/howto";
 
-type Props = { params: Promise<{ unit: string }> };
+type Props = { params: Promise<{ unit: string }>; searchParams: Promise<{ from?: string }> };
 
 export function generateStaticParams() {
   return getAllGuidebookSlugs().map((unit) => ({ unit }));
@@ -19,18 +19,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function HowToUnitPage({ params }: Props) {
+export default async function HowToUnitPage({ params, searchParams }: Props) {
   const { unit } = await params;
+  const fromKiosk = (await searchParams).from === "kiosk";
   const gb = getGuidebook(unit);
   if (!gb) notFound();
   const videos = videosForUnit(unit);
+  const back = `/kiosk.html?unit=${encodeURIComponent(unit)}`;
 
   return (
     <main className="min-h-dvh bg-[#f0f9ff] text-[#0c4a6e] px-4 py-8">
       <div className="mx-auto max-w-lg">
-        <Link href="/howto" className="text-sm font-semibold text-[#0369a1]">
-          ← All homes
-        </Link>
+        {fromKiosk ? (
+          <a href={back} className="inline-block text-sm font-bold text-white bg-[#0284c7] rounded-full px-4 py-2 no-underline">
+            ← Back to tablet
+          </a>
+        ) : (
+          <Link href="/howto" className="text-sm font-semibold text-[#0369a1]">
+            ← All homes
+          </Link>
+        )}
         <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">How-to videos</p>
         <h1 className="mt-2 font-serif text-4xl leading-none">{gb.name}</h1>
         <p className="mt-3 text-[#0369a1]">Tap a card to watch on YouTube. These are the walkthroughs for this home.</p>
