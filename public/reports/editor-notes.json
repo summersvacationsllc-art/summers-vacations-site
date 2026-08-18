@@ -1,0 +1,24 @@
+{
+  "for": "2026-08-18",
+  "headline": "Steal the cool morning. Own the market.",
+  "lede": "Tuesday, August 18. High 101°, low 70°, almost no rain. This is a heat day. Do the lake or coffee before 9. Hide 11–4. Farmers market 2:30–6:30 at the Landing south lot by Bass Pro — peaches, tomatoes, handmade goods, live music. Farmhouse on Main after, then an air-conditioned theatre.",
+  "heat": true,
+  "featured": {
+    "title": "Branson Farmers Market",
+    "when": "2:30–6:30 PM",
+    "where": "South parking lot by Bass Pro · Branson Landing",
+    "why": "The one Tuesday that still feels like a small Ozarks town. Local produce, jellies, soaps, baked goods. Free. Park once and walk.",
+    "url": "https://www.explorebranson.com/blog-explore/blog/post/branson-farmers-markets-2026/"
+  },
+  "plan": [
+    {"when": "Dawn", "title": "Lake or Steamy Joe", "detail": "Table Rock at first light, or breakfast at The Bradford. Do not start this day at noon."},
+    {"when": "2:30 PM", "title": "Landing market", "detail": "South lot by Bass Pro through 6:30. Then Farmhouse on Main if you want a real table."},
+    {"when": "Dusk", "title": "A show, not a hike", "detail": "Theatres are the smart evening. Confirm tonight’s board — we last verified times Monday."}
+  ],
+  "indoor": [
+    {"name": "WonderWorks", "detail": "Upside-down museum on the 76. Air conditioning that actually works.", "url": "https://www.wonderworksbranson.com/"},
+    {"name": "Titanic Museum", "detail": "Cool, dark, two hours. Book ahead on busy weeks.", "url": "https://titanicbranson.com/"},
+    {"name": "Aquarium at the Boardwalk", "detail": "Indoor tanks when the asphalt shimmers.", "url": "https://www.theaquariumattheboardwalk.com/"}
+  ],
+  "honesty": "Showtimes last verified Monday 2026-08-17. Confirm Tuesday box office before you drive."
+}

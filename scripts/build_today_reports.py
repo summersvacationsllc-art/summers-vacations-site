@@ -63,7 +63,7 @@ def plat_icon(plat: str) -> str:
     return "���������🏖������️ OTA" if p else "?"
 
 def esc(s: str) -> str:
-    return (s or "").replace("&", "&amp;").replace("<", "&lt").replace(">", "&gt").replace('"', "&quot;")
+    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 # ---------- CSS ----------
 # We'll read the CSS from a fragment file to avoid huge inline strings
@@ -141,23 +141,116 @@ def md_tiles(md: str, limit: int = 4) -> list[str]:
             break
     return tiles
 
-def meteo_today() -> dict:
+def meteo_week() -> list[dict]:
     try:
         url = (
             "https://api.open-meteo.com/v1/forecast?latitude=36.6509&longitude=-93.3691"
             "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
-            "&temperature_unit=fahrenheit&timezone=America%2FChicago&forecast_days=2"
+            "&temperature_unit=fahrenheit&timezone=America%2FChicago&forecast_days=7"
         )
         data = fetch_json(url)
         daily = data.get("daily") or {}
-        return {
-            "high": f"{round(daily['temperature_2m_max'][0])}°",
-            "low": f"{round(daily['temperature_2m_min'][0])}°",
-            "rain": f"{daily['precipitation_probability_max'][0]}% rain",
-            "tom_high": f"{round(daily['temperature_2m_max'][1])}°" if len(daily.get("temperature_2m_max") or []) > 1 else "",
-        }
+        out = []
+        for i, day in enumerate(daily.get("time") or []):
+            out.append({
+                "date": day,
+                "high_n": daily["temperature_2m_max"][i],
+                "low_n": daily["temperature_2m_min"][i],
+                "high": f"{round(daily['temperature_2m_max'][i])}°",
+                "low": f"{round(daily['temperature_2m_min'][i])}°",
+                "rain": f"{daily['precipitation_probability_max'][i]}% rain",
+                "code": daily["weather_code"][i],
+            })
+        return out
     except Exception:
-        return {}
+        return []
+
+
+def meteo_for(date_str: str) -> dict:
+    week = meteo_week()
+    for row in week:
+        if row.get("date") == date_str:
+            return row
+    return week[0] if week else {}
+
+
+def load_editor_notes(date_str: str) -> dict:
+    notes = load_json("editor-notes")
+    if notes.get("for") == date_str:
+        return notes
+    return {}
+
+
+def weekday_spotlight(restaurants: list[dict], date_str: str) -> dict:
+    day = dt.date.fromisoformat(date_str).weekday()
+    want = {
+        0: "ozark mountain pizza",
+        1: "farmhouse",
+        2: "steamy joe",
+        3: "white river",
+        4: "big d",
+        5: "lake house",
+        6: "steamy joe",
+    }[day]
+    for r in restaurants:
+        if want in (r.get("name") or "").lower():
+            return r
+    favorites = [r for r in restaurants if "favorite" in (r.get("tag") or "").lower()]
+    return favorites[0] if favorites else (restaurants[0] if restaurants else {})
+
+
+def day_desk(date_str: str, wx: dict) -> dict:
+    notes = load_editor_notes(date_str)
+    if notes:
+        return notes
+    d = dt.date.fromisoformat(date_str)
+    high_n = wx.get("high_n") or 0
+    heat = isinstance(high_n, (int, float)) and high_n >= 95
+    if d.weekday() == 1:
+        headline = "Steal the cool morning. Own the market."
+        lede = f"{d.strftime('%A, %B %-d')}. High {wx.get('high') or 'hot'}, low {wx.get('low') or 'cooler at dawn'}. Farmers market 2:30–6:30 at the Landing — peaches, tomatoes, and shade if you time it right."
+        featured = {
+            "title": "Branson Farmers Market",
+            "when": "2:30–6:30 PM",
+            "where": "South lot by Bass Pro · Branson Landing",
+            "why": "The only Tuesday that feels like a small town. Produce, jellies, live music. Free.",
+            "url": "https://www.explorebranson.com/blog-explore/blog/post/branson-farmers-markets-2026/",
+        }
+        plan = [
+            ("Dawn", "Lake or coffee", "Table Rock before the heat, or Steamy Joe at 7. Do not start this day at noon."),
+            ("2:30 PM", "Landing market", "Park once. Walk the stalls. Then Farmhouse on Main if you want a real table."),
+            ("Dusk", "A show, not a hike", "Theatres are air-conditioned. Confirm tonight’s board before you drive in."),
+        ]
+    else:
+        headline = "Your Ozarks day starts now."
+        lede = f"{d.strftime('%A, %B %-d')}. High {wx.get('high') or 'warm'}, low {wx.get('low') or 'cool dawn'}. Lake first, then a show — that’s the Branson rhythm."
+        featured = {
+            "title": "Fire & Water fountains",
+            "when": "Hourly from noon",
+            "where": "Branson Landing promenade",
+            "why": "Free, easy, and the kids will ask to stay for one more.",
+            "url": "https://bransonlanding.com/events",
+        }
+        plan = [
+            ("Morning", "On the water", "Bass at first light. Trout when Taneycomo is low. Call SWPA before you launch."),
+            ("Afternoon", "Shade and a show", "Museums, a matinee, or the pool. Save the Strip for after 5."),
+            ("Evening", "Dinner, then a theatre", "Pizza on 265 or Main Street. Then Clay, Shepherd, or magic."),
+        ]
+    indoor = [
+        ("WonderWorks", "Upside-down museum on the 76. Air conditioning that actually works.", "https://www.wonderworksbranson.com/"),
+        ("Titanic Museum", "Cool, dark, and a two-hour story. Book ahead on busy weeks.", "https://titanicbranson.com/"),
+        ("Aquarium at the Boardwalk", "Indoor tanks when the asphalt shimmers.", "https://www.theaquariumattheboardwalk.com/"),
+    ]
+    return {
+        "for": date_str,
+        "headline": headline,
+        "lede": lede,
+        "heat": heat,
+        "featured": featured,
+        "plan": [{"when": a, "title": b, "detail": c} for a, b, c in plan],
+        "indoor": [{"name": a, "detail": b, "url": c} for a, b, c in indoor],
+        "honesty": "",
+    }
 
 def catalog_photo(name: str) -> dict:
     p = SITE / "public" / "photos-catalog.json"
@@ -199,12 +292,14 @@ def build_guest(date_str: str) -> str:
     landing_md = scout_file("landing", date_str)
     intel_md = scout_file("intel", date_str)
     strip_md = scout_file("strip", date_str)
-    wx = meteo_today()
+    week = meteo_week()
+    wx = meteo_for(date_str)
     fw = fish.get("weather") or {}
     high = wx.get("high") or fw.get("high") or "mid-80s"
     low = wx.get("low") or fw.get("low") or "cool dawn"
     rain = wx.get("rain") or fw.get("wind") or "check skies"
     long_day = dt.date.fromisoformat(date_str).strftime("%A, %B %-d")
+    desk = day_desk(date_str, wx)
     bite = first_sentence(re.sub(r"^&?\s*What's Biting\s*", "", fish.get("biteOfDay") or "", flags=re.I), 260)
     if not bite:
         bite = "Summer pattern: bass and walleye on gravel points at first light, trout when Taneycomo is low."
@@ -224,8 +319,7 @@ def build_guest(date_str: str) -> str:
             f'<p class="more">{links}</p></article>'
         )
     restaurants = list(dining.get("restaurants") or [])
-    favorites = [r for r in restaurants if "favorite" in (r.get("tag") or "").lower()]
-    spotlight = favorites[dt.date.fromisoformat(date_str).timetuple().tm_yday % len(favorites)] if favorites else (restaurants[0] if restaurants else {})
+    spotlight = weekday_spotlight(restaurants, date_str)
     photo = catalog_photo(spotlight.get("name") or "")
     if not photo:
         photo = catalog_photo(spotlight.get("cuisine") or "")
@@ -301,6 +395,51 @@ def build_guest(date_str: str) -> str:
             f'<p>{esc(s.get("rating") or "")} · {esc(first_sentence(s.get("technique") or "", 90))}</p></div>'
         )
 
+    feat = desk.get("featured") or {}
+    plan_html = "".join(
+        f'<article class="tile"><div class="when">{esc(p.get("when") or "")}</div>'
+        f'<h3>{esc(p.get("title") or "")}</h3><p>{esc(p.get("detail") or "")}</p></article>'
+        for p in (desk.get("plan") or [])[:3]
+    )
+    indoor_html = "".join(
+        f'<article class="tile"><h3>{esc(x.get("name") or "")}</h3><p>{esc(x.get("detail") or "")}</p>'
+        f'<p class="more">{ext_link(x.get("url") or "", "Details")}</p></article>'
+        for x in (desk.get("indoor") or [])[:3]
+    )
+    heat_html = ""
+    if desk.get("heat") or (isinstance(wx.get("high_n"), (int, float)) and wx["high_n"] >= 95):
+        heat_html = (
+            '<div class="heat"><b>Heat desk</b>This is a 95°+ afternoon. Lake at dawn. '
+            "Indoor 11–4. Water in the car. Theatres after 5. Do not hike Dogwood Canyon at 2 PM.</div>"
+        )
+    beat_photo = catalog_photo(feat.get("title") or "landing") or catalog_photo("farmers") or catalog_photo("table rock")
+    beat_url = beat_photo.get("url") or beat_photo.get("thumb") or ""
+    hero = ""
+    if beat_url:
+        hero = (
+            f'<div class="hero-photo"><img src="{esc(beat_url)}" alt="">'
+            f'<span>{esc(beat_photo.get("title") or "Catalog")} — representational</span></div>'
+        )
+    week_html = ""
+    for row in week[:5]:
+        dayname = dt.date.fromisoformat(row["date"]).strftime("%a")
+        cls = "tile today" if row["date"] == date_str else "tile"
+        week_html += f'<div class="{cls}"><i>{esc(dayname)}</i><b>{esc(row["high"])}</b><p>{esc(row["rain"])}</p></div>'
+    show_stamp = shows.get("date") or ""
+    honesty = desk.get("honesty") or ""
+    if show_stamp and show_stamp != date_str:
+        honesty = honesty or f"Showtimes last verified {show_stamp} — confirm the box office for {long_day}."
+    feat_chip = feat.get("title") or "Tonight"
+    headline = desk.get("headline") or "Your Ozarks day starts now."
+    # split last sentence-ish for italic
+    if "." in headline:
+        h1, h2 = headline.rsplit(".", 1)[0], ""
+        head_html = f"{esc(h1)}."
+    else:
+        parts = headline.rsplit(" ", 3)
+        head_html = esc(" ".join(parts[:-3])) + "<br><em>" + esc(" ".join(parts[-3:])) + "</em>" if len(parts) > 3 else esc(headline)
+    lede = desk.get("lede") or f"{long_day}. High {high}, low {low}."
+
     html = f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -310,17 +449,17 @@ def build_guest(date_str: str) -> str:
 </head><body>
 <div class="wrap">
   <header class="mast">
-    <div class="kicker">The Branson Daily</div>
-    <h1>Your Ozarks day<br><em>starts now.</em></h1>
-    <p class="lede">{esc(long_day)}. High {esc(high)}, low {esc(low)}. Lake first, then a show — that’s the Branson rhythm.</p>
+    <div class="kicker">The Branson Daily · {esc(long_day)}</div>
+    <h1>{head_html}</h1>
+    <p class="lede">{esc(lede)}</p>
     <div class="issue">
       <span>{esc(high)} / {esc(low)}</span>
       <span>{esc(rain)}</span>
-      <span>Clay Cooper 7:30</span>
-      <span>Market tomorrow</span>
+      <span>{esc(feat_chip)}</span>
     </div>
   </header>
   <nav class="toc" aria-label="Sections">
+    <a href="#plan">Plan</a>
     <a href="#weather">Sky</a>
     <a href="#shows">Shows</a>
     <a href="#fishing">Lake</a>
@@ -331,9 +470,28 @@ def build_guest(date_str: str) -> str:
     <a href="#week">This week</a>
   </nav>
   <main>
+    <section class="spread card" id="plan">
+      <h2 class="section-title">If you only do three things</h2>
+      <p class="deck">First time in town? Follow this and you will not waste the cool hours.</p>
+      {heat_html}
+      {hero}
+      <div class="plan">{plan_html}</div>
+    </section>
+    <section class="spread card" id="feature">
+      <h2 class="section-title">Today’s highlight</h2>
+      <p class="deck">{esc(feat.get("when") or "")} · {esc(feat.get("where") or "")}</p>
+      <div class="spot">
+        <div class="spot-copy">
+          <div class="kicker">Editor’s pick</div>
+          <h3>{esc(feat.get("title") or "")}</h3>
+          <p>{esc(feat.get("why") or "")}</p>
+          {ext_link(feat.get("url") or "", "Details")}
+        </div>
+      </div>
+    </section>
     <section class="spread card" id="weather">
       <h2 class="section-title">Today’s sky</h2>
-      <p class="deck">Pack a lake bag and a theatre layer. August still means warm afternoons.</p>
+      <p class="deck">Pack a lake bag and a theatre layer. This week still runs hot.</p>
       <div class="wx">
         <div class="wx-big"><span>High</span><b>{esc(high)}</b><span>Low {esc(low)} · {esc(rain)}</span></div>
         <div class="wx-side">
@@ -341,11 +499,12 @@ def build_guest(date_str: str) -> str:
           <div class="stat"><i>Taneycomo</i><b>Call generation</b> {esc(first_sentence(tc.get("generation") or "SWPA 866-494-1993", 90))}</div>
         </div>
       </div>
+      <div class="weekstrip" style="margin-top:1rem">{week_html}</div>
       <p class="more">{ext_link("https://www.swpa.gov/", "SWPA generation")} · <a href="https://www.mybransonvacation.com/map">Open the live map</a></p>
     </section>
     <section class="spread card" id="shows">
       <h2 class="section-title">The full board</h2>
-      <p class="deck">{len(show_tiles)} showtimes on the list. Confirm the box office before you drive in.</p>
+      <p class="deck">{len(show_tiles)} showtimes. {esc(honesty or "Confirm the box office before you drive in.")}</p>
       <div class="grid-2">{''.join(show_tiles)}</div>
       <p class="more">{ext_link("https://www.bransonshows.com/showByDate.cfm", "All Branson showtimes")}</p>
     </section>
@@ -372,7 +531,7 @@ def build_guest(date_str: str) -> str:
     </section>
     <section class="spread card" id="landing">
       <h2 class="section-title">Down at the Landing</h2>
-      <p class="deck">Free fountains every hour. Farmers market is Tuesday — not today.</p>
+      <p class="deck">{"Farmers market today 2:30–6:30 by Bass Pro. Fountains still run hourly." if dt.date.fromisoformat(date_str).weekday()==1 else "Free fountains every hour. Farmers market is Tuesday."}</p>
       <div class="grid-2">{tiles_html(landing_tiles, "https://bransonlanding.com/events", "Landing events")}</div>
     </section>
     <section class="spread card" id="strip">
@@ -385,8 +544,13 @@ def build_guest(date_str: str) -> str:
       <p class="deck">Gospel Picnic at Silver Dollar City starts August 27. Freedom Journey runs all season.</p>
       <div class="grid-2">{tiles_html(intel_tiles, "https://www.silverdollarcity.com/", "Silver Dollar City")}</div>
     </section>
+    <section class="spread card" id="shade">
+      <h2 class="section-title">When the asphalt shimmers</h2>
+      <p class="deck">Indoor backups so the afternoon does not wreck the trip.</p>
+      <div class="grid-3">{indoor_html}</div>
+    </section>
   </main>
-  <p class="meta">Edited for guests · <a href="https://www.mybransonvacation.com/branson">City card</a> · <a href="https://www.mybransonvacation.com/map">Map</a> · {esc(date_str)}</p>
+  <p class="meta">Edited for first-time guests · <a href="https://www.mybransonvacation.com/branson">City card</a> · <a href="https://www.mybransonvacation.com/map">Map</a> · {esc(date_str)}{(" · " + esc(honesty)) if honesty else ""}</p>
 </div>
 </body></html>"""
     return html
