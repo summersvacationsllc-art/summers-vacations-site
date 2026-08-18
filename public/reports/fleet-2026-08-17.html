@@ -181,9 +181,38 @@ body {
   padding: .15rem 0 .15rem 1rem;
   margin: .2rem 0 1rem;
 }
+.spot {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: .9rem;
+  margin: 0 0 1rem;
+  background: #0c4a6e;
+  color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.spot img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; display: block; }
+.spot-copy { padding: 1.15rem 1.2rem 1.25rem; }
+.spot-copy .kicker { margin-bottom: .45rem; }
+.spot-copy h3 { font-family: "DM Serif Display", Georgia, serif; font-size: clamp(1.5rem, 4vw, 2rem); margin: 0 0 .4rem; font-weight: 400; }
+.spot-copy p { margin: 0 0 .85rem; color: #e0f2fe; }
+.spot-copy a {
+  display: inline-block;
+  background: #0ea5e9;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: .45rem .85rem;
+  margin: 0 .35rem .35rem 0;
+  font-size: .88rem;
+}
+.credit { font-size: .72rem; opacity: .75; }
+.more a { color: #0284c7; font-weight: 800; text-decoration: none; }
 .meta { text-align: center; color: #0284c7; font-size: .82rem; margin-top: 1.4rem; }
 @media (max-width: 720px) {
-  .wx, .grid-2, .grid-3, .fish { grid-template-columns: 1fr; }
+  .wx, .grid-2, .grid-3, .fish, .spot { grid-template-columns: 1fr; }
+  .spot img { min-height: 180px; }
   .toc { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; }
   .toc a { flex: 0 0 auto; }
 }
@@ -201,5 +230,5 @@ body {
 <section class="card"><h2 class="section-title">Guesty Sync Status</h2><div class="tip">Guesty sync: OK · 105 synced · Synced: 0 new / 7 updated listings, 105 reservations, 0 turnover tasks created</div></section>
 <section class="card"><h2 class="section-title">Reminder Log</h2></section>
 </main>
-<div class="meta">Generated 2026-08-17T21:52:12-05:00 CT</div>
+<div class="meta">Generated 2026-08-17T21:58:29-05:00 CT</div>
 </div></body></html>

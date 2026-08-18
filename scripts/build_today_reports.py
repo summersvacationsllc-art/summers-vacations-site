@@ -159,6 +159,37 @@ def meteo_today() -> dict:
     except Exception:
         return {}
 
+def catalog_photo(name: str) -> dict:
+    p = SITE / "public" / "photos-catalog.json"
+    if not p.exists():
+        return {}
+    try:
+        photos = json.loads(p.read_text())
+    except Exception:
+        return {}
+    key = (name or "").lower()
+    words = [w for w in re.split(r"[^a-z0-9]+", key) if len(w) > 3]
+    best = {}
+    for photo in photos if isinstance(photos, list) else []:
+        title = (photo.get("title") or "").lower()
+        if key and key in title:
+            return photo
+        if words and sum(1 for w in words if w in title) >= 2:
+            best = photo
+    return best
+
+
+def ext_link(url: str, label: str) -> str:
+    if url and str(url).startswith("http"):
+        return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label)}</a>'
+    return ""
+
+
+def map_link(name: str, label: str = "Map") -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", (name or "").lower()).strip("-")
+    return f'<a href="https://www.mybransonvacation.com/map?spot=eat-{esc(slug)}">{esc(label)}</a>'
+
+
 def build_guest(date_str: str) -> str:
     css = load_css()
     fish = load_json("fishing-data")
@@ -182,27 +213,60 @@ def build_guest(date_str: str) -> str:
     tc = cond.get("taneycomo") or {}
 
     show_tiles = []
-    for sh in (shows.get("shows") or [])[:8]:
+    for sh in (shows.get("shows") or []):
         venue = sh.get("venue") or ""
         if venue.lower() in ("theater venue", "tba"):
             venue = "Branson"
-        href = sh.get("url") or ""
-        link = f'<a href="{esc(href)}" target="_blank" rel="noopener">Tickets</a>' if href.startswith("http") else ""
+        links = " ".join(x for x in (ext_link(sh.get("url") or "", "Tickets"),) if x)
         show_tiles.append(
             f'<article class="tile"><div class="when">{esc(sh.get("time") or "Tonight")}</div>'
-            f'<h3>{esc(sh.get("name") or "")}</h3><p>{esc(venue)} · {esc(sh.get("type") or "Show")}</p>{link}</article>'
+            f'<h3>{esc(sh.get("name") or "")}</h3><p>{esc(venue)} · {esc(sh.get("type") or "Show")}</p>'
+            f'<p class="more">{links}</p></article>'
+        )
+    restaurants = list(dining.get("restaurants") or [])
+    favorites = [r for r in restaurants if "favorite" in (r.get("tag") or "").lower()]
+    spotlight = favorites[dt.date.fromisoformat(date_str).timetuple().tm_yday % len(favorites)] if favorites else (restaurants[0] if restaurants else {})
+    photo = catalog_photo(spotlight.get("name") or "")
+    if not photo:
+        photo = catalog_photo(spotlight.get("cuisine") or "")
+    if not photo:
+        photo = catalog_photo("cafe") or catalog_photo("pizza") or catalog_photo("breakfast")
+    photo_url = photo.get("url") or photo.get("thumb") or ""
+    spot_html = ""
+    if spotlight:
+        credit = photo.get("title") or photo.get("source") or "Catalog photo"
+        img_tag = f'<img src="{esc(photo_url)}" alt="">' if photo_url else ""
+        spot_html = (
+            '<div class="spot">'
+            f"{img_tag}"
+            '<div class="spot-copy">'
+            '<div class="kicker">Restaurant spotlight</div>'
+            f'<h3>{esc(spotlight.get("name") or "")}</h3>'
+            f'<p>{esc(spotlight.get("desc") or spotlight.get("tag") or "")}</p>'
+            f'<p>{esc(spotlight.get("venue") or "")} · {esc(spotlight.get("cuisine") or "")} · {esc(spotlight.get("price") or "")}</p>'
+            f'{ext_link(spotlight.get("url") or "", "Menu / hours")}'
+            f'{map_link(spotlight.get("name") or "")}'
+            f'<div class="credit">{esc(credit)} — representational stock from our photo catalog, not a live dining-room shot.</div>'
+            "</div></div>"
         )
     eat_tiles = []
-    for r in (dining.get("restaurants") or [])[:6]:
+    for r in restaurants:
+        if spotlight and r.get("name") == spotlight.get("name"):
+            continue
+        links = " ".join(x for x in (ext_link(r.get("url") or "", "Site"), map_link(r.get("name") or "")) if x)
         eat_tiles.append(
             f'<article class="tile"><h3>{esc(r.get("name") or "")}</h3>'
-            f'<p>{esc(first_sentence(r.get("desc") or r.get("tag") or r.get("cuisine") or "Local favorite.", 140))}</p></article>'
+            f'<p>{esc(r.get("venue") or "")} · {esc(r.get("cuisine") or r.get("tag") or "")}</p>'
+            f'<p>{esc(first_sentence(r.get("desc") or "", 160))}</p>'
+            f'<p class="more">{links}</p></article>'
         )
     golf_tiles = []
-    for c in (golf.get("courses") or [])[:6]:
+    for c in (golf.get("courses") or []):
+        links = ext_link(c.get("url") or "", "Tee times")
         golf_tiles.append(
             f'<article class="tile"><h3>{esc(c.get("name") or "")}</h3>'
-            f'<p>{esc(first_sentence(c.get("desc") or c.get("tag") or "Book a tee time.", 140))}</p></article>'
+            f'<p>{esc(first_sentence(c.get("desc") or c.get("tag") or "Book a tee time.", 150))}</p>'
+            f'<p class="more">{links}</p></article>'
         )
     landing_tiles = md_tiles(landing_md, 3)
     intel_tiles = md_tiles(intel_md, 3)
@@ -223,8 +287,12 @@ def build_guest(date_str: str) -> str:
             ("WonderWorks / Titanic", "Indoor cool-down museums on the 76."),
         ]
 
-    def tiles_html(pairs):
-        return "".join(f'<article class="tile"><h3>{esc(n)}</h3><p>{esc(d)}</p></article>' for n, d in pairs)
+    def tiles_html(pairs, extra_href: str = "", extra_label: str = "More"):
+        out = []
+        for n, d in pairs:
+            more = f'<p class="more">{ext_link(extra_href, extra_label)}</p>' if extra_href else ""
+            out.append(f'<article class="tile"><h3>{esc(n)}</h3><p>{esc(d)}</p>{more}</article>')
+        return "".join(out)
 
     spec = ""
     for s in (fish.get("species") or [])[:6]:
@@ -273,11 +341,13 @@ def build_guest(date_str: str) -> str:
           <div class="stat"><i>Taneycomo</i><b>Call generation</b> {esc(first_sentence(tc.get("generation") or "SWPA 866-494-1993", 90))}</div>
         </div>
       </div>
+      <p class="more">{ext_link("https://www.swpa.gov/", "SWPA generation")} · <a href="https://www.mybransonvacation.com/map">Open the live map</a></p>
     </section>
     <section class="spread card" id="shows">
-      <h2 class="section-title">Tonight on stage</h2>
-      <p class="deck">Irish tenors this afternoon. Clay Cooper, Shepherd, Legends, and magic after dark.</p>
+      <h2 class="section-title">The full board</h2>
+      <p class="deck">{len(show_tiles)} showtimes on the list. Confirm the box office before you drive in.</p>
       <div class="grid-2">{''.join(show_tiles)}</div>
+      <p class="more">{ext_link("https://www.bransonshows.com/showByDate.cfm", "All Branson showtimes")}</p>
     </section>
     <section class="spread card" id="fishing">
       <h2 class="section-title">On the water</h2>
@@ -287,10 +357,12 @@ def build_guest(date_str: str) -> str:
         <div class="guide"><b>Taneycomo guide</b>Pink worms on the morning low-flow window. When generation jumps, drift the slack seams. Call SWPA 866-494-1993 before you launch.</div>
       </div>
       <div class="fish">{spec}</div>
+      <p class="more">{ext_link("tel:8664941993", "Call SWPA")} · <a href="https://www.mybransonvacation.com/map?spot=fall-creek-marina">Fall Creek on the map</a></p>
     </section>
     <section class="spread card" id="eat">
       <h2 class="section-title">Where to eat</h2>
-      <p class="deck">Steamy Joe for coffee. Ozark Mountain Pizza after the lake. Farmhouse if you want a Main Street table.</p>
+      <p class="deck">{len(restaurants)} spots we actually send guests. Spotlight rotates so it doesn’t feel like the same printout every day.</p>
+      {spot_html}
       <div class="grid-2">{''.join(eat_tiles)}</div>
     </section>
     <section class="spread card" id="golf">
@@ -301,20 +373,20 @@ def build_guest(date_str: str) -> str:
     <section class="spread card" id="landing">
       <h2 class="section-title">Down at the Landing</h2>
       <p class="deck">Free fountains every hour. Farmers market is Tuesday — not today.</p>
-      <div class="grid-2">{tiles_html(landing_tiles)}</div>
+      <div class="grid-2">{tiles_html(landing_tiles, "https://bransonlanding.com/events", "Landing events")}</div>
     </section>
     <section class="spread card" id="strip">
       <h2 class="section-title">76 Strip thrills</h2>
       <p class="deck">Coasters, go-karts, and the upside-down museum when you need air conditioning.</p>
-      <div class="grid-2">{tiles_html(strip_tiles)}</div>
+      <div class="grid-2">{tiles_html(strip_tiles, "https://www.mybransonvacation.com/map", "Open the map")}</div>
     </section>
     <section class="spread card" id="week">
       <h2 class="section-title">This week in town</h2>
       <p class="deck">Gospel Picnic at Silver Dollar City starts August 27. Freedom Journey runs all season.</p>
-      <div class="grid-2">{tiles_html(intel_tiles)}</div>
+      <div class="grid-2">{tiles_html(intel_tiles, "https://www.silverdollarcity.com/", "Silver Dollar City")}</div>
     </section>
   </main>
-  <p class="meta">Edited for guests · mybransonvacation.com · {esc(date_str)}</p>
+  <p class="meta">Edited for guests · <a href="https://www.mybransonvacation.com/branson">City card</a> · <a href="https://www.mybransonvacation.com/map">Map</a> · {esc(date_str)}</p>
 </div>
 </body></html>"""
     return html
