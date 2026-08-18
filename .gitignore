@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# kiosk tablet auto-update stamp (written at build)
+/public/kiosk-version.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

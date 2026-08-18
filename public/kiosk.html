@@ -1018,6 +1018,31 @@ function scheduleRefresh() {
     loadForecast().then(() => renderWelcome(stayCache));
     loadGo();
   }, 15 * 60 * 1000);
+  setInterval(checkKioskUpdate, 2 * 60 * 1000);
+  setTimeout(checkKioskUpdate, 4000);
+}
+
+let kioskBuild = "";
+async function checkKioskUpdate() {
+  if (document.getElementById("player")?.classList.contains("on")) return;
+  if (document.getElementById("picker")?.classList.contains("on")) return;
+  if (screenIndex !== 0) return;
+  try {
+    const data = await fetch("/kiosk-version.json?t=" + Date.now(), { cache: "no-store" }).then((r) => r.json());
+    const next = String(data.v || "");
+    if (!next) return;
+    if (kioskBuild && kioskBuild !== next) {
+      try {
+        if (typeof fully !== "undefined" && fully.loadStartUrl) {
+          fully.loadStartUrl();
+          return;
+        }
+      } catch (e) {}
+      location.reload();
+      return;
+    }
+    kioskBuild = next;
+  } catch (e) {}
 }
 
 function init() {
