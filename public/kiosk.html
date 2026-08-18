@@ -38,13 +38,13 @@
   body { position: relative; }
   #deck {
     display: flex;
-    width: 400%;
+    width: 500%;
     height: 100%;
     transition: transform .45s cubic-bezier(.22,.9,.28,1);
     will-change: transform;
   }
   .screen {
-    flex: 0 0 25%;
+    flex: 0 0 20%;
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -452,6 +452,7 @@
 <div id="deck">
   <section class="screen" id="welcome"></section>
   <section class="screen" id="wifi"></section>
+  <section class="screen" id="howto"></section>
   <section class="screen" id="go-screen">
     <h2>Go do something</h2>
     <div id="go"></div>
@@ -637,7 +638,7 @@ function wxIcon(code) {
 
 let slug = resolveSlug();
 let screenIndex = 0;
-const SCREEN_COUNT = 4;
+const SCREEN_COUNT = 5;
 let idleTimer = null;
 let stayCache = null;
 let forecastCache = null;
@@ -762,7 +763,6 @@ function renderWifi() {
         <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
       </ul>
     </div>
-    ${howtoBlock()}
     <div class="checkout">Check-out is 10:00 AM — all units</div>
   `;
 }
@@ -830,13 +830,13 @@ function closePlayer() {
   document.getElementById("player-frame").src = "";
 }
 
-function howtoBlock() {
+function renderHowTo() {
+  const unit = UNITS[slug];
   const vids = HOWTO[slug] || [];
-  if (!vids.length) return "";
-  return `
-    <div class="card">
-      <div class="label">How-to videos</div>
-      <p class="note">Walkthroughs for this home. Tap one to watch here. Then tap Back to tablet.</p>
+  document.getElementById("howto").innerHTML = `
+    <h2>How-to</h2>
+    <p class="note">${unit.name} walkthroughs. Tap one to watch here. Then tap Back to tablet.</p>
+    ${vids.length ? `
       <div class="howto-list">
         ${vids.map((v) => `
           <button type="button" class="howto-card" data-yt="${v.id}" data-title="${v.title}">
@@ -844,8 +844,8 @@ function howtoBlock() {
             <div><b>${v.title}</b><span>Watch here</span></div>
           </button>
         `).join("")}
-      </div>
-    </div>`;
+      </div>` : `<div class="card"><p class="note">No how-to videos for this home yet.</p></div>`}
+  `;
 }
 
 function openOut(url) {
@@ -920,7 +920,7 @@ function loadQR() {
 }
 
 function buildDots() {
-  const labels = ["Welcome", "Wi-Fi", "Go", "Map"];
+  const labels = ["Welcome", "Wi-Fi", "How-to", "Go", "Map"];
   document.getElementById("dots").innerHTML = labels.map((name, i) =>
     `<button class="dot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="${name}"></button>`
   ).join("");
@@ -945,6 +945,7 @@ function bindNav() {
 
 async function bootUnit() {
   renderWifi();
+  renderHowTo();
   loadMap();
   await Promise.all([loadWelcome(), loadForecast(), loadGo()]);
   renderWelcome(stayCache);
@@ -974,7 +975,7 @@ function init() {
     e.stopPropagation();
     closePlayer();
   });
-  document.getElementById("wifi").addEventListener("click", (e) => {
+  document.getElementById("howto").addEventListener("click", (e) => {
     const btn = e.target.closest("[data-yt]");
     if (!btn) return;
     playHowTo(btn.getAttribute("data-yt"), btn.getAttribute("data-title") || "How-to");
