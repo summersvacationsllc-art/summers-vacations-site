@@ -48,7 +48,7 @@
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 1rem 1rem 7.25rem;
+    padding: 1rem 1rem 10.5rem;
   }
   #welcome.screen {
     padding: 0;
@@ -260,12 +260,35 @@
     padding: .45rem .75rem calc(.55rem + env(safe-area-inset-bottom));
     z-index: 20;
   }
+  .pager {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    margin-bottom: .45rem;
+  }
+  .page-btn {
+    flex: 1;
+    min-height: 3.1rem;
+    border: 0;
+    border-radius: 14px;
+    background: #0284c7;
+    color: #fff;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 800;
+    padding: .55rem .7rem;
+  }
+  .page-btn:disabled {
+    background: #bae6fd;
+    color: #7dd3fc;
+  }
+  .page-btn span { display: block; font-size: .72rem; font-weight: 600; opacity: .9; }
   .dots { display: flex; justify-content: center; gap: .45rem; margin-bottom: .35rem; }
   .dot {
-    width: 9px; height: 9px; border-radius: 99px;
+    width: 14px; height: 14px; border-radius: 99px;
     background: #7dd3fc; border: 0;
   }
-  .dot.on { background: var(--sky-dark); width: 22px; }
+  .dot.on { background: var(--sky-dark); width: 28px; }
   .foot {
     display: flex;
     align-items: center;
@@ -468,6 +491,10 @@
 <div class="edge right" id="edge-r"></div>
 
 <div class="chrome">
+  <div class="pager">
+    <button class="page-btn" id="prev-page" type="button"><span>Back</span>← Welcome</button>
+    <button class="page-btn" id="next-page" type="button"><span>Next</span>Wi-Fi →</button>
+  </div>
   <div class="dots" id="dots"></div>
   <div class="foot">
     <div id="qr"></div>
@@ -659,6 +686,7 @@ function wxIcon(code) {
 }
 
 let slug = resolveSlug();
+const PAGE_NAMES = ["Welcome", "Wi-Fi", "How-to", "Go", "Map"];
 let screenIndex = 0;
 const SCREEN_COUNT = 5;
 let idleTimer = null;
@@ -669,6 +697,16 @@ function goTo(i) {
   screenIndex = Math.max(0, Math.min(i, SCREEN_COUNT - 1));
   document.getElementById("deck").style.transform = "translateX(-" + (screenIndex * (100 / SCREEN_COUNT)) + "%)";
   document.querySelectorAll(".dot").forEach((el, n) => el.classList.toggle("on", n === screenIndex));
+  const prev = document.getElementById("prev-page");
+  const next = document.getElementById("next-page");
+  prev.disabled = screenIndex === 0;
+  next.disabled = screenIndex === SCREEN_COUNT - 1;
+  prev.innerHTML = screenIndex === 0
+    ? "<span>Back</span>←"
+    : "<span>Back</span>← " + PAGE_NAMES[screenIndex - 1];
+  next.innerHTML = screenIndex === SCREEN_COUNT - 1
+    ? "<span>Next</span>→"
+    : "<span>Next</span>" + PAGE_NAMES[screenIndex + 1] + " →";
   bumpIdle();
 }
 function bumpIdle() {
@@ -956,14 +994,16 @@ function buildDots() {
 }
 
 function bindNav() {
+  document.getElementById("prev-page").addEventListener("click", (e) => {
+    e.stopPropagation();
+    goTo(screenIndex - 1);
+  });
+  document.getElementById("next-page").addEventListener("click", (e) => {
+    e.stopPropagation();
+    goTo(screenIndex + 1);
+  });
   document.getElementById("edge-l").addEventListener("click", () => goTo(screenIndex - 1));
   document.getElementById("edge-r").addEventListener("click", () => goTo(screenIndex + 1));
-  let startX = 0;
-  document.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
-  document.addEventListener("touchend", (e) => {
-    const dx = startX - e.changedTouches[0].clientX;
-    if (Math.abs(dx) > 60) goTo(screenIndex + (dx > 0 ? 1 : -1));
-  }, { passive: true });
 }
 
 async function bootUnit() {
@@ -986,6 +1026,7 @@ function scheduleRefresh() {
 function init() {
   buildDots();
   bindNav();
+  goTo(0);
   loadQR();
   bumpIdle();
   renderPicker();
