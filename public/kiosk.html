@@ -227,6 +227,41 @@
     font-weight: 700;
     margin-bottom: .8rem;
   }
+  .checkout .co-time { font-size: 1.15rem; margin-bottom: .35rem; }
+  .checkout p { color: #7f1d1d; font-weight: 500; margin: 0 0 .55rem; }
+  .checkout ul { margin: 0 0 .4rem 1.05rem; padding: 0; color: #7f1d1d; font-weight: 500; }
+  .checkout li { margin: 0 0 .35rem; }
+  .wifi-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .65rem;
+    margin-bottom: .8rem;
+  }
+  .wifi-top .card { margin-bottom: 0; }
+  .checkout-jump {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100%;
+    text-align: left;
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: var(--danger);
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .checkout-jump small {
+    display: block;
+    margin-top: .25rem;
+    font-size: .78rem;
+    font-weight: 600;
+    color: #b91c1c;
+  }
   .step { margin: .6rem 0; font-size: .98rem; color: var(--ink); }
   .forecast {
     display: grid;
@@ -864,13 +899,29 @@ function renderWelcome(stay) {
 
 function renderWifi() {
   const unit = UNITS[slug];
+  const towels = unit.isHaven
+    ? "Used towels on the downstairs front bathroom shower floor."
+    : "Used towels on the hallway bathroom shower floor.";
+  const trash = unit.isHaven
+    ? "Take all trash to the dumpster."
+    : "Take all trash to the dumpster in front of the building, to the left.";
+  const dishes = unit.isHaven
+    ? "Start the dishwasher with any remaining dishes."
+    : "Hand wash remaining dishes and leave them to dry. Staff will put them away.";
   document.getElementById("wifi").innerHTML = `
-    <h2>Wi-Fi & quick start</h2>
-    <div class="card">
-      <div class="label">Network</div>
-      <h3>${unit.network}</h3>
-      <div class="label" style="margin-top:.7rem">Password</div>
-      <h3>${unit.password}</h3>
+    <h2>Wi-Fi & house rules</h2>
+    <div class="wifi-top">
+      <div class="card">
+        <div class="label">Wi-Fi</div>
+        <div class="label" style="margin-top:.35rem">Network</div>
+        <h3>${unit.network}</h3>
+        <div class="label" style="margin-top:.7rem">Password</div>
+        <h3>${unit.password}</h3>
+      </div>
+      <button class="checkout-jump" type="button" data-scroll="checkout-how">
+        Checkout
+        <small>10:00 AM · jump to steps</small>
+      </button>
     </div>
     <div class="smoke">
       <div class="label">Posted no-smoking rule</div>
@@ -900,7 +951,21 @@ function renderWifi() {
         <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
       </ul>
     </div>
-    <div class="checkout">Check-out is 10:00 AM — all units</div>
+    <div class="checkout" id="checkout-how">
+      <div class="co-time">Check-out is 10:00 AM — all units</div>
+      <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need — do not count on it.</p>
+      <p>Before you leave:</p>
+      <ul>
+        <li>Leave beds unmade. If you used the sleeper sofa, leave the cushions off.</li>
+        <li>${towels}</li>
+        <li>${trash}</li>
+        <li>${dishes}</li>
+        <li>Turn off the stove, heater, lights, and electronics.</li>
+        <li>Move furniture back if you moved it.</li>
+        <li>Lock all doors and windows.</li>
+      </ul>
+      <p>Thank you for staying with us. — Brian &amp; Chantel</p>
+    </div>
   `;
 }
 
@@ -1150,6 +1215,13 @@ function init() {
   document.getElementById("daily-guide").addEventListener("click", (e) => {
     e.stopPropagation();
     openOut(stayGuideUrl());
+  });
+  document.getElementById("wifi").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-scroll]");
+    if (!btn) return;
+    e.stopPropagation();
+    const target = document.getElementById(btn.getAttribute("data-scroll"));
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   let cornerTaps = 0;
   let cornerTimer = null;
