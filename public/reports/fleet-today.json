@@ -1,19 +1,8 @@
 {
   "date": "2026-08-18",
-  "generated_at": "2026-08-18T10:57:32+00:00",
-  "units_total": 4,
-  "turnovers": [
-    {
-      "property": "Rustic Ozark",
-      "property_id": "prop_fvhuyem",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a66a7a80693123c46be1f3c"
-    }
-  ],
-  "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
+  "generated_at": "2026-08-18T06:15:00-05:00",
+  "units": 4,
+  "turnovers": 1,
+  "unassigned": 1,
+  "cleaners": []
 }
