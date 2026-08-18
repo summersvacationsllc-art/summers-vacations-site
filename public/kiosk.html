@@ -435,8 +435,8 @@
 <div id="picker">
   <div class="hero">
     <div class="eyebrow">Summers Vacations</div>
-    <h1>Which home is this tablet in?</h1>
-    <p>Pick once. Fully Kiosk can also lock the URL with ?unit=slug.</p>
+    <h1>Staff only — which home is this tablet in?</h1>
+    <p>Guests never see this. Seven taps bottom-left to open it. Then Fully stays locked to that home.</p>
   </div>
   <div id="picker-list"></div>
 </div>
@@ -523,6 +523,8 @@ const BOOK_URL = "https://branson-condo.com";
 const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
 const MAP_URL = "https://www.mybransonvacation.com/map";
 const STORE = "sv-kiosk-unit";
+const DEFAULT_UNIT = "the-penthouse";
+const BOOT_URL = "https://www.mybransonvacation.com/kiosk.html?unit=";
 
 const HOWTO = {
   "the-penthouse": [
@@ -611,7 +613,27 @@ function resolveSlug() {
     const saved = localStorage.getItem(STORE);
     if (saved && UNITS[saved]) return saved;
   } catch (e) {}
-  return "";
+  return DEFAULT_UNIT;
+}
+
+function lockThisTablet() {
+  const url = BOOT_URL + encodeURIComponent(slug);
+  try { localStorage.setItem(STORE, slug); } catch (e) {}
+  try {
+    if (!qs("unit") || qs("unit").toLowerCase() !== slug) {
+      history.replaceState(null, "", "/kiosk.html?unit=" + encodeURIComponent(slug));
+    }
+  } catch (e) {}
+  try {
+    if (typeof fully === "undefined") return;
+    if (fully.setStartUrl) fully.setStartUrl(url);
+    if (fully.setStringSetting) fully.setStringSetting("startURL", url);
+    if (fully.setBooleanSetting) {
+      fully.setBooleanSetting("startOnBoot", true);
+      fully.setBooleanSetting("forceAutoStart", true);
+      fully.setBooleanSetting("loadStartURLOnReload", true);
+    }
+  } catch (e) {}
 }
 function matchStay(inHouse, slug) {
   const unit = UNITS[slug];
@@ -664,6 +686,7 @@ function renderPicker() {
       slug = btn.getAttribute("data-unit");
       try { localStorage.setItem(STORE, slug); } catch (e) {}
       document.getElementById("picker").classList.remove("on");
+      lockThisTablet();
       bootUnit();
     });
   });
@@ -984,10 +1007,22 @@ function init() {
     e.stopPropagation();
     openOut(MAP_URL);
   });
-  if (!slug) {
-    document.getElementById("picker").classList.add("on");
-    return;
-  }
+  let cornerTaps = 0;
+  let cornerTimer = null;
+  document.addEventListener("click", (e) => {
+    if (e.clientX > 72 || e.clientY < window.innerHeight - 90) {
+      cornerTaps = 0;
+      return;
+    }
+    cornerTaps += 1;
+    clearTimeout(cornerTimer);
+    cornerTimer = setTimeout(() => { cornerTaps = 0; }, 2500);
+    if (cornerTaps >= 7) {
+      cornerTaps = 0;
+      document.getElementById("picker").classList.add("on");
+    }
+  });
+  lockThisTablet();
   bootUnit();
   scheduleRefresh();
 }
