@@ -1,65 +1,28 @@
 {
-  "date": "2026-08-17",
-  "generated_at": "2026-08-17T16:00:18-05:00",
+  "date": "2026-08-18",
+  "generated_at": "2026-08-18T10:57:32+00:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 2,
-    "turnovers": 2,
-    "same_day_turnovers": 1,
-    "in_house_units": 4,
-    "units_total": 6
+    "check_ins": 0,
+    "check_outs": 1,
+    "turnovers": 1,
+    "same_day_turnovers": 0,
+    "in_house_units": 3,
+    "units_total": 5
   },
-  "check_ins": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Linda Denton",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_0g8ftv3",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Kelly Martin",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_i2h96gh",
-      "time": "4:00 PM"
-    }
-  ],
+  "check_ins": [],
   "check_outs": [
     {
-      "property": "Peacock",
-      "guest": "Brittany Schuster",
-      "guests": 5,
+      "property": "Rustic Ozark",
+      "guest": "Cheryl Reed-Kuelbs",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_zwj4kxx",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Corey Chevalier",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_x3mzp4s",
+      "reservation_id": "res_effnwvb",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [
     {
-      "property": "Penthouse",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": true,
-      "reservation_id": "6a4436b89ec77f0013f28cc6"
-    },
-    {
-      "property": "Peacock",
+      "property": "Rustic Ozark",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
@@ -68,20 +31,10 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": false,
-      "reservation_id": "6a05bfd4ef6ea60013b890eb"
+      "reservation_id": "6a66a7a80693123c46be1f3c"
     }
   ],
   "in_house": [
-    {
-      "property": "Rustic Ozark",
-      "guest": "Cheryl Reed-Kuelbs",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_effnwvb",
-      "check_in": "2026-08-14",
-      "check_out": "2026-08-18",
-      "nights": 4
-    },
     {
       "property": "Woodland Retreat",
       "guest": "Caitlyn Morris",
