@@ -710,6 +710,7 @@ async function loadGo() {
   const box = document.getElementById("go");
   box.innerHTML = "";
   box.appendChild(card("House", "Open the house guide", "Live guest app — Shows, Dining, Map, Adventure", stayGuideUrl()));
+  box.appendChild(card("How-to", "Watch how-to videos", "Coffee, laundry, fireplace, and more for this home", "https://www.mybransonvacation.com/howto/" + slug));
   try {
     const [att, shows, dining] = await Promise.all([
       fetch("https://www.mybransonvacation.com/api/attractions", { cache: "no-store" }).then((r) => r.json()),
