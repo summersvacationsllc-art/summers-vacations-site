@@ -38,13 +38,13 @@
   body { position: relative; }
   #deck {
     display: flex;
-    width: 500%;
+    width: 600%;
     height: 100%;
     transition: transform .45s cubic-bezier(.22,.9,.28,1);
     will-change: transform;
   }
   .screen {
-    flex: 0 0 20%;
+    flex: 0 0 16.6667%;
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -256,7 +256,56 @@
   #go-screen { padding-top: .75rem; }
   #go-screen h2 { font-family: "DM Serif Display", Georgia, serif; font-size: 1.55rem; margin: 0 0 .45rem; }
   #go-screen .daily-bar { display: flex; gap: .45rem; margin-bottom: .55rem; }
-  #go-screen .daily-bar .btn { flex: 1; text-align: center; }
+  #app-screen .app-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 1rem 1.05rem 1.15rem;
+    box-shadow: 0 16px 34px -26px rgba(2,132,199,.55);
+  }
+  #app-screen h2 {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(1.55rem, 5vw, 2rem);
+    margin: 0 0 .35rem;
+  }
+  #app-screen .lede { color: var(--link); font-size: 1.02rem; margin: 0 0 .85rem; }
+  #app-screen .app-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: .9rem;
+    align-items: start;
+  }
+  #app-screen .qr-wrap {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: .55rem;
+    text-align: center;
+  }
+  #app-screen .qr-wrap img {
+    width: 220px;
+    height: 220px;
+    display: block;
+    margin: 0 auto;
+  }
+  #app-screen .qr-wrap small {
+    display: block;
+    margin-top: .4rem;
+    font-size: .72rem;
+    font-weight: 700;
+    color: var(--link);
+  }
+  #app-screen ul { margin: 0 0 .7rem 1.05rem; padding: 0; }
+  #app-screen li { margin: 0 0 .4rem; color: var(--ink); }
+  #app-screen .why {
+    background: #e0f2fe;
+    border-radius: 12px;
+    padding: .75rem .85rem;
+    font-weight: 600;
+  }
+  @media (max-width: 720px) {
+    #app-screen .app-grid { grid-template-columns: 1fr; justify-items: center; }
+  }
   .chrome {
     position: fixed;
     left: 0; right: 0; bottom: 0;
@@ -280,7 +329,7 @@
     background: #0284c7;
     color: #fff;
     font: inherit;
-    font-size: .92rem;
+    font-size: .88rem;
     font-weight: 800;
     padding: .35rem .65rem;
   }
@@ -489,6 +538,27 @@
     <iframe id="daily" title="The Branson Daily"></iframe>
     <div id="go" hidden></div>
   </section>
+  <section class="screen" id="app-screen">
+    <div class="app-card">
+      <h2>Take Branson with you</h2>
+      <p class="lede">Your pocket concierge — shows, food, the lake, the map, and the house. Scan it. Save it. You’re set.</p>
+      <div class="app-grid">
+        <div class="qr-wrap">
+          <img src="/mybransonapp-qr.png" width="220" height="220" alt="Scan to open the guest app">
+          <small>mybransonapp.com</small>
+        </div>
+        <div>
+          <ul>
+            <li><b>Tonight’s board</b> — showtimes, dining, fishing, golf, and what’s free</li>
+            <li><b>The live map</b> — our places, not a 400-pin tourist dump</li>
+            <li><b>The house</b> — Wi-Fi, how-tos, and rules while you’re checked in</li>
+            <li><b>Jeb</b> — tap the mic when you don’t want to hunt</li>
+          </ul>
+          <p class="why">Add it to your Home Screen so it opens like an app — no app store, no hunt later when you’re downtown and the tablet is back at the condo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="screen" id="map-screen">
     <h2>Around Branson</h2>
     <button class="btn map-open" id="map-open" type="button">Open the live map</button>
@@ -501,8 +571,8 @@
 
 <div class="chrome">
   <div class="pager">
-    <button class="page-btn" id="prev-page" type="button">← Back</button>
-    <button class="page-btn" id="next-page" type="button">Wi-Fi →</button>
+    <button class="page-btn" id="prev-page" type="button">Previous page</button>
+    <button class="page-btn" id="next-page" type="button">Next page</button>
   </div>
   <div class="dots" id="dots"></div>
   <div class="foot">
@@ -695,9 +765,9 @@ function wxIcon(code) {
 }
 
 let slug = resolveSlug();
-const PAGE_NAMES = ["Welcome", "Wi-Fi", "How-to", "Daily", "Map"];
+const PAGE_NAMES = ["Welcome", "Wi-Fi", "How-to", "Daily", "App", "Map"];
 let screenIndex = 0;
-const SCREEN_COUNT = 5;
+const SCREEN_COUNT = 6;
 let idleTimer = null;
 let stayCache = null;
 let forecastCache = null;
@@ -710,8 +780,8 @@ function goTo(i) {
   const next = document.getElementById("next-page");
   prev.disabled = screenIndex === 0;
   next.disabled = screenIndex === SCREEN_COUNT - 1;
-  prev.innerHTML = screenIndex === 0 ? "← Back" : "← " + PAGE_NAMES[screenIndex - 1];
-  next.innerHTML = screenIndex === SCREEN_COUNT - 1 ? "Next →" : PAGE_NAMES[screenIndex + 1] + " →";
+  prev.textContent = "Previous page";
+  next.textContent = "Next page";
   bumpIdle();
 }
 function bumpIdle() {
@@ -984,7 +1054,7 @@ function loadQR() {
 }
 
 function buildDots() {
-  const labels = ["Welcome", "Wi-Fi", "How-to", "Daily", "Map"];
+  const labels = ["Welcome", "Wi-Fi", "How-to", "Daily", "App", "Map"];
   document.getElementById("dots").innerHTML = labels.map((name, i) =>
     `<button class="dot${i === 0 ? " on" : ""}" data-i="${i}" aria-label="${name}"></button>`
   ).join("");
