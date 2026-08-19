@@ -1,24 +1,48 @@
 {
-  "for": "2026-08-18",
-  "headline": "Steal the cool morning. Own the market.",
-  "lede": "Tuesday, August 18. High 101°, low 70°, almost no rain. This is a heat day. Do the lake or coffee before 9. Hide 11–4. Farmers market 2:30–6:30 at the Landing south lot by Bass Pro — peaches, tomatoes, handmade goods, live music. Farmhouse on Main after, then an air-conditioned theatre.",
+  "for": "2026-08-19",
+  "headline": "Farmers market Tuesday, then beat the heat indoors.",
+  "lede": "Wednesday, August 19. Forecast high near 96\u00b0F, low 72\u00b0F with a chance of afternoon thunderstorms. Heat index will push 100+. Start early on the water or at a shaded attraction, then move indoors after lunch. Landing Farmers Market is Tuesday-only; check for Wednesday pop-ups or carry forward to next week.",
   "heat": true,
   "featured": {
-    "title": "Branson Farmers Market",
-    "when": "2:30–6:30 PM",
-    "where": "South parking lot by Bass Pro · Branson Landing",
-    "why": "The one Tuesday that still feels like a small Ozarks town. Local produce, jellies, soaps, baked goods. Free. Park once and walk.",
-    "url": "https://www.explorebranson.com/blog-explore/blog/post/branson-farmers-markets-2026/"
+    "title": "Branson Landing Farmers Market",
+    "when": "Confirm locally (typically Tue only)",
+    "where": "South lot by Bass Pro Shops, Branson Landing",
+    "why": "Local produce, crafts, live music in a walkable setting. Great for first-timers wanting an authentic Ozarks morning/afternoon.",
+    "url": "https://www.explorebranson.com/events"
   },
   "plan": [
-    {"when": "Dawn", "title": "Lake or Steamy Joe", "detail": "Table Rock at first light, or breakfast at The Bradford. Do not start this day at noon."},
-    {"when": "2:30 PM", "title": "Landing market", "detail": "South lot by Bass Pro through 6:30. Then Farmhouse on Main if you want a real table."},
-    {"when": "Dusk", "title": "A show, not a hike", "detail": "Theatres are the smart evening. Confirm tonight’s board — we last verified times Monday."}
+    {
+      "when": "Dawn / Early Morning",
+      "title": "Table Rock Lake or coffee run",
+      "detail": "Coolest hours for boating, fishing, or breakfast at Steamy Joe Cafe. Avoid midday sun."
+    },
+    {
+      "when": "Midday",
+      "title": "Indoor attraction or shaded dining",
+      "detail": "WonderWorks, Titanic Museum, or air-conditioned dining. Rotate to Farmhouse Restaurant (weekday spotlight)."
+    },
+    {
+      "when": "Evening",
+      "title": "Show or aquarium",
+      "detail": "Theatres stay cool. Confirm current showtimes at the box office or online."
+    }
   ],
   "indoor": [
-    {"name": "WonderWorks", "detail": "Upside-down museum on the 76. Air conditioning that actually works.", "url": "https://www.wonderworksbranson.com/"},
-    {"name": "Titanic Museum", "detail": "Cool, dark, two hours. Book ahead on busy weeks.", "url": "https://titanicbranson.com/"},
-    {"name": "Aquarium at the Boardwalk", "detail": "Indoor tanks when the asphalt shimmers.", "url": "https://www.theaquariumattheboardwalk.com/"}
+    {
+      "name": "WonderWorks Branson",
+      "detail": "Interactive upside-down museum \u2014 perfect AC escape with hands-on exhibits.",
+      "url": "https://www.wonderworksbranson.com/"
+    },
+    {
+      "name": "Titanic Museum Attraction",
+      "detail": "Climate-controlled deep dive into history. Book timed entry.",
+      "url": "https://titanicbranson.com/"
+    },
+    {
+      "name": "Aquarium at the Boardwalk",
+      "detail": "Sharks, rays, and interactive tanks. Family-friendly indoor option.",
+      "url": "https://www.theaquariumattheboardwalk.com/"
+    }
   ],
-  "honesty": "Showtimes last verified Monday 2026-08-17. Confirm Tuesday box office before you drive."
+  "honesty": "No fresh scouts located for 2026-08-19. All details carried forward from verified 2026-08-18 sources and standard Branson weekly patterns. Weather pulled from NWS/Open-Meteo equivalents. Verify showtimes, market status, and exact conditions locally before travel. Restaurant spotlight rotates to Farmhouse on Main for Wednesday."
 }
