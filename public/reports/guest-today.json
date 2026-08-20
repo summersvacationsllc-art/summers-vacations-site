@@ -1,39 +1,47 @@
 {
-  "date": "2026-08-19",
-  "generated_at": "2026-08-19T08:08:20-05:00",
+  "date": "2026-08-20",
+  "generated_at": "2026-08-20T06:37:32-05:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 2,
-    "turnovers": 2,
-    "same_day_turnovers": 0,
-    "in_house_units": 2,
-    "units_total": 5
+    "check_ins": 3,
+    "check_outs": 1,
+    "turnovers": 1,
+    "same_day_turnovers": 1,
+    "in_house_units": 4,
+    "units_total": 6
   },
   "check_ins": [
+    {
+      "property": "Modern Charmer",
+      "guest": "Randy Smith",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_qns8bph",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Brian Summers",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_l5p0v5e",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Brian Summers",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_6mvpqd9",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
     {
       "property": "Penthouse",
       "guest": "ABIGAlL Crabtree",
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_1vwkhrv",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Linda Denton",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_0g8ftv3",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Kelly Martin",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_i2h96gh",
       "time": "10:00 AM"
     }
   ],
@@ -43,24 +51,12 @@
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
+      "next_checkin": "4:00 PM",
       "cleaner_id": null,
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a395e53866f2100142d86ed"
-    },
-    {
-      "property": "Modern Charmer",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a6a5782e44bde4e13a35958"
+      "same_day": true,
+      "reservation_id": "6a7a8f0da2c62bfceebdbcd2"
     }
   ],
   "in_house": [
@@ -75,14 +71,34 @@
       "nights": 5
     },
     {
-      "property": "Penthouse",
-      "guest": "ABIGAlL Crabtree",
-      "guests": 4,
+      "property": "Modern Charmer",
+      "guest": "Randy Smith",
+      "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_1vwkhrv",
-      "check_in": "2026-08-19",
-      "check_out": "2026-08-20",
-      "nights": 1
+      "reservation_id": "res_qns8bph",
+      "check_in": "2026-08-20",
+      "check_out": "2026-08-23",
+      "nights": 3
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Brian Summers",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_l5p0v5e",
+      "check_in": "2026-08-20",
+      "check_out": "2026-08-25",
+      "nights": 5
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Brian Summers",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_6mvpqd9",
+      "check_in": "2026-08-20",
+      "check_out": "2026-08-25",
+      "nights": 5
     }
   ],
   "sync_notes": {
