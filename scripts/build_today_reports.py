@@ -267,9 +267,9 @@ def day_desk(date_str: str, wx: dict) -> dict:
             ("Evening", "Dinner, then a theatre", "Pizza on 265 or Main Street. Then Clay, Shepherd, or magic."),
         ]
     indoor = [
-        ("WonderWorks", "Upside-down museum on the 76. Air conditioning that actually works.", "https://www.wonderworksbranson.com/"),
-        ("Titanic Museum", "Cool, dark, and a two-hour story. Book ahead on busy weeks.", "https://titanicbranson.com/"),
-        ("Aquarium at the Boardwalk", "Indoor tanks when the asphalt shimmers.", "https://www.theaquariumattheboardwalk.com/"),
+        ("WonderWorks", "Upside-down museum on the 76. Air conditioning that actually works.", "https://www.wonderworksonline.com/branson/"),
+        ("Titanic Museum", "Cool, dark, and a two-hour story. Book ahead on busy weeks.", "https://titanicattraction.com/branson"),
+        ("Aquarium at the Boardwalk", "Indoor tanks when the asphalt shimmers.", "https://www.aquariumattheboardwalk.com/"),
     ]
     return {
         "for": date_str,
@@ -283,6 +283,7 @@ def day_desk(date_str: str, wx: dict) -> dict:
     }
 
 def catalog_photo(name: str) -> dict:
+    """Only a real catalog shot of this venue. No stock, no Pexels, no Unsplash, no AI."""
     p = SITE / "public" / "photos-catalog.json"
     if not p.exists():
         return {}
@@ -290,16 +291,31 @@ def catalog_photo(name: str) -> dict:
         photos = json.loads(p.read_text())
     except Exception:
         return {}
-    key = (name or "").lower()
-    words = [w for w in re.split(r"[^a-z0-9]+", key) if len(w) > 3]
-    best = {}
+    key = re.sub(r"[^a-z0-9]+", " ", (name or "").lower()).strip()
+    if len(key) < 6:
+        return {}
+    banned = (
+        "representational",
+        "generic stock",
+        "generated",
+        "ai generated",
+        "flux",
+        "imagine",
+        "pexels",
+        "unsplash",
+        "stock tagged",
+    )
     for photo in photos if isinstance(photos, list) else []:
         title = (photo.get("title") or "").lower()
-        if key and key in title:
+        cat = (photo.get("category") or "").lower()
+        blob = f"{title} {cat} {photo.get('url') or ''} {photo.get('source') or ''}".lower()
+        if any(b in blob for b in banned):
+            continue
+        if "pexels.com" in blob or "unsplash.com" in blob:
+            continue
+        if key and key in re.sub(r"[^a-z0-9]+", " ", title):
             return photo
-        if words and sum(1 for w in words if w in title) >= 2:
-            best = photo
-    return best
+    return {}
 
 
 def ext_link(url: str, label: str) -> str:
@@ -351,15 +367,12 @@ def build_guest(date_str: str) -> str:
     restaurants = list(dining.get("restaurants") or [])
     spotlight = weekday_spotlight(restaurants, date_str)
     photo = catalog_photo(spotlight.get("name") or "")
-    if not photo:
-        photo = catalog_photo(spotlight.get("cuisine") or "")
-    if not photo:
-        photo = catalog_photo("cafe") or catalog_photo("pizza") or catalog_photo("breakfast")
     photo_url = photo.get("url") or photo.get("thumb") or ""
     spot_html = ""
     if spotlight:
-        credit = photo.get("title") or photo.get("source") or "Catalog photo"
-        img_tag = f'<img src="{esc(photo_url)}" alt="">' if photo_url else ""
+        credit = photo.get("title") or ""
+        img_tag = f'<img src="{esc(photo_url)}" alt="{esc(spotlight.get("name") or "")}">' if photo_url else ""
+        credit_html = f'<div class="credit">{esc(credit)}</div>' if photo_url and credit else ""
         spot_html = (
             '<div class="spot">'
             f"{img_tag}"
@@ -370,7 +383,7 @@ def build_guest(date_str: str) -> str:
             f'<p>{esc(spotlight.get("venue") or "")} · {esc(spotlight.get("cuisine") or "")} · {esc(spotlight.get("price") or "")}</p>'
             f'{ext_link(spotlight.get("url") or "", "Menu / hours")}'
             f'{map_link(spotlight.get("name") or "")}'
-            f'<div class="credit">{esc(credit)} — representational stock from our photo catalog, not a live dining-room shot.</div>'
+            f"{credit_html}"
             "</div></div>"
         )
     eat_tiles = []
@@ -442,13 +455,13 @@ def build_guest(date_str: str) -> str:
             '<div class="heat"><b>Heat desk</b>This is a 95°+ afternoon. Lake at dawn. '
             "Indoor 11–4. Water in the car. Theatres after 5. Do not hike Dogwood Canyon at 2 PM.</div>"
         )
-    beat_photo = catalog_photo(feat.get("title") or "landing") or catalog_photo("farmers") or catalog_photo("table rock")
+    beat_photo = catalog_photo(feat.get("title") or "")
     beat_url = beat_photo.get("url") or beat_photo.get("thumb") or ""
     hero = ""
     if beat_url:
         hero = (
-            f'<div class="hero-photo"><img src="{esc(beat_url)}" alt="">'
-            f'<span>{esc(beat_photo.get("title") or "Catalog")} — representational</span></div>'
+            f'<div class="hero-photo"><img src="{esc(beat_url)}" alt="{esc(feat.get("title") or "")}">'
+            f'<span>{esc(beat_photo.get("title") or feat.get("title") or "")}</span></div>'
         )
     week_html = ""
     for row in week[:5]:

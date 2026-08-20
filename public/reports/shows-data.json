@@ -53,7 +53,7 @@
       "time": "7:30 PM",
       "venue": "Clay Cooper Theatre",
       "type": "Country Variety",
-      "url": "https://www.claycooper.com/",
+      "url": "https://www.claycoopertheatre.com/",
       "lat": 36.63733,
       "lng": -93.27964,
       "venueAddress": "3216 W 76 Country Blvd"
@@ -63,7 +63,7 @@
       "time": "7:30 PM & 8:00 PM",
       "venue": "Shepherd of the Hills",
       "type": "Outdoor Historical Drama",
-      "url": "https://www.bransonshows.com/showByDate.cfm",
+      "url": "https://theshepherdofthehills.com/",
       "lat": 36.667,
       "lng": -93.30589,
       "venueAddress": "5586 W 76 Country Blvd"
@@ -90,7 +90,7 @@
       "time": "8:00 PM",
       "venue": "Presleys' Country Jubilee",
       "type": "Country Comedy & Music",
-      "url": "",
+      "url": "https://www.presleys.com/",
       "lat": 36.64035,
       "lng": -93.24015,
       "venueAddress": "1209 W 76 Country Blvd"
@@ -100,7 +100,7 @@
       "time": "8:00 PM",
       "venue": "Reza Live Theatre",
       "type": "Magic / Illusion",
-      "url": "",
+      "url": "https://rezalivetheatre.com/",
       "lat": 36.63218,
       "lng": -93.28011,
       "venueAddress": "645 State Hwy 165"
@@ -110,7 +110,7 @@
       "time": "8:00 PM",
       "venue": "Hamners' Theater",
       "type": "Magic",
-      "url": "",
+      "url": "https://www.hamnersunbelievable.com/",
       "lat": 36.65395,
       "lng": -93.27957,
       "venueAddress": "3090 Shepherd of the Hills Expwy"

@@ -40,7 +40,7 @@
       "price": "$$",
       "tag": "Host Pick",
       "desc": "Fresh fish with a view of Lake Taneycomo! Bass Pro's signature restaurant on the water.",
-      "url": "https://www.whitefishhouse.com/",
+      "url": "https://www.whiteriverfishhouse.com/",
       "venue": "Bass Pro Drive · Branson Landing",
       "lat": 36.64058,
       "lng": -93.2124
@@ -51,8 +51,8 @@
       "price": "$",
       "tag": "Host Pick",
       "desc": "Best ribs in Branson! Casual, affordable, absolutely delicious. Local favorite.",
-      "url": "https://www.bigdsbbq.com/",
-      "venue": "Shepherd of the Hills Expwy",
+      "url": "https://bestbransonbbq.com/",
+      "venue": "1550 State Hwy 248",
       "lat": 36.66475,
       "lng": -93.24606
     },
@@ -150,7 +150,7 @@
       "price": "$",
       "tag": "Sweet Treat",
       "desc": "Old-school ice cream parlor. Classic shakes, malts, and burgers.",
-      "url": "https://www.billybobsdairyland.com/",
+      "url": "https://www.explorebranson.com/blog-explore/blog/post/billy-bobs-branson-tradition/",
       "venue": "W 76 Country Blvd",
       "lat": 36.64309,
       "lng": -93.25376

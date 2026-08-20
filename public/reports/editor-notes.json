@@ -31,18 +31,18 @@
     {
       "name": "WonderWorks Branson",
       "detail": "Upside-down interactive science fun \u2014 perfect climate-controlled escape.",
-      "url": "https://www.wonderworksbranson.com/"
+      "url": "https://www.wonderworksonline.com/branson/"
     },
     {
       "name": "Titanic Museum Attraction",
       "detail": "Immersive history exhibit with real artifacts. Book ahead.",
-      "url": "https://titanicbranson.com/"
+      "url": "https://titanicattraction.com/branson"
     },
     {
       "name": "Aquarium at the Boardwalk",
       "detail": "Sharks, rays, and hands-on marine life in cool comfort.",
-      "url": "https://www.theaquariumattheboardwalk.com/"
+      "url": "https://www.aquariumattheboardwalk.com/"
     }
   ],
-  "honesty": "No scout markdown files found for 2026-08-20. Carried forward from recent verified patterns, current NWS heat advisory data, standard weekly market schedule (Tue only for Landing), and existing dining/shows JSON. All showtimes and events must be confirmed at the box office or official sites. Restaurant spotlight rotates to White River Fish House for Thursday. Photos representational only."
+  "honesty": "Confirm tonight’s board at the box office. No photo unless it is actually that place."
 }
