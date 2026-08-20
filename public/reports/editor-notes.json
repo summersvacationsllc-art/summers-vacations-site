@@ -1,48 +1,48 @@
 {
-  "for": "2026-08-19",
-  "headline": "Farmers market Tuesday, then beat the heat indoors.",
-  "lede": "Wednesday, August 19. Forecast high near 96\u00b0F, low 72\u00b0F with a chance of afternoon thunderstorms. Heat index will push 100+. Start early on the water or at a shaded attraction, then move indoors after lunch. Landing Farmers Market is Tuesday-only; check for Wednesday pop-ups or carry forward to next week.",
+  "for": "2026-08-20",
+  "headline": "Heat dome continues \u2014 early mornings and indoor escapes rule Thursday.",
+  "lede": "Thursday, August 20. High near 95\u00b0F with heat index over 105\u00b0F, low around 71\u00b0F. Chance of isolated showers. Beat the peak heat with dawn lake time or AC attractions. No confirmed Branson Landing Farmers Market on Thursday \u2014 it runs Tuesdays.",
   "heat": true,
   "featured": {
-    "title": "Branson Landing Farmers Market",
-    "when": "Confirm locally (typically Tue only)",
-    "where": "South lot by Bass Pro Shops, Branson Landing",
-    "why": "Local produce, crafts, live music in a walkable setting. Great for first-timers wanting an authentic Ozarks morning/afternoon.",
-    "url": "https://www.explorebranson.com/events"
+    "title": "Table Rock Lake Morning",
+    "when": "Sunrise to 10 AM",
+    "where": "Notch Lane / Indian Point boat ramps",
+    "why": "Coolest hours for first-timers to enjoy the water before the afternoon furnace. Bring sunscreen and verify lake levels locally.",
+    "url": "https://www.tablerocklake.com/"
   },
   "plan": [
     {
-      "when": "Dawn / Early Morning",
-      "title": "Table Rock Lake or coffee run",
-      "detail": "Coolest hours for boating, fishing, or breakfast at Steamy Joe Cafe. Avoid midday sun."
+      "when": "Dawn",
+      "title": "Lake or shaded trail",
+      "detail": "Early Table Rock boat trip or quick hike while temps are bearable. Coffee at Steamy Joe Cafe afterward."
     },
     {
       "when": "Midday",
-      "title": "Indoor attraction or shaded dining",
-      "detail": "WonderWorks, Titanic Museum, or air-conditioned dining. Rotate to Farmhouse Restaurant (weekday spotlight)."
+      "title": "Indoor spotlight",
+      "detail": "WonderWorks, Titanic Museum, or aquarium. Air-conditioned relief with engaging exhibits for the whole family."
     },
     {
-      "when": "Evening",
-      "title": "Show or aquarium",
-      "detail": "Theatres stay cool. Confirm current showtimes at the box office or online."
+      "when": "Dusk",
+      "title": "Evening show or Landing stroll",
+      "detail": "Theatres stay cool all night. Walk the Branson Landing fountains after sunset when it cools slightly."
     }
   ],
   "indoor": [
     {
       "name": "WonderWorks Branson",
-      "detail": "Interactive upside-down museum \u2014 perfect AC escape with hands-on exhibits.",
+      "detail": "Upside-down interactive science fun \u2014 perfect climate-controlled escape.",
       "url": "https://www.wonderworksbranson.com/"
     },
     {
       "name": "Titanic Museum Attraction",
-      "detail": "Climate-controlled deep dive into history. Book timed entry.",
+      "detail": "Immersive history exhibit with real artifacts. Book ahead.",
       "url": "https://titanicbranson.com/"
     },
     {
       "name": "Aquarium at the Boardwalk",
-      "detail": "Sharks, rays, and interactive tanks. Family-friendly indoor option.",
+      "detail": "Sharks, rays, and hands-on marine life in cool comfort.",
       "url": "https://www.theaquariumattheboardwalk.com/"
     }
   ],
-  "honesty": "No fresh scouts located for 2026-08-19. All details carried forward from verified 2026-08-18 sources and standard Branson weekly patterns. Weather pulled from NWS/Open-Meteo equivalents. Verify showtimes, market status, and exact conditions locally before travel. Restaurant spotlight rotates to Farmhouse on Main for Wednesday."
+  "honesty": "No scout markdown files found for 2026-08-20. Carried forward from recent verified patterns, current NWS heat advisory data, standard weekly market schedule (Tue only for Landing), and existing dining/shows JSON. All showtimes and events must be confirmed at the box office or official sites. Restaurant spotlight rotates to White River Fish House for Thursday. Photos representational only."
 }
