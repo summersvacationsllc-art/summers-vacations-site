@@ -1,53 +1,45 @@
 {
-  "date": "2026-08-20",
-  "generated_at": "2026-08-20T06:37:32-05:00",
+  "date": "2026-08-21",
+  "generated_at": "2026-08-21T10:59:27+00:00",
   "headline": {
-    "check_ins": 3,
+    "check_ins": 2,
     "check_outs": 1,
     "turnovers": 1,
     "same_day_turnovers": 1,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Modern Charmer",
-      "guest": "Randy Smith",
+      "property": "Peacock",
+      "guest": "Amanda Stanton",
       "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_qns8bph",
+      "reservation_id": "res_jpakghe",
       "time": "4:00 PM"
     },
     {
-      "property": "Penthouse",
-      "guest": "Brian Summers",
+      "property": "Woodland Retreat",
+      "guest": "Michelle and David Barton",
       "guests": 1,
       "platform": "owner",
-      "reservation_id": "res_l5p0v5e",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Brian Summers",
-      "guests": 1,
-      "platform": "owner",
-      "reservation_id": "res_6mvpqd9",
+      "reservation_id": "res_plau5tp",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Penthouse",
-      "guest": "ABIGAlL Crabtree",
+      "property": "Woodland Retreat",
+      "guest": "Caitlyn Morris",
       "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_1vwkhrv",
+      "reservation_id": "res_u27b0t9",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [
     {
-      "property": "Penthouse",
+      "property": "Woodland Retreat",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
@@ -56,20 +48,10 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": true,
-      "reservation_id": "6a7a8f0da2c62bfceebdbcd2"
+      "reservation_id": "698d09e708176f001596a1e9"
     }
   ],
   "in_house": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Caitlyn Morris",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_u27b0t9",
-      "check_in": "2026-08-16",
-      "check_out": "2026-08-21",
-      "nights": 5
-    },
     {
       "property": "Modern Charmer",
       "guest": "Randy Smith",
@@ -99,6 +81,26 @@
       "check_in": "2026-08-20",
       "check_out": "2026-08-25",
       "nights": 5
+    },
+    {
+      "property": "Peacock",
+      "guest": "Amanda Stanton",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_jpakghe",
+      "check_in": "2026-08-21",
+      "check_out": "2026-08-23",
+      "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Michelle and David Barton",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_plau5tp",
+      "check_in": "2026-08-21",
+      "check_out": "2026-08-23",
+      "nights": 2
     }
   ],
   "sync_notes": {
