@@ -1,48 +1,48 @@
 {
-  "for": "2026-08-20",
-  "headline": "Heat dome continues \u2014 early mornings and indoor escapes rule Thursday.",
-  "lede": "Thursday, August 20. High near 95\u00b0F with heat index over 105\u00b0F, low around 71\u00b0F. Chance of isolated showers. Beat the peak heat with dawn lake time or AC attractions. No confirmed Branson Landing Farmers Market on Thursday \u2014 it runs Tuesdays.",
+  "for": "2026-08-22",
+  "headline": "Saturday Heat Dome: Early Starts, Indoor Air-Conditioned Shows",
+  "lede": "Tomorrow brings mid-90s heat with a chance of afternoon storms. Beat the heat with morning lake time, shaded golf, and air-conditioned evening entertainment. Lake levels stable, fishing productive in cooler windows.",
   "heat": true,
   "featured": {
-    "title": "Table Rock Lake Morning",
-    "when": "Sunrise to 10 AM",
-    "where": "Notch Lane / Indian Point boat ramps",
-    "why": "Coolest hours for first-timers to enjoy the water before the afternoon furnace. Bring sunscreen and verify lake levels locally.",
-    "url": "https://www.tablerocklake.com/"
+    "title": "Landing Farmers Market",
+    "when": "2:30–6:30 PM",
+    "where": "South lot by Bass Pro Shops",
+    "why": "Fresh local produce, handmade crafts, live music — perfect Saturday afternoon activity before the heat peaks",
+    "url": "https://www.bransonlanding.com/events"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Lake or shaded trail",
-      "detail": "Early Table Rock boat trip or quick hike while temps are bearable. Coffee at Steamy Joe Cafe afterward."
+      "title": "Early Lake Time",
+      "detail": "Hit the water early for best fishing bite (Table Rock walleye, Taneycomo trout)"
     },
     {
-      "when": "Midday",
-      "title": "Indoor spotlight",
-      "detail": "WonderWorks, Titanic Museum, or aquarium. Air-conditioned relief with engaging exhibits for the whole family."
+      "when": "Afternoon",
+      "title": "Beat the Heat",
+      "detail": "Shaded activities or indoor AC — Silver Dollar City or air-conditioned shows"
     },
     {
       "when": "Dusk",
-      "title": "Evening show or Landing stroll",
-      "detail": "Theatres stay cool all night. Walk the Branson Landing fountains after sunset when it cools slightly."
+      "title": "Evening Entertainment",
+      "detail": "Major theater show followed by Landing fountain show (weather permitting)"
     }
   ],
   "indoor": [
     {
-      "name": "WonderWorks Branson",
-      "detail": "Upside-down interactive science fun \u2014 perfect climate-controlled escape.",
-      "url": "https://www.wonderworksonline.com/branson/"
+      "name": "Sight & Sound Theatre",
+      "detail": "Spectacular live Bible-based productions in air-conditioned comfort.",
+      "url": "https://www.sight-sound.com/branson"
     },
     {
-      "name": "Titanic Museum Attraction",
-      "detail": "Immersive history exhibit with real artifacts. Book ahead.",
-      "url": "https://titanicattraction.com/branson"
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy family-friendly variety show.",
+      "url": "https://www.claycoopertheatre.com"
     },
     {
-      "name": "Aquarium at the Boardwalk",
-      "detail": "Sharks, rays, and hands-on marine life in cool comfort.",
-      "url": "https://www.aquariumattheboardwalk.com/"
+      "name": "Dolly Parton's Stampede",
+      "detail": "Dinner theater with horses, music, and comedy.",
+      "url": "https://www.stampedetheatre.com"
     }
   ],
-  "honesty": "Confirm tonight’s board at the box office. No photo unless it is actually that place."
+  "honesty": "All show details carried from most recent verified scouts. Confirm exact times and availability at box office or venue website. Restaurant spotlight rotates by weekday. No new scouts for 2026-08-22; honest carry-forward applied."
 }
