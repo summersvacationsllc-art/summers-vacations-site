@@ -1,48 +1,24 @@
 {
-  "for": "2026-08-22",
-  "headline": "Saturday Heat Dome: Early Starts, Indoor Air-Conditioned Shows",
-  "lede": "Tomorrow brings mid-90s heat with a chance of afternoon storms. Beat the heat with morning lake time, shaded golf, and air-conditioned evening entertainment. Lake levels stable, fishing productive in cooler windows.",
+  "for": "2026-08-23",
+  "headline": "Monday Heat Builds Toward Mid-90s",
+  "lede": "Tomorrow brings hot and mostly sunny conditions perfect for lake time with a chance of isolated late-day storms. Plan early outings and stay hydrated.",
   "heat": true,
   "featured": {
-    "title": "Landing Farmers Market",
-    "when": "2:30–6:30 PM",
-    "where": "South lot by Bass Pro Shops",
-    "why": "Fresh local produce, handmade crafts, live music — perfect Saturday afternoon activity before the heat peaks",
-    "url": "https://www.bransonlanding.com/events"
+    "title": "Branson Landing Farmers Market",
+    "when": "2:30\u20136:30 PM",
+    "where": "South parking lot near Bass Pro Shops",
+    "why": "Fresh local produce, handmade goods, live music \u2014 a relaxed Tuesday evening tradition",
+    "url": "https://bransonlanding.com/events/branson-landing-branson-farmers-market-at-branson-landing"
   },
   "plan": [
-    {
-      "when": "Dawn",
-      "title": "Early Lake Time",
-      "detail": "Hit the water early for best fishing bite (Table Rock walleye, Taneycomo trout)"
-    },
-    {
-      "when": "Afternoon",
-      "title": "Beat the Heat",
-      "detail": "Shaded activities or indoor AC — Silver Dollar City or air-conditioned shows"
-    },
-    {
-      "when": "Dusk",
-      "title": "Evening Entertainment",
-      "detail": "Major theater show followed by Landing fountain show (weather permitting)"
-    }
+    {"when": "Dawn", "title": "Early Table Rock fishing or Dogwood Canyon walk", "detail": "Beat the heat before mid-90s arrive"},
+    {"when": "Afternoon", "title": "Lake time or indoor Silver Dollar City", "detail": "Seek air conditioning by 2 PM; hydrate heavily"},
+    {"when": "Dusk", "title": "Branson Landing Farmers Market", "detail": "Fresh produce, crafts, music, then fountain show"}
   ],
   "indoor": [
-    {
-      "name": "Sight & Sound Theatre",
-      "detail": "Spectacular live Bible-based productions in air-conditioned comfort.",
-      "url": "https://www.sight-sound.com/branson"
-    },
-    {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy family-friendly variety show.",
-      "url": "https://www.claycoopertheatre.com"
-    },
-    {
-      "name": "Dolly Parton's Stampede",
-      "detail": "Dinner theater with horses, music, and comedy.",
-      "url": "https://www.stampedetheatre.com"
-    }
+    {"name": "Silver Dollar City", "detail": "Rides, shows, and shaded paths all day", "url": "https://www.silverdollarcity.com/"},
+    {"name": "Titanic Museum", "detail": "Climate-controlled interactive history", "url": "https://titanicbranson.com/"},
+    {"name": "Hollywood Wax Museum", "detail": "Fun, air-conditioned celebrity exhibits", "url": "https://www.hollywoodwax.com/branson"}
   ],
-  "honesty": "All show details carried from most recent verified scouts. Confirm exact times and availability at box office or venue website. Restaurant spotlight rotates by weekday. No new scouts for 2026-08-22; honest carry-forward applied."
+  "honesty": "Carry-forward from most recent verified scouts (no fresh 2026-08-23 scout files located). Farmers Market confirmed via multiple official sources. Verify all showtimes and conditions locally. Restaurant spotlight rotates to Farmhouse Restaurant (Tuesday)."
 }
