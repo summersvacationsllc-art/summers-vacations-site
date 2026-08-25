@@ -1,24 +1,48 @@
 {
-  "for": "2026-08-23",
-  "headline": "Monday Heat Builds Toward Mid-90s",
-  "lede": "Tomorrow brings hot and mostly sunny conditions perfect for lake time with a chance of isolated late-day storms. Plan early outings and stay hydrated.",
-  "heat": true,
+  "for": "2026-08-25",
+  "headline": "Cooler Skies and Crisp Air for Tuesday",
+  "lede": "After recent heat, Tuesday brings a welcome cooldown with highs in the mid-80s, mostly sunny skies, and low rain chance \u2014 ideal for outdoor exploration around Table Rock Lake and the Landing.",
+  "heat": false,
   "featured": {
     "title": "Branson Landing Farmers Market",
     "when": "2:30\u20136:30 PM",
-    "where": "South parking lot near Bass Pro Shops",
-    "why": "Fresh local produce, handmade goods, live music \u2014 a relaxed Tuesday evening tradition",
-    "url": "https://bransonlanding.com/events/branson-landing-branson-farmers-market-at-branson-landing"
+    "where": "South parking lot by Bass Pro Shops",
+    "why": "Fresh local produce, artisan goods, live music, and relaxed evening vibes in a prime lakeside setting",
+    "url": "https://bransonlanding.com/events"
   },
   "plan": [
-    {"when": "Dawn", "title": "Early Table Rock fishing or Dogwood Canyon walk", "detail": "Beat the heat before mid-90s arrive"},
-    {"when": "Afternoon", "title": "Lake time or indoor Silver Dollar City", "detail": "Seek air conditioning by 2 PM; hydrate heavily"},
-    {"when": "Dusk", "title": "Branson Landing Farmers Market", "detail": "Fresh produce, crafts, music, then fountain show"}
+    {
+      "when": "Dawn",
+      "title": "Table Rock Lake sunrise fishing or walk",
+      "detail": "Cool morning bite before the day warms; check generation schedule"
+    },
+    {
+      "when": "Afternoon",
+      "title": "Branson Landing stroll + fountain show",
+      "detail": "Farmers market, shopping, and people-watching in comfortable temps"
+    },
+    {
+      "when": "Dusk",
+      "title": "Dinner at Farmhouse Restaurant or Lake House",
+      "detail": "Classic Ozark comfort food or lakeside views to close the day"
+    }
   ],
   "indoor": [
-    {"name": "Silver Dollar City", "detail": "Rides, shows, and shaded paths all day", "url": "https://www.silverdollarcity.com/"},
-    {"name": "Titanic Museum", "detail": "Climate-controlled interactive history", "url": "https://titanicbranson.com/"},
-    {"name": "Hollywood Wax Museum", "detail": "Fun, air-conditioned celebrity exhibits", "url": "https://www.hollywoodwax.com/branson"}
+    {
+      "name": "Silver Dollar City",
+      "detail": "Theme park rides, shows, and shaded Ozark heritage \u2014 perfect any weather",
+      "url": "https://www.silverdollarcity.com/"
+    },
+    {
+      "name": "Titanic Museum Attraction",
+      "detail": "Climate-controlled interactive history with real artifacts",
+      "url": "https://titanicbranson.com/"
+    },
+    {
+      "name": "Hollywood Wax Museum",
+      "detail": "Fun, air-conditioned celebrity exhibits and photo ops",
+      "url": "https://www.hollywoodwax.com/branson"
+    }
   ],
-  "honesty": "Carry-forward from most recent verified scouts (no fresh 2026-08-23 scout files located). Farmers Market confirmed via multiple official sources. Verify all showtimes and conditions locally. Restaurant spotlight rotates to Farmhouse Restaurant (Tuesday)."
+  "honesty": "Editor notes prepared from latest verified reports and confirmed events (no fresh scout files located for 2026-08-25). Farmers Market is a standing Tuesday tradition at Branson Landing. All showtimes to be confirmed at box office. Restaurant spotlight rotates to Farmhouse Restaurant (Tuesday). Verify lake conditions and weather locally."
 }
