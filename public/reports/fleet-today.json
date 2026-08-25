@@ -1,7 +1,30 @@
 {
-  "date": "2026-08-24",
-  "generated_at": "2026-08-24T06:54:34-05:00",
-  "units_total": 2,
-  "turnovers": [],
+  "date": "2026-08-25",
+  "generated_at": "2026-08-25T05:54:24-05:00",
+  "units_total": 3,
+  "turnovers": [
+    {
+      "property": "Penthouse",
+      "property_id": "prop_c84gb5j",
+      "checkout": "10:00 AM",
+      "next_checkin": "\u2014",
+      "status": "pending",
+      "same_day": false,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a4fbd2d106bda551e2c577e"
+    },
+    {
+      "property": "Rustic Ozark",
+      "property_id": "prop_fvhuyem",
+      "checkout": "10:00 AM",
+      "next_checkin": "\u2014",
+      "status": "pending",
+      "same_day": false,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a4fbd3fcd324f6aa4385eb0"
+    }
+  ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
