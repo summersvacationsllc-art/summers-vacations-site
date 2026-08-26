@@ -1,68 +1,26 @@
 {
-  "date": "2026-08-25",
-  "generated_at": "2026-08-25T11:01:30+00:00",
+  "date": "2026-08-26",
+  "generated_at": "2026-08-26T06:02:47-05:00",
   "headline": {
     "check_ins": 1,
-    "check_outs": 2,
-    "turnovers": 2,
+    "check_outs": 0,
+    "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 1,
+    "in_house_units": 2,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Peacock",
-      "guest": "Debbie Tims",
-      "guests": 6,
+      "property": "Penthouse",
+      "guest": "Niki Delgado",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_gaigna1",
+      "reservation_id": "res_3aeu9g8",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "Brian Summers",
-      "guests": 1,
-      "platform": "owner",
-      "reservation_id": "res_l5p0v5e",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Brian Summers",
-      "guests": 1,
-      "platform": "owner",
-      "reservation_id": "res_6mvpqd9",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [
-    {
-      "property": "Penthouse",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a4fbd2d106bda551e2c577e"
-    },
-    {
-      "property": "Rustic Ozark",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a4fbd3fcd324f6aa4385eb0"
-    }
-  ],
+  "check_outs": [],
+  "turnovers": [],
   "in_house": [
     {
       "property": "Peacock",
@@ -73,6 +31,16 @@
       "check_in": "2026-08-25",
       "check_out": "2026-08-29",
       "nights": 4
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Niki Delgado",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_3aeu9g8",
+      "check_in": "2026-08-26",
+      "check_out": "2026-08-28",
+      "nights": 2
     }
   ],
   "sync_notes": {
