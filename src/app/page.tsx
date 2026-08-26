@@ -40,6 +40,7 @@ type HomeListing = {
   area?: string;
   blurb?: string;
   badge?: string;
+  bookUrl?: string;
 };
 
 export default function Home() {
@@ -86,6 +87,7 @@ export default function Home() {
                 area?: string;
                 blurb?: string;
                 badge?: string;
+                bookUrl?: string;
               }) => ({
                 name: l.name || l.title || "Untitled",
                 slug: l.slug,
@@ -100,6 +102,9 @@ export default function Home() {
                 area: l.area,
                 blurb: l.blurb,
                 badge: l.badge,
+                bookUrl:
+                  l.bookUrl ||
+                  PROPERTIES.find((p) => p.slug === l.slug)?.bookUrl,
               })
             )
           );
@@ -365,10 +370,15 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {listings.map((p) => {
               const photo = p.photo || propertyPhotos[p.slug] || null;
+              const href = p.bookUrl || `/property/${p.slug}`;
+              const external = Boolean(p.bookUrl);
               return (
-              <Link
+              <a
                 key={p.slug}
-                href={`/property/${p.slug}`}
+                href={href}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="group block bg-white rounded-2xl overflow-hidden border border-sky-100 shadow-sm hover:shadow-xl hover:shadow-sky-900/10 hover:-translate-y-1 transition-all duration-300 no-underline text-inherit"
               >
                 <div className="aspect-[4/3] bg-sky-50 overflow-hidden relative">
@@ -422,7 +432,7 @@ export default function Home() {
                     )}
                   </div>
                 </div>
-              </Link>
+              </a>
               );
             })}
           </div>

@@ -16,7 +16,14 @@ export type PropertyCard = {
   photo: string | null;
   blurb: string;
   badge?: string;
+  /** Guesty booking site for this unit. Homepage pic + Book buttons go here. */
+  bookUrl?: string;
 };
+
+export function bookingUrl(slug?: string | null): string {
+  if (!slug) return BOOK_URL;
+  return PROPERTIES.find((p) => p.slug === slug)?.bookUrl || BOOK_URL;
+}
 
 /** Curated real property photos — paths must match files on disk in public/property-photos/. */
 export const PROPERTIES: PropertyCard[] = [
@@ -29,6 +36,8 @@ export const PROPERTIES: PropertyCard[] = [
     slug: "the-penthouse",
     photo: "/property-photos/penthouse/aaa-fall-porch.jpg",
     blurb: "Deck with mountain views and a cozy top-floor retreat.",
+    bookUrl:
+      "https://bransonpenthouse.guestybookings.com/en/properties?minOccupancy=1&adults=1",
   },
   {
     name: "Rustic Ozark Retreat",
@@ -39,6 +48,8 @@ export const PROPERTIES: PropertyCard[] = [
     slug: "rustic-ozark-retreat",
     photo: "/property-photos/rustic-ozark-retreat/aaa-fall-porch.jpg",
     blurb: "Porch overlooking the Ozarks — that mountain-getaway feel.",
+    bookUrl:
+      "https://rusticozarkretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
   },
   {
     name: "Woodland Retreat",
@@ -49,6 +60,8 @@ export const PROPERTIES: PropertyCard[] = [
     slug: "woodland-retreat",
     photo: "/property-photos/woodland-retreat/aaa-fall-living.jpg",
     blurb: "Kids love the bunk room. Parents love the open living space.",
+    bookUrl:
+      "https://woodlandretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
   },
   {
     name: "Modern Charmer",
@@ -60,6 +73,8 @@ export const PROPERTIES: PropertyCard[] = [
     photo:
       "/property-photos/modern-charmer/1773378876798_JmrcRDaVzRXfXABYeOaFHq4aroXFHm67XTjlxz17.jpg",
     blurb: "Fresh finishes, coffee bar, and perfect for couples or small crews.",
+    bookUrl:
+      "https://moderncharmer.guestybookings.com/en/properties?minOccupancy=1&adults=1",
   },
   {
     name: "Pretty Peacock",
@@ -70,6 +85,8 @@ export const PROPERTIES: PropertyCard[] = [
     slug: "pretty-peacock",
     photo: "/property-photos/pretty-peacock/aaa-peacockporch.jpg",
     blurb: "Family porch with turquoise chairs — ground-floor ease.",
+    bookUrl:
+      "https://peacock.guestybookings.com/en/properties?minOccupancy=1&adults=1",
   },
   {
     name: "Double Condo",

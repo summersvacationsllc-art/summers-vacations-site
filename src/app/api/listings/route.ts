@@ -46,6 +46,7 @@ export type ListingCard = {
   area?: string;
   blurb?: string;
   badge?: string;
+  bookUrl?: string;
 };
 
 function fromCard(p: PropertyCard, guestyId = ""): ListingCard {
@@ -63,6 +64,7 @@ function fromCard(p: PropertyCard, guestyId = ""): ListingCard {
     area: p.area,
     blurb: p.blurb,
     badge: p.badge,
+    bookUrl: p.bookUrl,
   };
 }
 
@@ -105,6 +107,7 @@ export async function GET() {
           area: hardcoded?.area,
           blurb: hardcoded?.blurb,
           badge: hardcoded?.badge,
+          bookUrl: hardcoded?.bookUrl,
         };
       });
 

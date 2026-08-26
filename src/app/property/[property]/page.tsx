@@ -11,7 +11,7 @@ import {
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import { BOOK_URL, PHONE, PHONE_HREF } from "@/lib/site";
+import { PHONE, PHONE_HREF, bookingUrl } from "@/lib/site";
 
 interface Photo {
   url: string;
@@ -276,6 +276,7 @@ export default function PropertyPage() {
   const slug = (params?.property as string) || "";
   const [photos, setPhotos] = useState<Photo[]>([]);
   const data = PROPERTIES[slug];
+  const bookHref = bookingUrl(slug);
 
   useEffect(() => {
     if (!data) return;
@@ -328,7 +329,7 @@ export default function PropertyPage() {
             </span>
           </Link>
           <a
-            href={BOOK_URL}
+            href={bookHref}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-book text-xs px-5 py-2.5 rounded-full no-underline inline-flex items-center gap-1.5"
@@ -364,7 +365,7 @@ export default function PropertyPage() {
             </div>
             <div className="flex flex-wrap gap-3 mt-8">
               <a
-                href={BOOK_URL}
+                href={bookHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-book inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm no-underline"
@@ -461,7 +462,7 @@ export default function PropertyPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-6">
             <a
-              href={BOOK_URL}
+              href={bookHref}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full bg-[#0c4a6e] text-white text-sm font-bold no-underline hover:bg-[#0a3d5c] transition-colors inline-flex items-center gap-2"
