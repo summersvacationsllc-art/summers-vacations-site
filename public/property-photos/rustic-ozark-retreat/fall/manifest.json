@@ -1,0 +1,247 @@
+{
+  "unit": "rustic-ozark-retreat",
+  "season": "fall",
+  "count": 48,
+  "photos": [
+    {
+      "file": "01-porch.jpg",
+      "caption": "Front porch \u00b7 wicker sofa",
+      "bytes": 333286
+    },
+    {
+      "file": "02-porch-sign.jpg",
+      "caption": "Porch \u00b7 Valleyview Lodge sign",
+      "bytes": 386176
+    },
+    {
+      "file": "03-entry-scarecrows.jpg",
+      "caption": "Entry \u00b7 Neck of the Woods",
+      "bytes": 366187
+    },
+    {
+      "file": "04-entry-scarecrows-b.jpg",
+      "caption": "Entry scarecrows",
+      "bytes": 364546
+    },
+    {
+      "file": "05-laundry.jpg",
+      "caption": "Laundry closet",
+      "bytes": 256525
+    },
+    {
+      "file": "06-kitchen.jpg",
+      "caption": "Kitchen island",
+      "bytes": 349403
+    },
+    {
+      "file": "07-drop-leaf.jpg",
+      "caption": "Drop-leaf table \u00b7 pumpkin",
+      "bytes": 299340
+    },
+    {
+      "file": "08-hallway.jpg",
+      "caption": "Hallway to living",
+      "bytes": 418080
+    },
+    {
+      "file": "09-coffee-bar.jpg",
+      "caption": "Coffee bar",
+      "bytes": 316966
+    },
+    {
+      "file": "10-fireplace-tv.jpg",
+      "caption": "Fireplace TV",
+      "bytes": 236565
+    },
+    {
+      "file": "11-hall-bath.jpg",
+      "caption": "Hall bath",
+      "bytes": 253435
+    },
+    {
+      "file": "12-living.jpg",
+      "caption": "Living room \u00b7 highland cow",
+      "bytes": 345146
+    },
+    {
+      "file": "13-bath-vanity.jpg",
+      "caption": "Bath vanity",
+      "bytes": 266317
+    },
+    {
+      "file": "14-thermostat.jpg",
+      "caption": "Thermostat",
+      "bytes": 275366
+    },
+    {
+      "file": "15-kiosk-tablet.jpg",
+      "caption": "Guest kiosk tablet",
+      "bytes": 254545
+    },
+    {
+      "file": "16-nightstand-usb.jpg",
+      "caption": "Nightstand USB",
+      "bytes": 262600
+    },
+    {
+      "file": "17-master-bed.jpg",
+      "caption": "Master log bed",
+      "bytes": 275640
+    },
+    {
+      "file": "18-master-deck.jpg",
+      "caption": "Master \u00b7 deck doors",
+      "bytes": 306578
+    },
+    {
+      "file": "19-master-deck-b.jpg",
+      "caption": "Master \u00b7 deck doors",
+      "bytes": 304965
+    },
+    {
+      "file": "20-living-to-kitchen.jpg",
+      "caption": "Living toward kitchen",
+      "bytes": 341537
+    },
+    {
+      "file": "21-master-dresser.jpg",
+      "caption": "Master dresser TV",
+      "bytes": 202536
+    },
+    {
+      "file": "22-master-bath.jpg",
+      "caption": "Master bath",
+      "bytes": 285288
+    },
+    {
+      "file": "23-guest-bed.jpg",
+      "caption": "Guest bear bed",
+      "bytes": 307777
+    },
+    {
+      "file": "24-guest-bed-angle.jpg",
+      "caption": "Guest bear bed angle",
+      "bytes": 297821
+    },
+    {
+      "file": "25-master-bath-hutch.jpg",
+      "caption": "Master bath hutch",
+      "bytes": 316130
+    },
+    {
+      "file": "26-sleeper-bag.jpg",
+      "caption": "Orange sleeper bag",
+      "bytes": 242966
+    },
+    {
+      "file": "27-guest-bed-window.jpg",
+      "caption": "Guest bed by window",
+      "bytes": 348317
+    },
+    {
+      "file": "28-toiletries.jpg",
+      "caption": "Toiletries",
+      "bytes": 292560
+    },
+    {
+      "file": "29-guest-dresser.jpg",
+      "caption": "Guest dresser TV",
+      "bytes": 277793
+    },
+    {
+      "file": "30-guest-dresser-b.jpg",
+      "caption": "Guest dresser",
+      "bytes": 254005
+    },
+    {
+      "file": "31-tub.jpg",
+      "caption": "Tub",
+      "bytes": 172040
+    },
+    {
+      "file": "32-deck-table.jpg",
+      "caption": "Deck dining \u00b7 view",
+      "bytes": 428952
+    },
+    {
+      "file": "33-deck-tv.jpg",
+      "caption": "Deck TV \u00b7 Jump in the Lake",
+      "bytes": 248373
+    },
+    {
+      "file": "34-deck-seating.jpg",
+      "caption": "Deck seating \u00b7 fall garland",
+      "bytes": 414953
+    },
+    {
+      "file": "35-deck-dining.jpg",
+      "caption": "Deck dining table",
+      "bytes": 358731
+    },
+    {
+      "file": "36-deck-sectional.jpg",
+      "caption": "Deck sectional \u00b7 view",
+      "bytes": 380721
+    },
+    {
+      "file": "37-deck-console.jpg",
+      "caption": "Deck console \u00b7 pumpkins",
+      "bytes": 281003
+    },
+    {
+      "file": "38-deck-candles.jpg",
+      "caption": "Deck sofa candles",
+      "bytes": 291881
+    },
+    {
+      "file": "39-lantern.jpg",
+      "caption": "Deck lantern",
+      "bytes": 287296
+    },
+    {
+      "file": "40-master-to-deck.jpg",
+      "caption": "Master toward deck",
+      "bytes": 300394
+    },
+    {
+      "file": "41-remotes.jpg",
+      "caption": "Deck remotes drawer",
+      "bytes": 265383
+    },
+    {
+      "file": "42-master-from-dresser.jpg",
+      "caption": "Master from dresser",
+      "bytes": 286765
+    },
+    {
+      "file": "43-kitchen-cabinet.jpg",
+      "caption": "Kitchen dishes cabinet",
+      "bytes": 352642
+    },
+    {
+      "file": "44-master-bed-front.jpg",
+      "caption": "Master bed front",
+      "bytes": 290271
+    },
+    {
+      "file": "45-scarecrows-close.jpg",
+      "caption": "Scarecrows close",
+      "bytes": 447788
+    },
+    {
+      "file": "46-master-to-tv.jpg",
+      "caption": "Master toward TV",
+      "bytes": 271305
+    },
+    {
+      "file": "47-kitchen-stove.jpg",
+      "caption": "Kitchen stove and fridge",
+      "bytes": 318455
+    },
+    {
+      "file": "48-island-to-coffee.jpg",
+      "caption": "Island toward coffee bar",
+      "bytes": 402495
+    }
+  ]
+}

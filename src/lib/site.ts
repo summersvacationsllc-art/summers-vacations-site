@@ -37,7 +37,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "rustic-ozark-retreat",
-    photo: "/property-photos/rustic-ozark-retreat/aaa-rusticporch.jpeg",
+    photo: "/property-photos/rustic-ozark-retreat/aaa-fall-porch.jpg",
     blurb: "Porch overlooking the Ozarks — that mountain-getaway feel.",
   },
   {
@@ -104,9 +104,9 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   { src: "/property-photos/penthouse/aaa-fall-coffee.jpg", alt: "Coffee nook with fall garland" },
   { src: "/property-photos/penthouse/aaa-fall-living.jpg", alt: "Living room with fall pillows" },
   // Rustic Ozark
-  { src: "/property-photos/rustic-ozark-retreat/aaa-rusticporch.jpeg", alt: "Porch overlooking the Ozarks" },
-  { src: "/property-photos/rustic-ozark-retreat/IMG_8094.jpeg", alt: "Cozy rustic living space" },
-  { src: "/property-photos/rustic-ozark-retreat/IMG_8062.jpeg", alt: "Rustic Ozark bedroom" },
+  { src: "/property-photos/rustic-ozark-retreat/aaa-fall-porch.jpg", alt: "Rustic porch dressed for fall" },
+  { src: "/property-photos/rustic-ozark-retreat/aaa-fall-deck.jpg", alt: "Covered deck with fall garland" },
+  { src: "/property-photos/rustic-ozark-retreat/aaa-fall-living.jpg", alt: "Living room with fall pillows" },
   // Woodland
   { src: "/property-photos/woodland-retreat/aaa-woodland-deck.jpeg", alt: "Woodland deck retreat" },
   { src: "/property-photos/woodland-retreat/aaa-woodland-living-room.jpeg", alt: "Open living and dining" },
