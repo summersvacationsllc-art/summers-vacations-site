@@ -23,7 +23,11 @@ export async function GET() {
         .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f) && !f.startsWith("."))
         .sort((a, b) => a.localeCompare(b));
       // Prefer curated aaa-* hero shots; otherwise first alphabetically
-      const hero = images.find((f) => f.toLowerCase().startsWith("aaa-")) ?? images[0];
+      const hero =
+        images.find((f) => f.toLowerCase().startsWith("aaa-fall-porch")) ??
+        images.find((f) => f.toLowerCase().startsWith("aaa-fall-")) ??
+        images.find((f) => f.toLowerCase().startsWith("aaa-")) ??
+        images[0];
       if (hero) {
         photos[slug] = `/property-photos/${folder}/${hero}`;
       }

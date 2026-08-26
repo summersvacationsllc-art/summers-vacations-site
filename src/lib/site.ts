@@ -27,7 +27,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "the-penthouse",
-    photo: "/property-photos/penthouse/aaa-deck.jpeg",
+    photo: "/property-photos/penthouse/aaa-fall-porch.jpg",
     blurb: "Deck with mountain views and a cozy top-floor retreat.",
   },
   {
@@ -100,9 +100,9 @@ export const PROPERTIES: PropertyCard[] = [
 /** Real property photos for the mosaic / gallery strip (2–3 per property folder). */
 export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   // Penthouse
-  { src: "/property-photos/penthouse/aaa-deck.jpeg", alt: "Deck with Ozark views" },
-  { src: "/property-photos/penthouse/aaa-coffeebar.jpeg", alt: "Coffee bar ready for mornings" },
-  { src: "/property-photos/penthouse/IMG_7909.jpeg", alt: "Bright penthouse living room" },
+  { src: "/property-photos/penthouse/aaa-fall-porch.jpg", alt: "Penthouse porch dressed for fall" },
+  { src: "/property-photos/penthouse/aaa-fall-coffee.jpg", alt: "Coffee nook with fall garland" },
+  { src: "/property-photos/penthouse/aaa-fall-living.jpg", alt: "Living room with fall pillows" },
   // Rustic Ozark
   { src: "/property-photos/rustic-ozark-retreat/aaa-rusticporch.jpeg", alt: "Porch overlooking the Ozarks" },
   { src: "/property-photos/rustic-ozark-retreat/IMG_8094.jpeg", alt: "Cozy rustic living space" },

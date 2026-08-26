@@ -222,8 +222,8 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/property-photos/penthouse/aaa-deck.jpeg"
-            alt="Screened porch overlooking the Ozarks — real Summers Vacations property"
+            src="/property-photos/penthouse/aaa-fall-porch.jpg"
+            alt="Penthouse porch dressed for fall — real Summers Vacations property"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0c4a6e] via-[#0c4a6e]/70 to-[#0c4a6e]/30" />
