@@ -47,8 +47,7 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "2BR",
     area: "Branson West",
     slug: "woodland-retreat",
-    photo:
-      "/property-photos/woodland-retreat/1827C3E6-ED59-49E6-92A6-1D0EC7A6DC7F_1_105_c.jpeg",
+    photo: "/property-photos/woodland-retreat/aaa-fall-living.jpg",
     blurb: "Kids love the bunk room. Parents love the open living space.",
   },
   {
@@ -108,9 +107,9 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   { src: "/property-photos/rustic-ozark-retreat/aaa-fall-deck.jpg", alt: "Covered deck with fall garland" },
   { src: "/property-photos/rustic-ozark-retreat/aaa-fall-living.jpg", alt: "Living room with fall pillows" },
   // Woodland
-  { src: "/property-photos/woodland-retreat/aaa-woodland-deck.jpeg", alt: "Woodland deck retreat" },
-  { src: "/property-photos/woodland-retreat/aaa-woodland-living-room.jpeg", alt: "Open living and dining" },
-  { src: "/property-photos/woodland-retreat/2988F6CE-F08F-47A8-B37B-3369F82A636F_1_105_c.jpeg", alt: "Family bunk room" },
+  { src: "/property-photos/woodland-retreat/aaa-fall-deck.jpg", alt: "Woodland deck in the trees" },
+  { src: "/property-photos/woodland-retreat/aaa-fall-living.jpg", alt: "Living room dressed for fall" },
+  { src: "/property-photos/woodland-retreat/aaa-fall-kitchen.jpg", alt: "Kitchen with pumpkin-patch sign" },
   // Modern Charmer
   { src: "/property-photos/modern-charmer/Image 37.jpg", alt: "Sleek modern living room" },
   { src: "/property-photos/modern-charmer/Image 38.jpg", alt: "Modern Charmer kitchen" },
