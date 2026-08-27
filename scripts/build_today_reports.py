@@ -318,6 +318,69 @@ def catalog_photo(name: str) -> dict:
     return {}
 
 
+HARVEST_START = dt.date(2026, 9, 11)
+HARVEST_END = dt.date(2026, 10, 31)
+GOSPEL_END = dt.date(2026, 9, 7)
+HARVEST_TASTE_URL = "https://www.silverdollarcity.com/tickets/ticket-add-ons/harvest-tasting-ticket/"
+
+
+def harvest_phase(d: dt.date) -> str:
+    if HARVEST_START <= d <= HARVEST_END:
+        return "live"
+    if d < HARVEST_START:
+        return "teaser"
+    return "off"
+
+
+def harvest_spread_html(date_str: str) -> str:
+    """Magazine Eat spread. Real SDC dish photos only. Gospel Picnic stays the park story until Sep 7."""
+    d = dt.date.fromisoformat(date_str)
+    phase = harvest_phase(d)
+    if phase == "off":
+        return ""
+    hero = (
+        '<div class="hero-photo">'
+        '<img src="/photos/sdc-harvest-2026/cashew-chicken-cone.jpg" alt="Cashew chicken cone at Silver Dollar City">'
+        "<span>Hugo’s cashew chicken cone</span></div>"
+    )
+    more = ext_link(HARVEST_TASTE_URL, "Harvest Tasting Passport")
+    if phase == "teaser":
+        return (
+            '<section class="spread card" id="harvest">'
+            '<h2 class="section-title">Coming Sep 11 · Harvest at The City</h2>'
+            '<p class="deck">Gospel Picnic is still the park story through Sep 7. Then fall food and 20,000 pumpkins.</p>'
+            f"{hero}"
+            "<p>$38 + tax for five tasting-sized plates, Sep 11–Oct 31. Park ticket separate. "
+            "Pumpkins In The City nights start Sep 18.</p>"
+            f'<p class="more">{more}</p></section>'
+        )
+    figs = "".join(
+        f'<figure><img src="/photos/sdc-harvest-2026/{fn}" alt="{esc(cap)}"><figcaption>{esc(cap)}</figcaption></figure>'
+        for fn, cap in (
+            ("apple-dumpling.jpg", "Apple dumpling + pumpkin caramel"),
+            ("maple-bacon-funnel-cake.jpg", "Maple bacon walnut funnel cake"),
+            ("pumpkin-chili-cornbread.jpg", "Pumpkin chili + cornbread"),
+        )
+    )
+    return (
+        '<section class="spread card" id="harvest">'
+        '<h2 class="section-title">Harvest tasting at The City</h2>'
+        '<p class="deck">Sep 11–Oct 31 · $38 + tax · five tasting-sized plates. Park ticket separate.</p>'
+        f"{hero}<div class=\"taste-grid\">{figs}</div>"
+        f'<p class="more">{more}</p></section>'
+    )
+
+
+def week_in_town_deck(date_str: str) -> str:
+    d = dt.date.fromisoformat(date_str)
+    phase = harvest_phase(d)
+    if phase == "live":
+        return "Harvest Festival at Silver Dollar City through Oct 31. Pumpkins In The City nights from Sep 18."
+    if d <= GOSPEL_END:
+        return "Gospel Picnic at Silver Dollar City through September 7. Harvest tasting starts September 11."
+    return "Harvest Festival at Silver Dollar City starts September 11."
+
+
 def ext_link(url: str, label: str) -> str:
     if url and str(url).startswith("http"):
         return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label)}</a>'
@@ -473,6 +536,9 @@ def build_guest(date_str: str) -> str:
     if show_stamp and show_stamp != date_str:
         honesty = honesty or f"Showtimes last verified {show_stamp} — confirm the box office for {long_day}."
     feat_chip = feat.get("title") or "Tonight"
+    harvest_html = harvest_spread_html(date_str)
+    harvest_toc = '<a href="#harvest">Harvest</a>' if harvest_html else ""
+    week_deck = week_in_town_deck(date_str)
     headline = desk.get("headline") or "Your Ozarks day starts now."
     # split last sentence-ish for italic
     if "." in headline:
@@ -507,6 +573,7 @@ def build_guest(date_str: str) -> str:
     <a href="#shows">Shows</a>
     <a href="#fishing">Lake</a>
     <a href="#eat">Eat</a>
+    {harvest_toc}
     <a href="#golf">Golf</a>
     <a href="#landing">Landing</a>
     <a href="#strip">Strip</a>
@@ -567,6 +634,7 @@ def build_guest(date_str: str) -> str:
       {spot_html}
       <div class="grid-2">{''.join(eat_tiles)}</div>
     </section>
+    {harvest_html}
     <section class="spread card" id="golf">
       <h2 class="section-title">Tee times</h2>
       <p class="deck">Ledgestone is five minutes from Notch Lane. Big Cedar is the splurge.</p>
@@ -584,7 +652,7 @@ def build_guest(date_str: str) -> str:
     </section>
     <section class="spread card" id="week">
       <h2 class="section-title">This week in town</h2>
-      <p class="deck">Gospel Picnic at Silver Dollar City starts August 27. Freedom Journey runs all season.</p>
+      <p class="deck">{esc(week_deck)}</p>
       <div class="grid-2">{tiles_html(intel_tiles, "https://www.silverdollarcity.com/", "Silver Dollar City")}</div>
     </section>
     <section class="spread card" id="shade">

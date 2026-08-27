@@ -231,13 +231,17 @@ body {
   font-size: .72rem; font-weight: 700;
   padding: .25rem .55rem; border-radius: 999px;
 }
+.taste-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin-top: .85rem; }
+.taste-grid figure { margin: 0; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 14px; overflow: hidden; }
+.taste-grid img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.taste-grid figcaption { font-size: .78rem; color: #0369a1; padding: .45rem .55rem; font-weight: 600; }
 .weekstrip { display: grid; grid-template-columns: repeat(5, 1fr); gap: .45rem; }
 .weekstrip .tile { text-align: center; padding: .7rem .4rem; }
 .weekstrip .tile b { display: block; font-size: 1.15rem; color: var(--ink); }
 .weekstrip .tile.today { background: #0ea5e9; color: #fff; border-color: #0284c7; }
 .weekstrip .tile.today b, .weekstrip .tile.today p { color: #fff; }
 @media (max-width: 720px) {
-  .wx, .grid-2, .grid-3, .fish, .spot, .plan, .weekstrip { grid-template-columns: 1fr; }
+  .wx, .grid-2, .grid-3, .fish, .spot, .plan, .weekstrip, .taste-grid { grid-template-columns: 1fr; }
   .spot img { min-height: 180px; }
   .hero-photo img { height: 180px; }
   .toc { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; }
