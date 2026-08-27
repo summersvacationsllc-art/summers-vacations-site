@@ -1,7 +1,19 @@
 {
-  "date": "2026-08-26",
-  "generated_at": "2026-08-26T06:02:50-05:00",
-  "units_total": 2,
-  "turnovers": [],
+  "date": "2026-08-27",
+  "generated_at": "2026-08-27T06:19:37-05:00",
+  "units_total": 3,
+  "turnovers": [
+    {
+      "property": "Modern Charmer",
+      "property_id": "prop_8bcl8j3",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a79e85adecced011dc70d7f"
+    }
+  ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
