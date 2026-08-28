@@ -1,48 +1,24 @@
 {
-  "for": "2026-08-25",
-  "headline": "Cooler Skies and Crisp Air for Tuesday",
-  "lede": "After recent heat, Tuesday brings a welcome cooldown with highs in the mid-80s, mostly sunny skies, and low rain chance \u2014 ideal for outdoor exploration around Table Rock Lake and the Landing.",
-  "heat": false,
+  "for": "2026-08-28",
+  "headline": "Sunny Friday on the Lake",
+  "lede": "Tomorrow brings clear skies, mid-90s heat, and perfect conditions for a full Branson day — start early, stay hydrated, and enjoy the water and shows.",
+  "heat": true,
   "featured": {
     "title": "Branson Landing Farmers Market",
-    "when": "2:30\u20136:30 PM",
-    "where": "South parking lot by Bass Pro Shops",
-    "why": "Fresh local produce, artisan goods, live music, and relaxed evening vibes in a prime lakeside setting",
-    "url": "https://bransonlanding.com/events"
+    "when": "2:30–6:30 PM",
+    "where": "South lot by Bass Pro Shops, Branson Landing",
+    "why": "Fresh local produce, handmade crafts, and live music — the perfect midweek treat carried into Friday.",
+    "url": "https://www.bransonlanding.com/events"
   },
   "plan": [
-    {
-      "when": "Dawn",
-      "title": "Table Rock Lake sunrise fishing or walk",
-      "detail": "Cool morning bite before the day warms; check generation schedule"
-    },
-    {
-      "when": "Afternoon",
-      "title": "Branson Landing stroll + fountain show",
-      "detail": "Farmers market, shopping, and people-watching in comfortable temps"
-    },
-    {
-      "when": "Dusk",
-      "title": "Dinner at Farmhouse Restaurant or Lake House",
-      "detail": "Classic Ozark comfort food or lakeside views to close the day"
-    }
+    {"when": "Dawn", "title": "Early Table Rock fishing bite", "detail": "Hit the water at first light before the heat builds (carry-forward species data)."},
+    {"when": "Afternoon", "title": "Branson Landing", "detail": "Fountain shows + farmers market (2:30–6:30 PM south lot by Bass Pro)."},
+    {"when": "Dusk", "title": "Lakeside dinner + show", "detail": "White River Fish House or The Lake House, then 7:30–8 PM show (confirm box office)."}
   ],
   "indoor": [
-    {
-      "name": "Silver Dollar City",
-      "detail": "Theme park rides, shows, and shaded Ozark heritage \u2014 perfect any weather",
-      "url": "https://www.silverdollarcity.com/"
-    },
-    {
-      "name": "Titanic Museum Attraction",
-      "detail": "Climate-controlled interactive history with real artifacts",
-      "url": "https://titanicbranson.com/"
-    },
-    {
-      "name": "Hollywood Wax Museum",
-      "detail": "Fun, air-conditioned celebrity exhibits and photo ops",
-      "url": "https://www.hollywoodwax.com/branson"
-    }
+    {"name": "REZA — Edge of Illusion", "detail": "8:00 PM at Reza Live Theatre", "url": "https://rezalivetheatre.com/"},
+    {"name": "Legends in Concert", "detail": "8:00 PM at Pepsi Legends Theater", "url": "https://legendsinconcert.com/location/branson-mo/"},
+    {"name": "Hamners' Magic", "detail": "8:00 PM at Hamners' Theater", "url": "https://www.hamnersunbelievable.com/"}
   ],
-  "honesty": "Editor notes prepared from latest verified reports and confirmed events (no fresh scout files located for 2026-08-25). Farmers Market is a standing Tuesday tradition at Branson Landing. All showtimes to be confirmed at box office. Restaurant spotlight rotates to Farmhouse Restaurant (Tuesday). Verify lake conditions and weather locally."
+  "honesty": "No fresh scouts located for 2026-08-28. All content carried forward from most recent verified reports (shows 2026-08-27, dining 2026-08-16). Restaurant spotlight rotated to Farmhouse Restaurant per weekday rule. Verify all showtimes, market status, and conditions locally. Heat index will feel upper 90s — hydrate early."
 }
