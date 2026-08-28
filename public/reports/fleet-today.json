@@ -1,18 +1,29 @@
 {
-  "date": "2026-08-27",
-  "generated_at": "2026-08-27T06:19:37-05:00",
-  "units_total": 3,
+  "date": "2026-08-28",
+  "generated_at": "2026-08-28T07:49:19-05:00",
+  "units_total": 5,
   "turnovers": [
     {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
+      "property": "prop_axd3ku8",
+      "property_id": "prop_axd3ku8",
       "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
+      "next_checkin": "\u2014",
       "status": "pending",
-      "same_day": true,
+      "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a79e85adecced011dc70d7f"
+      "reservation_id": "6a2e2b0da9e63b43e1e336eb"
+    },
+    {
+      "property": "Penthouse",
+      "property_id": "prop_c84gb5j",
+      "checkout": "10:00 AM",
+      "next_checkin": "\u2014",
+      "status": "pending",
+      "same_day": false,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a80aa561d1d5f8d468be9b7"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
