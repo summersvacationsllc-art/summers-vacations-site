@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
+import type { WeatherPayload } from "@/lib/weather";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -48,6 +49,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const [golfData, setGolfData] = useState<any>(null);
   const [diningData, setDiningData] = useState<any>(null);
   const [attractionsData, setAttractionsData] = useState<any>(null);
+  const [weather, setWeather] = useState<WeatherPayload | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -90,6 +92,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       try { const r=await fetch('/api/golf');const d=await r.json();if(d.ok)setGolfData(d); } catch {}
       try { const r=await fetch('/api/dining');const d=await r.json();if(d.ok)setDiningData(d); } catch {}
       try { const r=await fetch('/api/attractions');const d=await r.json();if(d.ok)setAttractionsData(d); } catch {}
+      try { const r=await fetch('/api/weather');const d=await r.json();if(d.ok)setWeather(d as WeatherPayload); } catch {}
     })();
   }, [params, spPromise]);
 
@@ -156,6 +159,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const wifiVisible = isActive ? prop.wifi.network : 'Available at check-in';
   const wifiNote = isActive ? '' : '🔒';
   const todayFormatted = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  const todayWx = weather?.days?.[0];
+  const upcomingWx = (weather?.days || []).slice(1, 3);
   const styles = {
     bar: { background: T.gradient },
     tabActive: { color: T.accentColor },
@@ -339,11 +344,21 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             )}
 
-            {/* Weather & Quick Info */}
+            {/* Weather & Quick Info — live Open-Meteo via /api/weather */}
             <div className="mx-3.5 mt-2.5 bg-white rounded-xl px-3.5 py-3 border border-sky-100 flex items-center gap-2">
-              <span className="text-3xl font-bold text-sky-900">87°</span>
-              <div className="flex-1"><div className="text-[12px] font-semibold text-sky-900">Branson, MO</div><div className="text-[11px] text-sky-900">☀️ Sunny</div></div>
-              <div className="flex gap-2"><div className="text-center text-[11px] text-sky-900"><div className="font-semibold text-sky-900">Wed</div>☀️ 89°</div><div className="text-center text-[11px] text-sky-900"><div className="font-semibold text-sky-900">Thu</div>⛅ 86°</div></div>
+              <span className="text-3xl font-bold text-sky-900">{weather ? `${weather.now.temp}°` : '—'}</span>
+              <div className="flex-1">
+                <div className="text-[12px] font-semibold text-sky-900">Branson, MO</div>
+                <div className="text-[11px] text-sky-900">{weather ? `${weather.now.icon} ${weather.now.label}` : 'Forecast…'}</div>
+              </div>
+              <div className="flex gap-2">
+                {upcomingWx.map((d) => (
+                  <div key={d.date} className="text-center text-[11px] text-sky-900">
+                    <div className="font-semibold text-sky-900">{d.weekday}</div>
+                    {d.icon} {d.high}°
+                  </div>
+                ))}
+              </div>
             </div>
 
             {mode === 'guest' && (
@@ -642,7 +657,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               <div className="flex gap-3 mt-2 flex-wrap">
                 <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Table Rock</strong><br />{fishingData?.conditions?.tableRock?.temp || '78°F'} • {fishingData?.conditions?.tableRock?.level || '916.9 ft'} • {fishingData?.conditions?.tableRock?.clarity || 'Clear'}</div>
                 <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Taneycomo</strong><br />{fishingData?.conditions?.taneycomo?.temp || '50°F'} • {fishingData?.conditions?.taneycomo?.clarity || 'Very clear'}<br />{fishingData?.conditions?.taneycomo?.generation || 'Check SWPA schedule'}</div>
-                <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Weather</strong><br />High {fishingData?.weather?.high || '96°F'}<br />Heat index {fishingData?.weather?.heatIndex || '105°F'}</div>
+                <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Weather</strong><br />High {todayWx ? `${todayWx.high}°` : '—'}{todayWx ? ` / ${todayWx.low}°` : ''}<br />{weather ? `Now ${weather.now.temp}° ${weather.now.icon}` : (todayWx ? `${todayWx.icon} ${todayWx.label}` : 'Live forecast…')}{todayWx && todayWx.rain >= 40 ? <><br />{todayWx.rain}% rain</> : null}</div>
               </div>
               <div className="text-[10px] mt-2 text-blue-300/60">⚠️ Always check SWPA generation schedule before wading Taneycomo</div>
             </div>
