@@ -1,9 +1,26 @@
 {
   "date": "2026-08-28",
-  "kicker": "The Outdoor Desk",
+  "kicker": "Hooked on Branson",
+  "brand": "The daily read",
   "hed": "The Water Is Falling",
-  "deck": "A late-August week on Table Rock and Taneycomo — the pool dropped most of a foot, the bass went with it, and the trout still eat a pink worm if the generators let them.",
-  "weekGraf": "Sunday the lake sat near 914.8. By Friday morning it was 914.21 — about eight-tenths down from full pool, and two and a half feet below this date last year. Midweek the desk had no new gage (four carry-forward mornings). Friday is the first fresh number since the weekend. Ramps still work. Shallow coves will feel it next.",
+  "deck": "Late August on Table Rock and Taneycomo. The pool gave up most of a foot this week. The bass went with it. The trout still eat if you respect the generators.",
+  "play": {
+    "title": "Call the dam before you wet a line.",
+    "body": "SWPA is 866-494-1993. Dial it in the parking lot, not after you’ve waded in. If they’re off or near off, Taneycomo is a pink-worm river and a kid can fish it. If they’re spinning 2,000-plus cfs, stay on a dock or get in a boat and fish the seams. That one phone call is the difference between a morning and a story you don’t tell."
+  },
+  "season": {
+    "name": "Dog days",
+    "why": "This is the hard season on the White River system, and it is also when the fishermen who live here quietly catch fish. The thermocline is set. Shad are deep. Surface water on Table Rock is in the 80s. Taneycomo is still 50-degree tailwater because it comes out of the bottom of the dam. Two lakes, two climates, one August.",
+    "tips": [
+      "Fish the first 45 minutes like it matters. After that, put the topwater away.",
+      "Table Rock: 15–35 feet, electronics on, green pumpkin and goby. You are looking for bait, not banks.",
+      "Taneycomo: two- to six-pound test, pink Power Worm, no hero hookset in this clarity.",
+      "MDC still wants spotted bass harvested on Table Rock. Keep the spots. Put the 12-to-20-inch rainbows back in the trophy water.",
+      "Noon in August is not a fishing hour. Night on the points is a different lake.",
+      "A Missouri license (16–64) and a trout permit for Taneycomo. Bass Pro at the Landing will sell you both without a speech."
+    ]
+  },
+  "weekGraf": "Sunday the lake sat near 914.8. Friday morning it was 914.21 — eight-tenths under full pool, two and a half feet below this date last year. Midweek the desk had no new gage. Friday is the first honest number since the weekend. Ramps still work. The first shallow coves will feel it next.",
   "week": [
     { "date": "2026-08-22", "label": "Sat", "level": "914.6", "fresh": true },
     { "date": "2026-08-23", "label": "Sun", "level": "914.5", "fresh": true },
@@ -22,16 +39,16 @@
       "clarity": "Clear on the main lake; some summer green in the arms"
     },
     "body": [
-      "This is a falling-water week, not a falling-apart week. Full pool is 915. Friday’s reading of 914.21 is the first honest drop we can print since Sunday. Docks and ramps are still in. The fish are not. Heat and that clear, dropping pool have them on the main-lake points, gravel, brush piles, channel swings, and the first good humps in 15 to 35 feet. If you don’t have electronics, you are guessing at bait.",
-      "Thursday’s local intel — Table Rock Fishing Intel called it “minimal activity” on the 27th — matches what late August usually feels like here. Fish are on the graph. They are slow to eat. That is not a blank. It is a finesse day. Buzzbaits and walking baits still earn the first hour around wood and shade. After the sun gets up, put the circus away. Ned rigs, drop-shots, football jigs, deep cranks, flutter spoons. Green pumpkin, goby, brown, natural shad. Work the ledges and the channel banks in 10 to 25 feet and do not leave a school that marks.",
-      "Walleye have been the honest bright spot all week: gravel points, 15 to 25 feet, drop-shot or a nightcrawler. Crappie are in the deeper timber — James and Long Creek if you know those arms. Bluegill will still save a kid’s afternoon on a dock. Do not drive to Branson West for a dawn bass bite and expect June. This is August. Fish early, fish deep, leave when it gets stupid hot."
+      "This is a falling-water week, not a falling-apart week. Full pool is 915. Friday’s 914.21 is the first drop we will print since Sunday. Docks and ramps are still in. The fish are not. Heat and that clear, dropping pool have them on the main-lake points, gravel, brush piles, channel swings, and the first good humps in 15 to 35 feet. If you don’t have electronics, you are guessing at bait.",
+      "Thursday’s local sheet — Table Rock Fishing Intel called it “minimal activity” on the 27th — is what late August feels like here. Fish are on the graph. They are slow to eat. That is not a blank. It is a finesse day. A buzzbait still earns the first hour around wood. After the sun gets up, put the circus away. Ned rig, drop-shot, football jig, deep crank, flutter spoon. Green pumpkin, goby, brown, natural shad. Work the ledges. Do not leave a school that marks.",
+      "Walleye have been the honest bright spot: gravel points, 15 to 25 feet, drop-shot or a nightcrawler. Crappie are in the deeper timber — James and Long Creek if you know those arms. Bluegill will still save a kid’s afternoon on a dock. Do not come to Table Rock at 11 a.m. in August expecting June. Fish early. Fish deep. Leave when it gets stupid hot."
     ]
   },
   "taneycomo": {
     "hed": "Lake Taneycomo — The Trout Water",
     "dek": "Cold tailwater · generation is the whole game",
     "now": {
-      "temp": "~50–54°F below the dam (USGS / typical tailwater). Verify at the bank.",
+      "temp": "~50–54°F below the dam (typical tailwater). Verify at the bank.",
       "clarity": "Very clear",
       "generation": "~2,376 cfs turbine, 0 spill, as of the 8/27 reading. Not this morning’s hourly. Call SWPA 866-494-1993 before you wad."
     },
@@ -45,14 +62,15 @@
     ],
     "body": [
       "Forget the lake for a minute. Below Table Rock Dam this is a trout river that happens to be called a lake. The water comes out of the hypolimnion cold and gin-clear, and the generators decide whether you wade or you drift. That is not poetry. That is the whole tactic book.",
-      "The last hard generation number we will print is 2,376 cfs through the turbines on Thursday — noticeable current below the dam, no spill. Late summer still likes the old pattern: quieter overnight and early, then they lean on it in the afternoon. We will not invent this morning’s megawatts. Southwestern Power keeps the live sheet. The number is 866-494-1993. Call it in the parking lot. If they are off or near off, you can wad the edges from the dam down through Fall Creek with a kid and a carton of pink worms. If they spin it up, get in a boat or stay on a dock and fish the seams.",
-      "What has been catching them: pink Power Worms first, then nightcrawlers, micro jigs, midges, scuds, eggs, a hopper-dropper if you insist on looking like a fly fisherman. Light line — two to six pound. Rainbows are most of the creel. There is a slot in the upper water; put the 12-to-20-inch rainbows back. Dock fishing on the low water is the family play: float, jig, PowerBait, don’t horse them in this clarity.",
-      "Start at first light. The heat on the hill is irrelevant down here until the generators and the sun hit at once. Trophy water is a nightcrawler game when they blow water. The rest of the river is a timing game. Miss the schedule and you will stand in a rising tailrace wondering why the Ozarks felt mean."
+      "The last hard generation number we will print is 2,376 cfs through the turbines on Thursday — noticeable current below the dam, no spill. Late summer still likes the old pattern: quieter overnight and early, then they lean on it in the afternoon. We will not invent this morning’s megawatts. Southwestern Power keeps the live sheet. The number is 866-494-1993. Call it in the parking lot.",
+      "What has been catching them: pink Power Worms first, then nightcrawlers, micro jigs, midges, scuds, eggs. Light line. Rainbows are most of the creel. There is a slot in the upper water — put the 12-to-20-inch rainbows back. Dock fishing on the low water is the family play: float, jig, PowerBait. Don’t horse them in this clarity.",
+      "Start at first light. The heat on the hill is irrelevant down here until the generators and the sun hit at once. Trophy water is a nightcrawler game when they blow water. Miss the schedule and you will stand in a rising tailrace wondering why the Ozarks felt mean."
     ]
   },
+  "tomorrow": "The pool is still leaking. Tomorrow’s level is the first thing we print. If they keep dropping it, the creek-arm ramps get interesting before the main lake does. Taneycomo does not care about the pool — it cares whether the turbines spun at 5 a.m. We will have that, or we will tell you we don’t. Either way, open it before you drive.",
   "editor": {
-    "stamp": "Outdoor desk",
+    "stamp": "Hooked on Branson",
     "checked": "2026-08-28",
-    "note": "Level and Thursday’s ~2,376 cfs from tablerocklakelevel.com / USACE. Bite from Table Rock Fishing Intel (8/27 “minimal activity”), John Sappington’s August Taneycomo notes, and recent captain reports. Dawn-of-day SWPA hours and exact surface temps were not on the desk. Do not wad Taneycomo on a guess."
+    "note": "Level and Thursday’s ~2,376 cfs from tablerocklakelevel.com / USACE. Bite from Table Rock Fishing Intel (8/27 “minimal activity”), John Sappington’s August Taneycomo notes, captain reports. Dawn SWPA hours and exact surface temps were not on the desk. Do not wad Taneycomo on a guess."
   }
 }

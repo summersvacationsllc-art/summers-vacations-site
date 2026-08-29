@@ -648,7 +648,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ FISHING ═══ */}
         {tab === 'fishing' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Fishing Guide</h1><p className="text-[12px] mt-0.5 text-blue-300">Daily Report • Hot Spots • Guides • Tackle</p>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#082f49,#0c4a6e)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Hooked on Branson</h1><p className="text-[12px] mt-0.5 text-amber-200 tracking-wide uppercase">The daily read · Table Rock &amp; Taneycomo</p>
               <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎣 {todayFormatted}</span>
             </div>
             {fishingData?.magazine ? (

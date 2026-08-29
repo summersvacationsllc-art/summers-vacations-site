@@ -784,8 +784,8 @@ function BransonCardPage() {
 
             {tab === "fish" && (
               <ListTab
-                title="Fishing Report"
-                subtitle="The Outdoor Desk · Table Rock · Taneycomo"
+                title="Hooked on Branson"
+                subtitle="The daily read · Table Rock · Taneycomo"
                 gradient="linear-gradient(135deg,#0369a1,#0ea5e9)"
                 empty={false}
               >

@@ -12,10 +12,14 @@ type LakeBlock = {
 export type FishingMagazineData = {
   date?: string;
   kicker?: string;
+  brand?: string;
   hed?: string;
   deck?: string;
   weekGraf?: string;
   week?: WeekDay[];
+  play?: { title?: string; body?: string };
+  season?: { name?: string; why?: string; tips?: string[] };
+  tomorrow?: string;
   tableRock?: LakeBlock;
   taneycomo?: LakeBlock;
   editor?: { stamp?: string; checked?: string; note?: string };
@@ -102,26 +106,83 @@ export default function FishingMagazine({
   weatherLine?: string;
 }) {
   const week = magazine.week || [];
+  const tips = magazine.season?.tips || [];
   return (
     <div className="pb-1">
-      <div className="mx-3.5 mb-2.5 rounded-xl px-3.5 py-3" style={{ background: "linear-gradient(135deg,#0c4a6e,#0ea5e9)" }}>
-        <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-200">
-          {magazine.kicker || "The Outdoor Desk"}
-          {magazine.date ? ` · ${magazine.date}` : ""}
+      <div
+        className="mx-3.5 mb-2.5 rounded-xl px-3.5 py-3.5"
+        style={{ background: "linear-gradient(165deg,#082f49 0%,#0c4a6e 55%,#0369a1 100%)" }}
+      >
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-amber-200">
+            {magazine.kicker || "Hooked on Branson"}
+          </div>
+          <div className="text-[10px] text-sky-200">
+            {magazine.brand || "The daily read"}
+            {magazine.date ? ` · ${magazine.date}` : ""}
+          </div>
         </div>
         <h2
-          className="text-[22px] leading-tight text-white mt-1"
+          className="text-[24px] leading-tight text-white mt-2"
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
         >
           {magazine.hed}
         </h2>
         {magazine.deck && (
-          <p className="text-[12px] leading-relaxed text-sky-100 mt-1.5">{magazine.deck}</p>
+          <p className="text-[13px] leading-relaxed text-sky-100 mt-1.5">{magazine.deck}</p>
         )}
         {weatherLine && (
           <div className="text-[11px] text-sky-200 mt-2">{weatherLine}</div>
         )}
       </div>
+
+      {magazine.play?.title && (
+        <div className="mx-3.5 mb-2.5 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-3">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-amber-800">
+            Today’s play
+          </div>
+          <div
+            className="text-[16px] leading-tight text-amber-950 mt-0.5"
+            style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+          >
+            {magazine.play.title}
+          </div>
+          {magazine.play.body && (
+            <p
+              className="text-[13px] leading-relaxed text-amber-950 mt-1.5"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            >
+              {magazine.play.body}
+            </p>
+          )}
+        </div>
+      )}
+
+      {magazine.season?.name && (
+        <div className="mx-3.5 mb-2.5 bg-white rounded-xl border border-sky-100 px-3.5 py-3">
+          <div className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">
+            In season · {magazine.season.name}
+          </div>
+          {magazine.season.why && (
+            <p
+              className="text-[13px] leading-relaxed text-sky-950 mt-1"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            >
+              {magazine.season.why}
+            </p>
+          )}
+          {tips.length > 0 && (
+            <ul className="mt-2 space-y-1.5">
+              {tips.map((t) => (
+                <li key={t} className="text-[12px] leading-snug text-sky-900 pl-3 relative">
+                  <span className="absolute left-0 text-sky-500">▸</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
 
       {week.length > 0 && (
         <div className="mx-3.5 mb-2.5 bg-white rounded-xl border border-sky-100 px-3 py-2.5">
@@ -156,13 +217,27 @@ export default function FishingMagazine({
       <Lake block={magazine.tableRock} kicker="The lake" />
       <Lake block={magazine.taneycomo} kicker="The trout water" />
 
-      {magazine.editor?.note && (
-        <div className="mx-3.5 mb-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
-          <div className="text-[10px] font-semibold uppercase tracking-wide text-amber-800">
-            {magazine.editor.stamp || "Outdoor desk"}
-            {magazine.editor.checked ? ` · checked ${magazine.editor.checked}` : ""}
+      {magazine.tomorrow && (
+        <div className="mx-3.5 mb-2.5 rounded-xl border border-sky-200 bg-sky-50 px-3.5 py-3">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-700">
+            Why open this tomorrow
           </div>
-          <p className="text-[11px] leading-snug text-amber-950 mt-0.5">{magazine.editor.note}</p>
+          <p
+            className="text-[13px] leading-relaxed text-sky-950 mt-1"
+            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+          >
+            {magazine.tomorrow}
+          </p>
+        </div>
+      )}
+
+      {magazine.editor?.note && (
+        <div className="mx-3.5 mb-2 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
+          <div className="text-[10px] font-semibold uppercase tracking-wide text-stone-600">
+            {magazine.editor.stamp || "Hooked on Branson"}
+            {magazine.editor.checked ? ` · ${magazine.editor.checked}` : ""}
+          </div>
+          <p className="text-[11px] leading-snug text-stone-800 mt-0.5">{magazine.editor.note}</p>
         </div>
       )}
     </div>
