@@ -4,13 +4,13 @@
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "914.01 ft (USACE)",
+      "level": "914.01 ft (USACE 12:00 CT)",
       "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~6600 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~6,604 cfs at 12:00 CT (USACE live). Overnight ~20; afternoon peak ~6,604. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Call SWPA 866-494-1993 before you wad Taneycomo. Fish early. Leave when it gets stupid hot.",
-  "source": "scout",
-  "last_verified": "2026-08-29T05:01:02-05:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-08-29T11:55:04-05:00"
 }
