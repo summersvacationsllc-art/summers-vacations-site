@@ -20,6 +20,7 @@ import {
 } from "@/data/tenants";
 import { FACEBOOK, PHONE } from "@/lib/site";
 import dynamic from "next/dynamic";
+import FishingMagazine from "@/components/FishingMagazine";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -128,6 +129,7 @@ type FishingData = {
     taneycomo?: { temp?: string; clarity?: string; generation?: string };
   };
   species?: FishSpecies[];
+  magazine?: import("@/components/FishingMagazine").FishingMagazineData;
 };
 
 type GolfCourse = {
@@ -783,59 +785,30 @@ function BransonCardPage() {
             {tab === "fish" && (
               <ListTab
                 title="Fishing Report"
-                subtitle="Table Rock · Taneycomo"
+                subtitle="The Outdoor Desk · Table Rock · Taneycomo"
                 gradient="linear-gradient(135deg,#0369a1,#0ea5e9)"
                 empty={false}
               >
-                {fishing?.biteOfDay && (
-                  <div className="mx-3.5 mt-2 rounded-lg bg-sky-900 text-white px-3 py-2.5">
-                    <div className="text-[10px] font-semibold uppercase text-sky-200">
-                      Bite of the day
-                    </div>
-                    <div className="text-[13px] mt-0.5 leading-relaxed">
-                      {fishing.biteOfDay}
-                    </div>
-                  </div>
-                )}
-                {fishing?.tip && (
-                  <div className="mx-3.5 mt-1.5 rounded-lg bg-teal-50 border border-teal-200 px-3 py-2 text-[11px] text-teal-900">
-                    💡 {fishing.tip}
-                  </div>
-                )}
-                {fishing?.conditions && (
-                  <div className="mx-3.5 mt-2 grid grid-cols-2 gap-1.5">
-                    <div className="bg-white border border-sky-100 rounded-lg px-2.5 py-2">
-                      <div className="text-[10px] font-bold text-sky-600">
-                        Table Rock
+                {fishing?.magazine ? (
+                  <FishingMagazine magazine={fishing.magazine} />
+                ) : (
+                  <>
+                    {fishing?.biteOfDay && (
+                      <div className="mx-3.5 mt-2 rounded-lg bg-sky-900 text-white px-3 py-2.5">
+                        <div className="text-[10px] font-semibold uppercase text-sky-200">
+                          Bite of the day
+                        </div>
+                        <div className="text-[13px] mt-0.5 leading-relaxed">
+                          {fishing.biteOfDay}
+                        </div>
                       </div>
-                      <div className="text-[11px] text-sky-900 mt-0.5">
-                        {fishing.conditions.tableRock?.temp} ·{" "}
-                        {fishing.conditions.tableRock?.clarity}
-                      </div>
-                    </div>
-                    <div className="bg-white border border-sky-100 rounded-lg px-2.5 py-2">
-                      <div className="text-[10px] font-bold text-sky-600">
-                        Taneycomo
-                      </div>
-                      <div className="text-[11px] text-sky-900 mt-0.5">
-                        {fishing.conditions.taneycomo?.temp} ·{" "}
-                        {fishing.conditions.taneycomo?.clarity}
-                      </div>
-                    </div>
-                  </div>
-                )}
-                {(fishing?.species || []).map((s, i) => (
-                  <Item
-                    key={i}
-                    title={s.name}
-                    meta={[s.rating, s.depth].filter(Boolean).join(" · ")}
-                    desc={s.technique}
-                  />
-                ))}
-                {!fishing && (
-                  <p className="px-3.5 py-8 text-center text-sm text-sky-700">
-                    Loading fishing report…
-                  </p>
+                    )}
+                    {!fishing && (
+                      <p className="px-3.5 py-8 text-center text-sm text-sky-700">
+                        Loading fishing report…
+                      </p>
+                    )}
+                  </>
                 )}
               </ListTab>
             )}

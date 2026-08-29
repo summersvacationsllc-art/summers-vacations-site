@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
 import type { WeatherPayload } from "@/lib/weather";
+import FishingMagazine from "@/components/FishingMagazine";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -650,33 +651,21 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Fishing Guide</h1><p className="text-[12px] mt-0.5 text-blue-300">Daily Report • Hot Spots • Guides • Tackle</p>
               <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎣 {todayFormatted}</span>
             </div>
-            {sectionTitle('📊',"Today's Fishing Report")}
-            <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={{ background: 'linear-gradient(135deg,#0c4a6e,#0ea5e9)' }}>
-              <div className="flex items-center gap-2"><span className="text-lg">🟢</span><h3 className="text-base font-bold text-white">Bite of the Day</h3></div>
-              <div className="text-[12px] mt-1 text-blue-200 leading-relaxed">{fishingData?.biteOfDay || 'Taneycomo trout biting on pink worms below Fall Creek. Table Rock bass on topwater at dawn before the heat.'}</div>
-              <div className="flex gap-3 mt-2 flex-wrap">
-                <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Table Rock</strong><br />{fishingData?.conditions?.tableRock?.temp || '78°F'} • {fishingData?.conditions?.tableRock?.level || '916.9 ft'} • {fishingData?.conditions?.tableRock?.clarity || 'Clear'}</div>
-                <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Taneycomo</strong><br />{fishingData?.conditions?.taneycomo?.temp || '50°F'} • {fishingData?.conditions?.taneycomo?.clarity || 'Very clear'}<br />{fishingData?.conditions?.taneycomo?.generation || 'Check SWPA schedule'}</div>
-                <div className="text-[11px] text-blue-200"><strong className="text-yellow-300">Weather</strong><br />High {todayWx ? `${todayWx.high}°` : '—'}{todayWx ? ` / ${todayWx.low}°` : ''}<br />{weather ? `Now ${weather.now.temp}° ${weather.now.icon}` : (todayWx ? `${todayWx.icon} ${todayWx.label}` : 'Live forecast…')}{todayWx && todayWx.rain >= 40 ? <><br />{todayWx.rain}% rain</> : null}</div>
+            {fishingData?.magazine ? (
+              <FishingMagazine
+                magazine={fishingData.magazine}
+                weatherLine={
+                  weather
+                    ? `Sky now ${weather.now.temp}° ${weather.now.icon} ${weather.now.label}${todayWx ? ` · today ${todayWx.high}° / ${todayWx.low}°` : ""}`
+                    : undefined
+                }
+              />
+            ) : (
+              <div className="mx-3.5 mb-2 rounded-xl px-3.5 py-3" style={{ background: "linear-gradient(135deg,#0c4a6e,#0ea5e9)" }}>
+                <div className="text-[10px] font-semibold uppercase tracking-wide text-sky-200">Bite of the day</div>
+                <div className="text-[12px] mt-1 text-blue-100 leading-relaxed">{fishingData?.biteOfDay || "Loading the outdoor desk…"}</div>
               </div>
-              <div className="text-[10px] mt-2 text-blue-300/60">⚠️ Always check SWPA generation schedule before wading Taneycomo</div>
-            </div>
-            {sectionTitle('🐟','What\'s Biting & How')}
-            <div className="px-3.5 grid grid-cols-2 gap-1.5">
-              {[
-                ['🎯','Bass','EXCELLENT','Topwater dawn/dusk, deep cranks, jigs 10-25ft, flutter spoons','g'],
-                ['🐟','Crappie','FAIR','Standing timber 15-25ft, live minnows or jigs','b'],
-                ['🐟','Walleye','GOOD','Deep points, channel swings, 30-50 fish trips','a'],
-                ['🐟','Trout','GOOD-V.GOOD','Pink worms, 40+ fish days, Fall Creek to Cooper','r'],
-                ['🐟','Bluegill','PEAK','10-20ft, live crickets, gravel areas','g'],
-                ['🐟','Catfish','GOOD','River arms, cut bait, stink bait','b'],
-              ].map(([e,t,s,d,c]) => (
-                <div key={t} className="bg-white rounded-lg px-2.5 py-2 border border-sky-100">
-                  <div className="flex items-center gap-1"><span className="text-sm">{e}</span><span className="text-[11px] font-bold text-sky-900">{t}</span><span className={`text-[9px] font-semibold px-1 py-0.5 rounded whitespace-nowrap ${c==='g'?'bg-green-50 text-teal-700':c==='r'?'bg-red-50 text-red-700':c==='b'?'bg-blue-50 text-blue-700':'bg-teal-50 text-teal-700'}`}>{s}</span></div>
-                  <div className="text-[10px] text-sky-700 mt-0.5 leading-tight">{d}</div>
-                </div>
-              ))}
-            </div>
+            )}
             {sectionTitle('🏞️','Table Rock — Bass, Crappie, Walleye')}
             {linkCard('https://www.recreation.gov/camping/campgrounds/232610?tab=info','🏞️','Indian Point Public Use Area','Shore fishing • 4 min • Closest!',['g','Closest'],'Free public access. Shore fishing and boat ramp. Best for bass and crappie.')}
             {linkCard('https://rocklane.com/table-rock-lake-fishing/','🌊','Aunts Creek Access','Dock & shore • Bass/Crappie',['b','Dock'],'Public dock and shore access. Good for bass, crappie, and bluegill.')}

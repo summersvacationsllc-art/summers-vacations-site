@@ -16,6 +16,11 @@ export async function GET() {
     } catch {
       /* no spots file yet */
     }
+    try {
+      data.magazine = await readJson("fishing-magazine.json");
+    } catch {
+      /* magazine feature not built yet */
+    }
     return NextResponse.json({ ok: true, ...data });
   } catch {
     return NextResponse.json({
