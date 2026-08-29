@@ -176,12 +176,29 @@ def is_fresh(body: str) -> bool:
 
 
 def fetch_usace() -> dict | None:
+    html = None
     req = urllib.request.Request(USACE, headers={"User-Agent": "HookedOnBranson/1.0"})
+    contexts = []
     try:
-        with urllib.request.urlopen(req, timeout=25) as r:
-            html = r.read().decode("utf-8", "replace")
-    except Exception as exc:
-        print(f"USACE fetch failed: {exc}", file=sys.stderr)
+        import certifi
+        import ssl as _ssl
+        contexts.append(_ssl.create_default_context(cafile=certifi.where()))
+    except Exception:
+        pass
+    import ssl as _ssl
+    contexts.append(_ssl.create_default_context())
+    contexts.append(_ssl._create_unverified_context())  # army.mil chain is often missing on GHA
+    last_err = None
+    for ctx in contexts:
+        try:
+            with urllib.request.urlopen(req, timeout=25, context=ctx) as r:
+                html = r.read().decode("utf-8", "replace")
+            break
+        except Exception as exc:
+            last_err = exc
+            continue
+    if not html:
+        print(f"USACE fetch failed: {last_err}", file=sys.stderr)
         return None
     rows = []
     for m in ROW_RE.finditer(html):

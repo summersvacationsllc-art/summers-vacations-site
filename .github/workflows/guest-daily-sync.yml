@@ -38,6 +38,7 @@ jobs:
         with:
           repository: summersvacationsllc-art/branson-content-engine
           path: _food_scouts
+          token: ${{ secrets.CONTENT_ENGINE_TOKEN || secrets.GITHUB_TOKEN }}
           sparse-checkout: |
             data/food
             data/golf
@@ -58,8 +59,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # The build scripts use only stdlib (urllib, json, datetime, pathlib)
-          # No additional packages needed, but keep this step for future deps
+          python -m pip install certifi
 
       - name: Run Guest Daily Sync
         id: sync
