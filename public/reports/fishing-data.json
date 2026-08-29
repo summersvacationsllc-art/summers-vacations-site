@@ -4,13 +4,13 @@
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "914.21 ft (USACE)",
+      "level": "914.01 ft (USACE 15:00 CT)",
       "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
-      "temp": "Verify locally (~50 F regime common below dam with generation)",
+      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "07/21 USACE: ~20 cfs 02:00-09:00 CT; ramp midday (~3-6k cfs); heavy ~11,500-11,700 cfs 15:00-21:00 CT. Call SWPA 866-494-1993 to confirm live."
+      "generation": "~6,604 cfs at 15:00 CT (USACE live). Overnight ~20; afternoon peak ~6,604. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Focus upper river arms, points, and humps. Combine a morning trip with Branson family activities for the perfect multi-generational day from your Summers Vacations rental.",
-  "source": "scout",
-  "last_verified": "2026-08-28T08:23:49-05:00"
+  "tip": "Call SWPA 866-494-1993 before you wad Taneycomo. Fish early. Leave when it gets stupid hot.",
+  "source": "usace-always-on",
+  "last_verified": "2026-08-28T22:49:22-05:00"
 }
