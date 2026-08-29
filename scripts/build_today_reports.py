@@ -206,9 +206,28 @@ def meteo_for(date_str: str) -> dict:
 
 def load_editor_notes(date_str: str) -> dict:
     notes = load_json("editor-notes")
-    if notes.get("for") == date_str:
+    if notes.get("for") != date_str:
+        return {}
+    # Night Editor sometimes stamps tomorrow's date on a leftover weekday template
+    # (2026-08-29 GHA crash: Tuesday farmers-market notes on a Saturday).
+    try:
+        actual = dt.date.fromisoformat(date_str).strftime("%A").lower()
+    except ValueError:
         return notes
-    return {}
+    blob = f"{notes.get('headline') or ''} {notes.get('lede') or ''}".lower()
+    weekdays = (
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+    )
+    mentioned = [w for w in weekdays if w in blob]
+    if mentioned and actual not in mentioned:
+        return {}
+    return notes
 
 
 def weekday_spotlight(restaurants: list[dict], date_str: str) -> dict:
@@ -502,16 +521,53 @@ def build_guest(date_str: str) -> str:
         )
 
     feat = desk.get("featured") or {}
-    plan_html = "".join(
-        f'<article class="tile"><div class="when">{esc(p.get("when") or "")}</div>'
-        f'<h3>{esc(p.get("title") or "")}</h3><p>{esc(p.get("detail") or "")}</p></article>'
-        for p in (desk.get("plan") or [])[:3]
-    )
-    indoor_html = "".join(
-        f'<article class="tile"><h3>{esc(x.get("name") or "")}</h3><p>{esc(x.get("detail") or "")}</p>'
-        f'<p class="more">{ext_link(x.get("url") or "", "Details")}</p></article>'
-        for x in (desk.get("indoor") or [])[:3]
-    )
+    if isinstance(feat, str):
+        feat = {"title": feat}
+    if not isinstance(feat, dict):
+        feat = {}
+
+    def _plan_tile(p, i: int) -> str:
+        if isinstance(p, str):
+            return (
+                f'<article class="tile"><div class="when">Plan {i + 1}</div>'
+                f"<h3>{esc(p)}</h3><p>Follow the daily beat — verify locally for latest conditions.</p></article>"
+            )
+        if isinstance(p, (list, tuple)) and len(p) >= 3:
+            when, title, detail = p[0], p[1], p[2]
+            return (
+                f'<article class="tile"><div class="when">{esc(when)}</div>'
+                f"<h3>{esc(title)}</h3><p>{esc(detail)}</p></article>"
+            )
+        if isinstance(p, dict):
+            return (
+                f'<article class="tile"><div class="when">{esc(p.get("when") or "")}</div>'
+                f'<h3>{esc(p.get("title") or "")}</h3><p>{esc(p.get("detail") or "")}</p></article>'
+            )
+        return ""
+
+    def _indoor_tile(x) -> str:
+        if isinstance(x, str):
+            return (
+                f'<article class="tile"><h3>{esc(x)}</h3>'
+                f"<p>Climate-controlled Branson classic. Verify hours locally.</p>"
+                f'<p class="more">{ext_link("https://www.branson.com", "More")}</p></article>'
+            )
+        if isinstance(x, (list, tuple)) and len(x) >= 2:
+            name, detail = x[0], x[1]
+            url = x[2] if len(x) >= 3 else ""
+            return (
+                f'<article class="tile"><h3>{esc(name)}</h3><p>{esc(detail)}</p>'
+                f'<p class="more">{ext_link(url or "", "Details")}</p></article>'
+            )
+        if isinstance(x, dict):
+            return (
+                f'<article class="tile"><h3>{esc(x.get("name") or "")}</h3><p>{esc(x.get("detail") or "")}</p>'
+                f'<p class="more">{ext_link(x.get("url") or "", "Details")}</p></article>'
+            )
+        return ""
+
+    plan_html = "".join(_plan_tile(p, i) for i, p in enumerate((desk.get("plan") or [])[:3]))
+    indoor_html = "".join(_indoor_tile(x) for x in (desk.get("indoor") or [])[:3])
     heat_html = ""
     if desk.get("heat") or (isinstance(wx.get("high_n"), (int, float)) and wx["high_n"] >= 95):
         heat_html = (
