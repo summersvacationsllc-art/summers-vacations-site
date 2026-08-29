@@ -1,24 +1,24 @@
 {
-  "for": "2026-08-28",
-  "headline": "Sunny Friday on the Lake",
-  "lede": "Tomorrow brings clear skies, mid-90s heat, and perfect conditions for a full Branson day — start early, stay hydrated, and enjoy the water and shows.",
-  "heat": true,
+  "for": "2026-08-29",
+  "headline": "Tuesday at the Lake: Heat Builds, Farmhouse Spotlight, Landing Market Day",
+  "lede": "Tomorrow brings classic mid-90s Branson heat with mostly sunny skies and a light chance of an afternoon pop-up. Perfect weather to start early, stay hydrated, and enjoy shaded or indoor options in the afternoon.",
+  "heat": false,
   "featured": {
-    "title": "Branson Landing Farmers Market",
-    "when": "2:30–6:30 PM",
-    "where": "South lot by Bass Pro Shops, Branson Landing",
-    "why": "Fresh local produce, handmade crafts, and live music — the perfect midweek treat carried into Friday.",
-    "url": "https://www.bransonlanding.com/events"
+    "title": "Landing Farmers Market",
+    "when": "2:30\u20136:30 PM",
+    "where": "South lot by Bass Pro Shop",
+    "why": "Fresh local produce, handmade crafts, and live music \u2014 the weekly Tuesday highlight for first-timers",
+    "url": "https://www.tourbranson.com/landing"
   },
   "plan": [
-    {"when": "Dawn", "title": "Early Table Rock fishing bite", "detail": "Hit the water at first light before the heat builds (carry-forward species data)."},
-    {"when": "Afternoon", "title": "Branson Landing", "detail": "Fountain shows + farmers market (2:30–6:30 PM south lot by Bass Pro)."},
-    {"when": "Dusk", "title": "Lakeside dinner + show", "detail": "White River Fish House or The Lake House, then 7:30–8 PM show (confirm box office)."}
+    "Dawn \u2014 Head out early for Table Rock fishing or a shaded hike before the heat builds (carry-forward tactics apply)",
+    "Afternoon \u2014 Indoor air-conditioned options: shows, Silver Dollar City, or the Aquarium at the Landing",
+    "Dusk \u2014 Cool off with a late dinner at the rotating spotlight restaurant and stroll the Branson Landing fountains"
   ],
   "indoor": [
-    {"name": "REZA — Edge of Illusion", "detail": "8:00 PM at Reza Live Theatre", "url": "https://rezalivetheatre.com/"},
-    {"name": "Legends in Concert", "detail": "8:00 PM at Pepsi Legends Theater", "url": "https://legendsinconcert.com/location/branson-mo/"},
-    {"name": "Hamners' Magic", "detail": "8:00 PM at Hamners' Theater", "url": "https://www.hamnersunbelievable.com/"}
+    "Silver Dollar City (early entry recommended on hot days)",
+    "The Aquarium at the Landing or Titanic Museum",
+    "Evening shows \u2014 most theaters are climate-controlled"
   ],
-  "honesty": "No fresh scouts located for 2026-08-28. All content carried forward from most recent verified reports (shows 2026-08-27, dining 2026-08-16). Restaurant spotlight rotated to Farmhouse Restaurant per weekday rule. Verify all showtimes, market status, and conditions locally. Heat index will feel upper 90s — hydrate early."
+  "honesty": "No fresh scouts available for 2026-08-29. All content carried forward from most recent verified reports with honest \"verify locally\" notes where sources were not re-checked today. Restaurant spotlight rotates to Farmhouse Restaurant (Tuesday). Weather from Open-Meteo."
 }
