@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-28",
+  "date": "2026-08-29",
   "biteOfDay": "& What's Biting **Table Rock Lake (bass, walleye, crappie, etc.):** Summer heat, clear water, and falling level push fish to deeper main-lake points, gravel/brush piles, channel swings, creek arms, and offshore structure (target 15\u201335 ft). Electronics essential for locating shad schools and suspended fish. Recent reports (Table Rock Fishing Intel \"Minimal Activity\" 08/27, Captain Experiences, Cape",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "914.01 ft (USACE 15:00 CT)",
+      "level": "914.01 ft (USACE)",
       "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~6,604 cfs at 15:00 CT (USACE live). Overnight ~20; afternoon peak ~6,604. Call SWPA 866-494-1993 before you wad."
+      "generation": "~6600 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Call SWPA 866-494-1993 before you wad Taneycomo. Fish early. Leave when it gets stupid hot.",
-  "source": "usace-always-on",
-  "last_verified": "2026-08-28T22:53:53-05:00"
+  "source": "scout",
+  "last_verified": "2026-08-29T05:01:02-05:00"
 }
