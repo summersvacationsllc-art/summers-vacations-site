@@ -20,7 +20,7 @@
       "A Missouri license (16\u201364) and a trout permit for Taneycomo. Bass Pro at the Landing will sell you both without a speech."
     ]
   },
-  "weekGraf": "The pool walked down from 914.6 early in the week to 914.01 this morning \u2014 about 0.59 ft off that earlier mark, still under the 915 full pool. Live USACE reading 15:00 CT: 914.01 ft, 6,604 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "The pool walked down from 914.6 early in the week to 914.01 this morning \u2014 about 0.59 ft off that earlier mark, still under the 915 full pool. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
     {
       "date": "2026-08-22",
@@ -62,7 +62,7 @@
       "date": "2026-08-28",
       "label": "Fri",
       "level": "914.01",
-      "fresh": true
+      "fresh": false
     }
   ],
   "tableRock": {
