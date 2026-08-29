@@ -175,30 +175,100 @@ def is_fresh(body: str) -> bool:
     return not STUB_RE.search(body[:1200])
 
 
-def fetch_usace() -> dict | None:
-    html = None
-    req = urllib.request.Request(USACE, headers={"User-Agent": "HookedOnBranson/1.0"})
-    contexts = []
+def _ssl_contexts():
+    import ssl as _ssl
+    out = []
     try:
         import certifi
-        import ssl as _ssl
-        contexts.append(_ssl.create_default_context(cafile=certifi.where()))
+        out.append(_ssl.create_default_context(cafile=certifi.where()))
     except Exception:
         pass
-    import ssl as _ssl
-    contexts.append(_ssl.create_default_context())
-    contexts.append(_ssl._create_unverified_context())  # army.mil chain is often missing on GHA
+    out.append(_ssl.create_default_context())
+    out.append(_ssl._create_unverified_context())  # army.mil chain is often missing on GHA
+    return out
+
+
+def fetch_url(url: str) -> str:
+    req = urllib.request.Request(url, headers={"User-Agent": "HookedOnBranson/1.0"})
     last_err = None
-    for ctx in contexts:
+    for ctx in _ssl_contexts():
         try:
             with urllib.request.urlopen(req, timeout=25, context=ctx) as r:
-                html = r.read().decode("utf-8", "replace")
-            break
+                return r.read().decode("utf-8", "replace")
         except Exception as exc:
             last_err = exc
             continue
+    if last_err:
+        print(f"fetch {url}: {last_err}", file=sys.stderr)
+    return ""
+
+
+def parse_loose(text: str) -> dict | None:
+    """Parse USACE table OR tablerocklakelevel.com copy."""
+    m = ROW_RE.search(text)
+    if m:
+        cfs = int(m.group(8))
+        return {
+            "elev": float(m.group(3)),
+            "cfs": cfs,
+            "turbine": int(m.group(6)),
+            "hhmm": m.group(2),
+            "stamp": m.group(1),
+            "overnight_cfs": cfs,
+            "afternoon_cfs": cfs,
+            "n": 1,
+        }
+    elev = cfs = turbine = None
+    hhmm = "0000"
+    em = re.search(r"(91[0-9]\.\d{1,2})\s*(?:ft|feet)", text, re.I)
+    if em:
+        elev = float(em.group(1))
+    cm = re.search(r"(?:releasing|release|turbine)[^\d]{0,40}([0-9,]{2,7})\s*cfs", text, re.I)
+    if not cm:
+        cm = re.search(r"([0-9,]{3,7})\s*cfs", text, re.I)
+    if cm:
+        cfs = int(cm.group(1).replace(",", ""))
+        turbine = cfs
+    tm = re.search(r"(\d{1,2}):(\d{2})\s*(AM|PM)", text, re.I)
+    if tm:
+        h, mi, ap = int(tm.group(1)), int(tm.group(2)), tm.group(3).upper()
+        if ap == "PM" and h != 12:
+            h += 12
+        if ap == "AM" and h == 12:
+            h = 0
+        hhmm = f"{h:02d}{mi:02d}"
+    if elev is None:
+        return None
+    return {
+        "elev": elev,
+        "cfs": cfs or 0,
+        "turbine": turbine or 0,
+        "hhmm": hhmm,
+        "stamp": "",
+        "overnight_cfs": 20 if (cfs or 0) > 20 else (cfs or 0),
+        "afternoon_cfs": cfs or 0,
+        "n": 1,
+    }
+
+
+def fetch_alt() -> str:
+    for url in (
+        "https://tablerocklakelevel.com/",
+        "https://tablerock.uslakes.info/Level/",
+    ):
+        html = fetch_url(url)
+        if html and len(html) > 400:
+            return html
+    return ""
+
+
+def fetch_usace() -> dict | None:
+    html = fetch_url(USACE)
+    last_err = None if html else "empty"
     if not html:
         print(f"USACE fetch failed: {last_err}", file=sys.stderr)
+        html = fetch_alt()
+    if not html:
         return None
     rows = []
     for m in ROW_RE.finditer(html):
@@ -215,7 +285,15 @@ def fetch_usace() -> dict | None:
             }
         )
     if not rows:
-        print("USACE parse: no rows", file=sys.stderr)
+        alt = parse_loose(html)
+        if alt:
+            return alt
+        print("USACE parse: no rows; html bytes", len(html), "head", re.sub(r"\s+", " ", html[:240]), file=sys.stderr)
+        alt_html = fetch_alt()
+        if alt_html:
+            alt = parse_loose(alt_html)
+            if alt:
+                return alt
         return None
     last = rows[-1]
     today_rows = [x for x in rows if x["stamp"] == last["stamp"]] or rows[-24:]
