@@ -39,15 +39,10 @@ jobs:
           repository: summersvacationsllc-art/branson-content-engine
           path: _food_scouts
           token: ${{ secrets.CONTENT_ENGINE_TOKEN || secrets.GITHUB_TOKEN }}
+          # Single cone root — multi-path sparse-checkout has landed ONLY data/fishing
+          # on ubuntu (2026-08-29 GHA), starving shows/food/golf/intel magazine sections.
           sparse-checkout: |
-            data/food
-            data/golf
-            data/fishing
-            data/intel
-            data/strip
-            data/landing
-            data/shows
-            data/photo-tags
+            data
           sparse-checkout-cone-mode: true
 
       - name: Setup Python

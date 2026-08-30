@@ -1,24 +1,48 @@
 {
   "for": "2026-08-30",
-  "headline": "Sunday heat builds \u2014 early mornings win",
-  "lede": "Tomorrow brings another warm, mostly sunny day on the lake with highs near 99 \u00b0F. Plan dawn or dusk activity and stay hydrated.",
+  "headline": "Sunday heat builds — early mornings win",
+  "lede": "Sunday, August 30. Highs near 99°F on the lake. Dawn paddle or early service, then A/C matinees — save the Strip for after 5.",
   "heat": true,
   "featured": {
-    "title": "Landing Farmers Market",
-    "when": "2:30\u20136:30 PM",
-    "where": "South lot by Bass Pro Shops",
-    "why": "Fresh local produce, baked goods, and live music \u2014 perfect late-afternoon stop before dinner.",
-    "url": "https://www.tourbranson.com/events"
+    "title": "Sight & Sound — David",
+    "when": "Confirm box office for Sunday times",
+    "where": "1001 Shepherd of the Hills Expy",
+    "why": "Climate-controlled biblical epic with live animals — strong Sunday family choice when asphalt is brutal.",
+    "url": "https://www.sight-sound.com/shows/branson/david/2026"
   },
   "plan": [
-    "Dawn: Table Rock sunrise paddle or easy Table Rock State Park trail before the heat builds.",
-    "Afternoon: Indoor air-conditioned shows or shaded dining; hit the Landing market late day.",
-    "Dusk: Lakeside stroll or Taneycomo evening fishing as temperatures ease."
+    {
+      "when": "Dawn",
+      "title": "Lake before the heat",
+      "detail": "Table Rock paddle or easy shoreline walk. Call SWPA before you launch; carry water."
+    },
+    {
+      "when": "Afternoon",
+      "title": "Indoor matinee",
+      "detail": "Sight & Sound, Titanic, or a 76 Strip museum — real A/C. Skip long hikes at 2 PM."
+    },
+    {
+      "when": "Dusk",
+      "title": "Dinner, then a theatre",
+      "detail": "Lakeside or Landing dinner, then confirm tonight’s board before you drive in."
+    }
   ],
   "indoor": [
-    "Sight & Sound Theatre \u2014 \"David\" (strong reviews, family-friendly biblical production).",
-    "Branson Variety Theater or Clay Cooper for live music and comedy.",
-    "Titanic Museum or Hollywood Wax Museum for climate-controlled exploration."
+    {
+      "name": "Sight & Sound Theatres",
+      "detail": "David — spectacular sets, live animals; verify Sunday showtimes at the box office.",
+      "url": "https://www.sight-sound.com/shows/branson/david/2026"
+    },
+    {
+      "name": "Titanic Museum",
+      "detail": "Cool, dark, two-hour story when the heat index spikes.",
+      "url": "https://titanicattraction.com/branson"
+    },
+    {
+      "name": "WonderWorks",
+      "detail": "Upside-down museum on the 76 — hands-on indoor cool-down.",
+      "url": "https://www.wonderworksonline.com/branson/"
+    }
   ],
-  "honesty": "No fresh scouts available for 2026-08-30; carrying forward verified patterns and Open-Meteo forecast. Verify showtimes and market status locally. Restaurant spotlight rotates by weekday."
+  "honesty": "Night Editor 2026-08-29 evening desk for Sunday 08-30. No 08-30 scouts yet — weather from Open-Meteo; shows patterns must be box-office confirmed. Farmers market is Tuesday-only (not featured Sunday)."
 }

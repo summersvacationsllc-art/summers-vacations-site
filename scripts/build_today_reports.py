@@ -204,17 +204,92 @@ def meteo_for(date_str: str) -> dict:
     return week[0] if week else {}
 
 
-def load_editor_notes(date_str: str) -> dict:
-    notes = load_json("editor-notes")
+def _coerce_plan_item(p, i: int) -> dict:
+    """Night Editor often writes plan as plain strings — coerce to desk dicts."""
+    if isinstance(p, dict):
+        return {
+            "when": str(p.get("when") or f"Stop {i + 1}"),
+            "title": str(p.get("title") or p.get("name") or "Plan"),
+            "detail": str(p.get("detail") or p.get("why") or ""),
+        }
+    if isinstance(p, (list, tuple)) and len(p) >= 2:
+        when = str(p[0])
+        title = str(p[1])
+        detail = str(p[2]) if len(p) >= 3 else ""
+        return {"when": when, "title": title, "detail": detail}
+    if isinstance(p, str):
+        s = p.strip()
+        # "Dawn: Lake first" or "Morning — On the water — details"
+        for sep in (":", " — ", " - ", "–", "—"):
+            if sep in s:
+                left, right = s.split(sep, 1)
+                left, right = left.strip(), right.strip()
+                if left and right:
+                    # If right still has a secondary title/detail split
+                    for sep2 in (" — ", " - ", "–"):
+                        if sep2 in right:
+                            t, d = right.split(sep2, 1)
+                            return {"when": left, "title": t.strip(), "detail": d.strip()}
+                    return {
+                        "when": left,
+                        "title": right[:80],
+                        "detail": right if len(right) > 80 else "Verify locally for latest conditions.",
+                    }
+        return {
+            "when": f"Stop {i + 1}",
+            "title": s[:80],
+            "detail": s if len(s) > 80 else "Follow the daily beat — verify locally.",
+        }
+    return {"when": f"Stop {i + 1}", "title": "Plan", "detail": "Verify locally."}
+
+
+def _coerce_indoor_item(x) -> dict:
+    if isinstance(x, dict):
+        return {
+            "name": str(x.get("name") or x.get("title") or "Indoor"),
+            "detail": str(x.get("detail") or x.get("why") or ""),
+            "url": str(x.get("url") or x.get("href") or "https://www.branson.com"),
+        }
+    if isinstance(x, (list, tuple)) and len(x) >= 2:
+        return {
+            "name": str(x[0]),
+            "detail": str(x[1]),
+            "url": str(x[2]) if len(x) >= 3 else "https://www.branson.com",
+        }
+    if isinstance(x, str):
+        s = x.strip()
+        for sep in (" — ", " - ", "–", ":", "—"):
+            if sep in s:
+                name, detail = s.split(sep, 1)
+                return {
+                    "name": name.strip()[:80],
+                    "detail": detail.strip(),
+                    "url": "https://www.branson.com",
+                }
+        return {"name": s[:80], "detail": "Climate-controlled Branson classic. Verify hours.", "url": "https://www.branson.com"}
+    return {"name": "Indoor cool-down", "detail": "Verify hours locally.", "url": "https://www.branson.com"}
+
+
+def normalize_editor_notes(notes: dict, date_str: str) -> dict:
+    """Coerce Night Editor shape → day_desk contract. Drop mismatched weekday templates."""
+    if not isinstance(notes, dict) or not notes:
+        return {}
     if notes.get("for") != date_str:
         return {}
-    # Night Editor sometimes stamps tomorrow's date on a leftover weekday template
-    # (2026-08-29 GHA crash: Tuesday farmers-market notes on a Saturday).
     try:
-        actual = dt.date.fromisoformat(date_str).strftime("%A").lower()
+        d = dt.date.fromisoformat(date_str)
+        actual = d.strftime("%A").lower()
+        weekday_i = d.weekday()  # Mon=0 … Sun=6
     except ValueError:
-        return notes
-    blob = f"{notes.get('headline') or ''} {notes.get('lede') or ''}".lower()
+        return {}
+
+    blob = f"{notes.get('headline') or ''} {notes.get('lede') or ''} {notes.get('honesty') or ''}".lower()
+    feat = notes.get("featured") or {}
+    if isinstance(feat, str):
+        feat = {"title": feat}
+    if not isinstance(feat, dict):
+        feat = {}
+    feat_blob = f"{feat.get('title') or ''} {feat.get('why') or ''} {feat.get('when') or ''}".lower()
     weekdays = (
         "monday",
         "tuesday",
@@ -227,7 +302,61 @@ def load_editor_notes(date_str: str) -> dict:
     mentioned = [w for w in weekdays if w in blob]
     if mentioned and actual not in mentioned:
         return {}
-    return notes
+
+    # Farmers market is Tuesday-only (Landing 2:30–6:30). Drop as featured other days.
+    marketish = "farmers market" in feat_blob or "farmer's market" in feat_blob or "farmers' market" in feat_blob
+    if marketish and weekday_i != 1:
+        return {}
+
+    plan_in = notes.get("plan") or []
+    if not isinstance(plan_in, list):
+        plan_in = []
+    indoor_in = notes.get("indoor") or []
+    if not isinstance(indoor_in, list):
+        indoor_in = []
+
+    out = {
+        "for": date_str,
+        "headline": str(notes.get("headline") or "Your Ozarks day starts now."),
+        "lede": str(notes.get("lede") or ""),
+        "heat": bool(notes.get("heat")),
+        "featured": {
+            "title": str(feat.get("title") or "Branson day"),
+            "when": str(feat.get("when") or ""),
+            "where": str(feat.get("where") or ""),
+            "why": str(feat.get("why") or ""),
+            "url": str(feat.get("url") or "https://www.branson.com"),
+        },
+        "plan": [_coerce_plan_item(p, i) for i, p in enumerate(plan_in[:3])],
+        "indoor": [_coerce_indoor_item(x) for x in indoor_in[:3]],
+        "honesty": str(notes.get("honesty") or ""),
+    }
+    # Pad plan/indoor if Night Editor left them short
+    while len(out["plan"]) < 3:
+        i = len(out["plan"])
+        defaults = [
+            ("Morning", "On the water", "Lake first when it’s cool. Verify generation before you launch."),
+            ("Afternoon", "Shade and a show", "Museums or a matinee. Save the Strip for after 5."),
+            ("Evening", "Dinner, then a theatre", "Confirm tonight’s board before you drive in."),
+        ]
+        a, b, c = defaults[i]
+        out["plan"].append({"when": a, "title": b, "detail": c})
+    while len(out["indoor"]) < 3:
+        out["indoor"].append(
+            {
+                "name": "WonderWorks",
+                "detail": "Upside-down museum on the 76 — real A/C.",
+                "url": "https://www.wonderworksonline.com/branson/",
+            }
+        )
+    return out
+
+
+def load_editor_notes(date_str: str) -> dict:
+    notes = load_json("editor-notes")
+    # 2026-08-29: GHA AttributeError when Night Editor wrote plan/indoor as strings
+    # and build_guest did p.get("when") on a str. Always normalize before use.
+    return normalize_editor_notes(notes, date_str)
 
 
 def weekday_spotlight(restaurants: list[dict], date_str: str) -> dict:
