@@ -1,24 +1,24 @@
 {
-  "for": "2026-08-29",
-  "headline": "Tuesday at the Lake: Heat Builds, Farmhouse Spotlight, Landing Market Day",
-  "lede": "Tomorrow brings classic mid-90s Branson heat with mostly sunny skies and a light chance of an afternoon pop-up. Perfect weather to start early, stay hydrated, and enjoy shaded or indoor options in the afternoon.",
-  "heat": false,
+  "for": "2026-08-30",
+  "headline": "Sunday heat builds \u2014 early mornings win",
+  "lede": "Tomorrow brings another warm, mostly sunny day on the lake with highs near 99 \u00b0F. Plan dawn or dusk activity and stay hydrated.",
+  "heat": true,
   "featured": {
     "title": "Landing Farmers Market",
     "when": "2:30\u20136:30 PM",
-    "where": "South lot by Bass Pro Shop",
-    "why": "Fresh local produce, handmade crafts, and live music \u2014 the weekly Tuesday highlight for first-timers",
-    "url": "https://www.tourbranson.com/landing"
+    "where": "South lot by Bass Pro Shops",
+    "why": "Fresh local produce, baked goods, and live music \u2014 perfect late-afternoon stop before dinner.",
+    "url": "https://www.tourbranson.com/events"
   },
   "plan": [
-    "Dawn \u2014 Head out early for Table Rock fishing or a shaded hike before the heat builds (carry-forward tactics apply)",
-    "Afternoon \u2014 Indoor air-conditioned options: shows, Silver Dollar City, or the Aquarium at the Landing",
-    "Dusk \u2014 Cool off with a late dinner at the rotating spotlight restaurant and stroll the Branson Landing fountains"
+    "Dawn: Table Rock sunrise paddle or easy Table Rock State Park trail before the heat builds.",
+    "Afternoon: Indoor air-conditioned shows or shaded dining; hit the Landing market late day.",
+    "Dusk: Lakeside stroll or Taneycomo evening fishing as temperatures ease."
   ],
   "indoor": [
-    "Silver Dollar City (early entry recommended on hot days)",
-    "The Aquarium at the Landing or Titanic Museum",
-    "Evening shows \u2014 most theaters are climate-controlled"
+    "Sight & Sound Theatre \u2014 \"David\" (strong reviews, family-friendly biblical production).",
+    "Branson Variety Theater or Clay Cooper for live music and comedy.",
+    "Titanic Museum or Hollywood Wax Museum for climate-controlled exploration."
   ],
-  "honesty": "No fresh scouts available for 2026-08-29. All content carried forward from most recent verified reports with honest \"verify locally\" notes where sources were not re-checked today. Restaurant spotlight rotates to Farmhouse Restaurant (Tuesday). Weather from Open-Meteo."
+  "honesty": "No fresh scouts available for 2026-08-30; carrying forward verified patterns and Open-Meteo forecast. Verify showtimes and market status locally. Restaurant spotlight rotates by weekday."
 }
