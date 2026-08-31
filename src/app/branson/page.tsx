@@ -21,6 +21,7 @@ import {
 import { FACEBOOK, PHONE } from "@/lib/site";
 import dynamic from "next/dynamic";
 import FishingMagazine from "@/components/FishingMagazine";
+import ShowsMagazine from "@/components/ShowsMagazine";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -103,6 +104,16 @@ type ShowItem = {
   price?: string;
   desc?: string;
   tag?: string;
+  chip?: string;
+  icon?: string;
+  ticketOk?: boolean;
+  bucket?: string;
+  type?: string;
+};
+
+type ShowsApi = ApiBag & {
+  shows?: ShowItem[];
+  magazine?: import("@/components/ShowsMagazine").ShowsMagazineData;
 };
 
 type DiningItem = {
@@ -199,6 +210,9 @@ function BransonCardPage() {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
 
   const [shows, setShows] = useState<ShowItem[] | null>(null);
+  const [showsMag, setShowsMag] = useState<
+    import("@/components/ShowsMagazine").ShowsMagazineData | null
+  >(null);
   const [dining, setDining] = useState<DiningItem[] | null>(null);
   const [fishing, setFishing] = useState<FishingData | null>(null);
   const [golf, setGolf] = useState<GolfData | null>(null);
@@ -230,6 +244,11 @@ function BransonCardPage() {
       ]);
       setLoadErr(null);
       setShows(sh.ok && Array.isArray(sh.shows) ? (sh.shows as ShowItem[]) : []);
+      setShowsMag(
+        sh.ok && (sh as ShowsApi).magazine
+          ? ((sh as ShowsApi).magazine as import("@/components/ShowsMagazine").ShowsMagazineData)
+          : null
+      );
       setDining(
         di.ok && Array.isArray(di.restaurants)
           ? (di.restaurants as DiningItem[])
@@ -612,7 +631,43 @@ function BransonCardPage() {
                     >
                       🎭 Spotlight shows
                     </h2>
-                    {shows.slice(0, 4).map((x, i) => (
+                    {showsMag?.pick?.title && (
+                      <a
+                        href={showsMag.pick.url || "#"}
+                        target="_blank"
+                        rel="noopener"
+                        className="block bg-amber-50 rounded-lg px-3.5 py-3 mx-3.5 mb-1 border border-amber-200 no-underline text-inherit"
+                      >
+                        <div className="text-[10px] font-semibold uppercase tracking-wide text-amber-800">
+                          Editor’s pick
+                        </div>
+                        <div className="text-[13px] font-bold text-amber-950">
+                          {showsMag.pick.title}
+                        </div>
+                        <div className="text-[11px] text-amber-900 mt-0.5">
+                          {[showsMag.pick.when, showsMag.pick.where]
+                            .filter(Boolean)
+                            .join(" · ")}
+                        </div>
+                        {showsMag.pick.why && (
+                          <div className="text-[11px] text-amber-900 mt-1 leading-relaxed">
+                            {showsMag.pick.why}
+                          </div>
+                        )}
+                      </a>
+                    )}
+                    {(showsMag?.pick?.title
+                      ? shows.filter(
+                          (x) =>
+                            x.name !== showsMag.pick?.title &&
+                            !(showsMag.pick?.title || "")
+                              .toLowerCase()
+                              .includes((x.name || "").toLowerCase().slice(0, 12))
+                        )
+                      : shows
+                    )
+                      .slice(0, showsMag?.pick?.title ? 3 : 4)
+                      .map((x, i) => (
                       <a
                         key={i}
                         href={x.url || "#"}
@@ -732,25 +787,31 @@ function BransonCardPage() {
 
             {tab === "shows" && (
               <ListTab
-                title="Branson Shows"
-                subtitle="Music · comedy · dinner · magic"
+                title="Tonight in Branson"
+                subtitle="Editor pick · by the clock · live board"
                 gradient="linear-gradient(135deg,#7c3aed,#6d28d9)"
-                empty={!shows}
+                empty={shows === null && !showsMag}
                 emptyLabel="Loading shows…"
               >
-                {(shows || []).map((x, i) => (
-                  <Item
-                    key={i}
-                    href={x.url}
-                    title={x.name}
-                    meta={[x.time, x.venue, x.price].filter(Boolean).join(" · ")}
-                    desc={x.desc}
-                  />
-                ))}
-                {shows && shows.length === 0 && (
-                  <p className="px-3.5 py-8 text-center text-sm text-sky-700">
-                    No shows file loaded yet — check back soon.
-                  </p>
+                {showsMag ? (
+                  <ShowsMagazine magazine={showsMag} showsFallback={shows || []} />
+                ) : (
+                  <>
+                    {(shows || []).map((x, i) => (
+                      <Item
+                        key={i}
+                        href={x.url}
+                        title={x.name}
+                        meta={[x.time, x.venue, x.price].filter(Boolean).join(" · ")}
+                        desc={x.desc}
+                      />
+                    ))}
+                    {shows && shows.length === 0 && (
+                      <p className="px-3.5 py-8 text-center text-sm text-sky-700">
+                        No shows file loaded yet — check back soon.
+                      </p>
+                    )}
+                  </>
                 )}
               </ListTab>
             )}

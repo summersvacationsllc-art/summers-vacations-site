@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
 import type { WeatherPayload } from "@/lib/weather";
 import FishingMagazine from "@/components/FishingMagazine";
+import ShowsMagazine from "@/components/ShowsMagazine";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -682,10 +683,12 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         {/* ═══ SHOWS ═══ */}
         {tab === 'shows' && (
           <>
-            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#7c3aed,#6d28d9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Branson Shows</h1><p className="text-[12px] mt-0.5 text-purple-300">40+ Shows • Music • Comedy • Dinner • Magic</p>
+            <div className="px-4 pt-3 pb-3" style={{ background: 'linear-gradient(135deg,#7c3aed,#6d28d9)' }}><h1 className="font-serif text-2xl text-white" style={{ fontFamily: "'DM Serif Display', serif" }}>Tonight in Branson</h1><p className="text-[12px] mt-0.5 text-amber-200 tracking-wide uppercase">Editor pick · by the clock · live board</p>
               <span className="inline-block text-[11px] mt-1 px-2 py-0.5 rounded-full bg-white/20 text-white">🎭 {todayFormatted}</span>
             </div>
-            {showsData?.shows ? showsData.shows.map((x:any,i:number) => {
+            {showsData?.magazine ? (
+              <ShowsMagazine magazine={showsData.magazine} showsFallback={showsData.shows || []} />
+            ) : showsData?.shows ? showsData.shows.map((x:any,i:number) => {
                 const tagColors: Record<string,[string,string]> = {'Classic':['a','Classic'],'Legacy':['a','Legacy'],'Family':['b','Family'],'⭐ 4.9':['b','⭐ 4.9'],'Country':['a','Country'],'Unique':['p','Unique'],'🔥 Hot':['r','🔥 Hot'],'Iconic':['a','Iconic'],'🆕 NEW!':['p','🆕 NEW!'],'Elvis':['a','Elvis'],'⭐ 4.8':['b','⭐ 4.8'],'Action':['g','Action'],'Wow!':['p','Wow!'],'Western':['g','Western'],'Lake':['b','Lake'],'Magic':['p','Magic'],'Funny':['g','Funny'],'Fun':['g','Fun'],'Patriotic':['b','Patriotic']};
                 const tag = tagColors[x.tag] || ['b',x.tag];
                 return linkCard(x.url, x.type==='Dinner'&&x.name.includes('Stampede')?'🐴':x.type==='Dinner'&&x.name.includes('Chuckwagon')?'🍗':x.type==='Dinner'?'🚢':x.type==='Magic'?'🪄':x.type==='Comedy'?'😂':x.type==='Experience'?'🚂':x.type==='Acrobatics'?'🤸':x.type==='Production'?'🎭':x.type==='Tribute'&&x.name.includes('Bohemian')?'🎤':x.type==='Tribute'&&x.name.includes('Legends')?'🌟':x.type==='Tribute'&&x.name.includes('Bee Gees')?'🕺':x.type==='Tribute'?'🕺':x.type==='Variety'?'🎸':'🎵', x.name, (x.time||'') + (x.venue?' • '+x.venue:'') + (x.price?' • '+x.price:''), tag, x.desc)

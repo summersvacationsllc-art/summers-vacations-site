@@ -83,6 +83,11 @@ jobs:
           FISH_SCOUT_DIR="_food_scouts/data/fishing" \
             python3 scripts/hooked_on_branson.py --date "$DATE" || echo "WARNING: hooked_on_branson failed"
 
+          echo "=== Tonight in Branson (shows desk; no Mac required) ==="
+          SHOW_SCOUT_DIR="_food_scouts/data/shows" \
+          BRANSON_ENGINE="$BRANSON_ENGINE" \
+            python3 scripts/tonight_in_branson.py --date "$DATE" || echo "WARNING: tonight_in_branson failed"
+
           # Snapshot prior magazine (if any) so empty-scout rebuild cannot clobber Hermes
           PRIOR="public/reports/$DATE.html"
           PRIOR_BAK="/tmp/prior-$DATE.html"
@@ -139,7 +144,7 @@ jobs:
           fi
           
           # Verify JSONs have today's date
-          for f in fishing-data.json fishing-magazine.json shows-data.json manifest.json guest-today.json fleet-today.json; do
+          for f in fishing-data.json fishing-magazine.json shows-data.json shows-magazine.json manifest.json guest-today.json fleet-today.json; do
             if [ -f "public/reports/$f" ]; then
               DATE_IN_FILE=$(jq -r '.date // .latest // .updated // empty' "public/reports/$f" 2>/dev/null || echo "missing")
               echo "$f date: $DATE_IN_FILE"
