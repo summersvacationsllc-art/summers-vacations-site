@@ -22,8 +22,6 @@ const PROPERTIES = [
   "The Penthouse",
   "Rustic Ozark Retreat",
   "Woodland Retreat",
-  "Modern Charmer",
-  "Pretty Peacock",
   "Double Condo",
   "Branson Family Haven",
 ];

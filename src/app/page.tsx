@@ -946,8 +946,8 @@ export default function Home() {
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/property-photos/pretty-peacock/aaa-peacockporch.jpg"
-              alt="Family porch ready for vacation"
+              src="/property-photos/penthouse/aaa-deck.jpeg"
+              alt="Penthouse deck ready for vacation"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/95 via-[#0c4a6e]/85 to-teal-700/80" />

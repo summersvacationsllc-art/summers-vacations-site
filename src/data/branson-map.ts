@@ -57,7 +57,7 @@ export const BRANSON_MAP_SPOTS: MapSpot[] = [
     lat: 36.68554,
     lng: -93.3319,
     description:
-      "Six condos on Notch Lane — Penthouse, Rustic Ozark, Woodland Retreat, Modern Charmer, Pretty Peacock, and Double Condo. Pin is the street, not a door number.",
+      "Four condos on Notch Lane — Penthouse, Rustic Ozark, Woodland Retreat, and Double Condo. Pin is the street, not a door number.",
     href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_west",
     cta: "Book these stays",
     ourPath: "/map?spot=stays-branson-west",

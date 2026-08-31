@@ -18,8 +18,6 @@ export const UNIT_NAMES: Record<string, string> = {
   "double-condo": "Double Condo",
   "branson-family-haven": "Branson Family Haven",
   "woodland-retreat": "Woodland Retreat",
-  "modern-charmer": "Modern Charmer",
-  "pretty-peacock": "Pretty Peacock",
 };
 
 export type JebChatMessage = {

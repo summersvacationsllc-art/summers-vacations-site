@@ -6,8 +6,6 @@ const SLUG_TO_FOLDER: Record<string, string> = {
   "the-penthouse": "penthouse",
   "rustic-ozark-retreat": "rustic-ozark-retreat",
   "woodland-retreat": "woodland-retreat",
-  "modern-charmer": "modern-charmer",
-  "pretty-peacock": "pretty-peacock",
   "double-condo": "double-condo",
   "branson-family-haven": "branson-family-haven",
 };

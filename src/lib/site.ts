@@ -64,31 +64,6 @@ export const PROPERTIES: PropertyCard[] = [
       "https://woodlandretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
   },
   {
-    name: "Modern Charmer",
-    tag: "Sleek · Updated",
-    sleeps: "6+2",
-    beds: "1BR",
-    area: "Branson West",
-    slug: "modern-charmer",
-    photo:
-      "/property-photos/modern-charmer/1773378876798_JmrcRDaVzRXfXABYeOaFHq4aroXFHm67XTjlxz17.jpg",
-    blurb: "Fresh finishes, coffee bar, and perfect for couples or small crews.",
-    bookUrl:
-      "https://moderncharmer.guestybookings.com/en/properties?minOccupancy=1&adults=1",
-  },
-  {
-    name: "Pretty Peacock",
-    tag: "No Steps · Easy",
-    sleeps: "6+2",
-    beds: "1BR",
-    area: "Branson West",
-    slug: "pretty-peacock",
-    photo: "/property-photos/pretty-peacock/aaa-peacockporch.jpg",
-    blurb: "Family porch with turquoise chairs — ground-floor ease.",
-    bookUrl:
-      "https://peacock.guestybookings.com/en/properties?minOccupancy=1&adults=1",
-  },
-  {
     name: "Double Condo",
     tag: "Best Value",
     sleeps: "12+",
@@ -127,14 +102,10 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   { src: "/property-photos/woodland-retreat/aaa-fall-deck.jpg", alt: "Woodland deck in the trees" },
   { src: "/property-photos/woodland-retreat/aaa-fall-living.jpg", alt: "Living room dressed for fall" },
   { src: "/property-photos/woodland-retreat/aaa-fall-kitchen.jpg", alt: "Kitchen with pumpkin-patch sign" },
-  // Modern Charmer
-  { src: "/property-photos/modern-charmer/Image 37.jpg", alt: "Sleek modern living room" },
-  { src: "/property-photos/modern-charmer/Image 38.jpg", alt: "Modern Charmer kitchen" },
-  { src: "/property-photos/modern-charmer/Image 62.jpg", alt: "Modern Charmer bedroom" },
-  // Pretty Peacock
-  { src: "/property-photos/pretty-peacock/aaa-peacockporch.jpg", alt: "Family porch with turquoise chairs" },
-  { src: "/property-photos/pretty-peacock/Image 63.jpg", alt: "Bright and welcoming entry" },
-  { src: "/property-photos/pretty-peacock/Image 66.jpg", alt: "Cozy Peacock living space" },
+  // Extra deck views (Penthouse + Rustic)
+  { src: "/property-photos/penthouse/aaa-deck.jpeg", alt: "Penthouse deck with mountain views" },
+  { src: "/property-photos/penthouse/aaa-fall-deck.jpg", alt: "Penthouse deck dressed for fall" },
+  { src: "/property-photos/rustic-ozark-retreat/aaa-fall-deck.jpg", alt: "Rustic covered deck with fall garland" },
   // Double Condo
   { src: "/property-photos/double-condo/aaa-doublecondo.jpg", alt: "Double condo living area" },
   { src: "/property-photos/double-condo/0849C14C-3CDE-471E-9D7F-85A81FA21DD2_1_105_c.jpeg", alt: "Kitchen ready for groups" },
