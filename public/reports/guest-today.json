@@ -1,24 +1,16 @@
 {
-  "date": "2026-08-30",
-  "generated_at": "2026-08-30T05:30:20-05:00",
+  "date": "2026-08-31",
+  "generated_at": "2026-08-31T06:26:01-05:00",
   "headline": {
     "check_ins": 0,
-    "check_outs": 5,
-    "turnovers": 4,
+    "check_outs": 3,
+    "turnovers": 3,
     "same_day_turnovers": 0,
     "in_house_units": 1,
     "units_total": 6
   },
   "check_ins": [],
   "check_outs": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Addie Griffin",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_uy4j3g5",
-      "time": "10:00 AM"
-    },
     {
       "property": "Indian Point",
       "guest": "Billy Delph",
@@ -28,43 +20,23 @@
       "time": "10:00 AM"
     },
     {
-      "property": "Penthouse",
-      "guest": "Jim",
-      "guests": 1,
-      "platform": "manual",
-      "reservation_id": "res_lin8xjq",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Jim Shields",
+      "property": "Modern Charmer",
+      "guest": "Ben And Grae Olson",
       "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_kp0dqqq",
+      "reservation_id": "res_snzg6e2",
       "time": "10:00 AM"
     },
     {
-      "property": "Rustic Ozark",
-      "guest": "Donna Lamberson",
+      "property": "Peacock",
+      "guest": "Kelly Lee Mathis",
       "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_vz54bg2",
+      "reservation_id": "res_kn4yjmf",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [
-    {
-      "property": "Modern Charmer",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a0d1c532fdad100135a3d2e"
-    },
     {
       "property": "Indian Point",
       "type": "turnover",
@@ -75,10 +47,10 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": false,
-      "reservation_id": "6a7ca2b232e6ffb928a5b8b9"
+      "reservation_id": "6a6bc7845f1d41514e00a4f4"
     },
     {
-      "property": "Rustic Ozark",
+      "property": "Peacock",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
@@ -87,10 +59,10 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": false,
-      "reservation_id": "6a8b6bf2e00565ddbb505f12"
+      "reservation_id": "6a938681c06d20172d340b19"
     },
     {
-      "property": "Penthouse",
+      "property": "Modern Charmer",
       "type": "turnover",
       "status": "pending",
       "checkout_time": "10:00 AM",
@@ -99,7 +71,7 @@
       "cleaner_assigned": false,
       "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
       "same_day": false,
-      "reservation_id": "6a907a8f9253e6a043f1bceb"
+      "reservation_id": "6a939990c06d20172d353c57"
     }
   ],
   "in_house": [

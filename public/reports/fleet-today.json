@@ -1,19 +1,8 @@
 {
-  "date": "2026-08-30",
-  "generated_at": "2026-08-30T05:30:22-05:00",
-  "units_total": 5,
+  "date": "2026-08-31",
+  "generated_at": "2026-08-31T06:26:04-05:00",
+  "units_total": 4,
   "turnovers": [
-    {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a0d1c532fdad100135a3d2e"
-    },
     {
       "property": "Indian Point",
       "property_id": "prop_uiue2y1",
@@ -23,29 +12,29 @@
       "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a7ca2b232e6ffb928a5b8b9"
+      "reservation_id": "6a6bc7845f1d41514e00a4f4"
     },
     {
-      "property": "Rustic Ozark",
-      "property_id": "prop_fvhuyem",
+      "property": "Peacock",
+      "property_id": "prop_stunkz5",
       "checkout": "10:00 AM",
       "next_checkin": "\u2014",
       "status": "pending",
       "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a8b6bf2e00565ddbb505f12"
+      "reservation_id": "6a938681c06d20172d340b19"
     },
     {
-      "property": "Penthouse",
-      "property_id": "prop_c84gb5j",
+      "property": "Modern Charmer",
+      "property_id": "prop_8bcl8j3",
       "checkout": "10:00 AM",
       "next_checkin": "\u2014",
       "status": "pending",
       "same_day": false,
       "cleaner_id": null,
       "cleaner_assigned": false,
-      "reservation_id": "6a907a8f9253e6a043f1bceb"
+      "reservation_id": "6a939990c06d20172d353c57"
     }
   ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
