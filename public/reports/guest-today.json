@@ -1,6 +1,6 @@
 {
   "date": "2026-08-31",
-  "generated_at": "2026-08-31T06:26:01-05:00",
+  "generated_at": "2026-08-31T17:41:10+00:00",
   "headline": {
     "check_ins": 0,
     "check_outs": 3,
@@ -20,19 +20,19 @@
       "time": "10:00 AM"
     },
     {
-      "property": "Modern Charmer",
-      "guest": "Ben And Grae Olson",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_snzg6e2",
-      "time": "10:00 AM"
-    },
-    {
       "property": "Peacock",
       "guest": "Kelly Lee Mathis",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_kn4yjmf",
+      "time": "10:00 AM"
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Ben And Grae Olson",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_snzg6e2",
       "time": "10:00 AM"
     }
   ],
