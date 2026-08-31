@@ -3,13 +3,13 @@
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
   "hed": "Monday matinees, then the Strip lights up",
-  "deck": "Monday in Branson delivers a solid mix of afternoon tributes (Legends, Irish Tenors, Patsy Cline), evening magic and rock energy, plus acrobatic spectacle. Daytime leans toward melodic tributes while evenings offer illusion, rock anthems, and interactive dinner theater. Most mainstage shows run ~2 hours with intermission. Many venues offer family packages or group deals — contact box offices early, especially for lim…",
+  "deck": "Monday board is tribute-and-magic heavy: Castle matinee Celtic, Legends afternoon, Americana country then illusion, Shanghai circus at 7:30, rock + Baldknobbers + REZA at 8. Fresh angle vs stagnant lists: correct Shanghai to **evening**, add **Anthems**, **Rick Thomas**, **Baldknobbers**, fix **Legends matinee**, drop unopened Narnia and shaky Monday Clay Cooper. **One-sentence summary for Brian:** Mon 8/31 — Irish T…",
   "pick": {
-    "title": "Clay Cooper's Country Express",
+    "title": "Shepherd of the Hills Outdoor Drama",
     "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "https://www.claycoopertheatre.com/",
+    "where": "Shepherd of the Hills",
+    "why": "Ozarks outdoor drama — check weather and arrive early.",
+    "url": "https://theshepherdofthehills.com/",
     "source": "desk"
   },
   "buckets": [
@@ -17,42 +17,30 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 3,
+      "count": 2,
       "shows": [
-        {
-          "name": "Amazing Acrobats Of Shanghai",
-          "time": "2:00 PM",
-          "venue": "Grand Shanghai Theatre",
-          "type": "Acrobatics",
-          "url": "https://www.bransonshows.com/showByDate.cfm",
-          "chip": "thrill",
-          "icon": "🤸",
-          "ticketOk": false,
-          "desc": "",
-          "price": ""
-        },
-        {
-          "name": "Awesome 80's",
-          "time": "2:00 PM",
-          "venue": "Americana Theatre",
-          "type": "80s Tribute",
-          "url": "https://www.bransonshows.com/showByDate.cfm",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "",
-          "price": ""
-        },
         {
           "name": "Dublin's Irish Tenors & The Celtic Ladies",
           "time": "2:00 PM",
           "venue": "King's Castle Theatre",
           "type": "Irish Music & Dance",
-          "url": "https://www.bransonshows.com/showByDate.cfm",
+          "url": "https://www.kingscastletheatre.com/",
           "chip": "music",
           "icon": "🎶",
-          "ticketOk": false,
-          "desc": "",
+          "ticketOk": true,
+          "desc": "Matinee Celtic vocals and dance — strong multi-gen pick.",
+          "price": ""
+        },
+        {
+          "name": "Legends in Concert",
+          "time": "3:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": "Celebrity Tributes",
+          "url": "https://legendsinconcert.com/location/branson-mo/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "Afternoon tribute rotation with live band — cooler indoor matinee.",
           "price": ""
         }
       ]
@@ -64,27 +52,27 @@
       "count": 2,
       "shows": [
         {
-          "name": "Patsy Cline And Friends Tribute",
+          "name": "Patsy Cline and Friends Tribute",
           "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": "Country Tribute",
-          "url": "https://www.bransonshows.com/showByDate.cfm",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "",
+          "url": "https://www.americanatheatre.com/",
+          "chip": "dinner",
+          "icon": "🍽️",
+          "ticketOk": true,
+          "desc": "Classic country vocals before dinner on the 76.",
           "price": ""
         },
         {
           "name": "Riga Tony's Branson Murder Mystery Dinner",
           "time": "5:00 PM",
-          "venue": "Various / Dinner Venue",
+          "venue": "Dinner venue (confirm box office)",
           "type": "Interactive Dinner Show",
-          "url": "",
+          "url": "https://www.bransonshows.com/showByDate.cfm",
           "chip": "dinner",
           "icon": "🍽️",
           "ticketOk": false,
-          "desc": "",
+          "desc": "Interactive dinner mystery — confirm seating; some seatings sell out.",
           "price": ""
         }
       ]
@@ -93,46 +81,70 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 7,
+      "count": 9,
       "shows": [
         {
-          "name": "Clay Cooper's Country Express",
+          "name": "Amazing Acrobats of Shanghai",
           "time": "7:30 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": "Country Variety",
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
+          "venue": "Grand Shanghai Theatre",
+          "type": "Acrobatics",
+          "url": "https://www.grandshanghaitheatre.com/",
+          "chip": "thrill",
+          "icon": "🤸",
           "ticketOk": true,
-          "desc": "",
-          "price": ""
-        },
-        {
-          "name": "Narnia Live On Stage (Prince Caspian)",
-          "time": "7:30 PM",
-          "venue": "Theater Venue",
-          "type": "Family Theater",
-          "url": "",
-          "chip": "family",
-          "icon": "👨‍👩‍👧",
-          "ticketOk": false,
-          "desc": "",
+          "desc": "Evening circus spectacle — aerials, juggling, high-energy family show.",
           "price": ""
         },
         {
           "name": "Shepherd of the Hills Outdoor Drama",
-          "time": "7:30 PM & 8:00 PM",
+          "time": "7:30 PM",
           "venue": "Shepherd of the Hills",
           "type": "Outdoor Historical Drama",
           "url": "https://theshepherdofthehills.com/",
           "chip": "outdoor",
           "icon": "🌙",
           "ticketOk": true,
-          "desc": "",
+          "desc": "Ozarks outdoor drama — verify weather and curtain; arrive early for parking.",
           "price": ""
         },
         {
-          "name": "Hamners' Magic",
+          "name": "Who Dunnit Hoedown Dinner Show",
+          "time": "7:30 PM",
+          "venue": "Dinner venue (confirm box office)",
+          "type": "Interactive Dinner Show",
+          "url": "https://www.bransonshows.com/showByDate.cfm",
+          "chip": "dinner",
+          "icon": "🍽️",
+          "ticketOk": false,
+          "desc": "Dinner + mystery comedy. Check open seatings; BOGO offers common.",
+          "price": ""
+        },
+        {
+          "name": "Anthems of Rock",
+          "time": "8:00 PM",
+          "venue": "King's Castle Theatre",
+          "type": "Rock Tribute",
+          "url": "https://www.kingscastletheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "Journey, Queen, Bon Jovi and more — high-energy nightcap on the Castle stage.",
+          "price": ""
+        },
+        {
+          "name": "Branson's Famous Baldknobbers",
+          "time": "8:00 PM",
+          "venue": "Hughes Brothers Theatre",
+          "type": "Country Comedy & Music",
+          "url": "https://hughesentertainmentinc.com/",
+          "chip": "comedy",
+          "icon": "😂",
+          "ticketOk": true,
+          "desc": "65+ years of country comedy — Monday evening house on the Hughes stage.",
+          "price": ""
+        },
+        {
+          "name": "Hamners' Unbelievable Magic",
           "time": "8:00 PM",
           "venue": "Hamners' Theater",
           "type": "Magic",
@@ -140,19 +152,19 @@
           "chip": "magic",
           "icon": "🪄",
           "ticketOk": true,
-          "desc": "",
+          "desc": "Long-running Branson magic variety — confirm tonight’s curtain.",
           "price": ""
         },
         {
-          "name": "Legends in Concert",
+          "name": "Illusionist Rick Thomas",
           "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
-          "type": "Celebrity Tributes",
-          "url": "https://legendsinconcert.com/location/branson-mo/",
-          "chip": "classic",
-          "icon": "🎸",
+          "venue": "Americana Theatre",
+          "type": "Magic / Illusion",
+          "url": "https://www.americanatheatre.com/",
+          "chip": "magic",
+          "icon": "🪄",
           "ticketOk": true,
-          "desc": "",
+          "desc": "Stage magic and illusion — solid family evening at Americana.",
           "price": ""
         },
         {
@@ -164,7 +176,7 @@
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": true,
-          "desc": "",
+          "desc": "Classic Branson country family show — Strip staple.",
           "price": ""
         },
         {
@@ -176,7 +188,7 @@
           "chip": "magic",
           "icon": "🪄",
           "ticketOk": true,
-          "desc": "",
+          "desc": "Big-illusion magic house off 165 — book ahead on busy nights.",
           "price": ""
         }
       ]
@@ -184,28 +196,23 @@
   ],
   "chips": [
     {
-      "id": "thrill",
-      "label": "Thrill",
-      "count": 1
-    },
-    {
-      "id": "classic",
-      "label": "Classic",
-      "count": 4
-    },
-    {
       "id": "music",
       "label": "Music",
       "count": 1
     },
     {
-      "id": "dinner",
-      "label": "Dinner",
-      "count": 1
+      "id": "classic",
+      "label": "Classic",
+      "count": 2
     },
     {
-      "id": "family",
-      "label": "Family",
+      "id": "dinner",
+      "label": "Dinner",
+      "count": 3
+    },
+    {
+      "id": "thrill",
+      "label": "Thrill",
       "count": 1
     },
     {
@@ -214,14 +221,14 @@
       "count": 1
     },
     {
-      "id": "magic",
-      "label": "Magic",
+      "id": "comedy",
+      "label": "Comedy",
       "count": 2
     },
     {
-      "id": "comedy",
-      "label": "Comedy",
-      "count": 1
+      "id": "magic",
+      "label": "Magic",
+      "count": 3
     }
   ],
   "indoor": [],
@@ -233,7 +240,7 @@
     "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-08-31.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 12,
-    "withTickets": 6
+    "shows": 13,
+    "withTickets": 11
   }
 }
