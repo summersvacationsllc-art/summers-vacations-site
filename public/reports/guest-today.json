@@ -1,79 +1,34 @@
 {
-  "date": "2026-08-31",
-  "generated_at": "2026-08-31T17:41:10+00:00",
+  "date": "2026-09-01",
+  "generated_at": "2026-09-01T05:30:18-05:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 3,
-    "turnovers": 3,
+    "check_ins": 2,
+    "check_outs": 0,
+    "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 1,
+    "in_house_units": 3,
     "units_total": 6
   },
-  "check_ins": [],
-  "check_outs": [
+  "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "Billy Delph",
-      "guests": 6,
+      "property": "Modern Charmer",
+      "guest": "Lesa Yager",
+      "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_gu43psb",
-      "time": "10:00 AM"
+      "reservation_id": "res_hoia0uc",
+      "time": "4:00 PM"
     },
     {
       "property": "Peacock",
-      "guest": "Kelly Lee Mathis",
-      "guests": 5,
+      "guest": "Emily West",
+      "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_kn4yjmf",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Modern Charmer",
-      "guest": "Ben And Grae Olson",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_snzg6e2",
-      "time": "10:00 AM"
+      "reservation_id": "res_lileegr",
+      "time": "4:00 PM"
     }
   ],
-  "turnovers": [
-    {
-      "property": "Indian Point",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a6bc7845f1d41514e00a4f4"
-    },
-    {
-      "property": "Peacock",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a938681c06d20172d340b19"
-    },
-    {
-      "property": "Modern Charmer",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a939990c06d20172d353c57"
-    }
-  ],
+  "check_outs": [],
+  "turnovers": [],
   "in_house": [
     {
       "property": "Woodland Retreat",
@@ -84,6 +39,26 @@
       "check_in": "2026-08-29",
       "check_out": "2026-09-05",
       "nights": 7
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Lesa Yager",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_hoia0uc",
+      "check_in": "2026-09-01",
+      "check_out": "2026-09-03",
+      "nights": 2
+    },
+    {
+      "property": "Peacock",
+      "guest": "Emily West",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_lileegr",
+      "check_in": "2026-09-01",
+      "check_out": "2026-09-05",
+      "nights": 4
     }
   ],
   "sync_notes": {

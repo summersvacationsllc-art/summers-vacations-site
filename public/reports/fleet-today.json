@@ -1,41 +1,7 @@
 {
-  "date": "2026-08-31",
-  "generated_at": "2026-08-31T17:41:11+00:00",
-  "units_total": 4,
-  "turnovers": [
-    {
-      "property": "Indian Point",
-      "property_id": "prop_uiue2y1",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a6bc7845f1d41514e00a4f4"
-    },
-    {
-      "property": "Peacock",
-      "property_id": "prop_stunkz5",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a938681c06d20172d340b19"
-    },
-    {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a939990c06d20172d353c57"
-    }
-  ],
+  "date": "2026-09-01",
+  "generated_at": "2026-09-01T05:30:19-05:00",
+  "units_total": 3,
+  "turnovers": [],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
