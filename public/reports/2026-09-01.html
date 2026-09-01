@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The Branson Daily · Tuesday, September 1</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --sky: #0ea5e9;
+  --sky-dark: #0284c7;
+  --ink: #0c4a6e;
+  --link: #0369a1;
+  --soft: #f0f9ff;
+  --card: #ffffff;
+  --line: #bae6fd;
+  --muted: #0369a1;
+}
+* { font-feature-settings: "liga" 0; letter-spacing: .01em; overflow-wrap: break-word; word-break: break-word; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 420px at 10% -10%, #e0f2fe 0%, transparent 55%),
+    var(--soft);
+  color: var(--ink);
+  font-family: "DM Sans", "Inter", system-ui, sans-serif;
+  line-height: 1.55;
+}
+.wrap { max-width: 980px; margin: 0 auto; padding: clamp(14px, 3vw, 28px) clamp(14px, 4vw, 28px) 3.5rem; }
+.mast {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 52%, #0c4a6e 100%);
+  color: #fff;
+  padding: clamp(1.6rem, 5vw, 3rem) clamp(1.3rem, 4vw, 2.6rem) clamp(1.5rem, 4vw, 2.4rem);
+  box-shadow: 0 24px 50px -24px rgba(2,132,199,.65);
+  margin-bottom: 1rem;
+}
+.mast::after {
+  content: "☀";
+  position: absolute;
+  right: -0.4rem;
+  bottom: -1.4rem;
+  font-size: 9rem;
+  opacity: .12;
+  line-height: 1;
+}
+.kicker {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  padding: .32rem .75rem;
+}
+.mast h1 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  line-height: .95;
+  margin: .7rem 0 .45rem;
+}
+.mast h1 em { font-style: italic; color: #7dd3fc; }
+.lede {
+  max-width: 36rem;
+  font-size: clamp(1.05rem, 2.6vw, 1.22rem);
+  opacity: .96;
+  margin: 0 0 1rem;
+}
+.issue {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+}
+.issue span {
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  padding: .32rem .7rem;
+  font-size: .82rem;
+  font-weight: 700;
+}
+.toc {
+  position: sticky; top: .4rem; z-index: 30;
+  display: flex; flex-wrap: wrap; gap: .35rem; justify-content: center;
+  background: rgba(240,249,255,.94);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: .45rem;
+  margin: 0 0 1.35rem;
+}
+.toc a {
+  text-decoration: none;
+  color: var(--link);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: .4rem .65rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.spread { margin-bottom: 1.15rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: clamp(1.1rem, 3vw, 1.7rem);
+  box-shadow: 0 16px 34px -26px rgba(2,132,199,.55);
+}
+.section-title {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(1.55rem, 4vw, 2.05rem);
+  color: var(--ink);
+  margin: 0 0 .25rem;
+}
+.deck { color: var(--link); margin: 0 0 1rem; font-size: 1.02rem; }
+.wx {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: .85rem;
+}
+.wx-big {
+  background: linear-gradient(180deg, #e0f2fe, #fff);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.1rem 1.15rem;
+}
+.wx-big b { display: block; font-size: clamp(2.6rem, 8vw, 3.6rem); line-height: .9; color: var(--ink); }
+.wx-big span { color: var(--link); font-weight: 700; }
+.wx-side { display: grid; gap: .55rem; }
+.stat {
+  background: #f0f9ff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: .7rem .85rem;
+}
+.stat i { display: block; font-style: normal; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
+.stat b { font-size: 1.15rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+.tile {
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: .9rem 1rem;
+}
+.tile .when {
+  display: inline-block;
+  background: #0284c7;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  border-radius: 999px;
+  padding: .22rem .55rem;
+  margin-bottom: .4rem;
+}
+.tile h3 { margin: 0 0 .2rem; font-size: 1.05rem; color: var(--ink); }
+.tile p { margin: 0; color: var(--link); font-size: .92rem; }
+.tile a { color: #0284c7; font-weight: 800; font-size: .82rem; text-decoration: none; }
+.guide {
+  background: #ecfeff;
+  border: 1px solid #a5f3fc;
+  border-radius: 16px;
+  padding: .95rem 1.05rem;
+}
+.guide b { display: block; color: #0f766e; margin-bottom: .25rem; }
+.fish { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; margin-top: .75rem; }
+.fish .tile { text-align: center; }
+.fish .tile b { display: block; font-size: 1.02rem; }
+.quote {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  line-height: 1.25;
+  color: var(--ink);
+  border-left: 5px solid #0ea5e9;
+  padding: .15rem 0 .15rem 1rem;
+  margin: .2rem 0 1rem;
+}
+.spot {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: .9rem;
+  margin: 0 0 1rem;
+  background: #0c4a6e;
+  color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.spot img { width: 100%; height: 100%; min-height: 220px; object-fit: cover; display: block; }
+.spot-copy { padding: 1.15rem 1.2rem 1.25rem; }
+.spot-copy .kicker { margin-bottom: .45rem; }
+.spot-copy h3 { font-family: "DM Serif Display", Georgia, serif; font-size: clamp(1.5rem, 4vw, 2rem); margin: 0 0 .4rem; font-weight: 400; }
+.spot-copy p { margin: 0 0 .85rem; color: #e0f2fe; }
+.spot-copy a {
+  display: inline-block;
+  background: #0ea5e9;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: .45rem .85rem;
+  margin: 0 .35rem .35rem 0;
+  font-size: .88rem;
+}
+.credit { font-size: .72rem; opacity: .75; }
+.more a { color: #0284c7; font-weight: 800; text-decoration: none; }
+.meta { text-align: center; color: #0284c7; font-size: .82rem; margin-top: 1.4rem; }
+.heat {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  color: #9a3412;
+  border-radius: 16px;
+  padding: .9rem 1.05rem;
+  margin: 0 0 1rem;
+}
+.heat b { display: block; margin-bottom: .2rem; }
+.plan { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+.plan .tile .when { background: #0c4a6e; }
+.hero-photo {
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 0 0 1rem;
+  position: relative;
+}
+.hero-photo img { width: 100%; height: 240px; object-fit: cover; display: block; }
+.hero-photo span {
+  position: absolute; left: .8rem; bottom: .7rem;
+  background: rgba(12,74,110,.82); color: #fff;
+  font-size: .72rem; font-weight: 700;
+  padding: .25rem .55rem; border-radius: 999px;
+}
+.taste-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin-top: .85rem; }
+.taste-grid figure { margin: 0; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 14px; overflow: hidden; }
+.taste-grid img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.taste-grid figcaption { font-size: .78rem; color: #0369a1; padding: .45rem .55rem; font-weight: 600; }
+.weekstrip { display: grid; grid-template-columns: repeat(5, 1fr); gap: .45rem; }
+.weekstrip .tile { text-align: center; padding: .7rem .4rem; }
+.weekstrip .tile b { display: block; font-size: 1.15rem; color: var(--ink); }
+.weekstrip .tile.today { background: #0ea5e9; color: #fff; border-color: #0284c7; }
+.weekstrip .tile.today b, .weekstrip .tile.today p { color: #fff; }
+@media (max-width: 720px) {
+  .wx, .grid-2, .grid-3, .fish, .spot, .plan, .weekstrip, .taste-grid { grid-template-columns: 1fr; }
+  .spot img { min-height: 180px; }
+  .hero-photo img { height: 180px; }
+  .toc { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; }
+  .toc a { flex: 0 0 auto; }
+}
+</style>
+
+</head><body>
+<div class="wrap">
+  <header class="mast">
+    <div class="kicker">The Branson Daily · Tuesday, September 1</div>
+    <h1>Steal the cool morning. Own the market.</h1>
+    <p class="lede">Tuesday, September 1. High 100°, low 75°. Farmers market 2:30–6:30 at the Landing — peaches, tomatoes, and shade if you time it right.</p>
+    <div class="issue">
+      <span>100° / 75°</span>
+      <span>1% rain</span>
+      <span>Branson Farmers Market</span>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections">
+    <a href="#plan">Plan</a>
+    <a href="#weather">Sky</a>
+    <a href="#shows">Shows</a>
+    <a href="#fishing">Lake</a>
+    <a href="#eat">Eat</a>
+    <a href="#harvest">Harvest</a>
+    <a href="#golf">Golf</a>
+    <a href="#landing">Landing</a>
+    <a href="#strip">Strip</a>
+    <a href="#week">This week</a>
+  </nav>
+  <main>
+    <section class="spread card" id="plan">
+      <h2 class="section-title">If you only do three things</h2>
+      <p class="deck">First time in town? Follow this and you will not waste the cool hours.</p>
+      <div class="heat"><b>Heat desk</b>This is a 95°+ afternoon. Lake at dawn. Indoor 11–4. Water in the car. Theatres after 5. Do not hike Dogwood Canyon at 2 PM.</div>
+      
+      <div class="plan"><article class="tile"><div class="when">Dawn</div><h3>Lake or coffee</h3><p>Table Rock before the heat, or Steamy Joe at 7. Do not start this day at noon.</p></article><article class="tile"><div class="when">2:30 PM</div><h3>Landing market</h3><p>Park once. Walk the stalls. Then Farmhouse on Main if you want a real table.</p></article><article class="tile"><div class="when">Dusk</div><h3>A show, not a hike</h3><p>Theatres are air-conditioned. Confirm tonight’s board before you drive in.</p></article></div>
+    </section>
+    <section class="spread card" id="feature">
+      <h2 class="section-title">Today’s highlight</h2>
+      <p class="deck">2:30–6:30 PM · South lot by Bass Pro · Branson Landing</p>
+      <div class="spot">
+        <div class="spot-copy">
+          <div class="kicker">Editor’s pick</div>
+          <h3>Branson Farmers Market</h3>
+          <p>The only Tuesday that feels like a small town. Produce, jellies, live music. Free.</p>
+          <a href="https://www.explorebranson.com/blog-explore/blog/post/branson-farmers-markets-2026/" target="_blank" rel="noopener">Details</a>
+        </div>
+      </div>
+    </section>
+    <section class="spread card" id="weather">
+      <h2 class="section-title">Today’s sky</h2>
+      <p class="deck">Pack a lake bag and a theatre layer. This week still runs hot.</p>
+      <div class="wx">
+        <div class="wx-big"><span>High</span><b>100°</b><span>Low 75° · 1% rain</span></div>
+        <div class="wx-side">
+          <div class="stat"><i>Table Rock</i><b>76.2°F Kimberling dawn</b> 913.74 ft (USACE 12:00 CT)</div>
+          <div class="stat"><i>Taneycomo</i><b>Call generation</b> ~1,238 cfs at 12:00 CT (USACE live). Overnight ~20; afternoon peak ~1,238. Call SWPA…</div>
+        </div>
+      </div>
+      <div class="weekstrip" style="margin-top:1rem"><div class="tile"><i>Mon</i><b>99°</b><p>0% rain</p></div><div class="tile today"><i>Tue</i><b>100°</b><p>1% rain</p></div><div class="tile"><i>Wed</i><b>99°</b><p>2% rain</p></div><div class="tile"><i>Thu</i><b>98°</b><p>0% rain</p></div><div class="tile"><i>Fri</i><b>100°</b><p>2% rain</p></div></div>
+      <p class="more"><a href="https://www.swpa.gov/" target="_blank" rel="noopener">SWPA generation</a> · <a href="https://www.mybransonvacation.com/map">Open the live map</a></p>
+    </section>
+    <section class="spread card" id="shows">
+      <h2 class="section-title">The full board</h2>
+      <p class="deck">13 showtimes. Showtimes last verified 2026-08-31 — confirm the box office for Tuesday, September 1.</p>
+      <div class="grid-2"><article class="tile"><div class="when">2:00 PM</div><h3>Dublin's Irish Tenors &amp; The Celtic Ladies</h3><p>King's Castle Theatre · Irish Music &amp; Dance</p><p class="more"><a href="https://www.kingscastletheatre.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">3:00 PM</div><h3>Legends in Concert</h3><p>Pepsi Legends Theater · Celebrity Tributes</p><p class="more"><a href="https://legendsinconcert.com/location/branson-mo/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">5:00 PM</div><h3>Patsy Cline and Friends Tribute</h3><p>Americana Theatre · Country Tribute</p><p class="more"><a href="https://www.americanatheatre.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">5:00 PM</div><h3>Riga Tony's Branson Murder Mystery Dinner</h3><p>Dinner venue (confirm box office) · Interactive Dinner Show</p><p class="more"><a href="https://www.bransonshows.com/showByDate.cfm" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">7:30 PM</div><h3>Amazing Acrobats of Shanghai</h3><p>Grand Shanghai Theatre · Acrobatics</p><p class="more"><a href="https://www.grandshanghaitheatre.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">7:30 PM</div><h3>Shepherd of the Hills Outdoor Drama</h3><p>Shepherd of the Hills · Outdoor Historical Drama</p><p class="more"><a href="https://theshepherdofthehills.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">7:30 PM</div><h3>Who Dunnit Hoedown Dinner Show</h3><p>Dinner venue (confirm box office) · Interactive Dinner Show</p><p class="more"><a href="https://www.bransonshows.com/showByDate.cfm" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">8:00 PM</div><h3>Anthems of Rock</h3><p>King's Castle Theatre · Rock Tribute</p><p class="more"><a href="https://www.kingscastletheatre.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">8:00 PM</div><h3>Branson's Famous Baldknobbers</h3><p>Hughes Brothers Theatre · Country Comedy &amp; Music</p><p class="more"><a href="https://hughesentertainmentinc.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">8:00 PM</div><h3>Hamners' Unbelievable Magic</h3><p>Hamners' Theater · Magic</p><p class="more"><a href="https://www.hamnersunbelievable.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">8:00 PM</div><h3>Illusionist Rick Thomas</h3><p>Americana Theatre · Magic / Illusion</p><p class="more"><a href="https://www.americanatheatre.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">8:00 PM</div><h3>Presleys' Country Jubilee</h3><p>Presleys' Country Jubilee · Country Comedy &amp; Music</p><p class="more"><a href="https://www.presleys.com/" target="_blank" rel="noopener">Tickets</a></p></article><article class="tile"><div class="when">8:00 PM</div><h3>REZA — Edge of Illusion</h3><p>Reza Live Theatre · Magic / Illusion</p><p class="more"><a href="https://rezalivetheatre.com/" target="_blank" rel="noopener">Tickets</a></p></article></div>
+      <p class="more"><a href="https://www.bransonshows.com/showByDate.cfm" target="_blank" rel="noopener">All Branson showtimes</a></p>
+    </section>
+    <section class="spread card" id="fishing">
+      <h2 class="section-title">On the water</h2>
+      <p class="quote">Table Rock Lake (bass, walleye, crappie, etc.): Summer heat, clear water, and falling level push fish to deeper main-lake points, gravel/brush piles, channel swings, creek arms, and offshore structure (target 15–35 ft). Electronics essential for locating shad…</p>
+      <div class="grid-2">
+        <div class="guide"><b>Table Rock guide</b>Dawn topwater on points, then slide deep to brush and ledges. Confirm the lake level before you idle the coves.</div>
+        <div class="guide"><b>Taneycomo guide</b>Pink worms on the morning low-flow window. When generation jumps, drift the slack seams. Call SWPA 866-494-1993 before you launch.</div>
+      </div>
+      <div class="fish"><div class="tile"><b>Bass</b><p>GOOD · Topwater at dawn; deep spoon, shakey head, deep crank mid-day</p></div><div class="tile"><b>Walleye</b><p>GOOD · Crankbaits, live bait (carried mid-summer pattern — not freshly guide-verified 07-21)</p></div><div class="tile"><b>Crappie</b><p>FAIR-GOOD · Small white or yellow jigs under deep-water docks</p></div><div class="tile"><b>Trout</b><p>GOOD · Low-flow morning window; pink worms/jigs/midges; drift when generation heavy (Trophy Area…</p></div><div class="tile"><b>Bluegill</b><p>EXCELLENT · Worms, small poppers — great for kids (mid-summer pattern carry)</p></div><div class="tile"><b>Catfish</b><p>GOOD · Stink bait, hot dogs, cut/frozen bait — evening/night</p></div></div>
+      <p class="more"> · <a href="https://www.mybransonvacation.com/map?spot=fall-creek-marina">Fall Creek on the map</a></p>
+    </section>
+    <section class="spread card" id="eat">
+      <h2 class="section-title">Where to eat</h2>
+      <p class="deck">15 spots we actually send guests. Spotlight rotates so it doesn’t feel like the same printout every day.</p>
+      <div class="spot"><div class="spot-copy"><div class="kicker">Restaurant spotlight</div><h3>Farmhouse Restaurant</h3><p>Downtown Main Street classic since 1976 — biscuits, gravy, and a short walk to the Landing.</p><p>119 W Main St · by the Landing · Home-style • Breakfast · $$</p><a href="https://www.farmhouserestaurantbranson.com/" target="_blank" rel="noopener">Menu / hours</a><a href="https://www.mybransonvacation.com/map?spot=eat-farmhouse-restaurant">Map</a></div></div>
+      <div class="grid-2"><article class="tile"><h3>Steamy Joe Cafe</h3><p>3590 State Hwy 265 · The Bradford · Breakfast • Cafe</p><p>Family-owned cafe at The Bradford — breakfast, brunch, lunch, espresso, and an Ozark view. Open daily 7am–2pm.</p><p class="more"><a href="https://steamyjoe.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-steamy-joe-cafe">Map</a></p></article><article class="tile"><h3>Ozark Mountain Pizza</h3><p>5378 State Hwy 265 · Pizza</p><p>Hand-tossed pizza on Hwy 265 — easy family dinner on the way to Indian Point / SDC.</p><p class="more"><a href="https://ozarkmtpizza.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-ozark-mountain-pizza">Map</a></p></article><article class="tile"><h3>White River Fish House</h3><p>Bass Pro Drive · Branson Landing · Lakeside • American</p><p>Fresh fish with a view of Lake Taneycomo! Bass Pro's signature restaurant on the water.</p><p class="more"><a href="https://www.whiteriverfishhouse.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-white-river-fish-house">Map</a></p></article><article class="tile"><h3>Big D's BBQ</h3><p>1550 State Hwy 248 · BBQ</p><p>Best ribs in Branson! Casual, affordable, absolutely delicious. Local favorite.</p><p class="more"><a href="https://bestbransonbbq.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-big-d-s-bbq">Map</a></p></article><article class="tile"><h3>Osage Restaurant — Top of the Rock</h3><p>Top of the Rock · Ridgedale · Fine Dining</p><p>Fine dining with stunning Ozark views at Big Cedar's Top of the Rock.</p><p class="more"><a href="https://bigcedar.com/dining/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-osage-restaurant-top-of-the-rock">Map</a></p></article><article class="tile"><h3>Buffalo Bar &amp; Grill</h3><p>Big Cedar Lodge · Ridgedale · American</p><p>Casual dining with golf course views at Big Cedar Lodge.</p><p class="more"><a href="https://bigcedar.com/dining/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-buffalo-bar-grill">Map</a></p></article><article class="tile"><h3>Tall Tales Bar &amp; Grill</h3><p>Big Cedar Lodge · Ridgedale · American</p><p>Outdoor dining, live music, fire pits at Big Cedar. Great atmosphere!</p><p class="more"><a href="https://bigcedar.com/dining/tall-tales/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-tall-tales-bar-grill">Map</a></p></article><article class="tile"><h3>The Lake House — Indian Point</h3><p>Indian Point Road · Table Rock · Bar &amp; Grill</p><p>Right down the road! Beautiful lake views, full bar, live entertainment.</p><p class="more"><a href="https://www.thelakehouseindianpoint.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-the-lake-house-indian-point">Map</a></p></article><article class="tile"><h3>Crazy Craig's Cheeky Monkey Bar</h3><p>Montgomery Drive · Table Rock · Bar &amp; Grill</p><p>Branson icon! Crazy decor, games, treehouse bar, dancing. Open til 1AM.</p><p class="more"><a href="https://cheekymonkeybar.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-crazy-craig-s-cheeky-monkey-bar">Map</a></p></article><article class="tile"><h3>Rock Lane Resort Tiki Bar</h3><p>611 Rock Lane · Table Rock · Tiki Bar</p><p>Swim-up bar on Table Rock Lake! Order drinks right from the water. Courtesy docks — boat right up.</p><p class="more"><a href="https://rocklane.com/bars-table-rock-lake/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-rock-lane-resort-tiki-bar">Map</a></p></article><article class="tile"><h3>Flaming Margaritas at the Landing</h3><p>1201 Branson Landing Blvd · Mexican • Bar</p><p>Famous margs, rooftop views, live music, fountain show views at Branson Landing!</p><p class="more"><a href="https://www.flamingmargaritas.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-flaming-margaritas-at-the-landing">Map</a></p></article><article class="tile"><h3>Laketime Bistro — Kimberling City</h3><p>Kimberling City · Table Rock · Seafood • Steak</p><p>Cozy lakeside hideaway! 4.5 ⭐ seafood &amp; steak. Full bar. 20 min drive.</p><p class="more"><a href="https://tableagent.com/springfield-mo/laketime-bistro/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-laketime-bistro-kimberling-city">Map</a></p></article><article class="tile"><h3>Billy Bob's Dairyland</h3><p>W 76 Country Blvd · Ice Cream</p><p>Old-school ice cream parlor. Classic shakes, malts, and burgers.</p><p class="more"><a href="https://www.explorebranson.com/blog-explore/blog/post/billy-bobs-branson-tradition/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-billy-bob-s-dairyland">Map</a></p></article><article class="tile"><h3>Crazy Craig's Treehouse</h3><p>Montgomery Drive · Table Rock · Frozen Custard</p><p>Frozen custard and treats at the famous treehouse bar.</p><p class="more"><a href="https://cheekymonkeybar.com/" target="_blank" rel="noopener">Site</a> <a href="https://www.mybransonvacation.com/map?spot=eat-crazy-craig-s-treehouse">Map</a></p></article></div>
+    </section>
+    <section class="spread card" id="harvest"><h2 class="section-title">Coming Sep 11 · Harvest at The City</h2><p class="deck">Gospel Picnic is still the park story through Sep 7. Then fall food and 20,000 pumpkins.</p><div class="hero-photo"><img src="/photos/sdc-harvest-2026/cashew-chicken-cone.jpg" alt="Cashew chicken cone at Silver Dollar City"><span>Hugo’s cashew chicken cone</span></div><p>$38 + tax for five tasting-sized plates, Sep 11–Oct 31. Park ticket separate. Pumpkins In The City nights start Sep 18.</p><p class="more"><a href="https://www.silverdollarcity.com/tickets/ticket-add-ons/harvest-tasting-ticket/" target="_blank" rel="noopener">Harvest Tasting Passport</a></p></section>
+    <section class="spread card" id="golf">
+      <h2 class="section-title">Tee times</h2>
+      <p class="deck">Ledgestone is five minutes from Notch Lane. Big Cedar is the splurge.</p>
+      <div class="grid-2"><article class="tile"><h3>Branson Hills Golf Club</h3><p>1 Public in MO (Golfpass 2026). Ranked 10 Public in the U.S.! Dramatic 130-ft elevation changes. Missouri golf history museum.</p><p class="more"><a href="https://bransonhillsgolfclub.com/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Payne's Valley — Big Cedar</h3><p>1 USA TODAY 2026! Tiger's first public design. Bonus 19th island green.</p><p class="more"><a href="https://bigcedar.com/golf/paynes-valley/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Ozarks National — Big Cedar</h3><p>Stunning design by Coore &amp; Crenshaw. Consistently ranked in national top 100.</p><p class="more"><a href="https://bigcedar.com/golf/ozarks-national/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Buffalo Ridge Springs</h3><p>Tom Fazio masterpiece at Big Cedar. Ranked among America's top public courses.</p><p class="more"><a href="https://bigcedar.com/golf/buffalo-ridge/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Ledgestone Country Club</h3><p>Award-winning mountain golf just 5 min from the condo! Great value and stunning views.</p><p class="more"><a href="https://www.ledgestonegolf.com/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Top of the Rock — Big Cedar</h3><p>Tom Watson par-3 course with stunning views. Also features the Lost Canyon Cave tour.</p><p class="more"><a href="https://bigcedar.com/golf/top-of-the-rock/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Cliffhangers at Big Cedar</h3><p>Jack Nicklaus par-3 course. Dramatic elevation changes and stunning Ozark views.</p><p class="more"><a href="https://bigcedar.com/golf/cliffhangers/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Thousand Hills Golf Resort</h3><p>Resort course in the heart of Branson. Affordable and fun for all skill levels.</p><p class="more"><a href="https://www.thousandhillsresorthotel.com/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Holiday Hills Golf Club</h3><p>Public course with great rates. Relaxed, friendly atmosphere.</p><p class="more"><a href="https://holidayhills.com/" target="_blank" rel="noopener">Tee times</a></p></article><article class="tile"><h3>Mountain Top — Big Cedar</h3><p>Walking-only 13-hole course. Pure golf experience — no carts, just you and the game.</p><p class="more"><a href="https://bigcedar.com/golf/mountain-top/" target="_blank" rel="noopener">Tee times</a></p></article></div>
+    </section>
+    <section class="spread card" id="landing">
+      <h2 class="section-title">Down at the Landing</h2>
+      <p class="deck">Farmers market today 2:30–6:30 by Bass Pro. Fountains still run hourly.</p>
+      <div class="grid-2"><article class="tile"><h3>Hourly Fire &amp; Water show</h3><p>Fountains on the hour from noon. Free, easy, and great after dinner.</p><p class="more"><a href="https://bransonlanding.com/events" target="_blank" rel="noopener">Landing events</a></p></article><article class="tile"><h3>Farmers market tomorrow</h3><p>Tuesday 2:30–6:30 PM in the south lot by Bass Pro.</p><p class="more"><a href="https://bransonlanding.com/events" target="_blank" rel="noopener">Landing events</a></p></article></div>
+    </section>
+    <section class="spread card" id="strip">
+      <h2 class="section-title">76 Strip thrills</h2>
+      <p class="deck">Coasters, go-karts, and the upside-down museum when you need air conditioning.</p>
+      <div class="grid-2"><article class="tile"><h3>The Track &amp; coasters</h3><p>Go-karts and mountain coasters when the kids need speed.</p><p class="more"><a href="https://www.mybransonvacation.com/map" target="_blank" rel="noopener">Open the map</a></p></article><article class="tile"><h3>WonderWorks / Titanic</h3><p>Indoor cool-down museums on the 76.</p><p class="more"><a href="https://www.mybransonvacation.com/map" target="_blank" rel="noopener">Open the map</a></p></article></div>
+    </section>
+    <section class="spread card" id="week">
+      <h2 class="section-title">This week in town</h2>
+      <p class="deck">Gospel Picnic at Silver Dollar City through September 7. Harvest tasting starts September 11.</p>
+      <div class="grid-2"><article class="tile"><h3>Silver Dollar City</h3><p>America’s 250th season still running — gospel picnic starts Aug 27.</p><p class="more"><a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener">Silver Dollar City</a></p></article><article class="tile"><h3>Freedom Journey</h3><p>Patriotic exhibits at College of the Ozarks through December.</p><p class="more"><a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener">Silver Dollar City</a></p></article></div>
+    </section>
+    <section class="spread card" id="shade">
+      <h2 class="section-title">When the asphalt shimmers</h2>
+      <p class="deck">Indoor backups so the afternoon does not wreck the trip.</p>
+      <div class="grid-3"><article class="tile"><h3>WonderWorks</h3><p>Upside-down museum on the 76. Air conditioning that actually works.</p><p class="more"><a href="https://www.wonderworksonline.com/branson/" target="_blank" rel="noopener">Details</a></p></article><article class="tile"><h3>Titanic Museum</h3><p>Cool, dark, and a two-hour story. Book ahead on busy weeks.</p><p class="more"><a href="https://titanicattraction.com/branson" target="_blank" rel="noopener">Details</a></p></article><article class="tile"><h3>Aquarium at the Boardwalk</h3><p>Indoor tanks when the asphalt shimmers.</p><p class="more"><a href="https://www.aquariumattheboardwalk.com/" target="_blank" rel="noopener">Details</a></p></article></div>
+    </section>
+  </main>
+  <p class="meta">Edited for first-time guests · <a href="https://www.mybransonvacation.com/branson">City card</a> · <a href="https://www.mybransonvacation.com/map">Map</a> · 2026-09-01 · Showtimes last verified 2026-08-31 — confirm the box office for Tuesday, September 1.</p>
+</div>
+</body></html>
