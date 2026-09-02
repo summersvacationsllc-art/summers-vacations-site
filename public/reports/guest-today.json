@@ -1,29 +1,21 @@
 {
-  "date": "2026-09-01",
-  "generated_at": "2026-09-01T18:20:48-05:00",
+  "date": "2026-09-02",
+  "generated_at": "2026-09-02T07:34:59-05:00",
   "headline": {
-    "check_ins": 2,
+    "check_ins": 1,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 4,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Modern Charmer",
-      "guest": "Lesa Yager",
-      "guests": 3,
+      "property": "Rustic Ozark",
+      "guest": "Dan West",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_hoia0uc",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Peacock",
-      "guest": "Emily West",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_lileegr",
+      "reservation_id": "res_a85fv3o",
       "time": "4:00 PM"
     }
   ],
@@ -59,6 +51,16 @@
       "check_in": "2026-09-01",
       "check_out": "2026-09-05",
       "nights": 4
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Dan West",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_a85fv3o",
+      "check_in": "2026-09-02",
+      "check_out": "2026-09-03",
+      "nights": 1
     }
   ],
   "sync_notes": {
