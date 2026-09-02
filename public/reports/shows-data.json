@@ -41,8 +41,8 @@
       "venue": "Americana Theatre",
       "type": "Country Tribute",
       "url": "https://www.americanatheatre.com/",
-      "lat": 36.63864,
-      "lng": -93.27351,
+      "lat": 36.6386381,
+      "lng": -93.2735125,
       "venueAddress": "2905 W 76 Country Blvd",
       "desc": "Classic country vocals before dinner on the 76.",
       "sortMinutes": 1020,
@@ -137,8 +137,8 @@
       "venue": "Hughes Brothers Theatre",
       "type": "Country Comedy & Music",
       "url": "https://hughesentertainmentinc.com/",
-      "lat": 36.6435,
-      "lng": -93.2545,
+      "lat": 36.64046,
+      "lng": -93.28431,
       "venueAddress": "76 Country Blvd",
       "desc": "65+ years of country comedy \u2014 Monday evening house on the Hughes stage.",
       "sortMinutes": 1200,
@@ -171,8 +171,8 @@
       "venue": "Americana Theatre",
       "type": "Magic / Illusion",
       "url": "https://www.americanatheatre.com/",
-      "lat": 36.63864,
-      "lng": -93.27351,
+      "lat": 36.6386381,
+      "lng": -93.2735125,
       "venueAddress": "2905 W 76 Country Blvd",
       "desc": "Stage magic and illusion \u2014 solid family evening at Americana.",
       "sortMinutes": 1200,
@@ -217,9 +217,7 @@
       "ticketOk": true
     }
   ],
-  "freeEvents": [
-    "Deadline-guard: show grid carried/partial for 2026-09-02 \u2014 confirm box office."
-  ],
-  "magazineBuilt": "2026-08-31",
+  "freeEvents": [],
+  "magazineBuilt": "2026-09-02",
   "last_verified": "2026-08-31"
 }
