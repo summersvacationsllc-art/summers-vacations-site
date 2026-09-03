@@ -1,9 +1,9 @@
 {
-  "date": "2026-09-02",
+  "date": "2026-09-03",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Midweek on the 76",
-  "deck": "A solid midweek lineup perfect for families and couples visiting the Ozarks. Strong gospel/country openers, high-energy tributes, acrobatics, and evening variety. Sight & Sound's *David - The Musical* continues its run with biblical spectacle. Clay Cooper, Hamner's, and Legends offer reliable entertainment on the 76 Strip. Early September means lighter post-Labor Day crowds and easier parking.",
+  "hed": "Thursday warm-up",
+  "deck": "Pre-weekend energy on the Strip. Pick one matinee or go straight to an evening show.",
   "pick": {
     "title": "Shepherd of the Hills Outdoor Drama",
     "when": "7:30 PM",
@@ -236,8 +236,8 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-02",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-09-02.md, shows-data board. Scout prose on file."
+    "checked": "2026-09-03",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
   },
   "counts": {
     "shows": 13,

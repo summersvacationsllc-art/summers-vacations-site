@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-02",
+  "date": "2026-09-03",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
   "hed": "The Water Is Falling",
-  "deck": "Table Rock 913.56 ft. 1,225 cfs through the dam at 09:00 CT. Taneycomo still eats a pink worm if the generators give you a window.",
+  "deck": "Table Rock 913.45 ft. 1,347 cfs through the dam at 09:00 CT. Taneycomo still eats a pink worm if the generators give you a window.",
   "play": {
-    "title": "Call the dam before you wet a line.",
-    "body": "SWPA is 866-494-1993. Dial it in the parking lot. Off or near-off: pink worm, wade, kids. Two-thousand-plus cfs: dock or boat, fish the seams."
+    "title": "Find the shad, not the bank.",
+    "body": "If the graph is empty, keep moving. Late August bass live on bait schools in 15\u201335 feet. A flutter spoon through them is the grown-up play."
   },
   "season": {
     "name": "Dog days",
@@ -21,14 +21,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new USACE level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "The pool walked down from 914.5 early in the week to 913.56 this morning \u2014 about 0.94 ft off that earlier mark, still under the 915 full pool. Live USACE reading 09:00 CT: 913.56 ft, 1,225 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "The pool walked down from 914.01 early in the week to 913.45 this morning \u2014 about 0.56 ft off that earlier mark, still under the 915 full pool. Live USACE reading 09:00 CT: 913.45 ft, 1,347 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-08-27",
-      "label": "Thu",
-      "level": "914.5",
-      "fresh": false
-    },
     {
       "date": "2026-08-28",
       "label": "Fri",
@@ -63,20 +57,26 @@
       "date": "2026-09-02",
       "label": "Wed",
       "level": "913.56",
+      "fresh": false
+    },
+    {
+      "date": "2026-09-03",
+      "label": "Thu",
+      "level": "913.45",
       "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "913.56 ft \u00b7 live USACE",
+    "dek": "913.45 ft \u00b7 live USACE",
     "now": {
-      "level": "913.56 ft (USACE 09:00 CT)",
+      "level": "913.45 ft (USACE 09:00 CT)",
       "temp": "Verify at the ramp \u2014 we do not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "Table Rock sits at 913.56 ft this morning \u2014 a live USACE number, not a guess. Full pool is 915. Heat and a falling or hanging pool put bass on main-lake points, gravel, brush, and the first good humps in 15 to 35 feet. If you don't have electronics, you are guessing at bait.",
-      "Generation at the dam right now is 1,225 cfs (turbine 1,225). Overnight it backed off to about 20; the afternoon peak on this sheet hit 1,225. That pattern \u2014 quiet early, lean on it later \u2014 is the late-summer White River book.",
+      "Table Rock sits at 913.45 ft this morning \u2014 a live USACE number, not a guess. Full pool is 915. Heat and a falling or hanging pool put bass on main-lake points, gravel, brush, and the first good humps in 15 to 35 feet. If you don't have electronics, you are guessing at bait.",
+      "Generation at the dam right now is 1,347 cfs (turbine 1,347). Overnight it backed off to about 20; the afternoon peak on this sheet hit 1,347. That pattern \u2014 quiet early, lean on it later \u2014 is the late-summer White River book.",
       "This is the hard season on the White River system, and it is also when the fishermen who live here quietly catch fish. Thermocline is set. Shad are deep. Table Rock surface is in the 80s. Taneycomo is still 50-degree tailwater."
     ]
   },
@@ -86,7 +86,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~1,225 cfs at 09:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
+      "generation": "~1,347 cfs at 09:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
@@ -98,13 +98,13 @@
     ],
     "body": [
       "Below Table Rock Dam this is a trout river that happens to be called a lake. The water comes out of the bottom cold and gin-clear. The generators decide whether you wade or drift.",
-      "Last printed reading: 1,225 cfs at 09:00 CT. We will not invent the next hour. Southwestern Power keeps the live sheet. The number is 866-494-1993. Call it in the parking lot. Off or near-off: pink Power Worm, wade, kids. Two-thousand-plus: dock or boat, fish the seams.",
+      "Last printed reading: 1,347 cfs at 09:00 CT. We will not invent the next hour. Southwestern Power keeps the live sheet. The number is 866-494-1993. Call it in the parking lot. Off or near-off: pink Power Worm, wade, kids. Two-thousand-plus: dock or boat, fish the seams.",
       "Light line \u2014 two to six pound. Rainbows are most of the creel. Slot in the upper water: put the 12-to-20-inch rainbows back. Don't horse them in this clarity. Don't wad a rising tailrace."
     ]
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-09-02",
+    "checked": "2026-09-03",
     "note": "Always-on desk: live USACE Little Rock gage (tabrock.htm) plus seasonal playbook. No Mac scout this morning \u2014 lid-closed path. Call 866-494-1993 before wading Taneycomo."
   }
 }
