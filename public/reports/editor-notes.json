@@ -1,48 +1,48 @@
 {
-  "for": "2026-08-30",
-  "headline": "Sunday heat builds — early mornings win",
-  "lede": "Sunday, August 30. Highs near 99°F on the lake. Dawn paddle or early service, then A/C matinees — save the Strip for after 5.",
+  "for": "2026-09-04",
+  "headline": "Friday heat dome — lake first, then A/C",
+  "lede": "Friday, September 4. High near 99°F with brutal heat index. Dawn on Table Rock or Taneycomo is the only comfortable window — then indoor shows, museums, and air-conditioned dining. Verify lake levels and generation before heading out.",
   "heat": true,
   "featured": {
-    "title": "Sight & Sound — David",
-    "when": "Confirm box office for Sunday times",
-    "where": "1001 Shepherd of the Hills Expy",
-    "why": "Climate-controlled biblical epic with live animals — strong Sunday family choice when asphalt is brutal.",
-    "url": "https://www.sight-sound.com/shows/branson/david/2026"
+    "title": "Big D's BBQ",
+    "when": "Lunch or early dinner",
+    "where": "1550 State Hwy 248",
+    "why": "Best ribs in Branson — casual, affordable, and a local favorite that hits the spot after a hot morning on the water. Cool indoor seating.",
+    "url": "https://bestbransonbbq.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Lake before the heat",
-      "detail": "Table Rock paddle or easy shoreline walk. Call SWPA before you launch; carry water."
+      "title": "Lake before the burn",
+      "detail": "Table Rock or Taneycomo early — cooler water, fewer boats. Check USACE gage and SWPA generation schedule. Carry extra water."
     },
     {
-      "when": "Afternoon",
-      "title": "Indoor matinee",
-      "detail": "Sight & Sound, Titanic, or a 76 Strip museum — real A/C. Skip long hikes at 2 PM."
+      "when": "Midday",
+      "title": "Indoor matinee or museum",
+      "detail": "Sight & Sound, Legends in Concert, or a 76 Strip museum. Real A/C when the heat index spikes past 100°."
     },
     {
-      "when": "Dusk",
-      "title": "Dinner, then a theatre",
-      "detail": "Lakeside or Landing dinner, then confirm tonight’s board before you drive in."
+      "when": "Evening",
+      "title": "Dinner then a show",
+      "detail": "Big D's BBQ or Lake House, then confirm tonight's board. Theatres stay cool late."
     }
   ],
   "indoor": [
     {
       "name": "Sight & Sound Theatres",
-      "detail": "David — spectacular sets, live animals; verify Sunday showtimes at the box office.",
+      "detail": "David or current production — climate-controlled biblical spectacular with live animals. Verify exact Friday times at box office.",
       "url": "https://www.sight-sound.com/shows/branson/david/2026"
     },
     {
-      "name": "Titanic Museum",
-      "detail": "Cool, dark, two-hour story when the heat index spikes.",
+      "name": "Titanic Museum Attraction",
+      "detail": "Cool, immersive two-hour experience on the 76. Strong for families when it's 99° outside.",
       "url": "https://titanicattraction.com/branson"
     },
     {
-      "name": "WonderWorks",
-      "detail": "Upside-down museum on the 76 — hands-on indoor cool-down.",
+      "name": "WonderWorks Branson",
+      "detail": "Upside-down hands-on museum — perfect air-conditioned afternoon for kids and adults.",
       "url": "https://www.wonderworksonline.com/branson/"
     }
   ],
-  "honesty": "Night Editor 2026-08-29 evening desk for Sunday 08-30. No 08-30 scouts yet — weather from Open-Meteo; shows patterns must be box-office confirmed. Farmers market is Tuesday-only (not featured Sunday)."
+  "honesty": "Night Editor run 2026-09-03 evening for Friday 09-04. No fresh scouts available (intel/shows/food/fishing/landing/golf/strip all missing). Carried forward from latest verified shows (09-03) and dining (08-16). Weather from Open-Meteo (99° high). Big D's BBQ per Friday rotation. All showtimes/prices must be confirmed at box office. Verify lake conditions locally."
 }
