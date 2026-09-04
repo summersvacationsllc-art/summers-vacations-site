@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Thursday warm-up",
-  "deck": "Pre-weekend energy on the Strip. Pick one matinee or go straight to an evening show.",
+  "hed": "Friday heat dome — lake first, then A/C",
+  "deck": "Friday, September 4. High near 99°F with brutal heat index. Dawn on Table Rock or Taneycomo is the only comfortable window — then indoor shows, museums, and air-conditioned dining. Verify lake levels and generation before heading out.",
   "pick": {
-    "title": "Shepherd of the Hills Outdoor Drama",
-    "when": "7:30 PM",
-    "where": "Shepherd of the Hills",
-    "why": "Ozarks outdoor drama — check weather and arrive early.",
-    "url": "https://theshepherdofthehills.com/",
-    "source": "desk"
+    "title": "Big D's BBQ",
+    "when": "Lunch or early dinner",
+    "where": "1550 State Hwy 248",
+    "why": "Best ribs in Branson — casual, affordable, and a local favorite that hits the spot after a hot morning on the water. Cool indoor seating.",
+    "url": "https://bestbransonbbq.com/",
+    "source": "night-editor"
   },
   "buckets": [
     {
@@ -231,13 +231,29 @@
       "count": 3
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Sight & Sound Theatres",
+      "detail": "David or current production — climate-controlled biblical spectacular with live animals. Verify exact Friday times at box office.",
+      "url": "https://www.sight-sound.com/shows/branson/david/2026"
+    },
+    {
+      "name": "Titanic Museum Attraction",
+      "detail": "Cool, immersive two-hour experience on the 76. Strong for families when it's 99° outside.",
+      "url": "https://titanicattraction.com/branson"
+    },
+    {
+      "name": "WonderWorks Branson",
+      "detail": "Upside-down hands-on museum — perfect air-conditioned afternoon for kids and adults.",
+      "url": "https://www.wonderworksonline.com/branson/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-03",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
+    "checked": "2026-09-04",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-04.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
