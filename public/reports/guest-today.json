@@ -1,68 +1,42 @@
 {
-  "date": "2026-09-03",
-  "generated_at": "2026-09-03T14:42:00+00:00",
+  "date": "2026-09-04",
+  "generated_at": "2026-09-04T05:30:34-05:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 2,
-    "turnovers": 2,
+    "check_ins": 3,
+    "check_outs": 0,
+    "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 6,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Penthouse",
-      "guest": "Austin Limacher",
+      "property": "Indian Point",
+      "guest": "Bj Cox",
+      "guests": 11,
+      "platform": "airbnb2",
+      "reservation_id": "res_wot7w7y",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Amanda Lee",
       "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_znfydpm",
+      "reservation_id": "res_ylbfwb4",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Kenneth Crawford",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_xopzsi1",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [
-    {
-      "property": "Modern Charmer",
-      "guest": "Lesa Yager",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_hoia0uc",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Dan West",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_a85fv3o",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [
-    {
-      "property": "Modern Charmer",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a6e6c849209b6575a3a0ae8"
-    },
-    {
-      "property": "Rustic Ozark",
-      "type": "turnover",
-      "status": "pending",
-      "checkout_time": "10:00 AM",
-      "next_checkin": "\u2014",
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
-      "same_day": false,
-      "reservation_id": "6a8c706f1d58f2f134b521a7"
-    }
-  ],
+  "check_outs": [],
+  "turnovers": [],
   "in_house": [
     {
       "property": "Woodland Retreat",
@@ -92,6 +66,36 @@
       "reservation_id": "res_znfydpm",
       "check_in": "2026-09-03",
       "check_out": "2026-09-06",
+      "nights": 3
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Bj Cox",
+      "guests": 11,
+      "platform": "airbnb2",
+      "reservation_id": "res_wot7w7y",
+      "check_in": "2026-09-04",
+      "check_out": "2026-09-07",
+      "nights": 3
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Amanda Lee",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_ylbfwb4",
+      "check_in": "2026-09-04",
+      "check_out": "2026-09-07",
+      "nights": 3
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Kenneth Crawford",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_xopzsi1",
+      "check_in": "2026-09-04",
+      "check_out": "2026-09-07",
       "nights": 3
     }
   ],
