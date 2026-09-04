@@ -217,9 +217,7 @@
       "ticketOk": true
     }
   ],
-  "freeEvents": [
-    "Deadline-guard: show grid carried/partial for 2026-09-04 \u2014 confirm box office."
-  ],
-  "magazineBuilt": "2026-09-03",
+  "freeEvents": [],
+  "magazineBuilt": "2026-09-04",
   "last_verified": "2026-08-31"
 }
