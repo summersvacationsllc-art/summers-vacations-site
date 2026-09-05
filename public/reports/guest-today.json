@@ -1,11 +1,11 @@
 {
   "date": "2026-09-05",
-  "generated_at": "2026-09-04T22:01:04-05:00",
+  "generated_at": "2026-09-05T13:30:36+00:00",
   "headline": {
     "check_ins": 2,
     "check_outs": 2,
-    "turnovers": 0,
-    "same_day_turnovers": 0,
+    "turnovers": 2,
+    "same_day_turnovers": 2,
     "in_house_units": 6,
     "units_total": 6
   },
@@ -45,7 +45,32 @@
       "time": "10:00 AM"
     }
   ],
-  "turnovers": [],
+  "turnovers": [
+    {
+      "property": "Woodland Retreat",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a474d9b91a94300133e5e20"
+    },
+    {
+      "property": "Peacock",
+      "type": "turnover",
+      "status": "pending",
+      "checkout_time": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "cleaner_note": "Unassigned in cleaners app \u2014 sync wanted",
+      "same_day": true,
+      "reservation_id": "6a3b218c76935a0013f148f6"
+    }
+  ],
   "in_house": [
     {
       "property": "Penthouse",

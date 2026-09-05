@@ -1,15 +1,15 @@
 {
-  "date": "2026-09-04",
+  "date": "2026-09-05",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday heat dome — lake first, then A/C",
-  "deck": "Friday, September 4. High near 99°F with brutal heat index. Dawn on Table Rock or Taneycomo is the only comfortable window — then indoor shows, museums, and air-conditioned dining. Verify lake levels and generation before heading out.",
+  "hed": "Heat Dome Holds: 102° Saturday with Possible Late Storms",
+  "deck": "Saturday at the lake brings another day of extreme heat with highs near 102°F and heat index values over 106°F. A slight chance of afternoon thunderstorms may offer brief relief before clearing into a warm evening. Stay hydrated, limit midday lake time, and seek air-conditioned shows or indoor attractions.",
   "pick": {
-    "title": "Big D's BBQ",
-    "when": "Lunch or early dinner",
-    "where": "1550 State Hwy 248",
-    "why": "Best ribs in Branson — casual, affordable, and a local favorite that hits the spot after a hot morning on the water. Cool indoor seating.",
-    "url": "https://bestbransonbbq.com/",
+    "title": "Miranda Lambert at Thunder Ridge",
+    "when": "Saturday Evening",
+    "where": "Thunder Ridge Nature Arena, Ridgedale",
+    "why": "Big-name country star kicks off Labor Day weekend with high-energy performance in a stunning outdoor setting.",
+    "url": "https://www.thunderridgenaturearena.com/",
     "source": "night-editor"
   },
   "buckets": [
@@ -233,27 +233,27 @@
   ],
   "indoor": [
     {
-      "name": "Sight & Sound Theatres",
-      "detail": "David or current production — climate-controlled biblical spectacular with live animals. Verify exact Friday times at box office.",
-      "url": "https://www.sight-sound.com/shows/branson/david/2026"
+      "name": "Silver Dollar City",
+      "detail": "Southern Gospel Picnic continues with live music and family entertainment in climate-controlled areas.",
+      "url": "https://www.silverdollarcity.com/"
     },
     {
-      "name": "Titanic Museum Attraction",
-      "detail": "Cool, immersive two-hour experience on the 76. Strong for families when it's 99° outside.",
-      "url": "https://titanicattraction.com/branson"
+      "name": "Branson Comedy Bash",
+      "detail": "New 2026 comedy show at Shepherd of the Hills Playhouse Theatre – perfect AC relief.",
+      "url": "https://www.branson.com/"
     },
     {
-      "name": "WonderWorks Branson",
-      "detail": "Upside-down hands-on museum — perfect air-conditioned afternoon for kids and adults.",
-      "url": "https://www.wonderworksonline.com/branson/"
+      "name": "King's Castle Theatre",
+      "detail": "Dublin's Irish Tenors & The Celtic Ladies deliver high-energy Celtic performance indoors.",
+      "url": "https://www.kingscastletheatre.com/"
     }
   ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-04",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-04.md, shows-data board. Scout prose on file."
+    "checked": "2026-09-05",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-05.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,

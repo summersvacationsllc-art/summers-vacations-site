@@ -1,7 +1,30 @@
 {
   "date": "2026-09-05",
-  "generated_at": "2026-09-04T22:01:04-05:00",
+  "generated_at": "2026-09-05T13:30:36+00:00",
   "units_total": 6,
-  "turnovers": [],
+  "turnovers": [
+    {
+      "property": "Woodland Retreat",
+      "property_id": "prop_axd3ku8",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a474d9b91a94300133e5e20"
+    },
+    {
+      "property": "Peacock",
+      "property_id": "prop_stunkz5",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a3b218c76935a0013f148f6"
+    }
+  ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
