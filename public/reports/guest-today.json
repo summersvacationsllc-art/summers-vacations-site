@@ -1,9 +1,9 @@
 {
-  "date": "2026-09-04",
-  "generated_at": "2026-09-04T14:30:07+00:00",
+  "date": "2026-09-05",
+  "generated_at": "2026-09-04T22:01:04-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 0,
+    "check_ins": 2,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 6,
@@ -11,42 +11,30 @@
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "Bj Cox",
-      "guests": 11,
+      "property": "Peacock",
+      "guest": "Tyson Busey",
+      "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_wot7w7y",
+      "reservation_id": "res_t1agi9f",
       "time": "4:00 PM"
     },
     {
-      "property": "Modern Charmer",
-      "guest": "Amanda Lee",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_ylbfwb4",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Kenneth Crawford",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_xopzsi1",
+      "property": "Woodland Retreat",
+      "guest": "Joni Skelley",
+      "guests": 6,
+      "platform": "website",
+      "reservation_id": "res_zqzzqzz",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_outs": [
     {
       "property": "Woodland Retreat",
       "guest": "Payton Eggers",
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_jkw3v2t",
-      "check_in": "2026-08-29",
-      "check_out": "2026-09-05",
-      "nights": 7
+      "time": "10:00 AM"
     },
     {
       "property": "Peacock",
@@ -54,10 +42,11 @@
       "guests": 3,
       "platform": "airbnb2",
       "reservation_id": "res_lileegr",
-      "check_in": "2026-09-01",
-      "check_out": "2026-09-05",
-      "nights": 4
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Austin Limacher",
@@ -97,6 +86,26 @@
       "check_in": "2026-09-04",
       "check_out": "2026-09-07",
       "nights": 3
+    },
+    {
+      "property": "Peacock",
+      "guest": "Tyson Busey",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_t1agi9f",
+      "check_in": "2026-09-05",
+      "check_out": "2026-09-06",
+      "nights": 1
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Joni Skelley",
+      "guests": 6,
+      "platform": "website",
+      "reservation_id": "res_zqzzqzz",
+      "check_in": "2026-09-05",
+      "check_out": "2026-09-07",
+      "nights": 2
     }
   ],
   "sync_notes": {

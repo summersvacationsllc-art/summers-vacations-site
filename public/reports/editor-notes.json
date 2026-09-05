@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-04",
-  "headline": "Friday heat dome — lake first, then A/C",
-  "lede": "Friday, September 4. High near 99°F with brutal heat index. Dawn on Table Rock or Taneycomo is the only comfortable window — then indoor shows, museums, and air-conditioned dining. Verify lake levels and generation before heading out.",
+  "for": "2026-09-05",
+  "headline": "Heat Dome Holds: 102° Saturday with Possible Late Storms",
+  "lede": "Saturday at the lake brings another day of extreme heat with highs near 102°F and heat index values over 106°F. A slight chance of afternoon thunderstorms may offer brief relief before clearing into a warm evening. Stay hydrated, limit midday lake time, and seek air-conditioned shows or indoor attractions.",
   "heat": true,
   "featured": {
-    "title": "Big D's BBQ",
-    "when": "Lunch or early dinner",
-    "where": "1550 State Hwy 248",
-    "why": "Best ribs in Branson — casual, affordable, and a local favorite that hits the spot after a hot morning on the water. Cool indoor seating.",
-    "url": "https://bestbransonbbq.com/"
+    "title": "Miranda Lambert at Thunder Ridge",
+    "when": "Saturday Evening",
+    "where": "Thunder Ridge Nature Arena, Ridgedale",
+    "why": "Big-name country star kicks off Labor Day weekend with high-energy performance in a stunning outdoor setting.",
+    "url": "https://www.thunderridgenaturearena.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Lake before the burn",
-      "detail": "Table Rock or Taneycomo early — cooler water, fewer boats. Check USACE gage and SWPA generation schedule. Carry extra water."
+      "title": "Early Lake Morning",
+      "detail": "Beat the heat with sunrise on Table Rock Lake. Calm waters and cooler temps make for ideal boating or fishing before 10 AM."
     },
     {
-      "when": "Midday",
-      "title": "Indoor matinee or museum",
-      "detail": "Sight & Sound, Legends in Concert, or a 76 Strip museum. Real A/C when the heat index spikes past 100°."
+      "when": "Afternoon",
+      "title": "Indoor Escape",
+      "detail": "Head to air-conditioned theaters or Silver Dollar City for shows and rides. Avoid peak sun between 1-5 PM when heat index peaks."
     },
     {
-      "when": "Evening",
-      "title": "Dinner then a show",
-      "detail": "Big D's BBQ or Lake House, then confirm tonight's board. Theatres stay cool late."
+      "when": "Dusk",
+      "title": "Evening Concert",
+      "detail": "Catch Miranda Lambert or one of the many evening shows. Outdoor venues cool down nicely after sunset."
     }
   ],
   "indoor": [
     {
-      "name": "Sight & Sound Theatres",
-      "detail": "David or current production — climate-controlled biblical spectacular with live animals. Verify exact Friday times at box office.",
-      "url": "https://www.sight-sound.com/shows/branson/david/2026"
+      "name": "Silver Dollar City",
+      "detail": "Southern Gospel Picnic continues with live music and family entertainment in climate-controlled areas.",
+      "url": "https://www.silverdollarcity.com/"
     },
     {
-      "name": "Titanic Museum Attraction",
-      "detail": "Cool, immersive two-hour experience on the 76. Strong for families when it's 99° outside.",
-      "url": "https://titanicattraction.com/branson"
+      "name": "Branson Comedy Bash",
+      "detail": "New 2026 comedy show at Shepherd of the Hills Playhouse Theatre – perfect AC relief.",
+      "url": "https://www.branson.com/"
     },
     {
-      "name": "WonderWorks Branson",
-      "detail": "Upside-down hands-on museum — perfect air-conditioned afternoon for kids and adults.",
-      "url": "https://www.wonderworksonline.com/branson/"
+      "name": "King's Castle Theatre",
+      "detail": "Dublin's Irish Tenors & The Celtic Ladies deliver high-energy Celtic performance indoors.",
+      "url": "https://www.kingscastletheatre.com/"
     }
   ],
-  "honesty": "Night Editor run 2026-09-03 evening for Friday 09-04. No fresh scouts available (intel/shows/food/fishing/landing/golf/strip all missing). Carried forward from latest verified shows (09-03) and dining (08-16). Weather from Open-Meteo (99° high). Big D's BBQ per Friday rotation. All showtimes/prices must be confirmed at box office. Verify lake conditions locally."
+  "honesty": "Editor notes generated from NWS forecast and available event listings for September 5, 2026. No fresh local scouts for tomorrow; carry-forward applied where needed. Verify showtimes and lake conditions locally."
 }
