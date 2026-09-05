@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-17",
+  "updated": "2026-09-04",
   "attractions": [
     {
       "name": "Silver Dollar City",
       "tag": "\ud83c\udfa2 #1 Theme Park",
-      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic Aug 27\u2013Sep 7.",
+      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic Sep 2\u20137, 2026 (through Monday).",
       "url": "https://www.silverdollarcity.com/",
       "featured": true,
       "lat": 36.6437587,
@@ -215,5 +215,5 @@
       "source": "scout:2026-08-17"
     }
   ],
-  "summerTip": "Buy SDC tickets online to skip the line. After 3 PM entry is discounted. Unlimited Summer Ticket: $99 for the whole season!"
+  "summerTip": "Southern Gospel Picnic at Silver Dollar City \u2013 September 2\u20137, 2026 (today through Monday) \u2013 All-day gospel music on stages throughout the park plus evening concerts in Echo Hollow Amphitheatre. Features artists including Mar"
 }

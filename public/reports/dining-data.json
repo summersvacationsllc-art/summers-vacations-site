@@ -1,14 +1,14 @@
 {
-  "updated": "2026-08-16",
+  "updated": "2026-09-04",
   "restaurants": [
     {
       "name": "Steamy Joe Cafe",
-      "cuisine": "Breakfast • Cafe",
+      "cuisine": "Breakfast \u2022 Cafe",
       "price": "$$",
       "tag": "Brian's favorite",
-      "desc": "Family-owned cafe at The Bradford — breakfast, brunch, lunch, espresso, and an Ozark view. Open daily 7am–2pm.",
+      "desc": "Family-owned cafe at The Bradford \u2014 breakfast, brunch, lunch, espresso, and an Ozark view. Open daily 7am\u20132pm.",
       "url": "https://steamyjoe.com/",
-      "venue": "3590 State Hwy 265 · The Bradford",
+      "venue": "3590 State Hwy 265 \u00b7 The Bradford",
       "lat": 36.65102,
       "lng": -93.31748
     },
@@ -17,7 +17,7 @@
       "cuisine": "Pizza",
       "price": "$$",
       "tag": "Brian's favorite",
-      "desc": "Hand-tossed pizza on Hwy 265 — easy family dinner on the way to Indian Point / SDC.",
+      "desc": "Hand-tossed pizza on Hwy 265 \u2014 easy family dinner on the way to Indian Point / SDC.",
       "url": "https://ozarkmtpizza.com/",
       "venue": "5378 State Hwy 265",
       "lat": 36.66977,
@@ -25,23 +25,23 @@
     },
     {
       "name": "Farmhouse Restaurant",
-      "cuisine": "Home-style • Breakfast",
+      "cuisine": "Home-style \u2022 Breakfast",
       "price": "$$",
       "tag": "Brian's favorite",
-      "desc": "Downtown Main Street classic since 1976 — biscuits, gravy, and a short walk to the Landing.",
+      "desc": "Downtown Main Street classic since 1976 \u2014 biscuits, gravy, and a short walk to the Landing.",
       "url": "https://www.farmhouserestaurantbranson.com/",
-      "venue": "119 W Main St · by the Landing",
+      "venue": "119 W Main St \u00b7 by the Landing",
       "lat": 36.64419,
       "lng": -93.21727
     },
     {
       "name": "White River Fish House",
-      "cuisine": "Lakeside • American",
+      "cuisine": "Lakeside \u2022 American",
       "price": "$$",
       "tag": "Host Pick",
       "desc": "Fresh fish with a view of Lake Taneycomo! Bass Pro's signature restaurant on the water.",
       "url": "https://www.whiteriverfishhouse.com/",
-      "venue": "Bass Pro Drive · Branson Landing",
+      "venue": "Bass Pro Drive \u00b7 Branson Landing",
       "lat": 36.64058,
       "lng": -93.2124
     },
@@ -57,13 +57,13 @@
       "lng": -93.24606
     },
     {
-      "name": "Osage Restaurant — Top of the Rock",
+      "name": "Osage Restaurant \u2014 Top of the Rock",
       "cuisine": "Fine Dining",
       "price": "$$$",
       "tag": "Scenic",
       "desc": "Fine dining with stunning Ozark views at Big Cedar's Top of the Rock.",
       "url": "https://bigcedar.com/dining/",
-      "venue": "Top of the Rock · Ridgedale",
+      "venue": "Top of the Rock \u00b7 Ridgedale",
       "lat": 36.54334,
       "lng": -93.25072
     },
@@ -74,7 +74,7 @@
       "tag": "Casual",
       "desc": "Casual dining with golf course views at Big Cedar Lodge.",
       "url": "https://bigcedar.com/dining/",
-      "venue": "Big Cedar Lodge · Ridgedale",
+      "venue": "Big Cedar Lodge \u00b7 Ridgedale",
       "lat": 36.545,
       "lng": -93.2485
     },
@@ -85,18 +85,18 @@
       "tag": "Fun Vibe",
       "desc": "Outdoor dining, live music, fire pits at Big Cedar. Great atmosphere!",
       "url": "https://bigcedar.com/dining/tall-tales/",
-      "venue": "Big Cedar Lodge · Ridgedale",
+      "venue": "Big Cedar Lodge \u00b7 Ridgedale",
       "lat": 36.5468,
       "lng": -93.2515
     },
     {
-      "name": "The Lake House — Indian Point",
+      "name": "The Lake House \u2014 Indian Point",
       "cuisine": "Bar & Grill",
       "price": "$$",
-      "tag": "🔥 Closest!",
+      "tag": "\ud83d\udd25 Closest!",
       "desc": "Right down the road! Beautiful lake views, full bar, live entertainment.",
       "url": "https://www.thelakehouseindianpoint.com/",
-      "venue": "Indian Point Road · Table Rock",
+      "venue": "Indian Point Road \u00b7 Table Rock",
       "lat": 36.6312,
       "lng": -93.3458
     },
@@ -107,7 +107,7 @@
       "tag": "Crazy Fun",
       "desc": "Branson icon! Crazy decor, games, treehouse bar, dancing. Open til 1AM.",
       "url": "https://cheekymonkeybar.com/",
-      "venue": "Montgomery Drive · Table Rock",
+      "venue": "Montgomery Drive \u00b7 Table Rock",
       "lat": 36.60317,
       "lng": -93.29786
     },
@@ -116,15 +116,15 @@
       "cuisine": "Tiki Bar",
       "price": "$$",
       "tag": "Tiki Bar",
-      "desc": "Swim-up bar on Table Rock Lake! Order drinks right from the water. Courtesy docks — boat right up.",
+      "desc": "Swim-up bar on Table Rock Lake! Order drinks right from the water. Courtesy docks \u2014 boat right up.",
       "url": "https://rocklane.com/bars-table-rock-lake/",
-      "venue": "611 Rock Lane · Table Rock",
+      "venue": "611 Rock Lane \u00b7 Table Rock",
       "lat": 36.63714,
       "lng": -93.34018
     },
     {
       "name": "Flaming Margaritas at the Landing",
-      "cuisine": "Mexican • Bar",
+      "cuisine": "Mexican \u2022 Bar",
       "price": "$$",
       "tag": "Hot Spot",
       "desc": "Famous margs, rooftop views, live music, fountain show views at Branson Landing!",
@@ -134,13 +134,13 @@
       "lng": -93.21447
     },
     {
-      "name": "Laketime Bistro — Kimberling City",
-      "cuisine": "Seafood • Steak",
+      "name": "Laketime Bistro \u2014 Kimberling City",
+      "cuisine": "Seafood \u2022 Steak",
       "price": "$$$",
       "tag": "Worth the Drive",
-      "desc": "Cozy lakeside hideaway! 4.5 ⭐ seafood & steak. Full bar. 20 min drive.",
+      "desc": "Cozy lakeside hideaway! 4.5 \u2b50 seafood & steak. Full bar. 20 min drive.",
       "url": "https://tableagent.com/springfield-mo/laketime-bistro/",
-      "venue": "Kimberling City · Table Rock",
+      "venue": "Kimberling City \u00b7 Table Rock",
       "lat": 36.636,
       "lng": -93.4155
     },
@@ -162,9 +162,10 @@
       "tag": "Sweet Treat",
       "desc": "Frozen custard and treats at the famous treehouse bar.",
       "url": "https://cheekymonkeybar.com/",
-      "venue": "Montgomery Drive · Table Rock",
+      "venue": "Montgomery Drive \u00b7 Table Rock",
       "lat": 36.60345,
       "lng": -93.2975
     }
-  ]
+  ],
+  "tip": "Friday dining in Branson highlights Big Whiskey's $11 steak & fries + happy hour at the Landing, Saltgrass steaks, Paula Deen's southern family-style comfort food, Starvin' Marvin's AYCE buffets/seafood specials, Andy B's games/dessert deals, White River Fish House, and Dolly Parton's Stampede dinner packages \u2014 verify "
 }
