@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-04",
+  "updated": "2026-09-06",
   "attractions": [
     {
       "name": "Silver Dollar City",
       "tag": "\ud83c\udfa2 #1 Theme Park",
-      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic Sep 2\u20137, 2026 (through Monday).",
+      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic at Silver Dollar City \u2013 Running through September 7 (including today).",
       "url": "https://www.silverdollarcity.com/",
       "featured": true,
       "lat": 36.6437587,
@@ -213,7 +213,17 @@
       "lat": 36.6447172,
       "lng": -93.2143766,
       "source": "scout:2026-08-17"
+    },
+    {
+      "name": "Weekend Context",
+      "tag": "Scout find",
+      "desc": "New find from scout (2026-09-06).",
+      "url": "",
+      "venue": "W 76 Country Blvd Branson",
+      "lat": 36.6415136,
+      "lng": -93.2475336,
+      "source": "scout:2026-09-06"
     }
   ],
-  "summerTip": "Southern Gospel Picnic at Silver Dollar City \u2013 September 2\u20137, 2026 (today through Monday) \u2013 All-day gospel music on stages throughout the park plus evening concerts in Echo Hollow Amphitheatre. Features artists including Mar"
+  "summerTip": "The Haygoods \u2013 2:00 PM at Clay Cooper Theatre (3216 W. Highway 76). High-energy family country and gospel music with lights, effects, and multi-generational appeal. Perfect for families stayin"
 }

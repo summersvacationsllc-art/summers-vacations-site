@@ -1,7 +1,30 @@
 {
   "date": "2026-09-06",
-  "generated_at": "2026-09-05T22:31:44-05:00",
+  "generated_at": "2026-09-06T06:48:54-05:00",
   "units_total": 6,
-  "turnovers": [],
+  "turnovers": [
+    {
+      "property": "Peacock",
+      "property_id": "prop_stunkz5",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": null,
+      "cleaner_assigned": false,
+      "reservation_id": "6a6279d30693123c46713891"
+    },
+    {
+      "property": "Penthouse",
+      "property_id": "prop_c84gb5j",
+      "checkout": "10:00 AM",
+      "next_checkin": "4:00 PM",
+      "status": "pending",
+      "same_day": true,
+      "cleaner_id": "cln_8prkj8x",
+      "cleaner_assigned": true,
+      "reservation_id": "6a80b9601d1d5f8d468d42fc"
+    }
+  ],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
