@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-05",
-  "headline": "Heat Dome Holds: 102° Saturday with Possible Late Storms",
-  "lede": "Saturday at the lake brings another day of extreme heat with highs near 102°F and heat index values over 106°F. A slight chance of afternoon thunderstorms may offer brief relief before clearing into a warm evening. Stay hydrated, limit midday lake time, and seek air-conditioned shows or indoor attractions.",
+  "for": "2026-09-06",
+  "headline": "Sunday Heat Continues: Mid-90s with Light Lake Breezes",
+  "lede": "Sunday, September 6th brings another warm day to the Ozarks with highs near 101°F and a low chance of precipitation. Lake levels remain boater-friendly after recent rains. Beat the afternoon heat with early morning lake time, air-conditioned shows, or shaded dining. Perfect weather for a relaxed family day before the workweek returns.",
   "heat": true,
   "featured": {
-    "title": "Miranda Lambert at Thunder Ridge",
-    "when": "Saturday Evening",
-    "where": "Thunder Ridge Nature Arena, Ridgedale",
-    "why": "Big-name country star kicks off Labor Day weekend with high-energy performance in a stunning outdoor setting.",
-    "url": "https://www.thunderridgenaturearena.com/"
+    "title": "Evening on Table Rock Lake",
+    "when": "Sunday Afternoon into Dusk",
+    "where": "Table Rock Lake / State Park Marina area",
+    "why": "Calmer waters and beautiful sunsets make this a favorite for first-timers. Rent a pontoon early or enjoy shoreline views from the parks. Confirm marina availability locally.",
+    "url": "https://www.tablerocklake.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early Lake Morning",
-      "detail": "Beat the heat with sunrise on Table Rock Lake. Calm waters and cooler temps make for ideal boating or fishing before 10 AM."
+      "title": "Early Lake or Breakfast",
+      "detail": "Coolest part of the day. Head to Table Rock for sunrise fishing or a relaxed breakfast at Steamy Joe Cafe with Ozark views before the heat builds."
     },
     {
       "when": "Afternoon",
-      "title": "Indoor Escape",
-      "detail": "Head to air-conditioned theaters or Silver Dollar City for shows and rides. Avoid peak sun between 1-5 PM when heat index peaks."
+      "title": "Indoor Shows & AC Relief",
+      "detail": "Escape the peak heat (heat index near 105°F) with a matinee at King's Castle Theatre or Legends in Concert. Silver Dollar City offers shaded walks and indoor attractions."
     },
     {
       "when": "Dusk",
-      "title": "Evening Concert",
-      "detail": "Catch Miranda Lambert or one of the many evening shows. Outdoor venues cool down nicely after sunset."
+      "title": "Evening Entertainment",
+      "detail": "Catch an evening show like Amazing Acrobats of Shanghai or a lakeside dinner. Temperatures drop comfortably after sunset for outdoor seating."
     }
   ],
   "indoor": [
     {
-      "name": "Silver Dollar City",
-      "detail": "Southern Gospel Picnic continues with live music and family entertainment in climate-controlled areas.",
-      "url": "https://www.silverdollarcity.com/"
-    },
-    {
-      "name": "Branson Comedy Bash",
-      "detail": "New 2026 comedy show at Shepherd of the Hills Playhouse Theatre – perfect AC relief.",
-      "url": "https://www.branson.com/"
-    },
-    {
       "name": "King's Castle Theatre",
-      "detail": "Dublin's Irish Tenors & The Celtic Ladies deliver high-energy Celtic performance indoors.",
+      "detail": "Dublin's Irish Tenors & The Celtic Ladies — lively matinee perfect for families seeking AC and culture.",
       "url": "https://www.kingscastletheatre.com/"
+    },
+    {
+      "name": "Legends in Concert",
+      "detail": "Afternoon tribute show with live band in a comfortable theater. Great for all ages and a cool break from the sun.",
+      "url": "https://legendsinconcert.com/location/branson-mo/"
+    },
+    {
+      "name": "Grand Shanghai Theatre",
+      "detail": "Amazing Acrobats of Shanghai evening performance — high-energy spectacle with air conditioning.",
+      "url": "https://www.grandshanghaitheatre.com/"
     }
   ],
-  "honesty": "Editor notes generated from NWS forecast and available event listings for September 5, 2026. No fresh local scouts for tomorrow; carry-forward applied where needed. Verify showtimes and lake conditions locally."
+  "honesty": "Editor notes for 2026-09-06 generated from Open-Meteo forecast (high ~101°F), current shows-data.json (2026-09-05 carry-forward), and dining rotation. No fresh scout files found for tomorrow — honest carry-forward applied. Verify showtimes, lake conditions, and exact temperatures locally. Never invented events or prices."
 }

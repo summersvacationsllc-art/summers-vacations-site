@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-05",
-  "generated_at": "2026-09-04T22:01:04-05:00",
+  "date": "2026-09-06",
+  "generated_at": "2026-09-05T22:31:41-05:00",
   "headline": {
     "check_ins": 2,
     "check_outs": 2,
@@ -12,51 +12,41 @@
   "check_ins": [
     {
       "property": "Peacock",
-      "guest": "Tyson Busey",
-      "guests": 6,
+      "guest": "Jamie Geisen",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_t1agi9f",
+      "reservation_id": "res_spadokv",
       "time": "4:00 PM"
     },
     {
-      "property": "Woodland Retreat",
-      "guest": "Joni Skelley",
+      "property": "Penthouse",
+      "guest": "Vijay Krishnan",
       "guests": 6,
-      "platform": "website",
-      "reservation_id": "res_zqzzqzz",
+      "platform": "airbnb2",
+      "reservation_id": "res_bfsk8ao",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Payton Eggers",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_jkw3v2t",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Peacock",
-      "guest": "Emily West",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_lileegr",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Austin Limacher",
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_znfydpm",
-      "check_in": "2026-09-03",
-      "check_out": "2026-09-06",
-      "nights": 3
+      "time": "10:00 AM"
     },
+    {
+      "property": "Peacock",
+      "guest": "Tyson Busey",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_t1agi9f",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Indian Point",
       "guest": "Bj Cox",
@@ -88,16 +78,6 @@
       "nights": 3
     },
     {
-      "property": "Peacock",
-      "guest": "Tyson Busey",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_t1agi9f",
-      "check_in": "2026-09-05",
-      "check_out": "2026-09-06",
-      "nights": 1
-    },
-    {
       "property": "Woodland Retreat",
       "guest": "Joni Skelley",
       "guests": 6,
@@ -106,6 +86,26 @@
       "check_in": "2026-09-05",
       "check_out": "2026-09-07",
       "nights": 2
+    },
+    {
+      "property": "Peacock",
+      "guest": "Jamie Geisen",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_spadokv",
+      "check_in": "2026-09-06",
+      "check_out": "2026-09-09",
+      "nights": 3
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Vijay Krishnan",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_bfsk8ao",
+      "check_in": "2026-09-06",
+      "check_out": "2026-09-07",
+      "nights": 1
     }
   ],
   "sync_notes": {
