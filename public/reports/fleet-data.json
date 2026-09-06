@@ -1,59 +1,45 @@
 {
   "date": "2026-09-06",
-  "turnovers": [],
+  "turnovers": [
+    {
+      "guesty_task_id": "6a72649c7c9562e172868e42",
+      "scheduled_date": "2026-09-06",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 1,
+      "same_day": true,
+      "status": "pending",
+      "property_name": "Peacock ",
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
+    },
+    {
+      "guesty_task_id": "6a8192dd4cfb44e0604f0f03",
+      "scheduled_date": "2026-09-06",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 1,
+      "same_day": true,
+      "status": "pending",
+      "property_name": "Penthouse",
+      "cleaner_name": "Trisha R",
+      "cleaner_id": "cln_8prkj8x",
+      "cleaner_assigned": true
+    }
+  ],
   "cleaners": [
     {
-      "name": "Mar\u00eda Gonz\u00e1lez",
-      "phone": "+151****0200",
-      "is_manager": 1
-    },
-    {
-      "name": "Ana L\u00f3pez",
-      "phone": "+14172306602",
-      "is_manager": 0
-    },
-    {
-      "name": "Carlos M\u00e9ndez",
-      "phone": "+15733180204",
-      "is_manager": 0
-    },
-    {
-      "name": "Jos\u00e9 Ram\u00edrez",
-      "phone": "+151****0201",
-      "is_manager": 0
-    },
-    {
-      "name": "Jos\u00e9 Ram\u00edrez",
-      "phone": "+15733180202",
-      "is_manager": 0
-    },
-    {
-      "name": "Luc\u00eda Torres",
-      "phone": "+151****0202",
-      "is_manager": 0
-    },
-    {
-      "name": "Luc\u00eda Torres",
-      "phone": "+15733180203",
-      "is_manager": 0
-    },
-    {
-      "name": "Mar\u00eda Gonz\u00e1lez",
-      "phone": "+15733180201",
-      "is_manager": 0
-    },
-    {
-      "name": "Pedro Hern\u00e1ndez",
-      "phone": "+14172306603",
+      "name": "Trisha R",
+      "phone": "",
       "is_manager": 0
     }
   ],
-  "sameDayCount": 0,
+  "sameDayCount": 2,
+  "units_total": 7,
   "guestySync": {
     "ok": true,
-    "lastRun": "2026-07-23 18:00:23",
-    "syncedCount": 105,
-    "note": "Synced: 0 new / 7 updated listings, 105 reservations, 0 turnover tasks created"
+    "lastRun": "2026-09-06T12:04:06.054Z",
+    "syncedCount": 67,
+    "note": "Synced: 0 new / 5 updated listings, 67 reservations, 0 turnover tasks created"
   },
   "reminder": {
     "enabled": true,
@@ -62,5 +48,6 @@
     "lastSent": "",
     "sentToday": false
   },
-  "generatedAt": "2026-09-06T06:50:22.388187"
+  "sync_status": "Live \u00b7 1 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
+  "generatedAt": "2026-09-06T07:04:06"
 }
