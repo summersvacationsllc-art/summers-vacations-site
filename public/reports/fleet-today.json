@@ -1,63 +1,7 @@
 {
   "date": "2026-09-07",
-  "generated_at": "2026-09-07T05:02:09-05:00",
+  "generated_at": "2026-09-07T15:59:45+00:00",
   "units_total": 6,
-  "turnovers": [
-    {
-      "property": "Penthouse",
-      "property_id": "prop_c84gb5j",
-      "checkout": "10:00 AM",
-      "next_checkin": "4:00 PM",
-      "status": "pending",
-      "same_day": true,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a9c3a105c68962ae4e69a74"
-    },
-    {
-      "property": "Modern Charmer",
-      "property_id": "prop_8bcl8j3",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a0a8d56daeb480015edff1b"
-    },
-    {
-      "property": "Indian Point",
-      "property_id": "prop_uiue2y1",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a3dca48d204f0001240c0c1"
-    },
-    {
-      "property": "Woodland Retreat",
-      "property_id": "prop_axd3ku8",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a7a0e9e2723cc9db0a5d474"
-    },
-    {
-      "property": "Rustic Ozark",
-      "property_id": "prop_fvhuyem",
-      "checkout": "10:00 AM",
-      "next_checkin": "\u2014",
-      "status": "pending",
-      "same_day": false,
-      "cleaner_id": null,
-      "cleaner_assigned": false,
-      "reservation_id": "6a7b6af10a8ed2e1d0ec8e7e"
-    }
-  ],
+  "turnovers": [],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
 }
