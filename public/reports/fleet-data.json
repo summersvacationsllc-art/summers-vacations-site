@@ -1,45 +1,75 @@
 {
-  "date": "2026-09-06",
+  "date": "2026-09-07",
   "turnovers": [
     {
-      "guesty_task_id": "6a72649c7c9562e172868e42",
-      "scheduled_date": "2026-09-06",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 1,
-      "same_day": true,
-      "status": "pending",
-      "property_name": "Peacock ",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    },
-    {
-      "guesty_task_id": "6a8192dd4cfb44e0604f0f03",
-      "scheduled_date": "2026-09-06",
+      "guesty_task_id": "6a9c3e8f638101b30f886d84",
+      "scheduled_date": "2026-09-07",
       "checkout_time": "10:00 AM",
       "is_same_day": 1,
       "same_day": true,
       "status": "pending",
       "property_name": "Penthouse",
-      "cleaner_name": "Trisha R",
-      "cleaner_id": "cln_8prkj8x",
-      "cleaner_assigned": true
-    }
-  ],
-  "cleaners": [
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
+    },
     {
-      "name": "Trisha R",
-      "phone": "",
-      "is_manager": 0
+      "guesty_task_id": "6a72647d7c9562e172868d5f",
+      "scheduled_date": "2026-09-07",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 0,
+      "same_day": false,
+      "status": "pending",
+      "property_name": "Modern Charmer",
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
+    },
+    {
+      "guesty_task_id": "6a72647d5134f2fb2042c2af",
+      "scheduled_date": "2026-09-07",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 0,
+      "same_day": false,
+      "status": "pending",
+      "property_name": "Indian Point ",
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
+    },
+    {
+      "guesty_task_id": "6a7b013c5de4d9c0c1faeb2b",
+      "scheduled_date": "2026-09-07",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 0,
+      "same_day": false,
+      "status": "pending",
+      "property_name": "Woodland Retreat",
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
+    },
+    {
+      "guesty_task_id": "6a7c52bb65d4411f12edb1b7",
+      "scheduled_date": "2026-09-07",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 0,
+      "same_day": false,
+      "status": "pending",
+      "property_name": "Rustic Ozark",
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
     }
   ],
-  "sameDayCount": 2,
+  "cleaners": [],
+  "sameDayCount": 1,
   "units_total": 7,
   "guestySync": {
     "ok": true,
-    "lastRun": "2026-09-06T12:04:06.054Z",
+    "lastRun": "2026-09-07T10:32:33.024Z",
     "syncedCount": 67,
-    "note": "Synced: 0 new / 5 updated listings, 67 reservations, 0 turnover tasks created"
+    "note": "Synced: 0 new / 5 updated listings, 67 reservations, 1 turnover tasks created"
   },
   "reminder": {
     "enabled": true,
@@ -48,6 +78,6 @@
     "lastSent": "",
     "sentToday": false
   },
-  "sync_status": "Live \u00b7 1 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
-  "generatedAt": "2026-09-06T07:04:06"
+  "sync_status": "Live \u00b7 5 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
+  "generatedAt": "2026-09-07T05:32:33"
 }
