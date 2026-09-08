@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "attractions": [
     {
       "name": "Silver Dollar City",
       "tag": "\ud83c\udfa2 #1 Theme Park",
-      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic at Silver Dollar City \u2013 Running through September 7 (including today).",
+      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic at Silver Dollar City \u2013 Final day (through Sep 7).",
       "url": "https://www.silverdollarcity.com/",
       "featured": true,
       "lat": 36.6437587,
@@ -225,5 +225,5 @@
       "source": "scout:2026-09-06"
     }
   ],
-  "summerTip": "The Haygoods \u2013 2:00 PM at Clay Cooper Theatre (3216 W. Highway 76). High-energy family country and gospel music with lights, effects, and multi-generational appeal. Perfect for families stayin"
+  "summerTip": "Branson Wings of Pride Air Show (featuring U.S. Air Force Thunderbirds) \u2013 Final day, September 5\u20137 at Branson Airport (Hollister). Epic military aircraft displays, aerobatics, and celebration of America\u2019s 250th anniversary. Tickets limited per day and"
 }
