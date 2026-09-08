@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "attractions": [
     {
       "name": "Silver Dollar City",
       "tag": "\ud83c\udfa2 #1 Theme Park",
-      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic at Silver Dollar City \u2013 Final day (through Sep 7).",
+      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Sept 10\u201312 at Full Throttle Distillery Gril.",
       "url": "https://www.silverdollarcity.com/",
       "featured": true,
       "lat": 36.6437587,
@@ -225,5 +225,5 @@
       "source": "scout:2026-09-06"
     }
   ],
-  "summerTip": "Branson Wings of Pride Air Show (featuring U.S. Air Force Thunderbirds) \u2013 Final day, September 5\u20137 at Branson Airport (Hollister). Epic military aircraft displays, aerobatics, and celebration of America\u2019s 250th anniversary. Tickets limited per day and"
+  "summerTip": "Beach Boys California Dreamin' \u2013 10:00 AM at Hamner's Variety Theater (3090 Shepherd of the Hills Expy). Classic surf-rock hits and harmonies in a family-friendly show. Multiple sources confirm performance toda"
 }
