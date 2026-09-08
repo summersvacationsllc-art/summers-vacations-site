@@ -1,66 +1,16 @@
 {
-  "date": "2026-09-07",
-  "generated_at": "2026-09-07T15:59:44+00:00",
+  "date": "2026-09-08",
+  "generated_at": "2026-09-08T08:37:49-05:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 5,
+    "check_ins": 0,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 2,
     "units_total": 6
   },
-  "check_ins": [
-    {
-      "property": "Penthouse",
-      "guest": "MaryAnn Busenitz",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_w0u9xqi",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Indian Point",
-      "guest": "Bj Cox",
-      "guests": 11,
-      "platform": "airbnb2",
-      "reservation_id": "res_wot7w7y",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Modern Charmer",
-      "guest": "Amanda Lee",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_ylbfwb4",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Kenneth Crawford",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_xopzsi1",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Joni Skelley",
-      "guests": 6,
-      "platform": "website",
-      "reservation_id": "res_zqzzqzz",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Vijay Krishnan",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_bfsk8ao",
-      "time": "10:00 AM"
-    }
-  ],
+  "check_ins": [],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
