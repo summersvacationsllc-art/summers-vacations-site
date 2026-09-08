@@ -1,75 +1,14 @@
 {
-  "date": "2026-09-07",
-  "turnovers": [
-    {
-      "guesty_task_id": "6a9c3e8f638101b30f886d84",
-      "scheduled_date": "2026-09-07",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 1,
-      "same_day": true,
-      "status": "pending",
-      "property_name": "Penthouse",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    },
-    {
-      "guesty_task_id": "6a72647d7c9562e172868d5f",
-      "scheduled_date": "2026-09-07",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 0,
-      "same_day": false,
-      "status": "pending",
-      "property_name": "Modern Charmer",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    },
-    {
-      "guesty_task_id": "6a72647d5134f2fb2042c2af",
-      "scheduled_date": "2026-09-07",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 0,
-      "same_day": false,
-      "status": "pending",
-      "property_name": "Indian Point ",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    },
-    {
-      "guesty_task_id": "6a7b013c5de4d9c0c1faeb2b",
-      "scheduled_date": "2026-09-07",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 0,
-      "same_day": false,
-      "status": "pending",
-      "property_name": "Woodland Retreat",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    },
-    {
-      "guesty_task_id": "6a7c52bb65d4411f12edb1b7",
-      "scheduled_date": "2026-09-07",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 0,
-      "same_day": false,
-      "status": "pending",
-      "property_name": "Rustic Ozark",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    }
-  ],
+  "date": "2026-09-08",
+  "turnovers": [],
   "cleaners": [],
-  "sameDayCount": 1,
+  "sameDayCount": 0,
   "units_total": 7,
   "guestySync": {
     "ok": true,
-    "lastRun": "2026-09-07T10:32:33.024Z",
-    "syncedCount": 67,
-    "note": "Synced: 0 new / 5 updated listings, 67 reservations, 1 turnover tasks created"
+    "lastRun": "2026-09-08T13:46:13.935Z",
+    "syncedCount": 66,
+    "note": "Synced: 0 new / 5 updated listings, 66 reservations, 0 turnover tasks created"
   },
   "reminder": {
     "enabled": true,
@@ -78,6 +17,6 @@
     "lastSent": "",
     "sentToday": false
   },
-  "sync_status": "Live \u00b7 5 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
-  "generatedAt": "2026-09-07T05:32:33"
+  "sync_status": "Live \u00b7 all today's turnovers have a cleaner_id",
+  "generatedAt": "2026-09-08T08:46:14"
 }
