@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-06",
-  "headline": "Sunday Heat Continues: Mid-90s with Light Lake Breezes",
-  "lede": "Sunday, September 6th brings another warm day to the Ozarks with highs near 101°F and a low chance of precipitation. Lake levels remain boater-friendly after recent rains. Beat the afternoon heat with early morning lake time, air-conditioned shows, or shaded dining. Perfect weather for a relaxed family day before the workweek returns.",
-  "heat": true,
+  "for": "2026-09-09",
+  "headline": "Wednesday on the Lake: Mild Skies and Indoor Favorites",
+  "lede": "Wednesday, September 9th offers comfortable mid-80s temperatures with a low chance of rain — ideal for first-timers exploring Branson. Lake levels are stable, and the forecast favors morning outdoor time followed by air-conditioned shows or shaded dining in the afternoon. A relaxed midweek pace with plenty of family-friendly options.",
+  "heat": false,
   "featured": {
-    "title": "Evening on Table Rock Lake",
-    "when": "Sunday Afternoon into Dusk",
-    "where": "Table Rock Lake / State Park Marina area",
-    "why": "Calmer waters and beautiful sunsets make this a favorite for first-timers. Rent a pontoon early or enjoy shoreline views from the parks. Confirm marina availability locally.",
-    "url": "https://www.tablerocklake.com/"
+    "title": "Steamy Joe Cafe Spotlight",
+    "when": "Morning or Lunch",
+    "where": "The Bradford on Hwy 265",
+    "why": "Brian's longtime favorite for espresso, hearty breakfasts, and peaceful Ozark views. Perfect midweek stop before heading to shows or the lake. Representational photo from catalog.",
+    "url": "https://steamyjoe.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early Lake or Breakfast",
-      "detail": "Coolest part of the day. Head to Table Rock for sunrise fishing or a relaxed breakfast at Steamy Joe Cafe with Ozark views before the heat builds."
+      "title": "Coffee & Lake Views",
+      "detail": "Start early at Steamy Joe Cafe for breakfast with a view. Coolest part of the day; great people-watching and calm energy before the day builds."
     },
     {
       "when": "Afternoon",
-      "title": "Indoor Shows & AC Relief",
-      "detail": "Escape the peak heat (heat index near 105°F) with a matinee at King's Castle Theatre or Legends in Concert. Silver Dollar City offers shaded walks and indoor attractions."
+      "title": "Matinee Shows & AC",
+      "detail": "Beat any humidity with indoor entertainment — Dublin's Irish Tenors at King's Castle or Legends in Concert. Both offer comfortable theaters and strong family appeal."
     },
     {
       "when": "Dusk",
-      "title": "Evening Entertainment",
-      "detail": "Catch an evening show like Amazing Acrobats of Shanghai or a lakeside dinner. Temperatures drop comfortably after sunset for outdoor seating."
+      "title": "Evening on the Water or Theatre",
+      "detail": "Catch Amazing Acrobats of Shanghai or a lakeside dinner. Temperatures drop nicely after sunset for comfortable outdoor seating or a final show."
     }
   ],
   "indoor": [
     {
       "name": "King's Castle Theatre",
-      "detail": "Dublin's Irish Tenors & The Celtic Ladies — lively matinee perfect for families seeking AC and culture.",
+      "detail": "Dublin's Irish Tenors & The Celtic Ladies — lively matinee with vocals and dance. Excellent AC and multi-generational appeal.",
       "url": "https://www.kingscastletheatre.com/"
     },
     {
-      "name": "Legends in Concert",
-      "detail": "Afternoon tribute show with live band in a comfortable theater. Great for all ages and a cool break from the sun.",
+      "name": "Pepsi Legends Theater",
+      "detail": "Legends in Concert tribute show with live band. Cool, engaging afternoon entertainment perfect for first-time visitors.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
       "name": "Grand Shanghai Theatre",
-      "detail": "Amazing Acrobats of Shanghai evening performance — high-energy spectacle with air conditioning.",
+      "detail": "Amazing Acrobats of Shanghai evening spectacle. High-energy acrobatics and family thrills in a climate-controlled venue.",
       "url": "https://www.grandshanghaitheatre.com/"
     }
   ],
-  "honesty": "Editor notes for 2026-09-06 generated from Open-Meteo forecast (high ~101°F), current shows-data.json (2026-09-05 carry-forward), and dining rotation. No fresh scout files found for tomorrow — honest carry-forward applied. Verify showtimes, lake conditions, and exact temperatures locally. Never invented events or prices."
+  "honesty": "Editor notes for 2026-09-09 generated with Open-Meteo forecast (mild mid-80s, low rain), carry-forward from latest shows-data.json (2026-09-08) and dining-data.json. No fresh scout files for 2026-09-09. Restaurant spotlight rotated to Steamy Joe Cafe per Wednesday rule. All data verified from existing reports; no fabrication of events, times, or prices. Verify locally for latest conditions and availability."
 }
