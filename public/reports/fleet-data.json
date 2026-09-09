@@ -1,14 +1,27 @@
 {
-  "date": "2026-09-08",
-  "turnovers": [],
+  "date": "2026-09-09",
+  "turnovers": [
+    {
+      "guesty_task_id": "6a72647d7c9562e172868d6a",
+      "scheduled_date": "2026-09-09",
+      "checkout_time": "10:00 AM",
+      "is_same_day": 0,
+      "same_day": false,
+      "status": "pending",
+      "property_name": "Peacock ",
+      "cleaner_name": null,
+      "cleaner_id": null,
+      "cleaner_assigned": false
+    }
+  ],
   "cleaners": [],
   "sameDayCount": 0,
   "units_total": 7,
   "guestySync": {
     "ok": true,
-    "lastRun": "2026-09-08T13:46:13.935Z",
-    "syncedCount": 66,
-    "note": "Synced: 0 new / 5 updated listings, 66 reservations, 0 turnover tasks created"
+    "lastRun": "2026-09-09T11:41:25.785Z",
+    "syncedCount": 69,
+    "note": "Synced: 0 new / 5 updated listings, 69 reservations, 0 turnover tasks created"
   },
   "reminder": {
     "enabled": true,
@@ -17,6 +30,6 @@
     "lastSent": "",
     "sentToday": false
   },
-  "sync_status": "Live \u00b7 all today's turnovers have a cleaner_id",
-  "generatedAt": "2026-09-08T08:46:14"
+  "sync_status": "Live \u00b7 1 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
+  "generatedAt": "2026-09-09T06:41:26"
 }
