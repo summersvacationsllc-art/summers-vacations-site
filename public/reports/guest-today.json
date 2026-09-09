@@ -1,28 +1,27 @@
 {
-  "date": "2026-09-08",
-  "generated_at": "2026-09-08T08:37:49-05:00",
+  "date": "2026-09-09",
+  "generated_at": "2026-09-09T06:23:46-05:00",
   "headline": {
     "check_ins": 0,
-    "check_outs": 0,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 2,
-    "units_total": 6
+    "in_house_units": 1,
+    "units_total": 5
   },
   "check_ins": [],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_outs": [
     {
       "property": "Peacock",
       "guest": "Jamie Geisen",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_spadokv",
-      "check_in": "2026-09-06",
-      "check_out": "2026-09-09",
-      "nights": 3
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Penthouse",
       "guest": "MaryAnn Busenitz",
