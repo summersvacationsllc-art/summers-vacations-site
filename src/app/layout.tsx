@@ -41,12 +41,12 @@ export default function RootLayout({
       <head>
         {/* Google Analytics 4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGZ67283DT"></script>
-        <script>
+        <script dangerouslySetInnerHTML={{ __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag("config", "G-LGZ67283DT");
-        </script>
+          gtag('config', 'G-LGZ67283DT');
+        ` }} />
       </head>
       <body className="min-h-screen flex flex-col font-sans">{children}</body>
     </html>
