@@ -217,10 +217,7 @@
       "ticketOk": true
     }
   ],
-  "freeEvents": [
-    "Deadline-guard: show grid carried/partial for 2026-09-09 \u2014 confirm box office."
-  ],
-  "magazineBuilt": "2026-09-07",
-  "last_verified": "2026-09-10T05:01:42-05:00",
-  "note": "Date bumped from scout presence 2026-09-10; verify showtimes locally."
+  "freeEvents": [],
+  "magazineBuilt": "2026-09-10",
+  "last_verified": "2026-09-10T05:01:42-05:00"
 }
