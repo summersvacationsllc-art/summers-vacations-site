@@ -1,25 +1,41 @@
 {
-  "date": "2026-09-09",
-  "generated_at": "2026-09-09T06:23:46-05:00",
+  "date": "2026-09-10",
+  "generated_at": "2026-09-10T05:30:23-05:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 1,
+    "check_ins": 3,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 1,
-    "units_total": 5
+    "in_house_units": 4,
+    "units_total": 6
   },
-  "check_ins": [],
-  "check_outs": [
+  "check_ins": [
     {
-      "property": "Peacock",
-      "guest": "Jamie Geisen",
+      "property": "Modern Charmer",
+      "guest": "Sahara Barker-Wellesley",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_dw9yhce",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Miranda McLendon",
       "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_spadokv",
-      "time": "10:00 AM"
+      "reservation_id": "res_4al62r1",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Brittnee Smith",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_67ciy9a",
+      "time": "4:00 PM"
     }
   ],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
@@ -31,6 +47,36 @@
       "check_in": "2026-09-07",
       "check_out": "2026-09-11",
       "nights": 4
+    },
+    {
+      "property": "Modern Charmer",
+      "guest": "Sahara Barker-Wellesley",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_dw9yhce",
+      "check_in": "2026-09-10",
+      "check_out": "2026-09-12",
+      "nights": 2
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Miranda McLendon",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_4al62r1",
+      "check_in": "2026-09-10",
+      "check_out": "2026-09-12",
+      "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Brittnee Smith",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_67ciy9a",
+      "check_in": "2026-09-10",
+      "check_out": "2026-09-12",
+      "nights": 2
     }
   ],
   "sync_notes": {
