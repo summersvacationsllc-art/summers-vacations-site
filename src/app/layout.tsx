@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -13,6 +14,14 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
+
+const GA_MEASUREMENT_ID = "G-LGZ67283DT";
+const GA_INLINE_SCRIPT = [
+  "window.dataLayer = window.dataLayer || [];",
+  "function gtag(){window.dataLayer.push(arguments);}",
+  "gtag('js', new Date());",
+  "gtag('config', '" + GA_MEASUREMENT_ID + "');",
+].join("\n");
 
 export const metadata: Metadata = {
   title: "My Branson Vacation | Family Condos Near Table Rock Lake",
@@ -38,17 +47,18 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakarta.variable} ${fraunces.variable} antialiased`}
     >
-      <head>
-        {/* Google Analytics 4 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGZ67283DT"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-LGZ67283DT');
-        </script>
-      </head>
-      <body className="min-h-screen flex flex-col font-sans">{children}</body>
+      <body className="min-h-screen flex flex-col font-sans">
+        <Script
+          src={"https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: GA_INLINE_SCRIPT }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
