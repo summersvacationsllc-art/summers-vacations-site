@@ -134,7 +134,14 @@ export default function Home() {
       {/* ═══════════ NAV ═══════════ */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-sky-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 no-underline group">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <a
+            href="/owners.html"
+            className="shrink-0 inline-flex items-center px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-extrabold tracking-wide uppercase no-underline text-white bg-[#d4a574] hover:bg-[#c99666] shadow-md"
+          >
+            List Your Property
+          </a>
+          <Link href="/" className="flex items-center gap-2.5 no-underline group min-w-0">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-extrabold text-sm shadow-md bg-gradient-to-br from-[#0c4a6e] to-[#0ea5e9]">
               MB
             </div>
@@ -147,6 +154,7 @@ export default function Home() {
               </div>
             </div>
           </Link>
+          </div>
 
           <nav className="hidden lg:flex items-center gap-1">
             {[
@@ -200,6 +208,7 @@ export default function Home() {
               { label: "Reviews", href: "#reviews" },
               { label: "Talk to Jeb", href: "/jeb" },
               { label: "Contact", href: "#contact" },
+              { label: "List Your Property", href: "/owners.html" },
             ].map((item) => (
               <a
                 key={item.href}
