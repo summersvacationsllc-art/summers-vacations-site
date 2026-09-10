@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "attractions": [
     {
       "name": "Silver Dollar City",
       "tag": "\ud83c\udfa2 #1 Theme Park",
-      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Sept 10\u201312 at Full Throttle Distillery Gril.",
+      "desc": "America's #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Harvest Festival \u2014 Starts tomorrow (September 11\u2013October 31, 2026).",
       "url": "https://www.silverdollarcity.com/",
       "featured": true,
       "lat": 36.6437587,
@@ -225,5 +225,5 @@
       "source": "scout:2026-09-06"
     }
   ],
-  "summerTip": "Beach Boys California Dreamin' \u2013 10:00 AM at Hamner's Variety Theater (3090 Shepherd of the Hills Expy). Classic surf-rock hits and harmonies in a family-friendly show. Multiple sources confirm performance toda"
+  "summerTip": "Harley-Davidson National H.O.G. Rally at Full Throttle Branson Bike Week \u2014 September 9\u201312, 2026 (ongoing today). Historic Downtown Branson & Full Throttle Distillery Grill & Smokehouse (119 W Pacific St). Three-day rider celebration with live music, ve"
 }
