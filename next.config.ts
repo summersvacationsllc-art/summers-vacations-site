@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["edge-tts-universal"],
+  async rewrites() {
+    return [{ source: "/owners", destination: "/owners.html" }];
+  },
   async headers() {
     return [
       {

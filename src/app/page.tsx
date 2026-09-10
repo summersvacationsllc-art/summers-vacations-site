@@ -1137,6 +1137,12 @@ export default function Home() {
               >
                 Book Your Stay
               </a>
+              <a
+                href="/owners.html"
+                className="hover:text-amber-300 no-underline"
+              >
+                Would you like to list your property with us?
+              </a>
             </div>
           </div>
           <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-sky-400">
