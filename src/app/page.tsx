@@ -135,6 +135,9 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-sky-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <span className="hidden sm:inline text-[11px] sm:text-xs font-extrabold tracking-wide text-[#0c4a6e] whitespace-nowrap">
+            Partner with us!
+          </span>
           <a
             href="/owners.html"
             className="shrink-0 inline-flex items-center px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-extrabold tracking-wide uppercase no-underline text-white bg-[#d4a574] hover:bg-[#c99666] shadow-md"
