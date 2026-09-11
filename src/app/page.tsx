@@ -88,24 +88,25 @@ export default function Home() {
                 blurb?: string;
                 badge?: string;
                 bookUrl?: string;
-              }) => ({
-                name: l.name || l.title || "Untitled",
-                slug: l.slug,
-                photo: l.photo || null,
-                sleeps:
-                  l.sleeps ||
-                  (l.accommodates && l.accommodates > 0
-                    ? String(l.accommodates)
-                    : "?"),
-                tag: l.tag,
-                beds: l.beds,
-                area: l.area,
-                blurb: l.blurb,
-                badge: l.badge,
-                bookUrl:
-                  l.bookUrl ||
-                  PROPERTIES.find((p) => p.slug === l.slug)?.bookUrl,
-              })
+              }) => {
+                const hardcoded = PROPERTIES.find((p) => p.slug === l.slug);
+                return {
+                  name: l.name || l.title || hardcoded?.name || "Untitled",
+                  slug: l.slug,
+                  photo: l.photo || hardcoded?.photo || null,
+                  sleeps:
+                    l.sleeps ||
+                    (l.accommodates && l.accommodates > 0
+                      ? String(l.accommodates)
+                      : hardcoded?.sleeps || "?"),
+                  tag: l.tag || hardcoded?.tag,
+                  beds: l.beds || hardcoded?.beds,
+                  area: l.area || hardcoded?.area,
+                  blurb: l.blurb || hardcoded?.blurb,
+                  badge: l.badge || hardcoded?.badge,
+                  bookUrl: l.bookUrl || hardcoded?.bookUrl,
+                };
+              }
             )
           );
         }

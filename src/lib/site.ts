@@ -81,10 +81,10 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "5BR · 4BA",
     area: "Indian Point",
     slug: "branson-family-haven",
-    photo:
-      "/property-photos/branson-family-haven/114C6EBF-D9C1-4E79-8777-DDB797DD6931_1_105_c.jpeg",
+    photo: "/property-photos/branson-family-haven/aaa-house.jpg",
     blurb: "Standalone 5BR house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
+    bookUrl: "https://bransonfamilyhaven.guestybookings.com/",
   },
 ];
 
