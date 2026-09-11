@@ -1,24 +1,12 @@
 {
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "turnovers": [
     {
-      "guesty_task_id": "6a72647e7c9562e172868d75",
-      "scheduled_date": "2026-09-10",
+      "guesty_task_id": "6a9b2365fce4c8995a1bec5d",
+      "scheduled_date": "2026-09-11",
       "checkout_time": "10:00 AM",
-      "is_same_day": 0,
-      "same_day": false,
-      "status": "pending",
-      "property_name": "Peacock ",
-      "cleaner_name": null,
-      "cleaner_id": null,
-      "cleaner_assigned": false
-    },
-    {
-      "guesty_task_id": "6a98005581065018f94dcb81",
-      "scheduled_date": "2026-09-10",
-      "checkout_time": "10:00 AM",
-      "is_same_day": 0,
-      "same_day": false,
+      "is_same_day": 1,
+      "same_day": true,
       "status": "pending",
       "property_name": "Penthouse",
       "cleaner_name": null,
@@ -27,13 +15,13 @@
     }
   ],
   "cleaners": [],
-  "sameDayCount": 0,
+  "sameDayCount": 1,
   "units_total": 7,
   "guestySync": {
     "ok": true,
-    "lastRun": "2026-09-10T10:32:18.026Z",
-    "syncedCount": 71,
-    "note": "Synced: 0 new / 5 updated listings, 71 reservations, 2 turnover tasks created"
+    "lastRun": "2026-09-11T10:36:27.009Z",
+    "syncedCount": 72,
+    "note": "Synced: 0 new / 5 updated listings, 72 reservations, 1 turnover tasks created"
   },
   "reminder": {
     "enabled": true,
@@ -42,6 +30,6 @@
     "lastSent": "",
     "sentToday": false
   },
-  "sync_status": "Live \u00b7 2 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
-  "generatedAt": "2026-09-10T05:32:18"
+  "sync_status": "Live \u00b7 1 unassigned turnover(s) \u2014 open /ops to assign (companies still training)",
+  "generatedAt": "2026-09-11T05:36:27"
 }
