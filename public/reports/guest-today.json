@@ -1,53 +1,44 @@
 {
-  "date": "2026-09-10",
-  "generated_at": "2026-09-10T14:35:22+00:00",
+  "date": "2026-09-11",
+  "generated_at": "2026-09-11T05:36:29-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 0,
+    "check_ins": 2,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Modern Charmer",
-      "guest": "Sahara Barker-Wellesley",
+      "property": "Peacock",
+      "guest": "Carmon Zaunbrecher",
       "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_dw9yhce",
+      "reservation_id": "res_yrr0usi",
       "time": "4:00 PM"
     },
     {
-      "property": "Rustic Ozark",
-      "guest": "Miranda McLendon",
-      "guests": 5,
+      "property": "Penthouse",
+      "guest": "Becky Kridner",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_4al62r1",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Brittnee Smith",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_67ciy9a",
+      "reservation_id": "res_shqaty4",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_outs": [
     {
       "property": "Penthouse",
       "guest": "MaryAnn Busenitz",
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_w0u9xqi",
-      "check_in": "2026-09-07",
-      "check_out": "2026-09-11",
-      "nights": 4
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Modern Charmer",
       "guest": "Sahara Barker-Wellesley",
@@ -77,6 +68,26 @@
       "check_in": "2026-09-10",
       "check_out": "2026-09-12",
       "nights": 2
+    },
+    {
+      "property": "Peacock",
+      "guest": "Carmon Zaunbrecher",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_yrr0usi",
+      "check_in": "2026-09-11",
+      "check_out": "2026-09-13",
+      "nights": 2
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Becky Kridner",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_shqaty4",
+      "check_in": "2026-09-11",
+      "check_out": "2026-09-14",
+      "nights": 3
     }
   ],
   "sync_notes": {
