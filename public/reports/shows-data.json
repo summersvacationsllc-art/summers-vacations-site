@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-12",
   "shows": [
     {
       "name": "Dublin's Irish Tenors & The Celtic Ladies",
@@ -217,7 +217,9 @@
       "ticketOk": true
     }
   ],
-  "freeEvents": [],
+  "freeEvents": [
+    "Deadline-guard: show grid carried/partial for 2026-09-12 \u2014 confirm box office."
+  ],
   "magazineBuilt": "2026-09-10",
   "last_verified": "2026-09-11T05:00:55-05:00",
   "note": "Date bumped from scout presence 2026-09-11; verify showtimes locally."
