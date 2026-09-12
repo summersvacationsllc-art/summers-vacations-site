@@ -1,53 +1,40 @@
 {
-  "date": "2026-09-11",
-  "generated_at": "2026-09-11T05:36:29-05:00",
+  "date": "2026-09-12",
+  "generated_at": "2026-09-11T22:25:36-05:00",
   "headline": {
     "check_ins": 2,
-    "check_outs": 1,
+    "check_outs": 3,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 5,
+    "in_house_units": 4,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Peacock",
-      "guest": "Carmon Zaunbrecher",
-      "guests": 4,
+      "property": "Rustic Ozark",
+      "guest": "Michelle Kathleen",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_yrr0usi",
+      "reservation_id": "res_4xyckwf",
       "time": "4:00 PM"
     },
     {
-      "property": "Penthouse",
-      "guest": "Becky Kridner",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_shqaty4",
+      "property": "Woodland Retreat",
+      "guest": "Holly Conway",
+      "guests": 6,
+      "platform": "homeaway2",
+      "reservation_id": "res_kdwpokh",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "MaryAnn Busenitz",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_w0u9xqi",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Modern Charmer",
       "guest": "Sahara Barker-Wellesley",
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_dw9yhce",
-      "check_in": "2026-09-10",
-      "check_out": "2026-09-12",
-      "nights": 2
+      "time": "10:00 AM"
     },
     {
       "property": "Rustic Ozark",
@@ -55,9 +42,7 @@
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_4al62r1",
-      "check_in": "2026-09-10",
-      "check_out": "2026-09-12",
-      "nights": 2
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
@@ -65,10 +50,11 @@
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_67ciy9a",
-      "check_in": "2026-09-10",
-      "check_out": "2026-09-12",
-      "nights": 2
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Peacock",
       "guest": "Carmon Zaunbrecher",
@@ -88,6 +74,26 @@
       "check_in": "2026-09-11",
       "check_out": "2026-09-14",
       "nights": 3
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Michelle Kathleen",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_4xyckwf",
+      "check_in": "2026-09-12",
+      "check_out": "2026-09-13",
+      "nights": 1
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Holly Conway",
+      "guests": 6,
+      "platform": "homeaway2",
+      "reservation_id": "res_kdwpokh",
+      "check_in": "2026-09-12",
+      "check_out": "2026-09-13",
+      "nights": 1
     }
   ],
   "sync_notes": {

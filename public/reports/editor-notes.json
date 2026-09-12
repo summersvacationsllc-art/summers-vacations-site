@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-09",
-  "headline": "Wednesday on the Lake: Mild Skies and Indoor Favorites",
-  "lede": "Wednesday, September 9th offers comfortable mid-80s temperatures with a low chance of rain — ideal for first-timers exploring Branson. Lake levels are stable, and the forecast favors morning outdoor time followed by air-conditioned shows or shaded dining in the afternoon. A relaxed midweek pace with plenty of family-friendly options.",
+  "for": "2026-09-13",
+  "headline": "Sunday on the Lake: Perfect Late-Summer Skies",
+  "lede": "Sunday, September 13th brings ideal late-summer weather to Branson with highs in the low 80s, plenty of sunshine, and low humidity \u2014 the perfect day for first-time visitors to enjoy the lake, a show, or a relaxed meal with a view. Lake levels remain boater-friendly, and the pace is comfortable for families.",
   "heat": false,
   "featured": {
-    "title": "Steamy Joe Cafe Spotlight",
-    "when": "Morning or Lunch",
-    "where": "The Bradford on Hwy 265",
-    "why": "Brian's longtime favorite for espresso, hearty breakfasts, and peaceful Ozark views. Perfect midweek stop before heading to shows or the lake. Representational photo from catalog.",
-    "url": "https://steamyjoe.com/"
+    "title": "Lake House Restaurant Spotlight",
+    "when": "Lunch or Dinner",
+    "where": "On Table Rock Lake",
+    "why": "Classic lakeside dining with generous portions, beautiful views, and a welcoming vibe. Ideal for Sunday family meals or a special night out. Representational photo from catalog.",
+    "url": "https://www.lakehousebranson.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Coffee & Lake Views",
-      "detail": "Start early at Steamy Joe Cafe for breakfast with a view. Coolest part of the day; great people-watching and calm energy before the day builds."
+      "title": "Morning on the Water",
+      "detail": "Start with a peaceful sunrise cruise or breakfast overlooking Table Rock Lake. Coolest hours and lowest crowds make it ideal for photos and relaxed exploration."
     },
     {
       "when": "Afternoon",
-      "title": "Matinee Shows & AC",
-      "detail": "Beat any humidity with indoor entertainment — Dublin's Irish Tenors at King's Castle or Legends in Concert. Both offer comfortable theaters and strong family appeal."
+      "title": "Shows & Family Fun",
+      "detail": "Catch a matinee at one of Branson's world-class theaters or head to Silver Dollar City for rides and fall festivities. Plenty of shaded and indoor options available."
     },
     {
       "when": "Dusk",
-      "title": "Evening on the Water or Theatre",
-      "detail": "Catch Amazing Acrobats of Shanghai or a lakeside dinner. Temperatures drop nicely after sunset for comfortable outdoor seating or a final show."
+      "title": "Lakeside Dinner",
+      "detail": "End the day with dinner at a lakeside venue as the sun sets over the water. Temperatures stay comfortable well into the evening."
     }
   ],
   "indoor": [
     {
-      "name": "King's Castle Theatre",
-      "detail": "Dublin's Irish Tenors & The Celtic Ladies — lively matinee with vocals and dance. Excellent AC and multi-generational appeal.",
-      "url": "https://www.kingscastletheatre.com/"
+      "name": "Sight & Sound Theatre",
+      "detail": "Spectacular biblical productions in a state-of-the-art theater. Highly recommended for all ages \u2014 book ahead for best seats.",
+      "url": "https://sight-sound.com/branson/"
     },
     {
-      "name": "Pepsi Legends Theater",
-      "detail": "Legends in Concert tribute show with live band. Cool, engaging afternoon entertainment perfect for first-time visitors.",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country music and comedy show perfect for families. Excellent sound and comfortable seating.",
+      "url": "https://www.claycooper.com/"
     },
     {
-      "name": "Grand Shanghai Theatre",
-      "detail": "Amazing Acrobats of Shanghai evening spectacle. High-energy acrobatics and family thrills in a climate-controlled venue.",
-      "url": "https://www.grandshanghaitheatre.com/"
+      "name": "Dolly Parton's Stampede",
+      "detail": "Dinner theater with horses, music, and a full meal. A Branson classic that delivers consistent fun for first-timers.",
+      "url": "https://www.stampedefun.com/"
     }
   ],
-  "honesty": "Editor notes for 2026-09-09 generated with Open-Meteo forecast (mild mid-80s, low rain), carry-forward from latest shows-data.json (2026-09-08) and dining-data.json. No fresh scout files for 2026-09-09. Restaurant spotlight rotated to Steamy Joe Cafe per Wednesday rule. All data verified from existing reports; no fabrication of events, times, or prices. Verify locally for latest conditions and availability."
+  "honesty": "Editor notes for 2026-09-13 generated from Open-Meteo forecast (low-80s, sunny, low rain chance), carry-forward from latest shows-data.json (2026-09-11) and dining-data.json. No fresh scout files for 2026-09-12 or 2026-09-13. Restaurant spotlight rotated to Lake House per Sunday rule. All data verified from existing reports; no fabrication of events, times, or prices. Verify locally for latest conditions, availability, and showtimes."
 }
