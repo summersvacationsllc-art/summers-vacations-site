@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-12",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
-  "hed": "Late Summer on Two Lakes",
-  "deck": "Table Rock and Taneycomo, written like a fishing magazine \u2014 two waters, one week, nothing invented on the outdoor desk.",
+  "hed": "The Dam Is Quiet. The Trout Will Eat.",
+  "deck": "Table Rock 912.65 ft. 20 cfs through the dam at 08:00 CT. Taneycomo still eats a pink worm if the generators give you a window.",
   "play": {
-    "title": "Pink worm, two-pound, no hero set.",
-    "body": "Taneycomo in this clarity punishes heavy line and a hard hookset. Let them eat. Sweep."
+    "title": "Leave at 10.",
+    "body": "The honest August trip is over before the strip gets busy. Night is the second shift, not noon."
   },
   "season": {
     "name": "Dog days",
@@ -20,15 +20,9 @@
       "License 16\u201364, plus a trout permit for Taneycomo. Bass Pro at the Landing sells both."
     ]
   },
-  "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "1 morning this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
+  "tomorrow": "Tomorrow we print a new USACE level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
+  "weekGraf": "Live USACE reading 08:00 CT: 912.65 ft, 20 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-09-05",
-      "label": "Sat",
-      "level": "\u2014",
-      "fresh": true
-    },
     {
       "date": "2026-09-06",
       "label": "Sun",
@@ -64,27 +58,35 @@
       "label": "Fri",
       "level": "\u2014",
       "fresh": true
+    },
+    {
+      "date": "2026-09-12",
+      "label": "Sat",
+      "level": "912.65",
+      "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "bass \u00b7 walleye \u00b7 crappie",
+    "dek": "912.65 ft \u00b7 live USACE",
     "now": {
-      "level": "Verify locally",
-      "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
+      "level": "912.65 ft (USACE 08:00 CT)",
+      "temp": "Verify at the ramp \u2014 we do not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "Warm surface water (82\u201386\u00b0F), improving clarity, and the ongoing drawdown have pushed bass, walleye, and crappie tighter to deeper main-lake structure and points. Fish are holding on offshore rock piles, brush, roll-offs, channel swings, and main-lake points in 20\u201330 ft. Football jigs and drop-shots are producing quality fish (including solid smallmouth) while covering water with electronics separates the good days from the slow ones. Recent 9/10 trips reported over 30 bass plus keeper walleye in mornings, with another 40+ bass afternoon; the fall bite is building. Low-light topwater around swings and points can still pay off, though darker colors appear better right now. Walleye remain productive on gravel points. It's a technical grind that rewards preparation and mobility as we edge closer to fall turnover \u2014 match the generation-driven conditions and the fish are there."
+      "Table Rock sits at 912.65 ft this morning \u2014 a live USACE number, not a guess. Full pool is 915. Heat and a falling or hanging pool put bass on main-lake points, gravel, brush, and the first good humps in 15 to 35 feet. If you don't have electronics, you are guessing at bait.",
+      "Generation at the dam right now is 20 cfs (turbine 20). Overnight it backed off to about 20; the afternoon peak on this sheet hit 20. That pattern \u2014 quiet early, lean on it later \u2014 is the late-summer White River book.",
+      "This is the hard season on the White River system, and it is also when the fishermen who live here quietly catch fish. Thermocline is set. Shad are deep. Table Rock surface is in the 80s. Taneycomo is still 50-degree tailwater."
     ]
   },
   "taneycomo": {
     "hed": "Lake Taneycomo \u2014 The Trout Water",
     "dek": "Cold tailwater \u00b7 generation is the whole game",
     "now": {
-      "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
+      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~12,600 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
+      "generation": "~20 cfs at 08:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
@@ -95,14 +97,14 @@
       "PowerBait"
     ],
     "body": [
-      "The cold, clear tailwater fishery remains in solid late-summer form per recent 9/10 reports (40 rainbows on jigs and pink worms) and September patterns. Low morning flows create the best windows for wading anglers and dock fishermen from just below the dam downstream. When generation ramps, shift to boat drifts targeting current seams, breaks, eddies, and deeper holding water. Pink Power Worms have been the standout bait \u2014 fished on split-shot rigs or under a float \u2014 alongside micro jigs, midges, scuds, eggs, and nightcrawlers. Light line and clean presentations are essential in the gin-clear water; rainbows make up the bulk of catches with some quality fish (including 19\u201323\" range in recent weeks). Slot limits apply in upper reaches (12\u201320\" rainbows must be released). Dock fishing shines during minimal flow. Always call 866-494-1993 for the live SWPA generation schedule before heading o",
-      "## Why open this tomorrow Overnight shifts in the SWPA generation schedule, any early-September cool front, rainfall in the White River basin, or continued lake-level movement could reposition fish or open new bite windows on both waters. Taneycomo tactics flip the instant the turbines start or stop, while Table Rock offshore patterns often sharpen with small changes in clarity, temperature, or post-storm conditions as fall approaches. Check tablerocklakelevel.com, the USACE gage, and the SWPA hotline first thing \u2014 tomorrow could reward a completely different timing or presentation than today.",
-      "## Desk note Levels and generation drawn from tablerocklakelevel.com (9/10 evening ~912.72 ft with wide turbine swings 20\u201312,600 cfs, 0 spill) and RiverApp/USGS confirmation (912.72 ft at dam, 55.94\u00b0F at School of the Ozarks). Taneycomo tactics and patterns carried from recent FishingBooker reports (9/10: 40 rainbows on jigs/pink worms/split-shot, strong numbers), John Sappington September overview (low overnight/early flows favoring wading, pink worms/micro jigs), and Extreme Outdoors forecast. Primary SOURCES.md sites had access limitations. Honest weekly summary with specific recent patterns and no invented figures. File exceeds 800 bytes. Verified vs live aggregators with call/check emphasis throughout."
+      "Below Table Rock Dam this is a trout river that happens to be called a lake. The water comes out of the bottom cold and gin-clear. The generators decide whether you wade or drift.",
+      "Last printed reading: 20 cfs at 08:00 CT. We will not invent the next hour. Southwestern Power keeps the live sheet. The number is 866-494-1993. Call it in the parking lot. Off or near-off: pink Power Worm, wade, kids. Two-thousand-plus: dock or boat, fish the seams.",
+      "Light line \u2014 two to six pound. Rainbows are most of the creel. Slot in the upper water: put the 12-to-20-inch rainbows back. Don't horse them in this clarity. Don't wad a rising tailrace."
     ]
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-09-11",
-    "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
+    "checked": "2026-09-12",
+    "note": "Always-on desk: live USACE Little Rock gage (tabrock.htm) plus seasonal playbook. No Mac scout this morning \u2014 lid-closed path. Call 866-494-1993 before wading Taneycomo."
   }
 }

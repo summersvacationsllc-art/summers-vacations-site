@@ -1,13 +1,13 @@
 {
   "date": "2026-09-12",
-  "generated_at": "2026-09-12T06:14:03-05:00",
+  "generated_at": "2026-09-12T13:42:02+00:00",
   "headline": {
     "check_ins": 2,
-    "check_outs": 3,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
-    "units_total": 6
+    "in_house_units": 3,
+    "units_total": 4
   },
   "check_ins": [
     {
@@ -29,14 +29,6 @@
   ],
   "check_outs": [
     {
-      "property": "Modern Charmer",
-      "guest": "Sahara Barker-Wellesley",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_dw9yhce",
-      "time": "10:00 AM"
-    },
-    {
       "property": "Rustic Ozark",
       "guest": "Miranda McLendon",
       "guests": 5,
@@ -55,16 +47,6 @@
   ],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Peacock",
-      "guest": "Carmon Zaunbrecher",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_yrr0usi",
-      "check_in": "2026-09-11",
-      "check_out": "2026-09-13",
-      "nights": 2
-    },
     {
       "property": "Penthouse",
       "guest": "Becky Kridner",
