@@ -1,22 +1,32 @@
 {
-  "date": "2026-09-12",
-  "generated_at": "2026-09-12T13:42:02+00:00",
+  "date": "2026-09-13",
+  "generated_at": "2026-09-13T06:00:25-05:00",
   "headline": {
-    "check_ins": 2,
+    "check_ins": 1,
     "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 2,
     "units_total": 4
   },
   "check_ins": [
+    {
+      "property": "Woodland Retreat",
+      "guest": "Janet Zimmerman",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_hyak16g",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
     {
       "property": "Rustic Ozark",
       "guest": "Michelle Kathleen",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_4xyckwf",
-      "time": "4:00 PM"
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
@@ -24,24 +34,6 @@
       "guests": 6,
       "platform": "homeaway2",
       "reservation_id": "res_kdwpokh",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Rustic Ozark",
-      "guest": "Miranda McLendon",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_4al62r1",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Brittnee Smith",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_67ciy9a",
       "time": "10:00 AM"
     }
   ],
@@ -58,24 +50,14 @@
       "nights": 3
     },
     {
-      "property": "Rustic Ozark",
-      "guest": "Michelle Kathleen",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_4xyckwf",
-      "check_in": "2026-09-12",
-      "check_out": "2026-09-13",
-      "nights": 1
-    },
-    {
       "property": "Woodland Retreat",
-      "guest": "Holly Conway",
-      "guests": 6,
-      "platform": "homeaway2",
-      "reservation_id": "res_kdwpokh",
-      "check_in": "2026-09-12",
-      "check_out": "2026-09-13",
-      "nights": 1
+      "guest": "Janet Zimmerman",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_hyak16g",
+      "check_in": "2026-09-13",
+      "check_out": "2026-09-18",
+      "nights": 5
     }
   ],
   "sync_notes": {
