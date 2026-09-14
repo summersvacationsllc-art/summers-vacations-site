@@ -41,7 +41,20 @@ interface BusinessToday {
   title?: string;
   actions?: string[];
   saas_bites?: { item?: string; action?: string; title?: string; status?: string }[];
-  leads?: { date?: string; summary?: string; none_verified?: boolean; named?: string[] };
+  leads?: {
+    date?: string;
+    summary?: string;
+    none_verified?: boolean;
+    named?: string[];
+    watch?: string[];
+  };
+  competitors?: {
+    date?: string;
+    owners_hear_first?: string;
+    rows?: { name?: string; fee?: string; signal?: string; note?: string }[];
+  };
+  guest_experience?: { items?: { status?: string; item?: string }[] };
+  guesty_sync?: { ok?: boolean; lastRun?: string; note?: string };
   monday?: {
     is_monday?: boolean;
     week_of?: string | null;
@@ -296,11 +309,57 @@ export default function BusinessReport() {
             <div className="text-[12px] text-slate-500">Last hunt {biz.leads.date || "—"}</div>
             {(biz.leads.named || []).map((n, i) => (
               <p key={i} className="mt-2 text-[14px] font-semibold text-slate-800">
-                {n}
+                LIVE · {n}
+              </p>
+            ))}
+            {(biz.leads.watch || []).map((n, i) => (
+              <p key={i} className="mt-2 text-[14px] text-slate-800">
+                WATCH · {n}
               </p>
             ))}
             <p className="mt-2 text-[13px] text-slate-700">{biz.leads.summary}</p>
+            <p className="mt-2 text-[12px] text-amber-800">
+              Private FB groups and Messenger are invisible to Google. Paste a post to file it.
+            </p>
           </Card>
+        )}
+
+        {biz?.competitors?.rows && biz.competitors.rows.length > 0 && (
+          <Card>
+            <h2 className="font-serif text-lg text-[#0c4a6e]">Competitors</h2>
+            <p className="text-[12px] text-slate-500 mt-1">{biz.competitors.owners_hear_first}</p>
+            <ul className="mt-3 space-y-2 text-[13px]">
+              {biz.competitors.rows.map((r, i) => (
+                <li key={i} className="rounded-xl border border-slate-100 px-3 py-2">
+                  <div className="font-semibold text-[#0c4a6e]">{r.name}</div>
+                  <div>{r.fee} · {r.signal}</div>
+                  <div className="text-slate-500">{r.note}</div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-[11px] text-slate-500">Fees marked VERIFY are not public. Summers: 15% + $50/mo tech.</p>
+          </Card>
+        )}
+
+        {biz?.guest_experience?.items && (
+          <Card>
+            <h2 className="font-serif text-lg text-[#0c4a6e]">Guest experience</h2>
+            <p className="text-[12px] text-slate-500">Standing enhancement board — always looking</p>
+            <ul className="mt-3 space-y-2 text-[14px]">
+              {biz.guest_experience.items.map((it, i) => (
+                <li key={i} className="rounded-xl border border-slate-100 px-3 py-2">
+                  <div className="text-[10px] uppercase font-semibold text-sky-700">{it.status}</div>
+                  {it.item}
+                </li>
+              ))}
+            </ul>
+          </Card>
+        )}
+
+        {biz?.guesty_sync && (
+          <p className="text-[10px] text-slate-400 text-center">
+            Guesty lastRun {biz.guesty_sync.lastRun || "—"} · {biz.guesty_sync.note}
+          </p>
         )}
 
         <p className="text-[10px] text-slate-400 text-center pb-6">

@@ -1,13 +1,13 @@
 {
   "ok": true,
   "date": "2026-09-14",
-  "generated_at": "2026-09-14T09:26:05-05:00",
+  "generated_at": "2026-09-14T09:37:46-05:00",
   "title": "Summers Vacations Business Report",
   "phone_url": "/reports/fleet",
   "actions": [
     "No unassigned turnovers in the last snapshot.",
-    "Owner Lead Scout: none verified on last hunt \u2014 paste Messenger DMs if any.",
-    "Monday: Guesty sync remains frozen ~45 days (critical blocker for Optimizer tracking, Harvest Festival event rules, Impact Reports, Pricing & Comp Scout); supply contraction -30% YoY conti",
+    "LIVE lead: Coveside Pool Place / Jen Chandler Faulkner \u2014 LIVE 2026-09-01, Nightly Vacations. Brian owns follow-up.",
+    "Public owner-ask in Branson Vacation Rentals: new purchase needs TLC / hunting a PM (~15w). Comments already pitching Shellie, Ferris View, Snyder.",
     "Guesty Price Optimizer only \u2014 do not pitch PriceLabs."
   ],
   "saas_bites": [
@@ -31,11 +31,98 @@
     }
   ],
   "leads": {
-    "date": "2026-09-12",
-    "summary": "**none verified**",
-    "none_verified": true,
-    "named": [],
-    "file": "2026-09-12.md"
+    "date": "2026-09-14",
+    "summary": "Owner Lead Scout v1 only ran 5 `site:facebook.com` Google queries. Google mostly indexes **competitor ads** and **old public crumbs**. It cannot see:\n- Private **Branson Vacation Rentals by Owner** (~10k) \u2014 Brian is logged in; the cron is not\n- Most posts inside **Branson Vacation Rentals** until they leak\n- Messenger DMs from Brian\u2019s own posts\n- Fresh posts that have not been indexed yet",
+    "none_verified": false,
+    "named": [
+      "Coveside Pool Place / Jen Chandler Faulkner \u2014 LIVE 2026-09-01, Nightly Vacations. Brian owns follow-up."
+    ],
+    "watch": [
+      "Public owner-ask in Branson Vacation Rentals: new purchase needs TLC / hunting a PM (~15w). Comments already pitching Shellie, Ferris View, Snyder.",
+      "Brian found a Facebook lead Google did not index \u2014 paste name + URL to file it."
+    ],
+    "file": "2026-09-14.md"
+  },
+  "competitors": {
+    "date": "2026-09-14",
+    "file": "2026-09-14.md",
+    "owners_hear_first": "Shellie Long Edwards, Ferris View Horizon, Grand Welcome, Aha, Thousand Hills, Weekender 25%.",
+    "rows": [
+      {
+        "name": "Summers Vacations",
+        "fee": "15% + $50/mo tech",
+        "signal": "Owners keep ratings",
+        "note": "Local ops + guidebook/kiosk"
+      },
+      {
+        "name": "Weekender",
+        "fee": "25% flat published",
+        "signal": "~13 Branson-area (self)",
+        "note": "Only local that posts a number"
+      },
+      {
+        "name": "Thousand Hills Vacations",
+        "fee": "not published",
+        "signal": "Airbtics 285 listings / ~$45.7k",
+        "note": "Largest tracked book"
+      },
+      {
+        "name": "Grand Welcome",
+        "fee": "custom (dir. ~30%)",
+        "signal": "Airbtics 174 / 71% occ",
+        "note": "Named on owner threads"
+      },
+      {
+        "name": "Shellie Long Edwards",
+        "fee": "VERIFY",
+        "signal": "Most-named in FB comments",
+        "note": "shellieedwardsrentals.com"
+      },
+      {
+        "name": "Aha Property Management",
+        "fee": "VERIFY",
+        "signal": "Claims 72 Branson units",
+        "note": "Tall Timbers recruiting 303-819-1182"
+      },
+      {
+        "name": "Evolve",
+        "fee": "10\u201315% half-service",
+        "signal": "No cleaning included",
+        "note": "Old thread favorite"
+      }
+    ],
+    "note": "When an owner asks in Branson Vacation Rentals, the **names that get repeated** are not the national brands first:"
+  },
+  "guest_experience": {
+    "title": "Guest Experience Enhancement",
+    "standing": true,
+    "items": [
+      {
+        "status": "done",
+        "item": "Kiosk weather uses /api/weather (same as stay Home)"
+      },
+      {
+        "status": "next",
+        "item": "Marketing opt-in on /branson name+phone unlock (unchecked by default)"
+      },
+      {
+        "status": "next",
+        "item": "Kiosk welcome: unit amenities card (Haven vs Notch)"
+      },
+      {
+        "status": "next",
+        "item": "Kiosk Emergency expand (911, Cox Branson, Walgreens, host tel)"
+      },
+      {
+        "status": "later",
+        "item": "Daily save-for-later + listen-to-brief on The Branson Daily"
+      }
+    ]
+  },
+  "guesty_sync": {
+    "ok": true,
+    "lastRun": "2026-09-11T10:36:27.009Z",
+    "note": "Synced: 0 new / 5 updated listings, 72 reservations, 1 turnover tasks created"
   },
   "monday": {
     "is_monday": true,
@@ -52,6 +139,7 @@
   "guest_date": "2026-09-13",
   "notes": [
     "This is the single daily business report. Guest Branson Daily stays separate.",
-    "Monday section is the weekly rollup \u2014 not a second file."
+    "Monday section is the weekly rollup \u2014 not a second file.",
+    "Do not repeat 'Guesty frozen 45 days' from old weeklies if lastRun is current."
   ]
 }
