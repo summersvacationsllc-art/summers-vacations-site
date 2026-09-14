@@ -72,13 +72,13 @@ function ReportsContent() {
   }, []);
 
   const reportUrl = (date: string) =>
-    activeTab === 'fleet' ? `/reports/fleet-${date}.html` : `/reports/${date}.html`;
+    activeTab === 'fleet' ? `/reports/fleet` : `/reports/${date}.html`;
 
   const reportTitle = (date: string) =>
-    activeTab === 'fleet' ? `${formatDate(date)} — Fleet Briefing` : `${formatDate(date)} — Branson Report`;
+    activeTab === 'fleet' ? `${formatDate(date)} — Business Report` : `${formatDate(date)} — Branson Report`;
 
   const reportDesc = activeTab === 'fleet'
-    ? 'STR ops, agents, BizDev, pipeline — full Hermes overview'
+    ? 'One phone report: fleet, leads, SaaS, Monday weekly'
     : 'Fishing, shows, events, golf, dining — fresh every morning';
 
   return (
@@ -106,7 +106,7 @@ function ReportsContent() {
                     ? 'bg-[#0ea5e9] text-white'
                     : 'bg-sky-50 text-sky-700 hover:bg-sky-100'
                 }`}>
-                {t === 'branson' ? '🏖️ Branson' : '🛡️ Fleet'}
+                {t === 'branson' ? '🏖️ Branson' : '🛡️ Business'}
               </button>
             ))}
           </div>
@@ -173,13 +173,13 @@ function ReportsContent() {
           <a href="/reports/fleet" target="_blank" rel="noopener"
             className="block rounded-xl px-4 py-3 bg-white border border-sky-100 shadow-sm no-underline">
             <div className="text-[10px] font-semibold uppercase tracking-wider text-[#0c4a6e]">
-              ⚡ Live fleet (auto-updates)
+              ⚡ Phone business report
             </div>
             <div className="text-[13px] font-semibold text-slate-800 mt-0.5">
-              Open Live Fleet →
+              Open Business Report →
             </div>
             <div className="text-[11px] text-slate-500 mt-0.5">
-              Reads str-manager-one /api/tasks every refresh — never stale.
+              Same URL as before: /reports/fleet — fleet + leads + SaaS + Monday.
             </div>
           </a>
         )}

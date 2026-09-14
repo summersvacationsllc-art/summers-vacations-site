@@ -102,6 +102,9 @@ jobs:
           
           echo "=== Building fleet-today.json ==="
           python3 scripts/build_fleet_today.py --date "$DATE"
+
+          echo "=== Building business-today.json (phone /reports/fleet) ==="
+          python3 scripts/build_business_today.py --date "$DATE"
           
           # Step 2: Generate the magazine HTML report from scout data
           echo "=== Building magazine report (YYYY-MM-DD.html) ==="
