@@ -97,8 +97,8 @@ function FormInner() {
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">Summers Vacations</p>
           <h1 className="mt-2 font-display text-3xl">Sent to Brian</h1>
           <p className="mt-3 text-[#0369a1]">
-            Your filled co-hosting agreement is on its way to Summers Vacations. Print a copy for your records, then
-            Brian will countersign.
+            Your filled co-hosting agreement is saved in the Summers Vacations contract log and emailed to Brian. Print
+            a copy for your records, then Brian will countersign.
           </p>
           <button
             type="button"

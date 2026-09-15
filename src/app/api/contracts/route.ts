@@ -5,6 +5,7 @@ import {
   renderedAgreement,
   type ContractFields,
 } from "@/lib/cohosting-agreement";
+import { clientIp, newContractId, saveContract } from "@/lib/contracts-store";
 
 const FIELD_KEYS = Object.keys(EMPTY_FIELDS) as (keyof ContractFields)[];
 
@@ -43,9 +44,31 @@ export async function POST(req: Request) {
     }
 
     const agreement = renderedAgreement(fields);
+    const id = newContractId(fields.subscriberName);
+    const recordBase = {
+      id,
+      submittedAt: new Date().toISOString(),
+      ip: clientIp(req),
+      userAgent: (req.headers.get("user-agent") || "").slice(0, 300),
+      fields,
+      agreement,
+    };
+
+    try {
+      await saveContract({ ...recordBase, emailVia: null, emailError: null });
+    } catch {
+      return NextResponse.json(
+        { ok: false, error: "Could not save the signed agreement. Try again or email Brian directly." },
+        { status: 502 },
+      );
+    }
+
     const subject = `Co-hosting agreement: ${fields.subscriberName} — ${fields.accommodationsAddress}`;
     const text = [
       "A new owner submitted the co-hosting agreement.",
+      "",
+      `Log id: ${id}`,
+      `View: https://mybransonvacation.com/contracts/log`,
       "",
       `Name: ${fields.subscriberName}`,
       `Co-owner: ${fields.coSubscriberName || "(none)"}`,
@@ -66,15 +89,19 @@ export async function POST(req: Request) {
       .filter(Boolean)
       .join("\n");
 
+    let emailVia: string | null = null;
+    let emailError: string | null = null;
     const delivered = await deliver(subject, text, fields.email, fields.subscriberName);
-    if (!delivered.ok) {
-      return NextResponse.json(
-        { ok: false, error: delivered.error || "Could not send. Try again or email Brian directly." },
-        { status: 502 },
-      );
+    if (delivered.ok) emailVia = delivered.via || "email";
+    else emailError = delivered.error || "email failed";
+
+    try {
+      await saveContract({ ...recordBase, emailVia, emailError }, true);
+    } catch {
+      /* already stored; email status is extra */
     }
 
-    return NextResponse.json({ ok: true, via: delivered.via });
+    return NextResponse.json({ ok: true, id, emailed: Boolean(emailVia) });
   } catch {
     return NextResponse.json({ ok: false, error: "Failed to process." }, { status: 500 });
   }
