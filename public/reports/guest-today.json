@@ -1,9 +1,9 @@
 {
-  "date": "2026-09-13",
-  "generated_at": "2026-09-13T07:41:05-05:00",
+  "date": "2026-09-15",
+  "generated_at": "2026-09-15T05:46:44-05:00",
   "headline": {
     "check_ins": 1,
-    "check_outs": 2,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 2,
@@ -11,44 +11,17 @@
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
-      "guest": "Janet Zimmerman",
-      "guests": 4,
+      "property": "Rustic Ozark",
+      "guest": "Deborah Roberts",
+      "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_hyak16g",
+      "reservation_id": "res_anbktis",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [
-    {
-      "property": "Rustic Ozark",
-      "guest": "Michelle Kathleen",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_4xyckwf",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Holly Conway",
-      "guests": 6,
-      "platform": "homeaway2",
-      "reservation_id": "res_kdwpokh",
-      "time": "10:00 AM"
-    }
-  ],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Penthouse",
-      "guest": "Becky Kridner",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_shqaty4",
-      "check_in": "2026-09-11",
-      "check_out": "2026-09-14",
-      "nights": 3
-    },
     {
       "property": "Woodland Retreat",
       "guest": "Janet Zimmerman",
@@ -58,6 +31,16 @@
       "check_in": "2026-09-13",
       "check_out": "2026-09-18",
       "nights": 5
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Deborah Roberts",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_anbktis",
+      "check_in": "2026-09-15",
+      "check_out": "2026-09-17",
+      "nights": 2
     }
   ],
   "sync_notes": {
