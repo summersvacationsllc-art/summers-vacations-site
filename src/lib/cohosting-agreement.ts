@@ -30,6 +30,21 @@ export const EMPTY_FIELDS: ContractFields = {
   coSignatureDate: "",
 };
 
+/** Fake fill-ins so the printed sample looks complete. Not a real owner. */
+export const SAMPLE_FIELDS: ContractFields = {
+  accommodationsAddress: "100 Sample Lane, Branson, MO 65616",
+  startDate: "October 1, 2026",
+  subscriberName: "Jane Q. Sample",
+  coSubscriberName: "John Q. Sample",
+  email: "jane.sample@example.com",
+  phone: "(555) 010-0199",
+  mailingAddress: "200 Example Drive, Springfield, MO 65804",
+  signatureName: "Jane Q. Sample",
+  signatureDate: "October 1, 2026",
+  coSignatureName: "John Q. Sample",
+  coSignatureDate: "October 1, 2026",
+};
+
 export function fill(template: string, fields: ContractFields): string {
   const map: Record<string, string> = {
     ACCOMMODATIONS_ADDRESS: fields.accommodationsAddress,

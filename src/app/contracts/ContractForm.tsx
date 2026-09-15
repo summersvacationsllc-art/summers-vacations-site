@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import {
-  AGREEMENT_SECTIONS,
   EMPTY_FIELDS,
-  fill,
   type ContractFields,
 } from "@/lib/cohosting-agreement";
+import { AgreementBody, PrintButton } from "./AgreementBody";
 
 function Field({
   label,
@@ -87,11 +86,6 @@ function FormInner() {
 
   const set = (k: keyof ContractFields, v: string) => setFields((f) => ({ ...f, [k]: v }));
 
-  const filledSections = useMemo(
-    () => AGREEMENT_SECTIONS.map((s) => ({ ...s, body: fill(s.body, fields) })),
-    [fields],
-  );
-
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
@@ -169,15 +163,18 @@ function FormInner() {
   return (
     <main className="min-h-dvh bg-[#f0f9ff] text-[#0c4a6e]">
       <div className="mx-auto max-w-3xl px-4 py-8">
-        <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">mybransonvacation.com/contracts</p>
-        <h1 className="mt-2 font-display text-4xl leading-none">Co-hosting agreement</h1>
-        <p className="mt-3 max-w-2xl text-[#0369a1]">
-          Brian approved this property for review. Fill in any blanks. The agreement below updates as you type. This is
-          not legal advice.
+        <p className="no-print text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">mybransonvacation.com/contracts</p>
+        <h1 className="no-print mt-2 font-display text-4xl leading-none">Co-hosting agreement</h1>
+        <p className="no-print mt-3 max-w-2xl text-[#0369a1]">
+          Brian approved this property for review. Fill in any blanks. The agreement below updates as you type. Print a
+          copy to read offline, then sign when you are ready. This is not legal advice.
         </p>
+        <div className="no-print mt-4">
+          <PrintButton label="Print this agreement" />
+        </div>
 
         <form onSubmit={onSubmit} className="mt-8 space-y-8">
-          <fieldset className="rounded-2xl border border-[#bae6fd] bg-white p-5 shadow-[0_10px_24px_-18px_rgba(2,132,199,.55)]">
+          <fieldset className="no-print rounded-2xl border border-[#bae6fd] bg-white p-5 shadow-[0_10px_24px_-18px_rgba(2,132,199,.55)]">
             <legend className="px-1 text-sm font-bold text-[#0c4a6e]">Your listing</legend>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="sm:col-span-2">
@@ -228,18 +225,9 @@ function FormInner() {
             <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
           </fieldset>
 
-          <article className="rounded-2xl border border-[#bae6fd] bg-white p-6 text-[15px] leading-relaxed text-[#0f172a] print:border-0 print:shadow-none">
-            <h2 className="font-display text-2xl text-[#0c4a6e]">Summers Vacations LLC</h2>
-            <p className="text-sm font-semibold uppercase tracking-wide text-[#0369a1]">Co-Hosting Agreement</p>
-            {filledSections.map((s) => (
-              <section key={s.heading || s.body.slice(0, 24)} className="mt-6 whitespace-pre-wrap">
-                {s.heading ? <h3 className="mb-2 font-display text-lg text-[#0c4a6e]">{s.heading}</h3> : null}
-                <p>{s.body}</p>
-              </section>
-            ))}
-          </article>
+          <AgreementBody fields={fields} />
 
-          <fieldset className="rounded-2xl border border-[#bae6fd] bg-white p-5">
+          <fieldset className="no-print rounded-2xl border border-[#bae6fd] bg-white p-5">
             <legend className="px-1 text-sm font-bold">Sign and send</legend>
             <p className="mb-4 text-sm text-[#0369a1]">
               Typing your name is your electronic signature on this agreement. Brian countersigns after he receives it.
