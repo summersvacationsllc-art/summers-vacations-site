@@ -84,8 +84,9 @@ export function ApplyForm() {
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">Partner with us</p>
         <h1 className="mt-2 font-display text-4xl leading-none">Request a property review</h1>
         <p className="mt-3 text-[#0369a1]">
-          Summers Vacations co-hosts a small number of Branson homes. Brian wants to see the property before any
-          agreement. The bar is a 5.0★ guest stay, or a home that can honestly get there. No contract until he says yes.
+          Summers Vacations co-hosts a small number of homes. Branson is the current guest site; other markets — Lake of
+          the Ozarks included — are reviewed the same way. Brian wants to see the property before any agreement. The bar
+          is a 5.0★ guest stay, or a home that can honestly get there. No contract until he says yes.
         </p>
 
         <form onSubmit={onSubmit} className="mt-8 space-y-5 rounded-2xl border border-[#bae6fd] bg-white p-5">
@@ -116,6 +117,15 @@ export function ApplyForm() {
           <label className="block">
             <span className="text-xs font-semibold uppercase tracking-wide text-[#0369a1]">Property address *</span>
             <input name="address" required autoComplete="street-address" className="mt-1 w-full rounded-lg border border-[#bae6fd] px-3 py-2" />
+          </label>
+          <label className="block">
+            <span className="text-xs font-semibold uppercase tracking-wide text-[#0369a1]">Market / area *</span>
+            <input
+              name="area"
+              required
+              placeholder="Branson, Lake of the Ozarks, or another area"
+              className="mt-1 w-full rounded-lg border border-[#bae6fd] px-3 py-2"
+            />
           </label>
           <label className="block">
             <span className="text-xs font-semibold uppercase tracking-wide text-[#0369a1]">Airbnb / VRBO / listing link</span>

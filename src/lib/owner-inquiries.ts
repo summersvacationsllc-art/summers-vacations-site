@@ -12,6 +12,7 @@ export type OwnerInquiry = {
   email: string;
   phone: string;
   address: string;
+  area?: string;
   listingUrl: string;
   sleeps: string;
   beds: string;

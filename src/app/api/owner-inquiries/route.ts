@@ -25,6 +25,7 @@ export async function POST(req: Request) {
     const email = str(form.get("email"), 200);
     const phone = str(form.get("phone"), 40);
     const address = str(form.get("address"), 400);
+    const area = str(form.get("area"), 80);
     const listingUrl = str(form.get("listingUrl"), 400);
     const sleeps = str(form.get("sleeps"), 40);
     const beds = str(form.get("beds"), 40);
@@ -69,6 +70,7 @@ export async function POST(req: Request) {
       email,
       phone,
       address,
+      area,
       listingUrl,
       sleeps,
       beds,
@@ -92,6 +94,7 @@ export async function POST(req: Request) {
       `Email: ${email}`,
       `Phone: ${phone || "(none)"}`,
       `Address: ${address}`,
+      `Area: ${area || "(blank)"}`,
       `Listing: ${listingUrl || "(none)"}`,
       `Sleeps: ${sleeps || "(blank)"}  Beds: ${beds || "(blank)"}`,
       `Photos: ${photoPathnames.length}`,

@@ -167,6 +167,7 @@ export function ContractLog() {
           </button>
           <h1 className="mt-3 font-display text-3xl">{openInq.name}</h1>
           <p className="mt-1 text-sm text-[#0369a1]">
+            {openInq.area ? `${openInq.area} · ` : ""}
             {openInq.address} · {openInq.source === "met" ? "already met" : "website"} · {openInq.status}
           </p>
           <p className="mt-3 text-sm">
@@ -289,7 +290,10 @@ export function ContractLog() {
                           className="w-full rounded-2xl border border-[#bae6fd] bg-white p-4 text-left"
                         >
                           <p className="font-semibold">{it.name}</p>
-                          <p className="text-sm text-[#0369a1]">{it.address}</p>
+                          <p className="text-sm text-[#0369a1]">
+                            {it.area ? `${it.area} · ` : ""}
+                            {it.address}
+                          </p>
                           <p className="mt-1 text-xs text-[#0369a1]">
                             {it.status} · {it.source === "met" ? "already met" : "website"} · {it.photoPathnames.length} photos ·{" "}
                             {it.submittedAt.slice(0, 10)}
