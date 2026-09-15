@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import {
@@ -48,16 +48,42 @@ function Field({
 
 function FormInner() {
   const sp = useSearchParams();
-  const [fields, setFields] = useState<ContractFields>(() => ({
-    ...EMPTY_FIELDS,
-    accommodationsAddress: sp.get("address") || "",
-    subscriberName: sp.get("name") || "",
-    email: sp.get("email") || "",
-    phone: sp.get("phone") || "",
-  }));
+  const invite = sp.get("invite") || "";
+  const [inviteState, setInviteState] = useState<"loading" | "ok" | "bad">("loading");
+  const [inviteError, setInviteError] = useState("");
+  const [fields, setFields] = useState<ContractFields>({ ...EMPTY_FIELDS });
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!invite) {
+      setInviteState("bad");
+      setInviteError("Brian sends this agreement only after he reviews the property.");
+      return;
+    }
+    fetch(`/api/contracts/invite?token=${encodeURIComponent(invite)}`)
+      .then(async (res) => {
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          setInviteState("bad");
+          setInviteError(data.error || "This link is not valid.");
+          return;
+        }
+        setFields((f) => ({
+          ...f,
+          subscriberName: data.name || "",
+          email: data.email || "",
+          phone: data.phone || "",
+          accommodationsAddress: data.address || "",
+        }));
+        setInviteState("ok");
+      })
+      .catch(() => {
+        setInviteState("bad");
+        setInviteError("Could not check this link.");
+      });
+  }, [invite]);
 
   const set = (k: keyof ContractFields, v: string) => setFields((f) => ({ ...f, [k]: v }));
 
@@ -75,7 +101,7 @@ function FormInner() {
       const res = await fetch("/api/contracts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...fields, agreed, website }),
+        body: JSON.stringify({ ...fields, agreed, website, invite }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
@@ -112,13 +138,41 @@ function FormInner() {
     );
   }
 
+  if (inviteState !== "ok") {
+    return (
+      <main className="min-h-dvh bg-[#f0f9ff] px-4 py-12 text-[#0c4a6e]">
+        <div className="mx-auto max-w-xl rounded-2xl border border-[#bae6fd] bg-white p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">Summers Vacations</p>
+          <h1 className="mt-2 font-display text-3xl">
+            {inviteState === "loading" ? "Checking your link…" : "Review comes first"}
+          </h1>
+          {inviteState === "bad" ? (
+            <>
+              <p className="mt-3 text-[#0369a1]">{inviteError}</p>
+              <p className="mt-3 text-[#0369a1]">
+                Summers Vacations only co-hosts homes that already run at a 5-star level, or can get there. Request a
+                property review and Brian will send the agreement if it is a fit.
+              </p>
+              <a
+                href="/apply"
+                className="mt-6 inline-block rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                Request a property review
+              </a>
+            </>
+          ) : null}
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-dvh bg-[#f0f9ff] text-[#0c4a6e]">
       <div className="mx-auto max-w-3xl px-4 py-8">
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">mybransonvacation.com/contracts</p>
         <h1 className="mt-2 font-display text-4xl leading-none">Co-hosting agreement</h1>
         <p className="mt-3 max-w-2xl text-[#0369a1]">
-          Fill in your details. The agreement below updates as you type. Send it to Brian when you are ready. This is
+          Brian approved this property for review. Fill in any blanks. The agreement below updates as you type. This is
           not legal advice.
         </p>
 

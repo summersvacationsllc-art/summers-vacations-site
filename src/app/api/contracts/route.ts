@@ -6,6 +6,7 @@ import {
   type ContractFields,
 } from "@/lib/cohosting-agreement";
 import { clientIp, newContractId, saveContract } from "@/lib/contracts-store";
+import { getInquiry, getInvite, saveInquiry, saveInvite } from "@/lib/owner-inquiries";
 
 const FIELD_KEYS = Object.keys(EMPTY_FIELDS) as (keyof ContractFields)[];
 
@@ -19,6 +20,18 @@ export async function POST(req: Request) {
     const body = await req.json();
     if (str(body.website, 80)) {
       return NextResponse.json({ ok: true });
+    }
+
+    const inviteToken = str(body.invite, 80);
+    const inv = await getInvite(inviteToken);
+    if (!inv) {
+      return NextResponse.json(
+        { ok: false, error: "This agreement is only available from the private link Brian sends after he reviews the home." },
+        { status: 403 },
+      );
+    }
+    if (inv.usedAt) {
+      return NextResponse.json({ ok: false, error: "This agreement link was already used." }, { status: 410 });
     }
 
     const fields: ContractFields = { ...EMPTY_FIELDS };
@@ -99,6 +112,21 @@ export async function POST(req: Request) {
       await saveContract({ ...recordBase, emailVia, emailError }, true);
     } catch {
       /* already stored; email status is extra */
+    }
+
+    inv.usedAt = new Date().toISOString();
+    inv.contractId = id;
+    try {
+      await saveInvite(inv, true);
+      if (inv.inquiryId) {
+        const inq = await getInquiry(inv.inquiryId);
+        if (inq) {
+          inq.status = "signed";
+          await saveInquiry(inq, true);
+        }
+      }
+    } catch {
+      /* contract is stored */
     }
 
     return NextResponse.json({ ok: true, id, emailed: Boolean(emailVia) });
