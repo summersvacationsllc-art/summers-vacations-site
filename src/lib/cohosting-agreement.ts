@@ -145,7 +145,7 @@ The Subscription Fee is calculated and recognized at check-out only when Gross R
 
 All refunds, discounts, or credits issued to Guests are the sole financial responsibility of Subscriber and shall not reduce Gross Rental Income for purposes of calculating the Subscription Fee. Subscriber shall reimburse Host for any such amounts within ten (10) days.
 
-Host may adjust the listed Accommodation fare (including any markup) as needed to offset changes in Booking Site fees. Such adjustments are included in Gross Rental Income.
+Host may raise or otherwise adjust the listed Accommodation fare on each Booking Site (Airbnb, VRBO, or any other platform used) to offset the fees that platform takes. Those adjustments are part of Gross Rental Income. That is why the Subscription Fee is calculated on Gross Rental Income, including the platform fee and without first subtracting it: as platform fees change, Host adjusts the listed fare so the fifteen percent (15%) keeps pace. The cleaning fee is not part of that calculation.
 
 2.3 Technology Fee. The Technology Fee is Fifty and 00/100 Dollars ($50.00) per month, charged for each distinct premises, defined as a dwelling unit that contains the Minimum Accommodations and is separated from other dwelling units by a locked door (called a "Property," "Unit," or "Door"). The Technology Fee includes access to the Pricing Software and software licenses for WiFi locks.
 
