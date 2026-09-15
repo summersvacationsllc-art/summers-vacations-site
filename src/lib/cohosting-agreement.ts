@@ -73,7 +73,7 @@ export const AGREEMENT_SECTIONS: { heading?: string; body: string }[] = [
 
 HOST: Summers Vacations LLC, by Brian Summers, Authorized Person.
 
-The fees to participate in the Host's Program (the "Host's Fee" or the "Fee") are: Subscription Fee of fifteen percent (15%) of Net Rental Income, due monthly upon receipt of Host's invoices; Technology Fee of Fifty and 00/100 Dollars ($50.00) per month per Property; and a one-time Set-Up Fee of $0.00.
+The fees to participate in the Host's Program (the "Host's Fee" or the "Fee") are: Subscription Fee of fifteen percent (15%) of Gross Rental Income, due monthly upon receipt of Host's invoices; Technology Fee of Fifty and 00/100 Dollars ($50.00) per month per Property; and a one-time Set-Up Fee of $0.00.
 
 Start Date: [START_DATE]. End Date: 60 days after written notice.
 
@@ -139,13 +139,13 @@ In exchange for the mutual promises, covenants, and other good-and-valuable cons
     heading: "2. Program Fees",
     body: `2.1 Subscriber is responsible for paying the fees specified in this Section, referred to collectively as "Program Fees."
 
-2.2 Subscription Fee. The Subscription Fee is fifteen percent (15%) of Net Rental Income. "Net Rental Income" means the Accommodation fare, Extra person fees, Weekly discounts (as they affect the Accommodation fare), and any markup or markdown applied to the Accommodation fare. Net Rental Income does not include taxes, cleaning fees, Booking Site fees, host service fees, payment processing fees, or any other fees that are allocated one hundred percent (100%) to Host under the parties' PMS commission settings (including, without limitation, early check-in fees, Electronics Fees, and markups on fees).
+2.2 Subscription Fee. The Subscription Fee is fifteen percent (15%) of Gross Rental Income. "Gross Rental Income" means the Accommodation fare, Extra person fees, Weekly discounts (as they affect the Accommodation fare), any markup or markdown applied to the Accommodation fare, and Booking Site / platform fees (including host service fees and similar platform charges). The Subscription Fee is calculated on Gross Rental Income without first subtracting the platform fee. Gross Rental Income does not include cleaning fees or taxes. Host does not charge the Subscription Fee on the cleaning fee. Gross Rental Income also does not include any other fees that are allocated one hundred percent (100%) to Host under the parties' PMS commission settings (including, without limitation, early check-in fees, Electronics Fees, and markups on fees).
 
-The Subscription Fee is calculated and recognized at check-out only when Net Rental Income is actually received. On canceled reservations where no Net Rental Income is received, Host is not entitled to any Subscription Fee.
+The Subscription Fee is calculated and recognized at check-out only when Gross Rental Income is actually received. On canceled reservations where no Gross Rental Income is received, Host is not entitled to any Subscription Fee.
 
-All refunds, discounts, or credits issued to Guests are the sole financial responsibility of Subscriber and shall not reduce Net Rental Income for purposes of calculating the Subscription Fee. Subscriber shall reimburse Host for any such amounts within ten (10) days.
+All refunds, discounts, or credits issued to Guests are the sole financial responsibility of Subscriber and shall not reduce Gross Rental Income for purposes of calculating the Subscription Fee. Subscriber shall reimburse Host for any such amounts within ten (10) days.
 
-Host may adjust the listed Accommodation fare (including any markup) as needed to offset changes in Booking Site fees. Such adjustments are included in Net Rental Income.
+Host may adjust the listed Accommodation fare (including any markup) as needed to offset changes in Booking Site fees. Such adjustments are included in Gross Rental Income.
 
 2.3 Technology Fee. The Technology Fee is Fifty and 00/100 Dollars ($50.00) per month, charged for each distinct premises, defined as a dwelling unit that contains the Minimum Accommodations and is separated from other dwelling units by a locked door (called a "Property," "Unit," or "Door"). The Technology Fee includes access to the Pricing Software and software licenses for WiFi locks.
 
