@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "generated_at": "2026-09-16T05:33:05-05:00",
+  "generated_at": "2026-09-16T17:29:37-05:00",
   "headline": {
     "check_ins": 1,
     "check_outs": 0,
@@ -34,7 +34,7 @@
     },
     {
       "property": "Rustic Ozark",
-      "guest": "Deborah Roberts",
+      "guest": "Debbie Roberts",
       "guests": 3,
       "platform": "airbnb2",
       "reservation_id": "res_anbktis",
