@@ -1,21 +1,21 @@
 {
-  "date": "2026-09-15",
-  "generated_at": "2026-09-15T05:46:44-05:00",
+  "date": "2026-09-16",
+  "generated_at": "2026-09-16T05:33:05-05:00",
   "headline": {
     "check_ins": 1,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 2,
+    "in_house_units": 3,
     "units_total": 4
   },
   "check_ins": [
     {
-      "property": "Rustic Ozark",
-      "guest": "Deborah Roberts",
-      "guests": 3,
+      "property": "Penthouse",
+      "guest": "Candace Guidry",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_anbktis",
+      "reservation_id": "res_ku8n0qd",
       "time": "4:00 PM"
     }
   ],
@@ -41,6 +41,16 @@
       "check_in": "2026-09-15",
       "check_out": "2026-09-17",
       "nights": 2
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Candace Guidry",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_ku8n0qd",
+      "check_in": "2026-09-16",
+      "check_out": "2026-09-20",
+      "nights": 4
     }
   ],
   "sync_notes": {
