@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { ContractSummary, StoredContract } from "@/lib/contracts-store";
 import type { OwnerInquiry } from "@/lib/owner-inquiries";
+import { notifyBrianFromBrowser } from "@/lib/browser-mail";
 
 export function ContractLog() {
   const [pin, setPin] = useState("");
@@ -95,6 +96,19 @@ export function ContractLog() {
       return;
     }
     await copyUrl(data.url);
+    await notifyBrianFromBrowser({
+      subject: `Contract approved: ${openInq?.name || ""} — ${openInq?.address || ""}`,
+      replyTo: openInq?.email,
+      message: [
+        data.emailed
+          ? `The agreement link was emailed to ${openInq?.email}.`
+          : `Could not email the owner from the server. Mail.app pump will send it from this Mac.`,
+        "",
+        data.url,
+        "",
+        "Open: https://mybransonvacation.com/contracts/log",
+      ].join("\n"),
+    });
     setMailNote(
       data.emailed
         ? `Emailed the contract link to ${openInq?.email || "the owner"}. Link also copied.`
@@ -146,6 +160,17 @@ export function ContractLog() {
       return;
     }
     await copyUrl(data.url);
+    await notifyBrianFromBrowser({
+      subject: `Contract link created: ${direct.name} — ${direct.address}`,
+      replyTo: direct.email,
+      message: [
+        data.emailed
+          ? `The agreement link was emailed to ${direct.email}.`
+          : `Could not email the owner from the server. Mail.app pump will send it from this Mac.`,
+        "",
+        data.url,
+      ].join("\n"),
+    });
     setMailNote(
       data.emailed
         ? `Emailed the contract link to ${direct.email}. Link also copied.`
@@ -282,10 +307,25 @@ export function ContractLog() {
               <button type="button" className="font-semibold text-[#0369a1]" onClick={() => load()}>
                 Refresh
               </button>
+              <button
+                type="button"
+                className="font-semibold text-[#0369a1]"
+                onClick={async () => {
+                  const ok = await notifyBrianFromBrowser({
+                    subject: "Summers Vacations desk — test email",
+                    message:
+                      "This is a test from the owner desk in your browser. If you see it, FormSubmit is activated for this site.",
+                  });
+                  setMailNote(ok ? "Test email sent to summersvacationsllc@gmail.com. Check inbox and spam." : "Test email did not send. Check spam for a FormSubmit confirmation link.");
+                }}
+              >
+                Email me a test
+              </button>
               <button type="button" className="font-semibold text-[#0369a1]" onClick={() => logout()}>
                 Lock
               </button>
             </div>
+            {mailNote ? <p className="mt-3 text-sm text-[#0369a1]">{mailNote}</p> : null}
             {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
 
             {tab === "inquiries" ? (

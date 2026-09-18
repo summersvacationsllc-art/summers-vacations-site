@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { notifyBrianFromBrowser } from "@/lib/browser-mail";
 
 async function shrink(file: File): Promise<File> {
   if (!file.type.startsWith("image/")) return file;
@@ -56,6 +57,26 @@ export function ApplyForm() {
         setError(json.error || "Could not send.");
         return;
       }
+      const name = String(data.get("name") || "");
+      const address = String(data.get("address") || "");
+      const email = String(data.get("email") || "");
+      await notifyBrianFromBrowser({
+        subject: `Property review request: ${name} — ${address}`,
+        replyTo: email,
+        message: [
+          "An owner asked you to review a property before any contract.",
+          "",
+          "Open: https://mybransonvacation.com/contracts/log",
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Phone: ${data.get("phone") || "(none)"}`,
+          `Address: ${address}`,
+          `Area: ${data.get("area") || "(blank)"}`,
+          `Listing: ${data.get("listingUrl") || "(none)"}`,
+          "",
+          String(data.get("notes") || "(no notes)"),
+        ].join("\n"),
+      });
       setStatus("sent");
     } catch {
       setStatus("error");

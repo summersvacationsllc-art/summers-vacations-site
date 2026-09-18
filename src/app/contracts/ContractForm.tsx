@@ -8,6 +8,7 @@ import {
   type ContractFields,
 } from "@/lib/cohosting-agreement";
 import { AgreementBody, PrintButton } from "./AgreementBody";
+import { notifyBrianFromBrowser } from "@/lib/browser-mail";
 
 function Field({
   label,
@@ -103,6 +104,18 @@ function FormInner() {
         setError(data.error || "Could not send.");
         return;
       }
+      await notifyBrianFromBrowser({
+        subject: `Co-hosting agreement signed: ${fields.subscriberName} — ${fields.accommodationsAddress}`,
+        replyTo: fields.email,
+        message: [
+          "An owner signed the co-hosting agreement.",
+          "",
+          "Open: https://mybransonvacation.com/contracts/log",
+          `Name: ${fields.subscriberName}`,
+          `Email: ${fields.email}`,
+          `Property: ${fields.accommodationsAddress}`,
+        ].join("\n"),
+      });
       setStatus("sent");
     } catch {
       setStatus("error");
