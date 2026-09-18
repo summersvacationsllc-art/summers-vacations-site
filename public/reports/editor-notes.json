@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-17",
-  "headline": "Thursday Heat: Upper 90s on the Lake",
-  "lede": "Thursday, September 17th delivers a hot and humid day in Branson with highs near 98°F under mostly sunny skies. First-time visitors should plan lake time for morning or evening, seek air-conditioned shows in the afternoon, and stay hydrated — classic late-summer Branson weather that rewards early starts and indoor matinees.",
+  "for": "2026-09-18",
+  "headline": "Friday Heat Dome: PumpkinFest Opens, AC Shows Win the Afternoon",
+  "lede": "Friday, September 18th keeps Branson in the upper 90s — Open-Meteo calls for about 98°F under mostly cloudy skies, a low near 76°F, and almost no rain chance. First-timers: take the lake or a quiet breakfast early, hide in air-conditioned theaters and museums through peak heat, then ease into Shepherd of the Hills PumpkinFest energy and a Big D's BBQ dinner as the Strip cools after dusk.",
   "heat": true,
   "featured": {
-    "title": "White River Fish House Spotlight",
-    "when": "Lunch or Early Dinner",
-    "where": "Branson Landing on Lake Taneycomo",
-    "why": "Fresh fish, lake views, and a relaxed vibe perfect for a hot day. Excellent for first-timers seeking a memorable meal with water views. Representational photo from catalog.",
-    "url": "https://www.whiteriverfishhouse.com/"
+    "title": "Shepherd of the Hills PumpkinFest Opens",
+    "when": "Friday through the weekend (main run starts today)",
+    "where": "Shepherd of the Hills Adventure Park · W 76 Country Blvd",
+    "why": "Strip scout flagged Friday as the main PumpkinFest kickoff — pumpkin fun, family grounds energy, and the Copperhead Mountain Coaster if you want a cooler ride in the trees. Perfect heat-day counterweight to a long afternoon outdoors: go late day, confirm hours and tickets on-site.",
+    "url": "https://theshepherdofthehills.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Cool Morning on the Water",
-      "detail": "Beat the heat with an early Table Rock or Taneycomo cruise, fishing, or breakfast with a view. Temperatures are most comfortable before 10 AM."
+      "title": "Cool water before the dome builds",
+      "detail": "Table Rock and Taneycomo are most comfortable before 10 AM. Drift or cruise early; call SWPA 866-494-1993 for generation before wading Taneycomo. Low-clear Table Rock means watch stumps in the coves."
     },
     {
       "when": "Afternoon",
-      "title": "Air-Conditioned Entertainment",
-      "detail": "Head indoors for a matinee show or shaded attraction. Avoid peak afternoon heat on the water or hiking."
+      "title": "Air-conditioned matinee or museum block",
+      "detail": "Skip the 2–5 PM heat on the pavement. WonderWorks, Titanic Museum, or a matinee theater keep families cool. Confirm box office for Friday showtimes — Thursday listings do not automatically carry."
     },
     {
       "when": "Dusk",
-      "title": "Lakeside Evening",
-      "detail": "Enjoy dinner as the sun sets and temperatures drop into the low 70s. Lake House or Landing venues shine at dusk."
+      "title": "PumpkinFest glow + Big D's BBQ",
+      "detail": "As temps ease, head toward Shepherd of the Hills for opening-weekend fall vibes, then plate up at Big D's BBQ (Friday restaurant spotlight) — casual ribs, easy drive from Notch Lane, no lakeside wait required."
     }
   ],
   "indoor": [
     {
-      "name": "Sight & Sound Theatre",
-      "detail": "Spectacular productions in a cooled theater. Book ahead — perfect escape from the heat.",
-      "url": "https://sight-sound.com/branson/"
+      "name": "WonderWorks Branson",
+      "detail": "Upside-down building, 100+ STEAM exhibits, full AC — ideal Friday heat shelter on the 76 Strip.",
+      "url": "https://www.wonderworksonline.com/branson/"
     },
     {
-      "name": "Legends in Concert",
-      "detail": "Afternoon celebrity tribute show with live band and comfortable seating. Strong matinee option.",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
+      "name": "Sight & Sound Theatres",
+      "detail": "Large-scale biblical stage productions in a cooled house. Book ahead; confirm Friday performance time at the box office.",
+      "url": "https://www.sight-sound.com/branson/"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy country music and comedy in a climate-controlled venue. Family-friendly and reliable.",
-      "url": "https://www.claycooper.com/"
+      "name": "Titanic Museum Attraction",
+      "detail": "Walk-through galleries and AC corridors when the Strip is too hot to stroll. Verify Friday hours locally.",
+      "url": "https://titanicbranson.com/"
     }
   ],
-  "honesty": "Editor notes generated for 2026-09-17 using Open-Meteo forecast (high ~98°F / 36.7°C, low ~75°F, <5% precip). No fresh scout files found for tomorrow (carry-forward from 2026-09-16 shows-data.json and dining-data.json). Restaurant spotlight rotated to White River Fish House per Thursday rule. All content verified against existing reports; no events, times, or prices invented. Verify locally for latest availability, lake conditions, and showtimes."
+  "honesty": "Night Editor notes for Friday 2026-09-18 from Open-Meteo (high ~98°F / 36.5°C, low ~76°F / 24.4°C, ~2% precip, code 3). No 2026-09-18 scout files yet — plan and indoor picks carry verified venues from 2026-09-17 strip/intel/shows/fishing scouts. PumpkinFest Friday start noted in Strip scout; showtimes not invented (confirm box office). Restaurant rotation = Big D's BBQ (Friday). Big D catalog hits are Pexels stock only — no venue-exact photo; story runs without claiming a real plate shot. Verify lake generation, park hours, and Friday tickets locally."
 }
