@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { EMAIL } from "@/lib/site";
+import { sendMail } from "@/lib/mail";
 import {
   EMPTY_FIELDS,
   renderedAgreement,
@@ -104,7 +105,12 @@ export async function POST(req: Request) {
 
     let emailVia: string | null = null;
     let emailError: string | null = null;
-    const delivered = await deliver(subject, text, fields.email, fields.subscriberName);
+    const delivered = await sendMail({
+      to: EMAIL,
+      subject,
+      text,
+      replyTo: fields.email,
+    });
     if (delivered.ok) emailVia = delivered.via || "email";
     else emailError = delivered.error || "email failed";
 
@@ -133,46 +139,4 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ ok: false, error: "Failed to process." }, { status: 500 });
   }
-}
-
-async function deliver(
-  subject: string,
-  text: string,
-  replyTo: string,
-  fromName: string,
-): Promise<{ ok: boolean; via?: string; error?: string }> {
-  const resendKey = process.env.RESEND_API_KEY || "";
-  if (resendKey) {
-    const from = process.env.EMAIL_FROM || "Summers Vacations <summersvacationsllc@gmail.com>";
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from,
-        to: [EMAIL],
-        reply_to: replyTo,
-        subject,
-        text,
-      }),
-    });
-    if (r.ok) return { ok: true, via: "resend" };
-    return { ok: false, error: "Email provider rejected the message." };
-  }
-
-  const fs = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(EMAIL)}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({
-      _subject: subject,
-      _template: "box",
-      name: fromName,
-      email: replyTo,
-      message: text,
-    }),
-  });
-  if (fs.ok) return { ok: true, via: "formsubmit" };
-  return { ok: false, error: "Could not reach the mail service." };
 }

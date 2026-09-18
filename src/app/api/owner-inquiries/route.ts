@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { EMAIL } from "@/lib/site";
+import { sendMail } from "@/lib/mail";
 import {
   clientIp,
   newInquiryId,
@@ -80,12 +81,14 @@ export async function POST(req: Request) {
       inviteToken: null,
       declinedNote: "",
       ip: clientIp(req),
+      notifyVia: null,
+      notifyError: null,
     };
     await saveInquiry(rec);
 
     const subject = `Property review request: ${name} — ${address}`;
     const text = [
-      "A owner asked you to review a property before any contract.",
+      "An owner asked you to review a property before any contract.",
       "",
       `Open: https://mybransonvacation.com/contracts/log`,
       `Id: ${id}`,
@@ -101,28 +104,17 @@ export async function POST(req: Request) {
       "",
       notes || "(no notes)",
     ].join("\n");
-    await notify(subject, text, email, name);
+    const mailed = await sendMail({ to: EMAIL, subject, text, replyTo: email });
+    rec.notifyVia = mailed.via || null;
+    rec.notifyError = mailed.ok ? null : mailed.error || "email failed";
+    try {
+      await saveInquiry(rec, true);
+    } catch {
+      /* inquiry is stored */
+    }
 
-    return NextResponse.json({ ok: true, id });
+    return NextResponse.json({ ok: true, id, emailed: mailed.ok });
   } catch {
     return NextResponse.json({ ok: false, error: "Could not save the request." }, { status: 500 });
-  }
-}
-
-async function notify(subject: string, text: string, replyTo: string, fromName: string) {
-  try {
-    await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(EMAIL)}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        _subject: subject,
-        _template: "box",
-        name: fromName,
-        email: replyTo,
-        message: text,
-      }),
-    });
-  } catch {
-    /* log is the record */
   }
 }

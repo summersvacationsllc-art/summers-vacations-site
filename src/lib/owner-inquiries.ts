@@ -22,6 +22,10 @@ export type OwnerInquiry = {
   inviteToken: string | null;
   declinedNote: string;
   ip: string;
+  notifyVia?: string | null;
+  notifyError?: string | null;
+  inviteEmailedAt?: string | null;
+  inviteEmailError?: string | null;
 };
 
 export type ContractInvite = {

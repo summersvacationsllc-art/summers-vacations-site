@@ -14,6 +14,7 @@ export function ContractLog() {
   const [open, setOpen] = useState<StoredContract | null>(null);
   const [openInq, setOpenInq] = useState<OwnerInquiry | null>(null);
   const [copied, setCopied] = useState("");
+  const [mailNote, setMailNote] = useState("");
   const [direct, setDirect] = useState({ name: "", email: "", phone: "", address: "" });
 
   async function load() {
@@ -94,8 +95,23 @@ export function ContractLog() {
       return;
     }
     await copyUrl(data.url);
+    setMailNote(
+      data.emailed
+        ? `Emailed the contract link to ${openInq?.email || "the owner"}. Link also copied.`
+        : `Link copied. Could not email the owner${data.emailError ? `: ${data.emailError}` : "."}`,
+    );
     await load();
-    setOpenInq((cur) => (cur && cur.id === id ? { ...cur, status: "approved", inviteToken: data.token } : cur));
+    setOpenInq((cur) =>
+      cur && cur.id === id
+        ? {
+            ...cur,
+            status: "approved",
+            inviteToken: data.token,
+            inviteEmailedAt: data.emailed ? new Date().toISOString() : null,
+            inviteEmailError: data.emailed ? null : data.emailError || "email failed",
+          }
+        : cur,
+    );
   }
 
   async function decline(id: string) {
@@ -130,6 +146,11 @@ export function ContractLog() {
       return;
     }
     await copyUrl(data.url);
+    setMailNote(
+      data.emailed
+        ? `Emailed the contract link to ${direct.email}. Link also copied.`
+        : `Link copied. Could not email the owner${data.emailError ? `: ${data.emailError}` : "."}`,
+    );
     setDirect({ name: "", email: "", phone: "", address: "" });
   }
 
@@ -198,7 +219,7 @@ export function ContractLog() {
           <div className="mt-6 flex flex-wrap gap-3">
             {openInq.status !== "declined" && openInq.status !== "signed" ? (
               <button type="button" onClick={() => approve(openInq.id)} className="rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white">
-                Approve and copy contract link
+                Approve and email contract
               </button>
             ) : null}
             {openInq.status === "pending" ? (
@@ -207,6 +228,12 @@ export function ContractLog() {
               </button>
             ) : null}
           </div>
+          {mailNote ? <p className="mt-3 text-sm text-[#0369a1]">{mailNote}</p> : null}
+          {openInq.notifyError ? (
+            <p className="mt-2 text-sm text-red-700">Brian notify: {openInq.notifyError}</p>
+          ) : openInq.notifyVia ? (
+            <p className="mt-2 text-sm text-[#0369a1]">Brian was notified via {openInq.notifyVia}.</p>
+          ) : null}
           {url ? (
             <p className="mt-4 break-all text-sm text-[#0369a1]">
               {copied === url ? "Copied: " : "Link: "}
@@ -272,8 +299,9 @@ export function ContractLog() {
                     <input required placeholder="Property address" value={direct.address} onChange={(e) => setDirect({ ...direct, address: e.target.value })} className="rounded-lg border border-[#bae6fd] px-3 py-2" />
                   </div>
                   <button type="submit" className="mt-3 rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white">
-                    Create and copy link
+                    Create link and email owner
                   </button>
+                  {mailNote ? <p className="mt-2 text-xs text-[#0369a1]">{mailNote}</p> : null}
                   {copied ? <p className="mt-2 break-all text-xs text-[#0369a1]">Copied: {copied}</p> : null}
                 </form>
                 {inquiries === null ? (
@@ -297,6 +325,8 @@ export function ContractLog() {
                           <p className="mt-1 text-xs text-[#0369a1]">
                             {it.status} · {it.source === "met" ? "already met" : "website"} · {it.photoPathnames.length} photos ·{" "}
                             {it.submittedAt.slice(0, 10)}
+                            {it.notifyError ? " · Brian email failed" : it.notifyVia ? " · Brian emailed" : ""}
+                            {it.inviteEmailedAt ? " · contract emailed" : ""}
                           </p>
                         </button>
                       </li>

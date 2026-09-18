@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { EMAIL } from "@/lib/site";
 import { isContractsAuthed } from "@/lib/contracts-auth";
+import { ownerContractEmail, sendMail } from "@/lib/mail";
 import { inviteUrl, newInviteToken, saveInvite } from "@/lib/owner-inquiries";
 
 function str(v: unknown, max = 400): string {
@@ -32,7 +34,29 @@ export async function POST(req: Request) {
       usedAt: null,
       contractId: null,
     });
-    return NextResponse.json({ ok: true, url: inviteUrl(token), token });
+    const url = inviteUrl(token);
+    const letter = ownerContractEmail({ name, address, url });
+    const mailed = await sendMail({
+      to: email,
+      subject: letter.subject,
+      text: letter.text,
+      replyTo: EMAIL,
+    });
+    if (mailed.ok) {
+      await sendMail({
+        to: EMAIL,
+        subject: `Contract link emailed: ${name} — ${address}`,
+        text: [`The private agreement link was emailed to ${email}.`, "", `Link: ${url}`].join("\n"),
+        replyTo: email,
+      });
+    }
+    return NextResponse.json({
+      ok: true,
+      url,
+      token,
+      emailed: mailed.ok,
+      emailError: mailed.ok ? null : mailed.error || "email failed",
+    });
   } catch {
     return NextResponse.json({ ok: false, error: "Failed." }, { status: 500 });
   }

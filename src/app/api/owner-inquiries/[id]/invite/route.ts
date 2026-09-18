@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { EMAIL } from "@/lib/site";
 import { isContractsAuthed } from "@/lib/contracts-auth";
+import { ownerContractEmail, sendMail } from "@/lib/mail";
 import { getInquiry, inviteUrl, newInviteToken, saveInquiry, saveInvite } from "@/lib/owner-inquiries";
 
 export async function POST(req: Request, ctx: { params: Promise<{ id: string }> }) {
@@ -30,7 +32,35 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
   );
   rec.status = "approved";
   rec.inviteToken = token;
-  await saveInquiry(rec, true);
   const url = inviteUrl(token);
-  return NextResponse.json({ ok: true, url, token });
+  const letter = ownerContractEmail({ name: rec.name, address: rec.address, url });
+  const mailed = await sendMail({
+    to: rec.email,
+    subject: letter.subject,
+    text: letter.text,
+    replyTo: EMAIL,
+  });
+  rec.inviteEmailedAt = mailed.ok ? new Date().toISOString() : null;
+  rec.inviteEmailError = mailed.ok ? null : mailed.error || "email failed";
+  await saveInquiry(rec, true);
+  if (mailed.ok) {
+    await sendMail({
+      to: EMAIL,
+      subject: `Contract link emailed: ${rec.name} — ${rec.address}`,
+      text: [
+        `The private agreement link was emailed to ${rec.email}.`,
+        "",
+        `Desk: https://mybransonvacation.com/contracts/log`,
+        `Link: ${url}`,
+      ].join("\n"),
+      replyTo: rec.email,
+    });
+  }
+  return NextResponse.json({
+    ok: true,
+    url,
+    token,
+    emailed: mailed.ok,
+    emailError: rec.inviteEmailError,
+  });
 }
