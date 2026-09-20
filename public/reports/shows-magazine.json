@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-12",
+  "date": "2026-09-20",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Saturday full board",
-  "deck": "Biggest day of the week for live entertainment — matinees for kids, evening for date night.",
+  "hed": "Sunday at the Lake: Warm sun with a chance of evening storms",
+  "deck": "Sunday, September 20 brings mostly sunny skies and highs near 96°F before a chance of showers and thunderstorms moves in after dark. Perfect weather for a full day on Table Rock Lake or catching a matinee show.",
   "pick": {
-    "title": "Shepherd of the Hills Outdoor Drama",
-    "when": "7:30 PM",
-    "where": "Shepherd of the Hills",
-    "why": "Ozarks outdoor drama — check weather and arrive early.",
-    "url": "https://theshepherdofthehills.com/",
-    "source": "desk"
+    "title": "Branson Landing Fountain Show",
+    "when": "Every 30 minutes after 5:30 PM",
+    "where": "Branson Landing Waterfront",
+    "why": "Free, family-friendly spectacle with lights, music, and water jets — a nightly highlight that never gets old.",
+    "url": "https://www.bransonlanding.com/",
+    "source": "night-editor"
   },
   "buckets": [
     {
@@ -231,13 +231,29 @@
       "count": 3
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Legends in Concert",
+      "detail": "3 PM matinee tribute show — air-conditioned and family approved.",
+      "url": "https://legendsinconcert.com/location/branson-mo/"
+    },
+    {
+      "name": "Hamners' Unbelievable Magic",
+      "detail": "8 PM evening show with world-class illusions.",
+      "url": "https://www.hamnersunbelievable.com/"
+    },
+    {
+      "name": "REZA — Edge of Illusion",
+      "detail": "8 PM grand illusions at Reza Live Theatre.",
+      "url": "https://rezalivetheatre.com/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-12",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
+    "checked": "2026-09-20",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-20.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,

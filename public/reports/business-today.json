@@ -1,7 +1,7 @@
 {
   "ok": true,
   "date": "2026-09-20",
-  "generated_at": "2026-09-20T07:46:50-05:00",
+  "generated_at": "2026-09-20T07:48:59-05:00",
   "title": "Summers Vacations Business Report",
   "phone_url": "/reports/fleet",
   "actions": [
@@ -9,77 +9,18 @@
     "No new indexed owner-ask \u2014 paste any Facebook lead you found.",
     "Guesty Price Optimizer only \u2014 do not pitch PriceLabs."
   ],
-  "saas_bites": [
-    {
-      "item": "stripe",
-      "action": "If test keys exist: add them to Vercel preview (not prod) (20 min)",
-      "title": "Stripe billing (trial, plan, cancel)",
-      "status": "todo"
-    },
-    {
-      "item": "voice-key",
-      "action": "If key is live: do one phone Save-to-job test and tick voice-key done (15 min)",
-      "title": "XAI_API_KEY on prod + voice as paid add-on",
-      "status": "todo"
-    }
-  ],
+  "saas_bites": [],
   "leads": {
-    "date": "2026-09-20",
-    "summary": "No new owner-ask posts or inbound DMs found today in public Facebook results. Searches returned mostly competitor pitches, cleaning complaints, guest requests, and older posts (2023\u2013early 2026).",
-    "none_verified": false,
+    "date": null,
+    "summary": "No lead files on disk.",
     "named": [],
     "watch": [],
-    "file": "2026-09-20.md"
+    "none_verified": false
   },
   "competitors": {
-    "date": "2026-09-20",
-    "file": "2026-09-20.md",
-    "owners_hear_first": "Shellie Long Edwards, Ferris View Horizon, Grand Welcome, Aha, Thousand Hills, Weekender 25%.",
-    "rows": [
-      {
-        "name": "Summers Vacations",
-        "fee": "15% + $50/mo tech",
-        "signal": "Owners keep ratings",
-        "note": "Local ops + guidebook/kiosk"
-      },
-      {
-        "name": "Weekender",
-        "fee": "25% flat published",
-        "signal": "~13 Branson-area (self)",
-        "note": "Only local that posts a number"
-      },
-      {
-        "name": "Thousand Hills Vacations",
-        "fee": "not published",
-        "signal": "Airbtics 285 listings / ~$45.7k",
-        "note": "Largest tracked book"
-      },
-      {
-        "name": "Grand Welcome",
-        "fee": "custom (dir. ~30%)",
-        "signal": "Airbtics 174 / 71% occ",
-        "note": "Named on owner threads"
-      },
-      {
-        "name": "Shellie Long Edwards",
-        "fee": "VERIFY",
-        "signal": "Most-named in FB comments",
-        "note": "shellieedwardsrentals.com"
-      },
-      {
-        "name": "Aha Property Management",
-        "fee": "VERIFY",
-        "signal": "Claims 72 Branson units",
-        "note": "Tall Timbers recruiting 303-819-1182"
-      },
-      {
-        "name": "Evolve",
-        "fee": "10\u201315% half-service",
-        "signal": "No cleaning included",
-        "note": "Old thread favorite"
-      }
-    ],
-    "note": ""
+    "date": null,
+    "rows": [],
+    "note": "No competitor dossier on disk."
   },
   "guest_experience": {
     "title": "Guest Experience Enhancement",
@@ -114,14 +55,10 @@
   },
   "monday": {
     "is_monday": false,
-    "week_of": "2026-09-07",
-    "bottom_line": "Persistent Guesty sync freeze (lastRun frozen 2026-07-23 \u2014 now ~45 days stale) remains the dominant cross-division blocker. It blocks native Price Optimizer performance tracking on our 7 units, accurate event rules for Harvest Festival (active Sep 11\u2013Oct 31), Impact Reports, full activation of authorized Pricing & Comp Scout, and reliable daily intel cadence. Cleaners stay GREEN (stable 9-person roster, zero turnovers across 09-01 \u2192 09-05 Ops SITREPs). Market shows continued supply contraction (5,305 active listings, -29.8% YoY per AirDNA Sep 5 update; was 4,552 / -39.7% on the Sep 1 update) supporting strong revenue growth (~$38.9K\u2013$39.2K avg/listing, +40.1\u201341.1% YoY), 50% occ, $247 ADR, Re",
-    "top3": [
-      "**Harvest Festival shoulder capture with native Guesty Optimizer event rules + custom market groups** \u2014 Sep 11\u2013Oct 31 with lights/dance parties from Sep 18 and named concerts Sep 12/19/26 in a -30% YoY supply market. Move: Activate event detection, demand pacing, aggressive strat",
-      "**Compliance relief pitch to self-managing owners** \u2014 Full handling of STR permit ($150, 3-yr transferable), business license ($100 annual per address), fire safety inspection + self-inspection checklist (smoke detectors, 5lb 2"
-    ],
-    "one_liner": "Guesty sync remains frozen ~45 days (critical blocker for Optimizer tracking, Harvest Festival event rules, Impact Reports, Pricing & Comp Scout); supply contraction -30% YoY continues supporting +40% revenue growth and active Harvest Festival shoulder demand \u2014 prioritize Guesty credentials/sync fix and target self-managing owners with compliance + event-aware outreach while Coveside (Jen Chandler",
-    "file": "2026-09-07-weekly-briefing.md"
+    "week_of": null,
+    "bottom_line": "No weekly briefing file yet.",
+    "top3": [],
+    "one_liner": null
   },
   "fleet_date": "2026-09-20",
   "guest_date": "2026-09-20",
