@@ -1,51 +1,39 @@
 {
   "ok": true,
-  "date": "2026-09-14",
-  "generated_at": "2026-09-14T09:37:46-05:00",
+  "date": "2026-09-20",
+  "generated_at": "2026-09-20T07:46:50-05:00",
   "title": "Summers Vacations Business Report",
   "phone_url": "/reports/fleet",
   "actions": [
     "No unassigned turnovers in the last snapshot.",
-    "LIVE lead: Coveside Pool Place / Jen Chandler Faulkner \u2014 LIVE 2026-09-01, Nightly Vacations. Brian owns follow-up.",
-    "Public owner-ask in Branson Vacation Rentals: new purchase needs TLC / hunting a PM (~15w). Comments already pitching Shellie, Ferris View, Snyder.",
+    "No new indexed owner-ask \u2014 paste any Facebook lead you found.",
     "Guesty Price Optimizer only \u2014 do not pitch PriceLabs."
   ],
   "saas_bites": [
     {
-      "item": "docs-secrets",
-      "action": "Remove live PINs/phones from str-manager README + OPERATIONS.md (15 min)",
-      "title": "Strip live PINs/phones from README + OPERATIONS",
-      "status": "done"
-    },
-    {
-      "item": "voice-key",
-      "action": "Add XAI_API_KEY to Vercel str-manager production + redeploy (10 min)",
-      "title": "XAI_API_KEY on prod + voice as paid add-on",
+      "item": "stripe",
+      "action": "If test keys exist: add them to Vercel preview (not prod) (20 min)",
+      "title": "Stripe billing (trial, plan, cancel)",
       "status": "todo"
     },
     {
-      "item": "sms-live",
-      "action": "Open Twilio console \u2192 check A2P 10DLC status for Summers (10 min)",
-      "title": "Twilio/A2P SMS actually live",
+      "item": "voice-key",
+      "action": "If key is live: do one phone Save-to-job test and tick voice-key done (15 min)",
+      "title": "XAI_API_KEY on prod + voice as paid add-on",
       "status": "todo"
     }
   ],
   "leads": {
-    "date": "2026-09-14",
-    "summary": "Owner Lead Scout v1 only ran 5 `site:facebook.com` Google queries. Google mostly indexes **competitor ads** and **old public crumbs**. It cannot see:\n- Private **Branson Vacation Rentals by Owner** (~10k) \u2014 Brian is logged in; the cron is not\n- Most posts inside **Branson Vacation Rentals** until they leak\n- Messenger DMs from Brian\u2019s own posts\n- Fresh posts that have not been indexed yet",
+    "date": "2026-09-20",
+    "summary": "No new owner-ask posts or inbound DMs found today in public Facebook results. Searches returned mostly competitor pitches, cleaning complaints, guest requests, and older posts (2023\u2013early 2026).",
     "none_verified": false,
-    "named": [
-      "Coveside Pool Place / Jen Chandler Faulkner \u2014 LIVE 2026-09-01, Nightly Vacations. Brian owns follow-up."
-    ],
-    "watch": [
-      "Public owner-ask in Branson Vacation Rentals: new purchase needs TLC / hunting a PM (~15w). Comments already pitching Shellie, Ferris View, Snyder.",
-      "Brian found a Facebook lead Google did not index \u2014 paste name + URL to file it."
-    ],
-    "file": "2026-09-14.md"
+    "named": [],
+    "watch": [],
+    "file": "2026-09-20.md"
   },
   "competitors": {
-    "date": "2026-09-14",
-    "file": "2026-09-14.md",
+    "date": "2026-09-20",
+    "file": "2026-09-20.md",
     "owners_hear_first": "Shellie Long Edwards, Ferris View Horizon, Grand Welcome, Aha, Thousand Hills, Weekender 25%.",
     "rows": [
       {
@@ -91,7 +79,7 @@
         "note": "Old thread favorite"
       }
     ],
-    "note": "When an owner asks in Branson Vacation Rentals, the **names that get repeated** are not the national brands first:"
+    "note": ""
   },
   "guest_experience": {
     "title": "Guest Experience Enhancement",
@@ -125,7 +113,7 @@
     "note": "Synced: 0 new / 5 updated listings, 72 reservations, 1 turnover tasks created"
   },
   "monday": {
-    "is_monday": true,
+    "is_monday": false,
     "week_of": "2026-09-07",
     "bottom_line": "Persistent Guesty sync freeze (lastRun frozen 2026-07-23 \u2014 now ~45 days stale) remains the dominant cross-division blocker. It blocks native Price Optimizer performance tracking on our 7 units, accurate event rules for Harvest Festival (active Sep 11\u2013Oct 31), Impact Reports, full activation of authorized Pricing & Comp Scout, and reliable daily intel cadence. Cleaners stay GREEN (stable 9-person roster, zero turnovers across 09-01 \u2192 09-05 Ops SITREPs). Market shows continued supply contraction (5,305 active listings, -29.8% YoY per AirDNA Sep 5 update; was 4,552 / -39.7% on the Sep 1 update) supporting strong revenue growth (~$38.9K\u2013$39.2K avg/listing, +40.1\u201341.1% YoY), 50% occ, $247 ADR, Re",
     "top3": [
@@ -135,8 +123,8 @@
     "one_liner": "Guesty sync remains frozen ~45 days (critical blocker for Optimizer tracking, Harvest Festival event rules, Impact Reports, Pricing & Comp Scout); supply contraction -30% YoY continues supporting +40% revenue growth and active Harvest Festival shoulder demand \u2014 prioritize Guesty credentials/sync fix and target self-managing owners with compliance + event-aware outreach while Coveside (Jen Chandler",
     "file": "2026-09-07-weekly-briefing.md"
   },
-  "fleet_date": "2026-09-13",
-  "guest_date": "2026-09-13",
+  "fleet_date": "2026-09-20",
+  "guest_date": "2026-09-20",
   "notes": [
     "This is the single daily business report. Guest Branson Daily stays separate.",
     "Monday section is the weekly rollup \u2014 not a second file.",
