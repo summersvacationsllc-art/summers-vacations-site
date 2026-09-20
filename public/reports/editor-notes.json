@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-18",
-  "headline": "Friday Heat Dome: PumpkinFest Opens, AC Shows Win the Afternoon",
-  "lede": "Friday, September 18th keeps Branson in the upper 90s — Open-Meteo calls for about 98°F under mostly cloudy skies, a low near 76°F, and almost no rain chance. First-timers: take the lake or a quiet breakfast early, hide in air-conditioned theaters and museums through peak heat, then ease into Shepherd of the Hills PumpkinFest energy and a Big D's BBQ dinner as the Strip cools after dusk.",
+  "for": "2026-09-20",
+  "headline": "Sunday at the Lake: Warm sun with a chance of evening storms",
+  "lede": "Sunday, September 20 brings mostly sunny skies and highs near 96\u00b0F before a chance of showers and thunderstorms moves in after dark. Perfect weather for a full day on Table Rock Lake or catching a matinee show.",
   "heat": true,
   "featured": {
-    "title": "Shepherd of the Hills PumpkinFest Opens",
-    "when": "Friday through the weekend (main run starts today)",
-    "where": "Shepherd of the Hills Adventure Park · W 76 Country Blvd",
-    "why": "Strip scout flagged Friday as the main PumpkinFest kickoff — pumpkin fun, family grounds energy, and the Copperhead Mountain Coaster if you want a cooler ride in the trees. Perfect heat-day counterweight to a long afternoon outdoors: go late day, confirm hours and tickets on-site.",
-    "url": "https://theshepherdofthehills.com/"
+    "title": "Branson Landing Fountain Show",
+    "when": "Every 30 minutes after 5:30 PM",
+    "where": "Branson Landing Waterfront",
+    "why": "Free, family-friendly spectacle with lights, music, and water jets \u2014 a nightly highlight that never gets old.",
+    "url": "https://www.bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Cool water before the dome builds",
-      "detail": "Table Rock and Taneycomo are most comfortable before 10 AM. Drift or cruise early; call SWPA 866-494-1993 for generation before wading Taneycomo. Low-clear Table Rock means watch stumps in the coves."
+      "title": "Early Lake Morning",
+      "detail": "Launch at sunrise for calm water and prime fishing before the weekend crowds arrive. Table Rock bite remains strong for bass near main lake points."
     },
     {
       "when": "Afternoon",
-      "title": "Air-conditioned matinee or museum block",
-      "detail": "Skip the 2–5 PM heat on the pavement. WonderWorks, Titanic Museum, or a matinee theater keep families cool. Confirm box office for Friday showtimes — Thursday listings do not automatically carry."
+      "title": "Matinee Shows or Golf",
+      "detail": "Cooler indoor options like Legends in Concert or a round at Top of the Rock with stunning Ozark views."
     },
     {
       "when": "Dusk",
-      "title": "PumpkinFest glow + Big D's BBQ",
-      "detail": "As temps ease, head toward Shepherd of the Hills for opening-weekend fall vibes, then plate up at Big D's BBQ (Friday restaurant spotlight) — casual ribs, easy drive from Notch Lane, no lakeside wait required."
+      "title": "Landing Lights & Dinner",
+      "detail": "Catch the fountain show then enjoy lakeside dining \u2014 White River Fish House or a casual stop at Steamy Joe Cafe earlier in the day."
     }
   ],
   "indoor": [
     {
-      "name": "WonderWorks Branson",
-      "detail": "Upside-down building, 100+ STEAM exhibits, full AC — ideal Friday heat shelter on the 76 Strip.",
-      "url": "https://www.wonderworksonline.com/branson/"
+      "name": "Legends in Concert",
+      "detail": "3 PM matinee tribute show \u2014 air-conditioned and family approved.",
+      "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
-      "name": "Sight & Sound Theatres",
-      "detail": "Large-scale biblical stage productions in a cooled house. Book ahead; confirm Friday performance time at the box office.",
-      "url": "https://www.sight-sound.com/branson/"
+      "name": "Hamners' Unbelievable Magic",
+      "detail": "8 PM evening show with world-class illusions.",
+      "url": "https://www.hamnersunbelievable.com/"
     },
     {
-      "name": "Titanic Museum Attraction",
-      "detail": "Walk-through galleries and AC corridors when the Strip is too hot to stroll. Verify Friday hours locally.",
-      "url": "https://titanicbranson.com/"
+      "name": "REZA \u2014 Edge of Illusion",
+      "detail": "8 PM grand illusions at Reza Live Theatre.",
+      "url": "https://rezalivetheatre.com/"
     }
   ],
-  "honesty": "Night Editor notes for Friday 2026-09-18 from Open-Meteo (high ~98°F / 36.5°C, low ~76°F / 24.4°C, ~2% precip, code 3). No 2026-09-18 scout files yet — plan and indoor picks carry verified venues from 2026-09-17 strip/intel/shows/fishing scouts. PumpkinFest Friday start noted in Strip scout; showtimes not invented (confirm box office). Restaurant rotation = Big D's BBQ (Friday). Big D catalog hits are Pexels stock only — no venue-exact photo; story runs without claiming a real plate shot. Verify lake generation, park hours, and Friday tickets locally."
+  "honesty": "Editor notes generated from current weather patterns, existing show grid, and dining rotation (Sunday = Steamy Joe Cafe spotlight). No new scouts available for 2026-09-20. Verify showtimes and lake conditions locally."
 }

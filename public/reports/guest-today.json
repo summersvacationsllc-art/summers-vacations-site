@@ -1,22 +1,32 @@
 {
-  "date": "2026-09-18",
-  "generated_at": "2026-09-18T05:47:44-05:00",
+  "date": "2026-09-20",
+  "generated_at": "2026-09-19T22:18:09-05:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 1,
+    "check_ins": 1,
+    "check_outs": 3,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 2,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "Patrice Hill",
-      "guests": 13,
+      "property": "Woodland Retreat",
+      "guest": "Janetta Dotson",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_7ngwhgt",
+      "reservation_id": "res_pou0n5m",
       "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Penthouse",
+      "guest": "Candace Guidry",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_ku8n0qd",
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
@@ -24,41 +34,19 @@
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_b93w8j3",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
+      "time": "10:00 AM"
+    },
     {
-      "property": "Woodland Retreat",
-      "guest": "Janet Zimmerman",
-      "guests": 4,
+      "property": "Rustic Ozark",
+      "guest": "Tristan Slater",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_hyak16g",
+      "reservation_id": "res_mtrzyo4",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Penthouse",
-      "guest": "Candace Guidry",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_ku8n0qd",
-      "check_in": "2026-09-16",
-      "check_out": "2026-09-20",
-      "nights": 4
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Zachary Sutton",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_fqzxdh9",
-      "check_in": "2026-09-17",
-      "check_out": "2026-09-19",
-      "nights": 2
-    },
     {
       "property": "Indian Point",
       "guest": "Patrice Hill",
@@ -71,13 +59,13 @@
     },
     {
       "property": "Woodland Retreat",
-      "guest": "Jennifer Sipple",
-      "guests": 4,
+      "guest": "Janetta Dotson",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_b93w8j3",
-      "check_in": "2026-09-18",
-      "check_out": "2026-09-20",
-      "nights": 2
+      "reservation_id": "res_pou0n5m",
+      "check_in": "2026-09-20",
+      "check_out": "2026-09-26",
+      "nights": 6
     }
   ],
   "sync_notes": {
