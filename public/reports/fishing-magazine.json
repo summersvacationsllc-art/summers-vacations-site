@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-19",
+  "date": "2026-09-20",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
   "hed": "A Quiet Morning on the Desk",
   "deck": "Table Rock and Taneycomo, written like a fishing magazine \u2014 two waters, one week, nothing invented on the outdoor desk.",
   "play": {
-    "title": "Leave at 10.",
-    "body": "The honest August trip is over before the strip gets busy. Night is the second shift, not noon."
+    "title": "Harvest the spots.",
+    "body": "MDC's Table Rock advice: keep spotted bass. The largemouth and smallmouth will thank you. Put slot rainbows back."
   },
   "season": {
     "name": "Dog days",
@@ -21,14 +21,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "4 mornings this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "5 mornings this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-09-13",
-      "label": "Sun",
-      "level": "\u2014",
-      "fresh": true
-    },
     {
       "date": "2026-09-14",
       "label": "Mon",
@@ -62,6 +56,12 @@
     {
       "date": "2026-09-19",
       "label": "Sat",
+      "level": "\u2014",
+      "fresh": false
+    },
+    {
+      "date": "2026-09-20",
+      "label": "Sun",
       "level": "\u2014",
       "fresh": false
     }
@@ -106,7 +106,7 @@
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-09-19",
+    "checked": "2026-09-20",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }
