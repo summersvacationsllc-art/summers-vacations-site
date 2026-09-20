@@ -15,7 +15,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 CT = ZoneInfo("America/Chicago")
-SITE = Path("/Users/briansummers/projects/summers-vacations-site")
+SITE = Path(__file__).resolve().parent.parent
 BIZ = Path("/Users/briansummers/projects/branson-bizdev")
 REPORTS = SITE / "public" / "reports"
 
