@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-20",
-  "headline": "Sunday at the Lake: Warm sun with a chance of evening storms",
-  "lede": "Sunday, September 20 brings mostly sunny skies and highs near 96\u00b0F before a chance of showers and thunderstorms moves in after dark. Perfect weather for a full day on Table Rock Lake or catching a matinee show.",
-  "heat": true,
+  "for": "2026-09-21",
+  "headline": "Monday at the Lake: Cool & crisp with plenty of sunshine",
+  "lede": "Monday, September 21 brings cool highs near 84\u00b0F (28.7\u00b0C) under mostly sunny skies with a low chance of rain. A refreshing change after recent heat \u2014 perfect for a full day exploring Branson without the humidity.",
+  "heat": false,
   "featured": {
     "title": "Branson Landing Fountain Show",
     "when": "Every 30 minutes after 5:30 PM",
     "where": "Branson Landing Waterfront",
-    "why": "Free, family-friendly spectacle with lights, music, and water jets \u2014 a nightly highlight that never gets old.",
+    "why": "Free family favorite with synchronized lights, music, and towering water jets against the Ozark hills.",
     "url": "https://www.bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early Lake Morning",
-      "detail": "Launch at sunrise for calm water and prime fishing before the weekend crowds arrive. Table Rock bite remains strong for bass near main lake points."
+      "title": "Table Rock Sunrise Fishing",
+      "detail": "Launch early for calm water and active bass near main lake points and brush piles. Walleye and crappie also active in cooler mornings."
     },
     {
       "when": "Afternoon",
-      "title": "Matinee Shows or Golf",
-      "detail": "Cooler indoor options like Legends in Concert or a round at Top of the Rock with stunning Ozark views."
+      "title": "Matinee Show or Golf",
+      "detail": "Beat the small chance of afternoon clouds with indoor air-conditioned entertainment or a scenic round at one of Branson's championship courses."
     },
     {
       "when": "Dusk",
-      "title": "Landing Lights & Dinner",
-      "detail": "Catch the fountain show then enjoy lakeside dining \u2014 White River Fish House or a casual stop at Steamy Joe Cafe earlier in the day."
+      "title": "Fountain Lights + Lakeside Dinner",
+      "detail": "Catch the evening fountain show then enjoy dinner with a view. Monday rotation spotlights pizza \u2014 try Ozark Mountain Pizza or a local favorite."
     }
   ],
   "indoor": [
     {
       "name": "Legends in Concert",
-      "detail": "3 PM matinee tribute show \u2014 air-conditioned and family approved.",
+      "detail": "3 PM matinee tribute show in a comfortable theater.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
       "name": "Hamners' Unbelievable Magic",
-      "detail": "8 PM evening show with world-class illusions.",
+      "detail": "Evening show of world-class illusions and comedy.",
       "url": "https://www.hamnersunbelievable.com/"
     },
     {
       "name": "REZA \u2014 Edge of Illusion",
-      "detail": "8 PM grand illusions at Reza Live Theatre.",
+      "detail": "Grand illusions at Reza Live Theatre.",
       "url": "https://rezalivetheatre.com/"
     }
   ],
-  "honesty": "Editor notes generated from current weather patterns, existing show grid, and dining rotation (Sunday = Steamy Joe Cafe spotlight). No new scouts available for 2026-09-20. Verify showtimes and lake conditions locally."
+  "honesty": "Editor notes for 2026-09-21 generated from Open-Meteo forecast (high 28.7\u00b0C/84\u00b0F, low precip), existing show grid, and dining rotation (Monday = pizza spotlight). No new scout files found for tomorrow. Carry-forward from recent verified reports. Verify all times, conditions, and availability locally."
 }
