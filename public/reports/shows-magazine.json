@@ -1,14 +1,14 @@
 {
-  "date": "2026-09-20",
+  "date": "2026-09-22",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Sunday at the Lake: Warm sun with a chance of evening storms",
-  "deck": "Sunday, September 20 brings mostly sunny skies and highs near 96°F before a chance of showers and thunderstorms moves in after dark. Perfect weather for a full day on Table Rock Lake or catching a matinee show.",
+  "hed": "Tuesday at the Lake: Milder air, patchy drizzle then sun",
+  "deck": "Tuesday, September 22 brings a pleasant shift with highs in the low 80s, mostly cloudy skies turning partly sunny, and only a slight chance of patchy morning drizzle. Comfortable for outdoor plans with lower humidity than recent days.",
   "pick": {
-    "title": "Branson Landing Fountain Show",
-    "when": "Every 30 minutes after 5:30 PM",
-    "where": "Branson Landing Waterfront",
-    "why": "Free, family-friendly spectacle with lights, music, and water jets — a nightly highlight that never gets old.",
+    "title": "Branson Landing Farmers Market",
+    "when": "2:30–6:30 PM",
+    "where": "South lot by Bass Pro Shops at Branson Landing",
+    "why": "Fresh local produce, baked goods, crafts, and live music — the perfect mid-week stop for families staying nearby.",
     "url": "https://www.bransonlanding.com/",
     "source": "night-editor"
   },
@@ -233,18 +233,18 @@
   ],
   "indoor": [
     {
+      "name": "Thank You For The Music (ABBA Tribute)",
+      "detail": "Matinee at Hamners’ Variety Theater — fun, upbeat tribute perfect for all ages.",
+      "url": "https://www.hamnersvariety.com/"
+    },
+    {
       "name": "Legends in Concert",
-      "detail": "3 PM matinee tribute show — air-conditioned and family approved.",
+      "detail": "Afternoon celebrity tribute show in air-conditioned comfort.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
-      "name": "Hamners' Unbelievable Magic",
-      "detail": "8 PM evening show with world-class illusions.",
-      "url": "https://www.hamnersunbelievable.com/"
-    },
-    {
       "name": "REZA — Edge of Illusion",
-      "detail": "8 PM grand illusions at Reza Live Theatre.",
+      "detail": "Evening grand illusions and magic at Reza Live Theatre.",
       "url": "https://rezalivetheatre.com/"
     }
   ],
@@ -252,8 +252,8 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-20",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-20.md, shows-data board. Scout prose on file."
+    "checked": "2026-09-22",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-22.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
