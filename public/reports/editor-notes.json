@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-21",
-  "headline": "Monday at the Lake: Cool & crisp with plenty of sunshine",
-  "lede": "Monday, September 21 brings cool highs near 84\u00b0F (28.7\u00b0C) under mostly sunny skies with a low chance of rain. A refreshing change after recent heat \u2014 perfect for a full day exploring Branson without the humidity.",
+  "for": "2026-09-22",
+  "headline": "Tuesday at the Lake: Milder air, patchy drizzle then sun",
+  "lede": "Tuesday, September 22 brings a pleasant shift with highs in the low 80s, mostly cloudy skies turning partly sunny, and only a slight chance of patchy morning drizzle. Comfortable for outdoor plans with lower humidity than recent days.",
   "heat": false,
   "featured": {
-    "title": "Branson Landing Fountain Show",
-    "when": "Every 30 minutes after 5:30 PM",
-    "where": "Branson Landing Waterfront",
-    "why": "Free family favorite with synchronized lights, music, and towering water jets against the Ozark hills.",
+    "title": "Branson Landing Farmers Market",
+    "when": "2:30\u20136:30 PM",
+    "where": "South lot by Bass Pro Shops at Branson Landing",
+    "why": "Fresh local produce, baked goods, crafts, and live music \u2014 the perfect mid-week stop for families staying nearby.",
     "url": "https://www.bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Table Rock Sunrise Fishing",
-      "detail": "Launch early for calm water and active bass near main lake points and brush piles. Walleye and crappie also active in cooler mornings."
+      "title": "Early Lake Fishing or Coffee",
+      "detail": "Calm morning bite on Table Rock for bass near points; or grab espresso and a view at Steamy Joe Cafe before the day warms."
     },
     {
       "when": "Afternoon",
-      "title": "Matinee Show or Golf",
-      "detail": "Beat the small chance of afternoon clouds with indoor air-conditioned entertainment or a scenic round at one of Branson's championship courses."
+      "title": "Farmers Market + Fountain Show",
+      "detail": "Browse the Tuesday market then enjoy the free Branson Landing fountain show with synchronized lights and music."
     },
     {
       "when": "Dusk",
-      "title": "Fountain Lights + Lakeside Dinner",
-      "detail": "Catch the evening fountain show then enjoy dinner with a view. Monday rotation spotlights pizza \u2014 try Ozark Mountain Pizza or a local favorite."
+      "title": "Dinner with a View",
+      "detail": "Tuesday rotation highlights Farmhouse Restaurant \u2014 home-style comfort food steps from the Landing."
     }
   ],
   "indoor": [
     {
+      "name": "Thank You For The Music (ABBA Tribute)",
+      "detail": "Matinee at Hamners\u2019 Variety Theater \u2014 fun, upbeat tribute perfect for all ages.",
+      "url": "https://www.hamnersvariety.com/"
+    },
+    {
       "name": "Legends in Concert",
-      "detail": "3 PM matinee tribute show in a comfortable theater.",
+      "detail": "Afternoon celebrity tribute show in air-conditioned comfort.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
-      "name": "Hamners' Unbelievable Magic",
-      "detail": "Evening show of world-class illusions and comedy.",
-      "url": "https://www.hamnersunbelievable.com/"
-    },
-    {
       "name": "REZA \u2014 Edge of Illusion",
-      "detail": "Grand illusions at Reza Live Theatre.",
+      "detail": "Evening grand illusions and magic at Reza Live Theatre.",
       "url": "https://rezalivetheatre.com/"
     }
   ],
-  "honesty": "Editor notes for 2026-09-21 generated from Open-Meteo forecast (high 28.7\u00b0C/84\u00b0F, low precip), existing show grid, and dining rotation (Monday = pizza spotlight). No new scout files found for tomorrow. Carry-forward from recent verified reports. Verify all times, conditions, and availability locally."
+  "honesty": "Editor notes generated from Open-Meteo forecast (high ~81\u00b0F, patchy drizzle AM, mostly sunny PM), existing shows-data.json (ABBA tribute on Tue), dining rotation (Tue = Farmhouse), and carry-forward attractions. No fresh scout files for 2026-09-22. All times and availability should be verified locally at box offices or venues. No guest names or ops data used."
 }
