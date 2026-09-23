@@ -18,6 +18,54 @@ const season = (): SeasonalTheme => {
 const T = season();
 const S = (light = '', dark = '') => ({ backgroundColor: T.primaryColor, backgroundImage: T.gradient, ...(light ? { color: light } : {}), ...(dark ? { color: dark } : {}) });
 
+type HomeChip = { e: string; t: string; d: string; l: string };
+
+function clipLabel(s: string, n = 30) {
+  const t = (s || '').trim();
+  return t.length > n ? t.slice(0, n - 1) + '…' : t;
+}
+
+/** Home 2×2 — season window + live report JSON. Never a hardcoded ended festival. */
+function homeHighlights(theme: SeasonalTheme, showsData: any, attractionsData: any, golfData: any): HomeChip[] {
+  const chips: HomeChip[] = [{
+    e: theme.emoji,
+    t: clipLabel(theme.featuredEvent.replace(/^\S+\s/, ''), 32),
+    d: theme.sdcEvent,
+    l: theme.featuredLink,
+  }];
+  const shows = Array.isArray(showsData?.shows) ? showsData.shows : [];
+  const evening = shows.find((s: any) => typeof s?.sortMinutes === 'number' && s.sortMinutes >= 1020) || shows[0];
+  if (evening?.name) {
+    chips.push({
+      e: evening.icon || '🎭',
+      t: clipLabel(evening.name, 30),
+      d: [evening.time, evening.venue].filter(Boolean).join(' · ') || 'Today',
+      l: evening.url || 'https://www.bransonshows.com/showByDate.cfm',
+    });
+  }
+  const attrs = Array.isArray(attractionsData?.attractions) ? attractionsData.attractions : [];
+  const attr = attrs.find((a: any) => a?.name && !/silver dollar city/i.test(a.name));
+  if (attr?.name) {
+    chips.push({
+      e: '🎢',
+      t: clipLabel(attr.name, 30),
+      d: clipLabel(String(attr.tag || 'Adventure'), 24),
+      l: attr.url || 'https://www.silverdollarcity.com/',
+    });
+  }
+  const courses = Array.isArray(golfData?.courses) ? golfData.courses : [];
+  const course = courses.find((c: any) => c?.featured) || courses[0];
+  if (course?.name) {
+    chips.push({
+      e: '⛳',
+      t: clipLabel(String(course.name).split('—')[0], 30),
+      d: course.tag || course.drive || 'Golf nearby',
+      l: course.url || 'https://bigcedar.com/golf/',
+    });
+  }
+  return chips.slice(0, 4);
+}
+
 // Convert "4:00 PM" → "16:00:00" for Date constructor
 function convertTime(t: string): string {
   const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
@@ -429,7 +477,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {/* Today's Highlights */}
             {sectionTitle('🎯', "Today's Highlights")}
             <div className="grid grid-cols-2 gap-2 px-3.5">
-              {[{e:'🙌',t:'Gospel Picnic',d:'SDC Aug 27–Sep 7',l:'https://www.silverdollarcity.com/theme-park/festivals/southern-gospel-picnic/'},{e:'🎸',t:'Bohemian Queen',d:'Freddie Tribute',l:'https://www.themansiontheatre.com/'},{e:'🎬',t:'Free Movies',d:'Last 2 weeks!',l:'https://www.bransonimax.com/'},{e:'⛳',t:'Golf Camp',d:'Ozarks National',l:'https://bigcedar.com/golf/ozarks-national/'}].map((x,i) => (
+              {homeHighlights(T, showsData, attractionsData, golfData).map((x,i) => (
                 <a key={i} href={x.l} target="_blank" rel="noopener" className="block bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit"><div className="text-xl">{x.e}</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">{x.t}</div><div className="text-[11px] text-sky-700">{x.d}</div></a>
               ))}
             </div>
@@ -444,13 +492,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <span className="text-[10px] text-sky-700">{x.venue}</span>
               </a>
               ))
-              : [{t:'7PM',n:'Grand Jubilee',v:'Grand Country',l:'https://www.grandcountrylivemusic.com/grand-jubilee'},{t:'8PM',n:'Bohemian Queen',v:'Clay Cooper',l:'https://www.themansiontheatre.com/'},{t:'8PM',n:'The Haygoods',v:'Haygood Theater',l:'https://thehaygoods.com/'}].map((x,i) => (
-              <a key={i} href={x.l} target="_blank" rel="noopener" className="flex items-center gap-2 mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 no-underline text-inherit">
-                <span className="text-[12px] font-bold px-1.5 py-0.5 rounded whitespace-nowrap" style={{ background: '#0c4a6e', color: '#ffffff' }}>{x.t}</span>
-                <span className="text-[12px] font-semibold flex-1 text-sky-900">{x.n}</span>
-                <span className="text-[10px] text-sky-700">{x.v}</span>
-              </a>
-            ))}
+              : <div className="mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 text-[12px] text-sky-700">Today&apos;s lineup loads with the morning report.</div>}
 
             {/* Book Again */}
             <a href="https://branson-condo.com" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
@@ -617,7 +659,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {sectionTitle('⭐','Featured — Silver Dollar City')}
             <div className="mx-3.5 mb-1.5 rounded-xl px-3.5 py-3" style={styles.bar}>
               <div className="flex items-center gap-2"><span className="text-xl">🎢</span><h3 className="text-base font-bold text-white">Silver Dollar City</h3></div>
-              <div className="text-[12px] mt-1 text-white leading-relaxed">America&apos;s #1 Theme Park! Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Next festival: Southern Gospel Picnic Aug 27–Sep 7.</div>
+              <div className="text-[12px] mt-1 text-white leading-relaxed">Outlaw Run, Time Traveler, Powder Keg, Mystic River Falls, Fire In The Hole. 12 min drive. Now: {T.sdcEvent}.</div>
               <div className="flex gap-2 mt-2">
                 <a href="https://www.silverdollarcity.com/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline" style={{ background: T.accentColor, color: '#ffffff' }}>🎫 Tickets</a>
                 <a href="https://www.silverdollarcity.com/theme-park/attractions/rides/" target="_blank" rel="noopener" className="text-[11px] font-semibold px-3 py-1.5 rounded-md no-underline bg-white/20 text-white">🎢 Rides</a>
