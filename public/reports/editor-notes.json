@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-22",
-  "headline": "Tuesday at the Lake: Milder air, patchy drizzle then sun",
-  "lede": "Tuesday, September 22 brings a pleasant shift with highs in the low 80s, mostly cloudy skies turning partly sunny, and only a slight chance of patchy morning drizzle. Comfortable for outdoor plans with lower humidity than recent days.",
+  "for": "2026-09-23",
+  "headline": "Wednesday at the lake: clear air, mid-80s, easy outdoor day",
+  "lede": "Wednesday, September 23 opens mild and dry — overnight low near 59°F, afternoon high about 82°F, almost no rain chance. Overcast to partly cloudy skies keep the Ozarks soft for a lake morning, a Strip matinee, and coffee at Steamy Joe before the evening show board.",
   "heat": false,
   "featured": {
-    "title": "Branson Landing Farmers Market",
-    "when": "2:30\u20136:30 PM",
-    "where": "South lot by Bass Pro Shops at Branson Landing",
-    "why": "Fresh local produce, baked goods, crafts, and live music \u2014 the perfect mid-week stop for families staying nearby.",
-    "url": "https://www.bransonlanding.com/"
+    "title": "Dublin's Irish Tenors and The Celtic Ladies",
+    "when": "2:00 PM (confirm box office)",
+    "where": "King's Castle Theatre, 2701 W 76 Country Blvd",
+    "why": "A strong multi-gen matinee: Celtic vocals and dance in cool theatre air while the afternoon warms outside. Pair it with a late lunch on the 76.",
+    "url": "https://www.kingscastletheatre.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early Lake Fishing or Coffee",
-      "detail": "Calm morning bite on Table Rock for bass near points; or grab espresso and a view at Steamy Joe Cafe before the day warms."
+      "title": "Table Rock while it is cool",
+      "detail": "Calm start for bass and crappie near main-lake points. Carry-forward conditions only — verify generation and water temp at the ramp before you launch."
     },
     {
       "when": "Afternoon",
-      "title": "Farmers Market + Fountain Show",
-      "detail": "Browse the Tuesday market then enjoy the free Branson Landing fountain show with synchronized lights and music."
+      "title": "Irish tenors matinee on the Strip",
+      "detail": "Aim for Dublin's Irish Tenors and The Celtic Ladies at King's Castle around 2 PM, or Legends in Concert nearby if that board fits better. Confirm showtimes at the box office."
     },
     {
       "when": "Dusk",
-      "title": "Dinner with a View",
-      "detail": "Tuesday rotation highlights Farmhouse Restaurant \u2014 home-style comfort food steps from the Landing."
+      "title": "Steamy Joe spotlight, then an evening show",
+      "detail": "Wednesday dining rotation lands on Steamy Joe Cafe (espresso and Ozark view; typically closes mid-afternoon — go early or plan a second dinner stop). Finish with Amazing Acrobats of Shanghai or another evening board pick after you confirm."
     }
   ],
   "indoor": [
     {
-      "name": "Thank You For The Music (ABBA Tribute)",
-      "detail": "Matinee at Hamners\u2019 Variety Theater \u2014 fun, upbeat tribute perfect for all ages.",
-      "url": "https://www.hamnersvariety.com/"
+      "name": "Dublin's Irish Tenors and The Celtic Ladies",
+      "detail": "Matinee Celtic vocals and dance at King's Castle — confirm today's time at the box office.",
+      "url": "https://www.kingscastletheatre.com/"
     },
     {
       "name": "Legends in Concert",
-      "detail": "Afternoon celebrity tribute show in air-conditioned comfort.",
+      "detail": "Afternoon celebrity tributes with a live band at Pepsi Legends Theater — cooler indoor option.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
-      "name": "REZA \u2014 Edge of Illusion",
-      "detail": "Evening grand illusions and magic at Reza Live Theatre.",
-      "url": "https://rezalivetheatre.com/"
+      "name": "Amazing Acrobats of Shanghai",
+      "detail": "Evening circus spectacle at Grand Shanghai Theatre — aerials and high-energy family show; confirm box office.",
+      "url": "https://www.grandshanghaitheatre.com/"
     }
   ],
-  "honesty": "Editor notes generated from Open-Meteo forecast (high ~81\u00b0F, patchy drizzle AM, mostly sunny PM), existing shows-data.json (ABBA tribute on Tue), dining rotation (Tue = Farmhouse), and carry-forward attractions. No fresh scout files for 2026-09-22. All times and availability should be verified locally at box offices or venues. No guest names or ops data used."
+  "honesty": "Night Editor desk for 2026-09-23 from Open-Meteo (high ~82°F / 27.9°C, low ~59°F / 15.2°C, precip chance ~1%, WMO 3 overcast). No fresh scout markdown for 2026-09-23 at run time — shows and fishing carried from latest verified public/reports JSON with box-office confirm notes. Wednesday restaurant spotlight = Steamy Joe Cafe. Farmers market not featured (Tuesday-only). No guest names, cleaners, or ops data."
 }
