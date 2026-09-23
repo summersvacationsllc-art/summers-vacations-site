@@ -362,11 +362,29 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             </div>
 
             {mode === 'guest' && (
+            <>
+            <div className="mx-3.5 mt-1.5 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100">
+              <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {wifiNote}</div>
+              {isActive ? (
+                <>
+                  <div className="text-[10px] uppercase tracking-wide text-sky-700 mt-1">Network</div>
+                  <div className="text-[13px] font-bold text-sky-900 break-words">{prop.wifi.network}</div>
+                  {prop.wifi.password && (
+                    <>
+                      <div className="text-[10px] uppercase tracking-wide text-sky-700 mt-1">Password</div>
+                      <div className="text-[13px] font-bold text-sky-900 break-words select-all">{prop.wifi.password}</div>
+                    </>
+                  )}
+                </>
+              ) : (
+                <div className="text-[13px] font-bold text-sky-900 mt-0.5">{wifiVisible}</div>
+              )}
+            </div>
             <div className="flex gap-2 px-3.5 pt-1.5">
-              <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {wifiNote}</div><div className="text-[12px] font-bold text-sky-900 mt-0.5">{wifiVisible}</div></div>
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">Check-out</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">10 AM</div></div>
               <div className="flex-1 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100"><div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">Pool</div><div className="text-[13px] font-bold text-sky-900 mt-0.5">8–10PM</div></div>
             </div>
+            </>
             )}
 
             {mode === 'branson' && checkout && (
