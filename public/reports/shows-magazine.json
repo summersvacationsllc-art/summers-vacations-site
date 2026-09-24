@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-22",
+  "date": "2026-09-24",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Tuesday at the Lake: Milder air, patchy drizzle then sun",
-  "deck": "Tuesday, September 22 brings a pleasant shift with highs in the low 80s, mostly cloudy skies turning partly sunny, and only a slight chance of patchy morning drizzle. Comfortable for outdoor plans with lower humidity than recent days.",
+  "hed": "Thursday warm-up",
+  "deck": "**A vibrant Thursday lineup across Branson's theaters with strong country, tribute, family musicals, and variety options.** Multiple performances at Clay Cooper Theatre, Hamner's Variety Theater, King's Castle Theatre, and major productions like Sight & Sound. Excellent choices for families, music fans, and multi-generational groups staying with us in Branson.",
   "pick": {
-    "title": "Branson Landing Farmers Market",
-    "when": "2:30–6:30 PM",
-    "where": "South lot by Bass Pro Shops at Branson Landing",
-    "why": "Fresh local produce, baked goods, crafts, and live music — the perfect mid-week stop for families staying nearby.",
-    "url": "https://www.bransonlanding.com/",
-    "source": "night-editor"
+    "title": "Shepherd of the Hills Outdoor Drama",
+    "when": "7:30 PM",
+    "where": "Shepherd of the Hills",
+    "why": "Ozarks outdoor drama — check weather and arrive early.",
+    "url": "https://theshepherdofthehills.com/",
+    "source": "desk"
   },
   "buckets": [
     {
@@ -231,29 +231,13 @@
       "count": 3
     }
   ],
-  "indoor": [
-    {
-      "name": "Thank You For The Music (ABBA Tribute)",
-      "detail": "Matinee at Hamners’ Variety Theater — fun, upbeat tribute perfect for all ages.",
-      "url": "https://www.hamnersvariety.com/"
-    },
-    {
-      "name": "Legends in Concert",
-      "detail": "Afternoon celebrity tribute show in air-conditioned comfort.",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
-    },
-    {
-      "name": "REZA — Edge of Illusion",
-      "detail": "Evening grand illusions and magic at Reza Live Theatre.",
-      "url": "https://rezalivetheatre.com/"
-    }
-  ],
+  "indoor": [],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-22",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-22.md, shows-data board. Scout prose on file."
+    "checked": "2026-09-24",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-09-24.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
