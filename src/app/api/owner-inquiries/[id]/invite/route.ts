@@ -64,5 +64,6 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
     token,
     emailed: mailed.ok,
     emailError: rec.inviteEmailError,
+    emailVia: mailed.ok ? mailed.via || null : null,
   });
 }

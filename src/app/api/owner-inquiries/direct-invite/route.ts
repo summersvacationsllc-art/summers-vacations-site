@@ -53,12 +53,13 @@ export async function POST(req: Request) {
       });
     }
     return NextResponse.json({
-      ok: true,
-      url,
-      token,
-      emailed: mailed.ok,
-      emailError: mailed.ok ? null : mailed.error || "email failed",
-    });
+       ok: true,
+       url,
+       token,
+       emailed: mailed.ok,
+       emailError: mailed.ok ? null : mailed.error || "email failed",
+       emailVia: mailed.ok ? mailed.via || null : null,
+     });
   } catch {
     return NextResponse.json({ ok: false, error: "Failed." }, { status: 500 });
   }
