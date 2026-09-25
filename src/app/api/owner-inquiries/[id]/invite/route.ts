@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { EMAIL } from "@/lib/site";
 import { isContractsAuthed } from "@/lib/contracts-auth";
