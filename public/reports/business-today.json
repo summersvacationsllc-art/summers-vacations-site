@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "date": "2026-09-24",
-  "generated_at": "2026-09-24T10:26:06-05:00",
+  "date": "2026-09-25",
+  "generated_at": "2026-09-25T10:27:37-05:00",
   "title": "Summers Vacations Business Report",
   "phone_url": "/reports/fleet",
   "actions": [
@@ -60,8 +60,8 @@
     "top3": [],
     "one_liner": null
   },
-  "fleet_date": "2026-09-24",
-  "guest_date": "2026-09-24",
+  "fleet_date": "2026-09-25",
+  "guest_date": "2026-09-25",
   "notes": [
     "This is the single daily business report. Guest Branson Daily stays separate.",
     "Monday section is the weekly rollup \u2014 not a second file.",

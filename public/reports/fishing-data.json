@@ -4,7 +4,7 @@
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.87 ft (USACE 10:00 CT)",
+      "level": "911.80 ft (USACE 10:00 CT)",
       "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Call SWPA 866-494-1993 before you wad Taneycomo. Fish early. Leave when it gets stupid hot. Deadline-guard carry from 2026-08-29.",
-  "source": "scout",
-  "last_verified": "2026-09-25T05:22:10-05:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-09-25T10:27:36-05:00"
 }
