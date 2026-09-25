@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
-  "hed": "Late Summer on Two Lakes",
+  "hed": "A Quiet Morning on the Desk",
   "deck": "Table Rock and Taneycomo, written like a fishing magazine \u2014 two waters, one week, nothing invented on the outdoor desk.",
   "play": {
-    "title": "Fish the wind.",
-    "body": "Fall bass set up where the shad get blown. A crankbait that bangs is better than a worm that sits."
+    "title": "Streamer on the generate.",
+    "body": "When SWPA spins it, Taneycomo becomes a small river. A dark wooly bugger in the seams."
   },
   "season": {
     "name": "Fall turnover",
@@ -19,14 +19,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "Live USACE reading 10:00 CT: 911.87 ft, 20 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "4 mornings this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-09-18",
-      "label": "Fri",
-      "level": "\u2014",
-      "fresh": false
-    },
     {
       "date": "2026-09-19",
       "label": "Sat",
@@ -49,7 +43,7 @@
       "date": "2026-09-22",
       "label": "Tue",
       "level": "\u2014",
-      "fresh": false
+      "fresh": true
     },
     {
       "date": "2026-09-23",
@@ -60,15 +54,21 @@
     {
       "date": "2026-09-24",
       "label": "Thu",
-      "level": "911.87",
+      "level": "\u2014",
       "fresh": true
+    },
+    {
+      "date": "2026-09-25",
+      "label": "Fri",
+      "level": "\u2014",
+      "fresh": false
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "911.87 ft \u00b7 live USACE",
+    "dek": "bass \u00b7 walleye \u00b7 crappie",
     "now": {
-      "level": "911.87 ft (USACE 10:00 CT)",
+      "level": "Verify locally",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
@@ -85,7 +85,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 10:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
+      "generation": "Call SWPA 866-494-1993 before you wad. Do not guess the generators."
     },
     "working": [
       "Pink Power Worms",
@@ -104,7 +104,7 @@
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-09-24",
+    "checked": "2026-09-25",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }
