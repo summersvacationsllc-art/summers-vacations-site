@@ -136,6 +136,7 @@ export function ContractLog() {
     if (didCopy) setCopied(opts.url);
     else setCopied("");
 
+    // Server Resend is primary. Only open local Mail if the server could not send.
     if (!opts.emailed && opts.email) {
       openOwnerMailto({
         name: opts.name,
@@ -150,7 +151,7 @@ export function ContractLog() {
       replyTo: opts.email,
       message: [
         opts.emailed
-          ? `The agreement link was emailed to ${opts.email}.`
+          ? `The agreement link was emailed to ${opts.email} (Resend).`
           : `Server could not email the owner${opts.emailError ? ` (${opts.emailError})` : ""}. Mail.app / mailto was opened from this device with the letter + link.`,
         "",
         opts.url,
@@ -162,7 +163,7 @@ export function ContractLog() {
     setMailNote(
       opts.emailed
         ? `Emailed the contract link to ${opts.email}. ${didCopy ? "Link also copied." : "Copy failed — use the blue link below."}`
-        : `Mail app opened to email ${opts.email} (server email not configured). ${didCopy ? "Link also copied." : "Copy failed — use the blue link below."}`,
+        : `Server email failed${opts.emailError ? ` (${opts.emailError})` : ""}. Mail app opened as backup. ${didCopy ? "Link also copied." : "Use the blue link below."}`,
     );
   }
 
