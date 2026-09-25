@@ -4,6 +4,34 @@ import { useEffect, useState } from "react";
 import type { ContractSummary, StoredContract } from "@/lib/contracts-store";
 import type { OwnerInquiry } from "@/lib/owner-inquiries";
 import { notifyBrianFromBrowser } from "@/lib/browser-mail";
+import { ownerContractMailto } from "@/lib/mail";
+
+async function copyText(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch {
+      return false;
+    }
+  }
+}
+
+function openOwnerMailto(opts: { name: string; email: string; address: string; url: string }) {
+  const href = ownerContractMailto(opts);
+  window.location.href = href;
+}
 
 export function ContractLog() {
   const [pin, setPin] = useState("");
@@ -16,7 +44,15 @@ export function ContractLog() {
   const [openInq, setOpenInq] = useState<OwnerInquiry | null>(null);
   const [copied, setCopied] = useState("");
   const [mailNote, setMailNote] = useState("");
+  const [busy, setBusy] = useState(false);
   const [direct, setDirect] = useState({ name: "", email: "", phone: "", address: "" });
+  const [lastInvite, setLastInvite] = useState<{
+    url: string;
+    name: string;
+    email: string;
+    address: string;
+    emailed: boolean;
+  } | null>(null);
 
   async function load() {
     setError("");
@@ -76,56 +112,103 @@ export function ContractLog() {
     setContracts(null);
     setOpen(null);
     setOpenInq(null);
+    setLastInvite(null);
     setNeedPin(true);
   }
 
-  async function copyUrl(url: string) {
-    await navigator.clipboard.writeText(url);
-    setCopied(url);
-  }
-
-  async function approve(id: string) {
-    setError("");
-    const res = await fetch(`/api/owner-inquiries/${encodeURIComponent(id)}/invite`, {
-      method: "POST",
-      credentials: "include",
+  async function finishInvite(opts: {
+    url: string;
+    name: string;
+    email: string;
+    address: string;
+    emailed: boolean;
+    emailError?: string | null;
+    subject: string;
+  }) {
+    setLastInvite({
+      url: opts.url,
+      name: opts.name,
+      email: opts.email,
+      address: opts.address,
+      emailed: opts.emailed,
     });
-    const data = await res.json();
-    if (!res.ok || !data.ok) {
-      setError(data.error || "Could not approve.");
-      return;
+    const didCopy = await copyText(opts.url);
+    if (didCopy) setCopied(opts.url);
+    else setCopied("");
+
+    if (!opts.emailed && opts.email) {
+      openOwnerMailto({
+        name: opts.name,
+        email: opts.email,
+        address: opts.address,
+        url: opts.url,
+      });
     }
-    await copyUrl(data.url);
+
     await notifyBrianFromBrowser({
-      subject: `Contract approved: ${openInq?.name || ""} — ${openInq?.address || ""}`,
-      replyTo: openInq?.email,
+      subject: opts.subject,
+      replyTo: opts.email,
       message: [
-        data.emailed
-          ? `The agreement link was emailed to ${openInq?.email}.`
-          : `Could not email the owner from the server. Mail.app pump will send it from this Mac.`,
+        opts.emailed
+          ? `The agreement link was emailed to ${opts.email}.`
+          : `Server could not email the owner${opts.emailError ? ` (${opts.emailError})` : ""}. Mail.app / mailto was opened from this device with the letter + link.`,
         "",
-        data.url,
+        opts.url,
         "",
         "Open: https://mybransonvacation.com/contracts/log",
       ].join("\n"),
     });
+
     setMailNote(
-      data.emailed
-        ? `Emailed the contract link to ${openInq?.email || "the owner"}. Link also copied.`
-        : `Link copied. Could not email the owner${data.emailError ? `: ${data.emailError}` : "."}`,
+      opts.emailed
+        ? `Emailed the contract link to ${opts.email}. ${didCopy ? "Link also copied." : "Copy failed — use the blue link below."}`
+        : `Mail app opened to email ${opts.email} (server email not configured). ${didCopy ? "Link also copied." : "Copy failed — use the blue link below."}`,
     );
-    await load();
-    setOpenInq((cur) =>
-      cur && cur.id === id
-        ? {
-            ...cur,
-            status: "approved",
-            inviteToken: data.token,
-            inviteEmailedAt: data.emailed ? new Date().toISOString() : null,
-            inviteEmailError: data.emailed ? null : data.emailError || "email failed",
-          }
-        : cur,
-    );
+  }
+
+  async function approve(id: string) {
+    setError("");
+    setBusy(true);
+    setMailNote("");
+    try {
+      const res = await fetch(`/api/owner-inquiries/${encodeURIComponent(id)}/invite`, {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        setError(data.error || "Could not approve.");
+        return;
+      }
+      const name = openInq?.name || "";
+      const email = openInq?.email || "";
+      const address = openInq?.address || "";
+      await finishInvite({
+        url: data.url,
+        name,
+        email,
+        address,
+        emailed: Boolean(data.emailed),
+        emailError: data.emailError,
+        subject: `Contract approved: ${name} — ${address}`,
+      });
+      await load();
+      setOpenInq((cur) =>
+        cur && cur.id === id
+          ? {
+              ...cur,
+              status: "approved",
+              inviteToken: data.token,
+              inviteEmailedAt: data.emailed ? new Date().toISOString() : null,
+              inviteEmailError: data.emailed ? null : data.emailError || "email failed",
+            }
+          : cur,
+      );
+    } catch {
+      setError("Network error while approving. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function decline(id: string) {
@@ -148,35 +231,35 @@ export function ContractLog() {
   async function directInvite(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    const res = await fetch("/api/owner-inquiries/direct-invite", {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(direct),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.ok) {
-      setError(data.error || "Could not create invite.");
-      return;
+    setBusy(true);
+    setMailNote("");
+    try {
+      const res = await fetch("/api/owner-inquiries/direct-invite", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(direct),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        setError(data.error || "Could not create invite.");
+        return;
+      }
+      await finishInvite({
+        url: data.url,
+        name: direct.name,
+        email: direct.email,
+        address: direct.address,
+        emailed: Boolean(data.emailed),
+        emailError: data.emailError,
+        subject: `Contract link created: ${direct.name} — ${direct.address}`,
+      });
+      setDirect({ name: "", email: "", phone: "", address: "" });
+    } catch {
+      setError("Network error while creating invite. Try again.");
+    } finally {
+      setBusy(false);
     }
-    await copyUrl(data.url);
-    await notifyBrianFromBrowser({
-      subject: `Contract link created: ${direct.name} — ${direct.address}`,
-      replyTo: direct.email,
-      message: [
-        data.emailed
-          ? `The agreement link was emailed to ${direct.email}.`
-          : `Could not email the owner from the server. Mail.app pump will send it from this Mac.`,
-        "",
-        data.url,
-      ].join("\n"),
-    });
-    setMailNote(
-      data.emailed
-        ? `Emailed the contract link to ${direct.email}. Link also copied.`
-        : `Link copied. Could not email the owner${data.emailError ? `: ${data.emailError}` : "."}`,
-    );
-    setDirect({ name: "", email: "", phone: "", address: "" });
   }
 
   if (open) {
@@ -204,7 +287,7 @@ export function ContractLog() {
   if (openInq) {
     const url = openInq.inviteToken
       ? `https://mybransonvacation.com/contracts?invite=${openInq.inviteToken}`
-      : "";
+      : lastInvite?.url || "";
     return (
       <main className="min-h-dvh bg-[#f0f9ff] px-4 py-8 text-[#0c4a6e]">
         <div className="mx-auto max-w-3xl">
@@ -243,14 +326,56 @@ export function ContractLog() {
           {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
           <div className="mt-6 flex flex-wrap gap-3">
             {openInq.status !== "declined" && openInq.status !== "signed" ? (
-              <button type="button" onClick={() => approve(openInq.id)} className="rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white">
-                Approve and email contract
+              <button
+                type="button"
+                disabled={busy}
+                onClick={() => approve(openInq.id)}
+                className="rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+              >
+                {busy ? "Working…" : "Approve and send contract"}
               </button>
             ) : null}
             {openInq.status === "pending" ? (
               <button type="button" onClick={() => decline(openInq.id)} className="rounded-full border border-[#bae6fd] px-5 py-2.5 text-sm font-semibold">
                 Not a fit
               </button>
+            ) : null}
+            {url ? (
+              <>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const ok = await copyText(url);
+                    setCopied(ok ? url : "");
+                    setMailNote(ok ? "Link copied." : "Copy failed — tap the blue link, or long-press to copy.");
+                  }}
+                  className="rounded-full border border-[#bae6fd] px-5 py-2.5 text-sm font-semibold"
+                >
+                  Copy link
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    openOwnerMailto({
+                      name: openInq.name,
+                      email: openInq.email,
+                      address: openInq.address,
+                      url,
+                    })
+                  }
+                  className="rounded-full border border-[#bae6fd] px-5 py-2.5 text-sm font-semibold"
+                >
+                  Open in Mail
+                </button>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-[#bae6fd] px-5 py-2.5 text-sm font-semibold"
+                >
+                  Open contract
+                </a>
+              </>
             ) : null}
           </div>
           {mailNote ? <p className="mt-3 text-sm text-[#0369a1]">{mailNote}</p> : null}
@@ -260,9 +385,11 @@ export function ContractLog() {
             <p className="mt-2 text-sm text-[#0369a1]">Brian was notified via {openInq.notifyVia}.</p>
           ) : null}
           {url ? (
-            <p className="mt-4 break-all text-sm text-[#0369a1]">
-              {copied === url ? "Copied: " : "Link: "}
-              {url}
+            <p className="mt-4 break-all text-sm">
+              <span className="text-[#0369a1]">{copied === url ? "Copied — " : "Private link: "}</span>
+              <a className="font-semibold text-[#0284c7] underline" href={url} target="_blank" rel="noreferrer">
+                {url}
+              </a>
             </p>
           ) : null}
         </div>
@@ -326,6 +453,43 @@ export function ContractLog() {
               </button>
             </div>
             {mailNote ? <p className="mt-3 text-sm text-[#0369a1]">{mailNote}</p> : null}
+            {lastInvite ? (
+              <div className="mt-4 rounded-2xl border border-[#bae6fd] bg-white p-4 text-sm">
+                <p className="font-semibold">Last contract link — {lastInvite.name}</p>
+                <p className="mt-1 break-all">
+                  <a className="font-semibold text-[#0284c7] underline" href={lastInvite.url} target="_blank" rel="noreferrer">
+                    {lastInvite.url}
+                  </a>
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    className="rounded-full border border-[#bae6fd] px-4 py-2 text-xs font-semibold"
+                    onClick={async () => {
+                      const ok = await copyText(lastInvite.url);
+                      setMailNote(ok ? "Link copied." : "Copy failed — use the blue link.");
+                    }}
+                  >
+                    Copy link
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-full border border-[#bae6fd] px-4 py-2 text-xs font-semibold"
+                    onClick={() => openOwnerMailto(lastInvite)}
+                  >
+                    Open in Mail
+                  </button>
+                  <a
+                    href={lastInvite.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-[#bae6fd] px-4 py-2 text-xs font-semibold"
+                  >
+                    Open contract
+                  </a>
+                </div>
+              </div>
+            ) : null}
             {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
 
             {tab === "inquiries" ? (
@@ -338,11 +502,22 @@ export function ContractLog() {
                     <input placeholder="Phone" value={direct.phone} onChange={(e) => setDirect({ ...direct, phone: e.target.value })} className="rounded-lg border border-[#bae6fd] px-3 py-2" />
                     <input required placeholder="Property address" value={direct.address} onChange={(e) => setDirect({ ...direct, address: e.target.value })} className="rounded-lg border border-[#bae6fd] px-3 py-2" />
                   </div>
-                  <button type="submit" className="mt-3 rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white">
-                    Create link and email owner
+                  <button
+                    type="submit"
+                    disabled={busy}
+                    className="mt-3 rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+                  >
+                    {busy ? "Working…" : "Create link and email owner"}
                   </button>
                   {mailNote ? <p className="mt-2 text-xs text-[#0369a1]">{mailNote}</p> : null}
-                  {copied ? <p className="mt-2 break-all text-xs text-[#0369a1]">Copied: {copied}</p> : null}
+                  {copied ? (
+                    <p className="mt-2 break-all text-xs">
+                      <span className="text-[#0369a1]">Copied — </span>
+                      <a className="font-semibold text-[#0284c7] underline" href={copied} target="_blank" rel="noreferrer">
+                        {copied}
+                      </a>
+                    </p>
+                  ) : null}
                 </form>
                 {inquiries === null ? (
                   <p className="mt-8 text-[#0369a1]">Loading…</p>

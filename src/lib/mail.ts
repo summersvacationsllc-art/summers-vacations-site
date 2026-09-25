@@ -94,3 +94,12 @@ export function ownerContractEmail(opts: { name: string; address: string; url: s
     ].join("\n"),
   };
 }
+
+/** Open the owner's mail client with the same letter when server Resend is not configured. */
+export function ownerContractMailto(opts: { name: string; email: string; address: string; url: string }): string {
+  const letter = ownerContractEmail(opts);
+  const to = encodeURIComponent(opts.email.trim());
+  const subject = encodeURIComponent(letter.subject);
+  const body = encodeURIComponent(letter.text);
+  return `mailto:${to}?subject=${subject}&body=${body}`;
+}
