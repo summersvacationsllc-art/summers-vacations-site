@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { ContractSummary, StoredContract } from "@/lib/contracts-store";
 import type { OwnerInquiry } from "@/lib/owner-inquiries";
 import { notifyBrianFromBrowser } from "@/lib/browser-mail";
-import { ownerContractMailto } from "@/lib/mail";
+import { ownerContractMailto } from "@/lib/contract-mail-copy";
 
 async function copyText(text: string): Promise<boolean> {
   try {
