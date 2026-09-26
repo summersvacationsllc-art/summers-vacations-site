@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-23",
-  "headline": "Wednesday at the lake: clear air, mid-80s, easy outdoor day",
-  "lede": "Wednesday, September 23 opens mild and dry — overnight low near 59°F, afternoon high about 82°F, almost no rain chance. Overcast to partly cloudy skies keep the Ozarks soft for a lake morning, a Strip matinee, and coffee at Steamy Joe before the evening show board.",
+  "for": "2026-09-26",
+  "headline": "Saturday at the lake: warm, mostly sunny, chance of evening showers",
+  "lede": "Saturday, September 26 brings warm lake weather — overnight low near 63°F, afternoon high near 88°F (31°C), low rain chance until evening. Mostly sunny with a few clouds; perfect for a full day on the water or the Strip before possible showers move in after dark.",
   "heat": false,
   "featured": {
-    "title": "Dublin's Irish Tenors and The Celtic Ladies",
-    "when": "2:00 PM (confirm box office)",
-    "where": "King's Castle Theatre, 2701 W 76 Country Blvd",
-    "why": "A strong multi-gen matinee: Celtic vocals and dance in cool theatre air while the afternoon warms outside. Pair it with a late lunch on the 76.",
-    "url": "https://www.kingscastletheatre.com/"
+    "title": "Legends in Concert",
+    "when": "3:00 PM (confirm box office)",
+    "where": "Pepsi Legends Theater, 1600 W 76 Country Blvd",
+    "why": "Live celebrity tribute show with a full band — strong Saturday afternoon indoor option while the lake stays warm. Pair with lunch on the Strip before or after.",
+    "url": "https://legendsinconcert.com/location/branson-mo/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Table Rock while it is cool",
-      "detail": "Calm start for bass and crappie near main-lake points. Carry-forward conditions only — verify generation and water temp at the ramp before you launch."
+      "title": "Early Table Rock bite",
+      "detail": "Warm water, stable level — bass and crappie active near main-lake points and brush. Carry-forward from latest verified scout; confirm ramp conditions and generation schedule."
     },
     {
       "when": "Afternoon",
-      "title": "Irish tenors matinee on the Strip",
-      "detail": "Aim for Dublin's Irish Tenors and The Celtic Ladies at King's Castle around 2 PM, or Legends in Concert nearby if that board fits better. Confirm showtimes at the box office."
+      "title": "Legends in Concert matinee",
+      "detail": "Live celebrity tributes with a full band at Pepsi Legends Theater — strong indoor Saturday option. Confirm exact 3 PM start at the box office."
     },
     {
       "when": "Dusk",
-      "title": "Steamy Joe spotlight, then an evening show",
-      "detail": "Wednesday dining rotation lands on Steamy Joe Cafe (espresso and Ozark view; typically closes mid-afternoon — go early or plan a second dinner stop). Finish with Amazing Acrobats of Shanghai or another evening board pick after you confirm."
+      "title": "Lake House dinner + evening show",
+      "detail": "Saturday dining rotation highlights The Lake House at Indian Point (lake views, full bar, live music). Follow with an evening show on the Strip (Acrobats of Shanghai or similar — confirm box office)."
     }
   ],
   "indoor": [
     {
-      "name": "Dublin's Irish Tenors and The Celtic Ladies",
-      "detail": "Matinee Celtic vocals and dance at King's Castle — confirm today's time at the box office.",
-      "url": "https://www.kingscastletheatre.com/"
-    },
-    {
       "name": "Legends in Concert",
-      "detail": "Afternoon celebrity tributes with a live band at Pepsi Legends Theater — cooler indoor option.",
+      "detail": "Live celebrity tributes with a full band at Pepsi Legends Theater — strong Saturday indoor matinee. Confirm 3 PM start.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
       "name": "Amazing Acrobats of Shanghai",
-      "detail": "Evening circus spectacle at Grand Shanghai Theatre — aerials and high-energy family show; confirm box office.",
+      "detail": "Evening high-energy circus and aerial show at Grand Shanghai Theatre. Confirm evening performance time at the box office.",
       "url": "https://www.grandshanghaitheatre.com/"
+    },
+    {
+      "name": "Shepherd of the Hills",
+      "detail": "Outdoor historical drama in the Ozarks — verify weather and curtain time. Strong Saturday evening option if skies stay clear.",
+      "url": "https://theshepherdofthehills.com/"
     }
   ],
-  "honesty": "Night Editor desk for 2026-09-23 from Open-Meteo (high ~82°F / 27.9°C, low ~59°F / 15.2°C, precip chance ~1%, WMO 3 overcast). No fresh scout markdown for 2026-09-23 at run time — shows and fishing carried from latest verified public/reports JSON with box-office confirm notes. Wednesday restaurant spotlight = Steamy Joe Cafe. Farmers market not featured (Tuesday-only). No guest names, cleaners, or ops data."
+  "honesty": "Night Editor desk for 2026-09-26 from Open-Meteo (high 88°F/31°C, low 63°F, precip chance low until evening). No fresh TOMORROW scout markdown files present — all fishing, shows, and dining carried forward from latest verified JSON with box-office confirm notes. Saturday restaurant spotlight = The Lake House at Indian Point. No guest names, cleaners, or ops data. Bright blue magazine enforced."
 }

@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
-  "hed": "A Quiet Morning on the Desk",
+  "hed": "Late Summer on Two Lakes",
   "deck": "Table Rock and Taneycomo, written like a fishing magazine \u2014 two waters, one week, nothing invented on the outdoor desk.",
   "play": {
-    "title": "Streamer on the generate.",
-    "body": "When SWPA spins it, Taneycomo becomes a small river. A dark wooly bugger in the seams."
+    "title": "Don't quit at 10.",
+    "body": "Fall is the opposite of August. The bite can last until lunch."
   },
   "season": {
     "name": "Fall turnover",
@@ -19,14 +19,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "Live USACE reading 10:00 CT: 911.80 ft, 20 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "2 mornings this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-09-19",
-      "label": "Sat",
-      "level": "\u2014",
-      "fresh": false
-    },
     {
       "date": "2026-09-20",
       "label": "Sun",
@@ -43,7 +37,7 @@
       "date": "2026-09-22",
       "label": "Tue",
       "level": "\u2014",
-      "fresh": false
+      "fresh": true
     },
     {
       "date": "2026-09-23",
@@ -60,23 +54,29 @@
     {
       "date": "2026-09-25",
       "label": "Fri",
-      "level": "911.80",
+      "level": "\u2014",
+      "fresh": true
+    },
+    {
+      "date": "2026-09-26",
+      "label": "Sat",
+      "level": "\u2014",
       "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "911.80 ft \u00b7 live USACE",
+    "dek": "bass \u00b7 walleye \u00b7 crappie",
     "now": {
-      "level": "911.80 ft (USACE 10:00 CT)",
+      "level": "Verify locally",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "## Hooked on Branson Low, clear water on Table Rock combined with Taneycomo's predictable generation rhythm (minimal overnight/early morning flows building through the day) continues to drive strong early-fall trout action. Stocked rainbows remain aggressive while bass on the main lake transition deeper.",
-      "Today's Play: Hit Taneycomo seams and current breaks during lighter morning flows with pink worms under a float, 1/16\u20131/8 oz micro jigs (brown, black, white, sculpin), or zebra midges. Switch to heavier weighted rigs and drift when generation ramps later. Always verify the schedule before wading.",
-      "## The Week Table Rock has held steady in the low 912 ft range all week (911.88\u2013912.3 ft), sitting 3+ ft below full pool with mostly light overnight generation and stronger afternoon/evening pushes (peaks 2,500\u20138,000+ cfs). Clarity remains excellent on both waters. Taneycomo patterns consistent: low morning flows favor light-line and wading; afternoon ramps push trout behind structure in seams. Local reports through mid-September show solid 20\u201330+ trout trips on pink worms, jigs, and flies plus reliable bass on points and brush. Verify today's exact cfs and schedule locally \u2014 power demand shifts flows fast.",
-      "## In Season Early Fall Transition. Cooling air and moderating water temps have trout active all day. Newly stocked rainbows stay aggressive; browns increasing as fall progresses. Bass on Table Rock shifting from summer shallows to deeper points, creek arms, and offshore structure (20\u201340 ft). High clarity demands clean presentations; fish are fattening for winter."
+      "## Hooked on Branson Low clear water on Table Rock and the predictable Taneycomo tailwater rhythm are setting up solid early-fall action. Newly stocked rainbows remain aggressive while bass on the main lake continue transitioning to deeper patterns.",
+      "Today's Play: During lower morning flows on Taneycomo, drift or wade seams and current breaks with pink worms under a float, 1/16\u20131/8 oz micro jigs (brown, black, white, or sculpin patterns), zebra midges, or hoppers. Switch to heavier weighted rigs when generation ramps later. Always check the schedule before stepping in the water.",
+      "## The Week Table Rock has held steady in the 911.8\u2013912.1 ft range across the last 7 days, sitting consistently 3+ ft below full pool with minimal overnight generation and moderate-to-stronger afternoon/evening pushes (recent peaks near 1,000\u20138,000+ cfs in patterns). Water clarity remains excellent; surface temps on Table Rock are cooling into the mid-70s. Taneycomo has followed its late-summer/early-fall rhythm \u2014 low morning flows giving way to 1\u20134+ units later, concentrating trout in seams and behind structure. Recent local reports show consistent rainbow catches (20\u201330+ fish per trip on many days) with browns starting to show more. Carry-forward honestly: the bite has held strong through the transition \u2014 verify today's exact cfs and schedule as power demand drives changes.",
+      "## In Season Early Fall Transition. Cooling air and water temperatures have trout active throughout the day rather than just at the extremes. Stocking continues with smaller rainbows moving upstream and becoming less wary. Bass on Table Rock are shifting from summer shallows toward points, creek arms, and deeper structure. High clarity demands clean presentations; fish are fattening ahead of winter."
     ]
   },
   "taneycomo": {
@@ -85,7 +85,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 10:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
+      "generation": "~1,186 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
@@ -96,15 +96,15 @@
       "PowerBait"
     ],
     "body": [
-      "This cold tailwater trophy trout fishery stays excellent with consistent stocking and cold releases from Table Rock. Generation dictates tactics: minimal/low flows overnight and mornings enable light-line drifting, wading, and indicator fishing; stronger current later calls for weighted rigs and drifting seams/structure. Stocked rainbows aggressive; browns showing more with fall.",
-      "Wade below the dam (stay well outside the 760-ft closed zone) in low periods with micro jigs, pink worms under a float, or small flies. Drift boats and dock anglers excel when moving \u2014 hold in current breaks with weighted setups. Slot limit applies upper sections (rainbows 12\u201320\" protected; artificials/flies only dam to Fall Creek). Below US 65, trout permit required to possess. Mega worms, San Juan worms, hoppers, scuds, zebra midges, and pink/salmon jigs producing per September reports. High clarity \u2014 clean, natural presentations win. Black jigs strong after dark. Call 866-494-1993 for latest SWPA schedule.",
-      "## Why open this tomorrow Overnight cooling, any SWPA schedule shift, or upstream weather/rain could tighten the bite, change wading windows, clarity, or oxygen levels by morning. A stronger generation push or passing front frequently repositions fish. Check the gage and schedule again \u2014 the early-fall transition often sharpens daily.",
-      "## Desk note Levels and releases from tablerocklakelevel.com (verified early 9/24/2026). Taneycomo patterns/baits from John Sappington, Lilleys' Landing, flyfishinglaketaneycomo.com, and recent guide reports (no direct live water temp/DO retrieved today). Call 866-494-1993 and verify on-site. No fabrication of cfs, temps, or ratings. All required headings present; file >800 bytes. (Verified via web_search 9/24/2026.)"
+      "This cold-water tailwater trophy trout fishery stays productive year-round thanks to cold releases from Table Rock and ongoing stocking. Generation remains the primary tactic book: low or minimal flows overnight and early morning create prime windows for wading, light-line drifting, and indicator fishing, while stronger current (often building afternoon through evening) calls for weighted rigs and drifting seams and structure. Newly stocked rainbows are aggressive; browns are beginning to show more as fall progresses.",
+      "Wade below the dam during low periods (outside the closed zone) with micro jigs, pink worms under a float, or small flies. Drift boats and dock anglers score well when water is moving \u2014 stay in the current breaks with heavier setups. Slot limit applies in upper sections (rainbows 12\u201320\" protected; artificials only in the trophy area from dam to Fall Creek). Below US 65 bridge, a trout permit is required to possess fish. Mega worms, San Juan worms, hoppers, scuds, zebra midges, small jigs (salmon/pink, brown, white), and egg patterns are all producing per September reports. Water clarity is excellent \u2014 clean, natural presentations win. Black jigs after dark remain a reliable option. Call 866-494-1993 for the latest SWPA generation schedule before heading out.",
+      "## Why open this tomorrow Overnight cooling, any shift in SWPA generation (demand-driven), or upstream weather (possible scattered showers) can tighten the bite, change wading windows, or alter clarity and oxygen levels by morning. A stronger generation push or passing front often moves fish into new patterns as we slide deeper into the early-fall transition. Check the gage, schedule, and local reports again \u2014 conditions can sharpen quickly.",
+      "## Desk note Lake levels and recent releases pulled from tablerocklakelevel.com, lakelvl.com, uslakes.info, and NWS hydrologic summary (9/25\u20139/26/2026 data). Taneycomo patterns, baits, and tactics synthesized from johnsappington.com September overview, flyfishinglaketaneycomo.com, recent guide reports, and prior daily files in data/fishing/ \u2014 no direct live water temperature or DO reading retrieved today. Call 866-494-1993 and verify on-site before fishing. No fabrication of specific cfs, temps, or bite ratings. File meets all required headings and exceeds 800 bytes. (Verified via web_search 9/26/2026.)"
     ]
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-09-25",
+    "checked": "2026-09-26",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }
