@@ -39,6 +39,11 @@ import datetime as dt
 import urllib.request
 from pathlib import Path
 
+try:  # audience filter: family + maker first, adult-only/civic excluded (2026-09-27)
+    from event_ranking import ranked_event_tiles
+except Exception:  # pragma: no cover - never break the magazine over ranking
+    ranked_event_tiles = None
+
 # ---------- paths ----------
 SITE = Path(__file__).resolve().parents[1]
 
@@ -616,8 +621,14 @@ def build_guest(date_str: str) -> str:
             f'<p>{esc(first_sentence(c.get("desc") or c.get("tag") or "Book a tee time.", 150))}</p>'
             f'<p class="more">{links}</p></article>'
         )
-    landing_tiles = md_tiles(landing_md, 3)
-    intel_tiles = md_tiles(intel_md, 3)
+    if ranked_event_tiles:
+        # Family-friendly AND craft/maker events rank first (same tier);
+        # 21+/adult nightlife and civic items are dropped. See event_ranking.py.
+        landing_tiles = ranked_event_tiles(landing_md, 3)
+        intel_tiles = ranked_event_tiles(intel_md, 4)
+    else:
+        landing_tiles = md_tiles(landing_md, 3)
+        intel_tiles = md_tiles(intel_md, 3)
     strip_tiles = md_tiles(strip_md, 3)
     if not landing_tiles:
         landing_tiles = [
@@ -838,7 +849,7 @@ def build_guest(date_str: str) -> str:
     <section class="spread card" id="week">
       <h2 class="section-title">This week in town</h2>
       <p class="deck">{esc(week_deck)}</p>
-      <div class="grid-2">{tiles_html(intel_tiles, "https://www.silverdollarcity.com/", "Silver Dollar City")}</div>
+      <div class="grid-2">{tiles_html(intel_tiles, "https://www.explorebranson.com/events-branson/", "Branson events")}</div>
     </section>
     <section class="spread card" id="shade">
       <h2 class="section-title">When the asphalt shimmers</h2>
