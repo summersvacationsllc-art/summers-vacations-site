@@ -1,46 +1,35 @@
 {
-  "date": "2026-09-26",
-  "generated_at": "2026-09-26T06:10:45-05:00",
+  "date": "2026-09-27",
+  "generated_at": "2026-09-27T05:52:29-05:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 1,
+    "check_ins": 0,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 1,
     "units_total": 5
   },
-  "check_ins": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Nicole Slovensky",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_ril9t55",
-      "time": "4:00 PM"
-    }
-  ],
+  "check_ins": [],
   "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Janetta Dotson",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_pou0n5m",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Indian Point",
       "guest": "Alice Miller",
       "guests": 9,
       "platform": "airbnb2",
       "reservation_id": "res_x9ndhpm",
-      "check_in": "2026-09-24",
-      "check_out": "2026-09-27",
-      "nights": 3
+      "time": "10:00 AM"
     },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Nicole Slovensky",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_ril9t55",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Double Condo",
       "guest": "Samantha Hicks",
@@ -50,16 +39,6 @@
       "check_in": "2026-09-25",
       "check_out": "2026-10-04",
       "nights": 9
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Nicole Slovensky",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_ril9t55",
-      "check_in": "2026-09-26",
-      "check_out": "2026-09-27",
-      "nights": 1
     }
   ],
   "sync_notes": {
