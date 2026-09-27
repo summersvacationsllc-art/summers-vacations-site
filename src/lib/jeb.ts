@@ -1,3 +1,5 @@
+import { SCOTTS_DISPLAY_NAME } from "@/data/guidebooks";
+
 export const JEB_PHONE = "314-565-0589";
 export const JEB_MODEL = process.env.JEB_MODEL || "grok-4-1-fast-non-reasoning";
 export const JEB_MODEL_FALLBACK = process.env.JEB_MODEL_FALLBACK || "grok-4.6";
@@ -18,6 +20,12 @@ export const UNIT_NAMES: Record<string, string> = {
   "double-condo": "Double Condo",
   "branson-family-haven": "Branson Family Haven",
   "woodland-retreat": "Woodland Retreat",
+  scotts: SCOTTS_DISPLAY_NAME,
+};
+
+/** Units that are NOT at the default 550 Notch Lane address (Haven is handled separately). */
+const UNIT_ADDRESSES: Record<string, string> = {
+  scotts: "298 Notch Lane Unit 6, Branson West, Missouri",
 };
 
 export type JebChatMessage = {
@@ -45,7 +53,9 @@ export function buildJebSystemPrompt(guestName: string, unitSlug: string): strin
   const where =
     unitSlug === "branson-family-haven"
       ? "This tablet is at the Family Haven home on Timber Trace Lane in Branson, Missouri."
-      : "This tablet is at 550 Notch Lane, Branson, Missouri.";
+      : UNIT_ADDRESSES[unitSlug]
+        ? `This tablet is at ${UNIT_ADDRESSES[unitSlug]}.`
+        : "This tablet is at 550 Notch Lane, Branson, Missouri.";
   const guestLine = who
     ? `The guest's first name is ${who}. Use it naturally. Do not use it every sentence.`
     : "You do not know the guest's first name. Do not invent one.";

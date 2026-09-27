@@ -232,6 +232,15 @@ const HAVEN_URGENT_CARE = [
   },
 ];
 
+// Display name for the Scotts unit (298 Notch Ln Unit 6). Change this one constant to rename
+// (e.g. "Deckside Retreat"); the slug "scotts" stays the same. Also used by src/lib/jeb.ts.
+// TODO: confirm final display name with Brian ("Scotts" vs "Deckside Retreat").
+export const SCOTTS_DISPLAY_NAME = "Scotts";
+
+// Scotts house rules (own list — Scotts has in-unit laundry and its own smoking wording).
+export const SCOTTS_SMOKING_RULE =
+  "STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Smoking is only allowed out in the parking lot or street. If there's evidence of smoking in the unit, a fine of up to $500 plus any extra cleaning costs may be applied.";
+
 export const guidebooks: Record<string, PropertyGuidebook> = {
   // ─── THE PENTHOUSE ──────────────────────────────────────
   "the-penthouse": {
@@ -529,6 +538,83 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     videos: [
       { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=74MuwGbmJFc" },
+      ...COMMON.commonVideos,
+    ],
+  },
+
+  // ─── SCOTTS (298 Notch Ln, Unit 6 — co-host unit, first floor) ──
+  "scotts": {
+    id: "scotts",
+    slug: "scotts",
+    name: SCOTTS_DISPLAY_NAME,
+    shortName: SCOTTS_DISPLAY_NAME,
+    address: "298 Notch Ln, Unit 6, Branson West, MO 65737",
+    guestyListingId: "", // TODO: add Scotts Guesty listing ID (photos load from Guesty once set)
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "smart lock",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "Turn into Notch Estates and go to 298 Notch Ln. Unit 6 is on the first floor with its own private entrance — no stairs.",
+      parking:
+        "Free parking in the designated spaces for the unit.",
+      accessNote:
+        "Smart lock self check-in. Your door code is the last 4 digits of the phone number on the reservation. The code is active at 4:00 PM on check-in day. Check-out is 10:00 AM.",
+    },
+
+    wifi: { network: "WIFI_TODO", password: "WIFI_TODO" }, // TODO: Scotts Wi-Fi network + password
+
+    appliances: {
+      coffeeMaker: {
+        type: "Drip Coffee Maker",
+        instructions: "Standard drip coffee maker in the kitchen. A toaster and kettle are also provided.",
+      },
+      hvac: { type: "Thermostat", instructions: "Thermostat in the unit." },
+      tv: { type: "TV", streaming: [] },
+      washer: { instructions: "Washer and dryer located in the unit — no coin laundry needed." },
+      stove: "Electric stove and oven",
+      fireplace: { type: "Electric Fireplace (please turn it off when you leave)" },
+    },
+
+    amenities: [
+      "Entire first-floor condo — no stairs",
+      "Remodeled",
+      "2 bedrooms / 2 bathrooms — sleeps 6",
+      "Bedroom 1: king bed",
+      "Bedroom 2: double bed + bunk bed (no kids under 6 on the top bunk)",
+      "Bathtub",
+      "Full kitchen: oven, electric stove, microwave, drip coffee maker, toaster, kettle, cooking basics",
+      "Electric fireplace (turn off when leaving)",
+      "TV",
+      "Washer & dryer in unit",
+      "Back deck",
+      "Private entrance",
+      "Smart lock self check-in",
+      "Free parking in designated spaces",
+      "Ring camera at the front door (records outside only)",
+      "Notch Estates shared outdoor pool (May–Sep, 8 AM – 10 PM)",
+      "Fishing lake & walking trail",
+      "Playground, basketball & horseshoes",
+      "Shared charcoal grills (no grills on decks; charcoal not provided)",
+    ],
+    houseRules: [
+      "No pets (HOA rule)",
+      "Quiet hours: 10 PM – 8 AM",
+      "Maximum 6 guests",
+      "No parties or events",
+      "Septic system — flush only septic-safe toilet paper",
+      SCOTTS_SMOKING_RULE,
+      "No grills on decks — use the shared charcoal grills (bring your own charcoal)",
+      "Please turn off the electric fireplace when you leave",
+    ],
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
+
+    videos: [
+      // Shared Notch Estates videos only (Penthouse-specific Keurig / Aroma 360 / water filter videos excluded).
       ...COMMON.commonVideos,
     ],
   },
