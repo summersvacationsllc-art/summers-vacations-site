@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@vercel/blob": "^2.8.0",
+    "docx": "^9.7.2",
     "edge-tts-universal": "^1.4.0",
     "html5-qrcode": "^2.3.8",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.23.0",
     "next": "16.2.10",
     "nodemailer": "^10.0.10",
+    "pdf-lib": "^1.17.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-leaflet": "^5.0.0"

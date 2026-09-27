@@ -264,6 +264,42 @@ export function ContractLog() {
   }
 
   if (open) {
+    const signed = open;
+    async function downloadSigned(format: "txt" | "docx" | "pdf") {
+      setError("");
+      try {
+        const res = await fetch(
+          `/api/contracts/log/${encodeURIComponent(signed.id)}/download?format=${format}`,
+          { credentials: "include" },
+        );
+        if (!res.ok) {
+          let msg = "Could not download.";
+          try {
+            const data = await res.json();
+            if (data.error) msg = data.error;
+          } catch {
+            /* keep */
+          }
+          setError(msg);
+          return;
+        }
+        const blob = await res.blob();
+        const cd = res.headers.get("Content-Disposition") || "";
+        const m = cd.match(/filename=\"([^\"]+)\"/);
+        const filename = m?.[1] || `cohosting-agreement.${format}`;
+        const href = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = href;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(href);
+      } catch {
+        setError("Network error while downloading.");
+      }
+    }
+
     return (
       <main className="min-h-dvh bg-[#f0f9ff] px-4 py-8 text-[#0c4a6e]">
         <div className="mx-auto max-w-3xl">
@@ -272,14 +308,42 @@ export function ContractLog() {
           </button>
           <h1 className="mt-3 font-display text-3xl">Signed agreement</h1>
           <p className="mt-1 text-sm text-[#0369a1]">
-            {open.fields.subscriberName} · {open.fields.accommodationsAddress}
+            {signed.fields.subscriberName} · {signed.fields.accommodationsAddress}
           </p>
+          {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
+          <div className="mt-4 flex flex-wrap gap-3 no-print">
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white"
+            >
+              Print
+            </button>
+            <button
+              type="button"
+              onClick={() => downloadSigned("pdf")}
+              className="rounded-full border border-[#bae6fd] bg-white px-5 py-2.5 text-sm font-semibold"
+            >
+              Save PDF
+            </button>
+            <button
+              type="button"
+              onClick={() => downloadSigned("docx")}
+              className="rounded-full border border-[#bae6fd] bg-white px-5 py-2.5 text-sm font-semibold"
+            >
+              Save Word
+            </button>
+            <button
+              type="button"
+              onClick={() => downloadSigned("txt")}
+              className="rounded-full border border-[#bae6fd] bg-white px-5 py-2.5 text-sm font-semibold"
+            >
+              Save text
+            </button>
+          </div>
           <pre className="mt-6 whitespace-pre-wrap rounded-2xl border border-[#bae6fd] bg-white p-6 text-[15px] leading-relaxed">
-            {open.agreement}
+            {signed.agreement}
           </pre>
-          <button type="button" onClick={() => window.print()} className="mt-4 rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white">
-            Print
-          </button>
         </div>
       </main>
     );
