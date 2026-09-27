@@ -8,7 +8,7 @@ import {
   renderedAgreement,
   type ContractFields,
 } from "@/lib/cohosting-agreement";
-import { clientIp, newContractId, saveContract } from "@/lib/contracts-store";
+import { clientIp, newContractId, saveContract, type StoredContract } from "@/lib/contracts-store";
 import { getInquiry, getInvite, saveInquiry, saveInvite } from "@/lib/owner-inquiries";
 
 const FIELD_KEYS = Object.keys(EMPTY_FIELDS) as (keyof ContractFields)[];
@@ -61,6 +61,34 @@ export async function POST(req: Request) {
 
     const agreement = renderedAgreement(fields);
     const id = newContractId(fields.subscriberName);
+
+    let inquiryId: string | null = inv.inquiryId || null;
+    let inquirySnapshot: StoredContract["inquirySnapshot"] = null;
+    if (inv.inquiryId) {
+      try {
+        const inq = await getInquiry(inv.inquiryId);
+        if (inq) {
+          inquiryId = inq.id;
+          inquirySnapshot = {
+            name: inq.name,
+            email: inq.email,
+            phone: inq.phone,
+            address: inq.address,
+            area: inq.area,
+            listingUrl: inq.listingUrl,
+            sleeps: inq.sleeps,
+            beds: inq.beds,
+            notes: inq.notes,
+            source: inq.source,
+            photoCount: inq.photoPathnames?.length || 0,
+            submittedAt: inq.submittedAt,
+          };
+        }
+      } catch {
+        /* optional */
+      }
+    }
+
     const recordBase = {
       id,
       submittedAt: new Date().toISOString(),
@@ -68,6 +96,8 @@ export async function POST(req: Request) {
       userAgent: (req.headers.get("user-agent") || "").slice(0, 300),
       fields,
       agreement,
+      inquiryId,
+      inquirySnapshot,
     };
 
     try {
@@ -130,6 +160,8 @@ export async function POST(req: Request) {
         const inq = await getInquiry(inv.inquiryId);
         if (inq) {
           inq.status = "signed";
+          inq.contractId = id;
+          inq.signedAt = new Date().toISOString();
           await saveInquiry(inq, true);
         }
       }

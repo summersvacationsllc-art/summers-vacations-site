@@ -33,10 +33,54 @@ function openOwnerMailto(opts: { name: string; email: string; address: string; u
   window.location.href = href;
 }
 
+function statusBadge(status: string) {
+  const s = status || "pending";
+  const color =
+    s === "signed"
+      ? "bg-emerald-100 text-emerald-900"
+      : s === "approved"
+        ? "bg-sky-100 text-sky-900"
+        : s === "declined"
+          ? "bg-rose-100 text-rose-900"
+          : "bg-amber-100 text-amber-900";
+  return (
+    <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide ${color}`}>
+      {s}
+    </span>
+  );
+}
+
+async function downloadBlob(url: string, fallbackName: string) {
+  const res = await fetch(url, { credentials: "include" });
+  if (!res.ok) {
+    let msg = "Could not download.";
+    try {
+      const data = await res.json();
+      if (data.error) msg = data.error;
+    } catch {
+      /* keep */
+    }
+    throw new Error(msg);
+  }
+  const blob = await res.blob();
+  const cd = res.headers.get("Content-Disposition") || "";
+  const m = cd.match(/filename=\"([^\"]+)\"/);
+  const filename = m?.[1] || fallbackName;
+  const href = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = href;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(href);
+}
+
 export function ContractLog() {
   const [pin, setPin] = useState("");
   const [needPin, setNeedPin] = useState(false);
   const [tab, setTab] = useState<"inquiries" | "signed">("inquiries");
+  const [reviewFilter, setReviewFilter] = useState<"all" | "pending" | "approved" | "signed" | "declined">("all");
   const [inquiries, setInquiries] = useState<OwnerInquiry[] | null>(null);
   const [contracts, setContracts] = useState<ContractSummary[] | null>(null);
   const [error, setError] = useState("");
@@ -268,38 +312,16 @@ export function ContractLog() {
     async function downloadSigned(format: "txt" | "docx" | "pdf") {
       setError("");
       try {
-        const res = await fetch(
+        await downloadBlob(
           `/api/contracts/log/${encodeURIComponent(signed.id)}/download?format=${format}`,
-          { credentials: "include" },
+          `cohosting-agreement.${format}`,
         );
-        if (!res.ok) {
-          let msg = "Could not download.";
-          try {
-            const data = await res.json();
-            if (data.error) msg = data.error;
-          } catch {
-            /* keep */
-          }
-          setError(msg);
-          return;
-        }
-        const blob = await res.blob();
-        const cd = res.headers.get("Content-Disposition") || "";
-        const m = cd.match(/filename=\"([^\"]+)\"/);
-        const filename = m?.[1] || `cohosting-agreement.${format}`;
-        const href = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = href;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(href);
-      } catch {
-        setError("Network error while downloading.");
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Network error while downloading.");
       }
     }
 
+    const snap = signed.inquirySnapshot;
     return (
       <main className="min-h-dvh bg-[#f0f9ff] px-4 py-8 text-[#0c4a6e]">
         <div className="mx-auto max-w-3xl">
@@ -311,6 +333,45 @@ export function ContractLog() {
             {signed.fields.subscriberName} · {signed.fields.accommodationsAddress}
           </p>
           {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
+          {snap ? (
+            <div className="mt-4 rounded-2xl border border-[#bae6fd] bg-white p-4 text-sm">
+              <p className="font-bold">Original review card (kept on file)</p>
+              <p className="mt-1 text-[#0369a1]">
+                {snap.name} · {snap.email} · {snap.phone || "no phone"}
+              </p>
+              <p className="mt-1 text-[#0369a1]">
+                {snap.address}
+                {snap.area ? ` · ${snap.area}` : ""}
+                {snap.source ? ` · ${snap.source}` : ""}
+              </p>
+              {snap.listingUrl ? (
+                <p className="mt-1">
+                  <a className="font-semibold text-[#0284c7] underline" href={snap.listingUrl} target="_blank" rel="noreferrer">
+                    Listing link
+                  </a>
+                </p>
+              ) : null}
+              <p className="mt-1 text-[#0369a1]">
+                Sleeps {snap.sleeps || "—"} · Beds {snap.beds || "—"} · Photos {snap.photoCount ?? 0}
+              </p>
+              {snap.notes ? <p className="mt-2 whitespace-pre-wrap text-[#0c4a6e]">{snap.notes}</p> : null}
+              {signed.inquiryId ? (
+                <button
+                  type="button"
+                  className="mt-3 rounded-full border border-[#bae6fd] px-4 py-2 text-xs font-semibold"
+                  onClick={() => {
+                    const match = (inquiries || []).find((i) => i.id === signed.inquiryId);
+                    if (match) {
+                      setOpen(null);
+                      setOpenInq(match);
+                    }
+                  }}
+                >
+                  Open full review card
+                </button>
+              ) : null}
+            </div>
+          ) : null}
           <div className="mt-4 flex flex-wrap gap-3 no-print">
             <button
               type="button"
@@ -350,36 +411,58 @@ export function ContractLog() {
   }
 
   if (openInq) {
-    const url = openInq.inviteToken
-      ? `https://mybransonvacation.com/contracts?invite=${openInq.inviteToken}`
+    const card = openInq;
+    const url = card.inviteToken
+      ? `https://mybransonvacation.com/contracts?invite=${card.inviteToken}`
       : lastInvite?.url || "";
+    async function saveReviewCard(format: "md" | "txt" | "json") {
+      setError("");
+      try {
+        await downloadBlob(
+          `/api/owner-inquiries/${encodeURIComponent(card.id)}/download?format=${format}`,
+          `owner-review.${format}`,
+        );
+        setMailNote(`Review card saved as .${format}`);
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Could not save review card.");
+      }
+    }
     return (
       <main className="min-h-dvh bg-[#f0f9ff] px-4 py-8 text-[#0c4a6e]">
         <div className="mx-auto max-w-3xl">
           <button type="button" className="text-sm font-semibold text-[#0369a1]" onClick={() => setOpenInq(null)}>
             ← Back
           </button>
-          <h1 className="mt-3 font-display text-3xl">{openInq.name}</h1>
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <h1 className="font-display text-3xl">{card.name}</h1>
+            {statusBadge(card.status)}
+          </div>
           <p className="mt-1 text-sm text-[#0369a1]">
-            {openInq.area ? `${openInq.area} · ` : ""}
-            {openInq.address} · {openInq.source === "met" ? "already met" : "website"} · {openInq.status}
+            {card.area ? `${card.area} · ` : ""}
+            {card.address} · {card.source === "met" ? "already met" : "website"}
           </p>
           <p className="mt-3 text-sm">
-            {openInq.email} · {openInq.phone || "no phone"}
+            {card.email} · {card.phone || "no phone"}
           </p>
-          {openInq.listingUrl ? (
+          <p className="mt-1 text-xs text-[#0369a1]">Review id: {card.id}</p>
+          {card.listingUrl ? (
             <p className="mt-2 text-sm">
-              <a className="font-semibold text-[#0369a1] underline" href={openInq.listingUrl} target="_blank" rel="noreferrer">
+              <a className="font-semibold text-[#0369a1] underline" href={card.listingUrl} target="_blank" rel="noreferrer">
                 Listing link
               </a>
             </p>
           ) : null}
           <p className="mt-2 text-sm text-[#0369a1]">
-            Sleeps {openInq.sleeps || "—"} · Beds {openInq.beds || "—"}
+            Sleeps {card.sleeps || "—"} · Beds {card.beds || "—"}
           </p>
-          {openInq.notes ? <p className="mt-4 whitespace-pre-wrap rounded-xl border border-[#bae6fd] bg-white p-4 text-sm">{openInq.notes}</p> : null}
+          {card.contractId ? (
+            <p className="mt-2 text-sm text-emerald-800">
+              Signed contract on file · {card.signedAt ? card.signedAt.slice(0, 10) : ""}
+            </p>
+          ) : null}
+          {card.notes ? <p className="mt-4 whitespace-pre-wrap rounded-xl border border-[#bae6fd] bg-white p-4 text-sm">{card.notes}</p> : null}
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {openInq.photoPathnames.map((p) => (
+            {card.photoPathnames.map((p) => (
               <img
                 key={p}
                 alt=""
@@ -390,22 +473,64 @@ export function ContractLog() {
           </div>
           {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
           <div className="mt-6 flex flex-wrap gap-3">
-            {openInq.status !== "declined" && openInq.status !== "signed" ? (
+            <button
+              type="button"
+              onClick={() => saveReviewCard("md")}
+              className="rounded-full border border-[#bae6fd] bg-white px-5 py-2.5 text-sm font-semibold"
+            >
+              Save review card
+            </button>
+            <button
+              type="button"
+              onClick={() => saveReviewCard("txt")}
+              className="rounded-full border border-[#bae6fd] bg-white px-5 py-2.5 text-sm font-semibold"
+            >
+              Save as text
+            </button>
+            <button
+              type="button"
+              onClick={() => saveReviewCard("json")}
+              className="rounded-full border border-[#bae6fd] bg-white px-5 py-2.5 text-sm font-semibold"
+            >
+              Save as JSON
+            </button>
+            {card.contractId ? (
+              <button
+                type="button"
+                className="rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white"
+                onClick={async () => {
+                  setError("");
+                  const res = await fetch(`/api/contracts/log/${encodeURIComponent(card.contractId!)}`, {
+                    credentials: "include",
+                  });
+                  const data = await res.json();
+                  if (!res.ok || !data.ok) {
+                    setError(data.error || "Could not open signed contract.");
+                    return;
+                  }
+                  setOpenInq(null);
+                  setOpen(data.record);
+                }}
+              >
+                Open signed contract
+              </button>
+            ) : null}
+            {card.status !== "declined" && card.status !== "signed" ? (
               <button
                 type="button"
                 disabled={busy}
-                onClick={() => approve(openInq.id)}
+                onClick={() => approve(card.id)}
                 className="rounded-full bg-[#0c4a6e] px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
               >
                 {busy ? "Working…" : "Approve and send contract"}
               </button>
             ) : null}
-            {openInq.status === "pending" ? (
-              <button type="button" onClick={() => decline(openInq.id)} className="rounded-full border border-[#bae6fd] px-5 py-2.5 text-sm font-semibold">
+            {card.status === "pending" ? (
+              <button type="button" onClick={() => decline(card.id)} className="rounded-full border border-[#bae6fd] px-5 py-2.5 text-sm font-semibold">
                 Not a fit
               </button>
             ) : null}
-            {url ? (
+            {url && card.status !== "signed" ? (
               <>
                 <button
                   type="button"
@@ -422,9 +547,9 @@ export function ContractLog() {
                   type="button"
                   onClick={() =>
                     openOwnerMailto({
-                      name: openInq.name,
-                      email: openInq.email,
-                      address: openInq.address,
+                      name: card.name,
+                      email: card.email,
+                      address: card.address,
                       url,
                     })
                   }
@@ -444,10 +569,10 @@ export function ContractLog() {
             ) : null}
           </div>
           {mailNote ? <p className="mt-3 text-sm text-[#0369a1]">{mailNote}</p> : null}
-          {openInq.notifyError ? (
-            <p className="mt-2 text-sm text-red-700">Brian notify: {openInq.notifyError}</p>
-          ) : openInq.notifyVia ? (
-            <p className="mt-2 text-sm text-[#0369a1]">Brian was notified via {openInq.notifyVia}.</p>
+          {card.notifyError ? (
+            <p className="mt-2 text-sm text-red-700">Brian notify: {card.notifyError}</p>
+          ) : card.notifyVia ? (
+            <p className="mt-2 text-sm text-[#0369a1]">Brian was notified via {card.notifyVia}.</p>
           ) : null}
           {url ? (
             <p className="mt-4 break-all text-sm">
@@ -468,7 +593,7 @@ export function ContractLog() {
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">mybransonvacation.com/contracts/log</p>
         <h1 className="mt-2 font-display text-4xl leading-none">Owner desk</h1>
         <p className="mt-3 max-w-2xl text-[#0369a1]">
-          Review photos first. Approve only if the home can hold a 5-star stay. The contract link is private.
+          Review photos first. Approve only if the home can hold a 5-star stay. Review cards stay on file after signing.
         </p>
 
         {needPin ? (
@@ -491,7 +616,7 @@ export function ContractLog() {
           <>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
               <button type="button" className="font-semibold text-[#0369a1]" onClick={() => setTab("inquiries")}>
-                Reviews {inquiries ? `(${inquiries.filter((i) => i.status === "pending").length} pending)` : ""}
+                Reviews {inquiries ? `(${inquiries.filter((i) => i.status === "pending").length} pending · ${inquiries.length} total)` : ""}
               </button>
               <button type="button" className="font-semibold text-[#0369a1]" onClick={() => setTab("signed")}>
                 Signed {contracts ? `(${contracts.length})` : ""}
@@ -584,29 +709,49 @@ export function ContractLog() {
                     </p>
                   ) : null}
                 </form>
+                <div className="mt-4 flex flex-wrap gap-2 text-xs">
+                  {(["all", "pending", "approved", "signed", "declined"] as const).map((f) => (
+                    <button
+                      key={f}
+                      type="button"
+                      onClick={() => setReviewFilter(f)}
+                      className={`rounded-full px-3 py-1 font-semibold ${
+                        reviewFilter === f ? "bg-[#0c4a6e] text-white" : "border border-[#bae6fd] bg-white text-[#0369a1]"
+                      }`}
+                    >
+                      {f}
+                    </button>
+                  ))}
+                </div>
                 {inquiries === null ? (
                   <p className="mt-8 text-[#0369a1]">Loading…</p>
                 ) : inquiries.length === 0 ? (
                   <p className="mt-8 text-[#0369a1]">No review requests yet.</p>
                 ) : (
                   <ul className="mt-6 space-y-3">
-                    {inquiries.map((it) => (
+                    {inquiries
+                      .filter((it) => (reviewFilter === "all" ? true : it.status === reviewFilter))
+                      .map((it) => (
                       <li key={it.id}>
                         <button
                           type="button"
                           onClick={() => setOpenInq(it)}
                           className="w-full rounded-2xl border border-[#bae6fd] bg-white p-4 text-left"
                         >
-                          <p className="font-semibold">{it.name}</p>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <p className="font-semibold">{it.name}</p>
+                            {statusBadge(it.status)}
+                          </div>
                           <p className="text-sm text-[#0369a1]">
                             {it.area ? `${it.area} · ` : ""}
                             {it.address}
                           </p>
                           <p className="mt-1 text-xs text-[#0369a1]">
-                            {it.status} · {it.source === "met" ? "already met" : "website"} · {it.photoPathnames.length} photos ·{" "}
+                            {it.source === "met" ? "already met" : "website"} · {it.photoPathnames.length} photos ·{" "}
                             {it.submittedAt.slice(0, 10)}
                             {it.notifyError ? " · Brian email failed" : it.notifyVia ? " · Brian emailed" : ""}
                             {it.inviteEmailedAt ? " · contract emailed" : ""}
+                            {it.contractId ? " · signed contract on file" : ""}
                           </p>
                         </button>
                       </li>
@@ -627,6 +772,7 @@ export function ContractLog() {
                       <p className="text-sm text-[#0369a1]">{it.accommodationsAddress}</p>
                       <p className="mt-1 text-xs text-[#0369a1]">
                         Signed {it.signatureDate || "—"} · {it.email}
+                        {it.inquiryId ? " · review card linked" : ""}
                       </p>
                     </button>
                   </li>

@@ -10,6 +10,22 @@ export type StoredContract = {
   agreement: string;
   emailVia: string | null;
   emailError: string | null;
+  /** Link back to the owner review card (never delete that card on sign). */
+  inquiryId?: string | null;
+  inquirySnapshot?: {
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    area?: string;
+    listingUrl?: string;
+    sleeps?: string;
+    beds?: string;
+    notes?: string;
+    source?: string;
+    photoCount?: number;
+    submittedAt?: string;
+  } | null;
 };
 
 export type ContractSummary = {
@@ -23,6 +39,7 @@ export type ContractSummary = {
   startDate: string;
   signatureName: string;
   signatureDate: string;
+  inquiryId?: string | null;
 };
 
 function slug(s: string): string {
@@ -89,6 +106,7 @@ export async function listContracts(): Promise<ContractSummary[]> {
           startDate: rec.fields.startDate,
           signatureName: rec.fields.signatureName,
           signatureDate: rec.fields.signatureDate,
+          inquiryId: rec.inquiryId || null,
         });
       } catch {
         /* skip a bad file */

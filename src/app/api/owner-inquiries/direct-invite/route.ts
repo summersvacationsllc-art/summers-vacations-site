@@ -4,7 +4,14 @@ import { NextResponse } from "next/server";
 import { EMAIL } from "@/lib/site";
 import { isContractsAuthed } from "@/lib/contracts-auth";
 import { ownerContractEmail, sendMail } from "@/lib/mail";
-import { inviteUrl, newInviteToken, saveInvite } from "@/lib/owner-inquiries";
+import {
+  inviteUrl,
+  newInquiryId,
+  newInviteToken,
+  saveInquiry,
+  saveInvite,
+  type OwnerInquiry,
+} from "@/lib/owner-inquiries";
 
 function str(v: unknown, max = 400): string {
   if (typeof v !== "string") return "";
@@ -24,10 +31,37 @@ export async function POST(req: Request) {
     if (!name || !email || !address) {
       return NextResponse.json({ ok: false, error: "Name, email, and address are required." }, { status: 400 });
     }
+
+    // Keep a durable review card even for "already met" invites.
+    const inquiryId = newInquiryId(name);
+    const rec: OwnerInquiry = {
+      id: inquiryId,
+      submittedAt: new Date().toISOString(),
+      source: "met",
+      name,
+      email,
+      phone,
+      address,
+      area: "",
+      listingUrl: "",
+      sleeps: "",
+      beds: "",
+      notes: "Direct desk invite (already met). Review card kept for records.",
+      photoPathnames: [],
+      status: "approved",
+      inviteToken: null,
+      declinedNote: "",
+      ip: "",
+      notifyVia: null,
+      notifyError: null,
+      contractId: null,
+      signedAt: null,
+    };
+
     const token = newInviteToken();
     await saveInvite({
       token,
-      inquiryId: null,
+      inquiryId,
       name,
       email,
       phone,
@@ -36,6 +70,9 @@ export async function POST(req: Request) {
       usedAt: null,
       contractId: null,
     });
+    rec.inviteToken = token;
+    await saveInquiry(rec, true);
+
     const url = inviteUrl(token);
     const letter = ownerContractEmail({ name, address, url });
     const mailed = await sendMail({
@@ -45,21 +82,30 @@ export async function POST(req: Request) {
       replyTo: EMAIL,
     });
     if (mailed.ok) {
+      rec.inviteEmailedAt = new Date().toISOString();
+      rec.inviteEmailError = null;
+      await saveInquiry(rec, true);
       await sendMail({
         to: EMAIL,
         subject: `Contract link emailed: ${name} — ${address}`,
-        text: [`The private agreement link was emailed to ${email}.`, "", `Link: ${url}`].join("\n"),
+        text: [`The private agreement link was emailed to ${email}.`, "", `Link: ${url}`, `Review card id: ${inquiryId}`].join(
+          "\n",
+        ),
         replyTo: email,
       });
+    } else {
+      rec.inviteEmailError = mailed.error || "email failed";
+      await saveInquiry(rec, true);
     }
     return NextResponse.json({
-       ok: true,
-       url,
-       token,
-       emailed: mailed.ok,
-       emailError: mailed.ok ? null : mailed.error || "email failed",
-       emailVia: mailed.ok ? mailed.via || null : null,
-     });
+      ok: true,
+      url,
+      token,
+      inquiryId,
+      emailed: mailed.ok,
+      emailError: mailed.ok ? null : mailed.error || "email failed",
+      emailVia: mailed.ok ? mailed.via || null : null,
+    });
   } catch {
     return NextResponse.json({ ok: false, error: "Failed." }, { status: 500 });
   }

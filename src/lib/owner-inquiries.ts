@@ -1,5 +1,6 @@
 import { get, list, put } from "@vercel/blob";
 import { clientIp } from "@/lib/contracts-store";
+import { writeInquiryArchive } from "@/lib/inquiry-archive";
 
 export type InquirySource = "met" | "website";
 export type InquiryStatus = "pending" | "approved" | "declined" | "signed";
@@ -26,6 +27,9 @@ export type OwnerInquiry = {
   notifyError?: string | null;
   inviteEmailedAt?: string | null;
   inviteEmailError?: string | null;
+  /** Set when the owner signs the co-hosting agreement — inquiry is kept. */
+  contractId?: string | null;
+  signedAt?: string | null;
 };
 
 export type ContractInvite = {
@@ -83,6 +87,11 @@ export function isPhotoPath(path: string): boolean {
 
 export async function saveInquiry(rec: OwnerInquiry, overwrite = false): Promise<void> {
   await writeJson(inquiryPath(rec.id), rec, overwrite);
+  try {
+    await writeInquiryArchive(rec);
+  } catch {
+    /* primary blob is the source of truth; archive is best-effort durable copy */
+  }
 }
 
 export async function getInquiry(id: string): Promise<OwnerInquiry | null> {
