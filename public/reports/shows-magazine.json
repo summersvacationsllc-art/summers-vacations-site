@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-27",
+  "date": "2026-09-28",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Sunday show day",
-  "deck": "Family-friendly boards and indoor A/C picks. Verify Sunday times — some houses run a different schedule.",
+  "hed": "Monday at the lake: cool start, warming into the 80s, mostly sunny",
+  "deck": "Monday, September 28 brings a cool start to the week with overnight lows near 62°F, climbing to a pleasant high in the mid-80s under mostly sunny skies with very low rain chance. Perfect conditions for a relaxed day on Table Rock Lake, exploring the Strip, or catching a matinee show.",
   "pick": {
-    "title": "Shepherd of the Hills Outdoor Drama",
-    "when": "7:30 PM",
-    "where": "Shepherd of the Hills",
-    "why": "Ozarks outdoor drama — check weather and arrive early.",
-    "url": "https://theshepherdofthehills.com/",
-    "source": "desk"
+    "title": "Legends in Concert",
+    "when": "3:00 PM (confirm box office)",
+    "where": "Pepsi Legends Theater, 1600 W 76 Country Blvd",
+    "why": "Live celebrity tribute performances with full live band — a reliable indoor Monday matinee that pairs well with lunch on the Strip. Strong carry-forward from recent verified shows.",
+    "url": "https://legendsinconcert.com/location/branson-mo/",
+    "source": "night-editor"
   },
   "buckets": [
     {
@@ -231,13 +231,29 @@
       "count": 3
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Legends in Concert",
+      "detail": "Live celebrity tributes with full band at Pepsi Legends Theater. Reliable Monday indoor option — confirm 3 PM or evening performance at box office.",
+      "url": "https://legendsinconcert.com/location/branson-mo/"
+    },
+    {
+      "name": "Amazing Acrobats of Shanghai",
+      "detail": "High-energy circus and aerial performance at Grand Shanghai Theatre. Strong indoor evening alternative.",
+      "url": "https://www.grandshanghaitheatre.com/"
+    },
+    {
+      "name": "White River Fish House",
+      "detail": "Fresh fish and Ozark-inspired dishes with views — carry-forward Monday indoor dining option near the lake.",
+      "url": ""
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-27",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
+    "checked": "2026-09-28",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-28.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
