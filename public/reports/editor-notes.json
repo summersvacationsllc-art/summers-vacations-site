@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-26",
-  "headline": "Saturday at the lake: warm, mostly sunny, chance of evening showers",
-  "lede": "Saturday, September 26 brings warm lake weather — overnight low near 63°F, afternoon high near 88°F (31°C), low rain chance until evening. Mostly sunny with a few clouds; perfect for a full day on the water or the Strip before possible showers move in after dark.",
+  "for": "2026-09-28",
+  "headline": "Monday at the lake: cool start, warming into the 80s, mostly sunny",
+  "lede": "Monday, September 28 brings a cool start to the week with overnight lows near 62°F, climbing to a pleasant high in the mid-80s under mostly sunny skies with very low rain chance. Perfect conditions for a relaxed day on Table Rock Lake, exploring the Strip, or catching a matinee show.",
   "heat": false,
   "featured": {
     "title": "Legends in Concert",
     "when": "3:00 PM (confirm box office)",
     "where": "Pepsi Legends Theater, 1600 W 76 Country Blvd",
-    "why": "Live celebrity tribute show with a full band — strong Saturday afternoon indoor option while the lake stays warm. Pair with lunch on the Strip before or after.",
+    "why": "Live celebrity tribute performances with full live band — a reliable indoor Monday matinee that pairs well with lunch on the Strip. Strong carry-forward from recent verified shows.",
     "url": "https://legendsinconcert.com/location/branson-mo/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early Table Rock bite",
-      "detail": "Warm water, stable level — bass and crappie active near main-lake points and brush. Carry-forward from latest verified scout; confirm ramp conditions and generation schedule."
+      "title": "Taneycomo trout bite",
+      "detail": "Cooler water temps favor trout near dam and power generation periods. Bass and crappie also active in warmer shallows on Table Rock. Carry-forward from latest scout; verify generation schedule locally."
     },
     {
       "when": "Afternoon",
       "title": "Legends in Concert matinee",
-      "detail": "Live celebrity tributes with a full band at Pepsi Legends Theater — strong indoor Saturday option. Confirm exact 3 PM start at the box office."
+      "detail": "Celebrity tribute show at Pepsi Legends Theater. Confirm exact start time at the box office before heading to the Strip."
     },
     {
       "when": "Dusk",
-      "title": "Lake House dinner + evening show",
-      "detail": "Saturday dining rotation highlights The Lake House at Indian Point (lake views, full bar, live music). Follow with an evening show on the Strip (Acrobats of Shanghai or similar — confirm box office)."
+      "title": "Ozark Mountain Pizza dinner",
+      "detail": "Monday restaurant spotlight: Ozark Mountain Pizza on the Strip — casual, family-friendly pies with lake views nearby. Follow with an evening show (confirm box office)."
     }
   ],
   "indoor": [
     {
       "name": "Legends in Concert",
-      "detail": "Live celebrity tributes with a full band at Pepsi Legends Theater — strong Saturday indoor matinee. Confirm 3 PM start.",
+      "detail": "Live celebrity tributes with full band at Pepsi Legends Theater. Reliable Monday indoor option — confirm 3 PM or evening performance at box office.",
       "url": "https://legendsinconcert.com/location/branson-mo/"
     },
     {
       "name": "Amazing Acrobats of Shanghai",
-      "detail": "Evening high-energy circus and aerial show at Grand Shanghai Theatre. Confirm evening performance time at the box office.",
+      "detail": "High-energy circus and aerial performance at Grand Shanghai Theatre. Strong indoor evening alternative.",
       "url": "https://www.grandshanghaitheatre.com/"
     },
     {
-      "name": "Shepherd of the Hills",
-      "detail": "Outdoor historical drama in the Ozarks — verify weather and curtain time. Strong Saturday evening option if skies stay clear.",
-      "url": "https://theshepherdofthehills.com/"
+      "name": "White River Fish House",
+      "detail": "Fresh fish and Ozark-inspired dishes with views — carry-forward Monday indoor dining option near the lake.",
+      "url": ""
     }
   ],
-  "honesty": "Night Editor desk for 2026-09-26 from Open-Meteo (high 88°F/31°C, low 63°F, precip chance low until evening). No fresh TOMORROW scout markdown files present — all fishing, shows, and dining carried forward from latest verified JSON with box-office confirm notes. Saturday restaurant spotlight = The Lake House at Indian Point. No guest names, cleaners, or ops data. Bright blue magazine enforced."
+  "honesty": "Night Editor for 2026-09-28. Open-Meteo forecast (high ~84°F, low ~62°F, ~1% precip). No TOMORROW scout markdown files found in branson-content-engine/data — all content carried forward from latest fishing-data.json, shows-data.json, and dining-data.json (last updated 2026-09-10). Monday restaurant spotlight = Ozark Mountain Pizza. No fabrication of times, prices, or new events. Bright-blue theme enforced. No guest names or ops data included."
 }
