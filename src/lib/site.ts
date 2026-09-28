@@ -18,11 +18,33 @@ export type PropertyCard = {
   badge?: string;
   /** Guesty booking site for this unit. Homepage pic + Book buttons go here. */
   bookUrl?: string;
+  /** Public Airbnb listing URL. Leave "" until known — the button only renders when set. */
+  airbnbUrl?: string;
+  /** Public VRBO listing URL. Leave "" until known — the button only renders when set. */
+  vrboUrl?: string;
 };
 
 export function bookingUrl(slug?: string | null): string {
   if (!slug) return BOOK_URL;
   return PROPERTIES.find((p) => p.slug === slug)?.bookUrl || BOOK_URL;
+}
+
+export type ChannelLinks = {
+  /** Direct booking (Guesty booking site, or the main site fallback). Always set. */
+  direct: string;
+  airbnb?: string;
+  vrbo?: string;
+};
+
+/** Where a guest can book this home. Empty/missing OTA URLs are omitted. */
+export function channelLinks(slug?: string | null): ChannelLinks {
+  const p = slug ? PROPERTIES.find((x) => x.slug === slug) : undefined;
+  const clean = (u?: string) => (u && u.trim() ? u.trim() : undefined);
+  return {
+    direct: bookingUrl(slug),
+    airbnb: clean(p?.airbnbUrl),
+    vrbo: clean(p?.vrboUrl),
+  };
 }
 
 /** Curated real property photos — paths must match files on disk in public/property-photos/. */
@@ -38,6 +60,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Deck with mountain views and a cozy top-floor retreat.",
     bookUrl:
       "https://bransonpenthouse.guestybookings.com/en/properties?minOccupancy=1&adults=1",
+    airbnbUrl: "",
+    vrboUrl: "",
   },
   {
     name: "Rustic Ozark Retreat",
@@ -50,6 +74,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Porch overlooking the Ozarks — that mountain-getaway feel.",
     bookUrl:
       "https://rusticozarkretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
+    airbnbUrl: "",
+    vrboUrl: "",
   },
   {
     name: "Woodland Retreat",
@@ -62,6 +88,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Kids love the bunk room. Parents love the open living space.",
     bookUrl:
       "https://woodlandretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
+    airbnbUrl: "",
+    vrboUrl: "",
   },
   {
     name: "Double Condo",
@@ -73,6 +101,9 @@ export const PROPERTIES: PropertyCard[] = [
     photo: "/property-photos/double-condo/aaa-doublecondo.jpg",
     blurb: "Two units, two kitchens — reunions and big families done right.",
     badge: "🔥 Best Value",
+    // No per-unit Guesty site yet — direct booking falls back to BOOK_URL.
+    airbnbUrl: "",
+    vrboUrl: "",
   },
   {
     name: "Branson Family Haven",
@@ -85,6 +116,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Standalone 5BR house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
     bookUrl: "https://bransonfamilyhaven.guestybookings.com/",
+    airbnbUrl: "",
+    vrboUrl: "",
   },
 ];
 

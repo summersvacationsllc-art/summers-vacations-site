@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Users,
   DoorOpen,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import { PHONE, PHONE_HREF, bookingUrl } from "@/lib/site";
+import { bookingUrl } from "@/lib/site";
+import { trackBookClick } from "@/lib/analytics";
+import BookYourWay from "@/components/BookYourWay";
 
 interface Photo {
   url: string;
@@ -265,6 +266,7 @@ export default function PropertyPage() {
             href={bookHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackBookClick("direct", slug, "nav")}
             className="btn-book text-xs px-5 py-2.5 rounded-full no-underline inline-flex items-center gap-1.5"
           >
             Book Your Stay
@@ -301,6 +303,7 @@ export default function PropertyPage() {
                 href={bookHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackBookClick("direct", slug, "hero")}
                 className="btn-book inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm no-underline"
               >
                 Book Your Stay
@@ -385,33 +388,7 @@ export default function PropertyPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-br from-amber-400 to-amber-500">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl font-bold text-[#0c4a6e]">
-            Ready to book {data.name}?
-          </h2>
-          <p className="text-[#0c4a6e]/80 mt-2 font-medium">
-            Book direct for the best rates — we take care of the rest.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <a
-              href={bookHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full bg-[#0c4a6e] text-white text-sm font-bold no-underline hover:bg-[#0a3d5c] transition-colors inline-flex items-center gap-2"
-            >
-              Book Your Stay
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href={PHONE_HREF}
-              className="px-8 py-3.5 rounded-full bg-white/70 text-[#0c4a6e] text-sm font-bold no-underline hover:bg-white transition-all flex items-center gap-2"
-            >
-              <Phone size={16} /> Call {PHONE}
-            </a>
-          </div>
-        </div>
-      </section>
+      <BookYourWay slug={slug} name={data.name} />
 
       <footer className="py-8 px-4 bg-[#0c4a6e] text-center">
         <Link
