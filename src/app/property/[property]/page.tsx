@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Users,
   DoorOpen,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
-import { PHONE, PHONE_HREF, bookingUrl } from "@/lib/site";
+import { bookingUrl } from "@/lib/site";
+import { trackBookClick } from "@/lib/analytics";
+import BookYourWay from "@/components/BookYourWay";
 
 interface Photo {
   url: string;
@@ -34,6 +35,8 @@ const PROPERTIES: Record<
     sleeps: string;
     beds: string;
     address: string;
+    /** Short location for the header; defaults to "Branson West, MO". */
+    location?: string;
     guestyId: string;
     emoji: string;
     desc: string;
@@ -172,11 +175,12 @@ const PROPERTIES: Record<
     name: "Branson Family Haven",
     tag: "🏡 Standalone House",
     sleeps: "16",
-    beds: "3BR",
-    address: "44 Timber Trace Lane, Branson, MO 65616",
+    beds: "5BR · 4BA",
+    address: "44 Timber Trace Ln, Branson, MO 65616",
+    location: "Branson, MO",
     guestyId: "6993c5d31547001e711bc7ed",
     emoji: "🏡",
-    desc: "A standalone 3-bedroom house with private yard, full kitchen, in-unit washer/dryer, gas BBQ grill, fire pit, and access to community pools and hot tub. The ultimate family gathering place.",
+    desc: "A standalone 5-bedroom house with private yard, full kitchen, in-unit washer/dryer, gas BBQ grill, fire pit, and access to community pools and hot tub. The ultimate family gathering place.",
     highlights: [
       "Standalone house",
       "Private yard",
@@ -265,6 +269,7 @@ export default function PropertyPage() {
             href={bookHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackBookClick("direct", slug, "nav")}
             className="btn-book text-xs px-5 py-2.5 rounded-full no-underline inline-flex items-center gap-1.5"
           >
             Book Your Stay
@@ -293,7 +298,7 @@ export default function PropertyPage() {
                 <DoorOpen size={16} /> {data.beds}
               </div>
               <div className="flex items-center gap-2 text-sky-100 text-sm">
-                <MapPin size={16} /> Branson West, MO
+                <MapPin size={16} /> {data.location || "Branson West, MO"}
               </div>
             </div>
             <div className="flex flex-wrap gap-3 mt-8">
@@ -301,6 +306,7 @@ export default function PropertyPage() {
                 href={bookHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackBookClick("direct", slug, "hero")}
                 className="btn-book inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm no-underline"
               >
                 Book Your Stay
@@ -385,33 +391,7 @@ export default function PropertyPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-br from-amber-400 to-amber-500">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl font-bold text-[#0c4a6e]">
-            Ready to book {data.name}?
-          </h2>
-          <p className="text-[#0c4a6e]/80 mt-2 font-medium">
-            Book direct for the best rates — we take care of the rest.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <a
-              href={bookHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full bg-[#0c4a6e] text-white text-sm font-bold no-underline hover:bg-[#0a3d5c] transition-colors inline-flex items-center gap-2"
-            >
-              Book Your Stay
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href={PHONE_HREF}
-              className="px-8 py-3.5 rounded-full bg-white/70 text-[#0c4a6e] text-sm font-bold no-underline hover:bg-white transition-all flex items-center gap-2"
-            >
-              <Phone size={16} /> Call {PHONE}
-            </a>
-          </div>
-        </div>
-      </section>
+      <BookYourWay slug={slug} name={data.name} />
 
       <footer className="py-8 px-4 bg-[#0c4a6e] text-center">
         <Link
