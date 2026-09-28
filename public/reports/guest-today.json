@@ -1,33 +1,16 @@
 {
-  "date": "2026-09-27",
-  "generated_at": "2026-09-27T15:14:34+00:00",
+  "date": "2026-09-28",
+  "generated_at": "2026-09-28T05:42:53-05:00",
   "headline": {
     "check_ins": 0,
-    "check_outs": 2,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 1,
     "units_total": 5
   },
   "check_ins": [],
-  "check_outs": [
-    {
-      "property": "Indian Point",
-      "guest": "Alice Miller",
-      "guests": 9,
-      "platform": "airbnb2",
-      "reservation_id": "res_x9ndhpm",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Nicole Slovensky",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_ril9t55",
-      "time": "10:00 AM"
-    }
-  ],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
