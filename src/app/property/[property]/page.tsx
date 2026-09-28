@@ -279,51 +279,59 @@ export default function PropertyPage() {
       </nav>
 
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0c4a6e] via-[#0c4a6e] to-[#0ea5e9]">
-        <div className="max-w-7xl mx-auto px-4 py-14 sm:py-20">
-          <div className="relative z-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/15 text-amber-300 border border-white/20 mb-4">
-              {data.emoji} {data.tag}
-            </span>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white">
-              {data.name}
-            </h1>
-            <p className="mt-4 text-lg text-sky-100 max-w-xl leading-relaxed">
-              {data.desc}
-            </p>
-            <div className="flex flex-wrap gap-4 mt-6">
-              <div className="flex items-center gap-2 text-sky-100 text-sm">
-                <Users size={16} /> Sleeps {data.sleeps}
+        <div className="max-w-7xl mx-auto px-4 py-14 sm:py-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+            {/* Direct booking block — top-left (stacks first on mobile) */}
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/15 text-amber-300 border border-white/20 mb-4">
+                {data.emoji} {data.tag}
+              </span>
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+                {data.name}
+              </h1>
+              <p className="mt-4 text-lg text-sky-100 max-w-xl leading-relaxed">
+                {data.desc}
+              </p>
+              <div className="flex flex-wrap gap-4 mt-6">
+                <div className="flex items-center gap-2 text-sky-100 text-sm">
+                  <Users size={16} /> Sleeps {data.sleeps}
+                </div>
+                <div className="flex items-center gap-2 text-sky-100 text-sm">
+                  <DoorOpen size={16} /> {data.beds}
+                </div>
+                <div className="flex items-center gap-2 text-sky-100 text-sm">
+                  <MapPin size={16} /> {data.location || "Branson West, MO"}
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sky-100 text-sm">
-                <DoorOpen size={16} /> {data.beds}
-              </div>
-              <div className="flex items-center gap-2 text-sky-100 text-sm">
-                <MapPin size={16} /> {data.location || "Branson West, MO"}
+              <div className="flex flex-wrap gap-3 mt-8">
+                <a
+                  href={bookHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackBookClick("direct", slug, "hero")}
+                  className="btn-book inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm no-underline"
+                >
+                  Book Your Stay
+                  <ArrowRight size={16} strokeWidth={2.5} />
+                </a>
+                <a
+                  href={`/guidebook/${slug}?code=demo&name=Guest`}
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-white/30 text-white font-semibold text-sm no-underline hover:bg-white/10 transition-colors"
+                >
+                  Preview Guidebook
+                </a>
               </div>
             </div>
-            <div className="flex flex-wrap gap-3 mt-8">
-              <a
-                href={bookHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackBookClick("direct", slug, "hero")}
-                className="btn-book inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm no-underline"
-              >
-                Book Your Stay
-                <ArrowRight size={16} strokeWidth={2.5} />
-              </a>
-              <a
-                href={`/guidebook/${slug}?code=demo&name=Guest`}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-white/30 text-white font-semibold text-sm no-underline hover:bg-white/10 transition-colors"
-              >
-                Preview Guidebook
-              </a>
+
+            {/* Book your way (Airbnb / VRBO) — top-right on desktop, under direct on mobile */}
+            <div className="flex lg:justify-end">
+              <BookYourWay slug={slug} name={data.name} />
             </div>
           </div>
-          <span className="absolute right-[-20px] bottom-[-40px] text-[200px] opacity-10 select-none">
-            {data.emoji}
-          </span>
         </div>
+        <span className="absolute right-[-20px] bottom-[-40px] text-[200px] opacity-10 select-none pointer-events-none" aria-hidden>
+          {data.emoji}
+        </span>
       </section>
 
       {photos.length > 0 && (
@@ -390,8 +398,6 @@ export default function PropertyPage() {
           </div>
         </div>
       </section>
-
-      <BookYourWay slug={slug} name={data.name} />
 
       <footer className="py-8 px-4 bg-[#0c4a6e] text-center">
         <Link
