@@ -60,8 +60,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Deck with mountain views and a cozy top-floor retreat.",
     bookUrl:
       "https://bransonpenthouse.guestybookings.com/en/properties?minOccupancy=1&adults=1",
-    airbnbUrl: "",
-    vrboUrl: "",
+    airbnbUrl: "https://www.airbnb.com/rooms/866812230966422815",
+    vrboUrl: "https://www.vrbo.com/4922479",
   },
   {
     name: "Rustic Ozark Retreat",
@@ -74,8 +74,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Porch overlooking the Ozarks — that mountain-getaway feel.",
     bookUrl:
       "https://rusticozarkretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
-    airbnbUrl: "",
-    vrboUrl: "",
+    airbnbUrl: "https://www.airbnb.com/rooms/864359255098863365",
+    vrboUrl: "https://www.vrbo.com/4922480",
   },
   {
     name: "Woodland Retreat",
@@ -88,8 +88,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Kids love the bunk room. Parents love the open living space.",
     bookUrl:
       "https://woodlandretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
-    airbnbUrl: "",
-    vrboUrl: "",
+    airbnbUrl: "https://www.airbnb.com/rooms/1287974404964958218",
+    vrboUrl: "https://www.vrbo.com/4927502",
   },
   {
     name: "Double Condo",
@@ -102,8 +102,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Two units, two kitchens — reunions and big families done right.",
     badge: "🔥 Best Value",
     // No per-unit Guesty site yet — direct booking falls back to BOOK_URL.
-    airbnbUrl: "",
-    vrboUrl: "",
+    airbnbUrl: "https://www.airbnb.com/rooms/1365192095570273110",
+    vrboUrl: "https://www.vrbo.com/4922482",
   },
   {
     name: "Branson Family Haven",
@@ -116,8 +116,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Standalone 5BR house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
     bookUrl: "https://bransonfamilyhaven.guestybookings.com/",
-    airbnbUrl: "",
-    vrboUrl: "",
+    airbnbUrl: "https://www.airbnb.com/rooms/1622735625063665266",
+    vrboUrl: "https://www.vrbo.com/5183812",
   },
 ];
 

@@ -35,6 +35,8 @@ const PROPERTIES: Record<
     sleeps: string;
     beds: string;
     address: string;
+    /** Short location for the header; defaults to "Branson West, MO". */
+    location?: string;
     guestyId: string;
     emoji: string;
     desc: string;
@@ -173,11 +175,12 @@ const PROPERTIES: Record<
     name: "Branson Family Haven",
     tag: "🏡 Standalone House",
     sleeps: "16",
-    beds: "3BR",
-    address: "44 Timber Trace Lane, Branson, MO 65616",
+    beds: "5BR · 4BA",
+    address: "44 Timber Trace Ln, Branson, MO 65616",
+    location: "Branson, MO",
     guestyId: "6993c5d31547001e711bc7ed",
     emoji: "🏡",
-    desc: "A standalone 3-bedroom house with private yard, full kitchen, in-unit washer/dryer, gas BBQ grill, fire pit, and access to community pools and hot tub. The ultimate family gathering place.",
+    desc: "A standalone 5-bedroom house with private yard, full kitchen, in-unit washer/dryer, gas BBQ grill, fire pit, and access to community pools and hot tub. The ultimate family gathering place.",
     highlights: [
       "Standalone house",
       "Private yard",
@@ -295,7 +298,7 @@ export default function PropertyPage() {
                 <DoorOpen size={16} /> {data.beds}
               </div>
               <div className="flex items-center gap-2 text-sky-100 text-sm">
-                <MapPin size={16} /> Branson West, MO
+                <MapPin size={16} /> {data.location || "Branson West, MO"}
               </div>
             </div>
             <div className="flex flex-wrap gap-3 mt-8">

@@ -368,8 +368,11 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {listings.map((p) => {
               const photo = p.photo || propertyPhotos[p.slug] || null;
-              const href = p.bookUrl || `/property/${p.slug}`;
-              const external = Boolean(p.bookUrl);
+              // Known homes open their property page (with "Book your way");
+              // any unknown Guesty listing falls back to its booking link.
+              const hasPage = PROPERTIES.some((x) => x.slug === p.slug);
+              const external = !hasPage && Boolean(p.bookUrl);
+              const href = external ? (p.bookUrl as string) : `/property/${p.slug}`;
               return (
               <a
                 key={p.slug}
