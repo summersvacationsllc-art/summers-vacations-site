@@ -495,7 +495,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               : <div className="mx-3.5 mb-1 bg-white rounded-lg px-3 py-2.5 border border-sky-100 text-[12px] text-sky-700">Today&apos;s lineup loads with the morning report.</div>}
 
             {/* Book Again */}
-            <a href="https://branson-condo.com" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
+            <a href="https://notchcondos.guestybookings.com/" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
               <span className="text-3xl">🏠</span>
               <div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates • Summers Vacations</div></div>
               <span className="text-xl text-teal-800">›</span>
@@ -612,7 +612,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     {icon:'🏡',name:'Branson Family Haven',meta:'5BR house • Sleeps 16 • Private yard',desc:'Standalone home, full kitchen, washer/dryer'},
                     {icon:'🏢',name:'Double Condo',meta:'Penthouse + Rustic • Sleeps 12+',desc:'🔥 Bundle & save! Two units, one booking'},
                   ].map((p,i) => (
-                    <a key={i} href="https://branson-condo.com" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-sky-400':''}`}>
+                    <a key={i} href="https://notchcondos.guestybookings.com/" target="_blank" rel="noopener" className={`block bg-white rounded-lg px-3.5 py-3 mb-1 border no-underline text-inherit ${i===0?'border-l-4 border-sky-400':''}`}>
                       <div className="flex items-center gap-2"><span className="text-3xl">{p.icon}</span><div className="flex-1"><div className="text-[13px] font-bold text-sky-900">{p.name}</div><div className="text-[11px] text-sky-700">{p.meta}</div></div>
                         {i>0 && <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-green-50 text-teal-700 whitespace-nowrap">Book Now</span>}</div>
                       <div className="text-[10px] text-teal-700 font-semibold mt-1 ml-9">{p.desc}</div>
@@ -639,7 +639,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             )}
 
-            <a href="https://branson-condo.com" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
+            <a href="https://notchcondos.guestybookings.com/" target="_blank" rel="noopener" className="block mx-3.5 my-2 rounded-xl px-3.5 py-3 flex items-center gap-2 no-underline" style={{ background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }}>
               <span className="text-3xl">🏠</span><div className="flex-1"><div className="text-sm font-bold text-sky-900">Book Your Next Stay</div><div className="text-[11px] text-teal-800">Direct booking • Best rates</div></div><span className="text-xl text-teal-800">›</span>
             </a>
           </>

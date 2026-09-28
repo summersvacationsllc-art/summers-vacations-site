@@ -1,6 +1,6 @@
 /** Shared site constants */
 
-export const BOOK_URL = "https://branson-condo.com";
+export const BOOK_URL = "https://notchcondos.guestybookings.com/";
 export const PHONE = "314-565-0589";
 export const PHONE_HREF = "tel:3145650589";
 export const EMAIL = "summersvacationsllc@gmail.com";
@@ -101,7 +101,7 @@ export const PROPERTIES: PropertyCard[] = [
     photo: "/property-photos/double-condo/aaa-doublecondo.jpg",
     blurb: "Two units, two kitchens — reunions and big families done right.",
     badge: "🔥 Best Value",
-    // No per-unit Guesty site yet — direct booking falls back to BOOK_URL.
+    bookUrl: "https://notchcondos.guestybookings.com/properties/68eeb561cce11f00119cac37",
     airbnbUrl: "https://www.airbnb.com/rooms/1365192095570273110",
     vrboUrl: "https://www.vrbo.com/4922482",
   },
