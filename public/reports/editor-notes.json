@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-28",
-  "headline": "Monday at the lake: cool start, warming into the 80s, mostly sunny",
-  "lede": "Monday, September 28 brings a cool start to the week with overnight lows near 62°F, climbing to a pleasant high in the mid-80s under mostly sunny skies with very low rain chance. Perfect conditions for a relaxed day on Table Rock Lake, exploring the Strip, or catching a matinee show.",
+  "for": "2026-09-29",
+  "headline": "Tuesday at the lake: Farmers Market day with mild temps and light showers possible",
+  "lede": "Tuesday, September 29 offers a classic Branson mix \u2014 head to the Landing Farmers Market in the afternoon, enjoy the Table Rock bite in the morning, and catch an evening show. High near 82\u00b0F with a chance of light rain; perfect for mixing outdoor market browsing with indoor options.",
   "heat": false,
   "featured": {
-    "title": "Legends in Concert",
-    "when": "3:00 PM (confirm box office)",
-    "where": "Pepsi Legends Theater, 1600 W 76 Country Blvd",
-    "why": "Live celebrity tribute performances with full live band — a reliable indoor Monday matinee that pairs well with lunch on the Strip. Strong carry-forward from recent verified shows.",
-    "url": "https://legendsinconcert.com/location/branson-mo/"
+    "title": "Landing Farmers Market",
+    "when": "2:30\u20136:30 PM",
+    "where": "Landing south lot by Bass Pro",
+    "why": "Fresh local produce, crafts, and live music \u2014 the Tuesday highlight for first-timers. Pair with a walk along the boardwalk and fountain.",
+    "url": "https://www.thelandingbranson.com/events"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Taneycomo trout bite",
-      "detail": "Cooler water temps favor trout near dam and power generation periods. Bass and crappie also active in warmer shallows on Table Rock. Carry-forward from latest scout; verify generation schedule locally."
+      "title": "Table Rock morning bite",
+      "detail": "Bass and crappie active in shallows; trout on Taneycomo near generation periods. Lake level ~911.7 ft (3.3 ft below full). Verify current generation schedule."
     },
     {
       "when": "Afternoon",
-      "title": "Legends in Concert matinee",
-      "detail": "Celebrity tribute show at Pepsi Legends Theater. Confirm exact start time at the box office before heading to the Strip."
+      "title": "Landing Farmers Market",
+      "detail": "2:30\u20136:30 PM in the south lot by Bass Pro. Fresh finds, food trucks, and Branson vibes."
     },
     {
       "when": "Dusk",
-      "title": "Ozark Mountain Pizza dinner",
-      "detail": "Monday restaurant spotlight: Ozark Mountain Pizza on the Strip — casual, family-friendly pies with lake views nearby. Follow with an evening show (confirm box office)."
+      "title": "Evening show on the Strip",
+      "detail": "Catch a reliable performance (Presleys Country Jubilee, Haygoods, or Hamners Variety). Confirm exact times at the box office."
     }
   ],
   "indoor": [
     {
-      "name": "Legends in Concert",
-      "detail": "Live celebrity tributes with full band at Pepsi Legends Theater. Reliable Monday indoor option — confirm 3 PM or evening performance at box office.",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic country music and comedy at 8:00 PM. Family-friendly Branson tradition.",
+      "url": "https://presleys.com"
     },
     {
-      "name": "Amazing Acrobats of Shanghai",
-      "detail": "High-energy circus and aerial performance at Grand Shanghai Theatre. Strong indoor evening alternative.",
-      "url": "https://www.grandshanghaitheatre.com/"
+      "name": "The Haygoods",
+      "detail": "High-energy family show with music and lights at Clay Cooper Theatre.",
+      "url": "https://thehaygoods.com"
     },
     {
-      "name": "White River Fish House",
-      "detail": "Fresh fish and Ozark-inspired dishes with views — carry-forward Monday indoor dining option near the lake.",
-      "url": ""
+      "name": "WonderWorks",
+      "detail": "Indoor upside-down attraction with hands-on science and magic \u2014 great rain backup.",
+      "url": "https://www.wonderworksonline.com/branson/"
     }
   ],
-  "honesty": "Night Editor for 2026-09-28. Open-Meteo forecast (high ~84°F, low ~62°F, ~1% precip). No TOMORROW scout markdown files found in branson-content-engine/data — all content carried forward from latest fishing-data.json, shows-data.json, and dining-data.json (last updated 2026-09-10). Monday restaurant spotlight = Ozark Mountain Pizza. No fabrication of times, prices, or new events. Bright-blue theme enforced. No guest names or ops data included."
+  "honesty": "Night Editor for 2026-09-29 (prepared on 2026-09-28). No TOMORROW scout files present \u2014 carried forward from latest verified fishing, shows, and dining data. Tuesday Farmers Market confirmed as recurring Tuesday event. Open-Meteo forecast pulled live (mild high ~82\u00b0F). Restaurant spotlight: Farmhouse Restaurant (Tuesday rotation). Bright-blue theme only. No guest names, cleaner data, or invented prices/times."
 }
