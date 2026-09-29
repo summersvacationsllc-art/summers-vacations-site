@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-28",
-  "biteOfDay": "ing Stocked rainbows on Taneycomo continue to feed aggressively in the seams during low-water windows, with more browns beginning to show as we move deeper into the early-fall window. On Table Rock, bass are sliding off summer shallows toward points, creek channels, and deeper structure in the clear water.",
+  "date": "2026-09-29",
+  "biteOfDay": "ing Stocked rainbows on Taneycomo stay aggressive in the seams during low flows, with browns becoming more active as the season leans in. On Table Rock, bass are moving from summer shallows toward points, creek channels, and deeper structure in the clear conditions.",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.74 ft (USACE 12:00 CT)",
+      "level": "911.68 ft (USACE)",
       "clarity": "Clear near dam (typical); verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 12:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~5600 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Take advantage of the typical low morning flows on Taneycomo. Wade or drift seams and current breaks with a 1/16- to 1/8-oz micro jig (brown, black, white or sculpin) or a zebra midge under an indicator. When the generators come online later, switch to heavier rigs and target the breaks",
-  "source": "usace-always-on",
-  "last_verified": "2026-09-28T13:14:11-05:00"
+  "tip": "Insider tip: Capitalize on typical low morning flows on Taneycomo. Wade or drift seams and current breaks with a 1/16- to 1/8-oz micro jig in brown, black, white or sculpin patterns, or hang a zebra midge under an indicator. Switch to heavier rigs when generation ramps. Check the SWPA schedule (866-",
+  "source": "scout",
+  "last_verified": "2026-09-29T05:04:24-05:00"
 }
