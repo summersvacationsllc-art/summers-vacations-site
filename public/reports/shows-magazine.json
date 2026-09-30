@@ -1,15 +1,15 @@
 {
-  "date": "2026-09-28",
+  "date": "2026-09-30",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Monday at the lake: cool start, warming into the 80s, mostly sunny",
-  "deck": "Monday, September 28 brings a cool start to the week with overnight lows near 62°F, climbing to a pleasant high in the mid-80s under mostly sunny skies with very low rain chance. Perfect conditions for a relaxed day on Table Rock Lake, exploring the Strip, or catching a matinee show.",
+  "hed": "Wednesday at the lake: warm and mostly dry with highs near 91°F",
+  "deck": "Wednesday, September 30 brings classic late-September Branson weather — warm with a high near 91°F, mostly cloudy skies, and very low rain chance. Perfect for a full day on the water, a show, or exploring the Strip. Lake levels stable; light winds.",
   "pick": {
-    "title": "Legends in Concert",
-    "when": "3:00 PM (confirm box office)",
-    "where": "Pepsi Legends Theater, 1600 W 76 Country Blvd",
-    "why": "Live celebrity tribute performances with full live band — a reliable indoor Monday matinee that pairs well with lunch on the Strip. Strong carry-forward from recent verified shows.",
-    "url": "https://legendsinconcert.com/location/branson-mo/",
+    "title": "Table Rock Lake Day",
+    "when": "All Day",
+    "where": "Table Rock Lake & State Park",
+    "why": "Warm water, stable levels around 911–912 ft, and light winds make this an ideal midweek lake day for first-timers. Morning bite for bass and crappie before afternoon shows.",
+    "url": "https://www.tablerocklake.com",
     "source": "night-editor"
   },
   "buckets": [
@@ -233,27 +233,27 @@
   ],
   "indoor": [
     {
-      "name": "Legends in Concert",
-      "detail": "Live celebrity tributes with full band at Pepsi Legends Theater. Reliable Monday indoor option — confirm 3 PM or evening performance at box office.",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
+      "name": "The Haygoods",
+      "detail": "High-energy family music and lights show — reliable midweek performance.",
+      "url": "https://thehaygoods.com"
     },
     {
-      "name": "Amazing Acrobats of Shanghai",
-      "detail": "High-energy circus and aerial performance at Grand Shanghai Theatre. Strong indoor evening alternative.",
-      "url": "https://www.grandshanghaitheatre.com/"
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic Branson country music and comedy in a family-friendly theater.",
+      "url": "https://presleys.com"
     },
     {
-      "name": "White River Fish House",
-      "detail": "Fresh fish and Ozark-inspired dishes with views — carry-forward Monday indoor dining option near the lake.",
-      "url": ""
+      "name": "WonderWorks Branson",
+      "detail": "Indoor upside-down attraction with interactive science and magic exhibits.",
+      "url": "https://www.wonderworksonline.com/branson/"
     }
   ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-28",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-28.md, shows-data board. Scout prose on file."
+    "checked": "2026-09-30",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-30.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,

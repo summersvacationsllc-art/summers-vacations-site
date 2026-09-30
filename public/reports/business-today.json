@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "date": "2026-09-28",
-  "generated_at": "2026-09-28T13:14:12-05:00",
+  "date": "2026-09-30",
+  "generated_at": "2026-09-30T11:28:59-05:00",
   "title": "Summers Vacations Business Report",
   "phone_url": "/reports/fleet",
   "actions": [
@@ -54,14 +54,14 @@
     "note": "Synced: 0 new / 5 updated listings, 72 reservations, 1 turnover tasks created"
   },
   "monday": {
-    "is_monday": true,
+    "is_monday": false,
     "week_of": null,
     "bottom_line": "No weekly briefing file yet.",
     "top3": [],
     "one_liner": null
   },
-  "fleet_date": "2026-09-28",
-  "guest_date": "2026-09-28",
+  "fleet_date": "2026-09-30",
+  "guest_date": "2026-09-30",
   "notes": [
     "This is the single daily business report. Guest Branson Daily stays separate.",
     "Monday section is the weekly rollup \u2014 not a second file.",
