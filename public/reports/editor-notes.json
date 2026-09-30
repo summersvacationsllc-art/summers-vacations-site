@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-29",
-  "headline": "Tuesday at the lake: Farmers Market day with mild temps and light showers possible",
-  "lede": "Tuesday, September 29 offers a classic Branson mix \u2014 head to the Landing Farmers Market in the afternoon, enjoy the Table Rock bite in the morning, and catch an evening show. High near 82\u00b0F with a chance of light rain; perfect for mixing outdoor market browsing with indoor options.",
+  "for": "2026-09-30",
+  "headline": "Wednesday at the lake: warm and mostly dry with highs near 91°F",
+  "lede": "Wednesday, September 30 brings classic late-September Branson weather — warm with a high near 91°F, mostly cloudy skies, and very low rain chance. Perfect for a full day on the water, a show, or exploring the Strip. Lake levels stable; light winds.",
   "heat": false,
   "featured": {
-    "title": "Landing Farmers Market",
-    "when": "2:30\u20136:30 PM",
-    "where": "Landing south lot by Bass Pro",
-    "why": "Fresh local produce, crafts, and live music \u2014 the Tuesday highlight for first-timers. Pair with a walk along the boardwalk and fountain.",
-    "url": "https://www.thelandingbranson.com/events"
+    "title": "Table Rock Lake Day",
+    "when": "All Day",
+    "where": "Table Rock Lake & State Park",
+    "why": "Warm water, stable levels around 911–912 ft, and light winds make this an ideal midweek lake day for first-timers. Morning bite for bass and crappie before afternoon shows.",
+    "url": "https://www.tablerocklake.com"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Table Rock morning bite",
-      "detail": "Bass and crappie active in shallows; trout on Taneycomo near generation periods. Lake level ~911.7 ft (3.3 ft below full). Verify current generation schedule."
+      "title": "Morning fishing bite",
+      "detail": "Bass and crappie active near shorelines and points on Table Rock. Taneycomo trout strong during generation periods. Check current USACE data."
     },
     {
       "when": "Afternoon",
-      "title": "Landing Farmers Market",
-      "detail": "2:30\u20136:30 PM in the south lot by Bass Pro. Fresh finds, food trucks, and Branson vibes."
+      "title": "Lake or Strip exploration",
+      "detail": "Boat, swim, or hike at Table Rock State Park. Alternatively, stroll the Strip for shopping and people-watching in warm weather."
     },
     {
       "when": "Dusk",
-      "title": "Evening show on the Strip",
-      "detail": "Catch a reliable performance (Presleys Country Jubilee, Haygoods, or Hamners Variety). Confirm exact times at the box office."
+      "title": "Evening show",
+      "detail": "Choose from verified Branson family shows (Presleys, Haygoods, or similar). Confirm exact start times at the box office."
     }
   ],
   "indoor": [
     {
-      "name": "Presleys Country Jubilee",
-      "detail": "Classic country music and comedy at 8:00 PM. Family-friendly Branson tradition.",
-      "url": "https://presleys.com"
-    },
-    {
       "name": "The Haygoods",
-      "detail": "High-energy family show with music and lights at Clay Cooper Theatre.",
+      "detail": "High-energy family music and lights show — reliable midweek performance.",
       "url": "https://thehaygoods.com"
     },
     {
-      "name": "WonderWorks",
-      "detail": "Indoor upside-down attraction with hands-on science and magic \u2014 great rain backup.",
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic Branson country music and comedy in a family-friendly theater.",
+      "url": "https://presleys.com"
+    },
+    {
+      "name": "WonderWorks Branson",
+      "detail": "Indoor upside-down attraction with interactive science and magic exhibits.",
       "url": "https://www.wonderworksonline.com/branson/"
     }
   ],
-  "honesty": "Night Editor for 2026-09-29 (prepared on 2026-09-28). No TOMORROW scout files present \u2014 carried forward from latest verified fishing, shows, and dining data. Tuesday Farmers Market confirmed as recurring Tuesday event. Open-Meteo forecast pulled live (mild high ~82\u00b0F). Restaurant spotlight: Farmhouse Restaurant (Tuesday rotation). Bright-blue theme only. No guest names, cleaner data, or invented prices/times."
+  "honesty": "Night Editor for 2026-09-30 (prepared 2026-09-29). No tomorrow scout files present — carried forward verified data from prior days. Weather from Open-Meteo/NWS (high ~91°F, low rain chance). Wednesday restaurant spotlight: Steamy Joe Cafe. Bright-blue theme enforced. Plan and indoor are proper objects. No guest names, cleaner assignments, or invented times/prices."
 }
