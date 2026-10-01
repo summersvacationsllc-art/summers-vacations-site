@@ -1,15 +1,24 @@
 {
-  "date": "2026-09-30",
-  "generated_at": "2026-09-30T16:28:58+00:00",
+  "date": "2026-10-01",
+  "generated_at": "2026-10-01T05:31:26-05:00",
   "headline": {
-    "check_ins": 0,
+    "check_ins": 1,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 1,
+    "in_house_units": 2,
     "units_total": 5
   },
-  "check_ins": [],
+  "check_ins": [
+    {
+      "property": "Woodland Retreat",
+      "guest": "Lani Dzik",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_eu67bbg",
+      "time": "4:00 PM"
+    }
+  ],
   "check_outs": [],
   "turnovers": [],
   "in_house": [
@@ -22,6 +31,16 @@
       "check_in": "2026-09-25",
       "check_out": "2026-10-04",
       "nights": 9
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Lani Dzik",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_eu67bbg",
+      "check_in": "2026-10-01",
+      "check_out": "2026-10-03",
+      "nights": 2
     }
   ],
   "sync_notes": {

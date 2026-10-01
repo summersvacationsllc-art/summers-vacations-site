@@ -1,24 +1,84 @@
 {
-  "date": "2026-09-30",
+  "date": "2026-10-01",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Wednesday at the lake: warm and mostly dry with highs near 91°F",
-  "deck": "Wednesday, September 30 brings classic late-September Branson weather — warm with a high near 91°F, mostly cloudy skies, and very low rain chance. Perfect for a full day on the water, a show, or exploring the Strip. Lake levels stable; light winds.",
+  "hed": "Thursday warm-up",
+  "deck": "**A strong Thursday lineup across Branson theaters for Summers Vacations guests** — morning country/gospel and Beach Boys matinees, afternoon 60s hits and Irish tenors, and a full evening of Haygoods energy, Shanghai acrobatics, Legends tributes, Presleys' Jubilee, and Hughes Music. Ideal after a fall day on Table Rock Lake or the 76 Strip, with multi-generational options from 10:00 AM through 8:00 PM.",
   "pick": {
-    "title": "Table Rock Lake Day",
-    "when": "All Day",
-    "where": "Table Rock Lake & State Park",
-    "why": "Warm water, stable levels around 911–912 ft, and light winds make this an ideal midweek lake day for first-timers. Morning bite for bass and crappie before afternoon shows.",
-    "url": "https://www.tablerocklake.com",
-    "source": "night-editor"
+    "title": "The Haygoods",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Easy multi-age pick.",
+    "url": "https://www.claycoopertheatre.com/",
+    "source": "desk"
   },
   "buckets": [
     {
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 2,
+      "count": 6,
       "shows": [
+        {
+          "name": "Absolutely Country, Definitely Gospel",
+          "time": "10:00 AM",
+          "venue": "Americana Theatre",
+          "type": "Country / Gospel",
+          "url": "https://www.americanatheatre.com/",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
+          "ticketOk": true,
+          "desc": "Uplifting country and gospel to start the day. Warm, family-friendly, and soulful.",
+          "price": ""
+        },
+        {
+          "name": "Beach Boys California Dreamin'",
+          "time": "10:00 AM",
+          "venue": "Hamners' Variety Theater",
+          "type": "Classic Hits",
+          "url": "https://www.hamnersunbelievable.com/",
+          "chip": "magic",
+          "icon": "🪄",
+          "ticketOk": true,
+          "desc": "Sunny surf-rock harmonies and classic Beach Boys hits. Ideal family matinee.",
+          "price": ""
+        },
+        {
+          "name": "Clay Cooper's Country Express Show",
+          "time": "10:00 AM",
+          "venue": "Clay Cooper Theatre",
+          "type": "Country / Gospel",
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "comedy",
+          "icon": "😂",
+          "ticketOk": true,
+          "desc": "Lively country, gospel, comedy, and dance — a Branson staple with multi-generational draw.",
+          "price": ""
+        },
+        {
+          "name": "#1 Hits of the 60s",
+          "time": "2:00 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": "Classic Hits",
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "Nostalgic 60s hits showcase — strong afternoon option for couples and multi-gen families.",
+          "price": ""
+        },
+        {
+          "name": "Baldknobbers Vintage Show",
+          "time": "2:00 PM",
+          "venue": "Hughes Brothers Theatre",
+          "type": "Country Comedy & Music",
+          "url": "https://hughesentertainmentinc.com/",
+          "chip": "comedy",
+          "icon": "😂",
+          "ticketOk": true,
+          "desc": "Branson's famous Baldknobbers (65+ years) bring country music and comedy with high-energy tradition.",
+          "price": ""
+        },
         {
           "name": "Dublin's Irish Tenors & The Celtic Ladies",
           "time": "2:00 PM",
@@ -28,19 +88,7 @@
           "chip": "music",
           "icon": "🎶",
           "ticketOk": true,
-          "desc": "Matinee Celtic vocals and dance — strong multi-gen pick.",
-          "price": ""
-        },
-        {
-          "name": "Legends in Concert",
-          "time": "3:00 PM",
-          "venue": "Pepsi Legends Theater",
-          "type": "Celebrity Tributes",
-          "url": "https://legendsinconcert.com/location/branson-mo/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "Afternoon tribute rotation with live band — cooler indoor matinee.",
+          "desc": "Heartwarming Celtic music, Irish tenors, and beautiful harmonies. Broad appeal matinee.",
           "price": ""
         }
       ]
@@ -49,30 +97,18 @@
       "id": "late_afternoon",
       "label": "Late afternoon",
       "blurb": "4–7 PM",
-      "count": 2,
+      "count": 1,
       "shows": [
         {
-          "name": "Patsy Cline and Friends Tribute",
+          "name": "Outpost Opry Variety Show",
           "time": "5:00 PM",
-          "venue": "Americana Theatre",
-          "type": "Country Tribute",
-          "url": "https://www.americanatheatre.com/",
+          "venue": "Hughes Brothers Theatre",
+          "type": "Country Variety",
+          "url": "https://hughesentertainmentinc.com/",
           "chip": "dinner",
           "icon": "🍽️",
           "ticketOk": true,
-          "desc": "Classic country vocals before dinner on the 76.",
-          "price": ""
-        },
-        {
-          "name": "Riga Tony's Branson Murder Mystery Dinner",
-          "time": "5:00 PM",
-          "venue": "Dinner venue (confirm box office)",
-          "type": "Interactive Dinner Show",
-          "url": "https://www.bransonshows.com/showByDate.cfm",
-          "chip": "dinner",
-          "icon": "🍽️",
-          "ticketOk": false,
-          "desc": "Interactive dinner mystery — confirm seating; some seatings sell out.",
+          "desc": "Country, gospel, classic hits, comedy — music/comedy/dinner-style variety for a late-afternoon fill.",
           "price": ""
         }
       ]
@@ -81,114 +117,78 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 9,
+      "count": 6,
       "shows": [
         {
-          "name": "Amazing Acrobats of Shanghai",
+          "name": "Amazing Acrobats of Shanghai / Grand Shanghai Circus",
           "time": "7:30 PM",
-          "venue": "Grand Shanghai Theatre",
+          "venue": "Mickey Gilley Grand Shanghai Theatre",
           "type": "Acrobatics",
           "url": "https://www.grandshanghaitheatre.com/",
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": true,
-          "desc": "Evening circus spectacle — aerials, juggling, high-energy family show.",
+          "desc": "World-class Chinese acrobatics, balancing, contortion, and high production values. Outstanding family evening show.",
           "price": ""
         },
         {
-          "name": "Shepherd of the Hills Outdoor Drama",
+          "name": "The Haygoods",
           "time": "7:30 PM",
-          "venue": "Shepherd of the Hills",
-          "type": "Outdoor Historical Drama",
-          "url": "https://theshepherdofthehills.com/",
-          "chip": "outdoor",
-          "icon": "🌙",
+          "venue": "Clay Cooper Theatre",
+          "type": "Family Variety",
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
           "ticketOk": true,
-          "desc": "Ozarks outdoor drama — verify weather and curtain; arrive early for parking.",
+          "desc": "High-energy sibling family show with multi-instrumentals, choreography, and effects — one of Branson's strongest evening draws.",
           "price": ""
         },
         {
-          "name": "Who Dunnit Hoedown Dinner Show",
-          "time": "7:30 PM",
-          "venue": "Dinner venue (confirm box office)",
-          "type": "Interactive Dinner Show",
-          "url": "https://www.bransonshows.com/showByDate.cfm",
-          "chip": "dinner",
-          "icon": "🍽️",
-          "ticketOk": false,
-          "desc": "Dinner + mystery comedy. Check open seatings; BOGO offers common.",
-          "price": ""
-        },
-        {
-          "name": "Anthems of Rock",
+          "name": "Hamners' Unbelievable Variety Show",
           "time": "8:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": "Rock Tribute",
-          "url": "https://www.kingscastletheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "Journey, Queen, Bon Jovi and more — high-energy nightcap on the Castle stage.",
-          "price": ""
-        },
-        {
-          "name": "Branson's Famous Baldknobbers",
-          "time": "8:00 PM",
-          "venue": "Hughes Brothers Theatre",
-          "type": "Country Comedy & Music",
-          "url": "https://hughesentertainmentinc.com/",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": true,
-          "desc": "65+ years of country comedy — Monday evening house on the Hughes stage.",
-          "price": ""
-        },
-        {
-          "name": "Hamners' Unbelievable Magic",
-          "time": "8:00 PM",
-          "venue": "Hamners' Theater",
-          "type": "Magic",
+          "venue": "Hamners' Variety Theater",
+          "type": "Magic / Variety",
           "url": "https://www.hamnersunbelievable.com/",
           "chip": "magic",
           "icon": "🪄",
           "ticketOk": true,
-          "desc": "Long-running Branson magic variety — confirm tonight’s curtain.",
+          "desc": "Fast-paced magic, music, comedy, acrobatics, and illusions. Always a solid evening pick.",
           "price": ""
         },
         {
-          "name": "Illusionist Rick Thomas",
+          "name": "Hughes Music Show",
           "time": "8:00 PM",
-          "venue": "Americana Theatre",
-          "type": "Magic / Illusion",
-          "url": "https://www.americanatheatre.com/",
-          "chip": "magic",
-          "icon": "🪄",
+          "venue": "Hughes Brothers Theatre",
+          "type": "Family Live Production",
+          "url": "https://hughesentertainmentinc.com/",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
           "ticketOk": true,
-          "desc": "Stage magic and illusion — solid family evening at Americana.",
+          "desc": "Large-scale family live production with a big cast and high energy — strong evening headliner at Hughes.",
           "price": ""
         },
         {
-          "name": "Presleys' Country Jubilee",
+          "name": "Legends in Concert",
+          "time": "8:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": "Celebrity Tributes",
+          "url": "https://legendsinconcert.com/location/branson-mo/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "Fall 2026 rotation (Sep 10 – Oct 31): tributes to **Toby Keith, Adele, The Blues Brothers™, and Elvis Presley**. ~2-hour show; acts subject to change.",
+          "price": ""
+        },
+        {
+          "name": "Presleys' Country Jubilee Show",
           "time": "8:00 PM",
           "venue": "Presleys' Country Jubilee",
-          "type": "Country Comedy & Music",
+          "type": "Country / Gospel",
           "url": "https://www.presleys.com/",
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": true,
-          "desc": "Classic Branson country family show — Strip staple.",
-          "price": ""
-        },
-        {
-          "name": "REZA — Edge of Illusion",
-          "time": "8:00 PM",
-          "venue": "Reza Live Theatre",
-          "type": "Magic / Illusion",
-          "url": "https://rezalivetheatre.com/",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": true,
-          "desc": "Big-illusion magic house off 165 — book ahead on busy nights.",
+          "desc": "Long-running country, gospel, and family comedy — a true Branson tradition.",
           "price": ""
         }
       ]
@@ -196,9 +196,19 @@
   ],
   "chips": [
     {
-      "id": "music",
-      "label": "Music",
-      "count": 1
+      "id": "family",
+      "label": "Family",
+      "count": 3
+    },
+    {
+      "id": "magic",
+      "label": "Magic",
+      "count": 2
+    },
+    {
+      "id": "comedy",
+      "label": "Comedy",
+      "count": 3
     },
     {
       "id": "classic",
@@ -206,57 +216,31 @@
       "count": 2
     },
     {
+      "id": "music",
+      "label": "Music",
+      "count": 1
+    },
+    {
       "id": "dinner",
       "label": "Dinner",
-      "count": 3
+      "count": 1
     },
     {
       "id": "thrill",
       "label": "Thrill",
       "count": 1
-    },
-    {
-      "id": "outdoor",
-      "label": "Outdoor",
-      "count": 1
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy",
-      "count": 2
-    },
-    {
-      "id": "magic",
-      "label": "Magic",
-      "count": 3
     }
   ],
-  "indoor": [
-    {
-      "name": "The Haygoods",
-      "detail": "High-energy family music and lights show — reliable midweek performance.",
-      "url": "https://thehaygoods.com"
-    },
-    {
-      "name": "Presleys Country Jubilee",
-      "detail": "Classic Branson country music and comedy in a family-friendly theater.",
-      "url": "https://presleys.com"
-    },
-    {
-      "name": "WonderWorks Branson",
-      "detail": "Indoor upside-down attraction with interactive science and magic exhibits.",
-      "url": "https://www.wonderworksonline.com/branson/"
-    }
-  ],
+  "indoor": [],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-09-30",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-09-30.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-01",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-01.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
-    "withTickets": 11
+    "withTickets": 13
   }
 }
