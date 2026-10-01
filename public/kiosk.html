@@ -652,9 +652,7 @@ const UNITS = {
     // Scott's unit, 289 Notch Ln Unit 6 (Notch Estates, first floor, no stairs). Guesty listing "Scotts unit".
     name: "No-Stairs Condo", aliases: ["scotts unit", "scott's unit", "no-stairs", "no stairs condo", "scotts-unit"],
     isHaven: false, guidebook: "scotts-unit",
-    // TODO(wifi): Scotts Wi-Fi not confirmed on site yet. Set network + password here once confirmed.
-    // Leave both "" until then; the Wi-Fi card shows a "text us" fallback instead of blank values.
-    network: "", password: "",
+    network: "MyAltice 34f945", password: "3259-LLAVENDER-11",
     // Scotts-only house rules (from the Scotts Airbnb listing). Other units keep the shared Notch text.
     smokeRule: "STRICTLY NO SMOKING of tobacco or marijuana, and no vaping, inside the condo or on decks, porches, walkways, pool areas, or playgrounds.",
     smokeNote: "<strong>Smoking area:</strong> Smoking tobacco (no marijuana) is allowed in the parking lot and street only. Please throw away butts and wrappers. A fine of up to $500 may be applied.",
@@ -912,14 +910,6 @@ function renderWifi() {
   const trash = unit.trash || (unit.isHaven
     ? "Take all trash to the dumpster."
     : "Take all trash to the dumpster in front of the building, to the left.");
-  // Wi-Fi fallback: a unit with no network/password yet shows "text us" instead of blanks.
-  const wifiCard = unit.network && unit.password ? `
-        <div class="label" style="margin-top:.35rem">Network</div>
-        <h3>${unit.network}</h3>
-        <div class="label" style="margin-top:.7rem">Password</div>
-        <h3>${unit.password}</h3>` : `
-        <h3 style="margin-top:.35rem">Wi-Fi details: text us at 314-565-0589</h3>
-        <p class="note">We'll send the network and password right away.</p>`;
   const dishes = unit.isHaven
     ? "Start the dishwasher with any remaining dishes."
     : "Hand wash remaining dishes and leave them to dry. Staff will put them away.";
@@ -927,7 +917,11 @@ function renderWifi() {
     <h2>Wi-Fi & house rules</h2>
     <div class="wifi-top">
       <div class="card">
-        <div class="label">Wi-Fi</div>${wifiCard}
+        <div class="label">Wi-Fi</div>
+        <div class="label" style="margin-top:.35rem">Network</div>
+        <h3>${unit.network}</h3>
+        <div class="label" style="margin-top:.7rem">Password</div>
+        <h3>${unit.password}</h3>
       </div>
       <button class="checkout-jump" type="button" data-scroll="checkout-how">
         Checkout
