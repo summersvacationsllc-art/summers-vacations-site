@@ -232,7 +232,7 @@ const HAVEN_URGENT_CARE = [
   },
 ];
 
-// Display name for the Scotts unit (298 Notch Ln Unit 6). Change this one constant to rename
+// Display name for the Scotts unit (289 Notch Ln Unit 6). Change this one constant to rename
 // (e.g. "Deckside Retreat"); the slug "scotts" stays the same. Also used by src/lib/jeb.ts.
 // TODO: confirm final display name with Brian ("Scotts" vs "Deckside Retreat").
 export const SCOTTS_DISPLAY_NAME = "Scotts";
@@ -542,13 +542,13 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
   },
 
-  // ─── SCOTTS (298 Notch Ln, Unit 6 — co-host unit, first floor) ──
+  // ─── SCOTTS (289 Notch Ln, Unit 6 — co-host unit, first floor) ──
   "scotts": {
     id: "scotts",
     slug: "scotts",
     name: SCOTTS_DISPLAY_NAME,
     shortName: SCOTTS_DISPLAY_NAME,
-    address: "298 Notch Ln, Unit 6, Branson West, MO 65737",
+    address: "289 Notch Ln, Unit 6, Branson West, MO 65737",
     guestyListingId: "", // TODO: add Scotts Guesty listing ID (photos load from Guesty once set)
     ...COMMON,
 
@@ -557,7 +557,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       type: "smart lock",
       doorCode: "Last 4 digits of booking phone",
       directions:
-        "Turn into Notch Estates and go to 298 Notch Ln. Unit 6 is on the first floor with its own private entrance — no stairs.",
+        "Turn into Notch Estates and go to 289 Notch Ln. Unit 6 is on the first floor with its own private entrance — no stairs.",
       parking:
         "Free parking in the designated spaces for the unit.",
       accessNote:

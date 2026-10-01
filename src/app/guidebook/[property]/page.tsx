@@ -169,7 +169,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const isDouble = prop && prop.id === 'double-condo';
   const isHaven = prop && prop.id === 'branson-family-haven';
   const isWoodland = prop && prop.id === 'woodland-retreat';
-  // Scotts (298 Notch Ln Unit 6): Notch Estates complex, but in-unit washer/dryer and its own rules.
+  // Scotts (289 Notch Ln Unit 6): Notch Estates complex, but in-unit washer/dryer and its own rules.
   const isScotts = prop && prop.id === 'scotts';
   const today = new Date();
   // ── Time-gated door code (all properties) ──────

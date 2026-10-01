@@ -25,7 +25,7 @@ export const UNIT_NAMES: Record<string, string> = {
 
 /** Units that are NOT at the default 550 Notch Lane address (Haven is handled separately). */
 const UNIT_ADDRESSES: Record<string, string> = {
-  scotts: "298 Notch Lane Unit 6, Branson West, Missouri",
+  scotts: "289 Notch Lane Unit 6, Branson West, Missouri",
 };
 
 export type JebChatMessage = {
