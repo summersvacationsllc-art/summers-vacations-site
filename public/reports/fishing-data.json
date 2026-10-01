@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-27",
-  "biteOfDay": "& What's Biting **Table Rock Lake (bass, walleye, crappie, etc.):** Summer heat, clear water, and falling level push fish to deeper main-lake points, gravel/brush piles, channel swings, creek arms, and offshore structure (target 15\u201335 ft). Electronics essential for locating shad schools and suspended fish. Recent reports (Table Rock Fishing Intel \"Minimal Activity\" 08/27, Captain Experiences, Cape",
+  "date": "2026-10-01",
+  "biteOfDay": "Stocked rainbows on Taneycomo stay aggressive in the seams during low flows, with more browns becoming active as we move into October. On Table Rock, bass continue shifting from summer shallows toward points, creek channels, and deeper structure in the clear conditions.",
   "conditions": {
     "tableRock": {
-      "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.77 ft (USACE 09:00 CT)",
-      "clarity": "Clear near dam (typical); verify arms locally"
+      "temp": "76.2°F Kimberling dawn",
+      "level": "911.55 ft (USACE / tablerocklakelevel ~1 AM CT)",
+      "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
-      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
+      "temp": "Tailwater ~50–56°F (recent pattern — verify at the bank)",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 09:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~7,650 cfs at 1 AM CT (recent 7,650–8,027 cfs late 9/30–early 10/1). Typical early-fall: low overnight/morning, stronger afternoon/evening. Call SWPA 866-494-1993 before you go."
     }
   },
   "species": [
@@ -24,7 +24,7 @@
       "name": "Walleye",
       "rating": "GOOD",
       "depth": "Gravel points, 15-25 ft",
-      "technique": "Crankbaits, live bait (carried mid-summer pattern \u2014 not freshly guide-verified 07-21)"
+      "technique": "Crankbaits, live bait (carried mid-summer pattern — not freshly guide-verified 07-21)"
     },
     {
       "name": "Crappie",
@@ -42,13 +42,13 @@
       "name": "Bluegill",
       "rating": "EXCELLENT",
       "depth": "Shallows, shoreline",
-      "technique": "Worms, small poppers \u2014 great for kids (mid-summer pattern carry)"
+      "technique": "Worms, small poppers — great for kids (mid-summer pattern carry)"
     },
     {
       "name": "Catfish",
       "rating": "GOOD",
       "depth": "Indian Point & near dam, shallows after dark",
-      "technique": "Stink bait, hot dogs, cut/frozen bait \u2014 evening/night"
+      "technique": "Stink bait, hot dogs, cut/frozen bait — evening/night"
     }
   ],
   "weather": {
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Call SWPA 866-494-1993 before you wad Taneycomo. Fish early. Leave when it gets stupid hot. Deadline-guard carry from 2026-08-29.",
-  "source": "usace-always-on",
-  "last_verified": "2026-09-27T10:14:32-05:00"
+  "tip": "Capitalize on low morning flows on Taneycomo: wade or drift seams with a 1/16–1/8 oz micro jig (brown/black/white/sculpin) or zebra midge under an indicator. Heavier rigs when generation ramps. Call SWPA 866-494-1993.",
+  "source": "scout+guest-sync-repair",
+  "last_verified": "2026-10-01T05:32:33-05:00"
 }

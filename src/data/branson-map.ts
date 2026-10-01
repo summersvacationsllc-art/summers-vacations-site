@@ -57,8 +57,8 @@ export const BRANSON_MAP_SPOTS: MapSpot[] = [
     lat: 36.68554,
     lng: -93.3319,
     description:
-      "Four condos on Notch Lane — Penthouse, Rustic Ozark, Woodland Retreat, and Double Condo. Pin is the street, not a door number.",
-    href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_west",
+      "Five condos on Notch Lane — Penthouse, Rustic Ozark, Woodland Retreat, Double Condo, and the first-floor No-Stairs Condo. Pin is the street, not a door number.",
+    href: "https://notchcondos.guestybookings.com/?utm_source=branson_map&utm_campaign=stays_west",
     cta: "Book these stays",
     ourPath: "/map?spot=stays-branson-west",
   },
@@ -71,7 +71,7 @@ export const BRANSON_MAP_SPOTS: MapSpot[] = [
     lng: -93.34261,
     description:
       "Our 5-bedroom house on Timber Trace Lane — yard, fire pit, short hop to the lake and SDC. Pin is the street, not the driveway.",
-    href: "https://branson-condo.com/?utm_source=branson_map&utm_campaign=stays_haven",
+    href: "https://notchcondos.guestybookings.com/?utm_source=branson_map&utm_campaign=stays_haven",
     cta: "Book this house",
     ourPath: "/map?spot=stays-indian-point",
   },

@@ -621,11 +621,6 @@
 </div>
 
 <script>
-// Display name for the Scotts unit (289 Notch Ln Unit 6). Change this one line to rename
-// (e.g. "Deckside Retreat"); the slug "scotts" and tablet URL stay the same.
-// TODO: confirm final display name with Brian ("Scotts" vs "Deckside Retreat").
-const SCOTTS_NAME = "Scotts";
-
 const UNITS = {
   "the-penthouse": {
     name: "The Penthouse", aliases: ["penthouse", "the penthouse"],
@@ -644,7 +639,7 @@ const UNITS = {
     password: "Unit 7: 3616-cyan-52 / Unit 11: linen-680-659"
   },
   "branson-family-haven": {
-    name: "Branson Family Haven", aliases: ["family haven", "haven", "branson family haven", "indian point"],
+    name: "Branson Family Haven", aliases: ["family haven", "haven", "branson family haven"],
     isHaven: true, guidebook: "branson-family-haven",
     network: "44 Timber Trace", password: "welcome44"
   },
@@ -653,25 +648,33 @@ const UNITS = {
     isHaven: false, guidebook: "woodland-retreat",
     network: "My Optimum c950bf", password: "brick-148-543"
   },
-  "scotts": {
-    name: SCOTTS_NAME,
-    // TODO: add Guesty listing name to aliases (so the welcome screen matches /api/guest-today)
-    aliases: ["scotts", "scott", "289 notch", "deckside", "deckside retreat", "remodeled condo"],
-    isHaven: false, guidebook: "scotts",
-    // Scotts-only house-rules variant on the Wi-Fi screen (other units keep the shared Notch text)
-    smokeRule: "STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Smoking is only allowed out in the parking lot or street. If there's evidence of smoking in the unit, a fine of up to $500 plus any extra cleaning costs may be applied.",
+  "scotts-unit": {
+    // Scott's unit, 289 Notch Ln Unit 6 (Notch Estates, first floor, no stairs). Guesty listing "Scotts unit".
+    name: "No-Stairs Condo", aliases: ["scotts unit", "scott's unit", "no-stairs", "no stairs condo", "scotts-unit"],
+    isHaven: false, guidebook: "scotts-unit",
+    // TODO(wifi): Scotts Wi-Fi not confirmed on site yet. Set network + password here once confirmed.
+    // Leave both "" until then; the Wi-Fi card shows a "text us" fallback instead of blank values.
+    network: "", password: "",
+    // Scotts-only house rules (from the Scotts Airbnb listing). Other units keep the shared Notch text.
+    smokeRule: "STRICTLY NO SMOKING of tobacco or marijuana, and no vaping, inside the condo or on decks, porches, walkways, pool areas, or playgrounds.",
+    smokeNote: "<strong>Smoking area:</strong> Smoking tobacco (no marijuana) is allowed in the parking lot and street only. Please throw away butts and wrappers. A fine of up to $500 may be applied.",
+    rulesSmoke: "No smoking or vaping inside, on decks, porches, walkways, pool, or playgrounds. Parking lot and street only (no marijuana). Fine up to $500",
     extraRules: [
-      "Washer & dryer are inside the condo — no coin laundry needed",
       "Maximum 6 guests",
-      "Septic system — flush only septic-safe toilet paper",
-      "Turn off the electric fireplace when you leave"
+      "No grills on the decks. Use the community charcoal grills (bring charcoal)",
+      "Septic system: flush only toilet paper. No wipes or feminine products",
+      "AC: set the thermostat between 68–72°F",
+      "Electric fireplace off when you leave the condo, and never with the AC running",
+      "No children under 6 on the top bunk",
+      "Park in designated spaces only. Boat/trailer parking in the designated area",
+      "Washer and dryer are in the condo"
     ],
-    network: "WIFI_TODO", // TODO: Scotts Wi-Fi network name
-    password: "WIFI_TODO" // TODO: Scotts Wi-Fi password
+    towels: "Used towels on a bathroom shower floor.",
+    trash: "Take all trash to the community dumpster."
   }
 };
 
-const BOOK_URL = "https://branson-condo.com";
+const BOOK_URL = "https://notchcondos.guestybookings.com/";
 const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
 const MAP_URL = "https://www.mybransonvacation.com/map";
 const STORE = "sv-kiosk-unit";
@@ -724,11 +727,9 @@ const HOWTO = {
     { title: "Private Lake Trail", id: "VGmH8k_656A" },
     { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
   ],
-  // Scotts: shared Notch Estates videos only (no Penthouse-specific Keurig / Aroma 360 / water filter).
-  // "Things to Bring" is the same video the guidebook links for its Things to Bring list.
-  "scotts": [
+  "scotts-unit": [
+    { title: "Finding the Building (289 Notch Ln)", id: "jZF9uLR7Za0" },
     { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
-    { title: "Things to Bring", id: "2DvVB7xTuNk" },
     { title: "Laundry Room", id: "IlJQi1S0NRI" },
     { title: "Playground", id: "unj-zG9wtdU" },
     { title: "Private Lake Trail", id: "VGmH8k_656A" },
@@ -905,12 +906,20 @@ function renderWelcome(stay) {
 
 function renderWifi() {
   const unit = UNITS[slug];
-  const towels = unit.isHaven
+  const towels = unit.towels || (unit.isHaven
     ? "Used towels on the downstairs front bathroom shower floor."
-    : "Used towels on the hallway bathroom shower floor.";
-  const trash = unit.isHaven
+    : "Used towels on the hallway bathroom shower floor.");
+  const trash = unit.trash || (unit.isHaven
     ? "Take all trash to the dumpster."
-    : "Take all trash to the dumpster in front of the building, to the left.";
+    : "Take all trash to the dumpster in front of the building, to the left.");
+  // Wi-Fi fallback: a unit with no network/password yet shows "text us" instead of blanks.
+  const wifiCard = unit.network && unit.password ? `
+        <div class="label" style="margin-top:.35rem">Network</div>
+        <h3>${unit.network}</h3>
+        <div class="label" style="margin-top:.7rem">Password</div>
+        <h3>${unit.password}</h3>` : `
+        <h3 style="margin-top:.35rem">Wi-Fi details: text us at 314-565-0589</h3>
+        <p class="note">We'll send the network and password right away.</p>`;
   const dishes = unit.isHaven
     ? "Start the dishwasher with any remaining dishes."
     : "Hand wash remaining dishes and leave them to dry. Staff will put them away.";
@@ -918,11 +927,7 @@ function renderWifi() {
     <h2>Wi-Fi & house rules</h2>
     <div class="wifi-top">
       <div class="card">
-        <div class="label">Wi-Fi</div>
-        <div class="label" style="margin-top:.35rem">Network</div>
-        <h3>${unit.network}</h3>
-        <div class="label" style="margin-top:.7rem">Password</div>
-        <h3>${unit.password}</h3>
+        <div class="label">Wi-Fi</div>${wifiCard}
       </div>
       <button class="checkout-jump" type="button" data-scroll="checkout-how">
         Checkout
@@ -931,9 +936,8 @@ function renderWifi() {
     </div>
     <div class="smoke">
       <div class="label">Posted no-smoking rule</div>
-      ${unit.smokeRule ? `<h3>${unit.smokeRule}</h3>` : `
-      <h3>NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds.</h3>
-      <p><strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.</p>`}
+      <h3>${unit.smokeRule || "NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds."}</h3>
+      <p>${unit.smokeNote || "<strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only."}</p>
     </div>
     <div class="card">
       <div class="label">House rules</div>
@@ -941,7 +945,7 @@ function renderWifi() {
       <p class="note">Accidents happen. If you break anything, tell us right away. Minor items are usually no charge. Larger issues (like a TV) we will agree on the cost before you leave.</p>
       <ul class="rules">
         <li>Quiet hours 10 PM – 8 AM</li>
-        <li>${unit.smokeRule ? "No smoking or vaping of any kind inside, on the deck, porch, or walkways — parking lot or street only" : "No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)"}</li>
+        <li>${unit.rulesSmoke || "No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)"}</li>
         <li>No pets</li>
         <li>No events, parties, or loud music</li>
         <li>No unregistered guests</li>

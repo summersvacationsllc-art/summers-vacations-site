@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-26",
-  "headline": "Saturday at the lake: warm, mostly sunny, chance of evening showers",
-  "lede": "Saturday, September 26 brings warm lake weather — overnight low near 63°F, afternoon high near 88°F (31°C), low rain chance until evening. Mostly sunny with a few clouds; perfect for a full day on the water or the Strip before possible showers move in after dark.",
+  "for": "2026-09-30",
+  "headline": "Wednesday at the lake: warm and mostly dry with highs near 91°F",
+  "lede": "Wednesday, September 30 brings classic late-September Branson weather — warm with a high near 91°F, mostly cloudy skies, and very low rain chance. Perfect for a full day on the water, a show, or exploring the Strip. Lake levels stable; light winds.",
   "heat": false,
   "featured": {
-    "title": "Legends in Concert",
-    "when": "3:00 PM (confirm box office)",
-    "where": "Pepsi Legends Theater, 1600 W 76 Country Blvd",
-    "why": "Live celebrity tribute show with a full band — strong Saturday afternoon indoor option while the lake stays warm. Pair with lunch on the Strip before or after.",
-    "url": "https://legendsinconcert.com/location/branson-mo/"
+    "title": "Table Rock Lake Day",
+    "when": "All Day",
+    "where": "Table Rock Lake & State Park",
+    "why": "Warm water, stable levels around 911–912 ft, and light winds make this an ideal midweek lake day for first-timers. Morning bite for bass and crappie before afternoon shows.",
+    "url": "https://www.tablerocklake.com"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early Table Rock bite",
-      "detail": "Warm water, stable level — bass and crappie active near main-lake points and brush. Carry-forward from latest verified scout; confirm ramp conditions and generation schedule."
+      "title": "Morning fishing bite",
+      "detail": "Bass and crappie active near shorelines and points on Table Rock. Taneycomo trout strong during generation periods. Check current USACE data."
     },
     {
       "when": "Afternoon",
-      "title": "Legends in Concert matinee",
-      "detail": "Live celebrity tributes with a full band at Pepsi Legends Theater — strong indoor Saturday option. Confirm exact 3 PM start at the box office."
+      "title": "Lake or Strip exploration",
+      "detail": "Boat, swim, or hike at Table Rock State Park. Alternatively, stroll the Strip for shopping and people-watching in warm weather."
     },
     {
       "when": "Dusk",
-      "title": "Lake House dinner + evening show",
-      "detail": "Saturday dining rotation highlights The Lake House at Indian Point (lake views, full bar, live music). Follow with an evening show on the Strip (Acrobats of Shanghai or similar — confirm box office)."
+      "title": "Evening show",
+      "detail": "Choose from verified Branson family shows (Presleys, Haygoods, or similar). Confirm exact start times at the box office."
     }
   ],
   "indoor": [
     {
-      "name": "Legends in Concert",
-      "detail": "Live celebrity tributes with a full band at Pepsi Legends Theater — strong Saturday indoor matinee. Confirm 3 PM start.",
-      "url": "https://legendsinconcert.com/location/branson-mo/"
+      "name": "The Haygoods",
+      "detail": "High-energy family music and lights show — reliable midweek performance.",
+      "url": "https://thehaygoods.com"
     },
     {
-      "name": "Amazing Acrobats of Shanghai",
-      "detail": "Evening high-energy circus and aerial show at Grand Shanghai Theatre. Confirm evening performance time at the box office.",
-      "url": "https://www.grandshanghaitheatre.com/"
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic Branson country music and comedy in a family-friendly theater.",
+      "url": "https://presleys.com"
     },
     {
-      "name": "Shepherd of the Hills",
-      "detail": "Outdoor historical drama in the Ozarks — verify weather and curtain time. Strong Saturday evening option if skies stay clear.",
-      "url": "https://theshepherdofthehills.com/"
+      "name": "WonderWorks Branson",
+      "detail": "Indoor upside-down attraction with interactive science and magic exhibits.",
+      "url": "https://www.wonderworksonline.com/branson/"
     }
   ],
-  "honesty": "Night Editor desk for 2026-09-26 from Open-Meteo (high 88°F/31°C, low 63°F, precip chance low until evening). No fresh TOMORROW scout markdown files present — all fishing, shows, and dining carried forward from latest verified JSON with box-office confirm notes. Saturday restaurant spotlight = The Lake House at Indian Point. No guest names, cleaners, or ops data. Bright blue magazine enforced."
+  "honesty": "Night Editor for 2026-09-30 (prepared 2026-09-29). No tomorrow scout files present — carried forward verified data from prior days. Weather from Open-Meteo/NWS (high ~91°F, low rain chance). Wednesday restaurant spotlight: Steamy Joe Cafe. Bright-blue theme enforced. Plan and indoor are proper objects. No guest names, cleaner assignments, or invented times/prices."
 }

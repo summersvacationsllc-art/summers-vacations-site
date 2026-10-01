@@ -232,14 +232,9 @@ const HAVEN_URGENT_CARE = [
   },
 ];
 
-// Display name for the Scotts unit (289 Notch Ln Unit 6). Change this one constant to rename
-// (e.g. "Deckside Retreat"); the slug "scotts" stays the same. Also used by src/lib/jeb.ts.
-// TODO: confirm final display name with Brian ("Scotts" vs "Deckside Retreat").
-export const SCOTTS_DISPLAY_NAME = "Scotts";
-
-// Scotts house rules (own list — Scotts has in-unit laundry and its own smoking wording).
+// Scotts unit (289 Notch Ln #6) smoking rule, from its Airbnb listing. Used by the guidebook page.
 export const SCOTTS_SMOKING_RULE =
-  "STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Smoking is only allowed out in the parking lot or street. If there's evidence of smoking in the unit, a fine of up to $500 plus any extra cleaning costs may be applied.";
+  "STRICTLY NO SMOKING of tobacco or marijuana, and no vaping, inside the condo or on decks, porches, walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) is allowed in the parking lot and street only. A fine of up to $500 may be applied.";
 
 export const guidebooks: Record<string, PropertyGuidebook> = {
   // ─── THE PENTHOUSE ──────────────────────────────────────
@@ -542,14 +537,16 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
   },
 
-  // ─── SCOTTS (289 Notch Ln, Unit 6 — co-host unit, first floor) ──
-  "scotts": {
-    id: "scotts",
-    slug: "scotts",
-    name: SCOTTS_DISPLAY_NAME,
-    shortName: SCOTTS_DISPLAY_NAME,
+  // ─── SCOTT'S UNIT (No-Stairs Condo · 289 Notch #6) ─────
+  // Co-hosted, first floor, no stairs. Details below from the Scotts Airbnb listing
+  // (airbnb.com/rooms/1128338659082307697): in-unit washer/dryer, smart lock, own house rules.
+  "scotts-unit": {
+    id: "scotts-unit",
+    slug: "scotts-unit",
+    name: "No-Stairs Condo",
+    shortName: "Scotts unit",
     address: "289 Notch Ln, Unit 6, Branson West, MO 65737",
-    guestyListingId: "", // TODO: add Scotts Guesty listing ID (photos load from Guesty once set)
+    guestyListingId: "6abe3566a78519004a84f031",
     ...COMMON,
 
     checkIn: {
@@ -557,64 +554,61 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       type: "smart lock",
       doorCode: "Last 4 digits of booking phone",
       directions:
-        "Turn into Notch Estates and go to 289 Notch Ln. Unit 6 is on the first floor with its own private entrance — no stairs.",
+        "Turn into Notch Estates on Notch Lane and go to the 289 building. Unit 6 is a first-floor condo with its own private entrance — no stairs. Watch the building video in How-to.",
       parking:
-        "Free parking in the designated spaces for the unit.",
+        "Park in the designated spaces near 289 Notch Lane. No parking on the grass. Boat/trailer parking is in the designated area.",
       accessNote:
-        "Smart lock self check-in. Your door code is the last 4 digits of the phone number on the reservation. The code is active at 4:00 PM on check-in day. Check-out is 10:00 AM.",
+        "Smart lock self check-in. Your door code is the last 4 digits of the phone number on your booking. Check-in is 4:00 PM. Check-out is 10:00 AM.",
     },
 
-    wifi: { network: "WIFI_TODO", password: "WIFI_TODO" }, // TODO: Scotts Wi-Fi network + password
+    wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" }, // TODO(wifi): confirm on site (kiosk shows a "text us" fallback until confirmed)
 
     appliances: {
       coffeeMaker: {
-        type: "Drip Coffee Maker",
-        instructions: "Standard drip coffee maker in the kitchen. A toaster and kettle are also provided.",
+        type: "Drip coffee maker",
+        instructions: "Drip coffee maker in the kitchen. A toaster and hot water kettle are there too.",
       },
-      hvac: { type: "Thermostat", instructions: "Thermostat in the unit." },
+      hvac: { type: "In-unit thermostat", instructions: "Set between 68–72°F for comfort. Please don't run the electric fireplace with the AC on." },
       tv: { type: "TV", streaming: [] },
-      washer: { instructions: "Washer and dryer located in the unit — no coin laundry needed." },
+      washer: { instructions: "Washer and dryer are in the condo — no quarters needed." },
       stove: "Electric stove and oven",
-      fireplace: { type: "Electric Fireplace (please turn it off when you leave)" },
+      fireplace: { type: "Electric fireplace (turn it off when you leave the condo)" },
     },
 
     amenities: [
-      "Entire first-floor condo — no stairs",
-      "Remodeled",
-      "2 bedrooms / 2 bathrooms — sleeps 6",
-      "Bedroom 1: king bed",
-      "Bedroom 2: double bed + bunk bed (no kids under 6 on the top bunk)",
+      ...COMMON.commonAmenities,
+      "First floor — no stairs into the unit",
+      "Remodeled 2 BR / 2 BA, sleeps 6",
+      "Bedroom 1: king bed · Bedroom 2: double bed + bunk bed",
       "Bathtub",
-      "Full kitchen: oven, electric stove, microwave, drip coffee maker, toaster, kettle, cooking basics",
-      "Electric fireplace (turn off when leaving)",
+      "Washer & dryer in the unit",
+      "Microwave, toaster, drip coffee maker, kettle",
+      "Electric fireplace",
       "TV",
-      "Washer & dryer in unit",
+      "Private entrance + smart lock self check-in",
       "Back deck",
-      "Private entrance",
-      "Smart lock self check-in",
-      "Free parking in designated spaces",
-      "Ring camera at the front door (records outside only)",
-      "Notch Estates shared outdoor pool (May–Sep, 8 AM – 10 PM)",
-      "Fishing lake & walking trail",
-      "Playground, basketball & horseshoes",
-      "Shared charcoal grills (no grills on decks; charcoal not provided)",
+      "Outdoor community pool",
+      "On-site fishing lake",
     ],
     houseRules: [
-      "No pets (HOA rule)",
-      "Quiet hours: 10 PM – 8 AM",
       "Maximum 6 guests",
+      "No pets (HOA rule)",
       "No parties or events",
-      "Septic system — flush only septic-safe toilet paper",
+      "Quiet hours: 10 PM – 8 AM",
       SCOTTS_SMOKING_RULE,
-      "No grills on decks — use the shared charcoal grills (bring your own charcoal)",
-      "Please turn off the electric fireplace when you leave",
+      "No grills on the decks — use the community charcoal grills (bring charcoal)",
+      "Septic system — flush only toilet paper. No wipes or feminine products",
+      "Electric fireplace off when you leave, and never with the AC running",
+      "No children under 6 on the top bunk",
+      "Park in designated spaces only — no parking on the grass",
+      "All towels stay in the condo — bring beach towels for the pool",
     ],
     trash: COMMON.trash,
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
-      // Shared Notch Estates videos only (Penthouse-specific Keurig / Aroma 360 / water filter videos excluded).
+      { title: "Finding the Building (289 Notch Ln)", url: "https://www.youtube.com/watch?v=jZF9uLR7Za0" },
       ...COMMON.commonVideos,
     ],
   },

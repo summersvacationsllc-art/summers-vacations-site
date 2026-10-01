@@ -1,6 +1,6 @@
 /** Shared site constants */
 
-export const BOOK_URL = "https://branson-condo.com";
+export const BOOK_URL = "https://notchcondos.guestybookings.com/";
 export const PHONE = "314-565-0589";
 export const PHONE_HREF = "tel:3145650589";
 export const EMAIL = "summersvacationsllc@gmail.com";
@@ -18,11 +18,33 @@ export type PropertyCard = {
   badge?: string;
   /** Guesty booking site for this unit. Homepage pic + Book buttons go here. */
   bookUrl?: string;
+  /** Public Airbnb listing URL. Leave "" until known — the button only renders when set. */
+  airbnbUrl?: string;
+  /** Public VRBO listing URL. Leave "" until known — the button only renders when set. */
+  vrboUrl?: string;
 };
 
 export function bookingUrl(slug?: string | null): string {
   if (!slug) return BOOK_URL;
   return PROPERTIES.find((p) => p.slug === slug)?.bookUrl || BOOK_URL;
+}
+
+export type ChannelLinks = {
+  /** Direct booking (Guesty booking site, or the main site fallback). Always set. */
+  direct: string;
+  airbnb?: string;
+  vrbo?: string;
+};
+
+/** Where a guest can book this home. Empty/missing OTA URLs are omitted. */
+export function channelLinks(slug?: string | null): ChannelLinks {
+  const p = slug ? PROPERTIES.find((x) => x.slug === slug) : undefined;
+  const clean = (u?: string) => (u && u.trim() ? u.trim() : undefined);
+  return {
+    direct: bookingUrl(slug),
+    airbnb: clean(p?.airbnbUrl),
+    vrbo: clean(p?.vrboUrl),
+  };
 }
 
 /** Curated real property photos — paths must match files on disk in public/property-photos/. */
@@ -38,6 +60,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Deck with mountain views and a cozy top-floor retreat.",
     bookUrl:
       "https://bransonpenthouse.guestybookings.com/en/properties?minOccupancy=1&adults=1",
+    airbnbUrl: "https://www.airbnb.com/rooms/866812230966422815",
+    vrboUrl: "https://www.vrbo.com/4922479",
   },
   {
     name: "Rustic Ozark Retreat",
@@ -50,6 +74,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Porch overlooking the Ozarks — that mountain-getaway feel.",
     bookUrl:
       "https://rusticozarkretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
+    airbnbUrl: "https://www.airbnb.com/rooms/864359255098863365",
+    vrboUrl: "https://www.vrbo.com/4922480",
   },
   {
     name: "Woodland Retreat",
@@ -62,6 +88,8 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Kids love the bunk room. Parents love the open living space.",
     bookUrl:
       "https://woodlandretreat.guestybookings.com/en/properties?minOccupancy=1&adults=1",
+    airbnbUrl: "https://www.airbnb.com/rooms/1287974404964958218",
+    vrboUrl: "https://www.vrbo.com/4927502",
   },
   {
     name: "Double Condo",
@@ -73,6 +101,9 @@ export const PROPERTIES: PropertyCard[] = [
     photo: "/property-photos/double-condo/aaa-doublecondo.jpg",
     blurb: "Two units, two kitchens — reunions and big families done right.",
     badge: "🔥 Best Value",
+    bookUrl: "https://notchcondos.guestybookings.com/properties/68eeb561cce11f00119cac37",
+    airbnbUrl: "https://www.airbnb.com/rooms/1365192095570273110",
+    vrboUrl: "https://www.vrbo.com/4922482",
   },
   {
     name: "Branson Family Haven",
@@ -85,6 +116,22 @@ export const PROPERTIES: PropertyCard[] = [
     blurb: "Standalone 5BR house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
     bookUrl: "https://bransonfamilyhaven.guestybookings.com/",
+    airbnbUrl: "https://www.airbnb.com/rooms/1622735625063665266",
+    vrboUrl: "https://www.vrbo.com/5183812",
+  },
+  {
+    name: "No-Stairs Condo",
+    tag: "First Floor · Remodeled",
+    sleeps: "6",
+    beds: "2BR",
+    area: "Branson West",
+    slug: "scotts-unit",
+    photo: "/property-photos/scotts-unit/aaa-living.jpg",
+    blurb: "Fresh remodel, first-floor access — no stairs into the unit. Pool and fishing lake on site.",
+    badge: "✨ New",
+    bookUrl: "https://notchcondos.guestybookings.com/en/properties/6abe3566a78519004a84f031",
+    airbnbUrl: "https://www.airbnb.com/rooms/1128338659082307697",
+    vrboUrl: "",
   },
 ];
 
@@ -114,6 +161,10 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   { src: "/property-photos/branson-family-haven/114C6EBF-D9C1-4E79-8777-DDB797DD6931_1_105_c.jpeg", alt: "Bright family living space" },
   { src: "/property-photos/branson-family-haven/DJI_0197.jpeg", alt: "Family Haven from above" },
   { src: "/property-photos/branson-family-haven/IMG_9172.jpeg", alt: "Haven living room" },
+  // Scott's unit / No-Stairs Condo
+  { src: "/property-photos/scotts-unit/aaa-living.jpg", alt: "No-Stairs Condo open living room" },
+  { src: "/property-photos/scotts-unit/aaa-kitchen.jpg", alt: "Remodeled kitchen with island" },
+  { src: "/property-photos/scotts-unit/aaa-living-deck.jpg", alt: "Living room looking out to the deck" },
 ];
 
 /** Adventure carousel — loaded from public/adventure-photos/manifest.json.

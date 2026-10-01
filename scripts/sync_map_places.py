@@ -470,7 +470,163 @@ def latest_food_file() -> Path | None:
     return files[-1] if files else None
 
 
-def main() -> int:
+def _clean_tip(text: str, limit: int = 320) -> str:
+    text = re.sub(r"[*_`]+", "", text or "")
+    text = re.sub(r"\s+", " ", text).strip(" -•\t")
+    if len(text) <= limit:
+        return text
+    cut = text[: limit - 1]
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    return cut.rstrip(",.;:") + "…"
+
+
+def extract_tip_from_md(text: str) -> str | None:
+    """Pull a guest-facing tip line from a scout markdown body (no fabrication)."""
+    if not text:
+        return None
+    patterns = (
+        r"(?im)^\s*\*{0,2}insider tip\*{0,2}\s*[:\-–]\s*(.+)$",
+        r"(?im)^\s*\*{0,2}tip of the day\*{0,2}\s*[:\-–]\s*(.+)$",
+        r"(?im)^\s*\*{0,2}general tips[^\n]*\*{0,2}\s*$",
+        r"(?im)^\s*-\s*\*{0,2}insider tip\*{0,2}\s*[:\-–]\s*(.+)$",
+    )
+    for pat in patterns:
+        m = re.search(pat, text)
+        if not m:
+            continue
+        if m.lastindex:
+            tip = _clean_tip(m.group(1))
+            if len(tip) >= 40:
+                return tip
+        # section header only — take next non-empty paragraph
+        after = text[m.end() :]
+        for line in after.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or line.startswith("**Source"):
+                if line.startswith("#"):
+                    break
+                continue
+            tip = _clean_tip(re.sub(r"^[-*•]\s*", "", line))
+            if len(tip) >= 40:
+                return tip
+            break
+    # Food/intel often lead with a strong first recommendation block
+    for line in text.splitlines():
+        s = line.strip()
+        if not s or s.startswith("#") or s.startswith("**Scout") or s.startswith("**Research"):
+            continue
+        if s.startswith("**Honesty") or s.startswith("**Sources") or s.startswith("**Brian"):
+            continue
+        if re.match(r"(?i)^(source|verify|output|notes)\b", s):
+            continue
+        if len(s) >= 80 and not s.startswith("http"):
+            return _clean_tip(re.sub(r"^[-*•]\s*", "", s))
+    return None
+
+
+def refresh_semi_static_tips(today: str | None = None) -> dict:
+    """Bump dining/attractions/golf tip+updated from today's scout markdown.
+
+    No geocode. Never invents places — only rewrites tip fields from scout text.
+    Called via --tips-only (healer) and at end of full map sync (Guest Daily Sync).
+    """
+    today = today or date.today().isoformat()
+    result: dict = {"date": today, "updated": [], "skipped": [], "tips": {}}
+
+    # Dining tip ← Food Scout
+    food = latest_md(FOOD_DIR)
+    dining = load_dining() if DINING.exists() else {"restaurants": [], "tip": "", "updated": ""}
+    if food and food.stem == today:
+        tip = extract_tip_from_md(food.read_text(errors="replace"))
+        if tip:
+            dining["tip"] = tip
+            dining["updated"] = today
+            DINING.write_text(json.dumps(dining, indent=2) + "\n")
+            result["updated"].append("dining-data.json")
+            result["tips"]["dining"] = tip[:120]
+            print(f"tips: dining updated from {food.name}")
+        else:
+            result["skipped"].append("dining:no-tip-in-food-scout")
+            print(f"tips: dining skip (no tip line in {food.name})")
+    elif food:
+        # Still bump from latest food if today missing but file is fresh-ish
+        tip = extract_tip_from_md(food.read_text(errors="replace"))
+        if tip and str(dining.get("updated") or "") != today:
+            dining["tip"] = tip + f" (from Food Scout {food.stem}; verify hours today)"
+            dining["updated"] = today
+            DINING.write_text(json.dumps(dining, indent=2) + "\n")
+            result["updated"].append("dining-data.json")
+            result["tips"]["dining"] = tip[:120]
+            print(f"tips: dining updated from prior food {food.name}")
+        else:
+            result["skipped"].append("dining:no-today-food")
+    else:
+        result["skipped"].append("dining:no-food-file")
+
+    # Attractions summerTip ← Intel, else Strip/Landing
+    attr = json.loads(ATTRACTIONS.read_text()) if ATTRACTIONS.exists() else {
+        "attractions": [],
+        "summerTip": "",
+        "updated": "",
+    }
+    tip_src = None
+    tip = None
+    for d in (INTEL_DIR, STRIP_DIR, LANDING_DIR):
+        md = latest_md(d)
+        if not md:
+            continue
+        tip = extract_tip_from_md(md.read_text(errors="replace"))
+        if tip:
+            tip_src = md
+            break
+    if tip and tip_src:
+        attr["summerTip"] = tip
+        attr["updated"] = today
+        ATTRACTIONS.write_text(json.dumps(attr, indent=2) + "\n")
+        result["updated"].append("attractions-data.json")
+        result["tips"]["attractions"] = tip[:120]
+        print(f"tips: attractions updated from {tip_src.name}")
+    else:
+        result["skipped"].append("attractions:no-tip")
+        print("tips: attractions skip (no tip in intel/strip/landing)")
+
+    # Golf tip ← Golf Scout
+    golf_md = latest_md(GOLF_DIR)
+    golf = json.loads(GOLF.read_text()) if GOLF.exists() else {"courses": [], "tip": "", "updated": ""}
+    if golf_md:
+        tip = extract_tip_from_md(golf_md.read_text(errors="replace"))
+        # Prefer weather/conditions paragraph if no explicit tip
+        if not tip:
+            m = re.search(
+                r"(?is)##\s*Current Weather[^\n]*\n(.+?)(?:\n##|\Z)",
+                golf_md.read_text(errors="replace"),
+            )
+            if m:
+                tip = _clean_tip(m.group(1))
+        if tip:
+            golf["tip"] = tip
+            golf["updated"] = today
+            GOLF.write_text(json.dumps(golf, indent=2) + "\n")
+            result["updated"].append("golf-data.json")
+            result["tips"]["golf"] = tip[:120]
+            print(f"tips: golf updated from {golf_md.name}")
+        else:
+            result["skipped"].append("golf:no-tip")
+    else:
+        result["skipped"].append("golf:no-file")
+
+    print(
+        f"tips-only done updated={result['updated']} skipped={result['skipped']}"
+    )
+    return result
+
+
+def main(tips_only: bool = False) -> int:
+    if tips_only:
+        refresh_semi_static_tips()
+        return 0
+
     data = load_dining()
     restaurants: list[dict] = list(data.get("restaurants") or [])
     added = 0
@@ -571,6 +727,9 @@ def main() -> int:
         kind="attraction",
     )
     sync_fishing_spots()
+    # Always refresh tips after map pass so guest JSON tip dates match day-of scouts
+    # (2026-09-04/09-28: tip+updated stayed prior-day when only coords changed).
+    refresh_semi_static_tips()
     return 0
 
 
@@ -667,4 +826,5 @@ def sync_show_venues() -> None:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    tips_only = "--tips-only" in sys.argv[1:]
+    sys.exit(main(tips_only=tips_only))
