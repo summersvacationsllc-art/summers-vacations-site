@@ -532,6 +532,55 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       ...COMMON.commonVideos,
     ],
   },
+
+  // ─── SCOTT'S UNIT (No-Stairs Condo · 289 Notch #6) ─────
+  "scotts-unit": {
+    id: "scotts-unit",
+    slug: "scotts-unit",
+    name: "No-Stairs Condo",
+    shortName: "Scotts unit",
+    address: "289 Notch Ln, Unit 6, Branson West, MO 65737",
+    guestyListingId: "6abe3566a78519004a84f031",
+    ...COMMON,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "keyless",
+      doorCode: "Last 4 digits of booking phone",
+      directions:
+        "Turn into Notch Estates on Notch Lane. 289 Notch Lane Unit 6 is a first-floor condo — no stairs into the unit. Look for building signage for #6.",
+      parking:
+        "Park in the spaces near Unit 6 / 289 Notch Lane. Do not block neighboring driveways or dumpster access.",
+      accessNote: COMMON.accessNote,
+    },
+
+    wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Coffee maker",
+        instructions: "Coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
+      },
+      hvac: { type: "In-unit thermostat", instructions: "Thermostat in the living area. Set between 68–72°F for comfort." },
+      tv: { type: "Smart TV", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
+      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+    },
+
+    amenities: [
+      ...COMMON.commonAmenities,
+      "First-floor — no stairs into the unit",
+      "Full kitchen",
+      "Smart TV",
+      "Outdoor community pool",
+      "On-site fishing lake",
+    ],
+    houseRules: COMMON.houseRules,
+    trash: COMMON.trash,
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
+
+    videos: [...COMMON.commonVideos],
+  },
 };
 
 export function getGuidebook(slug: string): PropertyGuidebook | undefined {

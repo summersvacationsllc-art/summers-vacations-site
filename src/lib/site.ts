@@ -119,6 +119,20 @@ export const PROPERTIES: PropertyCard[] = [
     airbnbUrl: "https://www.airbnb.com/rooms/1622735625063665266",
     vrboUrl: "https://www.vrbo.com/5183812",
   },
+  {
+    name: "No-Stairs Condo",
+    tag: "First Floor · Remodeled",
+    sleeps: "6",
+    beds: "2BR",
+    area: "Branson West",
+    slug: "scotts-unit",
+    photo: "/property-photos/scotts-unit/aaa-living.jpg",
+    blurb: "Fresh remodel, first-floor access — no stairs into the unit. Pool and fishing lake on site.",
+    badge: "✨ New",
+    bookUrl: "https://notchcondos.guestybookings.com/en/properties/6abe3566a78519004a84f031",
+    airbnbUrl: "https://www.airbnb.com/rooms/1128338659082307697",
+    vrboUrl: "",
+  },
 ];
 
 /** Real property photos for the mosaic / gallery strip (2–3 per property folder). */
@@ -147,6 +161,10 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   { src: "/property-photos/branson-family-haven/114C6EBF-D9C1-4E79-8777-DDB797DD6931_1_105_c.jpeg", alt: "Bright family living space" },
   { src: "/property-photos/branson-family-haven/DJI_0197.jpeg", alt: "Family Haven from above" },
   { src: "/property-photos/branson-family-haven/IMG_9172.jpeg", alt: "Haven living room" },
+  // Scott's unit / No-Stairs Condo
+  { src: "/property-photos/scotts-unit/aaa-living.jpg", alt: "No-Stairs Condo open living room" },
+  { src: "/property-photos/scotts-unit/aaa-kitchen.jpg", alt: "Remodeled kitchen with island" },
+  { src: "/property-photos/scotts-unit/aaa-living-deck.jpg", alt: "Living room looking out to the deck" },
 ];
 
 /** Adventure carousel — loaded from public/adventure-photos/manifest.json.
