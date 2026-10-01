@@ -241,9 +241,14 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
             scrollWheelZoom
             className="h-full w-full"
           >
+            {/* Keyless OpenStreetMap tiles. CARTO basemaps now require an API key
+                (every tile came back "API KEY REQUIRED"). OSM tile policy: keep the
+                attribution visible and let the browser send its Referer. */}
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-              url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+              maxZoom={19}
+              referrerPolicy="strict-origin-when-cross-origin"
             />
             <FlyTo spot={selected} />
             {spots.map((spot) => (
