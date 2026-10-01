@@ -561,7 +561,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         "Smart lock self check-in. Your door code is the last 4 digits of the phone number on your booking. Check-in is 4:00 PM. Check-out is 10:00 AM.",
     },
 
-    wifi: { network: "MyAltice 34f945", password: "3259/lavender/11" },
+    wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
 
     appliances: {
       coffeeMaker: {
