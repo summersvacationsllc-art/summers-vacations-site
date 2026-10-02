@@ -481,6 +481,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Washer & dryer in-unit (LG WashTower WKE100HVA)",
       "Roku Smart TV",
       "High-speed WiFi",
+      "2 community pools and a hot tub",
       "Driveway parking",
       "Boat & trailer parking",
       "Games & activities",
