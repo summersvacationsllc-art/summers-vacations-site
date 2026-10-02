@@ -649,9 +649,26 @@ const UNITS = {
     network: "My Optimum c950bf", password: "brick-148-543"
   },
   "scotts-unit": {
+    // Scott's unit, 289 Notch Ln Unit 6 (Notch Estates, first floor, no stairs). Guesty listing "Scotts unit".
     name: "No-Stairs Condo", aliases: ["scotts unit", "scott's unit", "no-stairs", "no stairs condo", "scotts-unit"],
     isHaven: false, guidebook: "scotts-unit",
-    network: "MyAltice 34f945", password: "3259-lavender-11"
+    network: "MyAltice 34f945", password: "3259-lavender-11",
+    // Scotts-only house rules (from the Scotts Airbnb listing). Other units keep the shared Notch text.
+    smokeRule: "STRICTLY NO SMOKING of tobacco or marijuana, and no vaping, inside the condo or on decks, porches, walkways, pool areas, or playgrounds.",
+    smokeNote: "<strong>Smoking area:</strong> Smoking tobacco (no marijuana) is allowed in the parking lot and street only. Please throw away butts and wrappers. A fine of up to $500 may be applied.",
+    rulesSmoke: "No smoking or vaping inside, on decks, porches, walkways, pool, or playgrounds. Parking lot and street only (no marijuana). Fine up to $500",
+    extraRules: [
+      "Maximum 6 guests",
+      "No grills on the decks. Use the community charcoal grills (bring charcoal)",
+      "Septic system: flush only toilet paper. No wipes or feminine products",
+      "AC: set the thermostat between 68–72°F",
+      "Electric fireplace off when you leave the condo, and never with the AC running",
+      "No children under 6 on the top bunk",
+      "Park in designated spaces only. Boat/trailer parking in the designated area",
+      "Washer and dryer are in the condo"
+    ],
+    towels: "Used towels on a bathroom shower floor.",
+    trash: "Take all trash to the community dumpster."
   }
 };
 
@@ -709,6 +726,7 @@ const HOWTO = {
     { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
   ],
   "scotts-unit": [
+    { title: "Finding the Building (289 Notch Ln)", id: "jZF9uLR7Za0" },
     { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
     { title: "Laundry Room", id: "IlJQi1S0NRI" },
     { title: "Playground", id: "unj-zG9wtdU" },
@@ -886,12 +904,12 @@ function renderWelcome(stay) {
 
 function renderWifi() {
   const unit = UNITS[slug];
-  const towels = unit.isHaven
+  const towels = unit.towels || (unit.isHaven
     ? "Used towels on the downstairs front bathroom shower floor."
-    : "Used towels on the hallway bathroom shower floor.";
-  const trash = unit.isHaven
+    : "Used towels on the hallway bathroom shower floor.");
+  const trash = unit.trash || (unit.isHaven
     ? "Take all trash to the dumpster."
-    : "Take all trash to the dumpster in front of the building, to the left.";
+    : "Take all trash to the dumpster in front of the building, to the left.");
   const dishes = unit.isHaven
     ? "Start the dishwasher with any remaining dishes."
     : "Hand wash remaining dishes and leave them to dry. Staff will put them away.";
@@ -912,8 +930,8 @@ function renderWifi() {
     </div>
     <div class="smoke">
       <div class="label">Posted no-smoking rule</div>
-      <h3>NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds.</h3>
-      <p><strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.</p>
+      <h3>${unit.smokeRule || "NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds."}</h3>
+      <p>${unit.smokeNote || "<strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only."}</p>
     </div>
     <div class="card">
       <div class="label">House rules</div>
@@ -921,7 +939,7 @@ function renderWifi() {
       <p class="note">Accidents happen. If you break anything, tell us right away. Minor items are usually no charge. Larger issues (like a TV) we will agree on the cost before you leave.</p>
       <ul class="rules">
         <li>Quiet hours 10 PM – 8 AM</li>
-        <li>No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)</li>
+        <li>${unit.rulesSmoke || "No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)"}</li>
         <li>No pets</li>
         <li>No events, parties, or loud music</li>
         <li>No unregistered guests</li>
@@ -936,6 +954,7 @@ function renderWifi() {
         <li>No illegal substances on the premises</li>
         <li>Tell us immediately if something breaks</li>
         <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
+        ${(unit.extraRules || []).map((r) => `<li>${r}</li>`).join("")}
       </ul>
     </div>
     <div class="checkout" id="checkout-how">

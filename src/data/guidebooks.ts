@@ -232,6 +232,10 @@ const HAVEN_URGENT_CARE = [
   },
 ];
 
+// Scotts unit (289 Notch Ln #6) smoking rule, from its Airbnb listing. Used by the guidebook page.
+export const SCOTTS_SMOKING_RULE =
+  "STRICTLY NO SMOKING of tobacco or marijuana, and no vaping, inside the condo or on decks, porches, walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) is allowed in the parking lot and street only. A fine of up to $500 may be applied.";
+
 export const guidebooks: Record<string, PropertyGuidebook> = {
   // ─── THE PENTHOUSE ──────────────────────────────────────
   "the-penthouse": {
@@ -534,6 +538,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
   },
 
   // ─── SCOTT'S UNIT (No-Stairs Condo · 289 Notch #6) ─────
+  // Co-hosted, first floor, no stairs. Details below from the Scotts Airbnb listing
+  // (airbnb.com/rooms/1128338659082307697): in-unit washer/dryer, smart lock, own house rules.
   "scotts-unit": {
     id: "scotts-unit",
     slug: "scotts-unit",
@@ -545,41 +551,66 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     checkIn: {
       time: "4:00 PM",
-      type: "keyless",
+      type: "smart lock",
       doorCode: "Last 4 digits of booking phone",
       directions:
-        "Turn into Notch Estates on Notch Lane. 289 Notch Lane Unit 6 is a first-floor condo — no stairs into the unit. Look for building signage for #6.",
+        "Turn into Notch Estates on Notch Lane and go to the 289 building. Unit 6 is a first-floor condo with its own private entrance — no stairs. Watch the building video in How-to.",
       parking:
-        "Park in the spaces near Unit 6 / 289 Notch Lane. Do not block neighboring driveways or dumpster access.",
-      accessNote: COMMON.accessNote,
+        "Park in the designated spaces near 289 Notch Lane. No parking on the grass. Boat/trailer parking is in the designated area.",
+      accessNote:
+        "Smart lock self check-in. Your door code is the last 4 digits of the phone number on your booking. Check-in is 4:00 PM. Check-out is 10:00 AM.",
     },
 
     wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
 
     appliances: {
       coffeeMaker: {
-        type: "Coffee maker",
-        instructions: "Coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
+        type: "Drip coffee maker",
+        instructions: "Drip coffee maker in the kitchen. A toaster and hot water kettle are there too.",
       },
-      hvac: { type: "In-unit thermostat", instructions: "Thermostat in the living area. Set between 68–72°F for comfort." },
-      tv: { type: "Smart TV", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
-      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      hvac: { type: "In-unit thermostat", instructions: "Set between 68–72°F for comfort. Please don't run the electric fireplace with the AC on." },
+      tv: { type: "TV", streaming: [] },
+      washer: { instructions: "Washer and dryer are in the condo — no quarters needed." },
+      stove: "Electric stove and oven",
+      fireplace: { type: "Electric fireplace (turn it off when you leave the condo)" },
     },
 
     amenities: [
       ...COMMON.commonAmenities,
-      "First-floor — no stairs into the unit",
-      "Full kitchen",
-      "Smart TV",
+      "First floor — no stairs into the unit",
+      "Remodeled 2 BR / 2 BA, sleeps 6",
+      "Bedroom 1: king bed · Bedroom 2: double bed + bunk bed",
+      "Bathtub",
+      "Washer & dryer in the unit",
+      "Microwave, toaster, drip coffee maker, kettle",
+      "Electric fireplace",
+      "TV",
+      "Private entrance + smart lock self check-in",
+      "Back deck",
       "Outdoor community pool",
       "On-site fishing lake",
     ],
-    houseRules: COMMON.houseRules,
+    houseRules: [
+      "Maximum 6 guests",
+      "No pets (HOA rule)",
+      "No parties or events",
+      "Quiet hours: 10 PM – 8 AM",
+      SCOTTS_SMOKING_RULE,
+      "No grills on the decks — use the community charcoal grills (bring charcoal)",
+      "Septic system — flush only toilet paper. No wipes or feminine products",
+      "Electric fireplace off when you leave, and never with the AC running",
+      "No children under 6 on the top bunk",
+      "Park in designated spaces only — no parking on the grass",
+      "All towels stay in the condo — bring beach towels for the pool",
+    ],
     trash: COMMON.trash,
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 
-    videos: [...COMMON.commonVideos],
+    videos: [
+      { title: "Finding the Building (289 Notch Ln)", url: "https://www.youtube.com/watch?v=jZF9uLR7Za0" },
+      ...COMMON.commonVideos,
+    ],
   },
 };
 
