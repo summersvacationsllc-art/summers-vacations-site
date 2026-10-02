@@ -1054,11 +1054,16 @@ function closePlayer() {
 }
 
 function havenAppScreen() {
-  // Haven is on Indian Point, not Notch Lane: swap only the golf line's wording.
+  // Haven is on Indian Point, not Notch Lane: swap the golf line's wording,
+  // and the activities line says "house" instead of "condo".
   if (!UNITS[slug] || !UNITS[slug].isHaven) return;
   document.querySelectorAll("#app-screen li").forEach((li) => {
     if (li.textContent.indexOf("near Notch Lane") !== -1) {
       li.innerHTML = "<b>Golf news</b> — tee times and what’s playing nearby";
+    }
+    // Haven is a house, not a condo.
+    if (li.textContent.indexOf("where to go from the condo") !== -1) {
+      li.innerHTML = "<b>Activities + map</b> — dining, free stuff, and where to go from the house";
     }
   });
 }

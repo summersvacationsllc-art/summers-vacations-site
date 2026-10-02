@@ -103,6 +103,8 @@ export interface PropertyGuidebook {
   shortName: string;
   address: string;
   guestyListingId: string;
+  /** Extra lookup names, e.g. the Guesty listing nickname used in stay links. */
+  aliases?: string[];
   hostName: string;
   hostBio: string;
   hostPhone: string;
@@ -431,6 +433,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     shortName: "Family Haven",
     address: "44 Timber Trace Lane, Branson, MO 65616",
     guestyListingId: "6993c5d31547001e711bc7ed",
+    // Guesty listing nickname is "Indian Point"; stay links use /guidebook/{{listing}}.
+    aliases: ["Indian Point", "indian-point", "indianpoint"],
     ...COMMON,
 
     checkIn: {
@@ -614,7 +618,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
 export function getGuidebook(slug: string): PropertyGuidebook | undefined {
   // Try slug match first, then name match for Guesty listing names
-  return guidebooks[slug] || Object.values(guidebooks).find(gb => gb.name.toLowerCase() === slug.toLowerCase() || gb.shortName.toLowerCase() === slug.toLowerCase());
+  const lower = slug.toLowerCase().trim();
+  return guidebooks[slug] || Object.values(guidebooks).find(gb => gb.name.toLowerCase() === lower || gb.shortName.toLowerCase() === lower || (gb.aliases || []).some(a => a.toLowerCase() === lower));
 }
 
 export function getGuidebookByName(name: string): PropertyGuidebook | undefined {
