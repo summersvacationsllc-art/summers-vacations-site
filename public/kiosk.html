@@ -723,7 +723,8 @@ const HOWTO = {
     { title: "Whirlpool Range", id: "8s7a81-iGsk" },
     { title: "Whirlpool Refrigerator", id: "WPkHAU4z06I" },
     { title: "Mr. Coffee Coffee Maker", id: "oEg_z4lHvzU" },
-    { title: "Ecobee Thermostat", id: "8AB-rnp46IA" }
+    { title: "Ecobee Thermostat", id: "8AB-rnp46IA" },
+    { title: "Gas Grill: Lighting with a Match", id: "psMyuaFvhFU" }
   ]
 };
 
@@ -926,6 +927,9 @@ function renderWifi() {
       <img src="/property-photos/branson-family-haven/boat-trailer-parking.jpg" alt="Aerial photo showing the boat and trailer parking lot" style="width:100%;border-radius:12px;display:block">
     </div>`
     : "";
+  const checkoutHead = unit.isHaven
+    ? "Check-out is 10:00 AM"
+    : "Check-out is 10:00 AM — all units";
   const poolRule = unit.isHaven
     ? "Community pools &amp; hot tub — please follow the posted rules and hours"
     : "Pool 8 AM – 10 PM — no glass, kids supervised, no diving";
@@ -973,7 +977,7 @@ function renderWifi() {
       </ul>
     </div>${parkingCard}
     <div class="checkout" id="checkout-how">
-      <div class="co-time">Check-out is 10:00 AM — all units</div>
+      <div class="co-time">${checkoutHead}</div>
       <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need — do not count on it.</p>
       <p>Before you leave:</p>
       <ul>
@@ -1066,6 +1070,10 @@ function havenAppScreen() {
       li.innerHTML = "<b>Activities + map</b> — dining, free stuff, and where to go from the house";
     }
   });
+  const why = document.querySelector("#app-screen .why");
+  if (why && why.textContent.indexOf("back at the condo") !== -1) {
+    why.textContent = why.textContent.replace("back at the condo", "back at the house");
+  }
 }
 
 function renderHowTo() {

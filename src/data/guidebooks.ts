@@ -478,14 +478,15 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Top-freezer refrigerator (Whirlpool WRT518SZFM)",
       "Dishwasher (Whirlpool WDT730HAMZ1)",
       "Over-the-range microwave (Whirlpool WML55011HS)",
-      "Washer & dryer in-unit (LG WashTower WKE100HVA)",
+      "Washer & dryer in the house (LG WashTower WKE100HVA/01)",
       "Roku Smart TV",
       "High-speed WiFi",
       "2 community pools and a hot tub",
+      "Master Forge propane grill under the deck, next to the fence (see the Gas Grill card)",
       "Driveway parking",
       "Boat & trailer parking",
       "Games & activities",
-      "Dim-able can lights downstairs",
+      "Dimmable can lights downstairs",
     ],
     // Haven is a standalone house on Indian Point, so it gets house wording
     // instead of the shared condo rules. Same list and order as COMMON.houseRules.
@@ -511,6 +512,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       { title: "Whirlpool Refrigerator", url: "https://www.youtube.com/watch?v=WPkHAU4z06I" },
       { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=oEg_z4lHvzU" },
       { title: "Ecobee Thermostat", url: "https://www.youtube.com/watch?v=8AB-rnp46IA" },
+      { title: "Gas Grill: Lighting with a Match", url: "https://www.youtube.com/watch?v=psMyuaFvhFU" },
     ],
   },
 
