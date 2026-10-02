@@ -255,6 +255,18 @@ def pick_from_editor(notes: dict, shows: list[dict]) -> dict | None:
     }
 
 
+def _audience_tier(show: dict) -> int:
+    """1 = family/maker, 2 = general, 3 = adult-only (see event_ranking.py)."""
+    try:
+        from event_ranking import classify
+    except Exception:
+        return 2
+    blob = " ".join(str(show.get(k) or "") for k in ("name", "type", "venue", "desc", "audience", "for"))
+    if show.get("audience"):
+        blob = f"- **Audience:** {show.get('audience')}\n" + blob
+    return classify(blob)[0]
+
+
 def pick_from_list(shows: list[dict]) -> dict | None:
     """Deterministic editor-ish pick when no night editor: prefer evening + specific URL."""
     if not shows:
@@ -270,6 +282,10 @@ def pick_from_list(shows: list[dict]) -> dict | None:
         chip = s.get("chip") or ""
         if chip in ("magic", "outdoor", "classic", "family"):
             score += 1
+        if chip == "family":
+            score += 2  # family-first rule (2026-09-27)
+        if _audience_tier(s) == 3:
+            score -= 20  # never headline a 21+/adult-only show
         venue = s.get("venue") or ""
         if venue and not VAGUE_VENUE.match(venue.strip()):
             score += 1
