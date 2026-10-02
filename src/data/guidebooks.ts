@@ -454,7 +454,12 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
           "Mr. Coffee 12-cup programmable drip coffee maker (model BVMC-MSX23) in the kitchen. Add water and ground coffee, then press Brew Now. For a bolder cup, press Strong before Brew Now. The warming plate turns off automatically after 4 hours.",
         youtube: "https://www.youtube.com/watch?v=oEg_z4lHvzU",
       },
-      hvac: { type: "Ecobee Smart Thermostat", instructions: "Thermostat on main level wall." },
+      hvac: {
+        type: "Ecobee Smart Thermostat (guest mode)",
+        instructions:
+          "Thermostat on main level wall. Tap the screen, then use the up and down arrows or the slider to set the temperature. The thermostat is in guest mode, so settings and schedules are locked. If something needs changing, text Brian at 314-565-0589.",
+        youtube: "https://www.youtube.com/watch?v=8AB-rnp46IA",
+      },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: {
         instructions:
@@ -500,6 +505,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       { title: "Whirlpool Range", url: "https://www.youtube.com/watch?v=8s7a81-iGsk" },
       { title: "Whirlpool Refrigerator", url: "https://www.youtube.com/watch?v=WPkHAU4z06I" },
       { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=oEg_z4lHvzU" },
+      { title: "Ecobee Thermostat", url: "https://www.youtube.com/watch?v=8AB-rnp46IA" },
     ],
   },
 
