@@ -31,8 +31,8 @@
       "icon": "\ud83e\ude84",
       "for": "magic",
       "ticketOk": true,
-      "lat": 36.65395,
-      "lng": -93.27957,
+      "lat": 36.6539477,
+      "lng": -93.2795662,
       "venueAddress": "3090 Shepherd of the Hills Expwy"
     },
     {
@@ -48,8 +48,8 @@
       "icon": "\ud83d\ude02",
       "for": "comedy",
       "ticketOk": true,
-      "lat": 36.6412,
-      "lng": -93.2795,
+      "lat": 36.63733,
+      "lng": -93.27964,
       "venueAddress": "3216 W Highway 76"
     },
     {
@@ -65,8 +65,8 @@
       "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": true,
-      "lat": 36.6412,
-      "lng": -93.2795,
+      "lat": 36.63733,
+      "lng": -93.27964,
       "venueAddress": "3216 W Highway 76"
     },
     {
@@ -150,8 +150,8 @@
       "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "for": "family",
       "ticketOk": true,
-      "lat": 36.6412,
-      "lng": -93.2795,
+      "lat": 36.63733,
+      "lng": -93.27964,
       "venueAddress": "3216 W Highway 76"
     },
     {
@@ -167,8 +167,8 @@
       "icon": "\ud83e\ude84",
       "for": "magic",
       "ticketOk": true,
-      "lat": 36.65395,
-      "lng": -93.27957,
+      "lat": 36.6539477,
+      "lng": -93.2795662,
       "venueAddress": "3090 Shepherd of the Hills Expwy"
     },
     {
@@ -223,9 +223,7 @@
       "venueAddress": "2920 West 76 Country Blvd"
     }
   ],
-  "freeEvents": [
-    "Deadline-guard: show grid carried/partial for 2026-10-02 \u2014 confirm box office."
-  ],
-  "magazineBuilt": "2026-10-01",
+  "freeEvents": [],
+  "magazineBuilt": "2026-10-02",
   "last_verified": "2026-10-01T05:32:33-05:00"
 }

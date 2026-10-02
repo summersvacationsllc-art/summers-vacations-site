@@ -4,13 +4,13 @@
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.49 ft (USACE)",
+      "level": "911.48 ft (USACE 12:00 CT)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
-      "temp": "Tailwater ~50\u201356\u00b0F (recent pattern \u2014 verify at the bank)",
+      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~7085 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~7,775,295 cfs at 12:00 CT (USACE live). Overnight ~20; afternoon peak ~7,775,295. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: Take advantage of the low early-morning flows on Taneycomo. Wade or drift seams and current breaks with a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive, or with an Indy orange head), zebra midge (#14\u201320 in red or black), or scud. Switch to heavier rigs and target breaks behin",
-  "source": "scout",
-  "last_verified": "2026-10-02T07:30:07-05:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-10-02T11:20:23-05:00"
 }

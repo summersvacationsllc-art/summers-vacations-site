@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Thursday warm-up",
-  "deck": "**A strong Thursday lineup across Branson theaters for Summers Vacations guests** — morning country/gospel and Beach Boys matinees, afternoon 60s hits and Irish tenors, and a full evening of Haygoods energy, Shanghai acrobatics, Legends tributes, Presleys' Jubilee, and Hughes Music. Ideal after a fall day on Table Rock Lake or the 76 Strip, with multi-generational options from 10:00 AM through 8:00 PM.",
+  "hed": "Friday night Branson",
+  "deck": "**A lively Friday lineup packed with country, tributes, variety, and family theater across the 76 Strip.** From morning matinees to evening headliners, there's something for every age in the Summers Vacations family — pair a show with dinner at Branson Landing or a sunset on Table Rock Lake for the perfect Ozarks day.",
   "pick": {
     "title": "The Haygoods",
     "when": "7:30 PM",
@@ -236,8 +236,8 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-01",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-01.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-02",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-02.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,

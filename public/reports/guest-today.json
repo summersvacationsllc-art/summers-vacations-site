@@ -1,21 +1,21 @@
 {
-  "date": "2026-10-01",
-  "generated_at": "2026-10-01T05:31:26-05:00",
+  "date": "2026-10-02",
+  "generated_at": "2026-10-02T16:20:24+00:00",
   "headline": {
     "check_ins": 1,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 2,
-    "units_total": 5
+    "in_house_units": 3,
+    "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
-      "guest": "Lani Dzik",
-      "guests": 5,
+      "property": "Indian Point",
+      "guest": "Rick Mcknight",
+      "guests": 7,
       "platform": "airbnb2",
-      "reservation_id": "res_eu67bbg",
+      "reservation_id": "res_d0nr25g",
       "time": "4:00 PM"
     }
   ],
@@ -41,6 +41,16 @@
       "check_in": "2026-10-01",
       "check_out": "2026-10-03",
       "nights": 2
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Rick Mcknight",
+      "guests": 7,
+      "platform": "airbnb2",
+      "reservation_id": "res_d0nr25g",
+      "check_in": "2026-10-02",
+      "check_out": "2026-10-05",
+      "nights": 3
     }
   ],
   "sync_notes": {
