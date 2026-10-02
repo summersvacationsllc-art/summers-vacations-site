@@ -449,20 +449,27 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     appliances: {
       coffeeMaker: {
-        type: "Drip Coffee Maker",
-        instructions: "Standard drip coffee maker in the kitchen.",
+        type: "Mr. Coffee 12-Cup Programmable Coffeemaker (BVMC-MSX23)",
+        instructions:
+          "Mr. Coffee 12-cup programmable drip coffee maker (model BVMC-MSX23) in the kitchen. Add water and ground coffee, then press Brew Now. For a bolder cup, press Strong before Brew Now. The warming plate turns off automatically after 4 hours.",
+        youtube: "https://www.youtube.com/watch?v=oEg_z4lHvzU",
       },
       hvac: { type: "Ecobee Smart Thermostat", instructions: "Thermostat on main level wall." },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
-      washer: { instructions: "Washer and dryer located in unit.", youtube: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
-      stove: "Whirlpool Range",
+      washer: {
+        instructions:
+          "LG WashTower (model WKE100HVA) washer and dryer, in unit. Controls are on the center panel between the washer and dryer. To start a normal wash: load the washer (if using a detergent pod, put it in the drum before the clothes; otherwise add HE detergent to the dispenser drawer), close the door, press Power, select the Normal cycle, and press Start/Pause. The door locks and a melody plays when the cycle is done.",
+        youtube: "https://www.youtube.com/watch?v=wHJ9o73fp6c",
+      },
+      stove: "Whirlpool WFE515S0JS electric range",
     },
 
     amenities: [
-      "Full kitchen with Whirlpool range",
-      "Dishwasher",
-      "Microwave",
-      "Washer & dryer in-unit",
+      "Full kitchen with Whirlpool electric range (WFE515S0JS)",
+      "Top-freezer refrigerator (Whirlpool WRT518SZFM)",
+      "Dishwasher (Whirlpool WDT730HAMZ1)",
+      "Over-the-range microwave (Whirlpool WML55011HS)",
+      "Washer & dryer in-unit (LG WashTower WKE100HVA)",
       "Roku Smart TV",
       "High-speed WiFi",
       "Driveway parking",
@@ -470,13 +477,29 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Games & activities",
       "Dim-able can lights downstairs",
     ],
-    houseRules: COMMON.houseRules,
+    // Haven is a standalone house on Indian Point, so it gets house wording
+    // instead of the shared condo rules. Same list and order as COMMON.houseRules.
+    houseRules: [
+      "No smoking inside the house",
+      "Quiet hours: 10 PM – 8 AM",
+      "No parties or events",
+      "Community pool and hot tub rules must be followed at all times",
+      "Please start dishwasher and bag trash before checkout",
+    ],
     trash: COMMON.trash,
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: HAVEN_URGENT_CARE,
 
+    // Explicit Haven list: COMMON.commonVideos is Notch Estates footage
+    // (laundry room, playground, lake trail, boat parking) and doesn't apply here.
     videos: [
-      ...COMMON.commonVideos,
+      { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
+      { title: "LG WashTower Washer & Dryer", url: "https://www.youtube.com/watch?v=wHJ9o73fp6c" },
+      { title: "Whirlpool Dishwasher", url: "https://www.youtube.com/watch?v=oZQDeCHFOeo" },
+      { title: "Whirlpool Microwave", url: "https://www.youtube.com/watch?v=2nn3-S9f9U4" },
+      { title: "Whirlpool Range", url: "https://www.youtube.com/watch?v=8s7a81-iGsk" },
+      { title: "Whirlpool Refrigerator", url: "https://www.youtube.com/watch?v=WPkHAU4z06I" },
+      { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=oEg_z4lHvzU" },
     ],
   },
 

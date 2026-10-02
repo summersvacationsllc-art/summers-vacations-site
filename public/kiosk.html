@@ -717,7 +717,12 @@ const HOWTO = {
   ],
   "branson-family-haven": [
     { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
-    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+    { title: "LG WashTower Washer & Dryer", id: "wHJ9o73fp6c" },
+    { title: "Whirlpool Dishwasher", id: "oZQDeCHFOeo" },
+    { title: "Whirlpool Microwave", id: "2nn3-S9f9U4" },
+    { title: "Whirlpool Range", id: "8s7a81-iGsk" },
+    { title: "Whirlpool Refrigerator", id: "WPkHAU4z06I" },
+    { title: "Mr. Coffee Coffee Maker", id: "oEg_z4lHvzU" }
   ]
 };
 
@@ -895,6 +900,31 @@ function renderWifi() {
   const dishes = unit.isHaven
     ? "Start the dishwasher with any remaining dishes."
     : "Hand wash remaining dishes and leave them to dry. Staff will put them away.";
+  const smokeRule = unit.isHaven
+    ? "NO SMOKING tobacco, marijuana, or vaping inside the house or on the decks."
+    : "NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds.";
+  const smokeArea = unit.isHaven
+    ? "Smoking tobacco (no marijuana) and vaping are permitted outside, away from the house (for example, in the driveway)."
+    : "Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.";
+  const communityNote = unit.isHaven
+    ? "This home is in a residential neighborhood on Indian Point. Please be respectful of the neighbors and keep things peaceful. Quiet hours are 10 PM – 8 AM."
+    : "We are in a private community. This is a vacation destination, and it is home to many people. Please respect their privacy and a peaceful stay. Quiet hours are 10 PM – 8 AM.";
+  const smokeLine = unit.isHaven
+    ? "No smoking or vaping inside the house or on the decks — outside away from the house only, e.g. the driveway (no marijuana)"
+    : "No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)";
+  const towelRule = unit.isHaven
+    ? "All towels stay in the house — do not take them to the pool"
+    : "All towels stay in the condo — do not take them to the pool";
+  const parkingCard = unit.isHaven
+    ? `<div class="card" id="haven-parking">
+      <div class="label">Boat &amp; Trailer Parking</div>
+      <p class="note">Park in the driveway. Boat and trailer parking is in the upper lot by the blue shed.</p>
+      <img src="/property-photos/branson-family-haven/boat-trailer-parking.jpg" alt="Aerial photo showing the boat and trailer parking lot" style="width:100%;border-radius:12px;display:block">
+    </div>`
+    : "";
+  const poolRule = unit.isHaven
+    ? "Community pools &amp; hot tub — please follow the posted rules and hours"
+    : "Pool 8 AM – 10 PM — no glass, kids supervised, no diving";
   document.getElementById("wifi").innerHTML = `
     <h2>Wi-Fi & house rules</h2>
     <div class="wifi-top">
@@ -912,16 +942,16 @@ function renderWifi() {
     </div>
     <div class="smoke">
       <div class="label">Posted no-smoking rule</div>
-      <h3>NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds.</h3>
-      <p><strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.</p>
+      <h3>${smokeRule}</h3>
+      <p><strong>Smoking area:</strong> ${smokeArea}</p>
     </div>
     <div class="card">
       <div class="label">House rules</div>
-      <p class="note">We are in a private community. This is a vacation destination, and it is home to many people. Please respect their privacy and a peaceful stay. Quiet hours are 10 PM – 8 AM.</p>
+      <p class="note">${communityNote}</p>
       <p class="note">Accidents happen. If you break anything, tell us right away. Minor items are usually no charge. Larger issues (like a TV) we will agree on the cost before you leave.</p>
       <ul class="rules">
         <li>Quiet hours 10 PM – 8 AM</li>
-        <li>No smoking or vaping inside, on decks, walkways, pool, or playgrounds — parking lot and street only (no marijuana)</li>
+        <li>${smokeLine}</li>
         <li>No pets</li>
         <li>No events, parties, or loud music</li>
         <li>No unregistered guests</li>
@@ -932,12 +962,12 @@ function renderWifi() {
         <li>Please wash your dishes</li>
         <li>No food or drink in the bedrooms</li>
         <li>No rearranging the furniture</li>
-        <li>All towels stay in the condo — do not take them to the pool</li>
+        <li>${towelRule}</li>
         <li>No illegal substances on the premises</li>
         <li>Tell us immediately if something breaks</li>
-        <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
+        <li>${poolRule}</li>
       </ul>
-    </div>
+    </div>${parkingCard}
     <div class="checkout" id="checkout-how">
       <div class="co-time">Check-out is 10:00 AM — all units</div>
       <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need — do not count on it.</p>
