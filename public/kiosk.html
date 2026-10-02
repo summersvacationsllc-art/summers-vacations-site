@@ -896,7 +896,7 @@ function renderWifi() {
     ? "Used towels on the downstairs front bathroom shower floor."
     : "Used towels on the hallway bathroom shower floor.";
   const trash = unit.isHaven
-    ? "Take all trash to the dumpster."
+    ? "Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex."
     : "Take all trash to the dumpster in front of the building, to the left.";
   const dishes = unit.isHaven
     ? "Start the dishwasher with any remaining dishes."
@@ -916,6 +916,9 @@ function renderWifi() {
   const towelRule = unit.isHaven
     ? "All towels stay in the house — do not take them to the pool"
     : "All towels stay in the condo — do not take them to the pool";
+  const trashRule = unit.isHaven
+    ? "Take trash to the dumpster as needed. Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex."
+    : "Take trash to the dumpster as needed";
   const parkingCard = unit.isHaven
     ? `<div class="card" id="haven-parking">
       <div class="label">Boat &amp; Trailer Parking</div>
@@ -959,7 +962,7 @@ function renderWifi() {
         <li>No open flame or candles</li>
         <li>Use only plastic utensils on cookware (prevents scratching)</li>
         <li>Discard cooking oil in the trash — not down the drain</li>
-        <li>Take trash to the dumpster as needed</li>
+        <li>${trashRule}</li>
         <li>Please wash your dishes</li>
         <li>No food or drink in the bedrooms</li>
         <li>No rearranging the furniture</li>
@@ -1048,6 +1051,16 @@ function playHowTo(id, title) {
 function closePlayer() {
   document.getElementById("player").classList.remove("on");
   document.getElementById("player-frame").src = "";
+}
+
+function havenAppScreen() {
+  // Haven is on Indian Point, not Notch Lane: swap only the golf line's wording.
+  if (!UNITS[slug] || !UNITS[slug].isHaven) return;
+  document.querySelectorAll("#app-screen li").forEach((li) => {
+    if (li.textContent.indexOf("near Notch Lane") !== -1) {
+      li.innerHTML = "<b>Golf news</b> — tee times and what’s playing nearby";
+    }
+  });
 }
 
 function renderHowTo() {
@@ -1160,6 +1173,7 @@ function bindNav() {
 async function bootUnit() {
   renderWifi();
   renderHowTo();
+  havenAppScreen();
   loadMap();
   await Promise.all([loadWelcome(), loadForecast(), loadGo()]);
   renderWelcome(stayCache);

@@ -463,7 +463,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: {
         instructions:
-          "LG WashTower (model WKE100HVA) washer and dryer, in unit. Controls are on the center panel between the washer and dryer. To start a normal wash: load the washer (if using a detergent pod, put it in the drum before the clothes; otherwise add HE detergent to the dispenser drawer), close the door, press Power, select the Normal cycle, and press Start/Pause. The door locks and a melody plays when the cycle is done.",
+          "LG WashTower (model WKE100HVA/01): a stacked washer and dryer in one unit, with one control panel in the center. To start a normal wash: load the washer (if using a detergent pod, put it in the drum before the clothes; otherwise add HE detergent to the dispenser drawer), close the door, press Power, select the Normal cycle, and press Start/Pause. The door locks and a melody plays when the cycle is done.",
         youtube: "https://www.youtube.com/watch?v=wHJ9o73fp6c",
       },
       stove: "Whirlpool WFE515S0JS electric range",
@@ -491,7 +491,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Community pool and hot tub rules must be followed at all times",
       "Please start dishwasher and bag trash before checkout",
     ],
-    trash: COMMON.trash,
+    trash: "Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: HAVEN_URGENT_CARE,
 
