@@ -609,7 +609,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
                   {[
                     {icon:'🏠',name:'The Penthouse',meta:'🌟 You stayed here! • 2BR • Sleeps 6',desc:'Top-floor with fireplace, coffee bar, Aroma 360'},
-                    {icon:'🌊',name:'Rustic Ozark Retreat',meta:'2BR • Sleeps 6 • Cozy mountain vibe',desc:'Keurig, Nest Thermostat, fireplace, deck'},
+                    {icon:'🌊',name:'Rustic Ozark Retreat',meta:'2BR • Sleeps 6 • Cozy mountain vibe',desc:'Keurig, Ecobee Thermostat, fireplace, deck'},
                     {icon:'🌳',name:'Woodland Retreat',meta:'2BR • Sleeps 6 • Bunk beds',desc:'Great for families! Mr. Coffee, bunk room'},
                     {icon:'🏡',name:'Branson Family Haven',meta:'5BR house • Sleeps 16 • Private yard',desc:'Standalone home, full kitchen, washer/dryer'},
                     {icon:'🏢',name:'Double Condo',meta:'Penthouse + Rustic • Sleeps 12+',desc:'🔥 Bundle & save! Two units, one booking'},
