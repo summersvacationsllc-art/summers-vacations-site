@@ -1,10 +1,15 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-03",
   "venues": {
     "americana theatre": {
       "lat": 36.6386381,
       "lng": -93.2735125,
       "address": "W 76 Country Blvd Branson"
+    },
+    "hamners variety theater": {
+      "lat": 36.6539477,
+      "lng": -93.2795662,
+      "address": "Shepherd of the Hills Expwy Branson"
     }
   }
 }
