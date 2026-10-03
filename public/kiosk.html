@@ -527,9 +527,11 @@
     background: #0284c7;
     color: #fff;
     font: inherit;
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 1rem;
     border-radius: 999px;
-    padding: .55rem .85rem;
+    padding: .7rem 1.1rem;
+    min-height: 48px;
     white-space: nowrap;
   }
   #player-frame {
@@ -555,7 +557,7 @@
 
 <div id="player">
   <div class="player-bar">
-    <button type="button" class="player-back" id="player-close">← Back to tablet</button>
+    <button type="button" class="player-back" id="player-close">← Back to Home</button>
     <b id="player-title">How-to</b>
   </div>
   <iframe id="player-frame" title="How-to video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -657,7 +659,8 @@ const UNITS = {
 
 const BOOK_URL = "https://notchcondos.guestybookings.com/";
 const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
-const MAP_URL = "https://www.mybransonvacation.com/map";
+/* Same-origin /map so preview + prod both work; kiosk=1 enables Back to Home on cams */
+const MAP_PATH = "/map";
 const STORE = "sv-kiosk-unit";
 const DEFAULT_UNIT = "the-penthouse";
 const BOOT_URL = "https://www.mybransonvacation.com/kiosk.html?unit=";
@@ -1062,6 +1065,9 @@ function goHome() {
   } catch (e) {}
   location.href = location.pathname + location.search;
 }
+/* Same-origin map iframe can call parent.goHome() for Back to Home on live cams */
+window.goHome = goHome;
+window.closePlayer = closePlayer;
 
 function card(meta, title, sub, url) {
   const btn = document.createElement("button");
@@ -1096,8 +1102,11 @@ async function loadGo() {
   await loadDaily();
 }
 
+function mapEmbedUrl() {
+  return MAP_PATH + "?kiosk=1&unit=" + encodeURIComponent(slug) + "&embed=1";
+}
 function loadMap() {
-  document.getElementById("map").src = MAP_URL;
+  document.getElementById("map").src = mapEmbedUrl();
 }
 
 function buildDots() {
@@ -1182,6 +1191,7 @@ function init() {
   document.getElementById("player-close").addEventListener("click", (e) => {
     e.stopPropagation();
     closePlayer();
+    goHome();
   });
   document.getElementById("howto").addEventListener("click", (e) => {
     const btn = e.target.closest("[data-yt]");
@@ -1190,7 +1200,9 @@ function init() {
   });
   document.getElementById("map-open").addEventListener("click", (e) => {
     e.stopPropagation();
-    openOut(MAP_URL);
+    /* Stay on tablet — jump to Map screen; do not fully.loadUrl away */
+    goTo(5);
+    loadMap();
   });
   document.getElementById("daily-guide").addEventListener("click", (e) => {
     e.stopPropagation();
