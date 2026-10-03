@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-02",
+  "date": "2026-10-03",
   "shows": [
     {
       "name": "Absolutely Country, Definitely Gospel",
@@ -227,5 +227,6 @@
     "Deadline-guard: show grid carried/partial for 2026-10-02 \u2014 confirm box office."
   ],
   "magazineBuilt": "2026-10-01",
-  "last_verified": "2026-10-01T05:32:33-05:00"
+  "last_verified": "2026-10-03T05:56:46-05:00",
+  "note": "Date bumped from scout presence 2026-10-03; verify showtimes locally."
 }
