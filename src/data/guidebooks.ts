@@ -607,7 +607,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "4. STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Tobacco and vaping are allowed in the parking lot and street only, per HOA rules. Marijuana is not allowed. A fine up to $500 may be applied.",
       "5. PROPERTY - Keep the property and all furnishings in good order",
       "6. APPLIANCES - Only use appliances for their intended uses",
-      "7. PETS - Pets or animals of any kind not are NOT allowed for nightly rental units per HOA rules.",
+      "7. PETS - Pets or animals of any kind are NOT allowed for nightly rental units per HOA rules.",
       "8. PARKING - On-street parking is readily available. Park at your convenience any of the spots available. Trailer/boat parking is available in the designated area.",
       "9. SEPTIC- DO NOT FLUSH anything other than toilet paper. No feminine products, personal or baby wipes should be flushed at any time. If it is found that feminine products have been flushed and clog the septic system, you will be charged for damages.",
       "10. HOUSEKEEPING - There is no daily housekeeping service. While linens and bath towels are included in the unit and laundered upon Guest departure, daily maid service is not included in the rental rate. We suggest you bring beach towels for the pool.",
