@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-02",
-  "biteOfDay": "ing Trout fishing on Lake Taneycomo has improved noticeably over the last month. Good numbers of rainbows are showing throughout the upper lake compared to summer, and brown trout are making a strong fall spawning appearance, especially in the first mile of wadeable water below the dam. Anglers are finding them on scuds, small streamers, midges, and marabou jigs. Night fishing remains popular with",
+  "date": "2026-10-03",
+  "biteOfDay": "ing Trout fishing on Taneycomo has been solid as fall settles in. Rainbows are active throughout the upper stretches and browns are showing strongly in their seasonal push, especially in the first mile below the dam. Anglers are connecting with marabou jigs, scuds, midges, and small streamers. Night fishing with medium streamers or small jerkbaits continues to produce. On Table Rock, bass are hold",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.49 ft (USACE)",
+      "level": "911.46 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater ~50\u201356\u00b0F (recent pattern \u2014 verify at the bank)",
       "clarity": "Very clear",
-      "generation": "~7085 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~312 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Take advantage of the low early-morning flows on Taneycomo. Wade or drift seams and current breaks with a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive, or with an Indy orange head), zebra midge (#14\u201320 in red or black), or scud. Switch to heavier rigs and target breaks behin",
+  "tip": "Insider tip: Use the minimal early-morning flows on Taneycomo. Wade or drift seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, olive or with an orange head, a zebra midge (#16\u201320 in red or black), or a scud. When generation increases later, switch to weighted rigs ",
   "source": "scout",
-  "last_verified": "2026-10-02T07:30:07-05:00"
+  "last_verified": "2026-10-03T05:12:22-05:00"
 }

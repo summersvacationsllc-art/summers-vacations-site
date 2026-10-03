@@ -1,48 +1,48 @@
 {
-  "for": "2026-09-30",
-  "headline": "Wednesday at the lake: warm and mostly dry with highs near 91°F",
-  "lede": "Wednesday, September 30 brings classic late-September Branson weather — warm with a high near 91°F, mostly cloudy skies, and very low rain chance. Perfect for a full day on the water, a show, or exploring the Strip. Lake levels stable; light winds.",
+  "for": "2026-10-03",
+  "headline": "Saturday at the lake: mild fall day with highs in the mid-70s",
+  "lede": "Saturday, October 3 offers pleasant early-fall Branson weather \u2014 highs near 76\u00b0F, mostly sunny skies, and very low chance of rain. Perfect conditions for a full day on Table Rock Lake, catching a show, or exploring the Strip and Landing.",
   "heat": false,
   "featured": {
-    "title": "Table Rock Lake Day",
+    "title": "Table Rock Lake Cruise or Park Day",
     "when": "All Day",
     "where": "Table Rock Lake & State Park",
-    "why": "Warm water, stable levels around 911–912 ft, and light winds make this an ideal midweek lake day for first-timers. Morning bite for bass and crappie before afternoon shows.",
+    "why": "Stable lake levels, mild temperatures, and light winds create ideal conditions for boating, swimming, or hiking with first-time visitors. Pair with a matinee show.",
     "url": "https://www.tablerocklake.com"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Morning fishing bite",
-      "detail": "Bass and crappie active near shorelines and points on Table Rock. Taneycomo trout strong during generation periods. Check current USACE data."
+      "title": "Morning lakeside start",
+      "detail": "Catch sunrise over Table Rock or enjoy a quiet breakfast at Steamy Joe Cafe before the crowds arrive."
     },
     {
       "when": "Afternoon",
-      "title": "Lake or Strip exploration",
-      "detail": "Boat, swim, or hike at Table Rock State Park. Alternatively, stroll the Strip for shopping and people-watching in warm weather."
+      "title": "Lake or show time",
+      "detail": "Head to the water for boating or State Park trails. Afternoon shows offer family entertainment with easy parking."
     },
     {
       "when": "Dusk",
-      "title": "Evening show",
-      "detail": "Choose from verified Branson family shows (Presleys, Haygoods, or similar). Confirm exact start times at the box office."
+      "title": "Evening on the Landing",
+      "detail": "Stroll Branson Landing for lights, dining, and fountain shows. Relaxed pace with pleasant temperatures."
     }
   ],
   "indoor": [
     {
+      "name": "Clay Cooper Country Express",
+      "detail": "High-energy country, gospel, comedy and dance \u2014 reliable family favorite.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
       "name": "The Haygoods",
-      "detail": "High-energy family music and lights show — reliable midweek performance.",
+      "detail": "Multi-generational music, lights, and high-production family show.",
       "url": "https://thehaygoods.com"
     },
     {
       "name": "Presleys Country Jubilee",
-      "detail": "Classic Branson country music and comedy in a family-friendly theater.",
+      "detail": "Classic Branson country music, comedy, and family entertainment since 1967.",
       "url": "https://presleys.com"
-    },
-    {
-      "name": "WonderWorks Branson",
-      "detail": "Indoor upside-down attraction with interactive science and magic exhibits.",
-      "url": "https://www.wonderworksonline.com/branson/"
     }
   ],
-  "honesty": "Night Editor for 2026-09-30 (prepared 2026-09-29). No tomorrow scout files present — carried forward verified data from prior days. Weather from Open-Meteo/NWS (high ~91°F, low rain chance). Wednesday restaurant spotlight: Steamy Joe Cafe. Bright-blue theme enforced. Plan and indoor are proper objects. No guest names, cleaner assignments, or invented times/prices."
+  "honesty": "Night Editor run for 2026-10-03 (prepared 2026-10-02 evening). No tomorrow scout files present \u2014 honest carry-forward from latest verified data (shows and dining updated 2026-10-02). Weather from Open-Meteo (high ~76\u00b0F, low rain chance). Saturday restaurant spotlight: Lake House Restaurant (representational photo). Bright-blue theme enforced. Plan and indoor are proper objects. No guest names, cleaner assignments, or invented times/prices."
 }
