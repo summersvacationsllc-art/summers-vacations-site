@@ -207,6 +207,8 @@
   }
   ul.rules li:last-child { border-bottom: 0; }
   ul.rules li::before { content: "✓"; position: absolute; left: 0; top: .5rem; color: var(--sky-dark); font-weight: 700; }
+  ul.rules.numbered li { padding-left: 0; }
+  ul.rules.numbered li::before { content: none; }
   .smoke {
     background: #fff7ed;
     border: 1px solid #fdba74;
@@ -653,7 +655,34 @@ const UNITS = {
   "scotts-unit": {
     name: "No-Stairs Condo", aliases: ["scotts unit", "scott's unit", "no-stairs", "no stairs condo", "scotts-unit"],
     isHaven: false, guidebook: "scotts-unit",
-    network: "MyAltice 34f945", password: "3259-lavender-11"
+    network: "MyAltice 34f945", password: "3259-lavender-11",
+    // Final house rules (exact wording from FINAL-scotts-house-rules-for-guesty.txt, 2026-10-03). Keep in sync with src/data/guidebooks.ts.
+    houseRulesIntro: [
+      "BY BOOKING THIS PROPERTY YOU AGREE TO ABIDE BY THE HOUSE RULES. This nightly rate is for an occupancy of 6. Any additional guests over 6 is subject to a $20 per person nightly charge. ",
+      "No Smoking or vaping in any unit, or common area, or limited common area, including decks, porches, and walkways. Smoking of tobacco and vaping are permitted in the parking lot and street, with proper disposal of butts and wrappers.  Smoking of marijuana is not permitted.  Violators are subject to a $500.00 fine."
+    ],
+    houseRules: [
+      "1. CHECK-OUT is 10AM. CHECK-IN is 4PM.",
+      "2. VISITORS - People other than those in the Guest party set forth in the reservation may not stay overnight in the property. Any other person in the property is the sole responsibility of Guest.",
+      "3. QUIET HOURS – NOTCH ESTATES HOA Quiet Hours are 10PM-8AM",
+      "4. STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Tobacco and vaping are allowed in the parking lot and street only, per HOA rules. Marijuana is not allowed. A fine up to $500 may be applied.",
+      "5. PROPERTY - Keep the property and all furnishings in good order",
+      "6. APPLIANCES - Only use appliances for their intended uses",
+      "7. PETS - Pets or animals of any kind not are NOT allowed for nightly rental units per HOA rules.",
+      "8. PARKING - On-street parking is readily available. Park at your convenience any of the spots available. Trailer/boat parking is available in the designated area.",
+      "9. SEPTIC- DO NOT FLUSH anything other than toilet paper. No feminine products, personal or baby wipes should be flushed at any time. If it is found that feminine products have been flushed and clog the septic system, you will be charged for damages.",
+      "10. HOUSEKEEPING - There is no daily housekeeping service. While linens and bath towels are included in the unit and laundered upon Guest departure, daily maid service is not included in the rental rate. We suggest you bring beach towels for the pool.",
+      "11. THERMOSTAT (ECOBEE) - Set between 68-72°F for comfort and efficiency.",
+      "12. BUNK BEDS - Children under the age of 6 should not use the top bunk. Guests assume any and all risks related to accessing, sleeping in, and otherwise using bunk beds.",
+      "13. CABLE TELEVISION AND INTERNET: Cable Television and internet is provided, and service level has been chosen by the owner. No refund of rents shall be given for outages, content, lack of content, speed, access problems, lack of knowledge of use, or personal preferences with regard to Internet service.",
+      "14. ROKU AND CABLE - Roku and cable available in the master bedroom and living room.",
+      "15. ILLEGAL ACTIVITY - Any illegal activity will be grounds for immediate removal from the property and forfeit any refund and security deposit.",
+      "16. FIREARMS: Only legally owned and permitted firearms shall be allowed on the premises according to State and local laws.",
+      "17. USE OF PROPERTY: Guests expressly acknowledge and agree that the Agreement is for transient occupancy of the Property, and that Guests do not intend to make the property a residence or household.",
+      "18. OWNERSHIP - All of the units are privately owned; the owners are not responsible for any accidents, injuries or illness that occurs while on the premises or its facilities. The Homeowners are not responsible for the loss of personal belongings or valuables of the guest. By accepting this reservation, it is agreed that all guests are expressly assuming the risk of any harm arising from their use of the premises or others whom they invite to use the premise.",
+      "19. HOST LIABILITY: The Guest shall hereby indemnify and hold harmless the Host against any and all claims of personal injury or property damage or loss arising from use of the premises regardless of the nature of the accident, injury or loss. Guest expressly recognize that any insurance for property damage or loss which the Host may maintain on the property does not cover the personal property of Guest, and that Guest should purchase their own insurance if such coverage is desired.",
+      "20. TERMINATION: Should the Guest violate any of the terms of this agreement, the rental period shall be terminated immediately. The Guests waive all rights to process if they fail to vacate the premises upon termination of the rental period. The Guests shall vacate the premises at the expiration time and date of the agreement."
+    ]
   }
 };
 
@@ -918,6 +947,14 @@ function renderWifi() {
       <h3>NO SMOKING tobacco, marijuana, or vaping inside buildings or units, decks (front / rear), walkways, pool areas, and playgrounds.</h3>
       <p><strong>Smoking area:</strong> Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.</p>
     </div>
+    ${unit.houseRules ? `
+    <div class="card">
+      <div class="label">House rules</div>
+      ${(unit.houseRulesIntro || []).map((p) => `<p class="note">${p}</p>`).join("")}
+      <ul class="rules numbered">
+        ${unit.houseRules.map((r) => `<li>${r}</li>`).join("")}
+      </ul>
+    </div>` : `
     <div class="card">
       <div class="label">House rules</div>
       <p class="note">We are in a private community. This is a vacation destination, and it is home to many people. Please respect their privacy and a peaceful stay. Quiet hours are 10 PM – 8 AM.</p>
@@ -941,6 +978,7 @@ function renderWifi() {
         <li>Pool 8 AM – 10 PM — no glass, kids supervised, no diving</li>
       </ul>
     </div>
+    `}
     <div class="checkout" id="checkout-how">
       <div class="co-time">Check-out is 10:00 AM — all units</div>
       <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need — do not count on it.</p>

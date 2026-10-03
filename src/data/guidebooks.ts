@@ -136,6 +136,8 @@ export interface PropertyGuidebook {
 
   amenities: string[];
   houseRules: string[];
+  /** Optional intro paragraphs shown above houseRules. When set, the guidebook page renders this unit's houseRules verbatim instead of the shared Notch text. */
+  houseRulesIntro?: string[];
   trash: string;
   emergency: {
     hospital: string;
@@ -593,13 +595,32 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "On-site fishing lake",
       "Private entrance",
     ],
+    // Final house rules (exact wording from FINAL-scotts-house-rules-for-guesty.txt, 2026-10-03).
+    houseRulesIntro: [
+      "BY BOOKING THIS PROPERTY YOU AGREE TO ABIDE BY THE HOUSE RULES. This nightly rate is for an occupancy of 6. Any additional guests over 6 is subject to a $20 per person nightly charge. ",
+      "No Smoking or vaping in any unit, or common area, or limited common area, including decks, porches, and walkways. Smoking of tobacco and vaping are permitted in the parking lot and street, with proper disposal of butts and wrappers.  Smoking of marijuana is not permitted.  Violators are subject to a $500.00 fine.",
+    ],
     houseRules: [
-      "No smoking or vaping inside the unit, on decks/porches/walkways, pool areas, or playgrounds (Notch Estates HOA). Tobacco smoking only in the parking lot/street with proper disposal — no marijuana. Violations may incur a fine.",
-      "Quiet hours: 10 PM – 8 AM (Notch Estates HOA)",
-      "No parties or events",
-      "Overnight guests limited to the names on your reservation",
-      "Pool rules must be followed at all times",
-      "Please wash & dry any remaining dishes and bag trash before checkout (checkout is 10:00 AM)",
+      "1. CHECK-OUT is 10AM. CHECK-IN is 4PM.",
+      "2. VISITORS - People other than those in the Guest party set forth in the reservation may not stay overnight in the property. Any other person in the property is the sole responsibility of Guest.",
+      "3. QUIET HOURS – NOTCH ESTATES HOA Quiet Hours are 10PM-8AM",
+      "4. STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Tobacco and vaping are allowed in the parking lot and street only, per HOA rules. Marijuana is not allowed. A fine up to $500 may be applied.",
+      "5. PROPERTY - Keep the property and all furnishings in good order",
+      "6. APPLIANCES - Only use appliances for their intended uses",
+      "7. PETS - Pets or animals of any kind not are NOT allowed for nightly rental units per HOA rules.",
+      "8. PARKING - On-street parking is readily available. Park at your convenience any of the spots available. Trailer/boat parking is available in the designated area.",
+      "9. SEPTIC- DO NOT FLUSH anything other than toilet paper. No feminine products, personal or baby wipes should be flushed at any time. If it is found that feminine products have been flushed and clog the septic system, you will be charged for damages.",
+      "10. HOUSEKEEPING - There is no daily housekeeping service. While linens and bath towels are included in the unit and laundered upon Guest departure, daily maid service is not included in the rental rate. We suggest you bring beach towels for the pool.",
+      "11. THERMOSTAT (ECOBEE) - Set between 68-72°F for comfort and efficiency.",
+      "12. BUNK BEDS - Children under the age of 6 should not use the top bunk. Guests assume any and all risks related to accessing, sleeping in, and otherwise using bunk beds.",
+      "13. CABLE TELEVISION AND INTERNET: Cable Television and internet is provided, and service level has been chosen by the owner. No refund of rents shall be given for outages, content, lack of content, speed, access problems, lack of knowledge of use, or personal preferences with regard to Internet service.",
+      "14. ROKU AND CABLE - Roku and cable available in the master bedroom and living room.",
+      "15. ILLEGAL ACTIVITY - Any illegal activity will be grounds for immediate removal from the property and forfeit any refund and security deposit.",
+      "16. FIREARMS: Only legally owned and permitted firearms shall be allowed on the premises according to State and local laws.",
+      "17. USE OF PROPERTY: Guests expressly acknowledge and agree that the Agreement is for transient occupancy of the Property, and that Guests do not intend to make the property a residence or household.",
+      "18. OWNERSHIP - All of the units are privately owned; the owners are not responsible for any accidents, injuries or illness that occurs while on the premises or its facilities. The Homeowners are not responsible for the loss of personal belongings or valuables of the guest. By accepting this reservation, it is agreed that all guests are expressly assuming the risk of any harm arising from their use of the premises or others whom they invite to use the premise.",
+      "19. HOST LIABILITY: The Guest shall hereby indemnify and hold harmless the Host against any and all claims of personal injury or property damage or loss arising from use of the premises regardless of the nature of the accident, injury or loss. Guest expressly recognize that any insurance for property damage or loss which the Host may maintain on the property does not cover the personal property of Guest, and that Guest should purchase their own insurance if such coverage is desired.",
+      "20. TERMINATION: Should the Guest violate any of the terms of this agreement, the rental period shall be terminated immediately. The Guests waive all rights to process if they fail to vacate the premises upon termination of the rental period. The Guests shall vacate the premises at the expiration time and date of the agreement.",
     ],
     trash:
       "Dumpster is at the complex (typically out front/to the left of the building area — follow on-site dumpster signs). Bag household trash and take it out before checkout. Recycling bins are marked where provided.",
