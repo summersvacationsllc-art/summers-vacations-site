@@ -11,7 +11,7 @@ import {
   useMap,
 } from "react-leaflet";
 import L from "leaflet";
-import { ArrowRight, ExternalLink, MapPin, X } from "lucide-react";
+import { ArrowRight, ExternalLink, MapPin, X, Home } from "lucide-react";
 import {
   BRANSON_MAP_SPOTS,
   MAP_CATEGORIES,
@@ -25,8 +25,11 @@ import {
   type MapSpot,
 } from "@/data/branson-map";
 import { BOOK_URL } from "@/lib/site";
+import { getMapTileConfig } from "@/lib/map-tiles";
 import "leaflet/dist/leaflet.css";
 import "./map.css";
+
+const MAP_TILES = getMapTileConfig();
 
 function pinIcon(spot: MapSpot, active: boolean) {
   const meta = MAP_CATEGORY_META[spot.category];
@@ -52,12 +55,58 @@ function FlyTo({ spot }: { spot: MapSpot | undefined }) {
   return null;
 }
 
+function kioskHomeUrl(unit: string | null) {
+  const base = "/kiosk.html";
+  if (unit) return `${base}?unit=${encodeURIComponent(unit)}`;
+  return base;
+}
+
+function goKioskHome(unit: string | null) {
+  const home = kioskHomeUrl(unit);
+  try {
+    if (typeof window !== "undefined" && window.parent && window.parent !== window) {
+      const parentWin = window.parent as Window & {
+        goHome?: () => void;
+        closePlayer?: () => void;
+      };
+      try {
+        parentWin.closePlayer?.();
+      } catch {
+        /* ignore */
+      }
+      try {
+        if (typeof parentWin.goHome === "function") {
+          parentWin.goHome();
+          return;
+        }
+      } catch {
+        /* ignore */
+      }
+      try {
+        parentWin.location.href = home;
+        return;
+      } catch {
+        /* cross-origin fallback below */
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+  window.location.href = home;
+}
+
 export default function BransonMap({ embed = false }: { embed?: boolean }) {
   const router = useRouter();
   const params = useSearchParams();
   const initial = params.get("spot");
-  const [filter, setFilter] = useState<MapCategory | "all">("all");
+  const kioskMode = params.get("kiosk") === "1";
+  const unitSlug = params.get("unit");
+  const isEmbed = embed || kioskMode;
+  const [filter, setFilter] = useState<MapCategory | "all">(
+    params.get("filter") === "webcam" ? "webcam" : "all",
+  );
   const [selectedId, setSelectedId] = useState<string | null>(initial);
+  const [camSpot, setCamSpot] = useState<MapSpot | null>(null);
   const [diningSpots, setDiningSpots] = useState<MapSpot[]>([]);
   const [liveShowSpots, setLiveShowSpots] = useState<MapSpot[]>([]);
   const [golfSpots, setGolfSpots] = useState<MapSpot[]>([]);
@@ -125,8 +174,20 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
   }, []);
 
   const allSpots = useMemo(
-    () => [...BRANSON_MAP_SPOTS, ...diningSpots, ...liveShowSpots, ...golfSpots, ...attractionSpots, ...fishSpots],
+    () => [
+      ...BRANSON_MAP_SPOTS,
+      ...diningSpots,
+      ...liveShowSpots,
+      ...golfSpots,
+      ...attractionSpots,
+      ...fishSpots,
+    ],
     [diningSpots, liveShowSpots, golfSpots, attractionSpots, fishSpots],
+  );
+
+  const webcamSpots = useMemo(
+    () => allSpots.filter((s) => s.category === "webcam"),
+    [allSpots],
   );
 
   const spots = useMemo(
@@ -149,60 +210,83 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
 
   function select(id: string | null) {
     setSelectedId(id);
-    if (!embed) {
+    if (!isEmbed) {
       router.replace(id ? `/map?spot=${id}` : "/map", { scroll: false });
     }
   }
 
+  function openCam(spot: MapSpot) {
+    setCamSpot(spot);
+    select(spot.id);
+  }
+
+  function closeCam() {
+    setCamSpot(null);
+  }
+
+  const showCamGallery = filter === "webcam" || filter === "all";
+
   return (
-    <div className={embed ? "h-full bg-[#f0f9ff] flex flex-col" : "min-h-screen bg-[#f0f9ff] flex flex-col"}>
-      {!embed && (
-      <header className="sticky top-0 z-[1000] bg-white/90 backdrop-blur-md border-b border-sky-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center gap-2.5 no-underline">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-extrabold text-sm shadow-md bg-gradient-to-br from-[#0c4a6e] to-[#0ea5e9]">
-              MB
-            </div>
-            <div className="leading-tight">
-              <div className="text-[15px] font-extrabold text-[#0c4a6e]">
-                Branson Map
+    <div
+      className={
+        isEmbed
+          ? "h-full bg-[#f0f9ff] flex flex-col"
+          : "min-h-screen bg-[#f0f9ff] flex flex-col"
+      }
+    >
+      {!isEmbed && (
+        <header className="sticky top-0 z-[1000] bg-white/90 backdrop-blur-md border-b border-sky-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+            <Link href="/" className="flex items-center gap-2.5 no-underline">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-extrabold text-sm shadow-md bg-gradient-to-br from-[#0c4a6e] to-[#0ea5e9]">
+                MB
               </div>
-              <div className="text-[10px] font-semibold text-teal-600 uppercase tracking-wide hidden sm:block">
-                Cams · eats · shows
+              <div className="leading-tight">
+                <div className="text-[15px] font-extrabold text-[#0c4a6e]">
+                  Branson Map
+                </div>
+                <div className="text-[10px] font-semibold text-teal-600 uppercase tracking-wide hidden sm:block">
+                  Cams · eats · shows
+                </div>
               </div>
-            </div>
-          </Link>
-          <div className="flex items-center gap-2">
-            <Link
-              href="/branson"
-              className="hidden sm:inline-flex text-sm font-semibold text-[#0369a1] no-underline px-3 py-2 rounded-lg hover:bg-sky-50"
-            >
-              Live guide
             </Link>
-            <a
-              href={BOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-book inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm no-underline"
-            >
-              Book
-              <ArrowRight size={14} />
-            </a>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/branson"
+                className="hidden sm:inline-flex text-sm font-semibold text-[#0369a1] no-underline px-3 py-2 rounded-lg hover:bg-sky-50"
+              >
+                Live guide
+              </Link>
+              <a
+                href={BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-book inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm no-underline"
+              >
+                Book
+                <ArrowRight size={14} />
+              </a>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
       )}
 
-      <div className={embed ? "px-2 pt-1 pb-1 w-full" : "px-4 sm:px-6 pt-4 pb-2 max-w-7xl mx-auto w-full"}>
-        {!embed && (
+      <div
+        className={
+          isEmbed
+            ? "px-2 pt-1 pb-1 w-full"
+            : "px-4 sm:px-6 pt-4 pb-2 max-w-7xl mx-auto w-full"
+        }
+      >
+        {!isEmbed && (
           <>
-        <h1 className="font-display text-2xl sm:text-3xl font-bold text-[#0c4a6e]">
-          Your Branson playground
-        </h1>
-        <p className="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
-          Hover a pin, tap for tickets or a live cam. Same bright-blue guide —
-          just on a map.
-        </p>
+            <h1 className="font-display text-2xl sm:text-3xl font-bold text-[#0c4a6e]">
+              Your Branson playground
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+              Hover a pin, tap for tickets or a live cam. Same bright-blue guide
+              — just on a map.
+            </p>
           </>
         )}
         <div className="flex gap-2 overflow-x-auto py-2 -mx-1 px-1">
@@ -218,7 +302,7 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
                     select(null);
                   }
                 }}
-                className={`shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-bold border transition-colors ${
+                className={`shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-full text-sm font-bold border transition-colors ${
                   on
                     ? "text-white border-transparent"
                     : "bg-white text-[#0c4a6e] border-sky-200 hover:bg-sky-50"
@@ -231,10 +315,82 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
             );
           })}
         </div>
+
+        {showCamGallery && webcamSpots.length > 0 && (
+          <div className="pb-2">
+            {filter === "webcam" && (
+              <p className="text-xs font-bold uppercase tracking-wide text-[#0369a1] mb-2 px-0.5">
+                Live cams — tap a card
+              </p>
+            )}
+            <div
+              className={`grid gap-3 ${
+                filter === "webcam"
+                  ? "grid-cols-1 sm:grid-cols-2"
+                  : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+              }`}
+            >
+              {webcamSpots.map((spot) => (
+                <button
+                  key={`cam-card-${spot.id}`}
+                  type="button"
+                  onClick={() => openCam(spot)}
+                  className={`text-left rounded-2xl border-2 overflow-hidden bg-white shadow-sm transition-shadow hover:shadow-md min-h-[44px] ${
+                    selectedId === spot.id
+                      ? "border-cyan-400 ring-2 ring-cyan-200"
+                      : "border-sky-200"
+                  }`}
+                >
+                  {spot.preview ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={spot.preview}
+                      alt=""
+                      className={`w-full object-cover bg-sky-100 ${
+                        filter === "webcam" ? "h-40 sm:h-44" : "h-28 sm:h-32"
+                      }`}
+                    />
+                  ) : (
+                    <div
+                      className={`w-full flex items-center justify-center bg-gradient-to-br from-sky-100 to-cyan-100 text-4xl ${
+                        filter === "webcam" ? "h-40 sm:h-44" : "h-28 sm:h-32"
+                      }`}
+                    >
+                      📹
+                    </div>
+                  )}
+                  <div className="p-3">
+                    <div className="text-sm sm:text-base font-bold text-[#0c4a6e] leading-snug">
+                      {spot.name}
+                    </div>
+                    <div className="text-xs text-[#0369a1] mt-0.5 font-semibold">
+                      {spot.venue}
+                    </div>
+                    <div className="mt-2 inline-flex items-center justify-center min-h-[44px] px-3 rounded-full text-sm font-bold text-white bg-[#0284c7]">
+                      Watch live cam
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className={embed ? "flex-1 min-h-0 w-full px-2 pb-2" : "flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-4"}>
-        <div className={embed ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 h-full min-h-[360px]" : "sv-map-wrap relative rounded-2xl overflow-hidden border-2 border-sky-200 shadow-lg h-[62vh] min-h-[420px] lg:h-[calc(100vh-230px)]"}>
+      <div
+        className={
+          isEmbed
+            ? "flex-1 min-h-0 w-full px-2 pb-2"
+            : "flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-4"
+        }
+      >
+        <div
+          className={
+            isEmbed
+              ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 h-full min-h-[360px]"
+              : "sv-map-wrap relative rounded-2xl overflow-hidden border-2 border-sky-200 shadow-lg h-[62vh] min-h-[420px] lg:h-[calc(100vh-230px)]"
+          }
+        >
           <MapContainer
             center={[36.64, -93.27]}
             zoom={12}
@@ -242,8 +398,9 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
             className="h-full w-full"
           >
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-              url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+              attribution={MAP_TILES.attribution}
+              url={MAP_TILES.url}
+              maxZoom={MAP_TILES.maxZoom}
             />
             <FlyTo spot={selected} />
             {spots.map((spot) => (
@@ -252,7 +409,10 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
                 position={[spot.lat, spot.lng]}
                 icon={pinIcon(spot, selectedId === spot.id)}
                 eventHandlers={{
-                  click: () => select(spot.id),
+                  click: () => {
+                    if (spot.category === "webcam") openCam(spot);
+                    else select(spot.id);
+                  },
                 }}
               >
                 <Tooltip
@@ -262,7 +422,9 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
                 >
                   <div>
                     <div>{spot.name}</div>
-                    <div style={{ fontWeight: 500, opacity: 0.85, fontSize: 11 }}>
+                    <div
+                      style={{ fontWeight: 500, opacity: 0.85, fontSize: 11 }}
+                    >
                       {spot.venue}
                     </div>
                   </div>
@@ -271,14 +433,14 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
             ))}
           </MapContainer>
 
-          {selected && (
+          {selected && selected.category !== "webcam" && (
             <article className="absolute left-3 right-3 bottom-3 sm:left-4 sm:right-auto sm:w-[360px] z-[900] bg-white rounded-2xl border-2 border-sky-200 shadow-2xl overflow-hidden">
               {selected.preview && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={selected.preview}
                   alt={`${selected.name} live preview`}
-                  className="w-full h-28 object-cover bg-sky-100"
+                  className="w-full h-40 sm:h-44 object-cover bg-sky-100"
                 />
               )}
               <div className="p-4">
@@ -304,10 +466,10 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
                   <button
                     type="button"
                     onClick={() => select(null)}
-                    className="p-1.5 rounded-lg text-slate-400 hover:bg-sky-50 hover:text-[#0c4a6e]"
+                    className="p-2.5 min-h-[44px] min-w-[44px] rounded-lg text-slate-400 hover:bg-sky-50 hover:text-[#0c4a6e] flex items-center justify-center"
                     aria-label="Close"
                   >
-                    <X size={16} />
+                    <X size={22} />
                   </button>
                 </div>
                 <p className="text-sm text-slate-600 mt-2 leading-relaxed">
@@ -318,18 +480,70 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
                     href={selected.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-lake inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm no-underline"
+                    className="btn-lake inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[44px] rounded-full text-sm no-underline"
                   >
                     {selected.cta}
                     <ExternalLink size={14} />
                   </a>
                   <Link
                     href={selected.ourPath}
-                    className="text-center text-xs font-bold text-[#0369a1] no-underline hover:underline"
+                    className="text-center text-xs font-bold text-[#0369a1] no-underline hover:underline py-2 min-h-[44px] flex items-center justify-center"
                   >
-                    {embed ? "Open full map" : `Open on our map · mybransonvacation.com${selected.ourPath}`}
+                    {isEmbed
+                      ? "Open full map"
+                      : `Open on our map · mybransonvacation.com${selected.ourPath}`}
                   </Link>
                 </div>
+              </div>
+            </article>
+          )}
+
+          {selected && selected.category === "webcam" && !camSpot && (
+            <article className="absolute left-3 right-3 bottom-3 sm:left-4 sm:right-auto sm:w-[min(420px,calc(100%-1.5rem))] z-[900] bg-white rounded-2xl border-2 border-cyan-300 shadow-2xl overflow-hidden">
+              {selected.preview ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={selected.preview}
+                  alt={`${selected.name} live preview`}
+                  className="w-full h-44 sm:h-52 object-cover bg-sky-100"
+                />
+              ) : (
+                <div className="w-full h-44 sm:h-52 flex items-center justify-center bg-gradient-to-br from-sky-100 to-cyan-100 text-5xl">
+                  📹
+                </div>
+              )}
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <div className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full text-[#0c4a6e] bg-cyan-100">
+                      📹 Live cam
+                    </div>
+                    <h2 className="font-display text-xl font-bold text-[#0c4a6e] mt-1 leading-tight">
+                      {selected.name}
+                    </h2>
+                    <p className="text-xs font-semibold text-[#0369a1] mt-0.5">
+                      {selected.venue}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => select(null)}
+                    className="p-2.5 min-h-[44px] min-w-[44px] rounded-lg text-slate-400 hover:bg-sky-50 hover:text-[#0c4a6e] flex items-center justify-center"
+                    aria-label="Close"
+                  >
+                    <X size={22} />
+                  </button>
+                </div>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  {selected.description}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => openCam(selected)}
+                  className="mt-3 w-full btn-lake inline-flex items-center justify-center gap-2 px-4 py-3.5 min-h-[48px] rounded-full text-base font-bold"
+                >
+                  Watch live cam
+                </button>
               </div>
             </article>
           )}
@@ -347,8 +561,12 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
                 <li key={spot.id}>
                   <button
                     type="button"
-                    onClick={() => select(spot.id)}
-                    className={`w-full text-left px-4 py-3 hover:bg-sky-50 transition-colors ${
+                    onClick={() =>
+                      spot.category === "webcam"
+                        ? openCam(spot)
+                        : select(spot.id)
+                    }
+                    className={`w-full text-left px-4 py-3 min-h-[44px] hover:bg-sky-50 transition-colors ${
                       on ? "bg-sky-50" : ""
                     }`}
                   >
@@ -375,6 +593,64 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
           </ul>
         </aside>
       </div>
+
+      {camSpot && (
+        <div
+          className="fixed inset-0 z-[2000] flex flex-col bg-[#042033]"
+          role="dialog"
+          aria-modal="true"
+          aria-label={camSpot.name}
+        >
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 px-3 py-3 sm:px-4 bg-[#0c4a6e] text-white shadow-lg">
+            {kioskMode ? (
+              <button
+                type="button"
+                onClick={() => goKioskHome(unitSlug)}
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 sm:px-5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-base font-extrabold shadow-md"
+              >
+                <Home size={20} />
+                Back to Home
+              </button>
+            ) : null}
+            <button
+              type="button"
+              onClick={closeCam}
+              className={`inline-flex items-center justify-center gap-2 min-h-[48px] px-4 sm:px-5 rounded-full text-base font-extrabold shadow-md ${
+                kioskMode
+                  ? "bg-white/15 hover:bg-white/25 border border-white/30"
+                  : "bg-[#0284c7] hover:bg-[#0369a1]"
+              }`}
+            >
+              {kioskMode ? "← Back to map" : (
+                <>
+                  <Home size={20} />
+                  Back to map
+                </>
+              )}
+            </button>
+            <b className="text-sm sm:text-base font-bold flex-1 min-w-[8rem] truncate">
+              {camSpot.name}
+            </b>
+          </div>
+          <iframe
+            title={camSpot.name}
+            src={camSpot.href}
+            className="flex-1 w-full border-0 bg-black"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="px-3 py-2 bg-[#0c4a6e] text-center">
+            <a
+              href={camSpot.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-sky-200 underline"
+            >
+              Open on cam site if video is blank
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
