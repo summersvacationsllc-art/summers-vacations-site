@@ -212,7 +212,7 @@ const PROPERTIES: Record<
     tag: "✨ First Floor · Remodeled",
     sleeps: "6",
     beds: "2BR",
-    address: "289 Notch Ln, Unit 6, Branson West, MO 65737",
+    address: "289 Notch Lane, Unit 6, Branson West, MO 65737",
     guestyId: "6abe3566a78519004a84f031",
     emoji: "🏠",
     desc: "Freshly remodeled first-floor condo — no stairs into the unit. Open living room, full kitchen, two bedrooms, community pool, and on-site fishing lake. Three minutes from Silver Dollar City.",

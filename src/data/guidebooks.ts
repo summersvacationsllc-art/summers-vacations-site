@@ -539,7 +539,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "scotts-unit",
     name: "No-Stairs Condo",
     shortName: "Scotts unit",
-    address: "289 Notch Ln, Unit 6, Branson West, MO 65737",
+    address: "289 Notch Lane, Unit 6, Branson West, MO 65737",
     guestyListingId: "6abe3566a78519004a84f031",
     ...COMMON,
 
@@ -548,38 +548,71 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       type: "keyless",
       doorCode: "Last 4 digits of booking phone",
       directions:
-        "Turn into Notch Estates on Notch Lane. 289 Notch Lane Unit 6 is a first-floor condo — no stairs into the unit. Look for building signage for #6.",
+        "While you're staying with us: turn into Notch Estates on Notch Lane. Your home is 289 Notch Lane, Unit 6 — a first-floor condo with no stairs into the unit. Look for building/unit signage for #6.",
       parking:
-        "Park in the spaces near Unit 6 / 289 Notch Lane. Do not block neighboring driveways or dumpster access.",
-      accessNote: COMMON.accessNote,
+        "Park in the spaces near Unit 6 / 289 Notch Lane. Please don't block neighboring driveways, walkways, or dumpster access.",
+      accessNote:
+        "Keyless entry (same lock system style as The Penthouse at Notch). Your door code is the last 4 digits of the phone number on your booking. The code works from 4:00 PM on arrival day until 10:00 AM on checkout day. We'll also email check-in details before you arrive. If the lock doesn't respond, wait a few seconds and try again, then text Brian at 314-565-0589.",
     },
 
     wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
 
     appliances: {
       coffeeMaker: {
+        // TODO(Brian): confirm brand/model (drip vs Keurig) after walk-through
         type: "Coffee maker",
-        instructions: "Coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
+        instructions:
+          "While you're staying with us, the coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
       },
-      hvac: { type: "In-unit thermostat", instructions: "Thermostat in the living area. Set between 68–72°F for comfort." },
-      tv: { type: "Smart TV", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
-      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      hvac: {
+        type: "Ecobee Smart Thermostat",
+        instructions:
+          "Ecobee smart thermostat in the living area. Set between 68–72°F for comfort and efficiency. Please don't switch the system to extreme temps or hold modes overnight.",
+      },
+      tv: {
+        type: "Smart TV",
+        streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"],
+      },
+      washer: {
+        instructions:
+          "Coin-operated laundry is available near the main pool (same Notch Estates facility as our other condos). A starter supply of detergent pods is in the unit when stocked.",
+        youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI",
+      },
+      stove:
+        "Full kitchen with stove/oven, microwave, refrigerator, freezer, toaster, kettle, cookware, dishes, and silverware.",
     },
 
     amenities: [
       ...COMMON.commonAmenities,
       "First-floor — no stairs into the unit",
+      "Fresh remodel",
       "Full kitchen",
+      "Ecobee smart thermostat",
       "Smart TV",
       "Outdoor community pool",
       "On-site fishing lake",
+      "Private entrance",
     ],
-    houseRules: COMMON.houseRules,
-    trash: COMMON.trash,
+    houseRules: [
+      "No smoking or vaping inside the unit, on decks/porches/walkways, pool areas, or playgrounds (Notch Estates HOA). Tobacco smoking only in the parking lot/street with proper disposal — no marijuana. Violations may incur a fine.",
+      "Quiet hours: 10 PM – 8 AM (Notch Estates HOA)",
+      "No parties or events",
+      "Overnight guests limited to the names on your reservation",
+      "Pool rules must be followed at all times",
+      "Please wash & dry any remaining dishes and bag trash before checkout (checkout is 10:00 AM)",
+    ],
+    trash:
+      "Dumpster is at the complex (typically out front/to the left of the building area — follow on-site dumpster signs). Bag household trash and take it out before checkout. Recycling bins are marked where provided.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 
-    videos: [...COMMON.commonVideos],
+    videos: [
+      { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
+      { title: "Laundry Room", url: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
+      { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
+      { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
+    ],
   },
 };
 
