@@ -224,7 +224,12 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
     setCamSpot(null);
   }
 
-  const showCamGallery = filter === "webcam" || filter === "all";
+  // Public /map: cam cards on "all" + "webcam". Embed/kiosk: cams are their own
+  // filter only — gallery on "all" was filling the iframe and hiding map + list.
+  const showCamGallery =
+    filter === "webcam" || (!isEmbed && filter === "all");
+  const embedCamOnly = isEmbed && filter === "webcam";
+  const showSpotsList = !embedCamOnly;
 
   return (
     <div
@@ -274,7 +279,7 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
       <div
         className={
           isEmbed
-            ? "px-2 pt-1 pb-1 w-full"
+            ? "px-2 pt-1 pb-1 w-full shrink-0"
             : "px-4 sm:px-6 pt-4 pb-2 max-w-7xl mx-auto w-full"
         }
       >
@@ -316,7 +321,7 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
           })}
         </div>
 
-        {showCamGallery && webcamSpots.length > 0 && (
+        {showCamGallery && !embedCamOnly && webcamSpots.length > 0 && (
           <div className="pb-2">
             {filter === "webcam" && (
               <p className="text-xs font-bold uppercase tracking-wide text-[#0369a1] mb-2 px-0.5">
@@ -377,17 +382,64 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
         )}
       </div>
 
+      {embedCamOnly && webcamSpots.length > 0 && (
+        <div className="flex-1 min-h-0 overflow-y-auto px-2 pb-2 w-full">
+          <p className="text-xs font-bold uppercase tracking-wide text-[#0369a1] mb-2 px-0.5">
+            Live cams — tap a card
+          </p>
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
+            {webcamSpots.map((spot) => (
+              <button
+                key={`cam-card-embed-${spot.id}`}
+                type="button"
+                onClick={() => openCam(spot)}
+                className={`text-left rounded-2xl border-2 overflow-hidden bg-white shadow-sm transition-shadow hover:shadow-md min-h-[44px] ${
+                  selectedId === spot.id
+                    ? "border-cyan-400 ring-2 ring-cyan-200"
+                    : "border-sky-200"
+                }`}
+              >
+                {spot.preview ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={spot.preview}
+                    alt=""
+                    className="w-full object-cover bg-sky-100 h-40 sm:h-44"
+                  />
+                ) : (
+                  <div className="w-full h-40 sm:h-44 flex items-center justify-center bg-gradient-to-br from-sky-100 to-cyan-100 text-4xl">
+                    📹
+                  </div>
+                )}
+                <div className="p-3">
+                  <div className="text-sm sm:text-base font-bold text-[#0c4a6e] leading-snug">
+                    {spot.name}
+                  </div>
+                  <div className="text-xs text-[#0369a1] mt-0.5 font-semibold">
+                    {spot.venue}
+                  </div>
+                  <div className="mt-2 inline-flex items-center justify-center min-h-[44px] px-3 rounded-full text-sm font-bold text-white bg-[#0284c7]">
+                    Watch live cam
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!embedCamOnly && (
       <div
         className={
           isEmbed
-            ? "flex-1 min-h-0 w-full px-2 pb-2"
+            ? "flex-1 min-h-0 w-full px-2 pb-2 flex flex-col portrait:flex-col landscape:flex-row gap-2"
             : "flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-4"
         }
       >
         <div
           className={
             isEmbed
-              ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 h-full min-h-[360px]"
+              ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 flex-1 min-h-[42vh] landscape:min-h-0 landscape:h-full"
               : "sv-map-wrap relative rounded-2xl overflow-hidden border-2 border-sky-200 shadow-lg h-[62vh] min-h-[420px] lg:h-[calc(100vh-230px)]"
           }
         >
@@ -549,50 +601,59 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
           )}
         </div>
 
-        <aside className="hidden lg:flex flex-col rounded-2xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden max-h-[calc(100vh-230px)]">
-          <div className="px-4 py-3 border-b border-sky-100 text-xs font-bold uppercase tracking-wide text-[#0369a1]">
-            {spots.length} spots
-          </div>
-          <ul className="overflow-y-auto divide-y divide-sky-50">
-            {spots.map((spot) => {
-              const on = selectedId === spot.id;
-              const meta = MAP_CATEGORY_META[spot.category];
-              return (
-                <li key={spot.id}>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      spot.category === "webcam"
-                        ? openCam(spot)
-                        : select(spot.id)
-                    }
-                    className={`w-full text-left px-4 py-3 min-h-[44px] hover:bg-sky-50 transition-colors ${
-                      on ? "bg-sky-50" : ""
-                    }`}
-                  >
-                    <div className="flex items-start gap-2">
-                      <span
-                        className="mt-0.5 w-7 h-7 rounded-full flex items-center justify-center text-sm shrink-0 text-white"
-                        style={{ background: meta.color }}
-                      >
-                        {meta.emoji}
-                      </span>
-                      <span>
-                        <span className="block text-sm font-bold text-[#0c4a6e]">
-                          {spot.name}
+        {showSpotsList && (
+          <aside
+            className={
+              isEmbed
+                ? "flex flex-col rounded-xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden shrink-0 h-[36vh] min-h-[200px] landscape:h-full landscape:w-[300px] landscape:max-h-none"
+                : "hidden lg:flex flex-col rounded-2xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden max-h-[calc(100vh-230px)]"
+            }
+          >
+            <div className="px-4 py-3 border-b border-sky-100 text-xs font-bold uppercase tracking-wide text-[#0369a1]">
+              {spots.length} spots
+            </div>
+            <ul className="overflow-y-auto divide-y divide-sky-50 flex-1 min-h-0">
+              {spots.map((spot) => {
+                const on = selectedId === spot.id;
+                const meta = MAP_CATEGORY_META[spot.category];
+                return (
+                  <li key={spot.id}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        spot.category === "webcam"
+                          ? openCam(spot)
+                          : select(spot.id)
+                      }
+                      className={`w-full text-left px-4 py-3 min-h-[44px] hover:bg-sky-50 transition-colors ${
+                        on ? "bg-sky-50" : ""
+                      }`}
+                    >
+                      <div className="flex items-start gap-2">
+                        <span
+                          className="mt-0.5 w-7 h-7 rounded-full flex items-center justify-center text-sm shrink-0 text-white"
+                          style={{ background: meta.color }}
+                        >
+                          {meta.emoji}
                         </span>
-                        <span className="block text-[11px] text-slate-500">
-                          {spot.venue}
+                        <span>
+                          <span className="block text-sm font-bold text-[#0c4a6e]">
+                            {spot.name}
+                          </span>
+                          <span className="block text-[11px] text-slate-500">
+                            {spot.venue}
+                          </span>
                         </span>
-                      </span>
-                    </div>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </aside>
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </aside>
+        )}
       </div>
+      )}
 
       {camSpot && (
         <div
