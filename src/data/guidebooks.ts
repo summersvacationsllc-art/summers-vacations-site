@@ -478,6 +478,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     urgentCare: HAVEN_URGENT_CARE,
 
     videos: [
+      { title: "Lights", url: "https://www.youtube.com/watch?v=X_E7oarX4GY" },
       ...COMMON.commonVideos,
     ],
   },
