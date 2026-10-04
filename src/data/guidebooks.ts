@@ -598,10 +598,9 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     appliances: {
       coffeeMaker: {
-        // TODO(Brian): confirm brand/model (drip vs Keurig) after walk-through
-        type: "Coffee maker",
+        type: "Black & Decker drip coffee pot",
         instructions:
-          "While you're staying with us, the coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
+          "While you're staying with us, the Black & Decker drip coffee pot is on the kitchen counter, and coffee grounds, sugar, and filters are next to it.",
       },
       hvac: {
         type: "Ecobee Smart Thermostat",
