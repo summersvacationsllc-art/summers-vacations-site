@@ -271,17 +271,21 @@ export default function BransonMap({
   // Public /map below lg: the list is under the map, so bring the map (with
   // its detail card) back into view after picking a place from the list.
   function selectFromPublicList(id: string) {
-    select(id);
-    if (!isEmbed && typeof window !== "undefined" && window.innerWidth < 1024) {
-      // After router.replace settles (it resets scroll otherwise); 72px clears
-      // the sticky header.
-      window.setTimeout(() => {
-        const el = publicMapRef.current;
-        if (!el) return;
-        const top = el.getBoundingClientRect().top + window.scrollY - 72;
-        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-      }, 120);
+    if (typeof window === "undefined" || window.innerWidth >= 1024) {
+      select(id);
+      return;
     }
+    // Phones: update the URL without a router navigation (router.replace
+    // re-suspended the page and snapped scroll back to the top).
+    setSelectedId(id);
+    window.history.replaceState(null, "", `/map?spot=${id}`);
+    // Bring the map + detail card back into view; 72px clears the sticky header.
+    window.setTimeout(() => {
+      const el = publicMapRef.current;
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }, 60);
   }
 
   function openCam(spot: MapSpot) {
