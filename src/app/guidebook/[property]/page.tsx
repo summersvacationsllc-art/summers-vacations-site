@@ -291,7 +291,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   };
 
   return (
-    <div className="min-h-screen bg-sky-50 flex flex-col max-w-md mx-auto relative" style={{ fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}>
+    <div className={`${tab === 'map' ? 'h-[100dvh] overflow-hidden' : 'min-h-screen'} w-full bg-sky-50 flex flex-col max-w-md mx-auto relative`} style={{ fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}>
       {fromKiosk && (
         <button
           type="button"
@@ -329,7 +329,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       </div>
 
       {/* Content */}
-      <div ref={contentRef} className="flex-1 overflow-y-auto scroll-smooth pb-2" style={{ scrollbarWidth: 'none' }}
+      <div ref={contentRef} className={tab === 'map' ? 'flex-1 min-h-0 overflow-hidden' : 'flex-1 overflow-y-auto scroll-smooth pb-2'} style={{ scrollbarWidth: 'none' }}
         onScroll={(e) => setIsScrolled((e.target as HTMLDivElement).scrollTop > 10)}>
 
         {/* ═══ HOME ═══ */}
@@ -651,8 +651,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
 
         {/* ═══ MAP ═══ */}
         {tab === 'map' && (
-          <div className="px-0 pt-1" style={{ height: 'calc(100dvh - 13.5rem)' }}>
-            <GuideMap />
+          // Fills everything between the header and the tab bar (root is
+          // 100dvh on this tab), so the phone gets a full, pannable map.
+          <div className="h-full">
+            <GuideMap property={prop.slug} />
           </div>
         )}
 

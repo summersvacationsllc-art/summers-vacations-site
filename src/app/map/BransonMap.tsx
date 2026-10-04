@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   MapContainer,
   TileLayer,
   Marker,
+  Popup,
   Tooltip,
   useMap,
 } from "react-leaflet";
@@ -31,7 +32,21 @@ import "./map.css";
 
 const MAP_TILES = getMapTileConfig();
 
+// Cache icons so react-leaflet only calls setIcon when the look really
+// changes (a fresh divIcon every render rebuilt every marker's DOM and could
+// drop an open popup on phones).
+const ICON_CACHE = new Map<string, L.DivIcon>();
+
 function pinIcon(spot: MapSpot, active: boolean) {
+  const key = `${spot.category}|${active ? 1 : 0}`;
+  const hit = ICON_CACHE.get(key);
+  if (hit) return hit;
+  const icon = buildPinIcon(spot, active);
+  ICON_CACHE.set(key, icon);
+  return icon;
+}
+
+function buildPinIcon(spot: MapSpot, active: boolean) {
   const meta = MAP_CATEGORY_META[spot.category];
   const stay = spot.category === "stay";
   const size = stay ? 44 : 38;
@@ -53,6 +68,28 @@ function FlyTo({ spot }: { spot: MapSpot | undefined }) {
     });
   }, [map, spot]);
   return null;
+}
+
+/** Downtown Branson (Branson Landing / 76 Strip) — used to frame the phone map. */
+const DOWNTOWN: [number, number] = [36.6437, -93.2185];
+
+/** Phone guidebook: on first mount frame the guest's stay + downtown. */
+function GuideInitialView({ stay }: { stay: MapSpot | undefined }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!stay) return;
+    map.fitBounds(
+      L.latLngBounds([[stay.lat, stay.lng], DOWNTOWN]),
+      { padding: [36, 36], maxZoom: 13 },
+    );
+    // Run once per mount — the user owns the view after that.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map]);
+  return null;
+}
+
+function directionsUrl(spot: MapSpot) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${spot.lat},${spot.lng}`;
 }
 
 function kioskHomeUrl(unit: string | null) {
@@ -95,13 +132,27 @@ function goKioskHome(unit: string | null) {
   window.location.href = home;
 }
 
-export default function BransonMap({ embed = false }: { embed?: boolean }) {
+export default function BransonMap({
+  embed = false,
+  stayId,
+}: {
+  embed?: boolean;
+  /** Guidebook only: which "Our stays" pin is this guest's (neighborhood pin). */
+  stayId?: string;
+}) {
   const router = useRouter();
   const params = useSearchParams();
   const initial = params.get("spot");
   const kioskMode = params.get("kiosk") === "1";
   const unitSlug = params.get("unit");
   const isEmbed = embed || kioskMode;
+  // Phone/digital guidebook Map tab: full-bleed map, compact filters, pin
+  // popups, list in a bottom sheet. Kiosk (/map?kiosk=1) and public /map keep
+  // their existing layouts.
+  const guide = embed && !kioskMode;
+  const [listOpen, setListOpen] = useState(false);
+  const [leafletMap, setLeafletMap] = useState<L.Map | null>(null);
+  const markerRefs = useRef<Record<string, L.Marker>>({});
   const [filter, setFilter] = useState<MapCategory | "all">(
     params.get("filter") === "webcam" ? "webcam" : "all",
   );
@@ -230,6 +281,341 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
     filter === "webcam" || (!isEmbed && filter === "all");
   const embedCamOnly = isEmbed && filter === "webcam";
   const showSpotsList = !embedCamOnly;
+
+  function renderMarkers() {
+    return spots.map((spot) => (
+      <Marker
+        key={spot.id}
+        position={[spot.lat, spot.lng]}
+        icon={pinIcon(spot, selectedId === spot.id)}
+        zIndexOffset={spot.id === stayId ? 1000 : 0}
+        ref={(m) => {
+          if (m) markerRefs.current[spot.id] = m;
+          else delete markerRefs.current[spot.id];
+        }}
+        eventHandlers={
+          guide
+            ? {
+                popupopen: () => setSelectedId(spot.id),
+                popupclose: () =>
+                  setSelectedId((cur) => (cur === spot.id ? null : cur)),
+              }
+            : {
+                click: () => {
+                  if (spot.category === "webcam") openCam(spot);
+                  else select(spot.id);
+                },
+              }
+        }
+      >
+        {guide ? (
+          <>
+            {spot.id === stayId && (
+              <Tooltip
+                permanent
+                direction="top"
+                offset={[0, -8]}
+                className="sv-tooltip"
+              >
+                Your stay
+              </Tooltip>
+            )}
+            <Popup
+              className="sv-popup"
+              maxWidth={260}
+              minWidth={220}
+              autoPanPaddingTopLeft={[12, 56]}
+              autoPanPaddingBottomRight={[12, 12]}
+            >
+              {spotPopup(spot)}
+            </Popup>
+          </>
+        ) : (
+          <Tooltip direction="top" offset={[0, -8]} className="sv-tooltip">
+            <div>
+              <div>{spot.name}</div>
+              <div style={{ fontWeight: 500, opacity: 0.85, fontSize: 11 }}>
+                {spot.venue}
+              </div>
+            </div>
+          </Tooltip>
+        )}
+      </Marker>
+    ));
+  }
+
+  function spotPopup(spot: MapSpot) {
+    const meta = MAP_CATEGORY_META[spot.category];
+    const isStay = spot.category === "stay";
+    return (
+      <div className="sv-popup-body">
+        <div className="sv-popup-cat" style={{ background: `${meta.color}33` }}>
+          {meta.emoji} {spot.id === stayId ? "Your stay" : meta.label}
+        </div>
+        <div className="sv-popup-name">{spot.name}</div>
+        <div className="sv-popup-venue">{spot.venue}</div>
+        {spot.description && (
+          <p className="sv-popup-desc">{spot.description}</p>
+        )}
+        <div className="sv-popup-actions">
+          {spot.category === "webcam" ? (
+            <button
+              type="button"
+              className="sv-popup-cta"
+              onClick={() => openCam(spot)}
+            >
+              ▶ Watch live cam
+            </button>
+          ) : (
+            <a
+              className="sv-popup-cta"
+              href={spot.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {spot.cta} ↗
+            </a>
+          )}
+          {!isStay && spot.category !== "webcam" && (
+            <a
+              className="sv-popup-link"
+              href={directionsUrl(spot)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Directions
+            </a>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  /** Phone list → pin: close the sheet, fly there, open its popup. */
+  function focusSpot(spot: MapSpot) {
+    setListOpen(false);
+    setSelectedId(spot.id);
+    const m = leafletMap;
+    if (!m) return;
+    const open = () => markerRefs.current[spot.id]?.openPopup();
+    const target = L.latLng(spot.lat, spot.lng);
+    const zoom = Math.max(m.getZoom(), 14);
+    if (m.getCenter().distanceTo(target) < 5 && m.getZoom() === zoom) {
+      open();
+      return;
+    }
+    m.once("moveend", open);
+    m.flyTo(target, zoom, { duration: 0.6 });
+  }
+
+  const staySpot = stayId ? allSpots.find((s) => s.id === stayId) : undefined;
+
+  const camModal = camSpot && (
+    <div
+      className="fixed inset-0 z-[2000] flex flex-col bg-[#042033]"
+      role="dialog"
+      aria-modal="true"
+      aria-label={camSpot.name}
+    >
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3 px-3 py-3 sm:px-4 bg-[#0c4a6e] text-white shadow-lg">
+        {kioskMode ? (
+          <button
+            type="button"
+            onClick={() => goKioskHome(unitSlug)}
+            className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 sm:px-5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-base font-extrabold shadow-md"
+          >
+            <Home size={20} />
+            Back to Home
+          </button>
+        ) : null}
+        <button
+          type="button"
+          onClick={closeCam}
+          className={`inline-flex items-center justify-center gap-2 min-h-[48px] px-4 sm:px-5 rounded-full text-base font-extrabold shadow-md ${
+            kioskMode
+              ? "bg-white/15 hover:bg-white/25 border border-white/30"
+              : "bg-[#0284c7] hover:bg-[#0369a1]"
+          }`}
+        >
+          {kioskMode ? "← Back to map" : (
+            <>
+              <Home size={20} />
+              Back to map
+            </>
+          )}
+        </button>
+        <b className="text-sm sm:text-base font-bold flex-1 min-w-[8rem] truncate">
+          {camSpot.name}
+        </b>
+      </div>
+      <iframe
+        title={camSpot.name}
+        src={camSpot.href}
+        className="flex-1 w-full border-0 bg-black"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+      <div className="px-3 py-2 bg-[#0c4a6e] text-center">
+        <a
+          href={camSpot.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-semibold text-sky-200 underline"
+        >
+          Open on cam site if video is blank
+        </a>
+      </div>
+    </div>
+  );
+
+  if (guide) {
+    return (
+      <div className="sv-guide-map h-full w-full bg-[#f0f9ff] flex flex-col">
+        {/* Compact one-row category filter (scrolls sideways) */}
+        <div className="shrink-0 bg-white border-b border-sky-100">
+          <div
+            className="flex gap-1.5 overflow-x-auto px-2 py-1.5"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {MAP_CATEGORIES.map((c) => {
+              const on = filter === c.id;
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => {
+                    setFilter(c.id);
+                    leafletMap?.closePopup();
+                  }}
+                  className={`shrink-0 inline-flex items-center gap-1 px-2.5 min-h-[34px] rounded-full text-[12px] font-bold border transition-colors ${
+                    on
+                      ? "text-white border-transparent"
+                      : "bg-white text-[#0c4a6e] border-sky-200"
+                  }`}
+                  style={on ? { background: c.color } : undefined}
+                >
+                  <span>{c.emoji}</span>
+                  {c.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="sv-map-wrap relative flex-1 min-h-0 w-full overflow-hidden">
+          <MapContainer
+            ref={setLeafletMap}
+            center={[36.655, -93.28]}
+            zoom={12}
+            scrollWheelZoom
+            className="h-full w-full"
+            style={{ position: "absolute", inset: 0 }}
+          >
+            <TileLayer
+              attribution={MAP_TILES.attribution}
+              url={MAP_TILES.url}
+              maxZoom={MAP_TILES.maxZoom}
+            />
+            <GuideInitialView stay={staySpot} />
+            {renderMarkers()}
+          </MapContainer>
+
+          {/* Floating controls */}
+          {!listOpen && (
+            <div className="absolute left-0 right-0 bottom-9 z-[1001] flex justify-center gap-2 pointer-events-none">
+              <button
+                type="button"
+                onClick={() => {
+                  leafletMap?.closePopup();
+                  setListOpen(true);
+                }}
+                className="pointer-events-auto inline-flex items-center gap-1.5 min-h-[44px] px-4 rounded-full bg-[#0c4a6e] text-white text-sm font-bold shadow-lg"
+              >
+                ☰ Show list · {spots.length}
+              </button>
+              {staySpot && (
+                <button
+                  type="button"
+                  onClick={() => focusSpot(staySpot)}
+                  className="pointer-events-auto inline-flex items-center gap-1 min-h-[44px] px-3.5 rounded-full bg-white text-[#0c4a6e] text-sm font-bold shadow-lg border border-sky-200"
+                  aria-label="Show my stay on the map"
+                >
+                  🏡 My stay
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Bottom sheet list */}
+          {listOpen && (
+            <div
+              className="absolute left-0 right-0 bottom-0 z-[1002] flex flex-col bg-white rounded-t-2xl border-t-2 border-sky-200 shadow-[0_-12px_30px_rgba(12,74,110,0.25)]"
+              style={{ height: "62%" }}
+              role="dialog"
+              aria-label="Places list"
+            >
+              <button
+                type="button"
+                onClick={() => setListOpen(false)}
+                className="shrink-0 w-full flex flex-col items-center pt-2 pb-1"
+                aria-label="Hide list"
+              >
+                <span className="block w-10 h-1.5 rounded-full bg-sky-200" />
+              </button>
+              <div className="shrink-0 flex items-center justify-between px-4 pb-2 border-b border-sky-100">
+                <span className="text-xs font-bold uppercase tracking-wide text-[#0369a1]">
+                  {spots.length} places
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setListOpen(false)}
+                  className="min-h-[36px] px-3 rounded-full text-sm font-bold text-[#0c4a6e] bg-sky-50 border border-sky-200"
+                >
+                  Hide list
+                </button>
+              </div>
+              <ul className="overflow-y-auto overscroll-contain divide-y divide-sky-50 flex-1 min-h-0">
+                {spots.map((spot) => {
+                  const meta = MAP_CATEGORY_META[spot.category];
+                  return (
+                    <li key={`list-${spot.id}`}>
+                      <button
+                        type="button"
+                        onClick={() => focusSpot(spot)}
+                        className={`w-full text-left px-4 py-2.5 min-h-[44px] ${
+                          selectedId === spot.id ? "bg-sky-50" : ""
+                        }`}
+                      >
+                        <div className="flex items-start gap-2">
+                          <span
+                            className="mt-0.5 w-7 h-7 rounded-full flex items-center justify-center text-sm shrink-0 text-white"
+                            style={{ background: meta.color }}
+                          >
+                            {meta.emoji}
+                          </span>
+                          <span>
+                            <span className="block text-sm font-bold text-[#0c4a6e]">
+                              {spot.name}
+                              {spot.id === stayId ? " · Your stay" : ""}
+                            </span>
+                            <span className="block text-[11px] text-slate-500">
+                              {spot.venue}
+                            </span>
+                          </span>
+                        </div>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {camModal}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -468,34 +854,7 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
               maxZoom={MAP_TILES.maxZoom}
             />
             <FlyTo spot={selected} />
-            {spots.map((spot) => (
-              <Marker
-                key={spot.id}
-                position={[spot.lat, spot.lng]}
-                icon={pinIcon(spot, selectedId === spot.id)}
-                eventHandlers={{
-                  click: () => {
-                    if (spot.category === "webcam") openCam(spot);
-                    else select(spot.id);
-                  },
-                }}
-              >
-                <Tooltip
-                  direction="top"
-                  offset={[0, -8]}
-                  className="sv-tooltip"
-                >
-                  <div>
-                    <div>{spot.name}</div>
-                    <div
-                      style={{ fontWeight: 500, opacity: 0.85, fontSize: 11 }}
-                    >
-                      {spot.venue}
-                    </div>
-                  </div>
-                </Tooltip>
-              </Marker>
-            ))}
+            {renderMarkers()}
           </MapContainer>
 
           {selected && selected.category !== "webcam" && (
@@ -668,63 +1027,7 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
       </div>
       )}
 
-      {camSpot && (
-        <div
-          className="fixed inset-0 z-[2000] flex flex-col bg-[#042033]"
-          role="dialog"
-          aria-modal="true"
-          aria-label={camSpot.name}
-        >
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 px-3 py-3 sm:px-4 bg-[#0c4a6e] text-white shadow-lg">
-            {kioskMode ? (
-              <button
-                type="button"
-                onClick={() => goKioskHome(unitSlug)}
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-4 sm:px-5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-base font-extrabold shadow-md"
-              >
-                <Home size={20} />
-                Back to Home
-              </button>
-            ) : null}
-            <button
-              type="button"
-              onClick={closeCam}
-              className={`inline-flex items-center justify-center gap-2 min-h-[48px] px-4 sm:px-5 rounded-full text-base font-extrabold shadow-md ${
-                kioskMode
-                  ? "bg-white/15 hover:bg-white/25 border border-white/30"
-                  : "bg-[#0284c7] hover:bg-[#0369a1]"
-              }`}
-            >
-              {kioskMode ? "← Back to map" : (
-                <>
-                  <Home size={20} />
-                  Back to map
-                </>
-              )}
-            </button>
-            <b className="text-sm sm:text-base font-bold flex-1 min-w-[8rem] truncate">
-              {camSpot.name}
-            </b>
-          </div>
-          <iframe
-            title={camSpot.name}
-            src={camSpot.href}
-            className="flex-1 w-full border-0 bg-black"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <div className="px-3 py-2 bg-[#0c4a6e] text-center">
-            <a
-              href={camSpot.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-sky-200 underline"
-            >
-              Open on cam site if video is blank
-            </a>
-          </div>
-        </div>
-      )}
+      {camModal}
     </div>
   );
 }

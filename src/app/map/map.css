@@ -65,3 +65,111 @@
 .sv-tooltip::before {
   border-top-color: #0c4a6e !important;
 }
+
+/* ── Phone guidebook map (BransonMap guide variant) ─────────────── */
+.sv-guide-map .leaflet-container {
+  /* Leaflet owns touch: one-finger pan, pinch zoom */
+  touch-action: none;
+}
+
+.sv-guide-map .leaflet-control-attribution {
+  font-size: 9px;
+  line-height: 1.25;
+  max-width: 100%;
+}
+
+.sv-popup .leaflet-popup-content-wrapper {
+  border-radius: 16px;
+  border: 2px solid #bae6fd;
+  box-shadow: 0 12px 28px rgba(12, 74, 110, 0.28);
+}
+
+.sv-popup .leaflet-popup-content {
+  margin: 12px 14px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+.sv-popup a.leaflet-popup-close-button {
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  line-height: 30px;
+  color: #64748b;
+}
+
+.sv-popup-cat {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0c4a6e;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.sv-popup-name {
+  margin-top: 4px;
+  padding-right: 18px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0c4a6e;
+}
+
+.sv-popup-venue {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0369a1;
+}
+
+.sv-popup .leaflet-popup-content p.sv-popup-desc {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #475569;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sv-popup-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sv-popup .sv-popup-cta {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 0;
+  background: #0284c7;
+  color: #fff !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sv-popup .sv-popup-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid #bae6fd;
+  color: #0c4a6e !important;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}

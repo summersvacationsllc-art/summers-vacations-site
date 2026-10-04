@@ -11,6 +11,16 @@ const BransonMap = dynamic(() => import("./BransonMap"), {
   ),
 });
 
-export default function GuideMap() {
-  return <BransonMap embed />;
+/**
+ * Guidebook property slug → our neighborhood-level "Our stays" pin
+ * (street pin only — never a unit address).
+ */
+function stayPinFor(property?: string): string | undefined {
+  if (!property) return undefined;
+  if (property === "branson-family-haven") return "stays-indian-point";
+  return "stays-branson-west"; // every Notch Lane condo, incl. scotts-unit
+}
+
+export default function GuideMap({ property }: { property?: string }) {
+  return <BransonMap embed stayId={stayPinFor(property)} />;
 }
