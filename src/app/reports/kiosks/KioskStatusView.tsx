@@ -25,6 +25,7 @@ type Unit = {
   version: string | null;
   battery: Battery;
   unitSource: string | null;
+  device: { fully: boolean | null; screen: { w: number; h: number } | null; uptimeSec: number | null } | null;
   otherDevices: Device[];
 };
 type Status = {
@@ -47,6 +48,16 @@ function ago(min: number | null): string {
   if (min < 60) return `${Math.round(min)} min ago`;
   if (min < 48 * 60) return `${Math.round(min / 6) / 10} h ago`;
   return `${Math.round(min / 1440)} d ago`;
+}
+
+function dev(u: Unit): string {
+  const d = u.device;
+  if (!d) return "";
+  const parts: string[] = [];
+  if (d.fully != null) parts.push(d.fully ? "Fully Kiosk" : "browser");
+  if (d.screen?.w) parts.push(`${d.screen.w}×${d.screen.h}`);
+  if (d.uptimeSec != null) parts.push(`page up ${d.uptimeSec < 3600 ? Math.round(d.uptimeSec / 60) + " min" : Math.round(d.uptimeSec / 360) / 10 + " h"}`);
+  return parts.join(" · ");
 }
 
 function bat(b: Battery): string {
@@ -128,6 +139,7 @@ export default function KioskStatusView() {
                           {u.unitSource && u.unitSource !== "url" ? ` · unit from ${u.unitSource}` : ""}
                           {u.otherDevices.length ? ` · +${u.otherDevices.length} older device(s)` : ""}
                         </div>
+                        {u.device && <div className="text-[11px] text-slate-400">{dev(u)}</div>}
                       </td>
                       <td className="px-3 py-2">
                         <span className={`inline-block rounded-full px-2 py-0.5 text-[12px] font-semibold ${BADGE[u.status]}`}>

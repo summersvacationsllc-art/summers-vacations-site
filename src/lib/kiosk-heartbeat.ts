@@ -157,6 +157,8 @@ export type UnitStatus = {
   version: string | null;
   battery: HeartbeatRecord["battery"];
   unitSource: string | null;
+  /** Diagnostics from the latest beat (no PII): kiosk app, screen, uptime, browser UA. */
+  device: { fully: boolean | null; screen: HeartbeatRecord["screen"]; uptimeSec: number | null; online: boolean | null; visible: string | null; ua: string | null } | null;
   otherDevices: DeviceStatus[];
 };
 
@@ -258,14 +260,16 @@ export async function kioskStatus(now = new Date()) {
       return {
         unit: u.slug, name: u.name, status: "offline", neverSeen: true,
         lastSeen: null, lastSeenCT: null, ageMinutes: null, deviceId: null,
-        version: null, battery: null, unitSource: null, otherDevices: [],
+        version: null, battery: null, unitSource: null, device: null, otherDevices: [],
       };
     }
     return {
       unit: u.slug, name: u.name, status: top.status, neverSeen: false,
       lastSeen: top.lastSeen, lastSeenCT: top.lastSeenCT, ageMinutes: top.ageMinutes,
       deviceId: top.deviceId, version: top.version, battery: top.battery,
-      unitSource: top.unitSource, otherDevices: mine.slice(1),
+      unitSource: top.unitSource,
+      device: { fully: top.fully, screen: top.screen, uptimeSec: top.uptimeSec, online: top.online, visible: top.visible, ua: top.ua },
+      otherDevices: mine.slice(1),
     };
   });
 
