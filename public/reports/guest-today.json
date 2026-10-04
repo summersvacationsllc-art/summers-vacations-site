@@ -1,46 +1,44 @@
 {
-  "date": "2026-10-03",
-  "generated_at": "2026-10-03T14:48:52+00:00",
+  "date": "2026-10-04",
+  "generated_at": "2026-10-04T12:00:07+00:00",
   "headline": {
-    "check_ins": 1,
+    "check_ins": 2,
     "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 4,
     "units_total": 6
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
-      "guest": "Loretta Garrett",
-      "guests": 4,
+      "property": "Penthouse",
+      "guest": "Amanda Cramberg",
+      "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_e9xbph9",
+      "reservation_id": "res_wocl88m",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Tia Barnett",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_w3eid8q",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Lani Dzik",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_eu67bbg",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Double Condo",
       "guest": "Samantha Hicks",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_qt2r6kg",
-      "check_in": "2026-09-25",
-      "check_out": "2026-10-04",
-      "nights": 9
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Indian Point",
       "guest": "Rick Mcknight",
@@ -59,6 +57,26 @@
       "reservation_id": "res_e9xbph9",
       "check_in": "2026-10-03",
       "check_out": "2026-10-05",
+      "nights": 2
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Amanda Cramberg",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_wocl88m",
+      "check_in": "2026-10-04",
+      "check_out": "2026-10-07",
+      "nights": 3
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Tia Barnett",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_w3eid8q",
+      "check_in": "2026-10-04",
+      "check_out": "2026-10-06",
       "nights": 2
     }
   ],
