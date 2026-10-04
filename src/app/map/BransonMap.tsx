@@ -234,9 +234,15 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
   return (
     <div
       className={
-        isEmbed
+        embed
           ? "h-full bg-[#f0f9ff] flex flex-col"
-          : "min-h-screen bg-[#f0f9ff] flex flex-col"
+          : kioskMode
+            ? // Kiosk iframe (/map?kiosk=1): this page IS the whole iframe, and
+              // html/body have no fixed height, so "h-full" collapsed to 0 and
+              // the Leaflet container rendered 0px tall (blank map). Pin the
+              // root to the iframe viewport instead.
+              "h-[100dvh] bg-[#f0f9ff] flex flex-col overflow-hidden"
+            : "min-h-screen bg-[#f0f9ff] flex flex-col"
       }
     >
       {!isEmbed && (
@@ -448,6 +454,10 @@ export default function BransonMap({ embed = false }: { embed?: boolean }) {
             zoom={12}
             scrollWheelZoom
             className="h-full w-full"
+            // Fill the wrapper absolutely: a percentage height inside a flex
+            // item sized only by min-height/flex-grow resolves to 0, which left
+            // the kiosk map blank even though tiles were loading.
+            style={{ position: "absolute", inset: 0 }}
           >
             {/* Keyless OpenStreetMap tiles. CARTO basemaps now require an API key
                 (every tile came back "API KEY REQUIRED"). OSM tile policy: keep the
