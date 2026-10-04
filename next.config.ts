@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
       },
       {
+        source: "/reports/kiosks",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
         source: "/kiosk-version.json",
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
       },

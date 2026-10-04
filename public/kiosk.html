@@ -1335,6 +1335,104 @@ function init() {
   bootUnit();
   scheduleRefresh();
 }
+/* ---- Silent heartbeat ("check-in") ----------------------------------------
+   Lets /reports/kiosks show which tablets are alive. Sends no guest data / PII:
+   unit slug, a random per-device id kept in localStorage, kiosk build, screen
+   size, battery, online state, uptime. Never throws, never touches the UI.
+   Test/automation loads: add ?probe=<name> so the beat is filed as a probe
+   (excluded from real unit status) and the real device id is untouched. */
+(function kioskHeartbeat() {
+  try {
+    const HB_URL = "/api/kiosk-heartbeat";
+    const HB_EVERY = 3 * 60 * 1000;
+    const HB_ID_KEY = "sv-kiosk-device-id";
+    const loadedAt = Date.now();
+    const bootParams = new URLSearchParams(location.search);
+    const probeName = (bootParams.get("probe") || "").trim().toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 40);
+    const isProbe = bootParams.has("probe");
+    const urlUnit = (bootParams.get("unit") || "").trim().toLowerCase();
+    let unitSource = "default";
+    if (urlUnit && UNITS[urlUnit]) unitSource = "url";
+    else {
+      try { const s = localStorage.getItem(STORE); if (s && UNITS[s]) unitSource = "storage"; } catch (e) {}
+    }
+    function deviceId() {
+      if (isProbe) return "probe-" + (probeName || "anon");
+      let id = "";
+      try { id = localStorage.getItem(HB_ID_KEY) || ""; } catch (e) {}
+      if (!/^[a-z0-9-]{8,64}$/.test(id)) {
+        try {
+          id = (crypto && crypto.randomUUID) ? crypto.randomUUID()
+            : "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+        } catch (e) { id = "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 12); }
+        id = String(id).toLowerCase();
+        try { localStorage.setItem(HB_ID_KEY, id); } catch (e) {}
+      }
+      return id;
+    }
+    let battery = null;
+    try {
+      if (navigator.getBattery) {
+        navigator.getBattery().then((b) => { battery = b; }).catch(() => {});
+      }
+    } catch (e) {}
+    function batteryInfo() {
+      try {
+        if (battery) return { level: Math.round(battery.level * 100), charging: !!battery.charging, src: "web" };
+      } catch (e) {}
+      try {
+        if (typeof fully !== "undefined" && fully.getBatteryLevel) {
+          const lvl = Number(fully.getBatteryLevel());
+          const plugged = fully.isPlugged ? !!fully.isPlugged() : null;
+          if (isFinite(lvl) && lvl >= 0) return { level: Math.round(lvl), charging: plugged, src: "fully" };
+        }
+      } catch (e) {}
+      return null;
+    }
+    let lastSent = 0;
+    function beat(reason) {
+      try {
+        const now = Date.now();
+        if (reason !== "interval" && now - lastSent < 30 * 1000) return;
+        lastSent = now;
+        const payload = {
+          unit: (typeof slug === "string" && slug) || "",
+          unitSource: unitSource,
+          deviceId: deviceId(),
+          probe: isProbe,
+          version: (typeof kioskBuild === "string" && kioskBuild) || "",
+          reason: reason,
+          screen: {
+            w: (window.screen && screen.width) || 0,
+            h: (window.screen && screen.height) || 0,
+            vw: window.innerWidth || 0,
+            vh: window.innerHeight || 0,
+            dpr: window.devicePixelRatio || 1,
+            page: typeof screenIndex === "number" ? screenIndex : -1
+          },
+          visible: document.visibilityState || "",
+          online: navigator.onLine !== false,
+          battery: batteryInfo(),
+          fully: typeof fully !== "undefined",
+          uptimeSec: Math.round((now - loadedAt) / 1000)
+        };
+        const body = JSON.stringify(payload);
+        fetch(HB_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: body,
+          keepalive: true,
+          cache: "no-store"
+        }).catch(() => {});
+      } catch (e) {}
+    }
+    setTimeout(() => beat("load"), 8000);
+    setInterval(() => beat("interval"), HB_EVERY);
+    document.addEventListener("visibilitychange", () => beat("visibility"));
+    window.addEventListener("online", () => beat("online"));
+  } catch (e) {}
+})();
+
 init();
 </script>
 </body>
