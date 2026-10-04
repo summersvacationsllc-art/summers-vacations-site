@@ -138,6 +138,8 @@ export interface PropertyGuidebook {
 
   amenities: string[];
   houseRules: string[];
+  /** Optional intro paragraphs shown above houseRules. When set, the guidebook page renders this unit's houseRules verbatim instead of the shared Notch text. */
+  houseRulesIntro?: string[];
   trash: string;
   emergency: {
     hospital: string;
@@ -264,7 +266,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         instructions: "Use your favorite K-Cup pods. Reservoir fills from the top.",
         youtube: "https://www.youtube.com/watch?v=9VvWwr4lEzg",
       },
-      hvac: { type: "Ecobee Smart Thermostat", instructions: "Set between 68-72°F for comfort and efficiency." },
+      hvac: { type: "Ecobee Smart Thermostat", instructions: "Set between 68-72°F for comfort and efficiency.", youtube: "https://www.youtube.com/watch?v=i3fdeYQORFM" },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
       fireplace: { type: "Electric Fireplace", youtube: "https://www.youtube.com/watch?v=lcq7bG2Mh8E" },
@@ -328,7 +330,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       hvac: {
         type: "Ecobee Smart Thermostat",
         instructions: "Set between 68-72°F for comfort and efficiency.",
-        youtube: "https://www.youtube.com/watch?v=XHbRs2uq0KU",
+        youtube: "https://www.youtube.com/watch?v=i3fdeYQORFM",
       },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
@@ -351,7 +353,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       { title: "Finding the Building", url: "https://youtu.be/qTRxLgEop-Q" },
       { title: "Coffee Bar Tour", url: "https://www.youtube.com/watch?v=s8OHxzMKVd8" },
       { title: "Keurig K-Duo Plus", url: "https://www.youtube.com/watch?v=9VvWwr4lEzg" },
-      { title: "Nest Thermostat", url: "https://www.youtube.com/watch?v=XHbRs2uq0KU" },
+      { title: "Ecobee Thermostat", url: "https://www.youtube.com/watch?v=i3fdeYQORFM" },
       { title: "Electric Fireplace", url: "https://www.youtube.com/watch?v=ZMgLcwV4Hwc" },
       { title: "Electronic Candles & Lantern", url: "https://www.youtube.com/watch?v=ljN3qBYoZ7k" },
       ...COMMON.commonVideos,
@@ -390,7 +392,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         instructions: "Both units have Keurig K-Duo Plus coffee makers.",
         youtube: "https://www.youtube.com/watch?v=9VvWwr4lEzg",
       },
-      hvac: { type: "Ecobee Smart Thermostats (both units)", instructions: "Set between 68-72°F." },
+      hvac: { type: "Ecobee Smart Thermostats (both units)", instructions: "Set between 68-72°F.", youtube: "https://www.youtube.com/watch?v=i3fdeYQORFM" },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
       fireplace: { type: "Electric Fireplaces (both units)", youtube: "https://www.youtube.com/watch?v=lcq7bG2Mh8E" },
@@ -462,7 +464,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         type: "Ecobee Smart Thermostat (guest mode)",
         instructions:
           "Thermostat on main level wall. Tap the screen, then use the up and down arrows or the slider to set the temperature. The thermostat is in guest mode, so settings and schedules are locked. If something needs changing, text Brian at 314-565-0589.",
-        youtube: "https://www.youtube.com/watch?v=8AB-rnp46IA",
+        youtube: "https://www.youtube.com/watch?v=i3fdeYQORFM",
       },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: {
@@ -505,13 +507,14 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     // (laundry room, playground, lake trail, boat parking) and doesn't apply here.
     videos: [
       { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
+      { title: "Lights", url: "https://www.youtube.com/watch?v=X_E7oarX4GY" },
       { title: "LG WashTower Washer & Dryer", url: "https://www.youtube.com/watch?v=wHJ9o73fp6c" },
       { title: "Whirlpool Dishwasher", url: "https://www.youtube.com/watch?v=oZQDeCHFOeo" },
       { title: "Whirlpool Microwave", url: "https://www.youtube.com/watch?v=2nn3-S9f9U4" },
       { title: "Whirlpool Range", url: "https://www.youtube.com/watch?v=8s7a81-iGsk" },
       { title: "Whirlpool Refrigerator", url: "https://www.youtube.com/watch?v=WPkHAU4z06I" },
       { title: "Mr. Coffee Coffee Maker", url: "https://www.youtube.com/watch?v=oEg_z4lHvzU" },
-      { title: "Ecobee Thermostat", url: "https://www.youtube.com/watch?v=8AB-rnp46IA" },
+      { title: "Ecobee Thermostat", url: "https://www.youtube.com/watch?v=i3fdeYQORFM" },
       { title: "Gas Grill: Lighting with a Match", url: "https://www.youtube.com/watch?v=psMyuaFvhFU" },
     ],
   },
@@ -545,7 +548,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         instructions: "Standard drip coffee maker in the kitchen.",
         youtube: "https://www.youtube.com/watch?v=74MuwGbmJFc",
       },
-      hvac: { type: "Ecobee Smart Thermostat", instructions: "Thermostat in the unit." },
+      hvac: { type: "Ecobee Smart Thermostat", instructions: "Thermostat in the unit.", youtube: "https://www.youtube.com/watch?v=i3fdeYQORFM" },
       tv: { type: "Smart TV with Roku Streaming", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
       washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
     },
@@ -575,7 +578,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     slug: "scotts-unit",
     name: "No-Stairs Condo",
     shortName: "Scotts unit",
-    address: "289 Notch Ln, Unit 6, Branson West, MO 65737",
+    address: "289 Notch Lane, Unit 6, Branson West, MO 65737",
     guestyListingId: "6abe3566a78519004a84f031",
     ...COMMON,
 
@@ -584,38 +587,91 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       type: "keyless",
       doorCode: "Last 4 digits of booking phone",
       directions:
-        "Turn into Notch Estates on Notch Lane. 289 Notch Lane Unit 6 is a first-floor condo — no stairs into the unit. Look for building signage for #6.",
+        "While you're staying with us: turn into Notch Estates on Notch Lane. Your home is 289 Notch Lane, Unit 6 — a first-floor condo with no stairs into the unit. Look for building/unit signage for #6.",
       parking:
-        "Park in the spaces near Unit 6 / 289 Notch Lane. Do not block neighboring driveways or dumpster access.",
-      accessNote: COMMON.accessNote,
+        "Park in the spaces near Unit 6 / 289 Notch Lane. Please don't block neighboring driveways, walkways, or dumpster access.",
+      accessNote:
+        "Keyless entry (same lock system style as The Penthouse at Notch). Your door code is the last 4 digits of the phone number on your booking. The code works from 4:00 PM on arrival day until 10:00 AM on checkout day. We'll also email check-in details before you arrive. If the lock doesn't respond, wait a few seconds and try again, then text Brian at 314-565-0589.",
     },
 
     wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
 
     appliances: {
       coffeeMaker: {
+        // TODO(Brian): confirm brand/model (drip vs Keurig) after walk-through
         type: "Coffee maker",
-        instructions: "Coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
+        instructions:
+          "While you're staying with us, the coffee maker is on the kitchen counter. Supplies are in the cabinet above or beside it.",
       },
-      hvac: { type: "In-unit thermostat", instructions: "Thermostat in the living area. Set between 68–72°F for comfort." },
-      tv: { type: "Smart TV", streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"] },
-      washer: { instructions: "Coin laundry available on property by the main pool.", youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      hvac: {
+        type: "Ecobee Smart Thermostat",
+        instructions:
+          "Ecobee smart thermostat in the living area. Set between 68–72°F for comfort and efficiency. Please don't switch the system to extreme temps or hold modes overnight.",
+        youtube: "https://www.youtube.com/watch?v=i3fdeYQORFM",
+      },
+      tv: {
+        type: "Smart TV",
+        streaming: ["Netflix", "Hulu", "Disney+", "Prime Video"],
+      },
+      washer: {
+        instructions:
+          "Coin-operated laundry is available near the main pool (same Notch Estates facility as our other condos). A starter supply of detergent pods is in the unit when stocked.",
+        youtube: "https://www.youtube.com/watch?v=IlJQi1S0NRI",
+      },
+      stove:
+        "Full kitchen with stove/oven, microwave, refrigerator, freezer, toaster, kettle, cookware, dishes, and silverware.",
     },
 
     amenities: [
       ...COMMON.commonAmenities,
       "First-floor — no stairs into the unit",
+      "Fresh remodel",
       "Full kitchen",
+      "Ecobee smart thermostat",
       "Smart TV",
       "Outdoor community pool",
       "On-site fishing lake",
+      "Private entrance",
     ],
-    houseRules: COMMON.houseRules,
-    trash: COMMON.trash,
+    // Final house rules (exact wording from FINAL-scotts-house-rules-for-guesty.txt, 2026-10-03).
+    houseRulesIntro: [
+      "BY BOOKING THIS PROPERTY YOU AGREE TO ABIDE BY THE HOUSE RULES. This nightly rate is for an occupancy of 6. Any additional guests over 6 is subject to a $20 per person nightly charge. ",
+      "No Smoking or vaping in any unit, or common area, or limited common area, including decks, porches, and walkways. Smoking of tobacco and vaping are permitted in the parking lot and street, with proper disposal of butts and wrappers.  Smoking of marijuana is not permitted.  Violators are subject to a $500.00 fine.",
+    ],
+    houseRules: [
+      "1. CHECK-OUT is 10AM. CHECK-IN is 4PM.",
+      "2. VISITORS - People other than those in the Guest party set forth in the reservation may not stay overnight in the property. Any other person in the property is the sole responsibility of Guest.",
+      "3. QUIET HOURS – NOTCH ESTATES HOA Quiet Hours are 10PM-8AM",
+      "4. STRICTLY NO SMOKING OR VAPING of any kind, including marijuana, inside the condo or on the deck, porch, or walkways. Tobacco and vaping are allowed in the parking lot and street only, per HOA rules. Marijuana is not allowed. A fine up to $500 may be applied.",
+      "5. PROPERTY - Keep the property and all furnishings in good order",
+      "6. APPLIANCES - Only use appliances for their intended uses",
+      "7. PETS - Pets or animals of any kind are NOT allowed for nightly rental units per HOA rules.",
+      "8. PARKING - On-street parking is readily available. Park at your convenience any of the spots available. Trailer/boat parking is available in the designated area.",
+      "9. SEPTIC- DO NOT FLUSH anything other than toilet paper. No feminine products, personal or baby wipes should be flushed at any time. If it is found that feminine products have been flushed and clog the septic system, you will be charged for damages.",
+      "10. HOUSEKEEPING - There is no daily housekeeping service. While linens and bath towels are included in the unit and laundered upon Guest departure, daily maid service is not included in the rental rate. We suggest you bring beach towels for the pool.",
+      "11. THERMOSTAT (ECOBEE) - Set between 68-72°F for comfort and efficiency.",
+      "12. BUNK BEDS - Children under the age of 6 should not use the top bunk. Guests assume any and all risks related to accessing, sleeping in, and otherwise using bunk beds.",
+      "13. CABLE TELEVISION AND INTERNET: Cable Television and internet is provided, and service level has been chosen by the owner. No refund of rents shall be given for outages, content, lack of content, speed, access problems, lack of knowledge of use, or personal preferences with regard to Internet service.",
+      "14. ROKU AND CABLE - Roku and cable available in the master bedroom and living room.",
+      "15. ILLEGAL ACTIVITY - Any illegal activity will be grounds for immediate removal from the property and forfeit any refund and security deposit.",
+      "16. FIREARMS: Only legally owned and permitted firearms shall be allowed on the premises according to State and local laws.",
+      "17. USE OF PROPERTY: Guests expressly acknowledge and agree that the Agreement is for transient occupancy of the Property, and that Guests do not intend to make the property a residence or household.",
+      "18. OWNERSHIP - All of the units are privately owned; the owners are not responsible for any accidents, injuries or illness that occurs while on the premises or its facilities. The Homeowners are not responsible for the loss of personal belongings or valuables of the guest. By accepting this reservation, it is agreed that all guests are expressly assuming the risk of any harm arising from their use of the premises or others whom they invite to use the premise.",
+      "19. HOST LIABILITY: The Guest shall hereby indemnify and hold harmless the Host against any and all claims of personal injury or property damage or loss arising from use of the premises regardless of the nature of the accident, injury or loss. Guest expressly recognize that any insurance for property damage or loss which the Host may maintain on the property does not cover the personal property of Guest, and that Guest should purchase their own insurance if such coverage is desired.",
+      "20. TERMINATION: Should the Guest violate any of the terms of this agreement, the rental period shall be terminated immediately. The Guests waive all rights to process if they fail to vacate the premises upon termination of the rental period. The Guests shall vacate the premises at the expiration time and date of the agreement.",
+    ],
+    trash:
+      "Dumpster is at the complex (typically out front/to the left of the building area — follow on-site dumpster signs). Bag household trash and take it out before checkout. Recycling bins are marked where provided.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 
-    videos: [...COMMON.commonVideos],
+    videos: [
+      { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
+      { title: "Laundry Room", url: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
+      { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
+      { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
+    ],
   },
 };
 
