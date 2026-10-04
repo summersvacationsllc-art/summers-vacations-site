@@ -1,0 +1,29 @@
+{
+  "ok": false,
+  "generated_at": "2026-10-04T12:00:08+00:00",
+  "checkedAt": "2026-10-04T07:00:08-05:00",
+  "todayCT": "2026-10-04",
+  "lastSyncAt": "2026-10-04T12:00:07+00:00",
+  "syncDataDate": "2026-10-04",
+  "liveDataDate": "2026-10-04",
+  "liveSource": "github",
+  "expectedInHouse": [
+    "Rick Mcknight @ Indian Point",
+    "Amanda Cramberg @ Penthouse",
+    "Tia Barnett @ Rustic Ozark",
+    "Loretta Garrett @ Woodland Retreat"
+  ],
+  "kioskUnits": {
+    "the-penthouse": "Amanda Cramberg (Penthouse)",
+    "rustic-ozark-retreat": "Tia Barnett (Rustic Ozark)",
+    "double-condo": null,
+    "branson-family-haven": "Rick Mcknight (Indian Point)",
+    "woodland-retreat": "Loretta Garrett (Woodland Retreat)",
+    "scotts-unit": null
+  },
+  "errors": [
+    "daily sync had not published guest data for today by the 7 AM CT deadline (monitor rebuilt it)"
+  ],
+  "notes": [],
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/37200592173 late=1 rebuild=success"
+}
