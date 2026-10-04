@@ -349,7 +349,10 @@ function BransonCardPage() {
 
   return (
     <div
-      className="min-h-screen bg-sky-50 flex flex-col max-w-md mx-auto relative"
+      // w-full: mx-auto inside the flex-col body shrink-wrapped this to 448px,
+      // wider than a 390px phone. Map tab: lock to the screen so the map +
+      // place list fill the space above the fixed tab bar.
+      className={`${unlocked && tab === "map" ? "h-[100dvh] overflow-hidden" : "min-h-screen"} w-full bg-sky-50 flex flex-col max-w-md mx-auto relative`}
       style={{ fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}
     >
       <div className="h-[34px]" />
@@ -405,7 +408,14 @@ function BransonCardPage() {
         <span className="text-[10px] text-white/90">{todayLabel}</span>
       </div>
 
-      <div className="flex-1 overflow-y-auto pb-24" style={{ scrollbarWidth: "none" }}>
+      <div
+        className={unlocked && tab === "map" ? "flex-1 min-h-0 overflow-hidden" : "flex-1 overflow-y-auto pb-24"}
+        style={
+          unlocked && tab === "map"
+            ? { scrollbarWidth: "none", paddingBottom: "calc(3rem + env(safe-area-inset-bottom))" }
+            : { scrollbarWidth: "none" }
+        }
+      >
         {!unlocked ? (
           <>
             <div
@@ -752,7 +762,7 @@ function BransonCardPage() {
             )}
 
             {tab === "map" && (
-              <div className="px-0 pt-1" style={{ height: "calc(100dvh - 11.5rem)" }}>
+              <div className="h-full">
                 <GuideMap />
               </div>
             )}

@@ -173,3 +173,23 @@
   font-weight: 700;
   text-decoration: none;
 }
+
+/* Phone place wheel: one place per stop, snapping to center */
+.sv-wheel-track {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-inline: 40%;
+  overscroll-behavior-x: contain;
+}
+.sv-wheel-track::-webkit-scrollbar {
+  display: none;
+}
+.sv-wheel-item {
+  scroll-snap-align: center;
+  /* px, not %: the 40% side padding shrinks the track's content box */
+  max-width: 230px;
+}
+
+.sv-guide-map .sv-popup .leaflet-popup-content p.sv-popup-desc {
+  -webkit-line-clamp: 2;
+}
