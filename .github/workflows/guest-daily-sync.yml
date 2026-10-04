@@ -11,6 +11,11 @@ permissions:
   contents: write  # needed to push to the repo
   actions: read
 
+# One guest-data writer at a time (daily sync + monitor share this group).
+concurrency:
+  group: guest-data-sync
+  cancel-in-progress: false
+
 env:
   # These will be set as GitHub repository secrets
   CRON_SECRET: ${{ secrets.CRON_SECRET }}
@@ -95,17 +100,17 @@ jobs:
             cp "$PRIOR" "$PRIOR_BAK"
             echo "Prior magazine bytes: $(wc -c < "$PRIOR_BAK")"
           fi
-          
+
           # Step 1: Generate live snapshots from str-manager-one
           echo "=== Building guest-today.json ==="
           python3 scripts/build_guest_today.py --date "$DATE"
-          
+
           echo "=== Building fleet-today.json ==="
           python3 scripts/build_fleet_today.py --date "$DATE"
 
           echo "=== Building business-today.json (phone /reports/fleet) ==="
           python3 scripts/build_business_today.py --date "$DATE"
-          
+
           # Step 2: Generate the magazine HTML report from scout data
           echo "=== Building magazine report (YYYY-MM-DD.html) ==="
           python3 scripts/build_today_reports.py --date "$DATE"
@@ -133,11 +138,11 @@ jobs:
           else
             python3 scripts/sync_map_places.py || echo "map sync skipped"
           fi
-          
+
           # Step 3: Verify outputs exist and have content
           echo "=== Verification ==="
           ls -la public/reports/
-          
+
           # Check HTML has substance (not thin guard HTML)
           HTML_SIZE=$(wc -c < "public/reports/$DATE.html" 2>/dev/null || echo 0)
           if [ "$HTML_SIZE" -lt 14000 ]; then
@@ -145,7 +150,7 @@ jobs:
           else
             echo "HTML size: $HTML_SIZE bytes ✓"
           fi
-          
+
           # Verify JSONs have today's date
           for f in fishing-data.json fishing-magazine.json shows-data.json shows-magazine.json manifest.json guest-today.json fleet-today.json; do
             if [ -f "public/reports/$f" ]; then
@@ -162,23 +167,64 @@ jobs:
           set -euo pipefail
           git config user.name "Summers Vacations Bot"
           git config user.email "summersvacationsllc-art@users.noreply.github.com"
-          
+
           # Only add the reports folder (safety)
           git add public/reports/
-          
+
           # Check if there's anything to commit
           if git diff --cached --quiet; then
             echo "No changes to public/reports/ — skipping commit"
             exit 0
           fi
-          
+
           DATE=$(date -u +%Y-%m-%d)
           git commit -m "guest daily sync: $DATE Branson report data"
-          git push origin HEAD:main
+          # Mac/Hermes also pushes reports; rebase onto it instead of failing.
+          pushed=0
+          for i in 1 2 3; do
+            if { git pull --rebase -X theirs origin main || { git rebase --abort 2>/dev/null; false; }; } && git push origin HEAD:main; then pushed=1; break; fi
+            echo "push attempt $i failed; retrying"; sleep $((i * 5))
+          done
+          [ "$pushed" = 1 ] || { echo "::error::could not push to main after 3 attempts"; exit 1; }
+          git log origin/main -1 --oneline
           echo "Pushed updated reports to main"
 
+      # /api/guest-today reads guest-today.json from GitHub main at request time,
+      # so no Vercel deploy is needed. Prove production now serves exactly what
+      # this sync wrote and that the kiosk maps every in-house unit.
+      - name: Verify live kiosk data matches this sync
+        id: verify
+        if: success()
+        run: |
+          set -uo pipefail
+          python3 scripts/verify_guest_live.py \
+            --expected public/reports/guest-today.json \
+            --wait 600 \
+            --status-out public/reports/sync-status.json \
+            --context "guest-daily-sync run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          exit $rc
+
+      - name: Publish sync-status.json
+        if: always() && steps.verify.outcome != 'skipped'
+        run: |
+          set -euo pipefail
+          [ -f public/reports/sync-status.json ] || exit 0
+          git config user.name "Summers Vacations Bot"
+          git config user.email "summersvacationsllc-art@users.noreply.github.com"
+          git add public/reports/sync-status.json
+          git diff --cached --quiet && exit 0
+          git commit -m "guest sync status: $(jq -r '.checkedAt + " ok=" + (.ok|tostring)' public/reports/sync-status.json)"
+          for i in 1 2 3; do
+            if { git pull --rebase -X theirs origin main || { git rebase --abort 2>/dev/null; false; }; } && git push origin HEAD:main; then break; fi
+            sleep $((i * 5))
+          done
+
+      # A failed run makes GitHub email the account that owns this workflow's
+      # schedule (summersvacationsllc-art). Live status: /api/sync-status
       - name: Notify on failure
         if: failure()
         run: |
-          echo "::error::Guest Daily Sync failed — check workflow logs"
-          # Could add Slack/email/webhook notification here later
+          echo "::error::Guest Daily Sync failed — kiosk guest data may be stale or wrong. Check this run's log and https://www.mybransonvacation.com/api/sync-status"
+          exit 1

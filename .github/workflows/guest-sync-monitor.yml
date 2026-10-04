@@ -1,0 +1,127 @@
+name: Guest Sync Monitor
+
+# Watchdog for the kiosk's guest data. Runs several times a day (GitHub may
+# start scheduled runs late, so there are several slots):
+#   1. If today's guest data had not been published (neither the Mac/Hermes
+#      5:30 AM sync nor the GitHub Actions daily sync ran), record an error.
+#   2. Rebuild public/reports/guest-today.json from str-manager-one (same
+#      deterministic script the daily sync uses) and push it, so same-day
+#      bookings and missed syncs still reach the kiosk. No Vercel deploy needed:
+#      /api/guest-today reads GitHub main at request time.
+#   3. Verify production /api/guest-today + kiosk.html match, write
+#      public/reports/sync-status.json, and FAIL the run on any problem.
+#      A failed scheduled run makes GitHub email the account that owns the
+#      schedule (summersvacationsllc-art).
+
+on:
+  schedule:
+    - cron: '15 12 * * *'   # 7:15 AM CDT  (6:15 AM CST)
+    - cron: '45 15 * * *'   # 10:45 AM CDT
+    - cron: '30 19 * * *'   # 2:30 PM CDT (before 4 PM check-ins)
+    - cron: '30 22 * * *'   # 5:30 PM CDT (late same-day bookings)
+  workflow_dispatch:
+    inputs:
+      rebuild:
+        description: 'Rebuild guest-today.json from str-manager-one before verifying'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: guest-data-sync
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Was today's guest data published on time?
+        id: due
+        run: |
+          set -euo pipefail
+          TODAY=$(TZ=America/Chicago date +%Y-%m-%d)
+          HOUR=$(TZ=America/Chicago date +%-H)
+          HAVE=$(jq -r '.date // ""' public/reports/guest-today.json)
+          echo "today=$TODAY hour=$HOUR repo guest-today date=$HAVE"
+          echo "today=$TODAY" >> "$GITHUB_OUTPUT"
+          if [ "$HAVE" != "$TODAY" ] && [ "$HOUR" -ge 7 ]; then
+            echo "late=1" >> "$GITHUB_OUTPUT"
+            echo "::error::Guest daily sync had not published $TODAY guest data by $(TZ=America/Chicago date '+%-I:%M %p') CT (repo has $HAVE). Rebuilding now; check the Mac/Hermes 'Branson Guest Daily Sync' job and the 'Branson Guest Daily Sync' workflow."
+          else
+            echo "late=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Rebuild guest-today.json from str-manager-one
+        id: rebuild
+        if: github.event_name == 'schedule' || inputs.rebuild
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          set -euo pipefail
+          python3 scripts/build_guest_today.py --date "${{ steps.due.outputs.today }}"
+          git config user.name "Summers Vacations Bot"
+          git config user.email "summersvacationsllc-art@users.noreply.github.com"
+          git add public/reports/guest-today.json
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "guest-today refresh (monitor): ${{ steps.due.outputs.today }}"
+          pushed=0
+          for i in 1 2 3; do
+            if { git pull --rebase -X theirs origin main || { git rebase --abort 2>/dev/null; false; }; } && git push origin HEAD:main; then pushed=1; break; fi
+            echo "push attempt $i failed; retrying"; sleep $((i * 5))
+          done
+          [ "$pushed" = 1 ] || { echo "::error::could not push to main after 3 attempts"; exit 1; }
+          git log origin/main -1 --oneline
+
+      - name: Verify production kiosk data
+        id: verify
+        if: always()
+        run: |
+          python3 scripts/verify_guest_live.py \
+            --expected public/reports/guest-today.json \
+            --wait 600 \
+            --status-out public/reports/sync-status.json \
+            --context "guest-sync-monitor run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} late=${{ steps.due.outputs.late }} rebuild=${{ steps.rebuild.outcome }}"
+
+      - name: Record late / rebuild problems in status
+        if: always() && (steps.due.outputs.late == '1' || steps.rebuild.outcome == 'failure')
+        run: |
+          [ -f public/reports/sync-status.json ] || echo '{"errors":[]}' > public/reports/sync-status.json
+          jq --arg late "${{ steps.due.outputs.late }}" --arg rb "${{ steps.rebuild.outcome }}" \
+            '.ok=false | .errors += ([ (if $late=="1" then "daily sync had not published guest data for today by the 7 AM CT deadline (monitor rebuilt it)" else empty end), (if $rb=="failure" then "monitor rebuild from str-manager-one failed" else empty end) ])' \
+            public/reports/sync-status.json > /tmp/s.json && mv /tmp/s.json public/reports/sync-status.json
+          cat public/reports/sync-status.json
+
+      - name: Publish sync-status.json
+        if: always()
+        run: |
+          set -euo pipefail
+          [ -f public/reports/sync-status.json ] || exit 0
+          git config user.name "Summers Vacations Bot"
+          git config user.email "summersvacationsllc-art@users.noreply.github.com"
+          git add public/reports/sync-status.json
+          git diff --cached --quiet && exit 0
+          git commit -m "guest sync status: $(jq -r '.checkedAt + " ok=" + (.ok|tostring)' public/reports/sync-status.json)"
+          for i in 1 2 3; do
+            if { git pull --rebase -X theirs origin main || { git rebase --abort 2>/dev/null; false; }; } && git push origin HEAD:main; then break; fi
+            sleep $((i * 5))
+          done
+
+      - name: Fail (alert) if anything is wrong
+        if: always()
+        run: |
+          if [ "${{ steps.verify.outcome }}" != "success" ] || [ "${{ steps.due.outputs.late }}" = "1" ] || [ "${{ steps.rebuild.outcome }}" = "failure" ]; then
+            echo "::error::Kiosk guest data problem — see errors above and https://www.mybransonvacation.com/api/sync-status"
+            exit 1
+          fi
+          echo "All good: production kiosk data matches today's guest sync."
