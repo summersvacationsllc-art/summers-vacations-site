@@ -18,7 +18,9 @@ type Props = {
  */
 export default function BookYourWay({ slug, name }: Props) {
   const links = channelLinks(slug);
-  const hasOta = Boolean(links.airbnb || links.vrbo);
+  const showAirbnb = Boolean(links.airbnb && links.airbnb !== links.direct);
+  const showVrbo = Boolean(links.vrbo);
+  const hasOta = showAirbnb || showVrbo;
   const placement = "hero_book_your_way";
 
   if (!hasOta) return null;
@@ -41,7 +43,7 @@ export default function BookYourWay({ slug, name }: Props) {
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 gap-2.5 mt-3 sm:mt-4">
-        {links.airbnb && (
+        {showAirbnb && links.airbnb && (
           <a
             href={links.airbnb}
             target="_blank"
@@ -53,7 +55,7 @@ export default function BookYourWay({ slug, name }: Props) {
             <ExternalLink size={14} />
           </a>
         )}
-        {links.vrbo && (
+        {showVrbo && links.vrbo && (
           <a
             href={links.vrbo}
             target="_blank"

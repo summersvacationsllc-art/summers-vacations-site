@@ -127,9 +127,10 @@ export const PROPERTIES: PropertyCard[] = [
     area: "Branson West",
     slug: "scotts-unit",
     photo: "/property-photos/scotts-unit/aaa-living.jpg",
-    blurb: "Fresh remodel, first-floor access — no stairs into the unit. Pool and fishing lake on site.",
+    blurb: "Fresh remodel, first-floor access — no stairs into the unit. About a mile from Silver Dollar City; 15–20 minutes from the shows.",
     badge: "✨ New",
-    bookUrl: "https://notchcondos.guestybookings.com/en/properties/6abe3566a78519004a84f031",
+    // Airbnb-only for now — primary Book buttons go to Airbnb until VRBO/direct are live
+    bookUrl: "https://www.airbnb.com/rooms/1128338659082307697",
     airbnbUrl: "https://www.airbnb.com/rooms/1128338659082307697",
     vrboUrl: "",
   },

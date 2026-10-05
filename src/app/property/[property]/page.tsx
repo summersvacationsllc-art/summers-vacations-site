@@ -215,14 +215,15 @@ const PROPERTIES: Record<
     address: "289 Notch Lane, Unit 6, Branson West, MO 65737",
     guestyId: "6abe3566a78519004a84f031",
     emoji: "🏠",
-    desc: "Freshly remodeled first-floor condo — no stairs into the unit. Open living room, full kitchen, two bedrooms, community pool, and on-site fishing lake. Three minutes from Silver Dollar City.",
+    desc: "Freshly remodeled first-floor condo — no stairs into the unit. Open living room, full kitchen, two bedrooms, community pool, and on-site fishing lake. About a mile from Silver Dollar City and 15–20 minutes from the shows. Book on Airbnb for now (VRBO and direct booking coming soon).",
     highlights: [
       "First-floor — no stairs",
       "Fresh remodel",
       "Full kitchen",
       "Community pool",
       "On-site fishing lake",
-      "Minutes from SDC",
+      "~1 mile from Silver Dollar City",
+      "15–20 minutes from shows",
     ],
     amenities: [
       "High-speed WiFi",
