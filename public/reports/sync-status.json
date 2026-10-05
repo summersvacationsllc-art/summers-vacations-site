@@ -1,27 +1,26 @@
 {
   "ok": true,
-  "generated_at": "2026-10-05T01:09:10+00:00",
-  "checkedAt": "2026-10-04T20:09:10-05:00",
-  "todayCT": "2026-10-04",
-  "lastSyncAt": "2026-10-05T01:09:08+00:00",
-  "syncDataDate": "2026-10-04",
-  "liveDataDate": "2026-10-04",
+  "generated_at": "2026-10-05T19:22:18+00:00",
+  "checkedAt": "2026-10-05T14:22:18-05:00",
+  "todayCT": "2026-10-05",
+  "lastSyncAt": "2026-10-05T19:22:10+00:00",
+  "syncDataDate": "2026-10-05",
+  "liveDataDate": "2026-10-05",
   "liveSource": "github",
   "expectedInHouse": [
-    "Rick Mcknight @ Indian Point",
     "Amanda Cramberg @ Penthouse",
     "Tia Barnett @ Rustic Ozark",
-    "Loretta Garrett @ Woodland Retreat"
+    "Jason Pugh @ Woodland Retreat"
   ],
   "kioskUnits": {
     "the-penthouse": "Amanda Cramberg (Penthouse)",
     "rustic-ozark-retreat": "Tia Barnett (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": "Rick Mcknight (Indian Point)",
-    "woodland-retreat": "Loretta Garrett (Woodland Retreat)",
+    "branson-family-haven": null,
+    "woodland-retreat": "Jason Pugh (Woodland Retreat)",
     "scotts-unit": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/37250268940 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/37362838134"
 }
