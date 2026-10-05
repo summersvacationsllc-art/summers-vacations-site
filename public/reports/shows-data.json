@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "shows": [
     {
       "name": "Absolutely Country, Definitely Gospel",
@@ -225,5 +225,6 @@
   ],
   "freeEvents": [],
   "magazineBuilt": "2026-10-04",
-  "last_verified": "2026-10-04T05:46:37-05:00"
+  "last_verified": "2026-10-05T05:15:55-05:00",
+  "note": "Date bumped from scout presence 2026-10-05; verify showtimes locally."
 }
