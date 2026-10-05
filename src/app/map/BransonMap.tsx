@@ -772,6 +772,7 @@ export default function BransonMap({
   return (
     <div
       className={
+<<<<<<< Updated upstream
         embed
           ? "h-full bg-[#f0f9ff] flex flex-col"
           : kioskMode
@@ -781,6 +782,13 @@ export default function BransonMap({
               // root to the iframe viewport instead.
               "h-[100dvh] bg-[#f0f9ff] flex flex-col overflow-hidden"
             : "min-h-screen bg-[#f0f9ff] flex flex-col"
+=======
+        isEmbed
+          ? kioskMode
+            ? "h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#f0f9ff] flex flex-col"
+            : "h-full min-h-[420px] bg-[#f0f9ff] flex flex-col"
+          : "min-h-screen bg-[#f0f9ff] flex flex-col"
+>>>>>>> Stashed changes
       }
     >
       {!isEmbed && (
@@ -976,7 +984,9 @@ export default function BransonMap({
       <div
         className={
           isEmbed
-            ? "flex-1 min-h-0 w-full px-2 pb-2 flex flex-col portrait:flex-col landscape:flex-row gap-2"
+            ? // Width breakpoint (not orientation): Fire tablets are 800×1280 portrait
+              // or 1280×800 landscape; orientation MQ is flaky in some WebViews.
+              "flex-1 min-h-0 w-full px-2 pb-2 flex flex-col gap-2 min-[900px]:flex-row"
             : "flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-4"
         }
       >
@@ -984,7 +994,7 @@ export default function BransonMap({
           ref={isEmbed ? undefined : publicMapRef}
           className={
             isEmbed
-              ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 flex-1 min-h-[42vh] landscape:min-h-0 landscape:h-full"
+              ? "sv-map-wrap relative rounded-xl overflow-hidden border-2 border-sky-200 flex-1 basis-0 min-h-[280px]"
               : "sv-map-wrap relative rounded-2xl overflow-hidden border-2 border-sky-200 shadow-lg h-[62vh] min-h-[420px] lg:h-[calc(100vh-230px)]"
           }
         >
@@ -1130,9 +1140,14 @@ export default function BransonMap({
           <aside
             className={
               isEmbed
+<<<<<<< Updated upstream
                 ? "flex flex-col rounded-xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden shrink-0 h-[36vh] min-h-[200px] landscape:h-full landscape:w-[300px] landscape:max-h-none"
                 : // Phones/tablets: list sits under the map (was hidden → pin-only map). lg+: unchanged sidebar.
                   "flex flex-col rounded-2xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden max-h-[55vh] lg:max-h-[calc(100vh-230px)]"
+=======
+                ? "flex flex-col rounded-xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden shrink-0 h-[min(34vh,300px)] min-h-[160px] min-[900px]:h-auto min-[900px]:max-h-none min-[900px]:self-stretch min-[900px]:w-[300px]"
+                : "hidden lg:flex flex-col rounded-2xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden max-h-[calc(100vh-230px)]"
+>>>>>>> Stashed changes
             }
           >
             <div className="px-4 py-3 border-b border-sky-100 text-xs font-bold uppercase tracking-wide text-[#0369a1]">
