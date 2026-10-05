@@ -1,20 +1,20 @@
 {
-  "for": "2026-10-03",
-  "headline": "Saturday at the lake: mild fall day with highs in the mid-70s",
-  "lede": "Saturday, October 3 offers pleasant early-fall Branson weather \u2014 highs near 76\u00b0F, mostly sunny skies, and very low chance of rain. Perfect conditions for a full day on Table Rock Lake, catching a show, or exploring the Strip and Landing.",
+  "for": "2026-10-05",
+  "headline": "Monday at the lake: sunny and pleasant with highs near 82°F",
+  "lede": "Monday, October 5 brings classic early-fall Branson weather — sunny skies, highs in the lower 80s, and virtually no chance of rain. A perfect day to get out on Table Rock Lake, enjoy a matinee show, or explore the Landing and Strip with the family.",
   "heat": false,
   "featured": {
-    "title": "Table Rock Lake Cruise or Park Day",
+    "title": "Table Rock Lake Day",
     "when": "All Day",
     "where": "Table Rock Lake & State Park",
-    "why": "Stable lake levels, mild temperatures, and light winds create ideal conditions for boating, swimming, or hiking with first-time visitors. Pair with a matinee show.",
+    "why": "Sunny skies, mild temperatures, and light winds make this an ideal day for boating, fishing, or hiking the state park trails. Pair it with a show or dinner on the water.",
     "url": "https://www.tablerocklake.com"
   },
   "plan": [
     {
       "when": "Dawn",
       "title": "Morning lakeside start",
-      "detail": "Catch sunrise over Table Rock or enjoy a quiet breakfast at Steamy Joe Cafe before the crowds arrive."
+      "detail": "Enjoy sunrise over Table Rock or a quiet breakfast at Steamy Joe Cafe before the day begins."
     },
     {
       "when": "Afternoon",
@@ -30,7 +30,7 @@
   "indoor": [
     {
       "name": "Clay Cooper Country Express",
-      "detail": "High-energy country, gospel, comedy and dance \u2014 reliable family favorite.",
+      "detail": "High-energy country, gospel, comedy and dance — a reliable family favorite.",
       "url": "https://www.claycoopertheatre.com/"
     },
     {
@@ -44,5 +44,5 @@
       "url": "https://presleys.com"
     }
   ],
-  "honesty": "Night Editor run for 2026-10-03 (prepared 2026-10-02 evening). No tomorrow scout files present \u2014 honest carry-forward from latest verified data (shows and dining updated 2026-10-02). Weather from Open-Meteo (high ~76\u00b0F, low rain chance). Saturday restaurant spotlight: Lake House Restaurant (representational photo). Bright-blue theme enforced. Plan and indoor are proper objects. No guest names, cleaner assignments, or invented times/prices."
+  "honesty": "Night Editor run for 2026-10-04 (prepared evening of 2026-10-04). No tomorrow scout files present — honest carry-forward from latest verified data (shows and dining updated 2026-10-04). Weather pulled live from Open-Meteo (high 82°F / 28°C, 0% precip). Monday restaurant spotlight: pizza (Ozark Mountain Pizza — representational photo from catalog). Bright-blue theme enforced. Plan and indoor are proper objects (dicts). No guest names, cleaner assignments, or invented times/prices."
 }
