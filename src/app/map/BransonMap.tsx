@@ -772,23 +772,12 @@ export default function BransonMap({
   return (
     <div
       className={
-<<<<<<< Updated upstream
-        embed
-          ? "h-full bg-[#f0f9ff] flex flex-col"
-          : kioskMode
-            ? // Kiosk iframe (/map?kiosk=1): this page IS the whole iframe, and
-              // html/body have no fixed height, so "h-full" collapsed to 0 and
-              // the Leaflet container rendered 0px tall (blank map). Pin the
-              // root to the iframe viewport instead.
-              "h-[100dvh] bg-[#f0f9ff] flex flex-col overflow-hidden"
-            : "min-h-screen bg-[#f0f9ff] flex flex-col"
-=======
         isEmbed
           ? kioskMode
-            ? "h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#f0f9ff] flex flex-col"
+            ? // Kiosk iframe (/map?kiosk=1): pin root to iframe viewport so Leaflet isn't 0px tall.
+              "h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#f0f9ff] flex flex-col"
             : "h-full min-h-[420px] bg-[#f0f9ff] flex flex-col"
           : "min-h-screen bg-[#f0f9ff] flex flex-col"
->>>>>>> Stashed changes
       }
     >
       {!isEmbed && (
@@ -1140,14 +1129,9 @@ export default function BransonMap({
           <aside
             className={
               isEmbed
-<<<<<<< Updated upstream
                 ? "flex flex-col rounded-xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden shrink-0 h-[36vh] min-h-[200px] landscape:h-full landscape:w-[300px] landscape:max-h-none"
                 : // Phones/tablets: list sits under the map (was hidden → pin-only map). lg+: unchanged sidebar.
                   "flex flex-col rounded-2xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden max-h-[55vh] lg:max-h-[calc(100vh-230px)]"
-=======
-                ? "flex flex-col rounded-xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden shrink-0 h-[min(34vh,300px)] min-h-[160px] min-[900px]:h-auto min-[900px]:max-h-none min-[900px]:self-stretch min-[900px]:w-[300px]"
-                : "hidden lg:flex flex-col rounded-2xl border-2 border-sky-200 bg-white shadow-sm overflow-hidden max-h-[calc(100vh-230px)]"
->>>>>>> Stashed changes
             }
           >
             <div className="px-4 py-3 border-b border-sky-100 text-xs font-bold uppercase tracking-wide text-[#0369a1]">
