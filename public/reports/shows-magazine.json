@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Sunday show day",
-  "deck": "Family-friendly boards and indoor A/C picks. Verify Sunday times — some houses run a different schedule.",
+  "hed": "Monday at the lake: sunny and pleasant with highs near 82°F",
+  "deck": "Monday, October 5 brings classic early-fall Branson weather — sunny skies, highs in the lower 80s, and virtually no chance of rain. A perfect day to get out on Table Rock Lake, enjoy a matinee show, or explore the Landing and Strip with the family.",
   "pick": {
-    "title": "The Haygoods",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Easy multi-age pick.",
-    "url": "https://www.claycoopertheatre.com/",
-    "source": "desk"
+    "title": "Table Rock Lake Day",
+    "when": "All Day",
+    "where": "Table Rock Lake & State Park",
+    "why": "Sunny skies, mild temperatures, and light winds make this an ideal day for boating, fishing, or hiking the state park trails. Pair it with a show or dinner on the water.",
+    "url": "https://www.tablerocklake.com",
+    "source": "night-editor"
   },
   "buckets": [
     {
@@ -231,13 +231,29 @@
       "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Clay Cooper Country Express",
+      "detail": "High-energy country, gospel, comedy and dance — a reliable family favorite.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "The Haygoods",
+      "detail": "Multi-generational music, lights, and high-production family show.",
+      "url": "https://thehaygoods.com"
+    },
+    {
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic Branson country music, comedy, and family entertainment since 1967.",
+      "url": "https://presleys.com"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-04",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
+    "checked": "2026-10-05",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-05.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
