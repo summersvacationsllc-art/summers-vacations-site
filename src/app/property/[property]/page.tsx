@@ -12,7 +12,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import { bookingUrl, EMAIL, PHONE, PHONE_HREF } from "@/lib/site";
+import { bookingUrl, isComingSoon, EMAIL, PHONE, PHONE_HREF } from "@/lib/site";
 import { trackBookClick } from "@/lib/analytics";
 import BookYourWay from "@/components/BookYourWay";
 
@@ -51,8 +51,6 @@ const PROPERTIES: Record<
     amenities: string[];
     /** Hero background photo (optional). */
     heroPhoto?: string;
-    /** Not bookable online yet — swap Book buttons for a "Booking opens soon — contact us" CTA. */
-    bookingSoon?: boolean;
     /** Set false when the home has no guidebook yet (hides "Preview Guidebook"). */
     hasGuidebook?: boolean;
     /** "The Fun Stuff" photo highlight section near the top (optional). */
@@ -274,7 +272,6 @@ const PROPERTIES: Record<
     emoji: "🕹️",
     desc: "Stay a mile from the magic! This Branson West townhouse is about 1 mile from Silver Dollar City and brings the fun indoors — a game room with a classic Galaga arcade game and foosball, a kids' bunk room, and room for up to 14. Branson's shows are about 15–20 minutes away.",
     heroPhoto: `${KLEIN_DIR}/aaa-gaming-zone.jpg`,
-    bookingSoon: true,
     hasGuidebook: false,
     highlights: [
       "Game room with classic Galaga arcade",
@@ -462,7 +459,8 @@ export default function PropertyPage() {
   const data = PROPERTIES[slug];
   const [photos, setPhotos] = useState<Photo[]>(() => data?.gallery ?? []);
   const bookHref = bookingUrl(slug);
-  const bookingSoon = Boolean(data?.bookingSoon);
+  // Driven by the single `comingSoon` flag on the home in src/lib/site.ts PROPERTIES.
+  const comingSoon = isComingSoon(slug);
   const contactHref = "/#contact";
 
   useEffect(() => {
@@ -515,13 +513,13 @@ export default function PropertyPage() {
               My Branson Vacation
             </span>
           </Link>
-          {bookingSoon ? (
+          {comingSoon ? (
             <a
               href={contactHref}
               className="btn-book text-xs px-5 py-2.5 rounded-full no-underline inline-flex items-center gap-1.5 whitespace-nowrap"
             >
-              <span className="hidden sm:inline">Booking opens soon — contact us</span>
-              <span className="sm:hidden">Contact us</span>
+              <span className="hidden sm:inline">Coming Soon — contact us</span>
+              <span className="sm:hidden">Coming Soon</span>
               <ArrowRight size={14} strokeWidth={2.5} />
             </a>
           ) : (
@@ -539,6 +537,21 @@ export default function PropertyPage() {
         </div>
       </nav>
 
+      {comingSoon && (
+        <div
+          role="status"
+          className="bg-amber-400 text-[#0c4a6e] px-4 py-2.5 text-center text-sm font-semibold"
+        >
+          <span className="font-extrabold uppercase tracking-wide">Coming Soon</span>
+          {" — "}
+          {data.name} isn&apos;t open for booking yet.{" "}
+          <a href={contactHref} className="underline font-bold text-[#0c4a6e]">
+            Contact us
+          </a>{" "}
+          to plan a stay.
+        </div>
+      )}
+
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0c4a6e] via-[#0c4a6e] to-[#0ea5e9]">
         <div className="max-w-7xl mx-auto px-4 py-14 sm:py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
@@ -547,6 +560,11 @@ export default function PropertyPage() {
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/15 text-amber-300 border border-white/20 mb-4">
                 {data.emoji} {data.tag}
               </span>
+              {comingSoon && (
+                <span className="ml-2 inline-flex items-center px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wide bg-amber-400 text-[#0c4a6e] mb-4">
+                  Coming Soon
+                </span>
+              )}
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white">
                 {data.name}
               </h1>
@@ -564,13 +582,13 @@ export default function PropertyPage() {
                   <MapPin size={16} /> {data.location || "Branson West, MO"}
                 </div>
               </div>
-              {bookingSoon ? (
+              {comingSoon ? (
               <div className="flex flex-wrap gap-3 mt-8">
                 <a
                   href={contactHref}
                   className="btn-book inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm no-underline"
                 >
-                  Booking opens soon — contact us
+                  Coming Soon — contact us
                   <ArrowRight size={16} strokeWidth={2.5} />
                 </a>
               </div>
@@ -596,10 +614,10 @@ export default function PropertyPage() {
                 )}
               </div>
               )}
-              {bookingSoon && (
+              {comingSoon && (
                 <>
                   <p className="mt-3 text-sm text-amber-200/95 font-medium">
-                    Online booking isn&apos;t open yet — call, text, or email us and we&apos;ll help you plan your stay.
+                    Coming Soon — online booking isn&apos;t open yet. Call, text, or email us and we&apos;ll help you plan your stay.
                   </p>
                   <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
                     <a
@@ -637,9 +655,9 @@ export default function PropertyPage() {
                     className="w-full aspect-[3/2] object-cover"
                     fetchPriority="high"
                   />
-                  {bookingSoon && (
-                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-400 text-[#0c4a6e] shadow">
-                      Booking opens soon
+                  {comingSoon && (
+                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wide bg-amber-400 text-[#0c4a6e] shadow">
+                      Coming Soon
                     </span>
                   )}
                 </figure>

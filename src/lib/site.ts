@@ -22,9 +22,21 @@ export type PropertyCard = {
   airbnbUrl?: string;
   /** Public VRBO listing URL. Leave "" until known — the button only renders when set. */
   vrboUrl?: string;
+  /**
+   * COMING SOON flag — the single switch for a home that isn't bookable yet.
+   * true  → "Coming Soon" banner/badges, no Book/Airbnb/VRBO links anywhere, only "Coming Soon — contact us".
+   * Remove the line (or set false) to go live; also set bookUrl/airbnbUrl/vrboUrl at that point.
+   */
+  comingSoon?: boolean;
   /** Other names this home may carry in Guesty (title/nickname), so /api/listings maps it to this slug. */
   guestyAliases?: string[];
 };
+
+/** True while a home is flagged comingSoon in PROPERTIES (no booking links). */
+export function isComingSoon(slug?: string | null): boolean {
+  if (!slug) return false;
+  return Boolean(PROPERTIES.find((p) => p.slug === slug)?.comingSoon);
+}
 
 export function bookingUrl(slug?: string | null): string {
   if (!slug) return BOOK_URL;
@@ -143,11 +155,11 @@ export const PROPERTIES: PropertyCard[] = [
     beds: "4BR · 4BA",
     area: "Branson West",
     slug: "silver-dollar-city-adventure-escape",
+    comingSoon: true, // ← flip to go live (then add bookUrl/airbnbUrl/vrboUrl below)
     photo: "/property-photos/silver-dollar-city-adventure-escape/aaa-gaming-zone.jpg",
     blurb: "Game room with a classic Galaga arcade and foosball, plus a kids' bunk room. About a mile from Silver Dollar City; 15–20 minutes from the shows.",
     badge: "✨ New",
-    // Not bookable online yet: Airbnb listing is unlisted and there is no direct/VRBO link.
-    // No bookUrl/airbnbUrl/vrboUrl — the property page shows "Booking opens soon — contact us".
+    // Not bookable yet: Airbnb listing is unlisted; no direct/VRBO link. Leave these empty while comingSoon.
     airbnbUrl: "",
     vrboUrl: "",
     guestyAliases: ["Klein's condo", "!NOT189", "Mile from the Magic", "Family Fun Retreat Near SDC Sleeps 14"],

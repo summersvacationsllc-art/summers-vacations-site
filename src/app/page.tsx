@@ -25,6 +25,7 @@ import {
   EMAIL,
   FACEBOOK,
   PROPERTIES,
+  isComingSoon,
   GALLERY_PHOTOS,
   ACTIVITIES,
   ADVENTURE_PHOTOS,
@@ -371,6 +372,7 @@ export default function Home() {
               // Known homes open their property page (with "Book your way");
               // any unknown Guesty listing falls back to its booking link.
               const hasPage = PROPERTIES.some((x) => x.slug === p.slug);
+              const comingSoon = isComingSoon(p.slug);
               const external = !hasPage && Boolean(p.bookUrl);
               const href = external ? (p.bookUrl as string) : `/property/${p.slug}`;
               return (
@@ -400,7 +402,11 @@ export default function Home() {
                       </span>
                     </div>
                   )}
-                  {(p.badge || p.tag) && (
+                  {comingSoon ? (
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wide bg-amber-400 text-[#0c4a6e] shadow-sm">
+                      Coming Soon
+                    </span>
+                  ) : (p.badge || p.tag) && (
                     <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#0c4a6e] shadow-sm">
                       {p.badge || p.tag}
                     </span>
