@@ -1,39 +1,31 @@
 {
-  "date": "2026-10-05",
-  "generated_at": "2026-10-06T02:26:40+00:00",
+  "date": "2026-10-06",
+  "generated_at": "2026-10-06T05:40:04-05:00",
   "headline": {
     "check_ins": 1,
-    "check_outs": 2,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 3,
-    "units_total": 6
+    "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
-      "guest": "Jason Pugh",
-      "guests": 3,
+      "property": "Rustic Ozark",
+      "guest": "Jo Chamberlin",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_9rwiybh",
+      "reservation_id": "res_y0lojxt",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Indian Point",
-      "guest": "Rick Mcknight",
-      "guests": 7,
+      "property": "Rustic Ozark",
+      "guest": "Tia Barnett",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_d0nr25g",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Loretta Garrett",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_e9xbph9",
+      "reservation_id": "res_w3eid8q",
       "time": "10:00 AM"
     }
   ],
@@ -50,16 +42,6 @@
       "nights": 3
     },
     {
-      "property": "Rustic Ozark",
-      "guest": "Tia Barnett",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_w3eid8q",
-      "check_in": "2026-10-04",
-      "check_out": "2026-10-06",
-      "nights": 2
-    },
-    {
       "property": "Woodland Retreat",
       "guest": "Jason Pugh",
       "guests": 3,
@@ -68,6 +50,16 @@
       "check_in": "2026-10-05",
       "check_out": "2026-10-10",
       "nights": 5
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Jo Chamberlin",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_y0lojxt",
+      "check_in": "2026-10-06",
+      "check_out": "2026-10-10",
+      "nights": 4
     }
   ],
   "sync_notes": {
