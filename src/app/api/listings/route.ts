@@ -26,7 +26,15 @@ function resolveSlug(guestyId: string, title: string, nickname: string): string 
 
   const byProp = PROPERTIES.find((p) => {
     const n = p.name.toLowerCase();
-    return n === titleLower || n === nickLower || p.slug === slugify(title) || p.slug === slugify(nickname);
+    const aliases = (p.guestyAliases || []).map((a) => a.toLowerCase().trim());
+    return (
+      n === titleLower ||
+      n === nickLower ||
+      p.slug === slugify(title) ||
+      p.slug === slugify(nickname) ||
+      aliases.includes(titleLower) ||
+      aliases.includes(nickLower)
+    );
   });
   if (byProp) return byProp.slug;
   return slugify(nickname || title) || guestyId;
@@ -111,7 +119,9 @@ export async function GET() {
         };
       });
 
-    const valid = cards.length ? cards : staticListings();
+    // Homes with a site page that aren't in Guesty yet still get a homepage card.
+    const missing = staticListings().filter((s) => !cards.some((c) => c.slug === s.slug));
+    const valid = cards.length ? [...cards, ...missing] : staticListings();
     cache = { at: Date.now(), listings: valid };
     return NextResponse.json({ ok: true, listings: valid, source: "guesty" });
   } catch (e) {
