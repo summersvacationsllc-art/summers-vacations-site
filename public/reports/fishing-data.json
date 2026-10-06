@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-05",
-  "biteOfDay": "ing Trout fishing on Lake Taneycomo has improved noticeably over the last month. Good numbers of rainbows are showing throughout the upper lake compared to summer, and brown trout are making a strong fall spawning appearance, especially in the first mile of wadeable water below the dam. Anglers are finding them on scuds, small streamers, midges, and marabou jigs (black, sculpin, olive, or with an ",
+  "date": "2026-10-06",
+  "biteOfDay": "ing Trout fishing on Lake Taneycomo has improved noticeably over the last month. Good numbers of rainbows are showing throughout the upper lake compared to summer, and brown trout are making a strong fall spawning appearance, especially in the first mile of wadeable water below the dam. Anglers are finding success on scuds, small streamers, midges, and marabou jigs (black, sculpin, olive, or with ",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.40 ft (USACE 12:00 CT)",
+      "level": "911.44 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~7,775,295 cfs at 12:00 CT (USACE live). Overnight ~20; afternoon peak ~7,775,295. Call SWPA 866-494-1993 before you wad."
+      "generation": "~306 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: Take advantage of the low early-morning flows on Taneycomo. Wade or drift seams and current breaks with a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive, or with an Indy orange head), zebra midge (#14\u201320 in red or black), or scud. Switch to heavier rigs and target breaks behin",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-05T14:22:09-05:00"
+  "source": "scout",
+  "last_verified": "2026-10-06T05:15:06-05:00"
 }
