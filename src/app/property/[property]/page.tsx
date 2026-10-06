@@ -49,8 +49,12 @@ const PROPERTIES: Record<
     desc: string;
     highlights: string[];
     amenities: string[];
-    /** Hero background photo (optional). */
+    /** Hero photo shown beside the hero text (optional). */
     heroPhoto?: string;
+    /** Alt text for heroPhoto. */
+    heroAlt?: string;
+    /** Large feature photo right under the hero (optional). */
+    featurePhoto?: Photo;
     /** Set false when the home has no guidebook yet (hides "Preview Guidebook"). */
     hasGuidebook?: boolean;
     /** "The Fun Stuff" photo highlight section near the top (optional). */
@@ -271,7 +275,9 @@ const PROPERTIES: Record<
     guestyId: "",
     emoji: "🕹️",
     desc: "Stay a mile from the magic! This Branson West townhouse is about 1 mile from Silver Dollar City and brings the fun indoors — a game room with a classic Galaga arcade game and foosball, a kids' bunk room, and room for up to 14. Branson's shows are about 15–20 minutes away.",
-    heroPhoto: `${KLEIN_DIR}/aaa-gaming-zone.jpg`,
+    heroPhoto: `${KLEIN_DIR}/aaa-bunk-game-room.jpg`,
+    heroAlt: "Bunk room meets game room, with comfy beanbags and a classic Galaga arcade",
+    featurePhoto: kp("aaa-open-living.jpg", "Open living room flowing into the dining area and kitchen"),
     hasGuidebook: false,
     highlights: [
       "Game room with classic Galaga arcade",
@@ -396,7 +402,7 @@ const PROPERTIES: Record<
       kp("24-foosball-closeup.jpg", "Foosball face-off, anyone?"),
       // Living
       kp("02-living-room-sectional.jpg", "Living room with a big sectional and doors to the deck"),
-      kp("07-open-living-to-dining.jpg", "Open living room flowing into dining and kitchen"),
+      kp("07-open-living-to-dining.jpg", "Open living room flowing into the dining area and kitchen"),
       kp("42-living-wide-to-kitchen.jpg", "Living room open to dining and kitchen"),
       kp("45-leather-sofa.jpg", "Comfy sofa by the deck doors"),
       // Kitchen & dining
@@ -651,7 +657,7 @@ export default function PropertyPage() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={data.heroPhoto}
-                    alt={`${data.name}: Gaming Zone game room with foosball`}
+                    alt={data.heroAlt || data.name}
                     className="w-full aspect-[3/2] object-cover"
                     fetchPriority="high"
                   />
@@ -671,6 +677,26 @@ export default function PropertyPage() {
           {data.emoji}
         </span>
       </section>
+
+      {data.featurePhoto && (
+        <section className="pt-12 sm:pt-16 px-4 bg-white">
+          <figure className="max-w-7xl mx-auto m-0">
+            <div className="rounded-3xl overflow-hidden bg-sky-100 shadow-xl shadow-sky-900/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={data.featurePhoto.url}
+                alt={data.featurePhoto.caption || `${data.name} photo`}
+                className="w-full aspect-[16/9] sm:aspect-[21/9] object-cover"
+              />
+            </div>
+            {data.featurePhoto.caption && (
+              <figcaption className="mt-3 text-sm sm:text-base font-semibold text-[#0c4a6e]">
+                {data.featurePhoto.caption}
+              </figcaption>
+            )}
+          </figure>
+        </section>
+      )}
 
       {data.fun && (
         <section className="py-12 sm:py-16 px-4 bg-white">

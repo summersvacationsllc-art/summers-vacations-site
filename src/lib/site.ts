@@ -156,7 +156,7 @@ export const PROPERTIES: PropertyCard[] = [
     area: "Branson West",
     slug: "silver-dollar-city-adventure-escape",
     comingSoon: true, // ← flip to go live (then add bookUrl/airbnbUrl/vrboUrl below)
-    photo: "/property-photos/silver-dollar-city-adventure-escape/aaa-gaming-zone.jpg",
+    photo: "/property-photos/silver-dollar-city-adventure-escape/aaa-bunk-game-room.jpg",
     blurb: "Game room with a classic Galaga arcade and foosball, plus a kids' bunk room. About a mile from Silver Dollar City; 15–20 minutes from the shows.",
     badge: "✨ New",
     // Not bookable yet: Airbnb listing is unlisted; no direct/VRBO link. Leave these empty while comingSoon.
