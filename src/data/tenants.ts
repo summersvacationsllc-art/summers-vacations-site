@@ -45,7 +45,8 @@ export type Tenant = {
   notes?: string;
 };
 
-const SUMMERS_PROPERTIES: TenantProperty[] = PROPERTIES.map((p) => ({ ...p }));
+// Coming-soon homes stay off the /branson "Book →" lists until their comingSoon flag is removed.
+const SUMMERS_PROPERTIES: TenantProperty[] = PROPERTIES.filter((p) => !p.comingSoon).map((p) => ({ ...p }));
 
 /** Platform default — always available as funnel fallback. */
 export const PLATFORM_DEFAULT_SLUG = "summers";

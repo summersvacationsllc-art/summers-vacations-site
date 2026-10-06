@@ -22,7 +22,21 @@ export type PropertyCard = {
   airbnbUrl?: string;
   /** Public VRBO listing URL. Leave "" until known — the button only renders when set. */
   vrboUrl?: string;
+  /**
+   * COMING SOON flag — the single switch for a home that isn't bookable yet.
+   * true  → "Coming Soon" banner/badges, no Book/Airbnb/VRBO links anywhere, only "Coming Soon — contact us".
+   * Remove the line (or set false) to go live; also set bookUrl/airbnbUrl/vrboUrl at that point.
+   */
+  comingSoon?: boolean;
+  /** Other names this home may carry in Guesty (title/nickname), so /api/listings maps it to this slug. */
+  guestyAliases?: string[];
 };
+
+/** True while a home is flagged comingSoon in PROPERTIES (no booking links). */
+export function isComingSoon(slug?: string | null): boolean {
+  if (!slug) return false;
+  return Boolean(PROPERTIES.find((p) => p.slug === slug)?.comingSoon);
+}
 
 export function bookingUrl(slug?: string | null): string {
   if (!slug) return BOOK_URL;
@@ -134,6 +148,22 @@ export const PROPERTIES: PropertyCard[] = [
     airbnbUrl: "https://www.airbnb.com/rooms/1128338659082307697",
     vrboUrl: "",
   },
+  {
+    name: "Silver Dollar City Adventure Escape",
+    tag: "Game Room · Bunk Room",
+    sleeps: "14",
+    beds: "4BR · 4BA",
+    area: "Branson West",
+    slug: "silver-dollar-city-adventure-escape",
+    comingSoon: true, // ← flip to go live (then add bookUrl/airbnbUrl/vrboUrl below)
+    photo: "/property-photos/silver-dollar-city-adventure-escape/aaa-gaming-zone.jpg",
+    blurb: "Game room with a classic Galaga arcade and foosball, plus a kids' bunk room. About a mile from Silver Dollar City; 15–20 minutes from the shows.",
+    badge: "✨ New",
+    // Not bookable yet: Airbnb listing is unlisted; no direct/VRBO link. Leave these empty while comingSoon.
+    airbnbUrl: "",
+    vrboUrl: "",
+    guestyAliases: ["Klein's condo", "!NOT189", "Mile from the Magic", "Family Fun Retreat Near SDC Sleeps 14"],
+  },
 ];
 
 /** Real property photos for the mosaic / gallery strip (2–3 per property folder). */
@@ -166,6 +196,10 @@ export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
   { src: "/property-photos/scotts-unit/aaa-living.jpg", alt: "No-Stairs Condo open living room" },
   { src: "/property-photos/scotts-unit/aaa-kitchen.jpg", alt: "Remodeled kitchen with island" },
   { src: "/property-photos/scotts-unit/aaa-living-deck.jpg", alt: "Living room looking out to the deck" },
+  // Klein's condo / Silver Dollar City Adventure Escape
+  { src: "/property-photos/silver-dollar-city-adventure-escape/04-gaming-zone-foosball.jpg", alt: "Gaming Zone with foosball" },
+  { src: "/property-photos/silver-dollar-city-adventure-escape/01-bunk-game-room-cover.jpg", alt: "Bunk room meets game room, the kids' favorite hangout" },
+  { src: "/property-photos/silver-dollar-city-adventure-escape/02-living-room-sectional.jpg", alt: "Living room with a big sectional" },
 ];
 
 /** Adventure carousel — loaded from public/adventure-photos/manifest.json.
