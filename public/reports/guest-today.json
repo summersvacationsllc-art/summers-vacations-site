@@ -1,46 +1,44 @@
 {
-  "date": "2026-10-06",
-  "generated_at": "2026-10-07T01:45:04+00:00",
+  "date": "2026-10-07",
+  "generated_at": "2026-10-07T06:13:41-05:00",
   "headline": {
-    "check_ins": 1,
+    "check_ins": 2,
     "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 4,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Rustic Ozark",
-      "guest": "Jo Chamberlin",
-      "guests": 4,
+      "property": "Penthouse",
+      "guest": "Tara McMillin",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_y0lojxt",
+      "reservation_id": "res_xxo8exy",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Kristi Rohaus",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_9802bed",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Rustic Ozark",
-      "guest": "Tia Barnett",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_w3eid8q",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Amanda Cramberg",
       "guests": 6,
       "platform": "airbnb2",
       "reservation_id": "res_wocl88m",
-      "check_in": "2026-10-04",
-      "check_out": "2026-10-07",
-      "nights": 3
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Woodland Retreat",
       "guest": "Jason Pugh",
@@ -60,6 +58,26 @@
       "check_in": "2026-10-06",
       "check_out": "2026-10-10",
       "nights": 4
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Tara McMillin",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_xxo8exy",
+      "check_in": "2026-10-07",
+      "check_out": "2026-10-11",
+      "nights": 4
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Kristi Rohaus",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_9802bed",
+      "check_in": "2026-10-07",
+      "check_out": "2026-10-10",
+      "nights": 3
     }
   ],
   "sync_notes": {
