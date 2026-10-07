@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-05",
-  "headline": "Monday at the lake: sunny and pleasant with highs near 82°F",
-  "lede": "Monday, October 5 brings classic early-fall Branson weather — sunny skies, highs in the lower 80s, and virtually no chance of rain. A perfect day to get out on Table Rock Lake, enjoy a matinee show, or explore the Landing and Strip with the family.",
+  "for": "2026-10-07",
+  "headline": "Wednesday at the lake: warm fall sunshine with highs near 89\u00b0F",
+  "lede": "Wednesday, October 7 delivers classic Branson fall weather \u2014 bright sunshine, highs in the upper 80s, light winds, and zero chance of rain. Perfect conditions for a full day on Table Rock Lake, catching a matinee, or exploring the Strip and Landing with the family.",
   "heat": false,
   "featured": {
-    "title": "Table Rock Lake Day",
+    "title": "Table Rock Lake Cruise or Fish",
     "when": "All Day",
-    "where": "Table Rock Lake & State Park",
-    "why": "Sunny skies, mild temperatures, and light winds make this an ideal day for boating, fishing, or hiking the state park trails. Pair it with a show or dinner on the water.",
+    "where": "Table Rock Lake",
+    "why": "Warm water, sunny skies, and calm winds create ideal boating, fishing, or sightseeing conditions. Book a morning cruise or rent a pontoon and enjoy the fall colors on the shoreline.",
     "url": "https://www.tablerocklake.com"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Morning lakeside start",
-      "detail": "Enjoy sunrise over Table Rock or a quiet breakfast at Steamy Joe Cafe before the day begins."
+      "title": "Early lake or coffee",
+      "detail": "Catch sunrise over Table Rock or grab breakfast at Steamy Joe Cafe before the day heats up."
     },
     {
       "when": "Afternoon",
-      "title": "Lake or show time",
-      "detail": "Head to the water for boating or State Park trails. Afternoon shows offer family entertainment with easy parking."
+      "title": "Lake time or a show",
+      "detail": "Head out on the water, hike at the State Park, or catch an afternoon matinee. Light winds make for comfortable boating."
     },
     {
       "when": "Dusk",
       "title": "Evening on the Landing",
-      "detail": "Stroll Branson Landing for lights, dining, and fountain shows. Relaxed pace with pleasant temperatures."
+      "detail": "Stroll Branson Landing for the fountain show, lights, and dinner with a view. Temperatures stay pleasant into the evening."
     }
   ],
   "indoor": [
     {
-      "name": "Clay Cooper Country Express",
-      "detail": "High-energy country, gospel, comedy and dance — a reliable family favorite.",
-      "url": "https://www.claycoopertheatre.com/"
-    },
-    {
       "name": "The Haygoods",
-      "detail": "Multi-generational music, lights, and high-production family show.",
+      "detail": "High-energy family music, lights, and multi-generational entertainment in a climate-controlled theater.",
       "url": "https://thehaygoods.com"
     },
     {
+      "name": "Clay Cooper Theatre",
+      "detail": "Country, gospel, comedy, and dance \u2014 a Branson staple that delivers every time.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
       "name": "Presleys Country Jubilee",
-      "detail": "Classic Branson country music, comedy, and family entertainment since 1967.",
+      "detail": "Classic country music, comedy, and family-friendly variety since 1967.",
       "url": "https://presleys.com"
     }
   ],
-  "honesty": "Night Editor run for 2026-10-04 (prepared evening of 2026-10-04). No tomorrow scout files present — honest carry-forward from latest verified data (shows and dining updated 2026-10-04). Weather pulled live from Open-Meteo (high 82°F / 28°C, 0% precip). Monday restaurant spotlight: pizza (Ozark Mountain Pizza — representational photo from catalog). Bright-blue theme enforced. Plan and indoor are proper objects (dicts). No guest names, cleaner assignments, or invented times/prices."
+  "honesty": "Night Editor run on 2026-10-06 evening for 2026-10-07. No tomorrow scout files present \u2014 honest carry-forward from latest verified reports (shows and dining updated 2026-10-04/05). Weather from live Open-Meteo (high 89\u00b0F, 0% precip, no heat). Wednesday restaurant spotlight: Steamy Joe Cafe (representational photo from catalog). Plan and indoor are proper objects. No invented times, prices, guest names, or ops data. Bright-blue theme enforced."
 }
