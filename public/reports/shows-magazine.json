@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-06",
+  "date": "2026-10-07",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Tuesday ticket window",
-  "deck": "**A strong Tuesday lineup across Branson theaters with country music, tributes, variety acts, and family-friendly entertainment.** Multiple shows run at 10:00 AM, 2:00 PM, and evening slots — plenty of options for Summers Vacations guests whether you're starting the day with a matinee or catching an evening performance after a day on the lake or at the Landing.",
+  "hed": "Wednesday at the lake: warm fall sunshine with highs near 89°F",
+  "deck": "Wednesday, October 7 delivers classic Branson fall weather — bright sunshine, highs in the upper 80s, light winds, and zero chance of rain. Perfect conditions for a full day on Table Rock Lake, catching a matinee, or exploring the Strip and Landing with the family.",
   "pick": {
-    "title": "The Haygoods",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Easy multi-age pick.",
-    "url": "https://www.claycoopertheatre.com/",
-    "source": "desk"
+    "title": "Table Rock Lake Cruise or Fish",
+    "when": "All Day",
+    "where": "Table Rock Lake",
+    "why": "Warm water, sunny skies, and calm winds create ideal boating, fishing, or sightseeing conditions. Book a morning cruise or rent a pontoon and enjoy the fall colors on the shoreline.",
+    "url": "https://www.tablerocklake.com",
+    "source": "night-editor"
   },
   "buckets": [
     {
@@ -231,13 +231,29 @@
       "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "The Haygoods",
+      "detail": "High-energy family music, lights, and multi-generational entertainment in a climate-controlled theater.",
+      "url": "https://thehaygoods.com"
+    },
+    {
+      "name": "Clay Cooper Theatre",
+      "detail": "Country, gospel, comedy, and dance — a Branson staple that delivers every time.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic country music, comedy, and family-friendly variety since 1967.",
+      "url": "https://presleys.com"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-06",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-06.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-07",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
   },
   "counts": {
     "shows": 13,
