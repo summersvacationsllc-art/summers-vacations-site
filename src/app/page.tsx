@@ -532,6 +532,7 @@ export default function Home() {
                     src={photo.src}
                     alt={photo.alt}
                     className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                    style={photo.pos ? { objectPosition: photo.pos } : undefined}
                     loading="lazy"
                   />
                 </div>
@@ -862,6 +863,7 @@ export default function Home() {
                 alt={photo.alt}
                 loading="lazy"
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                style={photo.pos ? { objectPosition: photo.pos } : undefined}
               />
             </div>
           ))}

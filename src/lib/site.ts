@@ -166,11 +166,12 @@ export const PROPERTIES: PropertyCard[] = [
   },
 ];
 
-/** Real property photos for the mosaic / gallery strip (2–3 per property folder). */
-export const GALLERY_PHOTOS: { src: string; alt: string }[] = [
+/** Real property photos for the mosaic / gallery strip (2–3 per property folder).
+ *  `pos` = CSS object-position for the square/4:5 crops (keeps the subject in frame). */
+export const GALLERY_PHOTOS: { src: string; alt: string; pos?: string }[] = [
   // Penthouse
   { src: "/property-photos/penthouse/aaa-fall-porch.jpg", alt: "Penthouse porch dressed for fall" },
-  { src: "/property-photos/penthouse/aaa-fall-coffee.jpg", alt: "Coffee nook with fall garland" },
+  { src: "/property-photos/penthouse/aaa-fall-coffee.jpg", alt: "Coffee nook with fall garland", pos: "50% 20%" },
   { src: "/property-photos/penthouse/aaa-fall-living.jpg", alt: "Living room with fall pillows" },
   // Rustic Ozark
   { src: "/property-photos/rustic-ozark-retreat/aaa-fall-porch.jpg", alt: "Rustic porch dressed for fall" },
