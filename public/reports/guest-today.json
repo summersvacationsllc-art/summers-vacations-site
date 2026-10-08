@@ -1,42 +1,25 @@
 {
-  "date": "2026-10-07",
-  "generated_at": "2026-10-08T02:12:43+00:00",
+  "date": "2026-10-08",
+  "generated_at": "2026-10-08T17:32:52+00:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 1,
+    "check_ins": 1,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Penthouse",
-      "guest": "Tara McMillin",
-      "guests": 5,
+      "property": "Indian Point",
+      "guest": "Kelsey Clifton",
+      "guests": 11,
       "platform": "airbnb2",
-      "reservation_id": "res_xxo8exy",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Scotts unit",
-      "guest": "Kristi Rohaus",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_9802bed",
+      "reservation_id": "res_yzx4y8r",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "Amanda Cramberg",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_wocl88m",
-      "time": "10:00 AM"
-    }
-  ],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
@@ -78,6 +61,16 @@
       "check_in": "2026-10-07",
       "check_out": "2026-10-10",
       "nights": 3
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Kelsey Clifton",
+      "guests": 11,
+      "platform": "airbnb2",
+      "reservation_id": "res_yzx4y8r",
+      "check_in": "2026-10-08",
+      "check_out": "2026-10-12",
+      "nights": 4
     }
   ],
   "sync_notes": {
