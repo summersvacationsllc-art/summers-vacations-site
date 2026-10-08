@@ -72,6 +72,7 @@ const wd = dir("/property-photos/woodland-retreat");
 const wdf = dir("/property-photos/woodland-retreat/fall");
 const dc = dir("/property-photos/double-condo");
 const sc = dir("/property-photos/scotts-unit");
+const sa = dir("/property-photos/scotts-unit/airbnb");
 const hv = dir("/property-photos/branson-family-haven");
 const ha = dir("/property-photos/branson-family-haven/airbnb");
 const ne = dir("/property-photos/notch-estates");
@@ -325,21 +326,40 @@ const DOUBLE_GALLERY: Photo[] = [
 
 const NOSTAIRS_GALLERY: Photo[] = [
   ...group("Living Room", [
+    sa("00-living-wide.jpg", "Open living room with doors to the deck"),
     sc("aaa-living.jpg", "Freshly remodeled open living room"),
     sc("aaa-living-deck.jpg", "Living room with doors to the deck"),
     sc("07.jpg", "Open living room, kitchen and dining"),
     sc("08.jpg", "Living room toward the kitchen"),
+    sa("38-entry-hall.jpg", "Entry hall with coat hooks"),
   ]),
   ...group("Kitchen & Dining", [
+    sa("06-kitchen.jpg", "Kitchen with stainless steel appliances"),
+    sa("07-island-to-living.jpg", "Granite island open to the living room"),
+    sa("08-coffee-station.jpg", "Coffee station with a kettle and mugs"),
     sc("10.jpg", "Remodeled kitchen with bar seating"),
     sc("11.jpg", "Stainless steel appliances"),
     sc("12.jpg", "Kitchen and dining nook"),
   ]),
-  ...group("Bedroom & Bath", [
+  ...group("Bedrooms", [
+    sa("14-bedroom1-tv.jpg", "Bedroom 1 with a wall-mounted TV"),
     sc("03.jpg", "Bedroom 1: king bed"),
-    sc("09.jpg", "Remodeled bathroom"),
+    sa("16-bedroom2-bunk.jpg", "Bedroom 2: double bed and bunk bed"),
+    sa("17-bedroom2-bunk-angle.jpg", "Bedroom 2 bunk bed"),
   ]),
-  ...group("Deck", [sc("aaa-kitchen.jpg", "Relax on the deck")]),
+  ...group("Bathrooms & Laundry", [
+    sa("19-bath1-tub.jpg", "Bathroom 1 with a tub/shower combo"),
+    sa("20-bath2.jpg", "Bathroom 2"),
+    sc("09.jpg", "Remodeled bathroom"),
+    sa("22-laundry.jpg", "Stacked washer and dryer"),
+  ]),
+  ...group("Porch & Deck", [
+    sa("23-front-porch.jpg", "Front porch seating"),
+    sa("29-covered-porch.jpg", "Covered porch with string lights"),
+    sa("24-deck.jpg", "Deck lounge in the trees"),
+    sc("aaa-kitchen.jpg", "Relax on the deck"),
+    sa("26-deck-loungers.jpg", "Zero-gravity loungers on the deck"),
+  ]),
   ...NOTCH_COMMUNITY_PHOTOS,
 ];
 
