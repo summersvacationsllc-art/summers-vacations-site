@@ -21,8 +21,8 @@ function localDir(): string {
 }
 
 function safeLocalPath(root: string, pathname: string): string {
-  const full = path.resolve(root, pathname);
-  if (!full.startsWith(path.resolve(root) + path.sep)) throw new Error("Bad blob path.");
+  const full = path.resolve(/* turbopackIgnore: true */ root, pathname);
+  if (!full.startsWith(path.resolve(/* turbopackIgnore: true */ root) + path.sep)) throw new Error("Bad blob path.");
   return full;
 }
 
@@ -90,8 +90,9 @@ export async function list(opts: { prefix?: string; cursor?: string; limit?: num
   const root = localDir();
   if (!root) return vb.list(opts);
   const prefix = opts.prefix || "";
-  const all = (await walk(path.resolve(root)))
-    .map((f) => path.relative(path.resolve(root), f).split(path.sep).join("/"))
+  const base = path.resolve(/* turbopackIgnore: true */ root);
+  const all = (await walk(base))
+    .map((f) => path.relative(base, f).split(path.sep).join("/"))
     .filter((p) => p.startsWith(prefix));
   return { blobs: all.map((pathname) => ({ pathname })), hasMore: false, cursor: undefined as string | undefined };
 }
