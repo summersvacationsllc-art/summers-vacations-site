@@ -959,7 +959,7 @@ export default function Home() {
               alt="Penthouse deck ready for vacation"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/75 via-[#0c4a6e]/50 to-teal-700/35" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/70 via-[#0c4a6e]/45 to-teal-700/30" />
           </div>
           <div className="relative px-6 py-14 sm:py-16 text-center">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
