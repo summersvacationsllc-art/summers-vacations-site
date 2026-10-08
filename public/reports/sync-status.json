@@ -1,13 +1,14 @@
 {
   "ok": true,
-  "generated_at": "2026-10-08T02:12:45+00:00",
-  "checkedAt": "2026-10-07T21:12:45-05:00",
-  "todayCT": "2026-10-07",
-  "lastSyncAt": "2026-10-08T02:12:43+00:00",
-  "syncDataDate": "2026-10-07",
-  "liveDataDate": "2026-10-07",
+  "generated_at": "2026-10-08T17:32:59+00:00",
+  "checkedAt": "2026-10-08T12:32:59-05:00",
+  "todayCT": "2026-10-08",
+  "lastSyncAt": "2026-10-08T17:32:52+00:00",
+  "syncDataDate": "2026-10-08",
+  "liveDataDate": "2026-10-08",
   "liveSource": "github",
   "expectedInHouse": [
+    "Kelsey Clifton @ Indian Point",
     "Tara McMillin @ Penthouse",
     "Jo Chamberlin @ Rustic Ozark",
     "Kristi Rohaus @ Scotts unit",
@@ -17,11 +18,11 @@
     "the-penthouse": "Tara McMillin (Penthouse)",
     "rustic-ozark-retreat": "Jo Chamberlin (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": null,
+    "branson-family-haven": "Kelsey Clifton (Indian Point)",
     "woodland-retreat": "Jason Pugh (Woodland Retreat)",
     "scotts-unit": "Kristi Rohaus (Scotts unit)"
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/37716731232 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/37817373747"
 }
