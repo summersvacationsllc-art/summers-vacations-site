@@ -959,13 +959,13 @@ export default function Home() {
               alt="Penthouse deck ready for vacation"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/95 via-[#0c4a6e]/85 to-teal-700/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0c4a6e]/75 via-[#0c4a6e]/50 to-teal-700/35" />
           </div>
           <div className="relative px-6 py-14 sm:py-16 text-center">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
               Ready for an amazing Branson vacation?
             </h2>
-            <p className="mt-3 text-sky-100 text-lg max-w-xl mx-auto">
+            <p className="mt-3 text-sky-100 text-lg max-w-xl mx-auto [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
               Book direct for the best value. We&apos;ll take care of the rest —
               so your family can just show up and have fun.
             </p>
@@ -978,7 +978,7 @@ export default function Home() {
               Book Your Stay
               <ArrowRight size={20} strokeWidth={2.5} />
             </a>
-            <p className="mt-4 text-sm text-sky-200">
+            <p className="mt-4 text-sm text-sky-200 [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
               Questions? Call or text{" "}
               <a href={PHONE_HREF} className="font-bold text-white underline">
                 {PHONE}
