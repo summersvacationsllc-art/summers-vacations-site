@@ -1037,9 +1037,9 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
         sc("03.jpg", "King bedroom"),
         sc("aaa-kitchen.jpg", "Relax on the deck"),
         sc("07.jpg", "Open living, kitchen and dining"),
-        ne("14-pool-fenced.jpg", "Notch Estates community pool"),
-        ne("03-lake-covered-dock.jpg", "Fishing lake with a covered dock"),
-        ne("08-playground.jpg", "Children's playground"),
+        sa("16-bedroom2-bunk.jpg", "Bedroom 2: double bed and bunk bed"),
+        sa("17-bedroom2-bunk-angle.jpg", "Bedroom 2 bunk bed"),
+        sa("19-bath1-tub.jpg", "Bathroom 1 with a tub/shower combo"),
       ],
     },
     about: {
