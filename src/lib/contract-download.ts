@@ -263,7 +263,14 @@ async function drawSignaturePage(
   if (ex.status === "countersigned") {
     text(`Date: ${formatCentral(ex.countersignedAt)}`, 10);
     y -= 13;
-    text("Countersigned automatically by Host on receipt of the Subscriber's signature.", 8.5, o.font, muted);
+    text(
+      ex.countersignMethod === "manual"
+        ? "Countersigned by Host (Brian Summers) with his approval for this document."
+        : "Countersigned automatically by Host on receipt of the Subscriber's signature.",
+      8.5,
+      o.font,
+      muted,
+    );
   } else {
     text("Host countersignature: pending. Host countersigns after receipt.", 10, o.font, muted);
   }

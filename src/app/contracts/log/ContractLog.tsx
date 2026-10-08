@@ -358,7 +358,7 @@ export function ContractLog() {
           <div className="mt-4 rounded-2xl border border-[#bae6fd] bg-white p-4 text-sm no-print">
             <p className="font-bold">
               {ex?.status === "countersigned"
-                ? `Countersigned automatically ${ex.countersignedAt ? new Date(ex.countersignedAt).toLocaleString("en-US", { timeZone: "America/Chicago" }) + " CT" : ""}`
+                ? `Countersigned${ex.countersignMethod === "manual" ? "" : " automatically"} ${ex.countersignedAt ? new Date(ex.countersignedAt).toLocaleString("en-US", { timeZone: "America/Chicago" }) + " CT" : ""}`
                 : "Client-signed (not countersigned)"}
             </p>
             {ex?.countersignSkipped ? <p className="mt-1 text-[#0369a1]">{ex.countersignSkipped}</p> : null}

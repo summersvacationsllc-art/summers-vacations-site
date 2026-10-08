@@ -8,7 +8,8 @@ export type ContractExecution = {
   status: "signed" | "countersigned";
   countersignedAt: string | null;
   countersignedBy: string | null;
-  countersignMethod: "auto" | null;
+  /** "auto" = applied at signing by the flag; "manual" = applied later with Brian's approval for that one document. */
+  countersignMethod: "auto" | "manual" | null;
   /** Why the Host signature was not applied (flag off, template not eligible, no signature image). */
   countersignSkipped: string | null;
   pdfPathname: string | null;
