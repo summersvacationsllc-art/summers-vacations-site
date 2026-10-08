@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isContractsAuthed } from "@/lib/contracts-auth";
-import { getContract } from "@/lib/contracts-store";
+import { getContract, readExecutedPdf } from "@/lib/contracts-store";
 import {
   buildContractDocx,
   buildContractPdf,
@@ -39,7 +39,7 @@ export async function GET(req: Request, ctx: { params: Promise<{ id: string }> }
   try {
     let body: Buffer;
     if (format === "docx") body = await buildContractDocx(rec);
-    else if (format === "pdf") body = await buildContractPdf(rec);
+    else if (format === "pdf") body = (await readExecutedPdf(rec)) || (await buildContractPdf(rec));
     else body = Buffer.from(buildContractTxt(rec), "utf8");
 
     const filename = `${contractFileBase(rec)}.${extensionFor(format)}`;

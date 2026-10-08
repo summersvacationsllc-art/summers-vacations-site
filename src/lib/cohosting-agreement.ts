@@ -73,7 +73,7 @@ export const AGREEMENT_SECTIONS: { heading?: string; body: string }[] = [
 
 HOST: Summers Vacations LLC, by Brian Summers, Authorized Person.
 
-The fees to participate in the Host's Program (the "Host's Fee" or the "Fee") are: Subscription Fee of fifteen percent (15%) of Platform Payout, due monthly upon receipt of Host's invoices; Technology Fee of Fifty and 00/100 Dollars ($50.00) per month per Property; and a one-time Set-Up Fee of $0.00. Platform Payout means the amount the Booking Site deposits to Subscriber after the Booking Site deducts its own fees. The Subscription Fee is not charged on those platform fees, on cleaning fees, or on taxes.
+The fees to participate in the Host's Program (the "Host's Fee" or the "Fee") are: Subscription Fee of fifteen percent (15%) of Platform Payout, due monthly upon receipt of Host's invoices; Technology Fee of Fifty and 00/100 Dollars ($50.00) per month per Property, beginning on the Go-Live Date; and a one-time Set-Up Fee of $0.00. Platform Payout means the amount the Booking Site deposits to Subscriber after the Booking Site deducts its own fees. The Subscription Fee is not charged on those platform fees, on cleaning fees, or on taxes.
 
 Start Date: [START_DATE]. End Date: 60 days after written notice.
 
@@ -149,7 +149,7 @@ All refunds, discounts, or credits issued to Guests are the sole financial respo
 
 Host may raise or otherwise adjust the listed Accommodation fare on each Booking Site (Airbnb, VRBO, or any other platform used) to offset the fees that platform takes. Those adjustments flow through to Subscriber in the Platform Payout. Host's Subscription Fee remains fifteen percent (15%) of that payout after the platform's fees. The cleaning fee is not part of that calculation.
 
-2.3 Technology Fee. The Technology Fee is Fifty and 00/100 Dollars ($50.00) per month, charged for each distinct premises, defined as a dwelling unit that contains the Minimum Accommodations and is separated from other dwelling units by a locked door (called a "Property," "Unit," or "Door"). The Technology Fee includes access to the Pricing Software and software licenses for WiFi locks.
+2.3 Technology Fee. The Technology Fee is Fifty and 00/100 Dollars ($50.00) per month, charged for each distinct premises, defined as a dwelling unit that contains the Minimum Accommodations and is separated from other dwelling units by a locked door (called a "Property," "Unit," or "Door"). The Technology Fee includes access to the Pricing Software and software licenses for WiFi locks. The $50 monthly Technology Fee begins on the Go-Live Date, the date the listing is first published and accepting bookings; no Technology Fee is charged before the Go-Live Date.
 
 2.4 Hourly Charges for Special Services. Host may be willing in certain circumstances to perform additional services not included in the Program ("Special Services"). Those Special Services may include setting up and staging the Accommodations; meeting and coordinating contractors and/or vendors; hiring and coordinating decorators and/or photographers; and similar work. Host's rate for Special Services is presently $65.00 per hour, subject to change. If Subscriber requests that Host perform Special Services, and Host agrees to perform them, Host's fee for Special Services will be included in the next succeeding monthly invoice, which will specify the number of hours Host spent performing the Special Services.
 

@@ -1,5 +1,5 @@
 import { Document, Packer, Paragraph, TextRun, HeadingLevel } from "docx";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb, type PDFFont } from "pdf-lib";
 import type { StoredContract } from "@/lib/contracts-store";
 
 export type ContractDownloadFormat = "txt" | "docx" | "pdf";
@@ -27,6 +27,9 @@ function agreementLines(rec: StoredContract): string[] {
     rec.fields.coSignatureName
       ? `Co-signature: ${rec.fields.coSignatureName} on ${rec.fields.coSignatureDate || ""}`
       : "",
+    rec.execution?.status === "countersigned"
+      ? `Host countersignature: ${rec.execution.countersignedBy || "Brian Summers, Summers Vacations LLC"} on ${formatCentral(rec.execution.countersignedAt)}`
+      : "",
     `Stored: ${rec.submittedAt || ""} · Log id: ${rec.id}`,
     "",
     "—— AGREEMENT ——",
@@ -34,6 +37,22 @@ function agreementLines(rec: StoredContract): string[] {
   ].filter((line, i, arr) => line !== "" || (i > 0 && arr[i - 1] !== ""));
 
   return [...header, ...String(rec.agreement || "").replace(/\r\n/g, "\n").split("\n")];
+}
+
+/** "October 8, 2026, 10:06 AM CT" */
+export function formatCentral(iso: string | null | undefined): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  const s = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(d);
+  return `${s} CT`;
 }
 
 export function buildContractTxt(rec: StoredContract): string {
@@ -80,8 +99,13 @@ export async function buildContractDocx(rec: StoredContract): Promise<Buffer> {
   return Buffer.from(buf);
 }
 
-export async function buildContractPdf(rec: StoredContract): Promise<Buffer> {
+export async function buildContractPdf(
+  rec: StoredContract,
+  opts: { hostSignaturePng?: Buffer | null } = {},
+): Promise<Buffer> {
   const pdf = await PDFDocument.create();
+  pdf.setTitle(`Co-hosting agreement — ${rec.fields.subscriberName || "owner"}`);
+  pdf.setAuthor("Summers Vacations LLC");
   const font = await pdf.embedFont(StandardFonts.TimesRoman);
   const fontBold = await pdf.embedFont(StandardFonts.TimesRomanBold);
   const pageWidth = 612;
@@ -152,8 +176,97 @@ export async function buildContractPdf(rec: StoredContract): Promise<Buffer> {
     drawLine(line);
   }
 
+  if (rec.execution) {
+    await drawSignaturePage(pdf, rec, { font, fontBold, hostSignaturePng: opts.hostSignaturePng || null });
+  }
+
   const bytes = await pdf.save();
   return Buffer.from(bytes);
+}
+
+/**
+ * Final page: signature block for each Subscriber (typed e-signature) and the Host.
+ * The Host's image is drawn only when the record is countersigned and an image is supplied.
+ */
+async function drawSignaturePage(
+  pdf: PDFDocument,
+  rec: StoredContract,
+  o: { font: PDFFont; fontBold: PDFFont; hostSignaturePng: Buffer | null },
+) {
+  const ex = rec.execution!;
+  const script = await pdf.embedFont(StandardFonts.TimesRomanBoldItalic);
+  const page = pdf.addPage([612, 792]);
+  const ink = rgb(0.05, 0.1, 0.2);
+  const muted = rgb(0.3, 0.35, 0.45);
+  const left = 54;
+  let y = 792 - 60;
+  const text = (t: string, size = 11, f: PDFFont = o.font, color = ink, x = left) => {
+    const safe = t.replace(/[^\x20-\x7E\u00A0-\u00FF\u2013\u2014\u2018\u2019\u201C\u201D\u2022\u2026]/g, "?");
+    page.drawText(safe, { x, y, size, font: f, color, maxWidth: 504 });
+  };
+
+  text(ex.status === "countersigned" ? "SIGNATURE PAGE — EXECUTED COPY" : "SIGNATURE PAGE — CLIENT-SIGNED COPY", 14, o.fontBold);
+  y -= 18;
+  text(`Summers Vacations LLC Co-Hosting Agreement · ${rec.fields.accommodationsAddress || ""}`, 10, o.font, muted);
+  y -= 14;
+  text(`Contract log id: ${rec.id}`, 9, o.font, muted);
+  y -= 34;
+
+  const signerBlock = (label: string, typed: string, printed: string, date: string) => {
+    text(label, 11, o.fontBold);
+    y -= 30;
+    text(typed || "—", 22, script);
+    y -= 8;
+    page.drawLine({ start: { x: left, y }, end: { x: left + 300, y }, thickness: 0.8, color: ink });
+    y -= 14;
+    text(`Printed name: ${printed || ""}`, 10);
+    y -= 13;
+    text(`Date: ${date || ""}`, 10);
+    y -= 13;
+    text(
+      `Signed electronically (typed name + "I agree") at mybransonvacation.com/contracts on ${formatCentral(rec.submittedAt)}${rec.ip ? ` from IP ${rec.ip}` : ""}.`,
+      8.5,
+      o.font,
+      muted,
+    );
+    y -= 34;
+  };
+
+  signerBlock("SUBSCRIBER", rec.fields.signatureName, rec.fields.subscriberName, rec.fields.signatureDate);
+  if (rec.fields.coSignatureName || rec.fields.coSubscriberName) {
+    signerBlock(
+      "CO-SUBSCRIBER",
+      rec.fields.coSignatureName,
+      rec.fields.coSubscriberName,
+      rec.fields.coSignatureDate,
+    );
+  }
+
+  text("HOST: Summers Vacations LLC", 11, o.fontBold);
+  y -= 8;
+  if (ex.status === "countersigned" && o.hostSignaturePng) {
+    const img = await pdf.embedPng(o.hostSignaturePng);
+    const maxW = 220;
+    const maxH = 70;
+    const scale = Math.min(maxW / img.width, maxH / img.height);
+    const w = img.width * scale;
+    const h = img.height * scale;
+    page.drawImage(img, { x: left, y: y - h, width: w, height: h });
+    y -= h + 4;
+  } else {
+    y -= 40;
+  }
+  page.drawLine({ start: { x: left, y }, end: { x: left + 300, y }, thickness: 0.8, color: ink });
+  y -= 14;
+  text("Brian Summers, Summers Vacations LLC — Authorized Person", 10);
+  y -= 13;
+  if (ex.status === "countersigned") {
+    text(`Date: ${formatCentral(ex.countersignedAt)}`, 10);
+    y -= 13;
+    text("Countersigned automatically by Host on receipt of the Subscriber's signature.", 8.5, o.font, muted);
+  } else {
+    text("Host countersignature: pending. Host countersigns after receipt.", 10, o.font, muted);
+  }
 }
 
 export function contentTypeFor(format: ContractDownloadFormat): string {

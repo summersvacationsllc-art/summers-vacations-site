@@ -60,7 +60,8 @@ export function ApplyForm() {
       const name = String(data.get("name") || "");
       const address = String(data.get("address") || "");
       const email = String(data.get("email") || "");
-      await notifyBrianFromBrowser({
+      // The server already emailed Brian; the browser FormSubmit copy is only a fallback.
+      if (!json.emailed) await notifyBrianFromBrowser({
         subject: `Property review request: ${name} — ${address}`,
         replyTo: email,
         message: [
