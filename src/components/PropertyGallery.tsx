@@ -44,10 +44,18 @@ export default function PropertyGallery({ photos, name, variant = "gallery" }: P
     return out;
   }, [photos, variant]);
 
+  // Lightbox steps through photos in the order they're displayed (section by section),
+  // so prev/next always matches what's on screen even if groups aren't contiguous.
+  const order = useMemo(() => sections.flatMap((s) => s.items.map((x) => x.i)), [sections]);
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
-    (d: number) => setOpen((o) => (o === null ? o : (o + d + photos.length) % photos.length)),
-    [photos.length],
+    (d: number) =>
+      setOpen((o) => {
+        if (o === null || order.length === 0) return o;
+        const pos = order.indexOf(o);
+        return order[(pos + d + order.length) % order.length];
+      }),
+    [order],
   );
 
   useEffect(() => {
@@ -128,13 +136,13 @@ export default function PropertyGallery({ photos, name, variant = "gallery" }: P
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${name} photo ${open + 1} of ${photos.length}`}
+          aria-label={`${name} photo ${order.indexOf(open) + 1} of ${photos.length}`}
           className="fixed inset-0 z-[100] bg-black/90 flex flex-col"
           onClick={close}
         >
           <div className="flex items-center justify-between px-4 py-3 text-white/90 text-sm">
             <span className="font-semibold">
-              {open + 1} / {photos.length}
+              {order.indexOf(open) + 1} / {photos.length}
             </span>
             <button
               type="button"

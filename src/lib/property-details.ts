@@ -128,205 +128,206 @@ const NOTCH_GOOD_TO_KNOW = [
 ];
 
 /* ───────────────────────── The Penthouse ───────────────────────── */
+// Fall photos only, ordered like the Penthouse Airbnb listing (porch & entry, kitchen &
+// coffee bar, living room, bedrooms, baths, deck), then the shared Notch photos.
 
 const PENTHOUSE_GALLERY: Photo[] = [
+  ...group("Front Porch & Entry", [
+    phf("02-porch.jpg", "Front porch"),
+    phf("10-porch-door.jpg", "Front porch and entry"),
+    phf("01-entry-table.jpg", "Entry table"),
+  ]),
+  ...group("Kitchen & Coffee Bar", [
+    phf("05-kitchen.jpg", "Full kitchen with stainless steel appliances"),
+    phf("33-coffee-nook-b.jpg", "Keurig coffee bar"),
+    phf("09-island-coffee-living.jpg", "Island, coffee bar and living room"),
+    phf("08-kitchen-from-island.jpg", "Granite island with bar seating"),
+    phf("06-island.jpg", "Plenty of counter space"),
+    phf("29-island-to-stove.jpg", "Island toward the stove"),
+  ]),
   ...group("Living Room", [
-    phf("12-living.jpg", "Living room with a big sectional and deck views"),
-    ph("web/IMG_7919.jpg", "Living room open to the deck"),
-    phf("16-living-to-kitchen.jpg", "Living room toward the kitchen"),
     phf("13-open-kitchen-living.jpg", "Open kitchen and living area"),
+    phf("12-living.jpg", "Living room with a big sectional and deck views"),
     phf("14-fireplace-tv.jpg", "Electric fireplace and Roku Smart TV"),
     phf("07-hallway-to-living.jpg", "Hallway into the living room"),
-    phf("01-entry-table.jpg", "Entry table"),
+    phf("16-living-to-kitchen.jpg", "Living room toward the kitchen"),
     phf("15-welcome-table.jpg", "Welcome table for friends and family"),
     phf("17-thermostat-aroma.jpg", "Smart thermostat and Aroma 360 diffuser"),
     phf("20-games-closet.jpg", "Board games for family nights"),
   ]),
-  ...group("Kitchen & Coffee Bar", [
-    phf("05-kitchen.jpg", "Full kitchen with stainless steel appliances"),
-    phf("08-kitchen-from-island.jpg", "Granite island with bar seating"),
-    phf("06-island.jpg", "Plenty of counter space"),
-    phf("29-island-to-stove.jpg", "Island toward the stove"),
-    phf("09-island-coffee-living.jpg", "Island, coffee bar and living room"),
-    ph("web/aaa-coffeebar.jpg", "Keurig coffee bar"),
-    phf("18-coffee-nook.jpg", "Coffee bar dressed for fall"),
-    phf("33-coffee-nook-b.jpg", "Coffee bar"),
-  ]),
   ...group("Bedrooms", [
-    phf("22-master-bed-deck.jpg", "Master bedroom: king bed with doors to the deck"),
     phf("21-master-bed.jpg", "Master bedroom: king bed"),
     phf("39-master-to-deck.jpg", "Master bedroom toward the deck"),
     phf("26-master-angle.jpg", "Master bedroom"),
     phf("19-master-dresser.jpg", "Master bedroom TV"),
+    phf("22-master-bed-deck.jpg", "Master bedroom: king bed with doors to the deck"),
     phf("28-guest-bed.jpg", "Second bedroom: queen bed"),
     phf("35-guest-bed-wide.jpg", "Second bedroom"),
     phf("37-guest-angle.jpg", "Second bedroom with its own TV"),
     phf("40-guest-dresser-tv.jpg", "Second bedroom TV"),
   ]),
   ...group("Bathrooms & Laundry", [
-    phf("24-bath-vanity.jpg", "Bathroom vanity"),
     phf("27-bath-full.jpg", "Hall bath"),
-    phf("31-bath-birds.jpg", "Hall bath with bird prints"),
+    phf("24-bath-vanity.jpg", "Bathroom vanity"),
     phf("41-bath-tub.jpg", "Tub/shower combo"),
+    phf("31-bath-birds.jpg", "Hall bath with bird prints"),
     phf("03-laundry.jpg", "Washer and dryer"),
   ]),
-  ...group("Deck & Porch", [
-    phf("45-deck-view.jpg", "Deck with mountain views"),
-    ph("aaa-deck.jpeg", "Deck seating with views over the Ozarks"),
-    phf("44-deck-sofa.jpg", "Deck seating area"),
-    phf("46-deck-owl.jpg", "Cozy deck lounge"),
-    phf("47-deck-pumpkins.jpg", "Deck dressed for fall"),
+  ...group("Deck", [
     phf("42-deck-table.jpg", "Deck table"),
+    phf("44-deck-sofa.jpg", "Deck seating area"),
+    phf("45-deck-view.jpg", "Deck with mountain views"),
+    phf("47-deck-pumpkins.jpg", "Deck dressed for fall"),
+    phf("46-deck-owl.jpg", "Cozy deck lounge"),
     phf("48-deck-dining.jpg", "Deck dining"),
-    phf("02-porch.jpg", "Front porch"),
-    phf("10-porch-door.jpg", "Front porch and entry"),
   ]),
   ...NOTCH_COMMUNITY_PHOTOS,
 ];
 
 /* ───────────────────────── Rustic Ozark Retreat ───────────────────────── */
+// Fall photos only, in the room order of the Rustic Airbnb listing.
 
 const RUSTIC_GALLERY: Photo[] = [
-  ...group("Living Room", [
-    ruf("12-living.jpg", "Living room with rustic lodge decor"),
-    ruf("20-living-to-kitchen.jpg", "Living room toward the kitchen"),
-    ru("10E3E042-4365-4252-A4AC-C61A58E32372_1_105_c.jpeg", "Open living room and kitchen"),
-    ruf("10-fireplace-tv.jpg", "Electric fireplace and Roku Smart TV"),
-    ruf("08-hallway.jpg", "Hallway with the Neck of the Woods sign"),
+  ...group("Front Porch & Entry", [
+    ruf("01-porch.jpg", "Front porch with a wicker sofa"),
+    ruf("02-porch-sign.jpg", "Front porch"),
     ruf("03-entry-scarecrows.jpg", "Entry dressed for fall"),
-    ruf("07-drop-leaf.jpg", "Drop-leaf table"),
-    ruf("14-thermostat.jpg", "Ecobee smart thermostat"),
+    ruf("08-hallway.jpg", "Hallway with the Neck of the Woods sign"),
   ]),
   ...group("Kitchen & Coffee Bar", [
     ruf("06-kitchen.jpg", "Kitchen with island seating"),
-    ruf("47-kitchen-stove.jpg", "Stainless steel appliances"),
     ruf("48-island-to-coffee.jpg", "Island toward the coffee bar"),
     ruf("43-kitchen-cabinet.jpg", "Dishes ready for family meals"),
+    ruf("47-kitchen-stove.jpg", "Stainless steel appliances"),
     ruf("09-coffee-bar.jpg", "Keurig coffee bar"),
-    ru("web/IMG_8075.jpg", "Coffee bar"),
+  ]),
+  ...group("Living Room", [
+    ruf("07-drop-leaf.jpg", "Drop-leaf table"),
+    ruf("14-thermostat.jpg", "Ecobee smart thermostat"),
+    ruf("10-fireplace-tv.jpg", "Electric fireplace and Roku Smart TV"),
+    ruf("12-living.jpg", "Living room with rustic lodge decor"),
+    ruf("20-living-to-kitchen.jpg", "Living room toward the kitchen"),
   ]),
   ...group("Bedrooms", [
     ruf("18-master-deck.jpg", "Master bedroom: king log bed with doors to the deck"),
-    ruf("17-master-bed.jpg", "Master bedroom: king log bed"),
     ruf("44-master-bed-front.jpg", "Master bedroom"),
+    ruf("17-master-bed.jpg", "Master bedroom: king log bed"),
     ruf("42-master-from-dresser.jpg", "Master bedroom toward the closet"),
+    ruf("16-nightstand-usb.jpg", "Nightstand with USB charging"),
     ruf("21-master-dresser.jpg", "Master bedroom TV"),
-    ruf("23-guest-bed.jpg", "Second bedroom: king log bed"),
     ruf("27-guest-bed-window.jpg", "Second bedroom by the window"),
+    ruf("23-guest-bed.jpg", "Second bedroom: king log bed"),
     ruf("24-guest-bed-angle.jpg", "Second bedroom"),
     ruf("29-guest-dresser.jpg", "Second bedroom TV"),
-    ruf("16-nightstand-usb.jpg", "Nightstand with USB charging"),
   ]),
   ...group("Bathrooms & Laundry", [
     ruf("22-master-bath.jpg", "Master bath"),
+    ruf("28-toiletries.jpg", "Toiletries provided"),
     ruf("25-master-bath-hutch.jpg", "Master bath vanity"),
+    ruf("31-tub.jpg", "Tub/shower combo"),
     ruf("13-bath-vanity.jpg", "Bathroom vanity"),
     ruf("11-hall-bath.jpg", "Hall bath"),
-    ruf("31-tub.jpg", "Tub/shower combo"),
-    ruf("28-toiletries.jpg", "Toiletries provided"),
     ruf("05-laundry.jpg", "Washer and dryer"),
   ]),
-  ...group("Deck & Porch", [
-    ruf("34-deck-seating.jpg", "Covered deck with fall garland"),
+  ...group("Deck", [
     ruf("36-deck-sectional.jpg", "Deck sectional with a view"),
-    ruf("35-deck-dining.jpg", "Deck dining table"),
     ruf("32-deck-table.jpg", "Deck dining with a view"),
-    ru("web/aaa-rusticporch.jpg", "Deck dining among the treetops"),
-    ruf("33-deck-tv.jpg", "Deck TV"),
     ruf("37-deck-console.jpg", "Deck console"),
-    ruf("01-porch.jpg", "Front porch with a wicker sofa"),
-    ruf("02-porch-sign.jpg", "Front porch"),
+    ruf("34-deck-seating.jpg", "Covered deck with fall garland"),
+    ruf("35-deck-dining.jpg", "Deck dining table"),
+    ruf("33-deck-tv.jpg", "Deck TV"),
   ]),
   ...NOTCH_COMMUNITY_PHOTOS,
 ];
 
 /* ───────────────────────── Woodland Retreat ───────────────────────── */
+// Fall photos only, ordered like the Woodland Airbnb listing.
 
 const WOODLAND_GALLERY: Photo[] = [
   ...group("Living & Dining", [
+    wdf("07.jpg", "Dining table and living room"),
     wdf("31.jpg", "Living room with a sectional and deck doors"),
     wdf("24.jpg", "Living room with Roku Smart TV"),
-    wd("aaa-woodland-living-room.jpeg", "Open living and dining area"),
-    wdf("07.jpg", "Dining table and living room"),
-    wdf("13.jpg", "Dining table for family meals"),
     wdf("28.jpg", "TV, books and games"),
-    wdf("09.jpg", "Hallway to the living room"),
+    wdf("13.jpg", "Dining table for family meals"),
     wdf("03.jpg", "Entry"),
+    wdf("09.jpg", "Hallway to the living room"),
   ]),
   ...group("Kitchen & Coffee", [
     wdf("11.jpg", "Full kitchen"),
-    wd("1827C3E6-ED59-49E6-92A6-1D0EC7A6DC7F_1_105_c.jpeg", "Kitchen with full-size appliances"),
     wdf("19.jpg", "Mr. Coffee maker and coffee mugs"),
   ]),
   ...group("Bedrooms", [
     wdf("05.jpg", "Bedroom 1: queen bed plus a bunk bed"),
-    wdf("04.jpg", "Bunk bed the kids will love"),
     wdf("06.jpg", "Bedroom 1"),
+    wdf("04.jpg", "Bunk bed the kids will love"),
     wdf("15.jpg", "Bedroom 2: king bed"),
     wdf("16.jpg", "Bedroom 2 with a view"),
     wdf("29.jpg", "Bedroom 2: king bed"),
+    wdf("25.jpg", "Extra pillows, blankets and a travel crib"),
+    wdf("17.jpg", "Bedside charging station"),
     wdf("20.jpg", "Dresser and mirror"),
     wdf("10.jpg", "Bedroom TV"),
-    wdf("17.jpg", "Bedside charging station"),
-    wdf("25.jpg", "Extra pillows, blankets and a travel crib"),
   ]),
   ...group("Bathrooms & Laundry", [
-    wdf("12.jpg", "Bathroom vanity"),
     wdf("14.jpg", "Bathroom"),
-    wdf("21.jpg", "Hall bath"),
+    wdf("12.jpg", "Bathroom vanity"),
     wdf("26.jpg", "Toiletries provided"),
+    wdf("21.jpg", "Hall bath"),
     wdf("02.jpg", "Washer and dryer"),
   ]),
   ...group("Deck", [
-    wdf("22.jpg", "Deck in the trees"),
     wdf("18.jpg", "Deck dining with a view"),
-    wdf("23.jpg", "Deck seating"),
+    wdf("22.jpg", "Deck in the trees"),
     wdf("30.jpg", "Relax on the deck"),
-    wd("aaa-woodland-deck.jpeg", "Covered deck"),
+    wdf("23.jpg", "Deck seating"),
     wdf("01.jpg", "Building 14 at Notch Estates"),
   ]),
   ...NOTCH_COMMUNITY_PHOTOS,
 ];
 
 /* ───────────────────────── Double Condo ───────────────────────── */
+// Both-condos photo first (the Double Airbnb cover), then each condo's fall photos in its
+// own Airbnb order, then the shared Notch photos.
 
 const DOUBLE_GALLERY: Photo[] = [
   ...group("Both Condos at a Glance", [dc("web/aaa-doublecondo.jpg", "The Penthouse + Rustic Ozark Retreat, booked together")]),
   ...group("The Penthouse (Unit 11)", [
+    phf("02-porch.jpg", "Penthouse front porch"),
+    phf("33-coffee-nook-b.jpg", "Penthouse Keurig coffee bar"),
+    phf("08-kitchen-from-island.jpg", "Penthouse kitchen with granite island"),
     phf("12-living.jpg", "Penthouse living room"),
     phf("14-fireplace-tv.jpg", "Penthouse electric fireplace and Roku Smart TV"),
-    phf("08-kitchen-from-island.jpg", "Penthouse kitchen with granite island"),
-    ph("web/aaa-coffeebar.jpg", "Penthouse Keurig coffee bar"),
     phf("22-master-bed-deck.jpg", "Penthouse master: king bed with deck doors"),
     phf("28-guest-bed.jpg", "Penthouse second bedroom: queen bed"),
     phf("27-bath-full.jpg", "Penthouse hall bath"),
     phf("45-deck-view.jpg", "Penthouse deck with mountain views"),
     phf("47-deck-pumpkins.jpg", "Penthouse deck"),
-    phf("02-porch.jpg", "Penthouse front porch"),
   ]),
   ...group("Rustic Ozark Retreat (Unit 7)", [
-    ruf("12-living.jpg", "Rustic living room with lodge decor"),
-    ruf("10-fireplace-tv.jpg", "Rustic electric fireplace and Roku Smart TV"),
+    ruf("01-porch.jpg", "Rustic front porch"),
     ruf("06-kitchen.jpg", "Rustic kitchen with island seating"),
     ruf("09-coffee-bar.jpg", "Rustic Keurig coffee bar"),
+    ruf("10-fireplace-tv.jpg", "Rustic electric fireplace and Roku Smart TV"),
+    ruf("12-living.jpg", "Rustic living room with lodge decor"),
     ruf("18-master-deck.jpg", "Rustic master: king log bed with deck doors"),
     ruf("23-guest-bed.jpg", "Rustic second bedroom: king log bed"),
     ruf("22-master-bath.jpg", "Rustic master bath"),
-    ruf("34-deck-seating.jpg", "Rustic covered deck"),
     ruf("36-deck-sectional.jpg", "Rustic deck sectional"),
-    ruf("01-porch.jpg", "Rustic front porch"),
+    ruf("34-deck-seating.jpg", "Rustic covered deck"),
   ]),
   ...NOTCH_COMMUNITY_PHOTOS,
 ];
 
 /* ───────────────────────── No-Stairs Condo ───────────────────────── */
+// No fall photos yet; ordered like the No-Stairs Airbnb listing.
 
 const NOSTAIRS_GALLERY: Photo[] = [
   ...group("Living Room", [
     sc("aaa-living.jpg", "Freshly remodeled open living room"),
     sc("aaa-living-deck.jpg", "Living room with doors to the deck"),
-    sc("08.jpg", "Living room toward the kitchen"),
     sc("07.jpg", "Open living room, kitchen and dining"),
+    sc("08.jpg", "Living room toward the kitchen"),
   ]),
   ...group("Kitchen & Dining", [
     sc("10.jpg", "Remodeled kitchen with bar seating"),
@@ -468,8 +469,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       title: "Views, Coffee & Cozy Corners",
       intro: "The deck guests rave about, a Keurig coffee bar for slow mornings, and a fireplace for movie nights — plus a fishing lake and playground right in the neighborhood.",
       photos: [
-        ph("web/aaa-coffeebar.jpg", "Keurig coffee bar, ready for slow mornings"),
-        phf("45-deck-view.jpg", "Top-floor deck with mountain views"),
+        phf("33-coffee-nook-b.jpg", "Keurig coffee bar, ready for slow mornings"),
         phf("14-fireplace-tv.jpg", "Electric fireplace and Roku Smart TV"),
         phf("12-living.jpg", "Living room with a big sectional"),
         phf("22-master-bed-deck.jpg", "Master bedroom with doors to the deck"),
@@ -578,7 +578,6 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       intro: "Log beds, a Keurig coffee bar, a fireplace for chilly nights and a big covered deck in the trees — plus a fishing lake and playground right in the neighborhood.",
       photos: [
         ruf("09-coffee-bar.jpg", "Keurig coffee bar"),
-        ruf("36-deck-sectional.jpg", "Deck sectional with a view"),
         ruf("12-living.jpg", "Living room with rustic lodge decor"),
         ruf("18-master-deck.jpg", "King log bed with doors to the deck"),
         ruf("10-fireplace-tv.jpg", "Electric fireplace and Roku Smart TV"),
@@ -687,7 +686,6 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       intro: "A bunk room the kids will claim the minute you arrive, games for family nights and a deck in the trees — plus a fishing lake and playground right in the neighborhood.",
       photos: [
         wdf("05.jpg", "Bunk room: queen bed plus a bunk bed"),
-        wdf("22.jpg", "Deck in the trees"),
         wdf("31.jpg", "Living room with a sectional"),
         wdf("28.jpg", "TV, books and games"),
         wdf("19.jpg", "Mr. Coffee maker and mugs"),
@@ -791,7 +789,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       intro: "The Penthouse and Rustic Ozark Retreat sit in the same building, so the group stays close — two kitchens, two coffee bars, two fireplaces and two big decks.",
       photos: [
         dc("web/aaa-doublecondo.jpg", "Both condos, booked together"),
-        ph("web/aaa-coffeebar.jpg", "Penthouse Keurig coffee bar"),
+        phf("33-coffee-nook-b.jpg", "Penthouse Keurig coffee bar"),
         ruf("09-coffee-bar.jpg", "Rustic Keurig coffee bar"),
         phf("12-living.jpg", "Penthouse living room"),
         ruf("12-living.jpg", "Rustic living room"),
