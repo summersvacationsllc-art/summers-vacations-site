@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import ReviewsStrip from "@/components/ReviewsStrip";
 import {
   Phone,
   Mail,
   MapPin,
-  Star,
   X,
   Menu,
   Heart,
@@ -48,27 +48,14 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [f, setF] = useState({ name: "", email: "", phone: "", message: "" });
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [reviews, setReviews] = useState<{t:string,a:string,l:string}[]>([]);
   const [adventurePhotos, setAdventurePhotos] = useState<{src:string,label:string}[]>([]);
   const [propertyPhotos, setPropertyPhotos] = useState<Record<string,string>>({});
   // Start with hardcoded PROPERTIES; replace when Guesty /api/listings succeeds
   const [listings, setListings] = useState<HomeListing[]>(PROPERTIES);
 
   useEffect(() => {
-    fetch("/api/reviews")
-      .then((r) => r.json())
-      .then((d) => {
-        if (d.ok && d.reviews?.length) {
-          setReviews(
-            d.reviews.map((r: {reviewerName:string;body:string;channel:string}) => ({
-              t: r.body,
-              a: r.reviewerName,
-              l: r.channel === "airbnb2" ? "Airbnb" : r.channel === "bookingCom" ? "Booking.com" : r.channel === "homeaway2" ? "Vrbo" : "Verified Guest",
-            }))
-          );
-        }
-      })
-      .catch(() => {});
+    // Reviews: the homepage strip uses the verified static list in src/data/guest-reviews.ts
+    // (the live /api/reviews Guesty feed returns empty while Guesty token requests are rate-limited).
     // Auto-detect all Guesty listings (name, photo, sleeps); fall back to PROPERTIES on failure
     fetch("/api/listings")
       .then((r) => r.json())
@@ -885,67 +872,18 @@ export default function Home() {
       {/* ═══════════ REVIEWS ═══════════ */}
       <section id="reviews" className="py-20 sm:py-28 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <span className="inline-block text-xs font-extrabold tracking-widest uppercase text-amber-600 mb-3">
-              {reviews.length > 0 ? "Verified reviews" : "Happy families"}
+              Happy families
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0c4a6e]">
-              {reviews.length > 0 ? "What our guests say" : "Guests keep coming back"}
+              Guests keep coming back
             </h2>
-            {reviews.length > 0 && (
-              <p className="mt-2 text-sm text-slate-400">
-                🏆 Superhost 4 years running — only 5-star reviews shown
-              </p>
-            )}
+            <p className="mt-3 text-slate-600 max-w-xl mx-auto">
+              Recent 5-star reviews from guests at our Branson homes, in their own words.
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {(reviews.length > 0 ? reviews.slice(0, 4) : [
-              {
-                t: "We loved our time at Woodland Retreat! Spotless, beautiful surroundings. The deck was a favorite — my daughter loved watching the deer each morning.",
-                a: "Krystal",
-                l: "Saint Charles, MO",
-              },
-              {
-                t: "Check-in went seamlessly. Cozy, clean, close to SDC but still felt like a secluded mountain getaway!",
-                a: "Jennifer",
-                l: "Arkadelphia, AR",
-              },
-              {
-                t: "We could see the fireworks from Silver Dollar City from the deck! Great communication from Brian. We would definitely stay here again.",
-                a: "Gary",
-                l: "Lincoln, NE",
-              },
-              {
-                t: "Awesome for a larger family! Clean, comfortable, fantastic hiking, and close to SDC. Highly recommend!",
-                a: "Aaron",
-                l: "Kansas",
-              },
-            ]).map((r) => (
-              <div
-                key={r.a}
-                className="bg-gradient-to-b from-sky-50 to-white rounded-2xl p-6 border border-sky-100 shadow-sm"
-              >
-                <div className="flex gap-0.5 mb-3">
-                  {Array(5)
-                    .fill(0)
-                    .map((_, j) => (
-                      <Star
-                        key={j}
-                        size={14}
-                        className="fill-amber-400 text-amber-400"
-                      />
-                    ))}
-                </div>
-                <p className="text-sm text-slate-600 leading-relaxed italic">
-                  &ldquo;{r.t}&rdquo;
-                </p>
-                <div className="mt-4 pt-4 border-t border-sky-100">
-                  <div className="text-sm font-bold text-[#0c4a6e]">{r.a}</div>
-                  <div className="text-xs text-slate-400">{r.l}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ReviewsStrip />
         </div>
       </section>
 
