@@ -182,7 +182,7 @@ export const GALLERY_PHOTOS: { src: string; alt: string; pos?: string }[] = [
   { src: "/property-photos/woodland-retreat/aaa-fall-living.jpg", alt: "Living room dressed for fall" },
   { src: "/property-photos/woodland-retreat/aaa-fall-kitchen.jpg", alt: "Kitchen with pumpkin-patch sign" },
   // Extra deck views (Penthouse + Rustic)
-  { src: "/property-photos/penthouse/aaa-deck.jpeg", alt: "Penthouse deck with mountain views" },
+  { src: "/property-photos/penthouse/aaa-fall-deck.jpg", alt: "Penthouse deck with mountain views" },
   { src: "/property-photos/penthouse/aaa-fall-deck.jpg", alt: "Penthouse deck dressed for fall" },
   { src: "/property-photos/rustic-ozark-retreat/aaa-fall-deck.jpg", alt: "Rustic covered deck with fall garland" },
   // Double Condo

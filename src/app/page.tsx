@@ -850,7 +850,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5 sm:gap-2 px-1.5 sm:px-2 max-w-[1600px] mx-auto">
           {GALLERY_PHOTOS.map((photo, i) => (
             <div
-              key={photo.src}
+              key={`${photo.src}-${i}`}
               className={`overflow-hidden bg-sky-100 ${
                 i === 0 || i === 5
                   ? "md:col-span-1 aspect-square"
@@ -955,7 +955,7 @@ export default function Home() {
           <div className="absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/property-photos/penthouse/aaa-deck.jpeg"
+              src="/property-photos/penthouse/aaa-fall-deck.jpg"
               alt="Penthouse deck ready for vacation"
               className="w-full h-full object-cover"
             />
