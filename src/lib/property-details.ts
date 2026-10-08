@@ -1033,13 +1033,15 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       title: "Fresh Remodel, No Stairs",
       intro: "Walk right in — no stairs to haul luggage, strollers or coolers. Then enjoy the Notch Estates pool, fishing lake, trail and playground.",
       photos: [
+        sa("00-living-wide.jpg", "Open living room with doors to the deck"),
         sc("10.jpg", "Remodeled kitchen with bar seating"),
-        sc("03.jpg", "King bedroom"),
-        sc("aaa-kitchen.jpg", "Relax on the deck"),
-        sc("07.jpg", "Open living, kitchen and dining"),
+        sa("08-coffee-station.jpg", "Coffee station with a kettle and mugs"),
+        sc("03.jpg", "Bedroom 1: king bed"),
         sa("16-bedroom2-bunk.jpg", "Bedroom 2: double bed and bunk bed"),
         sa("17-bedroom2-bunk-angle.jpg", "Bedroom 2 bunk bed"),
         sa("19-bath1-tub.jpg", "Bathroom 1 with a tub/shower combo"),
+        sa("24-deck.jpg", "Deck lounge in the trees"),
+        sc("aaa-kitchen.jpg", "Relax on the deck"),
       ],
     },
     about: {
