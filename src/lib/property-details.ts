@@ -73,6 +73,7 @@ const wdf = dir("/property-photos/woodland-retreat/fall");
 const dc = dir("/property-photos/double-condo");
 const sc = dir("/property-photos/scotts-unit");
 const hv = dir("/property-photos/branson-family-haven");
+const ha = dir("/property-photos/branson-family-haven/airbnb");
 const ne = dir("/property-photos/notch-estates");
 
 const HOSTS = { label: "Your hosts", value: "Brian & Chantel Summers" };
@@ -346,10 +347,42 @@ const NOSTAIRS_GALLERY: Photo[] = [
 // Standalone house in Indian Point (not Notch) — its own photos only.
 
 const HAVEN_GALLERY: Photo[] = [
-  hv("aaa-house.jpg", "Branson Family Haven, with its deck and yard"),
-  hv("114C6EBF-D9C1-4E79-8777-DDB797DD6931_1_105_c.jpeg", "Bright, open living, dining and kitchen"),
-  hv("web/DJI_0197.jpg", "Branson Family Haven from above"),
-  hv("boat-trailer-parking.jpg", "Boat and trailer parking"),
+  ...group("The House", [
+    hv("aaa-house.jpg", "Branson Family Haven, with its deck and yard"),
+    hv("web/DJI_0197.jpg", "Branson Family Haven from above"),
+    ha("07-side-stairs.jpg", "The house from the side"),
+  ]),
+  ...group("Living, Kitchen & Dining", [
+    hv("114C6EBF-D9C1-4E79-8777-DDB797DD6931_1_105_c.jpeg", "Bright, open living, dining and kitchen"),
+    ha("26-dining-kitchen.jpg", "Dining table for the whole crew"),
+    ha("23-dining-table.jpg", "Dining table set for family meals"),
+    ha("25-kitchen-range.jpg", "Full kitchen with Whirlpool range and dishwasher"),
+    ha("24-kitchen-sink.jpg", "Kitchen with room to cook for a crowd"),
+    ha("21-spiral-staircase.jpg", "Spiral staircase with a warm welcome"),
+  ]),
+  ...group("Bedrooms", [
+    ha("10-bedroom-two-beds.jpg", "Bedroom with two beds"),
+    ha("12-bunk-room.jpg", "Bunk room: two bunk beds"),
+    ha("13-bedroom-orange.jpg", "Bedroom with an orange quilt"),
+    ha("15-bedroom-wood-headboard.jpg", "Bedroom with a wood headboard"),
+    ha("16-bedroom-tv.jpg", "Bedroom with its own TV"),
+  ]),
+  ...group("Bathrooms", [
+    ha("17-bath-round-mirror.jpg", "Bathroom with a round mirror"),
+    ha("18-bath-floral.jpg", "Bathroom with a floral shower curtain"),
+    ha("19-bath-tub.jpg", "Bathroom with a tub/shower combo"),
+    ha("20-bath-patterned.jpg", "Bathroom with a patterned shower curtain"),
+  ]),
+  ...group("Deck & Amenities", [
+    ha("08-deck-seating.jpg", "Wicker seating on the deck"),
+    ha("05-hot-tub.jpg", "Hot tub"),
+    ha("44-pool.jpg", "Community pool"),
+    hv("boat-trailer-parking.jpg", "Boat and trailer parking"),
+  ]),
+  ...group("Around the Neighborhood", [
+    ha("04-aerial-neighborhood-lake.jpg", "The neighborhood on the lake"),
+    ha("27-aerial-lake.jpg", "Lake and marina views nearby"),
+  ]),
 ];
 
 /* ───────────────────────── Silver Dollar City Adventure Escape (reference) ───────────────────────── */
