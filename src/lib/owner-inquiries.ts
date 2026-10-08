@@ -1,4 +1,4 @@
-import { get, list, put } from "@vercel/blob";
+import { get, list, put } from "@/lib/blob";
 import { clientIp } from "@/lib/contracts-store";
 import { writeInquiryArchive } from "@/lib/inquiry-archive";
 

@@ -190,7 +190,8 @@ export function ContractLog() {
       });
     }
 
-    await notifyBrianFromBrowser({
+    // Server already emails Brian a "Contract link emailed" notice; the browser copy is only a fallback.
+    if (!opts.emailed) await notifyBrianFromBrowser({
       subject: opts.subject,
       replyTo: opts.email,
       message: [
@@ -321,6 +322,26 @@ export function ContractLog() {
       }
     }
 
+    async function resendSigned(to: "signer" | "brian") {
+      setError("");
+      setMailNote("");
+      try {
+        const res = await fetch(`/api/contracts/log/${encodeURIComponent(signed.id)}/resend`, {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ to }),
+        });
+        const data = (await res.json()) as { ok: boolean; to?: string[]; error?: string | null; execution?: StoredContract["execution"] };
+        if (data.execution) setOpen({ ...signed, execution: data.execution });
+        if (!res.ok || !data.ok) setError(data.error || "Could not send.");
+        else setMailNote(`PDF emailed to ${(data.to || []).join(", ")}.`);
+      } catch {
+        setError("Network error while sending.");
+      }
+    }
+
+    const ex = signed.execution;
     const snap = signed.inquirySnapshot;
     return (
       <main className="min-h-dvh bg-[#f0f9ff] px-4 py-8 text-[#0c4a6e]">
@@ -333,6 +354,43 @@ export function ContractLog() {
             {signed.fields.subscriberName} · {signed.fields.accommodationsAddress}
           </p>
           {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
+          {mailNote ? <p className="mt-3 text-sm text-[#0369a1]">{mailNote}</p> : null}
+          <div className="mt-4 rounded-2xl border border-[#bae6fd] bg-white p-4 text-sm no-print">
+            <p className="font-bold">
+              {ex?.status === "countersigned"
+                ? `Countersigned automatically ${ex.countersignedAt ? new Date(ex.countersignedAt).toLocaleString("en-US", { timeZone: "America/Chicago" }) + " CT" : ""}`
+                : "Client-signed (not countersigned)"}
+            </p>
+            {ex?.countersignSkipped ? <p className="mt-1 text-[#0369a1]">{ex.countersignSkipped}</p> : null}
+            <p className="mt-1 text-[#0369a1]">
+              Owner copy:{" "}
+              {ex?.signerEmailedAt
+                ? `emailed to ${ex.signerEmailedTo.join(", ")}`
+                : ex?.signerEmailError
+                  ? `not sent (${ex.signerEmailError})`
+                  : "not emailed"}
+              {" · "}Your copy: {ex?.brianEmailedAt ? "emailed" : ex?.brianEmailError ? `not sent (${ex.brianEmailError})` : "not emailed"}
+              {ex?.resends?.length ? ` · resent ${ex.resends.length}×` : ""}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  if (window.confirm(`Email the signed PDF to ${signed.fields.email}?`)) resendSigned("signer");
+                }}
+                className="rounded-full border border-[#bae6fd] bg-white px-4 py-2 text-xs font-semibold"
+              >
+                Email PDF to owner
+              </button>
+              <button
+                type="button"
+                onClick={() => resendSigned("brian")}
+                className="rounded-full border border-[#bae6fd] bg-white px-4 py-2 text-xs font-semibold"
+              >
+                Email PDF to me
+              </button>
+            </div>
+          </div>
           {snap ? (
             <div className="mt-4 rounded-2xl border border-[#bae6fd] bg-white p-4 text-sm">
               <p className="font-bold">Original review card (kept on file)</p>
@@ -773,6 +831,7 @@ export function ContractLog() {
                       <p className="mt-1 text-xs text-[#0369a1]">
                         Signed {it.signatureDate || "—"} · {it.email}
                         {it.inquiryId ? " · review card linked" : ""}
+                        {it.executionStatus === "countersigned" ? " · countersigned" : ""}
                       </p>
                     </button>
                   </li>

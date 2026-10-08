@@ -74,6 +74,10 @@ function FormInner({
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
+  const [result, setResult] = useState<{ countersigned: boolean; signerEmailed: boolean }>({
+    countersigned: false,
+    signerEmailed: false,
+  });
 
   const set = (k: keyof ContractFields, v: string) => setFields((f) => ({ ...f, [k]: v }));
 
@@ -94,7 +98,8 @@ function FormInner({
         setError(data.error || "Could not send.");
         return;
       }
-      await notifyBrianFromBrowser({
+      // The server emails Brian (with the PDF). Browser FormSubmit is only a fallback if that failed.
+      if (!data.emailed) await notifyBrianFromBrowser({
         subject: `Co-hosting agreement signed: ${fields.subscriberName} — ${fields.accommodationsAddress}`,
         replyTo: fields.email,
         message: [
@@ -106,6 +111,7 @@ function FormInner({
           `Property: ${fields.accommodationsAddress}`,
         ].join("\n"),
       });
+      setResult({ countersigned: Boolean(data.countersigned), signerEmailed: Boolean(data.signerEmailed) });
       setStatus("sent");
     } catch {
       setStatus("error");
@@ -118,10 +124,16 @@ function FormInner({
       <main className="min-h-dvh bg-[#f0f9ff] px-4 py-12 text-[#0c4a6e]">
         <div className="mx-auto max-w-xl rounded-2xl border border-[#bae6fd] bg-white p-8 shadow-[0_10px_24px_-18px_rgba(2,132,199,.55)]">
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0369a1]">Summers Vacations</p>
-          <h1 className="mt-2 font-display text-3xl">Sent to Brian</h1>
+          <h1 className="mt-2 font-display text-3xl">{result.countersigned ? "Signed and countersigned" : "Sent to Brian"}</h1>
           <p className="mt-3 text-[#0369a1]">
-            Your filled co-hosting agreement is saved in the Summers Vacations contract log and emailed to Brian. Print
-            a copy for your records, then Brian will countersign.
+            {result.countersigned
+              ? "Your co-hosting agreement is fully executed. Brian's countersignature was added and the agreement is saved in the Summers Vacations contract log."
+              : "Your filled co-hosting agreement is saved in the Summers Vacations contract log and emailed to Brian."}{" "}
+            {result.signerEmailed
+              ? `A PDF copy was emailed to ${fields.email}.`
+              : result.countersigned
+                ? "Print a copy for your records."
+                : "Print a copy for your records, then Brian will countersign."}
           </p>
           <button
             type="button"

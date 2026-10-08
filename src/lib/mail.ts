@@ -4,6 +4,9 @@ import { ownerContractEmail, ownerContractMailto } from "@/lib/contract-mail-cop
 
 export type MailResult = { ok: boolean; via?: string; error?: string };
 
+/** File attached to an outgoing email (e.g. a signed contract PDF). */
+export type MailAttachment = { filename: string; content: Buffer; contentType?: string };
+
 export { ownerContractEmail, ownerContractMailto };
 
 /** True From for owners — Brian's Gmail. */
@@ -25,6 +28,7 @@ async function sendViaGmail(opts: {
   subject: string;
   text: string;
   replyTo?: string;
+  attachments?: MailAttachment[];
 }): Promise<MailResult> {
   const user = env("GMAIL_SMTP_USER") || EMAIL;
   const pass = env("GMAIL_APP_PASSWORD") || env("GMAIL_SMTP_PASS");
@@ -46,6 +50,11 @@ async function sendViaGmail(opts: {
       replyTo: opts.replyTo || EMAIL,
       subject: opts.subject,
       text: opts.text,
+      attachments: (opts.attachments || []).map((a) => ({
+        filename: a.filename,
+        content: a.content,
+        contentType: a.contentType,
+      })),
     });
     return { ok: true, via: "gmail" };
   } catch (e) {
@@ -59,6 +68,7 @@ async function sendViaResend(opts: {
   subject: string;
   text: string;
   replyTo?: string;
+  attachments?: MailAttachment[];
 }): Promise<MailResult> {
   const resendKey = env("RESEND_API_KEY");
   if (!resendKey || resendKey === "[SENSITIVE]") {
@@ -80,6 +90,14 @@ async function sendViaResend(opts: {
       reply_to: opts.replyTo || EMAIL,
       subject: opts.subject,
       text: opts.text,
+      ...(opts.attachments?.length
+        ? {
+            attachments: opts.attachments.map((a) => ({
+              filename: a.filename,
+              content: a.content.toString("base64"),
+            })),
+          }
+        : {}),
     }),
   });
   if (r.ok) return { ok: true, via: "resend" };
@@ -99,20 +117,61 @@ async function sendViaResend(opts: {
  * 2) Resend → From operations@summers-vacations.com, Reply-To Gmail
  * 3) FormSubmit → Brian only
  */
+/**
+ * Local testing only: when MAIL_DRY_RUN_DIR is set (and not running on Vercel), nothing is sent.
+ * The message (and any attachments) is written to that folder instead.
+ */
+async function writeDryRun(opts: {
+  to: string[];
+  subject: string;
+  text: string;
+  replyTo?: string;
+  attachments?: MailAttachment[];
+}): Promise<MailResult | null> {
+  const dir = env("MAIL_DRY_RUN_DIR");
+  if (!dir || process.env.VERCEL) return null;
+  const { mkdir, writeFile } = await import("fs/promises");
+  const path = await import("path");
+  await mkdir(dir, { recursive: true });
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const slug = opts.subject.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 50);
+  const base = path.join(dir, `${stamp}-${slug}`);
+  const files: { filename: string; bytes: number; savedAs: string }[] = [];
+  for (const [i, a] of (opts.attachments || []).entries()) {
+    const savedAs = `${base}-att${i + 1}-${a.filename.replace(/[^A-Za-z0-9._-]/g, "_")}`;
+    await writeFile(savedAs, a.content);
+    files.push({ filename: a.filename, bytes: a.content.length, savedAs });
+  }
+  await writeFile(
+    `${base}.json`,
+    JSON.stringify(
+      { from: GMAIL_FROM, to: opts.to, replyTo: opts.replyTo || EMAIL, subject: opts.subject, text: opts.text, attachments: files },
+      null,
+      2,
+    ),
+  );
+  return { ok: true, via: "dry-run" };
+}
+
 export async function sendMail(opts: {
   to: string | string[];
   subject: string;
   text: string;
   replyTo?: string;
+  attachments?: MailAttachment[];
 }): Promise<MailResult> {
   const to = (Array.isArray(opts.to) ? opts.to : [opts.to]).map((s) => s.trim()).filter(Boolean);
   if (!to.length) return { ok: false, error: "No recipient." };
+
+  const dry = await writeDryRun({ ...opts, to });
+  if (dry) return dry;
 
   const gmail = await sendViaGmail({
     to,
     subject: opts.subject,
     text: opts.text,
     replyTo: opts.replyTo,
+    attachments: opts.attachments,
   });
   if (gmail.ok) return gmail;
 
@@ -121,6 +180,7 @@ export async function sendMail(opts: {
     subject: opts.subject,
     text: opts.text,
     replyTo: opts.replyTo || EMAIL,
+    attachments: opts.attachments,
   });
   if (resend.ok) return resend;
 
@@ -142,7 +202,9 @@ export async function sendMail(opts: {
       _captcha: "false",
       name: "Summers Vacations desk",
       email: opts.replyTo || EMAIL,
-      message: opts.text,
+      message: opts.attachments?.length
+        ? `${opts.text}\n\n(Attachment not included in this backup email. Download the PDF from https://mybransonvacation.com/contracts/log)`
+        : opts.text,
     }),
   });
   let body: { success?: string | boolean; message?: string } = {};

@@ -9,6 +9,8 @@ import {
   type ContractFields,
 } from "@/lib/cohosting-agreement";
 import { clientIp, newContractId, saveContract, type StoredContract } from "@/lib/contracts-store";
+import { executeSignedContract } from "@/lib/contract-execute";
+import { OWNER_COHOSTING_TEMPLATE_ID } from "@/lib/contract-templates";
 import { getInquiry, getInvite, saveInquiry, saveInvite } from "@/lib/owner-inquiries";
 
 const FIELD_KEYS = Object.keys(EMPTY_FIELDS) as (keyof ContractFields)[];
@@ -91,6 +93,7 @@ export async function POST(req: Request) {
 
     const recordBase = {
       id,
+      templateId: OWNER_COHOSTING_TEMPLATE_ID,
       submittedAt: new Date().toISOString(),
       ip: clientIp(req),
       userAgent: (req.headers.get("user-agent") || "").slice(0, 300),
@@ -109,47 +112,52 @@ export async function POST(req: Request) {
       );
     }
 
-    const subject = `Co-hosting agreement: ${fields.subscriberName} — ${fields.accommodationsAddress}`;
-    const text = [
-      "A new owner submitted the co-hosting agreement.",
-      "",
-      `Log id: ${id}`,
-      `View: https://mybransonvacation.com/contracts/log`,
-      "",
-      `Name: ${fields.subscriberName}`,
-      `Co-owner: ${fields.coSubscriberName || "(none)"}`,
-      `Email: ${fields.email}`,
-      `Phone: ${fields.phone || "(none)"}`,
-      `Mailing: ${fields.mailingAddress || "(none)"}`,
-      `Property: ${fields.accommodationsAddress}`,
-      `Start date: ${fields.startDate}`,
-      `Typed signature: ${fields.signatureName} on ${fields.signatureDate || "(no date)"}`,
-      fields.coSignatureName
-        ? `Co-signature: ${fields.coSignatureName} on ${fields.coSignatureDate || "(no date)"}`
-        : "",
-      "",
-      "—— AGREEMENT ——",
-      "",
-      agreement,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    let emailVia: string | null = null;
-    let emailError: string | null = null;
-    const delivered = await sendMail({
-      to: EMAIL,
-      subject,
-      text,
-      replyTo: fields.email,
-    });
-    if (delivered.ok) emailVia = delivered.via || "email";
-    else emailError = delivered.error || "email failed";
-
+    // Post-signature: build the signed PDF, apply Brian's automatic countersignature when allowed
+    // (owner co-hosting template + AUTO_COUNTERSIGN=true), store it, and email it to the signer(s)
+    // and to Brian — one email each, guarded against duplicates.
+    let emailed = false;
+    let signerEmailed = false;
+    let countersigned = false;
     try {
-      await saveContract({ ...recordBase, emailVia, emailError }, true);
+      const result = await executeSignedContract({
+        ...recordBase,
+        emailVia: null,
+        emailError: null,
+      });
+      emailed = result.brianEmailed;
+      signerEmailed = result.signerEmailed;
+      countersigned = result.countersigned;
+      if (!result.skippedDuplicate) {
+        const ex = result.record.execution;
+        await saveContract(
+          {
+            ...result.record,
+            emailVia: ex?.brianEmailVia || null,
+            emailError: ex?.brianEmailError || null,
+          },
+          true,
+        ).catch(() => {});
+      }
     } catch {
-      /* already stored; email status is extra */
+      // Never lose Brian's notice: fall back to the plain-text notice.
+      const delivered = await sendMail({
+        to: EMAIL,
+        subject: `Co-hosting agreement: ${fields.subscriberName} — ${fields.accommodationsAddress}`,
+        text: [
+          "A new owner submitted the co-hosting agreement. (The signed PDF could not be built; download it from the log.)",
+          "",
+          `Log id: ${id}`,
+          `View: https://mybransonvacation.com/contracts/log`,
+          "",
+          agreement,
+        ].join("\n"),
+        replyTo: fields.email,
+      });
+      emailed = delivered.ok;
+      await saveContract(
+        { ...recordBase, emailVia: delivered.ok ? delivered.via || "email" : null, emailError: delivered.ok ? null : delivered.error || "email failed" },
+        true,
+      ).catch(() => {});
     }
 
     inv.usedAt = new Date().toISOString();
@@ -169,7 +177,7 @@ export async function POST(req: Request) {
       /* contract is stored */
     }
 
-    return NextResponse.json({ ok: true, id, emailed: Boolean(emailVia) });
+    return NextResponse.json({ ok: true, id, emailed, signerEmailed, countersigned });
   } catch {
     return NextResponse.json({ ok: false, error: "Failed to process." }, { status: 500 });
   }
