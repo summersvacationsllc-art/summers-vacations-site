@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "restaurants": [
     {
       "name": "Steamy Joe Cafe",
@@ -167,5 +167,5 @@
       "lng": -93.2975
     }
   ],
-  "tip": "Primary Sources: explorebranson.com (Branson Landing restaurants + dining directories), bransonlanding.com/restaurants + /events, bransonshows.com, bransontourismcenter.com, starvinmarvins.net, westgateevents.com. No new daily specials or limited-time menus confirmed from primary SOURCES.md sites after exhaustive\u2026"
+  "tip": "Primary Sources: explorebranson.com, bransonlanding.com/restaurants, bransontourismcenter.com, bigwhiskeys.com, westgateevents.com, komc.com/events/calendar (all accessed within strict tool budget of 3 websearch + 2 webextract). No brand-new limited-time menus or pop-up dining events confirmed for today from\u2026"
 }
