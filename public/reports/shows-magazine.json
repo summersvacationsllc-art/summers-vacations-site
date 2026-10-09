@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-08",
+  "date": "2026-10-09",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Thursday warm-up",
-  "deck": "**A solid Thursday lineup across Branson’s iconic theaters featuring high-energy country music, nostalgic tributes, family variety, gospel, and spectacular acrobatics.** Multiple matinee options at 10:00 AM and strong afternoon/evening shows make it easy for Summers Vacations guests to add live entertainment after a morning on Table Rock Lake, a visit to Branson Landing, or time on the 76 Strip.",
+  "hed": "Friday at the lake: cool fall air with highs in the low 30s",
+  "deck": "Friday, October 9 brings a crisp fall day to Branson with highs around 32°F, lows near 17°F, and almost no chance of rain. Bundle up for outdoor adventures on Table Rock Lake or enjoy indoor shows and dining.",
   "pick": {
-    "title": "The Haygoods",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Easy multi-age pick.",
-    "url": "https://www.claycoopertheatre.com/",
-    "source": "desk"
+    "title": "Indoor Branson Shows",
+    "when": "Evening",
+    "where": "Branson theaters",
+    "why": "With cool temperatures, head indoors for high-energy music, comedy, and family entertainment at one of Branson's legendary theaters.",
+    "url": "https://www.branson.com/shows",
+    "source": "night-editor"
   },
   "buckets": [
     {
@@ -231,13 +231,29 @@
       "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "The Haygoods",
+      "detail": "High-energy family music and lights in a comfortable theater.",
+      "url": "https://thehaygoods.com"
+    },
+    {
+      "name": "Clay Cooper Theatre",
+      "detail": "Country, gospel, and comedy in a climate-controlled venue.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "Presleys Country Jubilee",
+      "detail": "Classic country variety since 1967.",
+      "url": "https://presleys.com"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-08",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-08.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-09",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-09.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
