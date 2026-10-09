@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-07",
-  "headline": "Wednesday at the lake: warm fall sunshine with highs near 89\u00b0F",
-  "lede": "Wednesday, October 7 delivers classic Branson fall weather \u2014 bright sunshine, highs in the upper 80s, light winds, and zero chance of rain. Perfect conditions for a full day on Table Rock Lake, catching a matinee, or exploring the Strip and Landing with the family.",
+  "for": "2026-10-09",
+  "headline": "Friday at the lake: cool fall air with highs in the low 30s",
+  "lede": "Friday, October 9 brings a crisp fall day to Branson with highs around 32\u00b0F, lows near 17\u00b0F, and almost no chance of rain. Bundle up for outdoor adventures on Table Rock Lake or enjoy indoor shows and dining.",
   "heat": false,
   "featured": {
-    "title": "Table Rock Lake Cruise or Fish",
-    "when": "All Day",
-    "where": "Table Rock Lake",
-    "why": "Warm water, sunny skies, and calm winds create ideal boating, fishing, or sightseeing conditions. Book a morning cruise or rent a pontoon and enjoy the fall colors on the shoreline.",
-    "url": "https://www.tablerocklake.com"
+    "title": "Indoor Branson Shows",
+    "when": "Evening",
+    "where": "Branson theaters",
+    "why": "With cool temperatures, head indoors for high-energy music, comedy, and family entertainment at one of Branson's legendary theaters.",
+    "url": "https://www.branson.com/shows"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early lake or coffee",
-      "detail": "Catch sunrise over Table Rock or grab breakfast at Steamy Joe Cafe before the day heats up."
+      "title": "Coffee and planning",
+      "detail": "Start with a warm drink at a local cafe and map out indoor activities for the cool day."
     },
     {
       "when": "Afternoon",
-      "title": "Lake time or a show",
-      "detail": "Head out on the water, hike at the State Park, or catch an afternoon matinee. Light winds make for comfortable boating."
+      "title": "Theater matinee or museum",
+      "detail": "Catch an afternoon show or visit an indoor attraction like the Titanic Museum."
     },
     {
       "when": "Dusk",
-      "title": "Evening on the Landing",
-      "detail": "Stroll Branson Landing for the fountain show, lights, and dinner with a view. Temperatures stay pleasant into the evening."
+      "title": "Evening show and dinner",
+      "detail": "Enjoy a dinner show with lights, music, and Ozark hospitality."
     }
   ],
   "indoor": [
     {
       "name": "The Haygoods",
-      "detail": "High-energy family music, lights, and multi-generational entertainment in a climate-controlled theater.",
+      "detail": "High-energy family music and lights in a comfortable theater.",
       "url": "https://thehaygoods.com"
     },
     {
       "name": "Clay Cooper Theatre",
-      "detail": "Country, gospel, comedy, and dance \u2014 a Branson staple that delivers every time.",
+      "detail": "Country, gospel, and comedy in a climate-controlled venue.",
       "url": "https://www.claycoopertheatre.com/"
     },
     {
       "name": "Presleys Country Jubilee",
-      "detail": "Classic country music, comedy, and family-friendly variety since 1967.",
+      "detail": "Classic country variety since 1967.",
       "url": "https://presleys.com"
     }
   ],
-  "honesty": "Night Editor run on 2026-10-06 evening for 2026-10-07. No tomorrow scout files present \u2014 honest carry-forward from latest verified reports (shows and dining updated 2026-10-04/05). Weather from live Open-Meteo (high 89\u00b0F, 0% precip, no heat). Wednesday restaurant spotlight: Steamy Joe Cafe (representational photo from catalog). Plan and indoor are proper objects. No invented times, prices, guest names, or ops data. Bright-blue theme enforced."
+  "honesty": "Night Editor autonomous run on 2026-10-08 for 2026-10-09. No tomorrow scout files present \u2014 honest carry-forward from latest verified reports and Open-Meteo forecast (high ~32\u00b0F, low precip). Plan and indoor are proper objects. No invented data, guest names, or ops. Bright-blue theme only."
 }
