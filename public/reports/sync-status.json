@@ -1,7 +1,7 @@
 {
-  "ok": true,
-  "generated_at": "2026-10-10T19:31:34+00:00",
-  "checkedAt": "2026-10-10T14:31:34-05:00",
+  "ok": false,
+  "generated_at": "2026-10-10T22:47:15+00:00",
+  "checkedAt": "2026-10-10T17:47:15-05:00",
   "todayCT": "2026-10-10",
   "lastSyncAt": "2026-10-10T19:31:32+00:00",
   "syncDataDate": "2026-10-10",
@@ -22,7 +22,9 @@
     "woodland-retreat": "Joshua Johnson (Woodland Retreat)",
     "scotts-unit": "Shea Fijal (Scotts unit)"
   },
-  "errors": [],
+  "errors": [
+    "monitor rebuild from str-manager-one failed"
+  ],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38080138250 late=0 rebuild=success"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38092703918 late=0 rebuild=failure"
 }
