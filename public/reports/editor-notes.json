@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-09",
-  "headline": "Friday at the lake: cool fall air with highs in the low 30s",
-  "lede": "Friday, October 9 brings a crisp fall day to Branson with highs around 32\u00b0F, lows near 17\u00b0F, and almost no chance of rain. Bundle up for outdoor adventures on Table Rock Lake or enjoy indoor shows and dining.",
+  "for": "2026-10-10",
+  "headline": "Saturday in Branson: warm fall sunshine with highs near 87\u00b0F",
+  "lede": "Saturday, October 10 brings warm fall weather to the lake with a high near 87\u00b0F, mostly sunny skies, and light winds. Perfect for outdoor shows, lake time, or exploring the Strip before the evening performances.",
   "heat": false,
   "featured": {
-    "title": "Indoor Branson Shows",
-    "when": "Evening",
-    "where": "Branson theaters",
-    "why": "With cool temperatures, head indoors for high-energy music, comedy, and family entertainment at one of Branson's legendary theaters.",
+    "title": "Broadway to Buble",
+    "when": "10:00 AM & evening shows",
+    "where": "Americana Theatre",
+    "why": "Swing into the weekend with this high-energy tribute blending Broadway hits and Michael Bubl\u00e9 classics \u2014 a crowd favorite for first-timers.",
     "url": "https://www.branson.com/shows"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Coffee and planning",
-      "detail": "Start with a warm drink at a local cafe and map out indoor activities for the cool day."
+      "title": "Coffee on the Strip",
+      "detail": "Grab a sunrise brew at Steamy Joe Cafe and watch the Strip wake up."
     },
     {
       "when": "Afternoon",
-      "title": "Theater matinee or museum",
-      "detail": "Catch an afternoon show or visit an indoor attraction like the Titanic Museum."
+      "title": "Table Rock Lake or SDC Harvest Festival",
+      "detail": "Boat, fish, or head to Silver Dollar City for fall festivities and shows."
     },
     {
       "when": "Dusk",
-      "title": "Evening show and dinner",
-      "detail": "Enjoy a dinner show with lights, music, and Ozark hospitality."
+      "title": "Evening show + dinner",
+      "detail": "Catch a live performance then dine at a lakeside spot like the Lake House."
     }
   ],
   "indoor": [
     {
-      "name": "The Haygoods",
-      "detail": "High-energy family music and lights in a comfortable theater.",
-      "url": "https://thehaygoods.com"
+      "name": "Matt Gumm Comedy",
+      "detail": "Laugh-out-loud clean comedy at Clay Cooper Theatre.",
+      "url": "https://www.claycoopertheatre.com"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "Country, gospel, and comedy in a climate-controlled venue.",
-      "url": "https://www.claycoopertheatre.com/"
+      "name": "The Lion, The Witch And The Wardrobe",
+      "detail": "Family-friendly stage production at Branson Hillside Theatre.",
+      "url": "https://bransonhillsidetheatre.com"
     },
     {
-      "name": "Presleys Country Jubilee",
-      "detail": "Classic country variety since 1967.",
-      "url": "https://presleys.com"
+      "name": "Anthems of Rock",
+      "detail": "High-energy rock tribute show.",
+      "url": "https://www.branson.com/shows"
     }
   ],
-  "honesty": "Night Editor autonomous run on 2026-10-08 for 2026-10-09. No tomorrow scout files present \u2014 honest carry-forward from latest verified reports and Open-Meteo forecast (high ~32\u00b0F, low precip). Plan and indoor are proper objects. No invented data, guest names, or ops. Bright-blue theme only."
+  "honesty": "Night Editor autonomous run on 2026-10-09 for 2026-10-10. No tomorrow scout files found (missing intel/landing/shows/food/etc). Honest carry-forward from latest verified reports + current NWS/Open-Meteo data (high ~87\u00b0F, low precip). No invented times/prices/guest names/ops. Plan and indoor are proper objects per schema. Bright blue magazine only."
 }
