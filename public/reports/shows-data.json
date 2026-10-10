@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-10",
   "shows": [
     {
       "name": "Absolutely Country, Definitely Gospel",
@@ -223,7 +223,9 @@
       "venueAddress": "2920 West 76 Country Blvd"
     }
   ],
-  "freeEvents": [],
+  "freeEvents": [
+    "Deadline-guard: show grid carried/partial for 2026-10-10 \u2014 confirm box office."
+  ],
   "magazineBuilt": "2026-10-09",
   "last_verified": "2026-10-09T05:23:22-05:00"
 }
