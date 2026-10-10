@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-09",
-  "biteOfDay": "ing Trout fishing on Lake Taneycomo has improved noticeably. Good numbers of rainbows are present throughout the upper lake compared to summer, and brown trout are making a strong fall appearance, especially in the trophy stretch below the dam. Anglers report success on marabou jigs (black, sculpin, olive, or with Indy orange head), scuds, zebra midges, and small streamers. Night fishing with medi",
+  "date": "2026-10-10",
+  "biteOfDay": "ing Trout fishing on Taneycomo has been solid with good numbers of rainbows and increasing brown trout activity as fall progresses. Recent reports show success on marabou jigs, zebra midges, scuds and small streamers, especially during lower flow windows. On Table Rock, bass are transitioning to deeper structure and points in the cooling clear water, with topwaters early and jigs or drop-shots pro",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.15 ft (USACE 11:00 CT)",
+      "level": "911.07 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~22 cfs at 11:00 CT (USACE live). Overnight ~20; afternoon peak ~22. Call SWPA 866-494-1993 before you wad."
+      "generation": "~298 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: During any low or moderating flow windows on Taneycomo, target seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin or olive (Indy orange head favorite), a zebra midge (#16\u201320 in red or black), or scud under an indicator. When generation increases, add wei Deadline-guard carry from 2026-10-08.",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-09T12:08:48-05:00"
+  "tip": "Insider tip: Target low or moderating flow windows on Taneycomo by drifting or wading seams and current breaks with a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive or with Indy orange head), a zebra midge under an indicator, or a scud. When generation increases, switch to heavier rigs and",
+  "source": "scout",
+  "last_verified": "2026-10-10T05:00:57-05:00"
 }
