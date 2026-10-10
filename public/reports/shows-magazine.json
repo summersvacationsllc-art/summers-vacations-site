@@ -1,14 +1,14 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-10",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday at the lake: cool fall air with highs in the low 30s",
-  "deck": "Friday, October 9 brings a crisp fall day to Branson with highs around 32°F, lows near 17°F, and almost no chance of rain. Bundle up for outdoor adventures on Table Rock Lake or enjoy indoor shows and dining.",
+  "hed": "Saturday in Branson: warm fall sunshine with highs near 87°F",
+  "deck": "Saturday, October 10 brings warm fall weather to the lake with a high near 87°F, mostly sunny skies, and light winds. Perfect for outdoor shows, lake time, or exploring the Strip before the evening performances.",
   "pick": {
-    "title": "Indoor Branson Shows",
-    "when": "Evening",
-    "where": "Branson theaters",
-    "why": "With cool temperatures, head indoors for high-energy music, comedy, and family entertainment at one of Branson's legendary theaters.",
+    "title": "Broadway to Buble",
+    "when": "10:00 AM & evening shows",
+    "where": "Americana Theatre",
+    "why": "Swing into the weekend with this high-energy tribute blending Broadway hits and Michael Bublé classics — a crowd favorite for first-timers.",
     "url": "https://www.branson.com/shows",
     "source": "night-editor"
   },
@@ -233,27 +233,27 @@
   ],
   "indoor": [
     {
-      "name": "The Haygoods",
-      "detail": "High-energy family music and lights in a comfortable theater.",
-      "url": "https://thehaygoods.com"
+      "name": "Matt Gumm Comedy",
+      "detail": "Laugh-out-loud clean comedy at Clay Cooper Theatre.",
+      "url": "https://www.claycoopertheatre.com"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "Country, gospel, and comedy in a climate-controlled venue.",
-      "url": "https://www.claycoopertheatre.com/"
+      "name": "The Lion, The Witch And The Wardrobe",
+      "detail": "Family-friendly stage production at Branson Hillside Theatre.",
+      "url": "https://bransonhillsidetheatre.com"
     },
     {
-      "name": "Presleys Country Jubilee",
-      "detail": "Classic country variety since 1967.",
-      "url": "https://presleys.com"
+      "name": "Anthems of Rock",
+      "detail": "High-energy rock tribute show.",
+      "url": "https://www.branson.com/shows"
     }
   ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-09",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-09.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-10",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-10.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
