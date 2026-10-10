@@ -1,27 +1,48 @@
 {
-  "date": "2026-10-09",
-  "generated_at": "2026-10-10T01:52:45+00:00",
+  "date": "2026-10-10",
+  "generated_at": "2026-10-10T05:30:50-05:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 0,
+    "check_ins": 3,
+    "check_outs": 3,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 5,
     "units_total": 5
   },
-  "check_ins": [],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_ins": [
+    {
+      "property": "Rustic Ozark",
+      "guest": "Payton Patterson",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_1f7ae4q",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Shea Fijal",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_3nf2v6p",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Joshua Johnson",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_rh9glgc",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
     {
       "property": "Woodland Retreat",
       "guest": "Jason Pugh",
       "guests": 3,
       "platform": "airbnb2",
       "reservation_id": "res_9rwiybh",
-      "check_in": "2026-10-05",
-      "check_out": "2026-10-10",
-      "nights": 5
+      "time": "10:00 AM"
     },
     {
       "property": "Rustic Ozark",
@@ -29,10 +50,19 @@
       "guests": 4,
       "platform": "airbnb2",
       "reservation_id": "res_y0lojxt",
-      "check_in": "2026-10-06",
-      "check_out": "2026-10-10",
-      "nights": 4
+      "time": "10:00 AM"
     },
+    {
+      "property": "Scotts unit",
+      "guest": "Kristi Rohaus",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_9802bed",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Tara McMillin",
@@ -44,16 +74,6 @@
       "nights": 4
     },
     {
-      "property": "Scotts unit",
-      "guest": "Kristi Rohaus",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_9802bed",
-      "check_in": "2026-10-07",
-      "check_out": "2026-10-10",
-      "nights": 3
-    },
-    {
       "property": "Indian Point",
       "guest": "Kelsey Clifton",
       "guests": 11,
@@ -62,6 +82,36 @@
       "check_in": "2026-10-08",
       "check_out": "2026-10-12",
       "nights": 4
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Payton Patterson",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_1f7ae4q",
+      "check_in": "2026-10-10",
+      "check_out": "2026-10-11",
+      "nights": 1
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Shea Fijal",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_3nf2v6p",
+      "check_in": "2026-10-10",
+      "check_out": "2026-10-12",
+      "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Joshua Johnson",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_rh9glgc",
+      "check_in": "2026-10-10",
+      "check_out": "2026-10-13",
+      "nights": 3
     }
   ],
   "sync_notes": {
