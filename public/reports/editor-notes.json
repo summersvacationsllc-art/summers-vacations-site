@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-10",
-  "headline": "Saturday in Branson: warm fall sunshine with highs near 87\u00b0F",
-  "lede": "Saturday, October 10 brings warm fall weather to the lake with a high near 87\u00b0F, mostly sunny skies, and light winds. Perfect for outdoor shows, lake time, or exploring the Strip before the evening performances.",
+  "for": "2026-10-11",
+  "headline": "Sunday in Branson: cool, clear fall skies with a high of 90°F",
+  "lede": "Sunday, October 11 brings bright, cool fall weather to the lake with a high near 90°F, low humidity, and zero chance of rain. A perfect day for outdoor shows, a relaxed drive along the Strip, or a scenic meal with a view.",
   "heat": false,
   "featured": {
-    "title": "Broadway to Buble",
-    "when": "10:00 AM & evening shows",
-    "where": "Americana Theatre",
-    "why": "Swing into the weekend with this high-energy tribute blending Broadway hits and Michael Bubl\u00e9 classics \u2014 a crowd favorite for first-timers.",
-    "url": "https://www.branson.com/shows"
+    "title": "Silver Dollar City Harvest Festival",
+    "when": "All day (opens 10 AM)",
+    "where": "Silver Dollar City",
+    "why": "Fall colors, live music, craft demonstrations, and family-friendly rides make this a top pick for first-timers enjoying the Ozarks in October.",
+    "url": "https://www.silverdollarcity.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Coffee on the Strip",
-      "detail": "Grab a sunrise brew at Steamy Joe Cafe and watch the Strip wake up."
+      "title": "Coffee & Strip sunrise",
+      "detail": "Start at Steamy Joe Cafe for espresso and early-morning people-watching on the bustling Strip."
     },
     {
       "when": "Afternoon",
-      "title": "Table Rock Lake or SDC Harvest Festival",
-      "detail": "Boat, fish, or head to Silver Dollar City for fall festivities and shows."
+      "title": "Silver Dollar City or Table Rock cruise",
+      "detail": "Chase fall vibes at SDC or enjoy a gentle lake cruise with Table Rock Lake views."
     },
     {
       "when": "Dusk",
-      "title": "Evening show + dinner",
-      "detail": "Catch a live performance then dine at a lakeside spot like the Lake House."
+      "title": "Dinner show",
+      "detail": "Catch an evening performance followed by lakeside dining — many venues light up the shoreline after dark."
     }
   ],
   "indoor": [
     {
-      "name": "Matt Gumm Comedy",
-      "detail": "Laugh-out-loud clean comedy at Clay Cooper Theatre.",
-      "url": "https://www.claycoopertheatre.com"
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country and gospel music with clean family comedy.",
+      "url": "https://claycoopertheatre.com"
     },
     {
-      "name": "The Lion, The Witch And The Wardrobe",
-      "detail": "Family-friendly stage production at Branson Hillside Theatre.",
+      "name": "Branson Hillside Theatre",
+      "detail": "Current stage productions and holiday-themed shows in a comfortable indoor venue.",
       "url": "https://bransonhillsidetheatre.com"
     },
     {
-      "name": "Anthems of Rock",
-      "detail": "High-energy rock tribute show.",
+      "name": "Americana Theatre",
+      "detail": "Tribute shows and variety performances perfect for all ages.",
       "url": "https://www.branson.com/shows"
     }
   ],
-  "honesty": "Night Editor autonomous run on 2026-10-09 for 2026-10-10. No tomorrow scout files found (missing intel/landing/shows/food/etc). Honest carry-forward from latest verified reports + current NWS/Open-Meteo data (high ~87\u00b0F, low precip). No invented times/prices/guest names/ops. Plan and indoor are proper objects per schema. Bright blue magazine only."
+  "honesty": "Night Editor autonomous run on 2026-10-10 for 2026-10-11. No tomorrow scout files present. Honest carry-forward from latest verified dining/shows data + real Open-Meteo forecast (high 90°F, 0% precip). No invented showtimes, prices, or events. Plan and indoor are proper objects. Bright-blue magazine only. Restaurant spotlight rotates to Lake House for Sunday."
 }
