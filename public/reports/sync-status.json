@@ -1,7 +1,7 @@
 {
   "ok": false,
-  "generated_at": "2026-10-10T22:47:15+00:00",
-  "checkedAt": "2026-10-10T17:47:15-05:00",
+  "generated_at": "2026-10-11T01:10:43+00:00",
+  "checkedAt": "2026-10-10T20:10:43-05:00",
   "todayCT": "2026-10-10",
   "lastSyncAt": "2026-10-10T19:31:32+00:00",
   "syncDataDate": "2026-10-10",
@@ -26,5 +26,5 @@
     "monitor rebuild from str-manager-one failed"
   ],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38092703918 late=0 rebuild=failure"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38100938504 late=0 rebuild=failure"
 }
