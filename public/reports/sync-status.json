@@ -1,9 +1,9 @@
 {
-  "ok": false,
-  "generated_at": "2026-10-12T13:21:09+00:00",
-  "checkedAt": "2026-10-12T08:21:09-05:00",
+  "ok": true,
+  "generated_at": "2026-10-12T13:23:12+00:00",
+  "checkedAt": "2026-10-12T08:23:12-05:00",
   "todayCT": "2026-10-12",
-  "lastSyncAt": "2026-10-12T13:21:07+00:00",
+  "lastSyncAt": "2026-10-12T13:23:10+00:00",
   "syncDataDate": "2026-10-12",
   "liveDataDate": "2026-10-12",
   "liveSource": "github",
@@ -20,9 +20,7 @@
     "woodland-retreat": "Joshua Johnson (Woodland Retreat)",
     "scotts-unit": null
   },
-  "errors": [
-    "daily sync had not published guest data for today by the 7 AM CT deadline (monitor rebuilt it)"
-  ],
+  "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38255052815 late=1 rebuild=success"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38255294843 late=0 rebuild=success"
 }
