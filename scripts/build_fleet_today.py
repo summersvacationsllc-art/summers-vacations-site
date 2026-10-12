@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import urllib.error
 import urllib.request
 from datetime import date, datetime
 from pathlib import Path
@@ -50,6 +51,15 @@ def get_json(path: str) -> dict:
         return json.loads(r.read())
 
 
+def get_json_optional(path: str) -> dict:
+    try:
+        return get_json(path)
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403, 404):
+            return {}
+        raise
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date")
@@ -60,7 +70,7 @@ def main() -> None:
         f"/api/cron/calendar?from={today}&to={today}"
     )  # only today window is enough
     res = cal.get("reservations", [])
-    t = get_json("/api/tasks")
+    t = get_json_optional("/api/tasks")
     todays = [x for x in t.get("tasks", []) if x.get("scheduled_date") == today]
     names = {r["property_id"]: (r.get("property_name") or "?").strip() for r in res}
 

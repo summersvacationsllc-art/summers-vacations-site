@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import urllib.error
 import urllib.request
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -48,14 +49,27 @@ def get_json(path: str) -> dict:
         return json.loads(r.read())
 
 
+def get_json_optional(path: str) -> dict:
+    """Best-effort fetch. /api/tasks is session-gated after StayKeeper hardening
+    and returns 401 to CRON_SECRET callers; guest names still come from calendar.
+    """
+    try:
+        return get_json(path)
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403, 404):
+            return {}
+        raise
+
+
 def build(date_str: str) -> dict:
     today = date.fromisoformat(date_str)
     qfrom = (today - timedelta(days=1)).isoformat()
     qto = (today + timedelta(days=8)).isoformat()
     cal = get_json(f"/api/cron/calendar?from={qfrom}&to={qto}")
     res = cal.get("reservations", [])
-    t = get_json("/api/tasks")
+    t = get_json_optional("/api/tasks")
     todays = [x for x in t.get("tasks", []) if x.get("scheduled_date") == date_str]
+    tasks_unavailable = "tasks" not in t
     names = {r["property_id"]: (r.get("property_name") or "?").strip() for r in res}
     in_house = [r for r in res if r["check_in"] <= date_str < r["check_out"]]
     checkins = [r for r in res if r["check_in"] == date_str]
@@ -116,9 +130,17 @@ def build(date_str: str) -> dict:
         ],
         "sync_notes": {
             "cleaner_app": (
-                "Cleaner assignments: pulled live from str-manager-one "
-                "/api/tasks. Open https://str-manager-one.vercel.app/ops to "
-                "assign any turnover where cleaner_assigned is false."
+                (
+                    "Cleaner assignments unavailable: str-manager-one /api/tasks "
+                    "rejected cron auth (session-only after hardening). Kiosk "
+                    "guest names still come from /api/cron/calendar."
+                )
+                if tasks_unavailable
+                else (
+                    "Cleaner assignments: pulled live from str-manager-one "
+                    "/api/tasks. Open https://str-manager-one.vercel.app/ops to "
+                    "assign any turnover where cleaner_assigned is false."
+                )
             ),
             "guesty_window": (
                 "Guesty Pro data appears from Jul 2026 forward. Pre-July "
