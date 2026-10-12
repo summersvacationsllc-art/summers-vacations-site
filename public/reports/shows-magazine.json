@@ -1,15 +1,15 @@
 {
-  "date": "2026-10-10",
+  "date": "2026-10-12",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Saturday in Branson: warm fall sunshine with highs near 87°F",
-  "deck": "Saturday, October 10 brings warm fall weather to the lake with a high near 87°F, mostly sunny skies, and light winds. Perfect for outdoor shows, lake time, or exploring the Strip before the evening performances.",
+  "hed": "Clear Monday on the lake — cool dawn, warm afternoon",
+  "deck": "Monday, October 12 opens with clear skies, a low near 65°F, and a high around 90°F with almost no rain in the forecast. Use the cool dawn on Table Rock or Taneycomo, then slide into A/C and indoor fun when the Strip heats up. Confirm box office before you drive in — Monday showtimes were not freshly re-stamped overnight.",
   "pick": {
-    "title": "Broadway to Buble",
-    "when": "10:00 AM & evening shows",
-    "where": "Americana Theatre",
-    "why": "Swing into the weekend with this high-energy tribute blending Broadway hits and Michael Bublé classics — a crowd favorite for first-timers.",
-    "url": "https://www.branson.com/shows",
+    "title": "Early-fall bite on Table Rock & Taneycomo",
+    "when": "Dawn through mid-morning",
+    "where": "Table Rock Lake & Lake Taneycomo (from Notch / Indian Point)",
+    "why": "Clear water near 911 ft and cooling fall temps have bass on points and trout working seams on light generation. Launch early, then verify SWPA flow before you wade (866-494-1993).",
+    "url": "https://www.swpa.gov/",
     "source": "night-editor"
   },
   "buckets": [
@@ -233,27 +233,27 @@
   ],
   "indoor": [
     {
-      "name": "Matt Gumm Comedy",
-      "detail": "Laugh-out-loud clean comedy at Clay Cooper Theatre.",
-      "url": "https://www.claycoopertheatre.com"
+      "name": "WonderWorks Branson",
+      "detail": "Upside-down museum on the 76 — real A/C and hands-on science for mixed ages when the afternoon warms.",
+      "url": "https://www.wonderworksonline.com/branson/"
     },
     {
-      "name": "The Lion, The Witch And The Wardrobe",
-      "detail": "Family-friendly stage production at Branson Hillside Theatre.",
-      "url": "https://bransonhillsidetheatre.com"
+      "name": "Ripley’s Believe It or Not!",
+      "detail": "Oddities and cool halls on the Strip — a reliable indoor break between lake time and dinner.",
+      "url": "https://www.ripleys.com/branson/"
     },
     {
-      "name": "Anthems of Rock",
-      "detail": "High-energy rock tribute show.",
-      "url": "https://www.branson.com/shows"
+      "name": "Beyond the Lens / Hollywood Wax Museum",
+      "detail": "Interactive photo fun and classic wax figures under one Strip roof — confirm hours on arrival.",
+      "url": "https://www.hollywoodys.com/branson/"
     }
   ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-10",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-10.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-12",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-12.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
