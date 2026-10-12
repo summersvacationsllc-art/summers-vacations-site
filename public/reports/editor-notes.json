@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-11",
-  "headline": "Sunday in Branson: cool, clear fall skies with a high of 90°F",
-  "lede": "Sunday, October 11 brings bright, cool fall weather to the lake with a high near 90°F, low humidity, and zero chance of rain. A perfect day for outdoor shows, a relaxed drive along the Strip, or a scenic meal with a view.",
+  "for": "2026-10-12",
+  "headline": "Clear Monday on the lake \u2014 cool dawn, warm afternoon",
+  "lede": "Monday, October 12 opens with clear skies, a low near 65\u00b0F, and a high around 90\u00b0F with almost no rain in the forecast. Use the cool dawn on Table Rock or Taneycomo, then slide into A/C and indoor fun when the Strip heats up. Confirm box office before you drive in \u2014 Monday showtimes were not freshly re-stamped overnight.",
   "heat": false,
   "featured": {
-    "title": "Silver Dollar City Harvest Festival",
-    "when": "All day (opens 10 AM)",
-    "where": "Silver Dollar City",
-    "why": "Fall colors, live music, craft demonstrations, and family-friendly rides make this a top pick for first-timers enjoying the Ozarks in October.",
-    "url": "https://www.silverdollarcity.com/"
+    "title": "Early-fall bite on Table Rock & Taneycomo",
+    "when": "Dawn through mid-morning",
+    "where": "Table Rock Lake & Lake Taneycomo (from Notch / Indian Point)",
+    "why": "Clear water near 911 ft and cooling fall temps have bass on points and trout working seams on light generation. Launch early, then verify SWPA flow before you wade (866-494-1993).",
+    "url": "https://www.swpa.gov/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Coffee & Strip sunrise",
-      "detail": "Start at Steamy Joe Cafe for espresso and early-morning people-watching on the bustling Strip."
+      "title": "On the water while it\u2019s cool",
+      "detail": "Table Rock: topwater and soft plastics on long points before the sun climbs. Taneycomo: marabou jigs, zebra midges, or scuds in low-flow seams \u2014 call SWPA 866-494-1993 before wading. Carry-forward bite from Sunday\u2019s scout; re-check gage at the ramp."
     },
     {
       "when": "Afternoon",
-      "title": "Silver Dollar City or Table Rock cruise",
-      "detail": "Chase fall vibes at SDC or enjoy a gentle lake cruise with Table Rock Lake views."
+      "title": "Shade, pizza, and A/C",
+      "detail": "Monday restaurant spotlight: Ozark Mountain Pizza on Hwy 265 \u2014 easy family stop between the lake and the Strip. Pair with a matinee or museum when the high approaches 90\u00b0F. Confirm show times at the box office."
     },
     {
       "when": "Dusk",
-      "title": "Dinner show",
-      "detail": "Catch an evening performance followed by lakeside dining — many venues light up the shoreline after dark."
+      "title": "Landing fountain or Strip evening",
+      "detail": "Branson Landing fire-and-water fountain runs on the hour (weather permitting). Or head to the 76 for an evening theatre \u2014 lineups shift by day, so confirm tonight\u2019s board before you leave Notch."
     }
   ],
   "indoor": [
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy country and gospel music with clean family comedy.",
-      "url": "https://claycoopertheatre.com"
+      "name": "WonderWorks Branson",
+      "detail": "Upside-down museum on the 76 \u2014 real A/C and hands-on science for mixed ages when the afternoon warms.",
+      "url": "https://www.wonderworksonline.com/branson/"
     },
     {
-      "name": "Branson Hillside Theatre",
-      "detail": "Current stage productions and holiday-themed shows in a comfortable indoor venue.",
-      "url": "https://bransonhillsidetheatre.com"
+      "name": "Ripley\u2019s Believe It or Not!",
+      "detail": "Oddities and cool halls on the Strip \u2014 a reliable indoor break between lake time and dinner.",
+      "url": "https://www.ripleys.com/branson/"
     },
     {
-      "name": "Americana Theatre",
-      "detail": "Tribute shows and variety performances perfect for all ages.",
-      "url": "https://www.branson.com/shows"
+      "name": "Beyond the Lens / Hollywood Wax Museum",
+      "detail": "Interactive photo fun and classic wax figures under one Strip roof \u2014 confirm hours on arrival.",
+      "url": "https://www.hollywoodys.com/branson/"
     }
   ],
-  "honesty": "Night Editor autonomous run on 2026-10-10 for 2026-10-11. No tomorrow scout files present. Honest carry-forward from latest verified dining/shows data + real Open-Meteo forecast (high 90°F, 0% precip). No invented showtimes, prices, or events. Plan and indoor are proper objects. Bright-blue magazine only. Restaurant spotlight rotates to Lake House for Sunday."
+  "honesty": "Night Editor desk for Monday 2026-10-12. Weather from Open-Meteo (36.6509,-93.3691): high ~90\u00b0F, low ~65\u00b0F, clear, ~0\u20131% rain \u2014 heat banner off (<95\u00b0F). No Monday scout files yet; fishing and lake notes carry from 2026-10-11 USACE/SWPA scout. Shows without a Monday stamp: confirm box office. Restaurant rotation Monday = Ozark Mountain Pizza (no venue-exact guest photo in catalog \u2014 magazine will label representational or omit). Farmers market is Tuesday-only \u2014 not featured today."
 }
