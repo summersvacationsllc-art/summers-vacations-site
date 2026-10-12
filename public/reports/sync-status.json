@@ -1,32 +1,28 @@
 {
   "ok": false,
-  "generated_at": "2026-10-12T01:37:27+00:00",
-  "checkedAt": "2026-10-11T20:37:27-05:00",
-  "todayCT": "2026-10-11",
-  "lastSyncAt": "2026-10-10T19:31:32+00:00",
-  "syncDataDate": "2026-10-10",
-  "liveDataDate": "2026-10-10",
+  "generated_at": "2026-10-12T13:21:09+00:00",
+  "checkedAt": "2026-10-12T08:21:09-05:00",
+  "todayCT": "2026-10-12",
+  "lastSyncAt": "2026-10-12T13:21:07+00:00",
+  "syncDataDate": "2026-10-12",
+  "liveDataDate": "2026-10-12",
   "liveSource": "github",
   "expectedInHouse": [
-    "Kelsey Clifton @ Indian Point",
-    "Tara McMillin @ Penthouse",
-    "Payton Patterson @ Rustic Ozark",
-    "Shea Fijal @ Scotts unit",
+    "Joshua Tannehill @ Penthouse",
+    "James Baer @ Rustic Ozark",
     "Joshua Johnson @ Woodland Retreat"
   ],
   "kioskUnits": {
-    "the-penthouse": "Tara McMillin (Penthouse)",
-    "rustic-ozark-retreat": "Payton Patterson (Rustic Ozark)",
+    "the-penthouse": "Joshua Tannehill (Penthouse)",
+    "rustic-ozark-retreat": "James Baer (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": "Kelsey Clifton (Indian Point)",
+    "branson-family-haven": null,
     "woodland-retreat": "Joshua Johnson (Woodland Retreat)",
-    "scotts-unit": "Shea Fijal (Scotts unit)"
+    "scotts-unit": null
   },
   "errors": [
-    "sync data is for 2026-10-10, today is 2026-10-11 CT",
-    "daily sync had not published guest data for today by the 7 AM CT deadline (monitor rebuilt it)",
-    "monitor rebuild from str-manager-one failed"
+    "daily sync had not published guest data for today by the 7 AM CT deadline (monitor rebuilt it)"
   ],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38192591547 late=1 rebuild=failure"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38255052815 late=1 rebuild=success"
 }
