@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-11",
-  "biteOfDay": "ing Trout fishing on Taneycomo has been productive with good numbers of rainbows and active browns as fall progresses. Recent local reports from the first week of October note success on marabou jigs, zebra midges, scuds and small streamers, especially during lower-flow windows. On Table Rock, bass are transitioning to deeper structure and points in the cooling clear water, with topwaters early an",
+  "date": "2026-10-12",
+  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent local reports from early October note consistent success on marabou jigs, zebra midges, scuds and small streamers during lower-flow periods. On Table Rock, bass are sliding toward long points, creek channels and deeper structure in the cooling clear water, with topwaters and re",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.03 ft (USACE)",
+      "level": "911.02 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~1524 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~300 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Target low or moderating flow windows on Taneycomo by drifting or wading seams and current breaks with a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive or with Indy orange head), a zebra midge under an indicator, or a scud. When generation increases, switch to heavier rigs and",
+  "tip": "Insider tip: Take advantage of the minimal early generation on Taneycomo. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, olive or with an Indy orange head, or hang a zebra midge under an indicator. Switch to heavier rigs when the current builds lat",
   "source": "scout",
-  "last_verified": "2026-10-11T05:01:10-05:00"
+  "last_verified": "2026-10-12T06:05:23-05:00"
 }
