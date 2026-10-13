@@ -815,6 +815,12 @@ export default function Home() {
             >
               📰 Daily Branson Report — fishing, shows & events →
             </Link>
+            <Link
+              href="/fall-guide"
+              className="text-sm font-bold text-[#0c4a6e] hover:text-[#0ea5e9] no-underline"
+            >
+              🍂 Branson Fall Guide — pumpkins, mazes & fall color →
+            </Link>
           </div>
         </div>
       </section>
