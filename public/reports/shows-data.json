@@ -223,9 +223,7 @@
       "venueAddress": "2920 West 76 Country Blvd"
     }
   ],
-  "freeEvents": [
-    "Deadline-guard: show grid carried/partial for 2026-10-13 \u2014 confirm box office."
-  ],
-  "magazineBuilt": "2026-10-12",
+  "freeEvents": [],
+  "magazineBuilt": "2026-10-13",
   "last_verified": "2026-10-11T05:16:57-05:00"
 }
