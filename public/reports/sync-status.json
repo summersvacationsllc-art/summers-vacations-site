@@ -1,26 +1,25 @@
 {
   "ok": true,
-  "generated_at": "2026-10-13T03:07:45+00:00",
-  "checkedAt": "2026-10-12T22:07:45-05:00",
-  "todayCT": "2026-10-12",
-  "lastSyncAt": "2026-10-13T03:07:44+00:00",
-  "syncDataDate": "2026-10-12",
-  "liveDataDate": "2026-10-12",
+  "generated_at": "2026-10-13T17:45:04+00:00",
+  "checkedAt": "2026-10-13T12:45:04-05:00",
+  "todayCT": "2026-10-13",
+  "lastSyncAt": "2026-10-13T17:44:55+00:00",
+  "syncDataDate": "2026-10-13",
+  "liveDataDate": "2026-10-13",
   "liveSource": "github",
   "expectedInHouse": [
     "Joshua Tannehill @ Penthouse",
-    "James Baer @ Rustic Ozark",
-    "Joshua Johnson @ Woodland Retreat"
+    "James Baer @ Rustic Ozark"
   ],
   "kioskUnits": {
     "the-penthouse": "Joshua Tannehill (Penthouse)",
     "rustic-ozark-retreat": "James Baer (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": null,
-    "woodland-retreat": "Joshua Johnson (Woodland Retreat)",
+    "woodland-retreat": null,
     "scotts-unit": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38340207682 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38441112050"
 }
