@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-12",
-  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent local reports from early October note consistent success on marabou jigs, zebra midges, scuds and small streamers during lower-flow periods. On Table Rock, bass are sliding toward long points, creek channels and deeper structure in the cooling clear water, with topwaters and re",
+  "date": "2026-10-13",
+  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent reports from Lilleys' Landing and John Sappington note consistent success on marabou jigs, zebra midges, scuds, and small streamers during lower-flow periods. On Table Rock, bass are sliding toward long points, creek channels, and deeper structure in the cooling clear water, hi",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "911.01 ft (USACE 14:00 CT)",
+      "level": "910.93 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 14:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~4669 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: Take advantage of the minimal early generation on Taneycomo. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, olive or with an Indy orange head, or hang a zebra midge under an indicator. Switch to heavier rigs when the current builds lat",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-12T14:57:49-05:00"
+  "source": "scout",
+  "last_verified": "2026-10-13T05:31:24-05:00"
 }

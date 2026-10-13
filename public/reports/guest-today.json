@@ -1,45 +1,27 @@
 {
-  "date": "2026-10-12",
-  "generated_at": "2026-10-13T03:07:44+00:00",
+  "date": "2026-10-13",
+  "generated_at": "2026-10-13T05:31:24-05:00",
   "headline": {
     "check_ins": 0,
-    "check_outs": 2,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 2,
     "units_total": 5
   },
   "check_ins": [],
   "check_outs": [
-    {
-      "property": "Indian Point",
-      "guest": "Kelsey Clifton",
-      "guests": 11,
-      "platform": "airbnb2",
-      "reservation_id": "res_yzx4y8r",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Scotts unit",
-      "guest": "Shea Fijal",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_3nf2v6p",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Woodland Retreat",
       "guest": "Joshua Johnson",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_rh9glgc",
-      "check_in": "2026-10-10",
-      "check_out": "2026-10-13",
-      "nights": 3
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Joshua Tannehill",
