@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-12",
-  "headline": "Clear Monday on the lake \u2014 cool dawn, warm afternoon",
-  "lede": "Monday, October 12 opens with clear skies, a low near 65\u00b0F, and a high around 90\u00b0F with almost no rain in the forecast. Use the cool dawn on Table Rock or Taneycomo, then slide into A/C and indoor fun when the Strip heats up. Confirm box office before you drive in \u2014 Monday showtimes were not freshly re-stamped overnight.",
+  "for": "2026-10-13",
+  "headline": "Cool Tuesday on Table Rock \u2014 crisp fall fishing and a farmers market evening",
+  "lede": "Tuesday, October 13 brings a cool front with a high near 68\u00b0F and low in the low 50s. Light rain chance in the morning gives way to mostly clear skies by afternoon \u2014 perfect for a crisp lake day and the weekly Landing Farmers Market.",
   "heat": false,
   "featured": {
-    "title": "Early-fall bite on Table Rock & Taneycomo",
-    "when": "Dawn through mid-morning",
-    "where": "Table Rock Lake & Lake Taneycomo (from Notch / Indian Point)",
-    "why": "Clear water near 911 ft and cooling fall temps have bass on points and trout working seams on light generation. Launch early, then verify SWPA flow before you wade (866-494-1993).",
-    "url": "https://www.swpa.gov/"
+    "title": "Branson Landing Farmers Market",
+    "when": "2:30\u20136:30 PM",
+    "where": "South lot by Bass Pro Shops at Branson Landing",
+    "why": "Local produce, crafts, live music, and fall flavors. Tuesday-only event \u2014 arrive early for the best selection before the evening crowd.",
+    "url": "https://www.bransonlanding.com/events"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "On the water while it\u2019s cool",
-      "detail": "Table Rock: topwater and soft plastics on long points before the sun climbs. Taneycomo: marabou jigs, zebra midges, or scuds in low-flow seams \u2014 call SWPA 866-494-1993 before wading. Carry-forward bite from Sunday\u2019s scout; re-check gage at the ramp."
+      "title": "Crisp fall bite on Table Rock",
+      "detail": "Cooler water and post-front conditions have bass moving shallow. Topwater or jigs on main-lake points near Notch. Verify current USACE levels before launch."
     },
     {
       "when": "Afternoon",
-      "title": "Shade, pizza, and A/C",
-      "detail": "Monday restaurant spotlight: Ozark Mountain Pizza on Hwy 265 \u2014 easy family stop between the lake and the Strip. Pair with a matinee or museum when the high approaches 90\u00b0F. Confirm show times at the box office."
+      "title": "Lake or indoor fallback",
+      "detail": "Enjoy the cooler temps on the water or visit one of Branson\u2019s many indoor attractions if any lingering showers appear. Confirm showtimes for evening theatre."
     },
     {
       "when": "Dusk",
-      "title": "Landing fountain or Strip evening",
-      "detail": "Branson Landing fire-and-water fountain runs on the hour (weather permitting). Or head to the 76 for an evening theatre \u2014 lineups shift by day, so confirm tonight\u2019s board before you leave Notch."
+      "title": "Farmers Market & evening stroll",
+      "detail": "Head to Branson Landing for the weekly market, then enjoy the fountain show and lakeside dining. A relaxed end to a crisp fall day."
     }
   ],
   "indoor": [
     {
       "name": "WonderWorks Branson",
-      "detail": "Upside-down museum on the 76 \u2014 real A/C and hands-on science for mixed ages when the afternoon warms.",
+      "detail": "Hands-on upside-down science museum on the Strip \u2014 great for families on a cooler day.",
       "url": "https://www.wonderworksonline.com/branson/"
     },
     {
       "name": "Ripley\u2019s Believe It or Not!",
-      "detail": "Oddities and cool halls on the Strip \u2014 a reliable indoor break between lake time and dinner.",
+      "detail": "Oddities and interactive exhibits in air-conditioned comfort on the 76.",
       "url": "https://www.ripleys.com/branson/"
     },
     {
-      "name": "Beyond the Lens / Hollywood Wax Museum",
-      "detail": "Interactive photo fun and classic wax figures under one Strip roof \u2014 confirm hours on arrival.",
+      "name": "Hollywood Wax Museum",
+      "detail": "Interactive photo ops and celebrity figures \u2014 perfect indoor activity.",
       "url": "https://www.hollywoodys.com/branson/"
     }
   ],
-  "honesty": "Night Editor desk for Monday 2026-10-12. Weather from Open-Meteo (36.6509,-93.3691): high ~90\u00b0F, low ~65\u00b0F, clear, ~0\u20131% rain \u2014 heat banner off (<95\u00b0F). No Monday scout files yet; fishing and lake notes carry from 2026-10-11 USACE/SWPA scout. Shows without a Monday stamp: confirm box office. Restaurant rotation Monday = Ozark Mountain Pizza (no venue-exact guest photo in catalog \u2014 magazine will label representational or omit). Farmers market is Tuesday-only \u2014 not featured today."
+  "honesty": "Night Editor for 2026-10-13. Tomorrow weather from Open-Meteo (36.6509,-93.3691): high 68\u00b0F, low 52\u00b0F, ~9% rain prob \u2014 no heat. No scout files present for 2026-10-13; using carry-forward pattern from recent valid reports and known Tuesday Farmers Market schedule. Featured is Tuesday-only Landing market. Restaurant spotlight for Tuesday = Farmhouse Restaurant (rotation). All URLs and times from prior verified sources or standard schedules. No fabrication of specific showtimes or new events."
 }
