@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-13",
-  "headline": "Cool Tuesday on Table Rock \u2014 crisp fall fishing and a farmers market evening",
-  "lede": "Tuesday, October 13 brings a cool front with a high near 68\u00b0F and low in the low 50s. Light rain chance in the morning gives way to mostly clear skies by afternoon \u2014 perfect for a crisp lake day and the weekly Landing Farmers Market.",
+  "for": "2026-10-14",
+  "headline": "Cool mid-October on Table Rock \u2014 fall fishing bite and crisp evenings",
+  "lede": "Wednesday, October 14 brings seasonable fall weather with a high near 68\u00b0F and lows in the low 50s. A mix of clouds and sun with a chance of showers \u2014 ideal for a layered lake day with indoor options nearby.",
   "heat": false,
   "featured": {
-    "title": "Branson Landing Farmers Market",
-    "when": "2:30\u20136:30 PM",
-    "where": "South lot by Bass Pro Shops at Branson Landing",
-    "why": "Local produce, crafts, live music, and fall flavors. Tuesday-only event \u2014 arrive early for the best selection before the evening crowd.",
-    "url": "https://www.bransonlanding.com/events"
+    "title": "Table Rock Lake Fall Fishing",
+    "when": "All day",
+    "where": "Main lake points and coves near Notch Lane",
+    "why": "Post-cold front conditions typically improve the bite. Focus on shallow-running crankbaits or jigs. Verify current USACE lake levels and generation schedule.",
+    "url": "https://www.lakelevel.net/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Crisp fall bite on Table Rock",
-      "detail": "Cooler water and post-front conditions have bass moving shallow. Topwater or jigs on main-lake points near Notch. Verify current USACE levels before launch."
+      "title": "Early morning fishing",
+      "detail": "Cooler water temps have bass and walleye active in shallower water. Try main lake points and brush piles. Light wind expected."
     },
     {
       "when": "Afternoon",
-      "title": "Lake or indoor fallback",
-      "detail": "Enjoy the cooler temps on the water or visit one of Branson\u2019s many indoor attractions if any lingering showers appear. Confirm showtimes for evening theatre."
+      "title": "Lake cruise or indoor attractions",
+      "detail": "Enjoy the fall colors on the water or head to air-conditioned shows and museums on the Strip if showers develop."
     },
     {
       "when": "Dusk",
-      "title": "Farmers Market & evening stroll",
-      "detail": "Head to Branson Landing for the weekly market, then enjoy the fountain show and lakeside dining. A relaxed end to a crisp fall day."
+      "title": "Evening show or lakeside dining",
+      "detail": "Catch a show on the 76 or relax with dinner overlooking Table Rock Lake. Confirm current showtimes at the box office."
     }
   ],
   "indoor": [
     {
       "name": "WonderWorks Branson",
-      "detail": "Hands-on upside-down science museum on the Strip \u2014 great for families on a cooler day.",
+      "detail": "Interactive upside-down science museum \u2014 perfect family activity on a cloudy day.",
       "url": "https://www.wonderworksonline.com/branson/"
     },
     {
-      "name": "Ripley\u2019s Believe It or Not!",
-      "detail": "Oddities and interactive exhibits in air-conditioned comfort on the 76.",
+      "name": "Ripley's Believe It or Not!",
+      "detail": "Oddities, illusions, and hands-on exhibits in climate-controlled comfort.",
       "url": "https://www.ripleys.com/branson/"
     },
     {
       "name": "Hollywood Wax Museum",
-      "detail": "Interactive photo ops and celebrity figures \u2014 perfect indoor activity.",
+      "detail": "Celebrity figures, interactive photo ops, and behind-the-scenes stories.",
       "url": "https://www.hollywoodys.com/branson/"
     }
   ],
-  "honesty": "Night Editor for 2026-10-13. Tomorrow weather from Open-Meteo (36.6509,-93.3691): high 68\u00b0F, low 52\u00b0F, ~9% rain prob \u2014 no heat. No scout files present for 2026-10-13; using carry-forward pattern from recent valid reports and known Tuesday Farmers Market schedule. Featured is Tuesday-only Landing market. Restaurant spotlight for Tuesday = Farmhouse Restaurant (rotation). All URLs and times from prior verified sources or standard schedules. No fabrication of specific showtimes or new events."
+  "honesty": "Night Editor run on 2026-10-13 for tomorrow (2026-10-14). Open-Meteo forecast: high ~68\u00b0F (converted from raw C data), low ~52\u00b0F, ~40% rain chance \u2014 no heat. No tomorrow scout files present. Using carry-forward from recent valid reports + standard fall patterns. No showtimes invented. Restaurant spotlight rotation for Wednesday = Steamy Joe Cafe. All data from verified prior sources or public schedules."
 }
