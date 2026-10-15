@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-14",
-  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent reports from Lilleys' Landing and John Sappington note consistent success on marabou jigs, zebra midges, scuds, and small streamers during lower-flow periods. On Table Rock, bass are sliding toward long points, creek channels, and deeper structure in the cooling clear water, hi",
+  "date": "2026-10-15",
+  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent reports from Lilleys' Landing and John Sappington note consistent success on marabou jigs, zebra midges, scuds, and small streamers during lower-flow periods. On Table Rock, bass continue transitioning to deeper structure and long points in the cooling clear water, hitting topw",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "910.93 ft (USACE)",
+      "level": "910.95 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~4669 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~8932 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Take advantage of the minimal early generation on Taneycomo. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, olive or with an Indy orange head, or hang a zebra midge under an indicator. Switch to heavier rigs when the current builds lat",
+  "tip": "Insider tip: Take full advantage of the minimal early generation. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive (Indy orange head a favorite), or hang a zebra midge (#16-20 red/black) under an indicator. Add weight and switch to heavier r",
   "source": "scout",
-  "last_verified": "2026-10-14T07:11:51-05:00"
+  "last_verified": "2026-10-15T05:15:36-05:00"
 }
