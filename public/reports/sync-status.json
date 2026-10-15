@@ -1,26 +1,28 @@
 {
   "ok": true,
-  "generated_at": "2026-10-15T00:45:34+00:00",
-  "checkedAt": "2026-10-14T19:45:34-05:00",
-  "todayCT": "2026-10-14",
-  "lastSyncAt": "2026-10-15T00:45:32+00:00",
-  "syncDataDate": "2026-10-14",
-  "liveDataDate": "2026-10-14",
+  "generated_at": "2026-10-15T15:17:16+00:00",
+  "checkedAt": "2026-10-15T10:17:16-05:00",
+  "todayCT": "2026-10-15",
+  "lastSyncAt": "2026-10-15T15:16:52+00:00",
+  "syncDataDate": "2026-10-15",
+  "liveDataDate": "2026-10-15",
   "liveSource": "github",
   "expectedInHouse": [
-    "Jessica Ross @ Penthouse",
+    "Chris Kozisek @ Indian Point",
+    "Allison Potteiger @ Penthouse",
+    "Linda Spencer @ Rustic Ozark",
     "Martha Lewis @ Scotts unit",
     "Lisa Leas @ Woodland Retreat"
   ],
   "kioskUnits": {
-    "the-penthouse": "Jessica Ross (Penthouse)",
-    "rustic-ozark-retreat": null,
+    "the-penthouse": "Allison Potteiger (Penthouse)",
+    "rustic-ozark-retreat": "Linda Spencer (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": null,
+    "branson-family-haven": "Chris Kozisek (Indian Point)",
     "woodland-retreat": "Lisa Leas (Woodland Retreat)",
     "scotts-unit": "Martha Lewis (Scotts unit)"
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38661826152 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38758864586"
 }
