@@ -1,15 +1,15 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-15",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Cool Tuesday on Table Rock — crisp fall fishing and a farmers market evening",
-  "deck": "Tuesday, October 13 brings a cool front with a high near 68°F and low in the low 50s. Light rain chance in the morning gives way to mostly clear skies by afternoon — perfect for a crisp lake day and the weekly Landing Farmers Market.",
+  "hed": "Pleasant fall Thursday on Table Rock — mild temps and reliable fishing bite",
+  "deck": "Thursday, October 15 brings comfortable mid-October weather with a high near 77°F and lows in the upper 50s. A 55% chance of light showers early gives way to partly sunny skies — ideal for lake time, a show, or indoor attractions with a light jacket.",
   "pick": {
-    "title": "Branson Landing Farmers Market",
-    "when": "2:30–6:30 PM",
-    "where": "South lot by Bass Pro Shops at Branson Landing",
-    "why": "Local produce, crafts, live music, and fall flavors. Tuesday-only event — arrive early for the best selection before the evening crowd.",
-    "url": "https://www.bransonlanding.com/events",
+    "title": "Fall Fishing on Table Rock",
+    "when": "Morning through afternoon",
+    "where": "Main lake points and coves near Notch Lane",
+    "why": "Post-front conditions often improve the bite for bass and walleye. Use shallow crankbaits or jigs near brush. Check current USACE levels before heading out.",
+    "url": "https://www.lakelevel.net/",
     "source": "night-editor"
   },
   "buckets": [
@@ -234,17 +234,17 @@
   "indoor": [
     {
       "name": "WonderWorks Branson",
-      "detail": "Hands-on upside-down science museum on the Strip — great for families on a cooler day.",
+      "detail": "Hands-on upside-down science museum and interactive exhibits — great for all ages on a drizzly day.",
       "url": "https://www.wonderworksonline.com/branson/"
     },
     {
-      "name": "Ripley’s Believe It or Not!",
-      "detail": "Oddities and interactive exhibits in air-conditioned comfort on the 76.",
+      "name": "Ripley's Believe It or Not!",
+      "detail": "Oddities, illusions, and air-conditioned exploration of the unusual in Branson.",
       "url": "https://www.ripleys.com/branson/"
     },
     {
       "name": "Hollywood Wax Museum",
-      "detail": "Interactive photo ops and celebrity figures — perfect indoor activity.",
+      "detail": "Life-like celebrity figures, interactive zones, and behind-the-scenes Hollywood stories.",
       "url": "https://www.hollywoodys.com/branson/"
     }
   ],
@@ -252,8 +252,8 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-13",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, shows-data board. No fresh shows scout on the runner — board may be carry-forward under today’s date."
+    "checked": "2026-10-15",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-15.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
