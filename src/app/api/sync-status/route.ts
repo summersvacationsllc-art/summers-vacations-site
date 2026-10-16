@@ -19,9 +19,10 @@ export async function GET(req: Request) {
   const errors: string[] = [];
   const warnings: string[] = [];
 
-  const [guest, lastVerify] = await Promise.all([
+  const [guest, lastVerify, showsHealth] = await Promise.all([
     loadLiveReport("guest-today.json"),
     loadLiveReport("sync-status.json"),
+    loadLiveReport("shows-health.json"),
   ]);
 
   if (!guest) {
@@ -37,6 +38,11 @@ export async function GET(req: Request) {
   const lv = lastVerify?.data as { ok?: boolean; checkedAt?: string; errors?: string[] } | undefined;
   if (lv && lv.ok === false) errors.push(`last verifier run failed at ${lv.checkedAt}: ${(lv.errors || []).join("; ")}`);
 
+  // Shows board freshness (no guest data: counts and dates only). A warning, not
+  // an error, so a stale show grid never pages the kiosk/guest-data monitor.
+  const sh = showsHealth?.data as { ok?: boolean; message?: string; unchangedDays?: number } | undefined;
+  if (sh && sh.ok === false) warnings.push(`shows board stale: ${sh.message}`);
+
   const ok = errors.length === 0;
   const body = {
     ok,
@@ -46,6 +52,7 @@ export async function GET(req: Request) {
       ? { date: guest.date, generatedAt: guest.generatedAt, source: guest.source, candidates: guest.candidates }
       : null,
     lastVerify: lv ?? null,
+    showsHealth: sh ?? null,
     errors,
     warnings,
   };

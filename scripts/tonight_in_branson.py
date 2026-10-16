@@ -23,6 +23,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 CT = ZoneInfo("America/Chicago")
 SITE = Path(__file__).resolve().parents[1]
 REPORTS = SITE / "public" / "reports"
@@ -100,13 +101,16 @@ def bucket_for(mins: int | None) -> str:
 
 
 def classify(show: dict) -> tuple[str, str]:
-    blob = " ".join(
-        str(show.get(k) or "")
-        for k in ("name", "type", "tag", "venue", "desc", "why")
-    )
-    for rx, chip, icon in CHIP_RULES:
-        if rx.search(blob):
-            return chip, icon
+    # Show's own words first; venue only as a fallback, so a tenor act at the
+    # Shanghai theatre isn't tagged "thrill" and a Bee Gees tribute at Hamner's
+    # isn't tagged "magic".
+    own = " ".join(str(show.get(k) or "") for k in ("name", "type", "tag"))
+    more = " ".join(str(show.get(k) or "") for k in ("desc", "why"))
+    venue = str(show.get("venue") or "")
+    for blob in (own, more, venue):
+        for rx, chip, icon in CHIP_RULES:
+            if rx.search(blob):
+                return chip, icon
     return "music", "🎭"
 
 
@@ -233,7 +237,7 @@ def pick_from_editor(notes: dict, shows: list[dict]) -> dict | None:
     title = (feat.get("title") or "").strip()
     if not title:
         return None
-    # try match existing show
+    # try match a show in TODAY's parsed list; no match -> no editor pick
     match = None
     tlow = title.lower()
     for s in shows:
@@ -243,6 +247,8 @@ def pick_from_editor(notes: dict, shows: list[dict]) -> dict | None:
         ):
             match = s
             break
+    if match is None:
+        return None
     return {
         "title": title,
         "when": feat.get("when") or (match or {}).get("time") or "",
@@ -439,8 +445,28 @@ def build_magazine(day: str, shows: list[dict], notes: dict, scout_path: Path | 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=today_ct())
+    ap.add_argument(
+        "--no-scout-build",
+        action="store_true",
+        help="skip build_shows_from_scout (debug only; names/times would be carried forward)",
+    )
     args = ap.parse_args()
     day = args.date
+
+    if not args.no_scout_build:
+        # Show names/times come ONLY from the shows scout (2026-10-16 fix:
+        # the board had been carried forward unchanged since 2026-10-02).
+        import build_shows_from_scout as bsfs
+
+        prior = load_json(REPORTS / "shows-data.json")
+        built = bsfs.build(day, None, 2, prior)
+        if prior.get("magazineBuilt"):
+            built["magazineBuilt"] = prior["magazineBuilt"]
+        write_json(REPORTS / "shows-data.json", built)
+        print(
+            f"build_shows_from_scout status={built['status']} scout={built.get('scoutFile')} "
+            f"shows={len(built['shows'])}"
+        )
 
     shows_path = REPORTS / "shows-data.json"
     mag_path = REPORTS / "shows-magazine.json"
@@ -454,8 +480,8 @@ def main() -> int:
         mag = {
             "date": day,
             "kicker": "Tonight in Branson",
-            "hed": "Board still loading",
-            "deck": "No shows file on the desk yet — check back after the morning sync.",
+            "hed": "Today's show list isn't in yet",
+            "deck": "No recent shows scout, so we're not guessing. Check the theater box offices for today's times.",
             "pick": None,
             "buckets": [],
             "chips": [],
@@ -463,7 +489,7 @@ def main() -> int:
             "editor": {
                 "stamp": "Tonight in Branson desk",
                 "checked": day,
-                "note": "Empty shows-data.json",
+                "note": data.get("note") or "No recent shows scout; board left empty on purpose.",
             },
         }
         write_json(mag_path, mag)
@@ -481,10 +507,22 @@ def main() -> int:
         except Exception as e:
             print(f"scout copy skip: {e}", file=sys.stderr)
 
+    fresh_today = data.get("status") == "fresh" and data.get("scoutDate") == day
+    if not fresh_today:
+        notes = {}  # no editor feature on a fallback/empty board
     mag = build_magazine(day, enriched, notes, scout)
+    if not fresh_today:
+        mag["pick"] = None  # never promote a show that isn't on today's scout
+        label = data.get("scoutDate")
+        mag["editor"]["note"] = (
+            f"Show list from the {label} scout (today's not in yet). Confirm times at the box office."
+            if label
+            else "No recent shows scout. Check box offices for today's times."
+        )
     free = clean_free_events(data.get("freeEvents"))
     mag["free"] = free
 
+    mag["generated_at"] = datetime.now(CT).isoformat(timespec="seconds")
     # Write magazine
     write_json(mag_path, mag)
 
@@ -500,6 +538,10 @@ def main() -> int:
         "magazineBuilt": day,
         "last_verified": data.get("last_verified") or day,
     }
+    # keep scout provenance written by build_shows_from_scout (UI ignores these)
+    for k in ("status", "scoutDate", "scoutFile", "source", "listHash", "note", "generated_at"):
+        if k in data:
+            out_data[k] = data[k]
     # If file date is stale but we're building today, stamp date only when shows look today's
     # Don't silently claim a fossil board is "today" without note — magazine editor.note covers it.
     write_json(shows_path, out_data)
