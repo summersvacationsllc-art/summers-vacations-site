@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { normalizeStayDate, stayMode, doorWindow, stayDateLabel, isIsoDate, type StayDate, type DoorState } from "@/lib/stay-window";
 import dynamic from "next/dynamic";
 import { getGuidebook, SEASONS, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
 import type { WeatherPayload } from "@/lib/weather";
@@ -66,29 +67,17 @@ function homeHighlights(theme: SeasonalTheme, showsData: any, attractionsData: a
   return chips.slice(0, 4);
 }
 
-// Convert "4:00 PM" → "16:00:00" for Date constructor
-function convertTime(t: string): string {
-  const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
-  if (!m) return '16:00:00';
-  let h = parseInt(m[1]);
-  const min = m[2];
-  const ampm = m[3].toUpperCase();
-  if (ampm === 'PM' && h !== 12) h += 12;
-  if (ampm === 'AM' && h === 12) h = 0;
-  return `${String(h).padStart(2,'0')}:${min}:00`;
-}
-
 export default function GuidebookPage({ params, searchParams: spPromise }: {
   params: Promise<{ property: string }>;
-  searchParams: Promise<{ code?: string; name?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string; from?: string; unit?: string }>;
+  searchParams: Promise<{ code?: string; name?: string; conf?: string; confirmation?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string; from?: string; unit?: string }>;
 }) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
   const [mode, setMode] = useState<'guest'|'branson'>('branson');
   const [guestCode, setGuestCode] = useState('');
   const [guestName, setGuestName] = useState('');
-  const [checkin, setCheckin] = useState('');
-  const [checkout, setCheckout] = useState('');
+  const [checkin, setCheckin] = useState<StayDate | null>(null);
+  const [checkout, setCheckout] = useState<StayDate | null>(null);
   const [checkinTime, setCheckinTime] = useState('');
   const [fromKiosk, setFromKiosk] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -112,19 +101,44 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       setProp(gb);
       if (sp.code) setGuestCode(sp.code);
       if (sp.name) setGuestName(sp.name);
-      if (sp.checkin) setCheckin(sp.checkin);
-      if (sp.checkout) setCheckout(sp.checkout);
+      // Dates: raw YYYY-MM-DD (original), Guesty text ("Oct 20th, 2026"), or junk kept verbatim.
+      const ci = normalizeStayDate(sp.checkin);
+      const co = normalizeStayDate(sp.checkout);
+      setCheckin(ci);
+      setCheckout(co);
       if (sp.checkintime) setCheckinTime(sp.checkintime);
       if (sp.from === 'kiosk') setFromKiosk(true);
       // Auto-detect mode based on checkout date
       // City guidebook is the base. Property house-manual only while booked.
-      if (sp.checkout) {
-        const co = new Date(sp.checkout + 'T10:00:00');
-        setMode(new Date() > co ? 'branson' : 'guest');
-      } else if (sp.checkin) {
-        setMode('guest');
-      } else {
-        setMode('branson');
+      setMode(stayMode(ci, co, Date.now()));
+      // No usable dates but a door code / confirmation: look up the real stay
+      // from Guesty. Any miss, error or timeout keeps the behavior set above.
+      const usable = (d: StayDate | null) => !!d && d.source !== 'raw';
+      const conf = sp.conf || sp.confirmation || '';
+      if (!(usable(ci) && usable(co)) && (sp.code || conf || sp.name)) {
+        void (async () => {
+          try {
+            const q = new URLSearchParams({ property: gb.slug });
+            if (sp.code) q.set('code', sp.code);
+            if (sp.name) q.set('name', sp.name);
+            if (conf) q.set('conf', conf);
+            const ctl = new AbortController();
+            const timer = setTimeout(() => ctl.abort(), 8000);
+            const r = await fetch(`/api/guidebook-stay?${q}`, { cache: 'no-store', signal: ctl.signal });
+            clearTimeout(timer);
+            if (!r.ok) return;
+            const d = await r.json();
+            if (!d?.ok || !isIsoDate(d.checkin) || !isIsoDate(d.checkout) || d.checkout <= d.checkin) return;
+            // A date already in the link must agree with the lookup, or we ignore it.
+            if (usable(ci) && ci!.value !== d.checkin) return;
+            if (usable(co) && co!.value !== d.checkout) return;
+            const lci: StayDate = { value: d.checkin, source: 'lookup' };
+            const lco: StayDate = { value: d.checkout, source: 'lookup' };
+            setCheckin(lci);
+            setCheckout(lco);
+            setMode(stayMode(lci, lco, Date.now()));
+          } catch { /* keep current behavior */ }
+        })();
       }
       // Fetch Guesty photos
       if (gb.guestyListingId) {
@@ -171,27 +185,19 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const isWoodland = prop && prop.id === 'woodland-retreat';
   const today = new Date();
   // ── Time-gated door code (all properties) ──────
-  let doorState: 'before' | 'early' | 'ready' | 'after' = 'ready';
+  const win = doorWindow(checkin, checkout, checkinTime, today.getTime());
+  const doorState: DoorState = win.state;
   let doorDisplay = guestCode || prop.checkIn.doorCode;
   let checkinLabel = '';
   let doorNote = '';
-  if (checkin && checkout) {
-    const ciDate = new Date(checkin + 'T07:00:00'); // 7AM — code visible
-    const ciTime = checkinTime || '4:00 PM';
-    const ciActive = new Date(checkin + 'T' + convertTime(ciTime)); // actual check-in
-    const co = new Date(checkout + 'T10:00:00'); // 10AM checkout
-    if (today < ciDate) {
-      doorState = 'before';
-      doorDisplay = 'Available at check-in';
-      checkinLabel = ciDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-    } else if (today < ciActive) {
-      doorState = 'early';
-      doorNote = 'Not active until ' + ciTime;
-      checkinLabel = ciDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-    } else if (today > co) {
-      doorState = 'after';
-      doorDisplay = 'Stay ended';
-    }
+  if (doorState === 'before') {
+    doorDisplay = 'Available at check-in';
+    checkinLabel = stayDateLabel(checkin, win.ciDate);
+  } else if (doorState === 'early') {
+    doorNote = 'Not active until ' + win.ciTime;
+    checkinLabel = stayDateLabel(checkin, win.ciDate);
+  } else if (doorState === 'after') {
+    doorDisplay = 'Stay ended';
   }
   const doorBg = doorState === 'ready'
     ? { background: 'linear-gradient(135deg,#0ea5e9,#0284c7)' }

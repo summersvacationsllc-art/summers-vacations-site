@@ -39,7 +39,7 @@ async function guestyAuth(): Promise<string> {
   return json.access_token;
 }
 
-async function guestyGet(path: string): Promise<Record<string, unknown>> {
+export async function guestyGet(path: string): Promise<Record<string, unknown>> {
   const token = await guestyAuth();
   const res = await fetch(`${GUESTY_BASE}${path}`, {
     headers: {
