@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Pleasant fall Thursday on Table Rock — mild temps and reliable fishing bite",
-  "deck": "Thursday, October 15 brings comfortable mid-October weather with a high near 77°F and lows in the upper 50s. A 55% chance of light showers early gives way to partly sunny skies — ideal for lake time, a show, or indoor attractions with a light jacket.",
+  "hed": "Friday night Branson",
+  "deck": "**A vibrant Friday lineup for Summers Vacations guests featuring morning gospel harmonies, Simon & Garfunkel classics, high-energy country variety, powerful tenors, Elvis tribute, rock anthems, and classic country jubilee along the 76 Strip and nearby theaters.** October weather is ideal for pairing a matinee with outdoor time or catching an evening performance after exploring Branson Landing.",
   "pick": {
-    "title": "Fall Fishing on Table Rock",
-    "when": "Morning through afternoon",
-    "where": "Main lake points and coves near Notch Lane",
-    "why": "Post-front conditions often improve the bite for bass and walleye. Use shallow crankbaits or jigs near brush. Check current USACE levels before heading out.",
-    "url": "https://www.lakelevel.net/",
-    "source": "night-editor"
+    "title": "The Haygoods",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Easy multi-age pick.",
+    "url": "https://www.claycoopertheatre.com/",
+    "source": "desk"
   },
   "buckets": [
     {
@@ -231,29 +231,13 @@
       "count": 1
     }
   ],
-  "indoor": [
-    {
-      "name": "WonderWorks Branson",
-      "detail": "Hands-on upside-down science museum and interactive exhibits — great for all ages on a drizzly day.",
-      "url": "https://www.wonderworksonline.com/branson/"
-    },
-    {
-      "name": "Ripley's Believe It or Not!",
-      "detail": "Oddities, illusions, and air-conditioned exploration of the unusual in Branson.",
-      "url": "https://www.ripleys.com/branson/"
-    },
-    {
-      "name": "Hollywood Wax Museum",
-      "detail": "Life-like celebrity figures, interactive zones, and behind-the-scenes Hollywood stories.",
-      "url": "https://www.hollywoodys.com/branson/"
-    }
-  ],
+  "indoor": [],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-15",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-15.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-16",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-16.md, shows-data board. Scout prose on file."
   },
   "counts": {
     "shows": 13,
