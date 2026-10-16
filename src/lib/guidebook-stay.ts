@@ -92,14 +92,55 @@ async function listingSlugs(): Promise<Map<string, string | null>> {
   return map;
 }
 
-async function loadReservations(): Promise<Res[]> {
-  if (cache && Date.now() - cache.at < CACHE_MS) return cache.rows;
+let diagDone = false;
+/** TEMP diagnostics (staged builds only): which reservation fields look like an access code. Names + counts only. */
+async function diagAccessCodeFields(filters: string) {
+  if (diagDone || process.env.GUIDEBOOK_STAY_DIAG !== "1") return;
+  diagDone = true;
+  try {
+    const json = await guestyGet(`/v1/reservations?limit=25&filters=${encodeURIComponent(filters)}`);
+    const results = (json.results as Record<string, unknown>[]) || [];
+    const stats: Record<string, { n: number; eqPhone4: number; len: Record<string, number> }> = {};
+    const walk = (o: unknown, path: string, phone4: string[], depth: number) => {
+      if (!o || typeof o !== "object" || depth > 4) return;
+      for (const [k, v] of Object.entries(o as Record<string, unknown>)) {
+        const pth = path ? `${path}.${k}` : k;
+        if (/code|lock|access|pin|key/i.test(k) && (typeof v === "string" || typeof v === "number")) {
+          const st = (stats[pth] ||= { n: 0, eqPhone4: 0, len: {} });
+          const sv = String(v);
+          st.n++;
+          st.len[String(sv.length)] = (st.len[String(sv.length)] || 0) + 1;
+          if (phone4.includes(sv.replace(/\D/g, "").slice(-4)) && /^\d{4,8}$/.test(sv)) st.eqPhone4++;
+        }
+        if (typeof v === "object") walk(v, pth, phone4, depth + 1);
+      }
+    };
+    for (const r of results) {
+      const g = (r.guest as Record<string, unknown>) || {};
+      const phone4 = [g.phone, ...(Array.isArray(g.phones) ? g.phones : [])].map((p) => last4(p)).filter(Boolean) as string[];
+      walk(r, "", phone4, 0);
+    }
+    console.log("guidebook-stay diag: reservations", results.length, "topKeys", JSON.stringify(Object.keys(results[0] || {})), "codeLike", JSON.stringify(stats));
+  } catch (e) {
+    console.log("guidebook-stay diag failed", e instanceof Error ? e.message.slice(0, 200) : "");
+  }
+}
+
+let loading: Promise<Res[]> | null = null;
+function loadReservations(): Promise<Res[]> {
+  if (cache && Date.now() - cache.at < CACHE_MS) return Promise.resolve(cache.rows);
+  if (!loading) loading = fetchReservations().finally(() => { loading = null; });
+  return loading;
+}
+
+async function fetchReservations(): Promise<Res[]> {
   const slugs = await listingSlugs();
   const today = todayCT();
   const filters = JSON.stringify([
     { field: "checkOut", operator: "$gte", value: `${addDays(today, -2)}T00:00:00.000Z` },
     { field: "checkIn", operator: "$lte", value: `${addDays(today, 550)}T00:00:00.000Z` },
   ]);
+  await diagAccessCodeFields(filters);
   const fields = [
     "listingId", "status", "confirmationCode", "checkIn", "checkOut",
     "checkInDateLocalized", "checkOutDateLocalized",
@@ -142,7 +183,9 @@ async function loadReservations(): Promise<Res[]> {
   console.log("guidebook-stay: loaded", rows.length, "stays", JSON.stringify(per),
     "withPhone", rows.filter((r) => r.phoneLast4.length).length,
     "withName", rows.filter((r) => r.first).length,
-    "listings", slugs.size);
+    "listings", slugs.size,
+    "upcoming", rows.filter((r) => r.checkin > today).length,
+    "inHouse", rows.filter((r) => r.checkin <= today && r.checkout >= today).length);
   return rows;
 }
 

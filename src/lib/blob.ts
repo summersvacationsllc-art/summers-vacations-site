@@ -13,6 +13,7 @@ type PutOpts = {
   contentType?: string;
   addRandomSuffix?: boolean;
   allowOverwrite?: boolean;
+  cacheControlMaxAge?: number;
 };
 
 function localDir(): string {
