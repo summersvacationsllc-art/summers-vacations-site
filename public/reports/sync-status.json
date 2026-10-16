@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "generated_at": "2026-10-16T00:38:25+00:00",
-  "checkedAt": "2026-10-15T19:38:25-05:00",
-  "todayCT": "2026-10-15",
-  "lastSyncAt": "2026-10-16T00:38:23+00:00",
-  "syncDataDate": "2026-10-15",
-  "liveDataDate": "2026-10-15",
+  "generated_at": "2026-10-16T14:58:37+00:00",
+  "checkedAt": "2026-10-16T09:58:37-05:00",
+  "todayCT": "2026-10-16",
+  "lastSyncAt": "2026-10-16T14:58:31+00:00",
+  "syncDataDate": "2026-10-16",
+  "liveDataDate": "2026-10-16",
   "liveSource": "github",
   "expectedInHouse": [
     "Chris Kozisek @ Indian Point",
@@ -24,5 +24,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38830594497 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38920084678"
 }
