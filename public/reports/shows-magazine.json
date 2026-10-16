@@ -5,11 +5,11 @@
   "hed": "Friday night Branson",
   "deck": "**A vibrant Friday lineup for Summers Vacations guests featuring morning gospel harmonies, Simon & Garfunkel classics, high-energy country variety, powerful tenors, Elvis tribute, rock anthems, and classic country jubilee along the 76 Strip and nearby theaters.** October weather is ideal for pairing a matinee with outdoor time or catching an evening performance after exploring Branson Landing.",
   "pick": {
-    "title": "The Haygoods",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Easy multi-age pick.",
-    "url": "https://www.claycoopertheatre.com/",
+    "title": "Anthems of Rock",
+    "when": "8:00 PM",
+    "where": "King's Castle Theatre",
+    "why": "Core Branson mainstage energy.",
+    "url": "https://www.kingscastletheatre.com/",
     "source": "desk"
   },
   "buckets": [
@@ -17,7 +17,7 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 6,
+      "count": 5,
       "shows": [
         {
           "name": "Absolutely Country, Definitely Gospel",
@@ -25,71 +25,59 @@
           "venue": "Americana Theatre",
           "type": "Country / Gospel",
           "url": "https://www.americanatheatre.com/",
-          "chip": "family",
-          "icon": "👨‍👩‍👧",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": true,
-          "desc": "Uplifting country and gospel to start the day. Warm, family-friendly, and soulful.",
-          "price": ""
+          "desc": "Uplifting country and gospel harmonies to start the day. Family-friendly and inspirational",
+          "price": "$67–$93"
         },
         {
-          "name": "Beach Boys California Dreamin'",
-          "time": "10:00 AM",
-          "venue": "Hamners' Variety Theater",
-          "type": "Classic Hits",
-          "url": "https://www.hamnersunbelievable.com/",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": true,
-          "desc": "Sunny surf-rock harmonies and classic Beach Boys hits. Ideal family matinee.",
-          "price": ""
-        },
-        {
-          "name": "Clay Cooper's Country Express Show",
+          "name": "Hot Rods & High Heels",
           "time": "10:00 AM",
           "venue": "Clay Cooper Theatre",
-          "type": "Country / Gospel",
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": true,
-          "desc": "Lively country, gospel, comedy, and dance — a Branson staple with multi-generational draw.",
-          "price": ""
-        },
-        {
-          "name": "#1 Hits of the 60s",
-          "time": "2:00 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": "Classic Hits",
+          "type": null,
           "url": "https://www.claycoopertheatre.com/",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Nostalgic 60s hits showcase — strong afternoon option for couples and multi-gen families.",
-          "price": ""
+          "desc": "High-energy musical production blending hot rods, country, and showmanship",
+          "price": "$61–$73"
         },
         {
-          "name": "Baldknobbers Vintage Show",
-          "time": "2:00 PM",
-          "venue": "Hughes Brothers Theatre",
-          "type": "Country Comedy & Music",
-          "url": "https://hughesentertainmentinc.com/",
-          "chip": "comedy",
-          "icon": "😂",
+          "name": "The Sound of Simon and Garfunkel Show",
+          "time": "10:00 AM",
+          "venue": "Hamner's Variety Theater",
+          "type": null,
+          "url": "https://www.hamnersunbelievable.com/",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": true,
-          "desc": "Branson's famous Baldknobbers (65+ years) bring country music and comedy with high-energy tradition.",
-          "price": ""
+          "desc": "Nostalgic folk-rock classics from the iconic duo. Perfect for multi-generational appeal",
+          "price": "$53–$65"
         },
         {
-          "name": "Dublin's Irish Tenors & The Celtic Ladies",
+          "name": "Amazing Acrobats of Shanghai / Shanghai Circus",
           "time": "2:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": "Irish Music & Dance",
-          "url": "https://www.kingscastletheatre.com/",
-          "chip": "music",
-          "icon": "🎶",
+          "venue": "Mickey Gilley Grand Shanghai Theatre",
+          "type": null,
+          "url": "https://www.grandshanghaitheatre.com/",
+          "chip": "thrill",
+          "icon": "🤸",
           "ticketOk": true,
-          "desc": "Heartwarming Celtic music, Irish tenors, and beautiful harmonies. Broad appeal matinee.",
-          "price": ""
+          "desc": "Spectacular acrobatics and circus performance. High-energy family entertainment",
+          "price": "$42–$76"
+        },
+        {
+          "name": "Clay Cooper's Country Express Show",
+          "time": "2:00 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": "Country / Gospel",
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "High-energy country, folk, comedy and variety from the Cooper family cast. A Branson tradition",
+          "price": "$77–$93"
         }
       ]
     },
@@ -100,16 +88,16 @@
       "count": 1,
       "shows": [
         {
-          "name": "Outpost Opry Variety Show",
+          "name": "Back to the Bee Gees",
           "time": "5:00 PM",
-          "venue": "Hughes Brothers Theatre",
-          "type": "Country Variety",
-          "url": "https://hughesentertainmentinc.com/",
-          "chip": "dinner",
-          "icon": "🍽️",
+          "venue": "Hamner's Variety Theater",
+          "type": null,
+          "url": "https://www.hamnersunbelievable.com/",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": true,
-          "desc": "Country, gospel, classic hits, comedy — music/comedy/dinner-style variety for a late-afternoon fill.",
-          "price": ""
+          "desc": "Faithful tribute to the Bee Gees with disco-era hits and tight harmonies",
+          "price": "$37–$45"
         }
       ]
     },
@@ -117,70 +105,46 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 6,
+      "count": 4,
       "shows": [
         {
-          "name": "Amazing Acrobats of Shanghai / Grand Shanghai Circus",
+          "name": "The Texas Tenors",
           "time": "7:30 PM",
           "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": "Acrobatics",
+          "type": null,
           "url": "https://www.grandshanghaitheatre.com/",
-          "chip": "thrill",
-          "icon": "🤸",
+          "chip": "music",
+          "icon": "🎶",
           "ticketOk": true,
-          "desc": "World-class Chinese acrobatics, balancing, contortion, and high production values. Outstanding family evening show.",
-          "price": ""
+          "desc": "Powerful three-tenor blend of country, opera and pop. A vocal powerhouse",
+          "price": "$83–$97"
         },
         {
-          "name": "The Haygoods",
-          "time": "7:30 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": "Family Variety",
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "family",
-          "icon": "👨‍👩‍👧",
-          "ticketOk": true,
-          "desc": "High-energy sibling family show with multi-instrumentals, choreography, and effects — one of Branson's strongest evening draws.",
-          "price": ""
-        },
-        {
-          "name": "Hamners' Unbelievable Variety Show",
+          "name": "Anthems of Rock",
           "time": "8:00 PM",
-          "venue": "Hamners' Variety Theater",
-          "type": "Magic / Variety",
-          "url": "https://www.hamnersunbelievable.com/",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": true,
-          "desc": "Fast-paced magic, music, comedy, acrobatics, and illusions. Always a solid evening pick.",
-          "price": ""
-        },
-        {
-          "name": "Hughes Music Show",
-          "time": "8:00 PM",
-          "venue": "Hughes Brothers Theatre",
-          "type": "Family Live Production",
-          "url": "https://hughesentertainmentinc.com/",
-          "chip": "family",
-          "icon": "👨‍👩‍👧",
-          "ticketOk": true,
-          "desc": "Large-scale family live production with a big cast and high energy — strong evening headliner at Hughes.",
-          "price": ""
-        },
-        {
-          "name": "Legends in Concert",
-          "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
-          "type": "Celebrity Tributes",
-          "url": "https://legendsinconcert.com/location/branson-mo/",
+          "venue": "King's Castle Theatre",
+          "type": null,
+          "url": "https://www.kingscastletheatre.com/",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Fall 2026 rotation (Sep 10 – Oct 31): tributes to **Toby Keith, Adele, The Blues Brothers™, and Elvis Presley**. ~2-hour show; acts subject to change.",
+          "desc": "High-energy rock anthems and classic hits with strong production. High demand noted",
+          "price": "$39–$61"
+        },
+        {
+          "name": "Jimmy Fortune",
+          "time": "8:00 PM",
+          "venue": "The Mansion Theatre for the Performing Arts",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Statler Brothers alum delivering heartfelt country and gospel classics",
           "price": ""
         },
         {
-          "name": "Presleys' Country Jubilee Show",
+          "name": "Presley's Country Jubilee",
           "time": "8:00 PM",
           "venue": "Presleys' Country Jubilee",
           "type": "Country / Gospel",
@@ -188,7 +152,27 @@
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": true,
-          "desc": "Long-running country, gospel, and family comedy — a true Branson tradition.",
+          "desc": "Multi-generational country harmonies, comedy and classic Branson entertainment since 1967",
+          "price": "$55–$81"
+        }
+      ]
+    },
+    {
+      "id": "anytime",
+      "label": "Time TBA",
+      "blurb": "Confirm box office",
+      "count": 1,
+      "shows": [
+        {
+          "name": "Dean Z – The Ultimate Elvis",
+          "time": "Check times",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "Premier Elvis Presley tribute with authentic sound and performance",
           "price": ""
         }
       ]
@@ -196,24 +180,14 @@
   ],
   "chips": [
     {
-      "id": "family",
-      "label": "Family",
-      "count": 3
-    },
-    {
-      "id": "magic",
-      "label": "Magic",
-      "count": 2
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy",
-      "count": 3
-    },
-    {
       "id": "classic",
       "label": "Classic",
-      "count": 2
+      "count": 8
+    },
+    {
+      "id": "thrill",
+      "label": "Thrill",
+      "count": 1
     },
     {
       "id": "music",
@@ -221,13 +195,8 @@
       "count": 1
     },
     {
-      "id": "dinner",
-      "label": "Dinner",
-      "count": 1
-    },
-    {
-      "id": "thrill",
-      "label": "Thrill",
+      "id": "comedy",
+      "label": "Comedy",
       "count": 1
     }
   ],
@@ -240,7 +209,8 @@
     "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-16.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 13,
-    "withTickets": 13
-  }
+    "shows": 11,
+    "withTickets": 10
+  },
+  "generated_at": "2026-10-16T15:03:51-05:00"
 }
