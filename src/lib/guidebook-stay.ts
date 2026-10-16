@@ -136,6 +136,13 @@ async function loadReservations(): Promise<Res[]> {
     if (results.length < 100 || skip >= Number(json.count ?? 0)) break;
   }
   cache = { at: Date.now(), rows };
+  // Diagnostics without guest data: counts per property only.
+  const per: Record<string, number> = {};
+  for (const r of rows) per[r.slug ?? "unmapped"] = (per[r.slug ?? "unmapped"] || 0) + 1;
+  console.log("guidebook-stay: loaded", rows.length, "stays", JSON.stringify(per),
+    "withPhone", rows.filter((r) => r.phoneLast4.length).length,
+    "withName", rows.filter((r) => r.first).length,
+    "listings", slugs.size);
   return rows;
 }
 

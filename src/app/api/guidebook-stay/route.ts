@@ -42,7 +42,8 @@ export async function GET(req: Request) {
       { ok: true, checkin: stay.checkin, checkout: stay.checkout, checkinTime: null },
       { headers: NO_STORE },
     );
-  } catch {
+  } catch (e) {
+    console.error("guidebook-stay: lookup failed:", e instanceof Error ? e.message.slice(0, 300) : "error");
     return miss();
   }
 }
