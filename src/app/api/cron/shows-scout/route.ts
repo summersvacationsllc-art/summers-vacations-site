@@ -69,10 +69,10 @@ One or two sentences about today's lineup.
 **Show Name** – 7:30 PM
 - Venue Name (street address)
 - One-sentence description.
-- Tickets from ~$X–$Y (or: Tickets available)
+- Tickets from ~$45–$65
 - Source: site1.com, site2.com (verified ${when})
 
-(repeat the block for each show, sorted by time; one show per block; use an en dash between the name and the time)
+FORMAT RULES: bold ONLY the show name; the en dash and the time go AFTER the closing ** (right: "**Anthems of Rock** – 8:00 PM", wrong: "**Anthems of Rock – 8:00 PM**"). One show per block, sorted by time. If the price is unknown write "Tickets available".
 
 ## Insider Tips
 Two or three practical sentences for guests.
@@ -97,8 +97,19 @@ function responseText(data: XaiResponse): string {
   return bits.join("\n");
 }
 
+/** "**Name – 7:30 PM**" → "**Name** – 7:30 PM" (the parser wants only the name in bold). */
+function unboldTimes(t: string): string {
+  return t
+    .split("\n")
+    .map((line) => {
+      const m = /^\*\*(.+)\s+[–—-]\s+([^–—*]+?)\*\*\s*$/.exec(line.trim());
+      return m && !m[1].includes("**") ? `**${m[1].trim()}** – ${m[2].trim()}` : line;
+    })
+    .join("\n");
+}
+
 function tidyScout(text: string): string {
-  let t = text.replace(/\r\n/g, "\n");
+  let t = unboldTimes(text.replace(/\r\n/g, "\n"));
   const start = t.indexOf("# ");
   if (start > 0) t = t.slice(start);
   t = t
