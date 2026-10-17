@@ -52,6 +52,12 @@ CLOCK = re.compile(r"^\s*(\d{1,2}(?::\d{2})?\s*[AaPp]\.?[Mm]\.?)")
 HEDGE = re.compile(r"typically|usually|approx|around|tba|tbd|check|varies|evening|afternoon|morning|window", re.I)
 VENUEISH = re.compile(r"theat|hall|center|centre|castle|jubilee|arena|playhouse|mansion|landing|resort|church|park|opry|palace|auditorium", re.I)
 PAREN_HEDGE = re.compile(r"confirm|select|some |may |check|\bor\b|slot|varies|tba|tbd|active|dates", re.I)
+# Recovery stubs / honest carry-forward shells (content engine's
+# honest_scout_fallback.py, scout_exit_gate --allow-stub) re-label an older
+# lineup under today's date. They are not a show list for today: skip them.
+NOT_A_SCOUT = re.compile(
+    r"HONEST CARRY-FORWARD BASELINE|Generator:\s*scripts/honest_scout_fallback\.py|"
+    r"EXIT[-\s]?GATE STUB|honest recovery\. Sources incomplete", re.I)
 STOP_HEADINGS = re.compile(r"^##\s+(insider|desk note|notes|tips|sources|free|outdoor|indoor)", re.I)
 
 
@@ -81,6 +87,9 @@ def find_scout(day: str, max_age_days: int) -> tuple[Path | None, str | None]:
         for base in scout_dirs():
             p = base / f"{d}.md"
             if p.is_file() and p.stat().st_size >= MIN_SCOUT_BYTES:
+                head = p.read_text(encoding="utf-8", errors="replace")[:3000]
+                if NOT_A_SCOUT.search(head):
+                    continue
                 return p, d
     return None, None
 

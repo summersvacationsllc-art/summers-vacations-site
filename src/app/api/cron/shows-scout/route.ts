@@ -6,6 +6,7 @@ import {
   MIN_SHOWS,
   blobConfigured,
   readCloudJson,
+  readCloudText,
   writeCloud,
   type CloudStatus,
 } from "@/lib/shows-cloud";
@@ -19,6 +20,9 @@ import {
  *   curl -H "Authorization: Bearer $CRON_SECRET" https://mybransonvacation.com/api/cron/shows-scout
  *   ?force=1   re-run even if today's list is already in
  *   ?dryRun=1  research + parse, return the result, publish nothing
+ *   ?get=scout[&date=YYYY-MM-DD]  return a stored scout (markdown), no research.
+ *              Used by the Mac "Shows Scout (cloud mirror)" job so the content
+ *              engine's data/shows/<day>.md and the guest sync stay in step.
  *
  * Steps: xAI Responses API + web_search writes today's scout markdown in the
  * format scripts/build_shows_from_scout.py reads → parse/build with the same
@@ -143,6 +147,15 @@ export async function GET(req: Request) {
   if (!auth) return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
 
   const url = new URL(req.url);
+  if (url.searchParams.get("get") === "scout") {
+    const want = url.searchParams.get("date") || todayCT();
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(want)) return NextResponse.json({ ok: false, error: "bad date" }, { status: 400 });
+    const md = await readCloudText(`scouts/${want}.md`);
+    if (!md) return NextResponse.json({ ok: false, error: `no cloud scout for ${want}` }, { status: 404 });
+    return new NextResponse(md, {
+      headers: { "Content-Type": "text/markdown; charset=utf-8", "Cache-Control": "no-store, max-age=0" },
+    });
+  }
   const force = url.searchParams.get("force") === "1";
   const dryRun = url.searchParams.get("dryRun") === "1";
   const trigger = req.headers.get("user-agent")?.includes("vercel-cron") ? "vercel-cron" : "manual";

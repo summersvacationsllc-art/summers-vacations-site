@@ -113,5 +113,28 @@ class T(unittest.TestCase):
                 self.assertLess(len(s["name"]), 95, f.name)
 
 
+class HonestCarryTest(unittest.TestCase):
+    def test_honest_carry_scout_is_skipped(self):
+        """A carry-forward shell under today's name must not become today's board."""
+        import os
+        tmp = Path(tempfile.mkdtemp())
+        try:
+            body = "\n".join(f"**Show {i}** – 7:{i}0 PM\n- Some Theatre (1 Main St)\n- Desc." for i in range(5))
+            (tmp / "2026-10-20.md").write_text("> **HONEST CARRY-FORWARD BASELINE** from 2026-10-18\n\n" + body + "\n" + "x" * 400)
+            (tmp / "2026-10-19.md").write_text("# Shows\n\n" + body + "\n" + "y" * 400)
+            old = os.environ.get("SHOW_SCOUT_DIR")
+            os.environ["SHOW_SCOUT_DIR"] = str(tmp)
+            try:
+                _, day = b.find_scout("2026-10-20", 2)
+            finally:
+                if old is None:
+                    os.environ.pop("SHOW_SCOUT_DIR", None)
+                else:
+                    os.environ["SHOW_SCOUT_DIR"] = old
+            self.assertEqual(day, "2026-10-19")
+        finally:
+            shutil.rmtree(tmp)
+
+
 if __name__ == "__main__":
     unittest.main()
