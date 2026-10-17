@@ -1,28 +1,44 @@
 {
-  "date": "2026-10-16",
-  "generated_at": "2026-10-17T00:42:31+00:00",
+  "date": "2026-10-17",
+  "generated_at": "2026-10-17T05:30:36-05:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 0,
+    "check_ins": 1,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 5,
+    "in_house_units": 4,
     "units_total": 5
   },
-  "check_ins": [],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_ins": [
+    {
+      "property": "Indian Point",
+      "guest": "Matayia Smith",
+      "guests": 8,
+      "platform": "airbnb2",
+      "reservation_id": "res_m8ofzgr",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
     {
       "property": "Scotts unit",
       "guest": "Martha Lewis",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_xo8hpam",
-      "check_in": "2026-10-14",
-      "check_out": "2026-10-17",
-      "nights": 3
+      "time": "10:00 AM"
     },
+    {
+      "property": "Indian Point",
+      "guest": "Chris Kozisek",
+      "guests": 6,
+      "platform": "vrbo",
+      "reservation_id": "res_thchd8h",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Woodland Retreat",
       "guest": "Lisa Leas",
@@ -32,16 +48,6 @@
       "check_in": "2026-10-14",
       "check_out": "2026-10-18",
       "nights": 4
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Chris Kozisek",
-      "guests": 6,
-      "platform": "vrbo",
-      "reservation_id": "res_thchd8h",
-      "check_in": "2026-10-15",
-      "check_out": "2026-10-17",
-      "nights": 2
     },
     {
       "property": "Penthouse",
@@ -62,6 +68,16 @@
       "check_in": "2026-10-15",
       "check_out": "2026-10-18",
       "nights": 3
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Matayia Smith",
+      "guests": 8,
+      "platform": "airbnb2",
+      "reservation_id": "res_m8ofzgr",
+      "check_in": "2026-10-17",
+      "check_out": "2026-10-18",
+      "nights": 1
     }
   ],
   "sync_notes": {
