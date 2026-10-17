@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-15",
-  "headline": "Pleasant fall Thursday on Table Rock — mild temps and reliable fishing bite",
-  "lede": "Thursday, October 15 brings comfortable mid-October weather with a high near 77°F and lows in the upper 50s. A 55% chance of light showers early gives way to partly sunny skies — ideal for lake time, a show, or indoor attractions with a light jacket.",
+  "for": "2026-10-17",
+  "headline": "Crisp fall Saturday on Table Rock — bright skies and perfect lake conditions",
+  "lede": "Saturday, October 17 delivers clear skies, a high near 63°F and crisp low around 42°F with no rain in the forecast. This is prime fall weather for first-time visitors — comfortable for lake time, a matinee show, or strolling the Branson Landing fountain after dusk.",
   "heat": false,
   "featured": {
-    "title": "Fall Fishing on Table Rock",
+    "title": "Table Rock Lake Cruise or Morning Bite",
     "when": "Morning through afternoon",
-    "where": "Main lake points and coves near Notch Lane",
-    "why": "Post-front conditions often improve the bite for bass and walleye. Use shallow crankbaits or jigs near brush. Check current USACE levels before heading out.",
+    "where": "Table Rock Lake near Notch Lane and Indian Point",
+    "why": "Cooler fall water often improves fishing bite while bright skies make for ideal sightseeing cruises. Confirm current conditions and tour availability locally before heading out.",
     "url": "https://www.lakelevel.net/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early lake fishing or coffee cruise",
-      "detail": "Cooler mornings bring active fish near main lake points. Or enjoy a quiet sunrise paddle or coffee at a lakeside spot before the day warms."
+      "title": "Sunrise paddle or early lake fishing",
+      "detail": "Cool mornings bring active fish near main lake points and coves. Or enjoy a peaceful sunrise on the water before the day warms. Verify current lake levels and boat rentals locally."
     },
     {
       "when": "Afternoon",
       "title": "Matinee show or indoor attraction",
-      "detail": "Catch a popular afternoon performance on the Strip or explore climate-controlled venues like museums if showers arrive. Layer for changing conditions."
+      "detail": "Catch an afternoon performance on the Strip or explore family-friendly indoor venues. Layer lightly for changing fall temperatures."
     },
     {
       "when": "Dusk",
-      "title": "Lakeside dinner and evening lights",
-      "detail": "Enjoy dinner with a view of the lake or head to the Landing for the fountain show. Confirm current showtimes and restaurant hours locally."
+      "title": "Landing fountain show and lakeside dinner",
+      "detail": "Head to Branson Landing for the evening fountain show and lights. Pair with dinner at a lakeside spot. Confirm current showtimes and restaurant hours locally."
     }
   ],
   "indoor": [
     {
       "name": "WonderWorks Branson",
-      "detail": "Hands-on upside-down science museum and interactive exhibits — great for all ages on a drizzly day.",
+      "detail": "Hands-on upside-down science museum and interactive exhibits — great for all ages on a crisp fall day.",
       "url": "https://www.wonderworksonline.com/branson/"
     },
     {
       "name": "Ripley's Believe It or Not!",
-      "detail": "Oddities, illusions, and air-conditioned exploration of the unusual in Branson.",
+      "detail": "Oddities, illusions, and air-conditioned exploration in a fun, climate-controlled environment.",
       "url": "https://www.ripleys.com/branson/"
     },
     {
       "name": "Hollywood Wax Museum",
-      "detail": "Life-like celebrity figures, interactive zones, and behind-the-scenes Hollywood stories.",
+      "detail": "Life-like celebrity figures, interactive zones, and behind-the-scenes stories — engaging for the whole family.",
       "url": "https://www.hollywoodys.com/branson/"
     }
   ],
-  "honesty": "Night Editor run on 2026-10-14 for 2026-10-15. No scout markdown files found for tomorrow (carry-forward from recent verified reports). Open-Meteo forecast used for weather beat (high ~77°F, low ~58°F, 55% precip). No showtimes or prices invented. Restaurant spotlight rotates to White River for Thursday. All content follows verified patterns and honest carry-forward rules."
+  "honesty": "Night Editor run on 2026-10-16 for 2026-10-17 (Saturday). No scout markdown files found for tomorrow (expected). Weather pulled live from Open-Meteo (high 63°F / 17.3°C, low 42°F / 5.5°C, 0% precip, clear skies). Carry-forward from recent verified reports for shows, fishing, and attractions. Restaurant spotlight rotated to The Lake House per weekday rule. No events, times, prices or specific show lineups invented. Honest carry-forward with \"confirm locally\" notes where appropriate. Bright blue theme preserved."
 }
