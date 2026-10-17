@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-17T05:00:23-05:00",
+  "checkedAt": "2026-10-17T05:21:56-05:00",
   "date": "2026-10-17",
   "ok": true,
-  "unchangedDays": 2,
-  "unchangedSince": "2026-10-16",
+  "unchangedDays": 1,
+  "unchangedSince": "2026-10-17",
   "scoutsInWindow": 1,
   "distinctScoutLists": 1,
   "threshold": 3,
