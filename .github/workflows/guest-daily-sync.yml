@@ -89,9 +89,17 @@ jobs:
             python3 scripts/hooked_on_branson.py --date "$DATE" || echo "WARNING: hooked_on_branson failed"
 
           echo "=== Tonight in Branson (shows desk; no Mac required) ==="
+          # tonight_in_branson now builds shows-data.json from today's shows scout
+          # (scripts/build_shows_from_scout.py) before it writes the magazine.
+          # Names/times are never carried forward; no fresh scout = empty, honest board.
           SHOW_SCOUT_DIR="_food_scouts/data/shows" \
           BRANSON_ENGINE="$BRANSON_ENGINE" \
             python3 scripts/tonight_in_branson.py --date "$DATE" || echo "WARNING: tonight_in_branson failed"
+
+          echo "=== Shows staleness check (writes public/reports/shows-health.json) ==="
+          SHOW_SCOUT_DIR="_food_scouts/data/shows" \
+            python3 scripts/check_shows_staleness.py --date "$DATE" --days 3 --no-fail \
+            || echo "WARNING: shows staleness check errored"
 
           # Snapshot prior magazine (if any) so empty-scout rebuild cannot clobber Hermes
           PRIOR="public/reports/$DATE.html"
@@ -220,6 +228,20 @@ jobs:
             if { git pull --rebase -X theirs origin main || { git rebase --abort 2>/dev/null; false; }; } && git push origin HEAD:main; then break; fi
             sleep $((i * 5))
           done
+
+      # Fail loudly (GitHub emails the schedule owner) when the guest show list
+      # has not changed for 3+ days while the scouts did. Runs after reports and
+      # sync-status are published so a stale board never blocks guest data.
+      - name: Shows board staleness gate
+        if: always() && steps.verify.outcome != 'skipped'
+        run: |
+          set -euo pipefail
+          [ -f public/reports/shows-health.json ] || { echo "no shows-health.json"; exit 0; }
+          if [ "$(jq -r '.ok' public/reports/shows-health.json)" != "true" ]; then
+            echo "::error::$(jq -r '.message' public/reports/shows-health.json)"
+            exit 1
+          fi
+          echo "shows board ok: $(jq -c '{unchangedDays,distinctScoutLists}' public/reports/shows-health.json)"
 
       # A failed run makes GitHub email the account that owns this workflow's
       # schedule (summersvacationsllc-art). Live status: /api/sync-status
