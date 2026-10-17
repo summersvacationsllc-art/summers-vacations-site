@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "shows": [
     {
       "name": "Absolutely Country, Definitely Gospel",
@@ -213,12 +213,13 @@
     }
   ],
   "freeEvents": [],
-  "magazineBuilt": "2026-10-16",
-  "last_verified": "2026-10-16T15:03:51-05:00",
-  "status": "fresh",
+  "magazineBuilt": "2026-10-17",
+  "last_verified": "2026-10-17T05:00:19-05:00",
+  "status": "fallback",
   "scoutDate": "2026-10-16",
   "scoutFile": "2026-10-16.md",
   "source": "scout",
   "listHash": "aba3458b0840",
-  "generated_at": "2026-10-16T15:03:51-05:00"
+  "note": "Show list from the 2026-10-16 scout (today's scout missing). Confirm times at the box office.",
+  "generated_at": "2026-10-17T05:00:19-05:00"
 }

@@ -1,17 +1,10 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday night Branson",
-  "deck": "**A vibrant Friday lineup for Summers Vacations guests featuring morning gospel harmonies, Simon & Garfunkel classics, high-energy country variety, powerful tenors, Elvis tribute, rock anthems, and classic country jubilee along the 76 Strip and nearby theaters.** October weather is ideal for pairing a matinee with outdoor time or catching an evening performance after exploring Branson Landing.",
-  "pick": {
-    "title": "Anthems of Rock",
-    "when": "8:00 PM",
-    "where": "King's Castle Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "https://www.kingscastletheatre.com/",
-    "source": "desk"
-  },
+  "hed": "Saturday full board",
+  "deck": "Biggest day of the week for live entertainment — matinees for kids, evening for date night.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -205,12 +198,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-16",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-16.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-17",
+    "note": "Show list from the 2026-10-16 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 11,
     "withTickets": 10
   },
-  "generated_at": "2026-10-16T15:03:51-05:00"
+  "generated_at": "2026-10-17T05:00:19-05:00"
 }

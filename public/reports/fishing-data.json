@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-16",
-  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent reports from Lilleys' Landing and John Sappington note consistent success on marabou jigs, zebra midges, scuds, and small streamers during lower-flow periods. On Table Rock, bass continue transitioning to deeper structure and long points in the cooling clear water, hitting topw",
+  "date": "2026-10-17",
+  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent reports from Lilleys' Landing (early October) and John Sappington (October overview) note consistent success on marabou jigs, zebra midges, scuds, and small streamers during lower-flow periods. On Table Rock, bass continue transitioning to deeper structure and long points in th",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "910.87 ft (USACE 09:00 CT)",
+      "level": "910.82 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 09:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~294 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Take full advantage of the minimal early generation. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive (Indy orange head a favorite), or hang a zebra midge (#16-20 red/black) under an indicator. Add weight and switch to heavier r Deadline-guard carry from 2026-10-15.",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-16T09:58:28-05:00"
+  "tip": "Insider tip: Take full advantage of the minimal early generation. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive (Indy orange head a favorite), or hang a zebra midge (#16-20 red/black) under an indicator. Add weight and switch to heavier r",
+  "source": "scout",
+  "last_verified": "2026-10-17T05:00:19-05:00"
 }
