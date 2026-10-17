@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { hourCT, loadLiveReport, todayCT } from "@/lib/live-report-json";
+import { readCloudJson, type CloudStatus } from "@/lib/shows-cloud";
 
 // Health of the daily guest sync → kiosk pipeline, computed live.
 //   GET /api/sync-status            → 200 with { ok, errors, ... }
@@ -19,10 +20,11 @@ export async function GET(req: Request) {
   const errors: string[] = [];
   const warnings: string[] = [];
 
-  const [guest, lastVerify, showsHealth] = await Promise.all([
+  const [guest, lastVerify, showsHealth, cloudShows] = await Promise.all([
     loadLiveReport("guest-today.json"),
     loadLiveReport("sync-status.json"),
     loadLiveReport("shows-health.json"),
+    readCloudJson("status.json") as Promise<CloudStatus | null>,
   ]);
 
   if (!guest) {
@@ -40,8 +42,18 @@ export async function GET(req: Request) {
 
   // Shows board freshness (no guest data: counts and dates only). A warning, not
   // an error, so a stale show grid never pages the kiosk/guest-data monitor.
+  // The always-on cloud scout (Vercel Cron, ~4:15 AM CT + 6:00 AM retry) is the
+  // primary source; the GitHub shows-health check only matters when it isn't in.
   const sh = showsHealth?.data as { ok?: boolean; message?: string; unchangedDays?: number } | undefined;
-  if (sh && sh.ok === false) warnings.push(`shows board stale: ${sh.message}`);
+  const cloudFreshToday = cloudShows?.lastOkDate === today;
+  if (!cloudFreshToday && hourCT(now) >= 7) {
+    warnings.push(
+      cloudShows
+        ? `shows cloud scout: no list for ${today} yet (last run ${cloudShows.lastRunAt}: ${cloudShows.message}; serving last good list from ${cloudShows.lastOkDate ?? "none"})`
+        : "shows cloud scout: no run recorded yet",
+    );
+  }
+  if (sh && sh.ok === false && !cloudFreshToday) warnings.push(`shows board stale: ${sh.message}`);
 
   const ok = errors.length === 0;
   const body = {
@@ -53,6 +65,7 @@ export async function GET(req: Request) {
       : null,
     lastVerify: lv ?? null,
     showsHealth: sh ?? null,
+    showsCloud: cloudShows ?? null,
     errors,
     warnings,
   };

@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { loadLiveReport } from "@/lib/live-report-json";
+import { pickShowsBoard } from "@/lib/shows-cloud";
 
 // Today's show board for the guide (Shows tab, map pins, kiosk). Read at request
-// time from the latest commit on GitHub main, falling back to the copy bundled in
-// this deploy, the same way /api/guest-today works (see src/lib/live-report-json.ts).
-// So a morning sync push (Mac or Actions bot) is live within ~5 min, no redeploy.
-// shows-data.json is built from the day's shows scout by scripts/build_shows_from_scout.py.
+// time, freshest first: the always-on cloud Shows Scout board (Vercel Cron →
+// private Blob, see src/lib/shows-cloud.ts), then the latest commit on GitHub
+// main, then the copy bundled in this deploy (src/lib/live-report-json.ts).
+// No redeploy and no Mac needed for a new day's list.
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -27,17 +27,14 @@ function cleanFreeEvents(raw: unknown): unknown[] {
 }
 
 export async function GET() {
-  const [shows, magazine] = await Promise.all([
-    loadLiveReport("shows-data.json"),
-    loadLiveReport("shows-magazine.json"),
-  ]);
-  if (!shows) {
+  const board = await pickShowsBoard();
+  if (!board) {
     return NextResponse.json({ ok: false, error: "Shows data not available" }, { status: 500 });
   }
-  const data: Record<string, unknown> = { ...shows.data };
+  const data: Record<string, unknown> = { ...board.data };
   data.freeEvents = cleanFreeEvents(data.freeEvents);
-  if (magazine) {
-    const mag: Record<string, unknown> = { ...magazine.data };
+  if (board.magazine) {
+    const mag: Record<string, unknown> = { ...board.magazine };
     mag.free = cleanFreeEvents(mag.free);
     data.magazine = mag;
   }
@@ -46,9 +43,9 @@ export async function GET() {
     {
       headers: {
         "Cache-Control": "no-store, max-age=0",
-        "X-Shows-Data-Source": shows.source,
-        "X-Shows-Data-Date": shows.date ?? "",
-        "X-Shows-Magazine-Source": magazine?.source ?? "",
+        "X-Shows-Data-Source": board.source,
+        "X-Shows-Data-Date": board.date ?? "",
+        "X-Shows-Magazine-Source": board.magazineSource,
       },
     },
   );
