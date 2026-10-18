@@ -1,28 +1,26 @@
 {
   "ok": true,
-  "generated_at": "2026-10-17T00:42:33+00:00",
-  "checkedAt": "2026-10-16T19:42:33-05:00",
-  "todayCT": "2026-10-16",
-  "lastSyncAt": "2026-10-17T00:42:31+00:00",
-  "syncDataDate": "2026-10-16",
-  "liveDataDate": "2026-10-16",
+  "generated_at": "2026-10-18T14:07:09+00:00",
+  "checkedAt": "2026-10-18T09:07:09-05:00",
+  "todayCT": "2026-10-18",
+  "lastSyncAt": "2026-10-18T14:07:03+00:00",
+  "syncDataDate": "2026-10-18",
+  "liveDataDate": "2026-10-18",
   "liveSource": "github",
   "expectedInHouse": [
-    "Chris Kozisek @ Indian Point",
-    "Allison Potteiger @ Penthouse",
-    "Linda Spencer @ Rustic Ozark",
-    "Martha Lewis @ Scotts unit",
-    "Lisa Leas @ Woodland Retreat"
+    "Alysha Tierney @ Penthouse",
+    "Mike Lovett @ Rustic Ozark",
+    "Ellen Spires @ Woodland Retreat"
   ],
   "kioskUnits": {
-    "the-penthouse": "Allison Potteiger (Penthouse)",
-    "rustic-ozark-retreat": "Linda Spencer (Rustic Ozark)",
+    "the-penthouse": "Alysha Tierney (Penthouse)",
+    "rustic-ozark-retreat": "Mike Lovett (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": "Chris Kozisek (Indian Point)",
-    "woodland-retreat": "Lisa Leas (Woodland Retreat)",
-    "scotts-unit": "Martha Lewis (Scotts unit)"
+    "branson-family-haven": null,
+    "woodland-retreat": "Ellen Spires (Woodland Retreat)",
+    "scotts-unit": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/38987589955 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/39134518339"
 }
