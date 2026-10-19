@@ -1,86 +1,27 @@
 {
-  "date": "2026-10-18",
-  "generated_at": "2026-10-19T00:23:27+00:00",
+  "date": "2026-10-19",
+  "generated_at": "2026-10-19T05:49:01-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 4,
+    "check_ins": 0,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 2,
     "units_total": 5
   },
-  "check_ins": [
+  "check_ins": [],
+  "check_outs": [
     {
       "property": "Penthouse",
       "guest": "Alysha Tierney",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_uzuj39p",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Mike Lovett",
-      "guests": 2,
-      "platform": "website",
-      "reservation_id": "res_6r8r5rd",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Ellen Spires",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_rylimks",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Lisa Leas",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_evdtj8g",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Allison Potteiger",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_tgfh0t9",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Linda Spencer",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_vpb7f80",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Matayia Smith",
-      "guests": 8,
-      "platform": "airbnb2",
-      "reservation_id": "res_m8ofzgr",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Penthouse",
-      "guest": "Alysha Tierney",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_uzuj39p",
-      "check_in": "2026-10-18",
-      "check_out": "2026-10-19",
-      "nights": 1
-    },
     {
       "property": "Rustic Ozark",
       "guest": "Mike Lovett",
