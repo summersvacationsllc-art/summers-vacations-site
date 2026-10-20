@@ -1,22 +1,31 @@
 {
-  "date": "2026-10-19",
-  "generated_at": "2026-10-20T01:10:18+00:00",
+  "date": "2026-10-20",
+  "generated_at": "2026-10-20T06:19:24-05:00",
   "headline": {
-    "check_ins": 0,
+    "check_ins": 1,
     "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 2,
     "units_total": 5
   },
-  "check_ins": [],
-  "check_outs": [
+  "check_ins": [
     {
       "property": "Penthouse",
-      "guest": "Alysha Tierney",
-      "guests": 5,
+      "guest": "Kathryn Utz",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_uzuj39p",
+      "reservation_id": "res_jf0t50x",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Woodland Retreat",
+      "guest": "Ellen Spires",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_rylimks",
       "time": "10:00 AM"
     }
   ],
@@ -33,14 +42,14 @@
       "nights": 5
     },
     {
-      "property": "Woodland Retreat",
-      "guest": "Ellen Spires",
-      "guests": 6,
+      "property": "Penthouse",
+      "guest": "Kathryn Utz",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_rylimks",
-      "check_in": "2026-10-18",
-      "check_out": "2026-10-20",
-      "nights": 2
+      "reservation_id": "res_jf0t50x",
+      "check_in": "2026-10-20",
+      "check_out": "2026-10-23",
+      "nights": 3
     }
   ],
   "sync_notes": {
