@@ -1,10 +1,10 @@
 {
-  "date": "2026-10-19",
-  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns as fall deepens. Recent reports from Lilleys' Landing (early October) and John Sappington (October overview) note consistent success on marabou jigs, zebra midges, scuds, and small streamers during lower-flow periods. On Table Rock, bass continue transitioning to deeper structure and long points in th",
+  "date": "2026-10-20",
+  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns moving into their fall patterns. Recent reports (Lilleys' Landing Oct 20 journal, John Sappington October overview, tackle.net Oct 20 update) note success on night crawlers, Gulp eggs (orange/pink), Berkley Pink PowerWorm (especially when water is off), marabou jigs, zebra midges, scuds, and small str",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "910.74 ft (USACE 11:00 CT)",
+      "level": "910.72 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Take full advantage of the minimal early generation. Drift or wade seams and current breaks with a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive (Indy orange head a favorite), or hang a zebra midge (#16-20 red/black) under an indicator. Add weight and switch to heavier r",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-19T12:07:07-05:00"
+  "tip": "Insider tip: Capitalize on the minimal early generation. Use 2-4 lb test (2 lb preferred for finesse) with Berkley Pink PowerWorm or a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive with Indy orange head) drifted along seams and current breaks, or hang a zebra midge under an indicator. Swi",
+  "source": "scout",
+  "last_verified": "2026-10-20T07:00:34-05:00"
 }
