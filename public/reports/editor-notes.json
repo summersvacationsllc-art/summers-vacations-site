@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-19",
-  "headline": "Cool fall Monday on Table Rock \u2014 crisp air and light winds",
-  "lede": "Monday, October 19, 2026 delivers pleasant fall weather with a high near 68\u00b0F and low in the mid-40s. Clear to partly cloudy skies and zero rain chance make it a perfect first-timer day for lake activities, a show, or exploring the Branson Landing.",
+  "for": "2026-10-21",
+  "headline": "Thursday on the lake: crisp fall air and clear skies",
+  "lede": "Thursday, October 22 brings pleasant fall weather to Branson with highs in the mid-70s, low humidity, and mostly sunny skies \u2014 perfect for a day on the water or exploring the Strip.",
   "heat": false,
   "featured": {
-    "title": "Table Rock Lake Fall Cruise or Paddle",
-    "when": "Morning through mid-afternoon",
-    "where": "Table Rock Lake near Notch Lane and Indian Point",
-    "why": "Cooler water temperatures improve fishing bite for bass, crappie and trout while comfortable air temps and light winds create ideal sightseeing conditions. Morning is best before any afternoon breeze.",
-    "url": "https://www.bransonlake.com/"
+    "title": "Evening at the Landing",
+    "when": "After 5 PM",
+    "where": "Branson Landing",
+    "why": "Fountains, live music, lakeside dining, and the iconic ducks in comfortable fall temperatures",
+    "url": "https://bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Early fishing or sunrise paddle",
-      "detail": "Cool fall mornings bring active fish near main lake points and coves. Launch from Indian Point or rent a kayak for a peaceful start. Verify current lake levels locally."
+      "title": "Table Rock Sunrise Paddle",
+      "detail": "Cool morning air and glassy water. Launch from the State Park ramp before the breeze picks up."
     },
     {
       "when": "Afternoon",
-      "title": "Matinee show or Branson Landing stroll",
-      "detail": "Enjoy one of the popular afternoon performances on the Strip or walk the scenic boardwalk at the Landing. Temperatures stay comfortable for outdoor exploration."
+      "title": "Explore the Strip or Table Rock",
+      "detail": "Mid-70s and low humidity make this the ideal window for outdoor activities."
     },
     {
       "when": "Dusk",
-      "title": "Fountain show and lakeside dinner",
-      "detail": "End your day with the spectacular Branson Landing fountain and light show followed by dinner with a view. Confirm current showtimes and restaurant hours locally."
+      "title": "Evening Show + Lakeside Dinner",
+      "detail": "Catch a show then enjoy dinner with a view as temperatures drop into the 50s."
     }
   ],
   "indoor": [
     {
+      "name": "Titanic Museum",
+      "detail": "Self-guided tour of the world\u2019s largest permanent Titanic exhibit. Interactive and climate-controlled.",
+      "url": "https://titanicbranson.com/"
+    },
+    {
       "name": "WonderWorks Branson",
-      "detail": "Hands-on interactive science museum with upside-down architecture \u2014 engaging for all ages on a cool fall day.",
-      "url": "https://www.wonderworksonline.com/branson/"
+      "detail": "Hands-on science and illusion museum perfect for all ages on a cool fall day.",
+      "url": "https://wonderworksonline.com/branson/"
     },
     {
-      "name": "Ripley's Believe It or Not!",
-      "detail": "Climate-controlled exhibits of oddities, illusions, and interactive zones perfect for families.",
-      "url": "https://www.ripleys.com/branson/"
-    },
-    {
-      "name": "Hollywood Wax Museum",
-      "detail": "Life-like celebrity figures and fun interactive displays \u2014 a Branson classic that stays comfortable indoors.",
-      "url": "https://www.hollywoodys.com/branson/"
+      "name": "Clay Cooper Theatre",
+      "detail": "Matinee or evening show in a comfortable indoor venue.",
+      "url": "https://www.claycoopertheatre.com/"
     }
   ],
-  "honesty": "Night Editor run on 2026-10-18 for 2026-10-19 (Monday). No scout files present for tomorrow. Weather pulled live from Open-Meteo (high ~68\u00b0F, low ~44\u00b0F, 0% precip). All content is honest carry-forward from most recent verified reports with verify-locally notes. Restaurant spotlight rotated to Monday (pizza). Bright blue theme enforced. No invented times, prices, or guest/ops details."
+  "honesty": "Editor notes generated from Open-Meteo forecast and carry-forward from prior verified reports (no fresh scouts located for 2026-10-22). Restaurant spotlight rotated to White River Fish House per weekday schedule."
 }
