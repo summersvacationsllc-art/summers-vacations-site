@@ -1,17 +1,10 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Tuesday ticket window",
-  "deck": "Today's lineup in Branson features a mix of high-energy tribute shows, classic country and gospel, family-friendly variety and circus performances, and beloved long-running productions. Multiple options run in the morning, afternoon, and evening across popular theaters.",
-  "pick": {
-    "title": "The Haygoods",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Easy multi-age pick.",
-    "url": "https://www.claycoopertheatre.com/",
-    "source": "desk"
-  },
+  "hed": "Midweek on the 76",
+  "deck": "Hump-day boards mix country classics, illusion, and family productions — confirm times at the box office.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -161,12 +154,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-20",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-20.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-21",
+    "note": "Show list from the 2026-10-20 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 8,
     "withTickets": 4
   },
-  "generated_at": "2026-10-20T06:20:01-05:00"
+  "generated_at": "2026-10-21T05:03:59-05:00"
 }
