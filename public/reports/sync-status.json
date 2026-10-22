@@ -1,16 +1,17 @@
 {
   "ok": true,
-  "generated_at": "2026-10-22T00:50:28+00:00",
-  "checkedAt": "2026-10-21T19:50:28-05:00",
-  "todayCT": "2026-10-21",
-  "lastSyncAt": "2026-10-22T00:50:26+00:00",
-  "syncDataDate": "2026-10-21",
-  "liveDataDate": "2026-10-21",
+  "generated_at": "2026-10-22T15:31:02+00:00",
+  "checkedAt": "2026-10-22T10:31:02-05:00",
+  "todayCT": "2026-10-22",
+  "lastSyncAt": "2026-10-22T15:30:52+00:00",
+  "syncDataDate": "2026-10-22",
+  "liveDataDate": "2026-10-22",
   "liveSource": "github",
   "expectedInHouse": [
     "Natasha Bagwell @ Indian Point",
     "Kathryn Utz @ Penthouse",
     "Mike Lovett @ Rustic Ozark",
+    "Michelle Harper @ Scotts unit",
     "Grant Wehmeyer @ Woodland Retreat"
   ],
   "kioskUnits": {
@@ -19,9 +20,9 @@
     "double-condo": null,
     "branson-family-haven": "Natasha Bagwell (Indian Point)",
     "woodland-retreat": "Grant Wehmeyer (Woodland Retreat)",
-    "scotts-unit": null
+    "scotts-unit": "Michelle Harper (Scotts unit)"
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/39702073577 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/39805468309"
 }
