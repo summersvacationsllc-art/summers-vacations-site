@@ -1,29 +1,21 @@
 {
-  "date": "2026-10-21",
-  "generated_at": "2026-10-22T00:50:26+00:00",
+  "date": "2026-10-22",
+  "generated_at": "2026-10-22T05:33:55-05:00",
   "headline": {
-    "check_ins": 2,
+    "check_ins": 1,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "Natasha Bagwell",
-      "guests": 15,
+      "property": "Scotts unit",
+      "guest": "Michelle Harper",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_z36258w",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Grant Wehmeyer",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_1c5l8xm",
+      "reservation_id": "res_fuj7sdk",
       "time": "4:00 PM"
     }
   ],
@@ -69,6 +61,16 @@
       "check_in": "2026-10-21",
       "check_out": "2026-10-25",
       "nights": 4
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Michelle Harper",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_fuj7sdk",
+      "check_in": "2026-10-22",
+      "check_out": "2026-10-24",
+      "nights": 2
     }
   ],
   "sync_notes": {
