@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-22",
-  "biteOfDay": "ing Trout fishing on Taneycomo remains productive with good numbers of rainbows and active browns moving into their fall patterns. Recent reports (Lilleys' Landing Oct 20 journal, John Sappington October overview, tackle.net Oct 20 update) note success on night crawlers, Gulp eggs (orange/pink), Berkley Pink PowerWorm (especially when water is off), marabou jigs, zebra midges, scuds, and small str",
+  "date": "2026-10-23",
+  "biteOfDay": "ing Recent local reports (Lilleys' Landing October updates, John Sappington October overview, Orvis/Tackle.net mid-October notes) show improved rainbow numbers on Taneycomo compared to summer, with browns becoming more active in the upper lake as fall progresses. Night crawlers, Gulp eggs (orange/pink), Berkley Pink PowerWorm, marabou jigs (black, sculpin, olive), zebra midges, scuds, and small st",
   "conditions": {
     "tableRock": {
       "temp": "76.2\u00b0F Kimberling dawn",
-      "level": "910.66 ft (USACE 10:00 CT)",
+      "level": "910.61 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~23 cfs at 10:00 CT (USACE live). Overnight ~20; afternoon peak ~23. Call SWPA 866-494-1993 before you wad."
+      "generation": "~9220 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Capitalize on the minimal early generation. Use 2-4 lb test (2 lb preferred for finesse) with Berkley Pink PowerWorm or a 1/16- to 1/8-oz marabou micro jig (black, sculpin, olive with Indy orange head) drifted along seams and current breaks, or hang a zebra midge under an indicator. Swi",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-22T10:30:49-05:00"
+  "tip": "Insider tip: Hit the low early flows on Taneycomo (before ~noon). Drift or wade seams with 2-lb test and a Berkley Pink PowerWorm or 1/16-oz marabou micro jig (black/sculpin/olive with orange head) or hang a zebra midge (#16-20 red/black) under an indicator. When generation builds in the afternoon, ",
+  "source": "scout",
+  "last_verified": "2026-10-23T08:06:16-05:00"
 }
