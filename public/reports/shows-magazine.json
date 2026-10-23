@@ -1,15 +1,15 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Thursday warm-up",
-  "deck": "Today's lineup in Branson features a mix of morning and afternoon matinees with country, gospel, tribute, and family-friendly productions, plus several evening shows highlighting classic country, tributes, and high-energy performances. Multiple venues are active with confirmed performances.",
+  "hed": "Friday on the lake: crisp fall air and steady fishing bite",
+  "deck": "Friday, October 23 brings cool mornings, bright afternoons, and one of the better fishing windows of the week on Table Rock and Taneycomo. Pack layers and plan your day around the water.",
   "pick": {
-    "title": "C.J. Newsom's Country Classic and Comedy Show",
-    "when": "8:00 PM",
-    "where": "Americana Theatre",
-    "why": "Laughs without homework.",
-    "url": "https://www.americanatheatre.com/",
+    "title": "Dean Z – The Ultimate Elvis",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Core Branson mainstage energy.",
+    "url": "https://www.claycoopertheatre.com/",
     "source": "desk"
   },
   "buckets": [
@@ -17,7 +17,7 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 6,
+      "count": 5,
       "shows": [
         {
           "name": "Absolutely Country, Definitely Gospel",
@@ -28,11 +28,23 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Inspirational blend of country and gospel music performances",
-          "price": "$67–$209"
+          "desc": "Uplifting blend of traditional country songs and heartfelt gospel music",
+          "price": ""
         },
         {
-          "name": "Beach Boys California Dreamin'",
+          "name": "Hot Rods & High Heels",
+          "time": "10:00 AM",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "High-energy musical production celebrating classic cars, 1950s-60s rock 'n' roll, and lively dance numbers",
+          "price": "$61–$73"
+        },
+        {
+          "name": "The Sound of Simon and Garfunkel Show",
           "time": "10:00 AM",
           "venue": "Hamner's Variety Theater",
           "type": null,
@@ -40,35 +52,11 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Tribute to the classic Beach Boys hits and California sound",
+          "desc": "Faithful tribute recreating the iconic folk-rock harmonies and hits of Simon & Garfunkel",
           "price": "$58–$67"
         },
         {
           "name": "Clay Cooper's Country Express Show",
-          "time": "10:00 AM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "High-energy country music and entertainment featuring the Clay Cooper cast",
-          "price": "$77–$92"
-        },
-        {
-          "name": "The Lion, The Witch And The Wardrobe",
-          "time": "10:30 AM",
-          "venue": "Branson Hillside Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Live stage adaptation of the beloved C.S. Lewis story",
-          "price": "$80–$108"
-        },
-        {
-          "name": "#1 Hits of The 60s",
           "time": "2:00 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
@@ -76,20 +64,20 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Celebration of popular 1960s hits and nostalgia",
-          "price": ""
+          "desc": "High-energy country, gospel, comedy, and patriotic tributes featuring Clay Cooper, family, dancers, and live band",
+          "price": "$77–$93"
         },
         {
-          "name": "Dublin's Irish Tenors & The Celtic Ladies",
+          "name": "New Jersey Nights",
           "time": "2:00 PM",
           "venue": "King's Castle Theatre",
           "type": null,
           "url": "",
-          "chip": "music",
-          "icon": "🎶",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Irish music, ballads, and energetic Celtic performances",
-          "price": ""
+          "desc": "High-demand tribute to the sounds and hits of Frankie Valli & The Four Seasons",
+          "price": "$60–$169"
         }
       ]
     },
@@ -97,22 +85,10 @@
       "id": "late_afternoon",
       "label": "Late afternoon",
       "blurb": "4–7 PM",
-      "count": 2,
+      "count": 1,
       "shows": [
         {
-          "name": "Aaron Wayne",
-          "time": "5:00 PM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "https://www.americanatheatre.com/",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": true,
-          "desc": "Comedy hypnosis and audience-participation entertainment",
-          "price": ""
-        },
-        {
-          "name": "Thank You For The Music (ABBA Tribute)",
+          "name": "Back to the Bee Gees",
           "time": "5:00 PM",
           "venue": "Hamner's Variety Theater",
           "type": null,
@@ -120,7 +96,7 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-energy tribute to the hits of ABBA with costumes and choreography",
+          "desc": "Dynamic tribute capturing the falsetto harmonies and disco-era hits of the Bee Gees",
           "price": ""
         }
       ]
@@ -129,34 +105,34 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 6,
+      "count": 4,
       "shows": [
         {
-          "name": "Amazing Acrobats of Shanghai Circus",
+          "name": "Dean Z – The Ultimate Elvis",
           "time": "7:30 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre (Branson, MO)",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "World-class Elvis Presley tribute by Dean Z, featuring hits from the 1950s through the Las Vegas years with a full band",
+          "price": "$45–$65"
+        },
+        {
+          "name": "Anthems of Rock",
+          "time": "8:00 PM",
+          "venue": "",
           "type": null,
           "url": "",
-          "chip": "thrill",
-          "icon": "🤸",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Spectacular acrobatics, aerial feats, balancing, and traditional Chinese performance arts",
+          "desc": "Powerful rock tribute show performing anthems from legendary bands",
           "price": ""
         },
         {
-          "name": "C.J. Newsom's Country Classic and Comedy Show",
-          "time": "8:00 PM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "https://www.americanatheatre.com/",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": true,
-          "desc": "Country classics combined with comedy and audience interaction",
-          "price": ""
-        },
-        {
-          "name": "Jimmy Fortune",
+          "name": "Gene Watson",
           "time": "8:00 PM",
           "venue": "The Mansion Theatre for the Performing Arts",
           "type": null,
@@ -164,20 +140,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Intimate concert with the Statler Brothers alum performing country and gospel favorites",
+          "desc": "Classic country legend Gene Watson delivers traditional country hits, heartfelt ballads, and storytelling from his six-decade career",
           "price": ""
-        },
-        {
-          "name": "Legends in Concert",
-          "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "World-class tribute show featuring rotating impersonations (fall 2026 lineup includes Toby Keith, Adele, Blues Brothers, Elvis)",
-          "price": "$83–$96"
         },
         {
           "name": "Presley's Country Jubilee Show",
@@ -188,20 +152,8 @@
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": false,
-          "desc": "Multi-generational family show with country, gospel, comedy, and classic Branson entertainment",
-          "price": "$55–$92"
-        },
-        {
-          "name": "Ultimate 70s Show",
-          "time": "8:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Tribute to the hits and style of the 1970s",
-          "price": ""
+          "desc": "Long-running family show packed with classic and contemporary country, gospel, comedy from Herkimer and Cecil, and high-energy performances",
+          "price": "$55–$75"
         }
       ]
     }
@@ -210,35 +162,41 @@
     {
       "id": "classic",
       "label": "Classic",
-      "count": 8
-    },
-    {
-      "id": "music",
-      "label": "Music",
-      "count": 2
+      "count": 9
     },
     {
       "id": "comedy",
       "label": "Comedy",
-      "count": 3
-    },
-    {
-      "id": "thrill",
-      "label": "Thrill",
       "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Titanic Museum",
+      "detail": "Self-guided tour of the world-class collection. Great for all ages on cooler days.",
+      "url": "https://titanicbranson.com/"
+    },
+    {
+      "name": "World of Wildlife",
+      "detail": "Interactive animal encounters and aquarium exhibits indoors.",
+      "url": "https://worldofwildlife.com/"
+    },
+    {
+      "name": "Branson Variety Theater",
+      "detail": "Multiple shows daily with climate-controlled seating.",
+      "url": "https://bransonvarietytheater.com/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-22",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-22.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-23",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-23.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 14,
-    "withTickets": 5
+    "shows": 10,
+    "withTickets": 4
   },
-  "generated_at": "2026-10-22T05:28:33-05:00"
+  "generated_at": "2026-10-23T05:57:56-05:00"
 }
