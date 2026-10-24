@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-23",
-  "generated_at": "2026-10-23T09:53:23-05:00",
+  "date": "2026-10-24",
+  "generated_at": "2026-10-24T05:35:27-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 3,
+    "check_ins": 1,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 5,
@@ -11,53 +11,21 @@
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "Char Slack",
-      "guests": 11,
-      "platform": "airbnb2",
-      "reservation_id": "res_wfjlq1r",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Shari Hurley",
+      "property": "Scotts unit",
+      "guest": "Rachel Bradley",
       "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_a7l0sdd",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Amanda Timmermann",
-      "guests": 4,
-      "platform": "website",
-      "reservation_id": "res_4ea650o",
+      "reservation_id": "res_bc3hjyc",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Rustic Ozark",
-      "guest": "Mike Lovett",
+      "property": "Scotts unit",
+      "guest": "Michelle Harper",
       "guests": 2,
-      "platform": "website",
-      "reservation_id": "res_6r8r5rd",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Kathryn Utz",
-      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_jf0t50x",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Natasha Bagwell",
-      "guests": 15,
-      "platform": "airbnb2",
-      "reservation_id": "res_z36258w",
+      "reservation_id": "res_fuj7sdk",
       "time": "10:00 AM"
     }
   ],
@@ -72,16 +40,6 @@
       "check_in": "2026-10-21",
       "check_out": "2026-10-25",
       "nights": 4
-    },
-    {
-      "property": "Scotts unit",
-      "guest": "Michelle Harper",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_fuj7sdk",
-      "check_in": "2026-10-22",
-      "check_out": "2026-10-24",
-      "nights": 2
     },
     {
       "property": "Indian Point",
@@ -112,6 +70,16 @@
       "check_in": "2026-10-23",
       "check_out": "2026-10-25",
       "nights": 2
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Rachel Bradley",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_bc3hjyc",
+      "check_in": "2026-10-24",
+      "check_out": "2026-10-25",
+      "nights": 1
     }
   ],
   "sync_notes": {
