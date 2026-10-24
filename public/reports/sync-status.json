@@ -1,28 +1,28 @@
 {
   "ok": true,
-  "generated_at": "2026-10-23T00:51:06+00:00",
-  "checkedAt": "2026-10-22T19:51:06-05:00",
-  "todayCT": "2026-10-22",
-  "lastSyncAt": "2026-10-23T00:51:04+00:00",
-  "syncDataDate": "2026-10-22",
-  "liveDataDate": "2026-10-22",
+  "generated_at": "2026-10-24T14:05:57+00:00",
+  "checkedAt": "2026-10-24T09:05:57-05:00",
+  "todayCT": "2026-10-24",
+  "lastSyncAt": "2026-10-24T14:05:51+00:00",
+  "syncDataDate": "2026-10-24",
+  "liveDataDate": "2026-10-24",
   "liveSource": "github",
   "expectedInHouse": [
-    "Natasha Bagwell @ Indian Point",
-    "Kathryn Utz @ Penthouse",
-    "Mike Lovett @ Rustic Ozark",
-    "Michelle Harper @ Scotts unit",
+    "Char Slack @ Indian Point",
+    "Shari Hurley @ Penthouse",
+    "Amanda Timmermann @ Rustic Ozark",
+    "Rachel Bradley @ Scotts unit",
     "Grant Wehmeyer @ Woodland Retreat"
   ],
   "kioskUnits": {
-    "the-penthouse": "Kathryn Utz (Penthouse)",
-    "rustic-ozark-retreat": "Mike Lovett (Rustic Ozark)",
+    "the-penthouse": "Shari Hurley (Penthouse)",
+    "rustic-ozark-retreat": "Amanda Timmermann (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": "Natasha Bagwell (Indian Point)",
+    "branson-family-haven": "Char Slack (Indian Point)",
     "woodland-retreat": "Grant Wehmeyer (Woodland Retreat)",
-    "scotts-unit": "Michelle Harper (Scotts unit)"
+    "scotts-unit": "Rachel Bradley (Scotts unit)"
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/39880536631 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/40100941918"
 }
