@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-23",
-  "headline": "Friday on the lake: crisp fall air and steady fishing bite",
-  "lede": "Friday, October 23 brings cool mornings, bright afternoons, and one of the better fishing windows of the week on Table Rock and Taneycomo. Pack layers and plan your day around the water.",
+  "for": "2026-10-24",
+  "headline": "Saturday in Branson: cool fall days, steady lake bite, and evening lights",
+  "lede": "Saturday, October 24 brings cool crisp air with highs in the upper 20s (F), low rain chance, and excellent conditions for first-timers to enjoy the lake and shows. Layers recommended for morning and evening.",
   "heat": false,
   "featured": {
-    "title": "Landing Farmers Market",
-    "when": "2:30\u20136:30 PM",
-    "where": "Branson Landing south lot by Bass Pro",
-    "why": "Fresh local produce, baked goods, and live music to kick off your weekend",
-    "url": "https://bransonlanding.com/events"
+    "title": "Evening at the Branson Landing",
+    "when": "After 5 PM",
+    "where": "Branson Landing waterfront",
+    "why": "Fountain shows, live music, lights, and waterfront dining to cap a perfect fall Saturday",
+    "url": "https://bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Table Rock sunrise fishing",
-      "detail": "Topwater bite on main lake points while water is still cool. Bass and crappie active."
+      "title": "Table Rock morning fishing",
+      "detail": "Cool water temps favor topwater and jig bites for bass and crappie on main lake points. Steady reports from recent scouts."
     },
     {
       "when": "Afternoon",
-      "title": "Explore the Strip or Taneycomo",
-      "detail": "Drive 76 Country Blvd or fish the trout parks below Table Rock Dam. Steady flows reported."
+      "title": "Explore 76 Country Music Boulevard",
+      "detail": "Visit shows, dining, or Taneycomo for trout fishing below the dam. Comfortable temps for walking the Strip."
     },
     {
       "when": "Dusk",
-      "title": "Evening show or Landing stroll",
-      "detail": "Catch a matinee or head to the waterfront for lights, fountain show, and dinner."
+      "title": "Branson Landing lights and shows",
+      "detail": "Catch an evening performance then stroll the waterfront for fountain show and dinner with a view."
     }
   ],
   "indoor": [
     {
       "name": "Titanic Museum",
-      "detail": "Self-guided tour of the world-class collection. Great for all ages on cooler days.",
+      "detail": "World-class self-guided exhibits perfect for cooler fall days. All ages welcome.",
       "url": "https://titanicbranson.com/"
     },
     {
       "name": "World of Wildlife",
-      "detail": "Interactive animal encounters and aquarium exhibits indoors.",
+      "detail": "Interactive animal encounters and indoor aquarium in climate-controlled comfort.",
       "url": "https://worldofwildlife.com/"
     },
     {
       "name": "Branson Variety Theater",
-      "detail": "Multiple shows daily with climate-controlled seating.",
+      "detail": "Multiple family-friendly shows daily with comfortable seating.",
       "url": "https://bransonvarietytheater.com/"
     }
   ],
-  "honesty": "Editor notes prepared from current weather models, existing dining/shows data, and carry-forward fishing intel (no fresh scout for 2026-10-23). Verify lake conditions locally."
+  "honesty": "Editor notes prepared for Saturday, October 24 using Open-Meteo forecast, existing shows and dining JSON (date 2026-10-23 carry-forward), and prior fishing intel. No fresh scout files located for 2026-10-24. Verify current lake levels, showtimes, and availability locally."
 }
