@@ -1103,7 +1103,6 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       caption: "Bunk room meets game room, with comfy beanbags and a classic Galaga arcade",
     },
     featurePhoto: kp("aaa-open-living.jpg", "Open living room flowing into the dining area and kitchen"),
-    hasGuidebook: false,
     highlights: [
       "Game room with classic Galaga arcade",
       "Foosball table",
