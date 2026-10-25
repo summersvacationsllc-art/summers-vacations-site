@@ -1,28 +1,26 @@
 {
   "ok": true,
-  "generated_at": "2026-10-25T00:28:39+00:00",
-  "checkedAt": "2026-10-24T19:28:39-05:00",
-  "todayCT": "2026-10-24",
-  "lastSyncAt": "2026-10-25T00:28:37+00:00",
-  "syncDataDate": "2026-10-24",
-  "liveDataDate": "2026-10-24",
+  "generated_at": "2026-10-25T14:31:50+00:00",
+  "checkedAt": "2026-10-25T09:31:50-05:00",
+  "todayCT": "2026-10-25",
+  "lastSyncAt": "2026-10-25T14:31:44+00:00",
+  "syncDataDate": "2026-10-25",
+  "liveDataDate": "2026-10-25",
   "liveSource": "github",
   "expectedInHouse": [
     "Char Slack @ Indian Point",
-    "Shari Hurley @ Penthouse",
-    "Amanda Timmermann @ Rustic Ozark",
-    "Rachel Bradley @ Scotts unit",
-    "Grant Wehmeyer @ Woodland Retreat"
+    "Laurie Bush @ Penthouse",
+    "Hannah Harrington @ Rustic Ozark"
   ],
   "kioskUnits": {
-    "the-penthouse": "Shari Hurley (Penthouse)",
-    "rustic-ozark-retreat": "Amanda Timmermann (Rustic Ozark)",
+    "the-penthouse": "Laurie Bush (Penthouse)",
+    "rustic-ozark-retreat": "Hannah Harrington (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": "Char Slack (Indian Point)",
-    "woodland-retreat": "Grant Wehmeyer (Woodland Retreat)",
-    "scotts-unit": "Rachel Bradley (Scotts unit)"
+    "woodland-retreat": null,
+    "scotts-unit": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/40146825799 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/40202638047"
 }
