@@ -1,15 +1,15 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Saturday in Branson: cool fall days, steady lake bite, and evening lights",
-  "deck": "Saturday, October 24 brings cool crisp air with highs in the upper 20s (F), low rain chance, and excellent conditions for first-timers to enjoy the lake and shows. Layers recommended for morning and evening.",
+  "hed": "Sunday in Branson: mild fall skies, lake fishing remains strong, evening shows light up the Strip",
+  "deck": "Sunday, October 25 offers mild fall weather with highs near 79°F and lows around 51°F. Low rain chance makes it ideal for first-timers to enjoy the lake, shows, and Branson Landing without the summer heat.",
   "pick": {
-    "title": "Josh Turner",
+    "title": "Clay Cooper's Country Express",
     "when": "7:30 PM",
-    "where": "The Mansion Theatre for the Performing Arts",
+    "where": "Clay Cooper Theatre",
     "why": "Core Branson mainstage energy.",
-    "url": "",
+    "url": "https://www.claycoopertheatre.com/",
     "source": "desk"
   },
   "buckets": [
@@ -17,20 +17,8 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 6,
+      "count": 2,
       "shows": [
-        {
-          "name": "Broadway to Buble",
-          "time": "10:00 AM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "https://www.americanatheatre.com/",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": true,
-          "desc": "A concert-style celebration of Broadway hits and the smooth sounds of Michael Bublé",
-          "price": "$71–$86"
-        },
         {
           "name": "#1 Hits of the 60s",
           "time": "2:00 PM",
@@ -40,56 +28,40 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "High-energy revue performing the biggest chart-toppers from the 1960s",
-          "price": "$66–$82"
+          "desc": "A high-energy celebration of classic 1960s chart-toppers performed live",
+          "price": "$66–$81"
         },
         {
-          "name": "Awesome 80's",
-          "time": "2:00 PM",
+          "name": "Legends in Concert",
+          "time": "3:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "World-class live tribute show featuring impersonations of icons like Toby Keith, Adele, Blues Brothers, and Elvis with costumes, sets, and hits",
+          "price": "$83–$96"
+        }
+      ]
+    },
+    {
+      "id": "late_afternoon",
+      "label": "Late afternoon",
+      "blurb": "4–7 PM",
+      "count": 1,
+      "shows": [
+        {
+          "name": "Southern Gospel Sundays",
+          "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "https://www.americanatheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "Nostalgic tribute show packed with iconic 1980s pop and rock anthems",
-          "price": "$69–$85"
-        },
-        {
-          "name": "Dublin's Irish Tenors & The Celtic Ladies",
-          "time": "2:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": null,
-          "url": "",
           "chip": "music",
-          "icon": "🎶",
-          "ticketOk": false,
-          "desc": "Uplifting blend of traditional Irish music, ballads, and lively Celtic performances",
-          "price": "$62–$104"
-        },
-        {
-          "name": "Shanghai Circus",
-          "time": "2:00 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": null,
-          "url": "",
-          "chip": "thrill",
-          "icon": "🤸",
-          "ticketOk": false,
-          "desc": "Spectacular acrobatic and circus acts from China featuring amazing feats of strength and agility",
-          "price": "$78–$90"
-        },
-        {
-          "name": "The Lion, The Witch And The Wardrobe",
-          "time": "2:00 PM",
-          "venue": "Branson Hillside Theatre",
-          "type": null,
-          "url": "",
-          "chip": "family",
-          "icon": "👨‍👩‍👧",
-          "ticketOk": false,
-          "desc": "Live stage adaptation of the classic C.S. Lewis tale with music, costumes, and family adventure",
-          "price": "$80–$109"
+          "icon": "🎭",
+          "ticketOk": true,
+          "desc": "Heartfelt evening of contemporary and traditional Southern gospel music",
+          "price": "$72–$90"
         }
       ]
     },
@@ -97,22 +69,22 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 5,
+      "count": 4,
       "shows": [
         {
-          "name": "Josh Turner",
+          "name": "Clay Cooper's Country Express",
           "time": "7:30 PM",
-          "venue": "The Mansion Theatre for the Performing Arts",
+          "venue": "Clay Cooper Theatre",
           "type": null,
-          "url": "",
+          "url": "https://www.claycoopertheatre.com/",
           "chip": "classic",
           "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Grammy-nominated country star delivers hits like \"Long Black Train\" and \"Your Man\" with his signature deep baritone",
-          "price": "$62–$112"
+          "ticketOk": true,
+          "desc": "High-energy country music show packed with hits, comedy, and family-friendly entertainment",
+          "price": "$75–$91"
         },
         {
-          "name": "Shanghai Circus",
+          "name": "Shanghai Circus (Amazing Acrobats of Shanghai)",
           "time": "7:30 PM",
           "venue": "Mickey Gilley Grand Shanghai Theatre",
           "type": null,
@@ -120,102 +92,85 @@
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": false,
-          "desc": "Evening performance of the high-flying acrobatic circus spectacular",
+          "desc": "Spectacular acrobatics, circus arts, and thrilling performances from talented artists",
           "price": "$78–$90"
-        },
-        {
-          "name": "Anthems of Rock",
-          "time": "8:00 PM",
-          "venue": "",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Venue (Check times)",
-          "price": "$40–$49"
         },
         {
           "name": "Legends in Concert",
           "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater (Branson, MO)",
+          "venue": "Pepsi Legends Theater",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-production tribute show featuring spot-on impersonations of music icons with live band and costumes",
-          "price": ""
+          "desc": "World-class live tribute show featuring impersonations of icons like Toby Keith, Adele, Blues Brothers, and Elvis with costumes, sets, and hits",
+          "price": "$83–$96"
         },
         {
-          "name": "Presley's Country Jubilee Show",
+          "name": "Spirit of America",
           "time": "8:00 PM",
-          "venue": "Presleys' Country Jubilee",
+          "venue": "King's Castle Theatre",
           "type": null,
           "url": "",
-          "chip": "comedy",
-          "icon": "😂",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
           "ticketOk": false,
-          "desc": "Long-running family-style country music variety show with comedy, singing, and classic hits",
-          "price": "$55–$80"
+          "desc": "Uplifting patriotic musical celebration with soaring vocals, choreography, and tributes to faith, freedom, and family",
+          "price": "$60–$81"
         }
       ]
     }
   ],
   "chips": [
     {
-      "id": "music",
-      "label": "Music",
-      "count": 2
-    },
-    {
       "id": "classic",
       "label": "Classic",
-      "count": 5
+      "count": 4
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "count": 1
     },
     {
       "id": "thrill",
       "label": "Thrill",
-      "count": 2
+      "count": 1
     },
     {
       "id": "family",
       "label": "Family",
-      "count": 1
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy",
       "count": 1
     }
   ],
   "indoor": [
     {
       "name": "Titanic Museum",
-      "detail": "World-class self-guided exhibits perfect for cooler fall days. All ages welcome.",
+      "detail": "Self-guided tour of the legendary story with artifacts and interactive exhibits. Climate-controlled and engaging for all ages.",
       "url": "https://titanicbranson.com/"
     },
     {
       "name": "World of Wildlife",
-      "detail": "Interactive animal encounters and indoor aquarium in climate-controlled comfort.",
+      "detail": "Interactive animal encounters, aquarium, and educational exhibits indoors.",
       "url": "https://worldofwildlife.com/"
     },
     {
-      "name": "Branson Variety Theater",
-      "detail": "Multiple family-friendly shows daily with comfortable seating.",
-      "url": "https://bransonvarietytheater.com/"
+      "name": "Clay Cooper Theatre",
+      "detail": "Catch country and variety shows in a comfortable theater setting.",
+      "url": "https://claycoopertheatre.com/"
     }
   ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-24",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-24.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-25",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-25.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 11,
+    "shows": 7,
     "withTickets": 3
   },
-  "generated_at": "2026-10-24T09:05:49-05:00"
+  "generated_at": "2026-10-25T05:05:07-05:00"
 }
