@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-24",
-  "headline": "Saturday in Branson: cool fall days, steady lake bite, and evening lights",
-  "lede": "Saturday, October 24 brings cool crisp air with highs in the upper 20s (F), low rain chance, and excellent conditions for first-timers to enjoy the lake and shows. Layers recommended for morning and evening.",
+  "for": "2026-10-25",
+  "headline": "Sunday in Branson: mild fall skies, lake fishing remains strong, evening shows light up the Strip",
+  "lede": "Sunday, October 25 offers mild fall weather with highs near 79\u00b0F and lows around 51\u00b0F. Low rain chance makes it ideal for first-timers to enjoy the lake, shows, and Branson Landing without the summer heat.",
   "heat": false,
   "featured": {
-    "title": "Evening at the Branson Landing",
-    "when": "After 5 PM",
-    "where": "Branson Landing waterfront",
-    "why": "Fountain shows, live music, lights, and waterfront dining to cap a perfect fall Saturday",
+    "title": "Branson Landing Fountain & Waterfront",
+    "when": "Evening after 5 PM",
+    "where": "Branson Landing",
+    "why": "Synchronized fountain shows, live music, lights, and relaxed dining along the lakefront \u2014 perfect cap to a sunny fall Sunday",
     "url": "https://bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Table Rock morning fishing",
-      "detail": "Cool water temps favor topwater and jig bites for bass and crappie on main lake points. Steady reports from recent scouts."
+      "title": "Morning on Table Rock Lake",
+      "detail": "Cooler water favors jig and crankbait bites for bass and crappie near main lake points and coves. Steady bite reported in recent fishing intel."
     },
     {
       "when": "Afternoon",
-      "title": "Explore 76 Country Music Boulevard",
-      "detail": "Visit shows, dining, or Taneycomo for trout fishing below the dam. Comfortable temps for walking the Strip."
+      "title": "Shows on 76 Country Blvd",
+      "detail": "Catch matinees or explore family attractions along the Strip. Comfortable temperatures for walking between venues."
     },
     {
       "when": "Dusk",
-      "title": "Branson Landing lights and shows",
-      "detail": "Catch an evening performance then stroll the waterfront for fountain show and dinner with a view."
+      "title": "Dinner and lights at the Landing",
+      "detail": "Waterfront dining followed by the famous fountain show and evening lights."
     }
   ],
   "indoor": [
     {
       "name": "Titanic Museum",
-      "detail": "World-class self-guided exhibits perfect for cooler fall days. All ages welcome.",
+      "detail": "Self-guided tour of the legendary story with artifacts and interactive exhibits. Climate-controlled and engaging for all ages.",
       "url": "https://titanicbranson.com/"
     },
     {
       "name": "World of Wildlife",
-      "detail": "Interactive animal encounters and indoor aquarium in climate-controlled comfort.",
+      "detail": "Interactive animal encounters, aquarium, and educational exhibits indoors.",
       "url": "https://worldofwildlife.com/"
     },
     {
-      "name": "Branson Variety Theater",
-      "detail": "Multiple family-friendly shows daily with comfortable seating.",
-      "url": "https://bransonvarietytheater.com/"
+      "name": "Clay Cooper Theatre",
+      "detail": "Catch country and variety shows in a comfortable theater setting.",
+      "url": "https://claycoopertheatre.com/"
     }
   ],
-  "honesty": "Editor notes prepared for Saturday, October 24 using Open-Meteo forecast, existing shows and dining JSON (date 2026-10-23 carry-forward), and prior fishing intel. No fresh scout files located for 2026-10-24. Verify current lake levels, showtimes, and availability locally."
+  "honesty": "Editor notes prepared for Sunday, October 25 using NWS/Open-Meteo forecast data, carry-forward from latest shows-data.json and dining-data.json (no fresh tomorrow scouts located), and prior verified fishing intel. No new scout markdown files for 2026-10-25. Verify current showtimes, lake conditions, and availability locally before heading out."
 }
