@@ -236,6 +236,23 @@ const HAVEN_URGENT_CARE = [
   },
 ];
 
+/** Guest-facing climate note for Silver Dollar City Adventure Escape. */
+export const UPSTAIRS_DOWNSTAIRS_DOOR =
+  "Please keep the door between upstairs and downstairs closed. On hot, humid days the AC takes a long time to cool the house back down if it's left open.";
+
+/**
+ * Roku guest-mode card for every unit except Branson Family Haven.
+ * Haven keeps its own wording in the guidebook page.
+ */
+export const ROKU_GUEST_MODE_OTHER =
+  "The TV is a Roku Smart TV set up for guest mode.\n" +
+  "📋 How to use:\n" +
+  "1. Press the Home button on the Roku remote\n" +
+  "2. Select your favorite streaming app (Netflix, Hulu, Disney+, Prime Video, and more)\n" +
+  "3. Sign in with your own account — your credentials are automatically removed at checkout\n" +
+  "4. To switch apps, press Home and select another\n" +
+  "💡 Tip: The TV remembers nothing between guests. Sign in, enjoy, and everything is cleared when you leave!";
+
 export const guidebooks: Record<string, PropertyGuidebook> = {
   // ─── THE PENTHOUSE ──────────────────────────────────────
   "the-penthouse": {
@@ -667,6 +684,98 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     videos: [
       { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
       { title: "Laundry Room", url: "https://www.youtube.com/watch?v=IlJQi1S0NRI" },
+      { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
+      { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
+      { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
+    ],
+  },
+
+  // ─── SILVER DOLLAR CITY ADVENTURE ESCAPE (189 Notch, Bldg 21, Unit 1) ──
+  "silver-dollar-city-adventure-escape": {
+    id: "silver-dollar-city-adventure-escape",
+    slug: "silver-dollar-city-adventure-escape",
+    name: "Silver Dollar City Adventure Escape",
+    shortName: "Adventure Escape",
+    address: "189 Notch Lane, Bldg 21, Unit 1, Branson West, MO 65737",
+    guestyListingId: "6ac5359ccf46940012ad0a4e",
+    aliases: [
+      "klein",
+      "sdc adventure escape",
+      "sdc-adventure-escape",
+      "adventure escape",
+      "silver dollar city adventure escape",
+      "silver dollar adventure escape",
+      "189 notch lane",
+    ],
+    hostName: COMMON.hostName,
+    hostBio: COMMON.hostBio,
+    hostPhone: COMMON.hostPhone,
+    hostEmail: COMMON.hostEmail,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "self",
+      doorCode: "",
+      directions:
+        "189 Notch Lane, Bldg 21, Unit 1, Branson West. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
+      parking:
+        "Free parking right outside your door. Boat parking is first come, first served.",
+      accessNote: `Self check-in. Instructions were emailed before arrival. ${UPSTAIRS_DOWNSTAIRS_DOOR}`,
+    },
+
+    // No network name or password in this guidebook. Details stay in the pre-arrival email.
+    wifi: { network: "", password: "" },
+
+    appliances: {
+      coffeeMaker: {
+        type: "Coffee station",
+        instructions: "Coffee station in the kitchen, with a toaster and blender nearby.",
+      },
+      hvac: {
+        type: "Heat & A/C",
+        instructions: `${UPSTAIRS_DOWNSTAIRS_DOOR} Before checkout, set the thermostat to 60°F for heat or 75°F for A/C.`,
+      },
+      tv: {
+        type: "TVs and game console in the game zone",
+        streaming: [],
+      },
+      washer: {
+        instructions: "Washer and dryer are in the unit.",
+      },
+    },
+
+    amenities: [
+      "Game room with an arcade cabinet, foosball, and board games",
+      "Bunk room with beanbags, books, and toys",
+      "Full kitchen with stainless appliances, dishwasher, coffee station, toaster, and blender",
+      "Washer and dryer in the unit",
+      "Open living area with a big sectional",
+      "Desk",
+      "High chair and pack 'n play",
+      "Covered front patio and a deck with outdoor dining",
+      "Free parking outside the door",
+      "Catch-and-release fishing pond",
+      "Walking trails, playground, and basketball court",
+      "Community pools are seasonal and closed for the season",
+    ],
+    houseRulesIntro: [
+      "Welcome to Silver Dollar City Adventure Escape — a 4-bedroom, 4-bath townhouse that sleeps 14. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
+    ],
+    houseRules: [
+      "Up to 14 guests. No unregistered guests.",
+      "No pets.",
+      "No smoking, vaping, or marijuana.",
+      "No parties or events.",
+      "Quiet hours: 10 PM – 8 AM.",
+      "The fireplace is decorative only.",
+      "Two exterior cameras, one at the front and one at the back. None inside.",
+      "Charcoal grill outside only. Bring your own charcoal.",
+    ],
+    trash: "Take the trash to the dumpster.",
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
+
+    videos: [
       { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
       { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
       { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },

@@ -1095,7 +1095,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
     sleeps: "14",
     beds: "4BR · 4BA",
     address: "189 Notch Ln #1, Notch Estates, Branson West, MO 65737",
-    guestyId: "",
+    guestyId: "6ac5359ccf46940012ad0a4e",
     emoji: "🕹️",
     desc: "Stay a mile from the magic! This Branson West townhouse is about 1 mile from Silver Dollar City and brings the fun indoors — a game room with a classic Galaga arcade game and foosball, a kids' bunk room, and room for up to 14. Branson's shows are about 15–20 minutes away.",
     heroPhoto: {
@@ -1103,7 +1103,6 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       caption: "Bunk room meets game room, with comfy beanbags and a classic Galaga arcade",
     },
     featurePhoto: kp("aaa-open-living.jpg", "Open living room flowing into the dining area and kitchen"),
-    hasGuidebook: false,
     highlights: [
       "Game room with classic Galaga arcade",
       "Foosball table",

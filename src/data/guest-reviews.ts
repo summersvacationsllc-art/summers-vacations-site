@@ -13,8 +13,8 @@
  * Exclusions (on purpose):
  *  - No-Stairs Condo: every public Airbnb review (latest Sept 2026) predates our
  *    management (listing joined us Oct 2026) — previous host's reviews.
- *  - Silver Dollar City Adventure Escape: Coming Soon; any reviews would be the
- *    previous manager's.
+ *  - Silver Dollar City Adventure Escape: live on our site, but any public
+ *    reviews would still be the previous manager's.
  *  - VRBO: review text isn't readable without logging in / is rate-limited for
  *    automated reads, so none are included yet. Google: no listing reviews wired up.
  *
