@@ -18,7 +18,7 @@ export const UNIT_NAMES: Record<string, string> = {
   "double-condo": "Double Condo",
   "branson-family-haven": "Branson Family Haven",
   "woodland-retreat": "Woodland Retreat",
-  "silver-dollar-city-adventure-escape": "Silver Dollar City Adventure Escape",
+  "silver-dollar-city-adventure-escape": "Silver Dollar Adventure Escape",
 };
 
 export type JebChatMessage = {
@@ -47,7 +47,7 @@ export function buildJebSystemPrompt(guestName: string, unitSlug: string): strin
     unitSlug === "branson-family-haven"
       ? "This tablet is at the Family Haven home on Timber Trace Lane in Branson, Missouri."
       : unitSlug === "silver-dollar-city-adventure-escape"
-        ? "This tablet is at Silver Dollar City Adventure Escape, 189 Notch Lane, Building 21, Unit 1, Branson West, Missouri."
+        ? "This tablet is at Silver Dollar Adventure Escape, 189 Notch Lane, Building 21, Unit 1, Branson West, Missouri."
         : "This tablet is at 550 Notch Lane, Branson, Missouri.";
   const guestLine = who
     ? `The guest's first name is ${who}. Use it naturally. Do not use it every sentence.`

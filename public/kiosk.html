@@ -689,6 +689,8 @@ const UNITS = {
       isHaven: false, guidebook: "silver-dollar-adventure-escape",
       network: "midwestaf", password: "Nebraska!!",
       streamingHelp: true,
+      wifiSpeed: "Internet speed: 208 Mbps download / 32.2 Mbps upload",
+      trashLine: "Take the trash to the dumpster next to the entrance of the boat parking.",
       accessNote: "Self check-in. Instructions were emailed before arrival. [Brian to fill in: lock type and where to find the entrance]",
       houseRulesIntro: [
         "Welcome to Silver Dollar Adventure Escape — a 4-bedroom, 4-bath townhouse that sleeps 14. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
@@ -709,7 +711,7 @@ const UNITS = {
       ],
       checkoutItems: [
         "Load and start the dishwasher.",
-        "Take the trash to the dumpster.",
+        "Take the trash to the dumpster next to the entrance of the boat parking.",
         "Set the thermostat to 60°F for heat or 75°F for A/C.",
         "Turn off the lights, lock up, and close the doors behind you."
       ]
@@ -1019,7 +1021,7 @@ function renderWifi() {
   const towelRule = unit.isHaven
     ? "All towels stay in the house — do not take them to the pool"
     : "All towels stay in the condo — do not take them to the pool";
-  const trashRule = unit.isHaven
+  const trashRule = unit.trashLine ? unit.trashLine : unit.isHaven
     ? "Take trash to the dumpster as needed. Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex."
     : "Take trash to the dumpster as needed";
   const parkingCard = unit.isHaven
@@ -1059,7 +1061,8 @@ function renderWifi() {
         <div class="label" style="margin-top:.35rem">Network</div>
         <h3>${unit.network}</h3>
         <div class="label" style="margin-top:.7rem">Password</div>
-        <h3>${unit.password}</h3>
+        <h3>${unit.password}</h3>${unit.wifiSpeed ? `
+        <p class="note" style="margin-top:.7rem">${unit.wifiSpeed}</p>` : ""}
       </div>`;
   const streamingCard = unit.streamingHelp
     ? guideItem('#dbcafe', '📺', STREAMING_HELP_TITLE, STREAMING_HELP_SUBTITLE, STREAMING_HELP_HTML)

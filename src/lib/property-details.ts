@@ -1090,7 +1090,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
   },
 
   "silver-dollar-city-adventure-escape": {
-    name: "Silver Dollar City Adventure Escape",
+    name: "Silver Dollar Adventure Escape",
     tag: "New · Game Room · Bunk Room",
     sleeps: "14",
     beds: "4BR · 4BA",
@@ -1204,7 +1204,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
     ],
     goodToKnow: [
       { label: "Parking", text: "Parking is available in front of the unit." },
-      { label: "Trash", text: "Take all trash out to the dumpster." },
+      { label: "Trash", text: "Take the trash to the dumpster next to the entrance of the boat parking." },
     ],
     gallery: KLEIN_GALLERY,
   },

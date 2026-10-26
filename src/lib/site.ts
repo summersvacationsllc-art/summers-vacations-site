@@ -149,7 +149,7 @@ export const PROPERTIES: PropertyCard[] = [
     vrboUrl: "",
   },
   {
-    name: "Silver Dollar City Adventure Escape",
+    name: "Silver Dollar Adventure Escape",
     tag: "Game Room · Bunk Room",
     sleeps: "14",
     beds: "4BR · 4BA",
