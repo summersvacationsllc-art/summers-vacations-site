@@ -717,21 +717,35 @@ const UNITS = {
   }
 };
 
-/* Streaming Help — replace this object when a finalized snippet arrives.
-   Rendered only for units with streamingHelp: true. No passwords. */
-const STREAMING_HELP = {
-  title: "Streaming Help",
-  intro: "The Roku TVs are in guest mode. Sign in to your own apps. The TV does not keep your sign-in after you leave.",
-  stepsTitle: "How to sign in",
-  steps: [
-    "Open the app on the Roku.",
-    "Choose Sign In.",
-    "Use your email and password, or the phone activation code the app shows."
-  ],
-  liveNote: "Some apps need a TV-provider login for live channels.",
-  appsLabel: "Apps on the TV",
-  apps: ["Netflix", "Disney+", "Hulu", "ESPN", "Max", "Prime Video", "YouTube", "and similar apps on the Roku home screen"]
-};
+/* Same text as src/data/streaming.ts. The tablet has no guideItem component, so the call below matches that helper's arguments. */
+const STREAMING_HELP_TITLE = 'Streaming Help';
+const STREAMING_HELP_SUBTITLE = 'Roku guest mode — sign in with your own apps';
+const STREAMING_HELP_HTML =
+  '<strong>Our Rokus are in Guest Mode,</strong> so no accounts come preloaded. Bring your favorite apps along — signing in takes a minute.<br><br>' +
+  '<strong>📋 How to sign in:</strong><br>' +
+  '1. Press <strong>Home</strong> on the Roku remote and open the app (or find it under <strong>Search</strong> / <strong>Streaming Store</strong>).<br>' +
+  '2. Choose <strong>Sign In</strong>.<br>' +
+  '3. Enter your email and password, <strong>or</strong> use the code / QR code on screen to activate from your phone.<br><br>' +
+  '<strong>📺 Works with:</strong> Netflix, Disney+, Hulu, ESPN, Max, Paramount+ (incl. Showtime), Prime Video, YouTube, YouTube TV, Peacock, Apple TV+, Sling and more.<br><br>' +
+  '<strong>💡 Good to know:</strong><br>' +
+  '• <strong>ESPN, Max, Paramount+ live channels:</strong> some content needs your cable/satellite provider login (choose "Sign in with TV provider").<br>' +
+  '• <strong>YouTube TV &amp; Sling:</strong> live-TV services with their own login — sign in with that account, not a cable provider.<br>' +
+  '• <strong>YouTube:</strong> free to watch without signing in.<br>' +
+  '• Phone-code activation is usually the fastest way in.<br><br>' +
+  '<strong>🚪 At checkout:</strong> Guest Mode clears your sign-ins automatically. For peace of mind you can also sign out of each app.<br><br>' +
+  'Trouble? Unplug the Roku for 10 seconds, or text Brian at 314-565-0589.';
+function guideItem(iconBg, icon, title, desc, body) {
+  return `<div class="card" id="streaming-help">
+    <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem">
+      <div style="width:2rem;height:2rem;border-radius:8px;background:${iconBg};display:flex;align-items:center;justify-content:center;flex-shrink:0">${icon}</div>
+      <div>
+        <b>${title}</b>
+        <div class="note" style="margin:.15rem 0 0">${desc}</div>
+      </div>
+    </div>
+    <div class="note">${body || ""}</div>
+  </div>`;
+}
 
 const BOOK_URL = "https://notchcondos.guestybookings.com/";
 const GUEST_API = "https://www.mybransonvacation.com/api/guest-today";
@@ -1048,18 +1062,9 @@ function renderWifi() {
         <div class="label" style="margin-top:.7rem">Password</div>
         <h3>${unit.password}</h3>
       </div>`;
-  const streamingCard = unit.streamingHelp ? `
-    <div class="card" id="streaming-help">
-      <div class="label">${STREAMING_HELP.title}</div>
-      <p class="note">${STREAMING_HELP.intro}</p>
-      <p class="note"><strong>${STREAMING_HELP.stepsTitle}</strong></p>
-      <ul class="rules">
-        ${STREAMING_HELP.steps.map((step) => `<li>${step}</li>`).join("")}
-      </ul>
-      <p class="note">${STREAMING_HELP.liveNote}</p>
-      <p class="note"><strong>${STREAMING_HELP.appsLabel}</strong></p>
-      <p class="note">${STREAMING_HELP.apps.join(" · ")}</p>
-    </div>` : "";
+  const streamingCard = unit.streamingHelp
+    ? guideItem('#dbcafe', '📺', STREAMING_HELP_TITLE, STREAMING_HELP_SUBTITLE, STREAMING_HELP_HTML)
+    : "";
   document.getElementById("wifi").innerHTML = `
     <h2>Wi-Fi & house rules</h2>
     <div class="wifi-top">
