@@ -1,66 +1,16 @@
 {
-  "date": "2026-10-25",
-  "generated_at": "2026-10-25T05:48:01-05:00",
+  "date": "2026-10-26",
+  "generated_at": "2026-10-26T05:34:34-05:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 4,
+    "check_ins": 0,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 3,
     "units_total": 5
   },
-  "check_ins": [
-    {
-      "property": "Penthouse",
-      "guest": "Laurie Bush",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_2gux75k",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Hannah Harrington",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_qvjd52g",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Grant Wehmeyer",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_1c5l8xm",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Shari Hurley",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_a7l0sdd",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Amanda Timmermann",
-      "guests": 4,
-      "platform": "website",
-      "reservation_id": "res_4ea650o",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Scotts unit",
-      "guest": "Rachel Bradley",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_bc3hjyc",
-      "time": "10:00 AM"
-    }
-  ],
+  "check_ins": [],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
