@@ -6,7 +6,7 @@
       "time": "10:00 AM",
       "venue": "Americana Theatre",
       "venueAddress": "2905 W 76 Country Blvd",
-      "desc": "A concert-style show blending Broadway hits with the smooth sounds of Michael Bublé",
+      "desc": "A concert-style show blending Broadway hits with the smooth sounds of Michael Bubl\u00e9",
       "price": "",
       "ticketNote": "Tickets available",
       "sources": "americanarenas.com, concertfix.com (verified Monday, October 26, 2026)",
@@ -16,7 +16,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
       "ticketOk": true
     },
@@ -35,7 +35,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": true
     },
@@ -44,9 +44,9 @@
       "time": "2:00 PM",
       "venue": "Clay Cooper Theatre",
       "venueAddress": "3216 W. Highway 76",
-      "desc": "High-energy 1950s celebration with singing, dancing, live band, and hits like “Great Balls of Fire” and “Johnny B. Goode.”",
-      "price": "$60–$72",
-      "ticketNote": "Tickets from ~$60–$72",
+      "desc": "High-energy 1950s celebration with singing, dancing, live band, and hits like \u201cGreat Balls of Fire\u201d and \u201cJohnny B. Goode.\u201d",
+      "price": "$60\u2013$72",
+      "ticketNote": "Tickets from ~$60\u2013$72",
       "sources": "americanarenas.com, stubhub.com (verified Monday, October 26, 2026)",
       "lat": 36.63733,
       "lng": -93.27964,
@@ -54,7 +54,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": true
     },
@@ -70,9 +70,11 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6539477,
+      "lng": -93.2795662
     },
     {
       "name": "Legends in Concert",
@@ -86,9 +88,11 @@
       "sortMinutes": 900,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64151,
+      "lng": -93.24753
     },
     {
       "name": "Back to The Bee Gees",
@@ -102,9 +106,11 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6539477,
+      "lng": -93.2795662
     },
     {
       "name": "Patsy Cline and Friends - Tribute Show",
@@ -121,7 +127,7 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": true
     },
@@ -131,20 +137,20 @@
       "venue": "Mickey Gilley Grand Shanghai Theatre",
       "venueAddress": "3455 W 76 Country Blvd",
       "desc": "Spectacular full-scale production of authentic Chinese acrobatics, aerial feats, dance, comedy, and magic",
-      "price": "$43–$55",
-      "ticketNote": "Tickets from ~$43–$55",
+      "price": "$43\u2013$55",
+      "ticketNote": "Tickets from ~$43\u2013$55",
       "sources": "discoverbranson.com, bransonshows.com, americanarenas.com (verified Monday, October 26, 2026)",
       "lat": 36.64161,
       "lng": -93.28505,
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "thrill",
-      "icon": "🤸",
+      "icon": "\ud83e\udd38",
       "for": "thrill",
       "ticketOk": false
     },
     {
-      "name": "Dean Z – The Ultimate Elvis",
+      "name": "Dean Z \u2013 The Ultimate Elvis",
       "time": "7:30 PM",
       "venue": "Clay Cooper Theatre",
       "venueAddress": "3216 W. Highway 76",
@@ -158,7 +164,7 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": true
     },
@@ -174,18 +180,20 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64035,
+      "lng": -93.24015
     }
   ],
   "freeEvents": [],
   "magazineBuilt": "2026-10-26",
-  "last_verified": "2026-10-26T05:27:53-05:00",
+  "last_verified": "2026-10-26T11:53:46-05:00",
   "status": "fresh",
   "scoutDate": "2026-10-26",
   "scoutFile": "2026-10-26.md",
   "source": "scout",
   "listHash": "8b37f0bd23f2",
-  "generated_at": "2026-10-26T05:27:53-05:00"
+  "generated_at": "2026-10-26T11:53:46-05:00"
 }

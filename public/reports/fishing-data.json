@@ -4,13 +4,13 @@
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.57 ft (USACE)",
+      "level": "910.57 ft (USACE 11:00 CT)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~8834 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~20 cfs at 11:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: Hit Taneycomo during the confirmed low-flow window early (check SWPA schedule or call 866-494-1993 first). Drift or wade seams and current breaks with 2-lb test and a Berkley Pink PowerWorm, 1/16-oz marabou micro jig (black/sculpin/olive with orange head), or a zebra midge (#16-20) unde",
-  "source": "scout",
-  "last_verified": "2026-10-26T05:27:52-05:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-10-26T11:53:46-05:00"
 }
