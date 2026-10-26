@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-25",
-  "headline": "Sunday in Branson: mild fall skies, lake fishing remains strong, evening shows light up the Strip",
-  "lede": "Sunday, October 25 offers mild fall weather with highs near 79\u00b0F and lows around 51\u00b0F. Low rain chance makes it ideal for first-timers to enjoy the lake, shows, and Branson Landing without the summer heat.",
+  "for": "2026-10-26",
+  "headline": "Mild Monday on the Lake: Perfect Fall Weather for First-Timers",
+  "lede": "Monday, October 26 brings mild highs near 77\u00b0F with mostly sunny skies and light southeast winds \u2014 ideal conditions for your first Branson lake day or a relaxed Landing stroll. No heat dome, just comfortable Ozark autumn.",
   "heat": false,
   "featured": {
-    "title": "Branson Landing Fountain & Waterfront",
-    "when": "Evening after 5 PM",
-    "where": "Branson Landing",
-    "why": "Synchronized fountain shows, live music, lights, and relaxed dining along the lakefront \u2014 perfect cap to a sunny fall Sunday",
+    "title": "Branson Farmers Market (Last Tuesday Edition)",
+    "when": "Tomorrow is Tuesday \u2014 catch it 2:30\u20136:30 PM",
+    "where": "Branson Landing South Lot by Bass Pro",
+    "why": "Local produce, handmade goods, and the last market day of the season. Perfect easy afternoon for families.",
     "url": "https://bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Morning on Table Rock Lake",
-      "detail": "Cooler water favors jig and crankbait bites for bass and crappie near main lake points and coves. Steady bite reported in recent fishing intel."
+      "title": "Coffee & Lake View",
+      "detail": "Start at Steamy Joe Cafe or The Lake House for breakfast with Table Rock views. Carry-forward from verified favorites."
     },
     {
       "when": "Afternoon",
-      "title": "Shows on 76 Country Blvd",
-      "detail": "Catch matinees or explore family attractions along the Strip. Comfortable temperatures for walking between venues."
+      "title": "Landing & Market",
+      "detail": "Explore Branson Landing fountain shows and the Farmers Market (if Tuesday). Walk the waterfront \u2014 free and family-friendly."
     },
     {
       "when": "Dusk",
-      "title": "Dinner and lights at the Landing",
-      "detail": "Waterfront dining followed by the famous fountain show and evening lights."
+      "title": "Evening Show",
+      "detail": "Catch a classic or country show (Clay Cooper, Legends in Concert). Confirm exact times at box office."
     }
   ],
   "indoor": [
     {
-      "name": "Titanic Museum",
-      "detail": "Self-guided tour of the legendary story with artifacts and interactive exhibits. Climate-controlled and engaging for all ages.",
-      "url": "https://titanicbranson.com/"
+      "name": "Legends in Concert",
+      "detail": "Tribute to music icons with live band energy. Great for all ages.",
+      "url": "https://www.americanarenas.com/"
     },
     {
-      "name": "World of Wildlife",
-      "detail": "Interactive animal encounters, aquarium, and educational exhibits indoors.",
-      "url": "https://worldofwildlife.com/"
+      "name": "Shanghai Circus",
+      "detail": "Thrilling acrobatics and circus arts in a climate-controlled theatre.",
+      "url": "https://www.discoverbranson.com/"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "Catch country and variety shows in a comfortable theater setting.",
-      "url": "https://claycoopertheatre.com/"
+      "name": "White River Fish House",
+      "detail": "Lakeside dining with views of Taneycomo \u2014 perfect if weather shifts.",
+      "url": "https://www.whiteriverfishhouse.com/"
     }
   ],
-  "honesty": "Editor notes prepared for Sunday, October 25 using NWS/Open-Meteo forecast data, carry-forward from latest shows-data.json and dining-data.json (no fresh tomorrow scouts located), and prior verified fishing intel. No new scout markdown files for 2026-10-25. Verify current showtimes, lake conditions, and availability locally before heading out."
+  "honesty": "No fresh scouts today for 2026-10-26. Carried forward dining/shows from 2026-10-25 verified reports. Weather from NWS/Open-Meteo. Featured market confirmed via multiple sources as final Tuesday run. Verify showtimes locally."
 }
