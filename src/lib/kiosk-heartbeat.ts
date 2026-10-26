@@ -17,6 +17,7 @@ export const KIOSK_UNITS: { slug: string; name: string }[] = [
   { slug: "branson-family-haven", name: "Branson Family Haven (Indian Point)" },
   { slug: "woodland-retreat", name: "Woodland Retreat" },
   { slug: "scotts-unit", name: "No-Stairs Condo (Scott's unit)" },
+  { slug: "silver-dollar-city-adventure-escape", name: "Silver Dollar City Adventure Escape (Klein's unit)" },
 ];
 const UNIT_SET = new Set(KIOSK_UNITS.map((u) => u.slug));
 

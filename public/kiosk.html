@@ -683,7 +683,54 @@ const UNITS = {
       "19. HOST LIABILITY: The Guest shall hereby indemnify and hold harmless the Host against any and all claims of personal injury or property damage or loss arising from use of the premises regardless of the nature of the accident, injury or loss. Guest expressly recognize that any insurance for property damage or loss which the Host may maintain on the property does not cover the personal property of Guest, and that Guest should purchase their own insurance if such coverage is desired.",
       "20. TERMINATION: Should the Guest violate any of the terms of this agreement, the rental period shall be terminated immediately. The Guests waive all rights to process if they fail to vacate the premises upon termination of the rental period. The Guests shall vacate the premises at the expiration time and date of the agreement."
     ]
+  },
+  "silver-dollar-city-adventure-escape": {
+    name: "Silver Dollar City Adventure Escape", aliases: ["silver dollar city adventure escape", "silver dollar adventure escape", "sdc adventure escape", "adventure escape", "klein's condo", "kleins condo", "klein", "!not189", "not189", "mile from the magic", "family fun retreat near sdc sleeps 14", "189 notch lane"],
+    isHaven: false, guidebook: "silver-dollar-city-adventure-escape",
+    // Wi-Fi network and password stay off this tablet. Details are in the pre-arrival email.
+    wifiNote: "Wi-Fi details are in the check-in email sent before arrival.",
+    streamingHelp: true,
+    accessNote: "Self check-in. Instructions were emailed before arrival. [Brian to fill in: lock type and where to find the entrance]",
+    houseRulesIntro: [
+      "Welcome to Silver Dollar City Adventure Escape — a 4-bedroom, 4-bath townhouse that sleeps 14. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
+      "Please keep the door between upstairs and downstairs closed. On hot, humid days the AC takes a long time to cool the house back down if it's left open.",
+      "Coffee station in the kitchen, with a toaster and blender nearby. Washer and dryer are in the unit. [Brian to fill in: thermostat, washer, dryer, and other appliance models and how to use them.]",
+      "Covered front patio, plus a deck with outdoor dining and Adirondack chairs. Free parking right outside your door. Boat parking is first come, first served.",
+      "Catch-and-release fishing pond with a dock and picnic pavilion. Walking trails, playground, and basketball court. Community pools are seasonal and closed for the season."
+    ],
+    houseRules: [
+      "Up to 14 guests. No unregistered guests.",
+      "No pets.",
+      "No smoking, vaping, or marijuana.",
+      "No parties or events.",
+      "Quiet hours: 10 PM – 8 AM.",
+      "The fireplace is decorative only.",
+      "Two exterior cameras, one at the front and one at the back. None inside.",
+      "Charcoal grill outside only. Bring your own charcoal."
+    ],
+    checkoutItems: [
+      "Load and start the dishwasher.",
+      "Take the trash to the dumpster.",
+      "Set the thermostat to 60°F for heat or 75°F for A/C.",
+      "Turn off the lights, lock up, and close the doors behind you."
+    ]
   }
+};
+
+/* Streaming Help — replace this object when a finalized snippet arrives.
+   Rendered only for units with streamingHelp: true. No passwords. */
+const STREAMING_HELP = {
+  title: "Streaming Help",
+  intro: "The Roku TVs are in guest mode. Sign in to your own apps. The TV does not keep your sign-in after you leave.",
+  stepsTitle: "How to sign in",
+  steps: [
+    "Open the app on the Roku.",
+    "Choose Sign In.",
+    "Use your email and password, or the phone activation code the app shows."
+  ],
+  liveNote: "Some apps need a TV-provider login for live channels.",
+  appsLabel: "Apps on the TV",
+  apps: ["Netflix", "Disney+", "Hulu", "ESPN", "Max", "Prime Video", "YouTube", "and similar apps on the Roku home screen"]
 };
 
 const BOOK_URL = "https://notchcondos.guestybookings.com/";
@@ -747,6 +794,11 @@ const HOWTO = {
     { title: "Ecobee Thermostat", id: "i3fdeYQORFM" },
     { title: "Access Codes & Instructions", id: "2DvVB7xTuNk" },
     { title: "Laundry Room", id: "IlJQi1S0NRI" },
+    { title: "Playground", id: "unj-zG9wtdU" },
+    { title: "Private Lake Trail", id: "VGmH8k_656A" },
+    { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
+  ],
+  "silver-dollar-city-adventure-escape": [
     { title: "Playground", id: "unj-zG9wtdU" },
     { title: "Private Lake Trail", id: "VGmH8k_656A" },
     { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
@@ -970,21 +1022,55 @@ function renderWifi() {
   const poolRule = unit.isHaven
     ? "Community pools &amp; hot tub — please follow the posted rules and hours"
     : "Pool 8 AM – 10 PM — no glass, kids supervised, no diving";
-  document.getElementById("wifi").innerHTML = `
-    <h2>Wi-Fi & house rules</h2>
-    <div class="wifi-top">
-      <div class="card">
+  const leaveItems = Array.isArray(unit.checkoutItems) && unit.checkoutItems.length
+    ? unit.checkoutItems
+    : [
+        "Leave beds unmade. If you used the sleeper sofa, leave the cushions off.",
+        towels,
+        trash,
+        dishes,
+        "Turn off the stove, heater, lights, and electronics.",
+        "Move furniture back if you moved it.",
+        "Lock all doors and windows.",
+      ];
+  const accessCard = unit.accessNote
+    ? `<div class="card"><div class="label">Check-in</div><p class="note">${unit.accessNote}</p></div>`
+    : "";
+  const wifiCard = unit.wifiNote
+    ? `<div class="card">
+        <div class="label">Wi-Fi</div>
+        <p class="note">${unit.wifiNote}</p>
+      </div>`
+    : `<div class="card">
         <div class="label">Wi-Fi</div>
         <div class="label" style="margin-top:.35rem">Network</div>
         <h3>${unit.network}</h3>
         <div class="label" style="margin-top:.7rem">Password</div>
         <h3>${unit.password}</h3>
-      </div>
+      </div>`;
+  const streamingCard = unit.streamingHelp ? `
+    <div class="card" id="streaming-help">
+      <div class="label">${STREAMING_HELP.title}</div>
+      <p class="note">${STREAMING_HELP.intro}</p>
+      <p class="note"><strong>${STREAMING_HELP.stepsTitle}</strong></p>
+      <ul class="rules">
+        ${STREAMING_HELP.steps.map((step) => `<li>${step}</li>`).join("")}
+      </ul>
+      <p class="note">${STREAMING_HELP.liveNote}</p>
+      <p class="note"><strong>${STREAMING_HELP.appsLabel}</strong></p>
+      <p class="note">${STREAMING_HELP.apps.join(" · ")}</p>
+    </div>` : "";
+  document.getElementById("wifi").innerHTML = `
+    <h2>Wi-Fi & house rules</h2>
+    <div class="wifi-top">
+      ${wifiCard}
       <button class="checkout-jump" type="button" data-scroll="checkout-how">
         Checkout
         <small>10:00 AM · jump to steps</small>
       </button>
     </div>
+    ${accessCard}
+    ${streamingCard}
     <div class="smoke">
       <div class="label">Posted no-smoking rule</div>
       <h3>${smokeRule}</h3>
@@ -994,7 +1080,7 @@ function renderWifi() {
     <div class="card">
       <div class="label">House rules</div>
       ${(unit.houseRulesIntro || []).map((p) => `<p class="note">${p}</p>`).join("")}
-      <ul class="rules numbered">
+      <ul class="rules${/^\d+\./.test(unit.houseRules[0] || "") ? " numbered" : ""}">
         ${unit.houseRules.map((r) => `<li>${r}</li>`).join("")}
       </ul>
     </div>` : `
@@ -1027,13 +1113,7 @@ function renderWifi() {
       <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need — do not count on it.</p>
       <p>Before you leave:</p>
       <ul>
-        <li>Leave beds unmade. If you used the sleeper sofa, leave the cushions off.</li>
-        <li>${towels}</li>
-        <li>${trash}</li>
-        <li>${dishes}</li>
-        <li>Turn off the stove, heater, lights, and electronics.</li>
-        <li>Move furniture back if you moved it.</li>
-        <li>Lock all doors and windows.</li>
+        ${leaveItems.map((item) => `<li>${item}</li>`).join("")}
       </ul>
       <p>Thank you for staying with us. — Brian &amp; Chantel</p>
     </div>
