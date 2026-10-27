@@ -1,15 +1,24 @@
 {
   "date": "2026-10-27",
-  "generated_at": "2026-10-27T18:02:57+00:00",
+  "generated_at": "2026-10-27T20:14:57+00:00",
   "headline": {
-    "check_ins": 0,
+    "check_ins": 1,
     "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 2,
+    "in_house_units": 3,
     "units_total": 5
   },
-  "check_ins": [],
+  "check_ins": [
+    {
+      "property": "Woodland Retreat",
+      "guest": "Bill Stiles",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_infea7m",
+      "time": "4:00 PM"
+    }
+  ],
   "check_outs": [
     {
       "property": "Indian Point",
@@ -41,6 +50,16 @@
       "check_in": "2026-10-25",
       "check_out": "2026-10-28",
       "nights": 3
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Bill Stiles",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_infea7m",
+      "check_in": "2026-10-27",
+      "check_out": "2026-10-29",
+      "nights": 2
     }
   ],
   "sync_notes": {
