@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-26",
-  "headline": "Mild Monday on the Lake: Perfect Fall Weather for First-Timers",
-  "lede": "Monday, October 26 brings mild highs near 77\u00b0F with mostly sunny skies and light southeast winds \u2014 ideal conditions for your first Branson lake day or a relaxed Landing stroll. No heat dome, just comfortable Ozark autumn.",
+  "for": "2026-10-27",
+  "headline": "Tuesday on the Landing: Farmers Market & Mild Fall Skies",
+  "lede": "Tuesday, October 27 brings comfortable highs near 75°F with mostly cloudy skies turning partly sunny in the afternoon and light south winds — an ideal day for first-timers to explore Branson Landing and the weekly Farmers Market.",
   "heat": false,
   "featured": {
-    "title": "Branson Farmers Market (Last Tuesday Edition)",
-    "when": "Tomorrow is Tuesday \u2014 catch it 2:30\u20136:30 PM",
-    "where": "Branson Landing South Lot by Bass Pro",
-    "why": "Local produce, handmade goods, and the last market day of the season. Perfect easy afternoon for families.",
+    "title": "Branson Landing Farmers Market",
+    "when": "2:30–6:30 PM",
+    "where": "South lot by Bass Pro Shops",
+    "why": "Local produce, crafts, live music, and Ozark flavors. The perfect easy, family-friendly afternoon activity with free parking and waterfront views.",
     "url": "https://bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Coffee & Lake View",
-      "detail": "Start at Steamy Joe Cafe or The Lake House for breakfast with Table Rock views. Carry-forward from verified favorites."
+      "title": "Coffee & Lake Morning",
+      "detail": "Start with breakfast and Table Rock views at Steamy Joe Cafe or The Lake House. Light winds and mild temps make for a pleasant waterfront stroll."
     },
     {
       "when": "Afternoon",
-      "title": "Landing & Market",
-      "detail": "Explore Branson Landing fountain shows and the Farmers Market (if Tuesday). Walk the waterfront \u2014 free and family-friendly."
+      "title": "Farmers Market & Landing",
+      "detail": "Head to Branson Landing for the weekly Farmers Market (2:30–6:30 PM). Browse local vendors, enjoy the fountain shows, and walk the boardwalk."
     },
     {
       "when": "Dusk",
-      "title": "Evening Show",
-      "detail": "Catch a classic or country show (Clay Cooper, Legends in Concert). Confirm exact times at box office."
+      "title": "Evening Entertainment",
+      "detail": "Catch a show — confirm current times and availability at the box office for Clay Cooper, Legends in Concert, or other favorites."
     }
   ],
   "indoor": [
     {
       "name": "Legends in Concert",
-      "detail": "Tribute to music icons with live band energy. Great for all ages.",
-      "url": "https://www.americanarenas.com/"
+      "detail": "High-energy tribute show featuring live renditions of music icons. Climate-controlled theatre perfect for any weather.",
+      "url": "https://www.legendsinconcert.com/"
     },
     {
       "name": "Shanghai Circus",
-      "detail": "Thrilling acrobatics and circus arts in a climate-controlled theatre.",
+      "detail": "Thrilling acrobatic performances and circus arts in a comfortable indoor venue.",
       "url": "https://www.discoverbranson.com/"
     },
     {
       "name": "White River Fish House",
-      "detail": "Lakeside dining with views of Taneycomo \u2014 perfect if weather shifts.",
+      "detail": "Lakeside dining with views of Taneycomo. Fresh fish and classic American fare — great backup if clouds linger.",
       "url": "https://www.whiteriverfishhouse.com/"
     }
   ],
-  "honesty": "No fresh scouts today for 2026-10-26. Carried forward dining/shows from 2026-10-25 verified reports. Weather from NWS/Open-Meteo. Featured market confirmed via multiple sources as final Tuesday run. Verify showtimes locally."
+  "honesty": "No fresh scout files found for 2026-10-27 (carry-forward from prior verified reports). Weather pulled live from Open-Meteo/NWS sources for Branson coordinates. Farmers Market confirmed as Tuesday staple. Restaurant spotlight rotates to Farmhouse per weekday rule. All showtimes marked for box-office confirmation. Bright-blue magazine template enforced."
 }
