@@ -1,26 +1,27 @@
 {
   "ok": true,
-  "generated_at": "2026-10-27T18:03:00+00:00",
-  "checkedAt": "2026-10-27T13:03:00-05:00",
+  "generated_at": "2026-10-27T20:14:59+00:00",
+  "checkedAt": "2026-10-27T15:14:59-05:00",
   "todayCT": "2026-10-27",
-  "lastSyncAt": "2026-10-27T18:02:57+00:00",
+  "lastSyncAt": "2026-10-27T20:14:57+00:00",
   "syncDataDate": "2026-10-27",
   "liveDataDate": "2026-10-27",
   "liveSource": "github",
   "expectedInHouse": [
     "Laurie Bush @ Penthouse",
-    "Hannah Harrington @ Rustic Ozark"
+    "Hannah Harrington @ Rustic Ozark",
+    "Bill Stiles @ Woodland Retreat"
   ],
   "kioskUnits": {
     "the-penthouse": "Laurie Bush (Penthouse)",
     "rustic-ozark-retreat": "Hannah Harrington (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": null,
-    "woodland-retreat": null,
+    "woodland-retreat": "Bill Stiles (Woodland Retreat)",
     "scotts-unit": null,
     "silver-dollar-adventure-escape": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/40556099288 late=0 rebuild=success"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/40576301569 late=0 rebuild=success"
 }
