@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-27",
-  "generated_at": "2026-10-28T01:34:25+00:00",
+  "date": "2026-10-28",
+  "generated_at": "2026-10-28T05:41:16-05:00",
   "headline": {
     "check_ins": 1,
     "check_outs": 1,
@@ -11,21 +11,21 @@
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
-      "guest": "Bill Stiles",
-      "guests": 3,
+      "property": "Indian Point",
+      "guest": "Alicia Moore",
+      "guests": 10,
       "platform": "airbnb2",
-      "reservation_id": "res_infea7m",
+      "reservation_id": "res_7an73bx",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Indian Point",
-      "guest": "Char Slack",
-      "guests": 11,
+      "property": "Rustic Ozark",
+      "guest": "Hannah Harrington",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_wfjlq1r",
+      "reservation_id": "res_qvjd52g",
       "time": "10:00 AM"
     }
   ],
@@ -42,16 +42,6 @@
       "nights": 5
     },
     {
-      "property": "Rustic Ozark",
-      "guest": "Hannah Harrington",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_qvjd52g",
-      "check_in": "2026-10-25",
-      "check_out": "2026-10-28",
-      "nights": 3
-    },
-    {
       "property": "Woodland Retreat",
       "guest": "Bill Stiles",
       "guests": 3,
@@ -60,6 +50,16 @@
       "check_in": "2026-10-27",
       "check_out": "2026-10-29",
       "nights": 2
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Alicia Moore",
+      "guests": 10,
+      "platform": "airbnb2",
+      "reservation_id": "res_7an73bx",
+      "check_in": "2026-10-28",
+      "check_out": "2026-10-29",
+      "nights": 1
     }
   ],
   "sync_notes": {
