@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-27",
-  "biteOfDay": "ing Recent reports from Table Rock show bass transitioning firmly into fall patterns, holding on long points, gravel roll-offs, and offshore structure in 20-40+ feet as they fatten for winter. Walleye and crappie are active around brush and points. On Taneycomo, rainbows remain plentiful with brown trout becoming more aggressive in the upper lake as water cools. Effective offerings include Berkley",
+  "date": "2026-10-28",
+  "biteOfDay": "ing Bass on Table Rock have fully committed to fall patterns, holding tight to long points, gravel roll-offs, and offshore structure in 20-40+ feet as they pack on weight for winter. Walleye and crappie remain active around brush piles and points. On Taneycomo, rainbows are aggressive and browns are showing more frequently in the upper stretches with the cooler water. Proven offerings include Berk",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.57 ft (USACE 10:00 CT)",
+      "level": "910.52 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 10:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~298 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: With stronger generation this morning, focus on Taneycomo seams and current breaks with weighted rigs and 2-4 lb test. Drift a Berkley Pink PowerWorm, 1/16- to 1/8-oz marabou micro jig (black, sculpin, or olive with orange head), or a zebra midge under an indicator in the softer inside ",
-  "source": "usace-always-on",
-  "last_verified": "2026-10-27T10:58:34-05:00"
+  "tip": "Insider tip: Take advantage of the current low-flow window on Taneycomo this morning (confirm with 866-494-1993). Drift or wade the seams and current breaks with 2-lb test and a Berkley Pink PowerWorm, a 1/16- to 1/8-oz marabou micro jig (black/sculpin/olive with orange head), or a #18-20 zebra midg",
+  "source": "scout",
+  "last_verified": "2026-10-28T05:24:25-05:00"
 }

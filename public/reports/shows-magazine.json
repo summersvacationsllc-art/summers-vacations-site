@@ -1,15 +1,15 @@
 {
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Tuesday on the Landing: Farmers Market & Mild Fall Skies",
-  "deck": "Tuesday, October 27 brings comfortable highs near 75°F with mostly cloudy skies turning partly sunny in the afternoon and light south winds — an ideal day for first-timers to explore Branson Landing and the weekly Farmers Market.",
+  "hed": "Thursday in Branson: Crisp Fall Air & Live Entertainment",
+  "deck": "Thursday, October 29 offers highs in the upper 70s with mostly sunny skies and light winds — perfect conditions for first-timers to enjoy outdoor shows, lake views, and the vibrant energy of Branson without the summer heat.",
   "pick": {
-    "title": "Legends in Concert",
-    "when": "8:00 PM",
-    "where": "Pepsi Legends Theater",
+    "title": "Clay Cooper's Country Express Show",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
     "why": "Core Branson mainstage energy.",
-    "url": "",
+    "url": "https://www.claycoopertheatre.com/",
     "source": "desk"
   },
   "buckets": [
@@ -17,7 +17,7 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 6,
+      "count": 5,
       "shows": [
         {
           "name": "Absolutely Country, Definitely Gospel",
@@ -28,8 +28,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Blends heartfelt country hits with uplifting gospel music in a morning performance",
-          "price": "$67–$209"
+          "desc": "Inspirational blend of country and gospel music performed live",
+          "price": "$72"
         },
         {
           "name": "Beach Boys California Dreamin'",
@@ -40,11 +40,11 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Surf through the hits of the Beach Boys with this high-energy tribute show full of classic California sounds",
+          "desc": "Tribute to the iconic sounds of the Beach Boys with harmonious surf rock classics",
           "price": "$58–$67"
         },
         {
-          "name": "Clay Cooper's Country Express Show",
+          "name": "Hot Rods & High Heels",
           "time": "10:00 AM",
           "venue": "Clay Cooper Theatre",
           "type": null,
@@ -52,35 +52,11 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "High-energy country music, comedy, and family entertainment in a fast-paced production",
-          "price": "$75–$91"
+          "desc": "High-energy musical production celebrating classic cars and 1950s-60s rock 'n' roll with dance and song",
+          "price": "$58–$72"
         },
         {
-          "name": "#1 Hits of the 60s",
-          "time": "2:00 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "Relive the best music from the 1960s with energetic performances of top chart hits",
-          "price": "$66–$82"
-        },
-        {
-          "name": "Shanghai Circus",
-          "time": "2:00 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": null,
-          "url": "",
-          "chip": "thrill",
-          "icon": "🤸",
-          "ticketOk": false,
-          "desc": "Spectacular acrobatics, juggling, and circus arts from talented performers in a family-oriented show",
-          "price": "$78–$90"
-        },
-        {
-          "name": "The Gambler",
+          "name": "Awesome 80's",
           "time": "2:00 PM",
           "venue": "Americana Theatre",
           "type": null,
@@ -88,7 +64,19 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Tribute to Kenny Rogers and classic country storytelling with hits like \"The Gambler.\"",
+          "desc": "Nostalgic celebration of 1980s hits with high-energy performances",
+          "price": "$69"
+        },
+        {
+          "name": "Dean Z – The Ultimate Elvis",
+          "time": "2:00 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "World-class Elvis Presley tribute by Dean Z, officially recognized as one of the top interpreters of the King",
           "price": ""
         }
       ]
@@ -100,16 +88,16 @@
       "count": 1,
       "shows": [
         {
-          "name": "Thank You For The Music (ABBA Tribute)",
+          "name": "Patsy Cline and Friends - Tribute Show",
           "time": "5:00 PM",
-          "venue": "Hamner's Variety Theater",
+          "venue": "Americana Theatre",
           "type": null,
-          "url": "",
+          "url": "https://www.americanatheatre.com/",
           "chip": "classic",
           "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Fun, colorful tribute to ABBA featuring hits like \"Dancing Queen,\" \"Mamma Mia,\" and \"Waterloo.\"",
-          "price": "$45–$55"
+          "ticketOk": true,
+          "desc": "Heartfelt tribute to Patsy Cline featuring her signature hits alongside songs from inspired artists like Loretta Lynn and Dolly Parton",
+          "price": "$72"
         }
       ]
     },
@@ -117,19 +105,67 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 2,
+      "count": 8,
       "shows": [
         {
-          "name": "Legends in Concert",
-          "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
+          "name": "Brothers of the Heart",
+          "time": "7:00 PM",
+          "venue": "The Mansion",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "World-class live tribute show impersonating icons with elaborate costumes, live band, and high production values",
-          "price": "$83–$114"
+          "desc": "Supergroup featuring Jimmy Fortune, Bradley Walker, Mike Rogers, and Ben Isaacs performing country, gospel, and inspirational favorites",
+          "price": "$38–$75"
+        },
+        {
+          "name": "Amazing Acrobats of Shanghai Circus",
+          "time": "7:30 PM",
+          "venue": "Mickey Gilley Grand Shanghai Theatre",
+          "type": null,
+          "url": "",
+          "chip": "thrill",
+          "icon": "🤸",
+          "ticketOk": false,
+          "desc": "Spectacular acrobatic performances and circus acts from Shanghai performers",
+          "price": ""
+        },
+        {
+          "name": "Clay Cooper's Country Express Show",
+          "time": "7:30 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "https://www.claycoopertheatre.com/",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": true,
+          "desc": "High-energy family country music, comedy, and variety show led by Clay Cooper and cast",
+          "price": "$77"
+        },
+        {
+          "name": "Anthems of Rock",
+          "time": "8:00 PM",
+          "venue": "King's Castle Theatre",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Powerful rock anthems and classic hits performed live",
+          "price": "$60"
+        },
+        {
+          "name": "Hamners' Unbelievable Variety",
+          "time": "8:00 PM",
+          "venue": "Hamner's Variety Theater",
+          "type": null,
+          "url": "",
+          "chip": "magic",
+          "icon": "🪄",
+          "ticketOk": false,
+          "desc": "Family-friendly variety show with comedy, music, and surprising acts",
+          "price": ""
         },
         {
           "name": "Presley's Country Jubilee Show",
@@ -140,8 +176,32 @@
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": false,
-          "desc": "Long-running family country music variety show with comedy, gospel, and classic hits",
-          "price": "$55–$74"
+          "desc": "Long-running family-style country music and comedy revue",
+          "price": "$55"
+        },
+        {
+          "name": "Rick Thomas",
+          "time": "8:00 PM",
+          "venue": "Americana Theatre",
+          "type": null,
+          "url": "https://www.americanatheatre.com/",
+          "chip": "magic",
+          "icon": "🪄",
+          "ticketOk": true,
+          "desc": "World-renowned illusionist presenting grand illusions, sleight of hand, and theatrical magic with exotic animals",
+          "price": "$72–$99"
+        },
+        {
+          "name": "The SIX Show",
+          "time": "8:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Acapella vocal group of six brothers delivering pop, rock, R&B, and gospel with beatbox percussion and harmonies",
+          "price": "$47–$77"
         }
       ]
     }
@@ -150,12 +210,17 @@
     {
       "id": "classic",
       "label": "Classic",
-      "count": 7
+      "count": 10
     },
     {
       "id": "thrill",
       "label": "Thrill",
       "count": 1
+    },
+    {
+      "id": "magic",
+      "label": "Magic",
+      "count": 2
     },
     {
       "id": "comedy",
@@ -165,18 +230,18 @@
   ],
   "indoor": [
     {
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country music and comedy in a comfortable venue. A Branson staple for families and music lovers.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
       "name": "Legends in Concert",
-      "detail": "High-energy tribute show featuring live renditions of music icons. Climate-controlled theatre perfect for any weather.",
+      "detail": "Tribute performances featuring iconic musicians in a state-of-the-art theater. Climate-controlled and engaging for all ages.",
       "url": "https://www.legendsinconcert.com/"
     },
     {
-      "name": "Shanghai Circus",
-      "detail": "Thrilling acrobatic performances and circus arts in a comfortable indoor venue.",
-      "url": "https://www.discoverbranson.com/"
-    },
-    {
       "name": "White River Fish House",
-      "detail": "Lakeside dining with views of Taneycomo. Fresh fish and classic American fare — great backup if clouds linger.",
+      "detail": "Lakeside dining with fresh seafood and American classics. Great for dinner before or after a show.",
       "url": "https://www.whiteriverfishhouse.com/"
     }
   ],
@@ -184,12 +249,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-27",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-27.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-28",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-28.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 9,
-    "withTickets": 4
+    "shows": 14,
+    "withTickets": 7
   },
-  "generated_at": "2026-10-27T10:58:34-05:00"
+  "generated_at": "2026-10-28T05:24:25-05:00"
 }
