@@ -430,7 +430,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             <div className="mx-3.5 mt-1.5 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100">
               <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {isKlein ? '' : wifiNote}</div>
               {isKlein ? (
+                <>
                 <div className="text-[13px] font-bold text-sky-900 mt-0.5">Details are in your pre-arrival email.</div>
+                <div className="text-[12px] text-sky-800 mt-0.5">Internet speed: 208 Mbps download / 32.2 Mbps upload</div>
+                </>
               ) : isActive ? (
                 <>
                   <div className="text-[10px] uppercase tracking-wide text-sky-700 mt-1">Network</div>
@@ -547,7 +550,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     '<span style="color:#dc2626;font-size:12px;">Late checkout is rarely possible if guests are arriving that day. Please plan ahead!</span></div>'+
                     '<strong>Before you leave:</strong><br /><br />'+
                     '🍽️ <strong>Load and start the dishwasher</strong><br /><br />'+
-                    '🗑️ <strong>Take the trash to the dumpster</strong><br /><br />'+
+                    '🗑️ <strong>Take the trash to the dumpster next to the entrance of the boat parking.</strong><br /><br />'+
                     '🌡️ <strong>Set the thermostat</strong> to 60°F for heat or 75°F for A/C<br /><br />'+
                     '💡 <strong>Turn off the lights</strong>, lock up, and close the doors behind you<br /><br />'+
                     '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel</div>',
@@ -579,7 +582,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     '<span style="color:#0f766e;font-size:12px;">VRBO and Airbnb will send a review request. If you can\'t give 5 stars, please tell us why — your feedback helps our next guests.</span></div>'+
                     '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel Summers</div>'
                   )}
-                  {isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival. TVs and a game console are in the game zone.')}
+                  {isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival.<br><br>Internet speed: 208 Mbps download / 32.2 Mbps upload<br><br>TVs and a game console are in the game zone.')}
                   {!isKlein && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   <div className="bg-white rounded-lg mb-1 border border-sky-100 overflow-hidden">
                     <details className="group">
