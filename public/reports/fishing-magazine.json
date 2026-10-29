@@ -1,12 +1,12 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
-  "hed": "The Water Is Falling",
+  "hed": "A Quiet Morning on the Desk",
   "deck": "Table Rock this morning: 910.52 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
   "play": {
-    "title": "Streamer on the generate.",
-    "body": "When SWPA spins it, Taneycomo becomes a small river. A dark wooly bugger in the seams."
+    "title": "Don't quit at 10.",
+    "body": "Fall is the opposite of August. The bite can last until lunch."
   },
   "season": {
     "name": "Fall turnover",
@@ -19,14 +19,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "Table Rock held near 910.52 ft all week, a hair under full pool (915). Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "Table Rock held near 910.52 ft all week, a hair under full pool (915). 1 morning this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-10-22",
-      "label": "Thu",
-      "level": "910.67",
-      "fresh": true
-    },
     {
       "date": "2026-10-23",
       "label": "Fri",
@@ -62,6 +56,12 @@
       "label": "Wed",
       "level": "910.52",
       "fresh": true
+    },
+    {
+      "date": "2026-10-29",
+      "label": "Thu",
+      "level": "910.52",
+      "fresh": false
     }
   ],
   "tableRock": {
@@ -83,7 +83,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~298 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
+      "generation": "Call SWPA 866-494-1993 before you wad. Do not guess the generators."
     },
     "working": [
       "Pink Power Worms",
@@ -100,7 +100,7 @@
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-10-28",
+    "checked": "2026-10-29",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }

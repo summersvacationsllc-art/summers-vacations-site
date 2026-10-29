@@ -3,14 +3,21 @@
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
   "hed": "Thursday warm-up",
-  "deck": "Pre-weekend energy on the Strip. Pick one matinee or go straight to an evening show.",
-  "pick": null,
+  "deck": "Today's lineup in Branson features a solid mix of tribute shows, country music, family-friendly productions, and holiday-themed performances, with options spanning morning to evening across popular theaters.",
+  "pick": {
+    "title": "The Haygoods",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Laughs without homework.",
+    "url": "https://www.claycoopertheatre.com/",
+    "source": "desk"
+  },
   "buckets": [
     {
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 5,
+      "count": 6,
       "shows": [
         {
           "name": "Absolutely Country, Definitely Gospel",
@@ -21,7 +28,7 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Inspirational blend of country and gospel music performed live",
+          "desc": "Uplifting blend of country and gospel music performed live",
           "price": "$72"
         },
         {
@@ -33,23 +40,35 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Tribute to the iconic sounds of the Beach Boys with harmonious surf rock classics",
+          "desc": "High-energy tribute celebrating the iconic surf rock sounds of the Beach Boys",
           "price": "$58–$67"
         },
         {
-          "name": "Hot Rods & High Heels",
-          "time": "10:00 AM",
+          "name": "#1 Hits of The 60s",
+          "time": "2:00 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
           "url": "https://www.claycoopertheatre.com/",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "High-energy musical production celebrating classic cars and 1950s-60s rock 'n' roll with dance and song",
-          "price": "$58–$72"
+          "desc": "Nostalgic celebration of the biggest chart-topping hits from the 1960s",
+          "price": "$66–$82"
         },
         {
-          "name": "Awesome 80's",
+          "name": "A Celtic Christmas",
+          "time": "2:00 PM",
+          "venue": "King's Castle Theatre",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎶",
+          "ticketOk": false,
+          "desc": "Festive holiday show featuring Celtic music, dance, and seasonal cheer",
+          "price": "$60"
+        },
+        {
+          "name": "The Gambler",
           "time": "2:00 PM",
           "venue": "Americana Theatre",
           "type": null,
@@ -57,20 +76,20 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": true,
-          "desc": "Nostalgic celebration of 1980s hits with high-energy performances",
-          "price": "$69"
+          "desc": "Kenny Rogers tribute bringing country classics and storytelling to the stage",
+          "price": ""
         },
         {
-          "name": "Dean Z – The Ultimate Elvis",
+          "name": "The Lion, The Witch And The Wardrobe",
           "time": "2:00 PM",
-          "venue": "Clay Cooper Theatre",
+          "venue": "Branson Hillside Theatre",
           "type": null,
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "World-class Elvis Presley tribute by Dean Z, officially recognized as one of the top interpreters of the King",
-          "price": ""
+          "url": "",
+          "chip": "music",
+          "icon": "🎭",
+          "ticketOk": false,
+          "desc": "Live stage adaptation of the classic C.S. Lewis tale with music and spectacle",
+          "price": "$80–$115"
         }
       ]
     },
@@ -81,16 +100,16 @@
       "count": 1,
       "shows": [
         {
-          "name": "Patsy Cline and Friends - Tribute Show",
+          "name": "Thank You For The Music (ABBA Tribute)",
           "time": "5:00 PM",
-          "venue": "Americana Theatre",
+          "venue": "Hamners’ Variety Theater",
           "type": null,
-          "url": "https://www.americanatheatre.com/",
+          "url": "",
           "chip": "classic",
           "icon": "🎸",
-          "ticketOk": true,
-          "desc": "Heartfelt tribute to Patsy Cline featuring her signature hits alongside songs from inspired artists like Loretta Lynn and Dolly Parton",
-          "price": "$72"
+          "ticketOk": false,
+          "desc": "Dynamic tribute with powerful harmonies, dance, and all the iconic ABBA hits like \"Dancing Queen\" and \"Mamma Mia.\"",
+          "price": "$33–$45"
         }
       ]
     },
@@ -98,20 +117,8 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 8,
+      "count": 5,
       "shows": [
-        {
-          "name": "Brothers of the Heart",
-          "time": "7:00 PM",
-          "venue": "The Mansion",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Supergroup featuring Jimmy Fortune, Bradley Walker, Mike Rogers, and Ben Isaacs performing country, gospel, and inspirational favorites",
-          "price": "$38–$75"
-        },
         {
           "name": "Amazing Acrobats of Shanghai Circus",
           "time": "7:30 PM",
@@ -121,44 +128,44 @@
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": false,
-          "desc": "Spectacular acrobatic performances and circus acts from Shanghai performers",
-          "price": ""
+          "desc": "Spectacular acrobatics, juggling, and circus arts from talented performers",
+          "price": "$43–$73"
         },
         {
-          "name": "Clay Cooper's Country Express Show",
+          "name": "The Haygoods",
           "time": "7:30 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
           "url": "https://www.claycoopertheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
+          "chip": "comedy",
+          "icon": "😂",
           "ticketOk": true,
-          "desc": "High-energy family country music, comedy, and variety show led by Clay Cooper and cast",
-          "price": "$77"
+          "desc": "Multi-talented family performing high-energy music, comedy, and variety",
+          "price": ""
         },
         {
-          "name": "Anthems of Rock",
+          "name": "C.J. Newsom's Country Classic and Comedy Show",
           "time": "8:00 PM",
-          "venue": "King's Castle Theatre",
+          "venue": "Americana Theatre",
+          "type": null,
+          "url": "https://www.americanatheatre.com/",
+          "chip": "comedy",
+          "icon": "😂",
+          "ticketOk": true,
+          "desc": "Hilarious comedy paired with classic country music favorites",
+          "price": "$72"
+        },
+        {
+          "name": "Legends in Concert",
+          "time": "8:00 PM",
+          "venue": "Pepsi Legends Theater",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Powerful rock anthems and classic hits performed live",
-          "price": "$60"
-        },
-        {
-          "name": "Hamners' Unbelievable Variety",
-          "time": "8:00 PM",
-          "venue": "Hamner's Variety Theater",
-          "type": null,
-          "url": "",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": false,
-          "desc": "Family-friendly variety show with comedy, music, and surprising acts",
-          "price": ""
+          "desc": "World-class celebrity tribute show featuring impersonators of music icons with live bands and costumes",
+          "price": "$80–$142"
         },
         {
           "name": "Presley's Country Jubilee Show",
@@ -169,32 +176,28 @@
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": false,
-          "desc": "Long-running family-style country music and comedy revue",
-          "price": "$55"
-        },
+          "desc": "Long-running family show delivering gospel, country hits, comedy, and patriotic flair",
+          "price": "$73–$104"
+        }
+      ]
+    },
+    {
+      "id": "anytime",
+      "label": "Time TBA",
+      "blurb": "Confirm box office",
+      "count": 1,
+      "shows": [
         {
-          "name": "Rick Thomas",
-          "time": "8:00 PM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "https://www.americanatheatre.com/",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": true,
-          "desc": "World-renowned illusionist presenting grand illusions, sleight of hand, and theatrical magic with exotic animals",
-          "price": "$72–$99"
-        },
-        {
-          "name": "The SIX Show",
-          "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
+          "name": "Dolly Parton's Stampede",
+          "time": "Check times",
+          "venue": "Dolly Parton's Stampede Theater",
           "type": null,
           "url": "",
-          "chip": "classic",
-          "icon": "🎸",
+          "chip": "dinner",
+          "icon": "🍽️",
           "ticketOk": false,
-          "desc": "Acapella vocal group of six brothers delivering pop, rock, R&B, and gospel with beatbox percussion and harmonies",
-          "price": "$47–$77"
+          "desc": "Dinner theater experience with horse-riding stunts, music, and a four-course meal in a festive setting",
+          "price": ""
         }
       ]
     }
@@ -203,7 +206,12 @@
     {
       "id": "classic",
       "label": "Classic",
-      "count": 10
+      "count": 6
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "count": 2
     },
     {
       "id": "thrill",
@@ -211,13 +219,13 @@
       "count": 1
     },
     {
-      "id": "magic",
-      "label": "Magic",
-      "count": 2
-    },
-    {
       "id": "comedy",
       "label": "Comedy",
+      "count": 3
+    },
+    {
+      "id": "dinner",
+      "label": "Dinner",
       "count": 1
     }
   ],
@@ -227,11 +235,11 @@
   "editor": {
     "stamp": "Tonight in Branson desk",
     "checked": "2026-10-29",
-    "note": "Show list from the 2026-10-28 scout (today's not in yet). Confirm times at the box office."
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-10-29.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 14,
-    "withTickets": 7
+    "shows": 13,
+    "withTickets": 5
   },
-  "generated_at": "2026-10-29T05:00:49-05:00"
+  "generated_at": "2026-10-29T05:20:45-05:00"
 }
