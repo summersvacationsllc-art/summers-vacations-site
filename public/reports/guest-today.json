@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-29",
-  "generated_at": "2026-10-29T05:30:40-05:00",
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T06:04:30-05:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 2,
+    "check_ins": 1,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 4,
@@ -11,60 +11,26 @@
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "David Brown",
-      "guests": 16,
+      "property": "Scotts unit",
+      "guest": "Jerry Thompson",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_zl3mrj4",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Quenton Elliott",
-      "guests": 1,
-      "platform": "airbnb2",
-      "reservation_id": "res_gjvkr5e",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Sean Pratt",
-      "guests": 1,
-      "platform": "website",
-      "reservation_id": "res_zee03ej",
+      "reservation_id": "res_9vv9cay",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Woodland Retreat",
-      "guest": "Bill Stiles",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_infea7m",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Alicia Moore",
-      "guests": 10,
-      "platform": "airbnb2",
-      "reservation_id": "res_7an73bx",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Laurie Bush",
       "guests": 2,
       "platform": "airbnb2",
       "reservation_id": "res_2gux75k",
-      "check_in": "2026-10-25",
-      "check_out": "2026-10-30",
-      "nights": 5
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Indian Point",
       "guest": "David Brown",
@@ -94,6 +60,16 @@
       "check_in": "2026-10-29",
       "check_out": "2026-10-31",
       "nights": 2
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Jerry Thompson",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_9vv9cay",
+      "check_in": "2026-10-30",
+      "check_out": "2026-10-31",
+      "nights": 1
     }
   ],
   "sync_notes": {
