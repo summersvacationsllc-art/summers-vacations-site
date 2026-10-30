@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-28",
-  "headline": "Thursday in Branson: Crisp Fall Air & Live Entertainment",
-  "lede": "Thursday, October 29 offers highs in the upper 70s with mostly sunny skies and light winds \u2014 perfect conditions for first-timers to enjoy outdoor shows, lake views, and the vibrant energy of Branson without the summer heat.",
+  "for": "2026-10-30",
+  "headline": "Friday in Branson: Mostly Cloudy with Live Comedy & Family Shows",
+  "lede": "Friday, October 30 brings highs near 77°F under mostly cloudy skies with light southeast winds — ideal for first-timers to enjoy indoor theaters, the Branson Landing, and Halloween-themed family events without summer crowds or heat.",
   "heat": false,
   "featured": {
-    "title": "Evening Live Shows",
-    "when": "7:00 PM onward",
-    "where": "Branson theaters & Branson Landing",
-    "why": "World-class entertainment is the heartbeat of Branson. Catch a country, tribute, or magic show \u2014 many with same-day tickets available. The Landing fountain shows add free family fun.",
+    "title": "Branson Comedy Bash",
+    "when": "Evening (check box office)",
+    "where": "Shepherd of the Hills / Playhouse Theatre",
+    "why": "New 2026 comedy show featuring top regional talent. Perfect evening entertainment for the whole family as Halloween weekend begins.",
     "url": "https://www.branson.com/shows"
   },
   "plan": [
     {
-      "when": "Dawn",
-      "title": "Lake Morning",
-      "detail": "Enjoy coffee with Table Rock or Taneycomo views. Mild fall mornings are ideal for a relaxed start and planning your day."
+      "when": "Morning",
+      "title": "Branson Landing Stroll",
+      "detail": "Start with waterfront views, shops, and the iconic fountain show. Mild fall weather makes it comfortable for walking and photos."
     },
     {
       "when": "Afternoon",
-      "title": "Explore & Shop",
-      "detail": "Visit Branson Landing for waterfront strolling, fountain shows, and local shops. Consider a short drive to the Strip for classic Branson sights."
+      "title": "Theater Matinees",
+      "detail": "Catch family-friendly shows like Hot Rods & High Heels, The Lion The Witch and the Wardrobe, or Shanghai Circus. Many start around 2 PM."
     },
     {
-      "when": "Dusk",
-      "title": "Prime Time Entertainment",
-      "detail": "Evening is showtime in Branson. Check box office for tonight's lineup \u2014 many theaters offer flexible same-day options."
+      "when": "Evening",
+      "title": "Comedy & Halloween Fun",
+      "detail": "Head to the Branson Comedy Bash or free BOOnanza at RecPlex (6-8 PM). Safe trick-or-treating vibes begin the Halloween weekend."
     }
   ],
   "indoor": [
     {
+      "name": "Shepherd of the Hills",
+      "detail": "Home to the new Branson Comedy Bash and classic outdoor drama. Climate-controlled theaters with multiple shows daily.",
+      "url": "https://theshepherdofthehills.com/"
+    },
+    {
+      "name": "Americana Theatre",
+      "detail": "Country, gospel, and magic shows in a comfortable setting. Rick Thomas magic and Absolutely Country, Definitely Gospel on Friday.",
+      "url": "https://www.americanatheatre.com/"
+    },
+    {
       "name": "Clay Cooper Theatre",
-      "detail": "High-energy country music and comedy in a comfortable venue. A Branson staple for families and music lovers.",
+      "detail": "High-energy country music and comedy. A Branson staple with multiple performances suitable for all ages.",
       "url": "https://www.claycoopertheatre.com/"
-    },
-    {
-      "name": "Legends in Concert",
-      "detail": "Tribute performances featuring iconic musicians in a state-of-the-art theater. Climate-controlled and engaging for all ages.",
-      "url": "https://www.legendsinconcert.com/"
-    },
-    {
-      "name": "White River Fish House",
-      "detail": "Lakeside dining with fresh seafood and American classics. Great for dinner before or after a show.",
-      "url": "https://www.whiteriverfishhouse.com/"
     }
   ],
-  "honesty": "No fresh scout files available for 2026-10-29 (carry-forward from prior verified reports and live Open-Meteo weather). Restaurant spotlight rotated to White River per weekday rule. All show details marked for box-office confirmation. Bright-blue magazine template and two-guide fishing depth enforced where applicable. Editor notes follow exact JSON shape with object plan/indoor arrays."
+  "honesty": "No fresh scout files for 2026-10-30 (carry-forward from prior verified reports, NWS/Open-Meteo weather data, and public event calendars). Featured event and indoor options drawn from current listings; all show times and availability marked for box-office confirmation. Restaurant spotlight rotated to White River per schedule. Bright-blue theme and full 7-section magazine enforced. JSON uses proper object arrays for plan/indoor."
 }
