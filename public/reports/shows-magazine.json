@@ -1,36 +1,88 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday in Branson: Mostly Cloudy with Live Comedy & Family Shows",
-  "deck": "Friday, October 30 brings highs near 77°F under mostly cloudy skies with light southeast winds — ideal for first-timers to enjoy indoor theaters, the Branson Landing, and Halloween-themed family events without summer crowds or heat.",
+  "hed": "Saturday in Branson: Cloudy with Rain Chances & Halloween Trick-or-Treat",
+  "deck": "Saturday, October 31 brings highs near 72°F under mostly cloudy skies with a chance of showers — classic fall weather for first-timers to enjoy indoor shows, safe trick-or-treating at Branson Landing, and relaxed lake time.",
   "pick": {
-    "title": "Dean Z – The Ultimate Elvis",
+    "title": "The Lion, The Witch And The Wardrobe",
     "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "https://www.claycoopertheatre.com/",
+    "where": "Branson Hillside Theatre",
+    "why": "Easy multi-age pick.",
+    "url": "",
     "source": "desk"
   },
   "buckets": [
+    {
+      "id": "matinee",
+      "label": "Matinee",
+      "blurb": "Before 4 PM",
+      "count": 3,
+      "shows": [
+        {
+          "name": "Awesome 80's",
+          "time": "2:00 PM",
+          "venue": "Americana Theatre",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "High-energy tribute concert celebrating hits of the 1980s",
+          "price": "$69"
+        },
+        {
+          "name": "Dublin's Irish Tenors & The Celtic Ladies",
+          "time": "2:00 PM",
+          "venue": "King's Castle Theatre",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎶",
+          "ticketOk": false,
+          "desc": "Harmonious Irish tenors, Celtic ladies, and dynamic Irish dancers performing classics and favorites",
+          "price": ""
+        },
+        {
+          "name": "The Lion, The Witch And The Wardrobe",
+          "time": "2:00 PM",
+          "venue": "Branson Hillside Theatre",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎭",
+          "ticketOk": false,
+          "desc": "Stage adaptation of the classic C.S. Lewis tale brought to life with live theatrical production",
+          "price": "$79"
+        }
+      ]
+    },
+    {
+      "id": "late_afternoon",
+      "label": "Late afternoon",
+      "blurb": "4–7 PM",
+      "count": 1,
+      "shows": [
+        {
+          "name": "Aaron Wayne",
+          "time": "5:00 PM",
+          "venue": "Americana Theatre",
+          "type": null,
+          "url": "",
+          "chip": "comedy",
+          "icon": "😂",
+          "ticketOk": false,
+          "desc": "Comedy hypnosis and entertainment show with audience interaction",
+          "price": "$67"
+        }
+      ]
+    },
     {
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
       "count": 4,
       "shows": [
-        {
-          "name": "Dean Z – The Ultimate Elvis",
-          "time": "7:30 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "https://www.claycoopertheatre.com/",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": true,
-          "desc": "High-energy tribute show featuring one of the world's top Elvis impersonators delivering hits with authentic style and showmanship",
-          "price": "$60–$90"
-        },
         {
           "name": "Shanghai Circus",
           "time": "7:30 PM",
@@ -40,20 +92,32 @@
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": false,
-          "desc": "Spectacular acrobatic and variety performance with colorful costumes, dance, aerial feats, comedy, and traditional Chinese circus arts",
-          "price": "$45–$85"
+          "desc": "Acrobatic circus performance featuring amazing acts and spectacle",
+          "price": "$70"
         },
         {
-          "name": "Anthems of Rock",
+          "name": "The Lion, The Witch And The Wardrobe",
+          "time": "7:30 PM",
+          "venue": "Branson Hillside Theatre",
+          "type": null,
+          "url": "",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
+          "ticketOk": false,
+          "desc": "Evening performance of the popular Narnia stage production",
+          "price": "$88"
+        },
+        {
+          "name": "Legends in Concert",
           "time": "8:00 PM",
-          "venue": "King's Castle Theatre",
+          "venue": "Pepsi Legends Theater",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-octane rock tribute concert performing classic anthems from legendary bands in an energetic live setting",
-          "price": "$60–$85"
+          "desc": "Live tribute show featuring spot-on impersonations of music icons with band and dancers",
+          "price": "$73"
         },
         {
           "name": "Presley's Country Jubilee Show",
@@ -64,28 +128,8 @@
           "chip": "comedy",
           "icon": "😂",
           "ticketOk": false,
-          "desc": "Long-running family favorite blending country, gospel, and comedy with multi-generational talent from the Presley family",
-          "price": "$45–$72"
-        }
-      ]
-    },
-    {
-      "id": "anytime",
-      "label": "Time TBA",
-      "blurb": "Confirm box office",
-      "count": 1,
-      "shows": [
-        {
-          "name": "Legends in Concert",
-          "time": "Check times",
-          "venue": "Pepsi Legends Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "World-class tribute production featuring spot-on impersonations of icons like Toby Keith, Adele, The Blues Brothers, and Elvis with elaborate costumes and effects",
-          "price": ""
+          "desc": "Long-running family-friendly country, gospel, and comedy variety show",
+          "price": "$54"
         }
       ]
     }
@@ -94,7 +138,17 @@
     {
       "id": "classic",
       "label": "Classic",
-      "count": 3
+      "count": 2
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "count": 2
+    },
+    {
+      "id": "comedy",
+      "label": "Comedy",
+      "count": 2
     },
     {
       "id": "thrill",
@@ -102,38 +156,38 @@
       "count": 1
     },
     {
-      "id": "comedy",
-      "label": "Comedy",
+      "id": "family",
+      "label": "Family",
       "count": 1
     }
   ],
   "indoor": [
     {
-      "name": "Shepherd of the Hills",
-      "detail": "Home to the new Branson Comedy Bash and classic outdoor drama. Climate-controlled theaters with multiple shows daily.",
-      "url": "https://theshepherdofthehills.com/"
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country, comedy, and music in climate-controlled comfort.",
+      "url": "https://www.claycoopertheatre.com/"
     },
     {
       "name": "Americana Theatre",
-      "detail": "Country, gospel, and magic shows in a comfortable setting. Rick Thomas magic and Absolutely Country, Definitely Gospel on Friday.",
+      "detail": "Gospel, magic, and variety shows perfect for families on a rainy day.",
       "url": "https://www.americanatheatre.com/"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy country music and comedy. A Branson staple with multiple performances suitable for all ages.",
-      "url": "https://www.claycoopertheatre.com/"
+      "name": "Legends in Concert",
+      "detail": "World-class celebrity tributes with elaborate productions.",
+      "url": "https://www.legendsinconcert.com/"
     }
   ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-10-30",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-30.md, shows-data board. Scout prose on file."
+    "checked": "2026-10-31",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-10-31.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 5,
-    "withTickets": 1
+    "shows": 8,
+    "withTickets": 0
   },
-  "generated_at": "2026-10-30T06:04:34-05:00"
+  "generated_at": "2026-10-31T05:18:03-05:00"
 }
