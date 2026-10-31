@@ -1,48 +1,48 @@
 {
-  "for": "2026-10-30",
-  "headline": "Friday in Branson: Mostly Cloudy with Live Comedy & Family Shows",
-  "lede": "Friday, October 30 brings highs near 77°F under mostly cloudy skies with light southeast winds — ideal for first-timers to enjoy indoor theaters, the Branson Landing, and Halloween-themed family events without summer crowds or heat.",
+  "for": "2026-10-31",
+  "headline": "Saturday in Branson: Cloudy with Rain Chances & Halloween Trick-or-Treat",
+  "lede": "Saturday, October 31 brings highs near 72\u00b0F under mostly cloudy skies with a chance of showers \u2014 classic fall weather for first-timers to enjoy indoor shows, safe trick-or-treating at Branson Landing, and relaxed lake time.",
   "heat": false,
   "featured": {
-    "title": "Branson Comedy Bash",
-    "when": "Evening (check box office)",
-    "where": "Shepherd of the Hills / Playhouse Theatre",
-    "why": "New 2026 comedy show featuring top regional talent. Perfect evening entertainment for the whole family as Halloween weekend begins.",
-    "url": "https://www.branson.com/shows"
+    "title": "Safe Street Trick-or-Treating at Branson Landing",
+    "when": "5:30 PM onward (Thriller dances at 5:30, 6:15, 7:05)",
+    "where": "Branson Landing Promenade",
+    "why": "Family-friendly Halloween fun with participating businesses, safe environment, and festive atmosphere. Perfect for kids and all ages staying with us.",
+    "url": "https://www.bransonlanding.com/"
   },
   "plan": [
     {
       "when": "Morning",
-      "title": "Branson Landing Stroll",
-      "detail": "Start with waterfront views, shops, and the iconic fountain show. Mild fall weather makes it comfortable for walking and photos."
+      "title": "Silver Dollar City (last Harvest Festival day)",
+      "detail": "Pumpkins Aglow, fall decorations, and family rides before the park closes for the season. Arrive early for shorter lines."
     },
     {
       "when": "Afternoon",
-      "title": "Theater Matinees",
-      "detail": "Catch family-friendly shows like Hot Rods & High Heels, The Lion The Witch and the Wardrobe, or Shanghai Circus. Many start around 2 PM."
+      "title": "Lake or Indoor Theater",
+      "detail": "Mild temps favor a Table Rock boat ride or matinee at one of the many theaters. Check current showtimes."
     },
     {
       "when": "Evening",
-      "title": "Comedy & Halloween Fun",
-      "detail": "Head to the Branson Comedy Bash or free BOOnanza at RecPlex (6-8 PM). Safe trick-or-treating vibes begin the Halloween weekend."
+      "title": "Halloween at the Landing",
+      "detail": "Trick-or-treat along the promenade, enjoy fountain shows, and dine waterfront. Safe, festive, and walkable."
     }
   ],
   "indoor": [
     {
-      "name": "Shepherd of the Hills",
-      "detail": "Home to the new Branson Comedy Bash and classic outdoor drama. Climate-controlled theaters with multiple shows daily.",
-      "url": "https://theshepherdofthehills.com/"
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country, comedy, and music in climate-controlled comfort.",
+      "url": "https://www.claycoopertheatre.com/"
     },
     {
       "name": "Americana Theatre",
-      "detail": "Country, gospel, and magic shows in a comfortable setting. Rick Thomas magic and Absolutely Country, Definitely Gospel on Friday.",
+      "detail": "Gospel, magic, and variety shows perfect for families on a rainy day.",
       "url": "https://www.americanatheatre.com/"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy country music and comedy. A Branson staple with multiple performances suitable for all ages.",
-      "url": "https://www.claycoopertheatre.com/"
+      "name": "Legends in Concert",
+      "detail": "World-class celebrity tributes with elaborate productions.",
+      "url": "https://www.legendsinconcert.com/"
     }
   ],
-  "honesty": "No fresh scout files for 2026-10-30 (carry-forward from prior verified reports, NWS/Open-Meteo weather data, and public event calendars). Featured event and indoor options drawn from current listings; all show times and availability marked for box-office confirmation. Restaurant spotlight rotated to White River per schedule. Bright-blue theme and full 7-section magazine enforced. JSON uses proper object arrays for plan/indoor."
+  "honesty": "Editor notes generated for 2026-10-31 using current weather data (NWS/Open-Meteo), verified Halloween events, and carry-forward dining/shows. No new scout files for tomorrow. All times and availability should be confirmed locally. Bright-blue theme enforced. plan/indoor are proper objects."
 }
