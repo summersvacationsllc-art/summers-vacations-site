@@ -13,9 +13,11 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6386381,
+      "lng": -93.2735125
     },
     {
       "name": "Dublin's Irish Tenors & The Celtic Ladies",
@@ -29,9 +31,11 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎶",
+      "icon": "\ud83c\udfb6",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64044,
+      "lng": -93.26808
     },
     {
       "name": "The Lion, The Witch And The Wardrobe",
@@ -45,9 +49,11 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6501061,
+      "lng": -93.2917365
     },
     {
       "name": "Aaron Wayne",
@@ -61,9 +67,11 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6386381,
+      "lng": -93.2735125
     },
     {
       "name": "Shanghai Circus",
@@ -79,7 +87,7 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "thrill",
-      "icon": "🤸",
+      "icon": "\ud83e\udd38",
       "for": "thrill",
       "ticketOk": false
     },
@@ -95,9 +103,11 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "family",
-      "icon": "👨‍👩‍👧",
+      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "for": "family",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6501061,
+      "lng": -93.2917365
     },
     {
       "name": "Legends in Concert",
@@ -113,7 +123,7 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
@@ -131,18 +141,18 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
       "ticketOk": false
     }
   ],
   "freeEvents": [],
   "magazineBuilt": "2026-10-31",
-  "last_verified": "2026-10-31T05:18:03-05:00",
+  "last_verified": "2026-10-31T10:50:01-05:00",
   "status": "fresh",
   "scoutDate": "2026-10-31",
   "scoutFile": "2026-10-31.md",
   "source": "scout",
   "listHash": "cc7a98a5daa9",
-  "generated_at": "2026-10-31T05:18:03-05:00"
+  "generated_at": "2026-10-31T10:50:01-05:00"
 }

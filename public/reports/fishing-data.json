@@ -4,13 +4,13 @@
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.46 ft (USACE)",
+      "level": "910.45 ft (USACE 10:00 CT)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~300 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~22 cfs at 10:00 CT (USACE live). Overnight ~20; afternoon peak ~22. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: With light flows this morning, target Table Rock bass on secondary points and gravel banks in 15-30 feet using a football jig (brown/green with orange or chartreuse trailer) or a jighead minnow. On Taneycomo, drift or wade seams with 2-lb test and a Berkley Pink PowerWorm, 1/16-oz marab",
-  "source": "scout",
-  "last_verified": "2026-10-31T05:18:08-05:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-10-31T10:50:01-05:00"
 }
