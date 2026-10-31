@@ -1,31 +1,47 @@
 {
-  "date": "2026-10-30",
-  "generated_at": "2026-10-30T15:11:39-05:00",
+  "date": "2026-10-31",
+  "generated_at": "2026-10-31T05:39:54-05:00",
   "headline": {
     "check_ins": 1,
-    "check_outs": 1,
+    "check_outs": 3,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 2,
     "units_total": 5
   },
   "check_ins": [
+    {
+      "property": "Rustic Ozark",
+      "guest": "Suellyn Melder",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_ykv8fnv",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Rustic Ozark",
+      "guest": "Quenton Elliott",
+      "guests": 1,
+      "platform": "airbnb2",
+      "reservation_id": "res_gjvkr5e",
+      "time": "10:00 AM"
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Sean Pratt",
+      "guests": 1,
+      "platform": "website",
+      "reservation_id": "res_zee03ej",
+      "time": "10:00 AM"
+    },
     {
       "property": "Scotts unit",
       "guest": "Jerry Thompson",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_9vv9cay",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "Laurie Bush",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_2gux75k",
       "time": "10:00 AM"
     }
   ],
@@ -43,33 +59,13 @@
     },
     {
       "property": "Rustic Ozark",
-      "guest": "Quenton Elliott",
-      "guests": 1,
-      "platform": "airbnb2",
-      "reservation_id": "res_gjvkr5e",
-      "check_in": "2026-10-29",
-      "check_out": "2026-10-31",
-      "nights": 2
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Sean Pratt",
-      "guests": 1,
-      "platform": "website",
-      "reservation_id": "res_zee03ej",
-      "check_in": "2026-10-29",
-      "check_out": "2026-10-31",
-      "nights": 2
-    },
-    {
-      "property": "Scotts unit",
-      "guest": "Jerry Thompson",
+      "guest": "Suellyn Melder",
       "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_9vv9cay",
-      "check_in": "2026-10-30",
-      "check_out": "2026-10-31",
-      "nights": 1
+      "reservation_id": "res_ykv8fnv",
+      "check_in": "2026-10-31",
+      "check_out": "2026-11-07",
+      "nights": 7
     }
   ],
   "sync_notes": {
