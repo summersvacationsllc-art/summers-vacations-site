@@ -3,9 +3,9 @@ export const JEB_MODEL = process.env.JEB_MODEL || "grok-4-1-fast-non-reasoning";
 export const JEB_MODEL_FALLBACK = process.env.JEB_MODEL_FALLBACK || "grok-4.6";
 export const JEB_VOICE = process.env.JEB_VOICE || "en-US-GuyNeural";
 export const JEB_EDGE_RATE = process.env.JEB_EDGE_RATE || "-12%";
-export const JEB_ELEVEN_VOICE = process.env.JEB_ELEVEN_VOICE || "oubi7HGxNVjXMnWLgwBT";
-export const JEB_ELEVEN_MODEL = process.env.JEB_ELEVEN_MODEL || "eleven_turbo_v2_5";
-export const JEB_ELEVEN_SPEED = Number(process.env.JEB_ELEVEN_SPEED || "0.92");
+// OpenAI TTS via OpenRouter
+export const JEB_OPENAI_VOICE = process.env.JEB_OPENAI_VOICE || "fable";
+export const JEB_OPENAI_MODEL = process.env.JEB_OPENAI_MODEL || "tts-1-hd";
 export const XAI_CHAT_URL = "https://api.x.ai/v1/chat/completions";
 export const XAI_RESPONSES_URL = "https://api.x.ai/v1/responses";
 export const JEB_SEARCH_MODEL = process.env.JEB_SEARCH_MODEL || "grok-4-1-fast-non-reasoning";
@@ -19,6 +19,7 @@ export const UNIT_NAMES: Record<string, string> = {
   "branson-family-haven": "Branson Family Haven",
   "woodland-retreat": "Woodland Retreat",
   "silver-dollar-city-adventure-escape": "Silver Dollar City Adventure Escape",
+  "silver-dollar-adventure-escape": "Silver Dollar Adventure Escape",
 };
 
 export type JebChatMessage = {
@@ -111,6 +112,6 @@ export function xaiKey(): string {
   return process.env.XAI_API_KEY || "";
 }
 
-export function elevenKey(): string {
-  return process.env.ELEVENLABS_API_KEY || "";
+export function openaiKey(): string {
+  return process.env.OPENAI_API_KEY || "";
 }
