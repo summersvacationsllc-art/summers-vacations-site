@@ -1,0 +1,15 @@
+.env*
+src/.env*
+.contracts-log-pin
+logs/
+/node_modules
+/.next/
+/out/
+/build
+/coverage
+.vercel
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+/public/kiosk-version.json
+.DS_Store

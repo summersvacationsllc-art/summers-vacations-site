@@ -50,6 +50,26 @@ export type ChannelLinks = {
   vrbo?: string;
 };
 
+/**
+ * Public /property/<pageSlug> URL overrides. The internal key (PROPERTIES.slug)
+ * stays unchanged because kiosks, Jeb, guidebooks, reservations and photo
+ * folders key off it. Old URLs 301 to the new ones in next.config.ts.
+ */
+export const PROPERTY_PAGE_SLUGS: Record<string, string> = {
+  "silver-dollar-city-adventure-escape": "silver-dollar-adventure-escape",
+};
+
+/** Public property-page path for an internal property key. */
+export function propertyPath(slug: string): string {
+  return `/property/${PROPERTY_PAGE_SLUGS[slug] || slug}`;
+}
+
+/** Internal property key for a public /property/<pageSlug> URL segment. */
+export function propertyKeyFromPageSlug(pageSlug: string): string {
+  const hit = Object.entries(PROPERTY_PAGE_SLUGS).find(([, v]) => v === pageSlug);
+  return hit ? hit[0] : pageSlug;
+}
+
 /** Where a guest can book this home. Empty/missing OTA URLs are omitted. */
 export function channelLinks(slug?: string | null): ChannelLinks {
   const p = slug ? PROPERTIES.find((x) => x.slug === slug) : undefined;

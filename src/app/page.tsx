@@ -29,6 +29,7 @@ import {
   GALLERY_PHOTOS,
   ACTIVITIES,
   ADVENTURE_PHOTOS,
+  propertyPath,
 } from "@/lib/site";
 
 type HomeListing = {
@@ -361,7 +362,7 @@ export default function Home() {
               const hasPage = PROPERTIES.some((x) => x.slug === p.slug);
               const comingSoon = isComingSoon(p.slug);
               const external = !hasPage && Boolean(p.bookUrl);
-              const href = external ? (p.bookUrl as string) : `/property/${p.slug}`;
+              const href = external ? (p.bookUrl as string) : propertyPath(p.slug);
               return (
               <a
                 key={p.slug}

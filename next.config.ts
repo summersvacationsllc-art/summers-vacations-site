@@ -8,9 +8,17 @@ const nextConfig: NextConfig = {
     const doubleCondoBooking =
       "https://notchcondos.guestybookings.com/properties/68eeb561cce11f00119cac37" +
       "?utm_source=short_link&utm_medium=print&utm_campaign=double_condo";
-    return ["/doublecondo", "/DoubleCondo", "/double-condo", "/book/double-condo"].map(
-      (source) => ({ source, destination: doubleCondoBooking, permanent: false }),
-    );
+    return [
+      ...["/doublecondo", "/DoubleCondo", "/double-condo", "/book/double-condo"].map(
+        (source) => ({ source, destination: doubleCondoBooking, permanent: false }),
+      ),
+      // Klein listing renamed: old property URL moves permanently (308).
+      {
+        source: "/property/silver-dollar-city-adventure-escape",
+        destination: "/property/silver-dollar-adventure-escape",
+        permanent: true,
+      },
+    ];
   },
   async rewrites() {
     return [{ source: "/owners", destination: "/owners.html" }];

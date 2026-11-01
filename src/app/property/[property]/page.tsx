@@ -12,7 +12,7 @@ import {
   Phone,
   Images,
 } from "lucide-react";
-import { bookingUrl, isComingSoon, EMAIL, PHONE, PHONE_HREF } from "@/lib/site";
+import { bookingUrl, isComingSoon, propertyKeyFromPageSlug, EMAIL, PHONE, PHONE_HREF } from "@/lib/site";
 import { trackBookClick } from "@/lib/analytics";
 import BookYourWay from "@/components/BookYourWay";
 import PropertyGallery, { photoDims } from "@/components/PropertyGallery";
@@ -20,7 +20,7 @@ import { PROPERTY_DETAILS } from "@/lib/property-details";
 
 export default function PropertyPage() {
   const params = useParams();
-  const slug = (params?.property as string) || "";
+  const slug = propertyKeyFromPageSlug((params?.property as string) || "");
   const data = PROPERTY_DETAILS[slug];
   const bookHref = bookingUrl(slug);
   // Driven by the single `comingSoon` flag on the home in src/lib/site.ts PROPERTIES.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { propertyPath } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Branson Fall Guide 2026 | Summers Vacations",
@@ -197,7 +198,7 @@ export default function FallGuidePage() {
         <p style={{ marginTop: -6 }}>Our homes are dressed for fall and minutes from Silver Dollar City, Table Rock Lake and the shows.</p>
         <div className="grid">
           {STAYS.map((p) => (
-            <Link className="card" key={p.slug} href={`/property/${p.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <Link className="card" key={p.slug} href={propertyPath(p.slug)} style={{ textDecoration: "none", color: "inherit" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={p.img} alt={p.name} loading="lazy" />
               <div className="b">
