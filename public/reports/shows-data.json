@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "shows": [
     {
       "name": "Awesome 80's",
@@ -137,12 +137,13 @@
     }
   ],
   "freeEvents": [],
-  "magazineBuilt": "2026-10-31",
-  "last_verified": "2026-10-31T05:18:03-05:00",
-  "status": "fresh",
+  "magazineBuilt": "2026-11-01",
+  "last_verified": "2026-11-01T05:04:24-06:00",
+  "status": "fallback",
   "scoutDate": "2026-10-31",
   "scoutFile": "2026-10-31.md",
   "source": "scout",
   "listHash": "cc7a98a5daa9",
-  "generated_at": "2026-10-31T05:18:03-05:00"
+  "note": "Show list from the 2026-10-31 scout (today's scout missing). Confirm times at the box office.",
+  "generated_at": "2026-11-01T05:04:24-06:00"
 }
