@@ -3,8 +3,15 @@
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
   "hed": "Sunday show day",
-  "deck": "Family-friendly boards and indoor A/C picks. Verify Sunday times — some houses run a different schedule.",
-  "pick": null,
+  "deck": "Today's lineup features a strong mix of tribute concerts, holiday-themed productions, country music, gospel, and acrobatic spectacle as Branson's Christmas season programming begins in earnest.",
+  "pick": {
+    "title": "Clay Cooper's Country Express Show",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Core Branson mainstage energy.",
+    "url": "",
+    "source": "desk"
+  },
   "buckets": [
     {
       "id": "matinee",
@@ -13,40 +20,40 @@
       "count": 3,
       "shows": [
         {
-          "name": "Awesome 80's",
+          "name": "#1 Hits of The 60s",
           "time": "2:00 PM",
-          "venue": "Americana Theatre",
+          "venue": "Clay Cooper Theatre",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-energy tribute concert celebrating hits of the 1980s",
-          "price": "$69"
+          "desc": "Relive the biggest chart-toppers from the 1960s with an energetic live tribute performance",
+          "price": "$66–$82"
         },
         {
-          "name": "Dublin's Irish Tenors & The Celtic Ladies",
+          "name": "Christmas In The Heartland",
           "time": "2:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎶",
-          "ticketOk": false,
-          "desc": "Harmonious Irish tenors, Celtic ladies, and dynamic Irish dancers performing classics and favorites",
-          "price": ""
-        },
-        {
-          "name": "The Lion, The Witch And The Wardrobe",
-          "time": "2:00 PM",
-          "venue": "Branson Hillside Theatre",
+          "venue": "Americana Theatre",
           "type": null,
           "url": "",
           "chip": "music",
           "icon": "🎭",
           "ticketOk": false,
-          "desc": "Stage adaptation of the classic C.S. Lewis tale brought to life with live theatrical production",
-          "price": "$79"
+          "desc": "Heartwarming holiday music and festive entertainment perfect for kicking off the Christmas season",
+          "price": "$64–$82"
+        },
+        {
+          "name": "Legends in Concert",
+          "time": "3:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "World-class tribute artists delivering hits from icons with a special Merry Country Christmas theme including The Judds, Shania Twain, Toby Keith, Blues Brothers, and Elvis gospel",
+          "price": "$79–$91"
         }
       ]
     },
@@ -57,16 +64,16 @@
       "count": 1,
       "shows": [
         {
-          "name": "Aaron Wayne",
+          "name": "Southern Gospel Sundays",
           "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "comedy",
-          "icon": "😂",
+          "chip": "music",
+          "icon": "🎭",
           "ticketOk": false,
-          "desc": "Comedy hypnosis and entertainment show with audience interaction",
-          "price": "$67"
+          "desc": "Inspirational Southern gospel music performed live in a dedicated Sunday afternoon slot",
+          "price": "$64–$90"
         }
       ]
     },
@@ -74,10 +81,22 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 4,
+      "count": 5,
       "shows": [
         {
-          "name": "Shanghai Circus",
+          "name": "Clay Cooper's Country Express Show",
+          "time": "7:30 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "High-energy country music, comedy, and family-friendly entertainment from the Cooper family cast",
+          "price": "$76–$91"
+        },
+        {
+          "name": "Shanghai Circus (Amazing Acrobats of Shanghai)",
           "time": "7:30 PM",
           "venue": "Mickey Gilley Grand Shanghai Theatre",
           "type": null,
@@ -85,20 +104,32 @@
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": false,
-          "desc": "Acrobatic circus performance featuring amazing acts and spectacle",
-          "price": "$70"
+          "desc": "Breathtaking acrobatics, aerial feats, dance, comedy, magic, and colorful production celebrating 25+ years in Branson",
+          "price": "$42–$83"
         },
         {
-          "name": "The Lion, The Witch And The Wardrobe",
-          "time": "7:30 PM",
-          "venue": "Branson Hillside Theatre",
+          "name": "America's Top Country Hits",
+          "time": "8:00 PM",
+          "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "family",
-          "icon": "👨‍👩‍👧",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Evening performance of the popular Narnia stage production",
-          "price": "$88"
+          "desc": "Crowd-pleasing medley of the biggest country music hits performed by talented artists",
+          "price": ""
+        },
+        {
+          "name": "Branson's Christmas Wonderland",
+          "time": "8:00 PM",
+          "venue": "King's Castle Theatre",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎭",
+          "ticketOk": false,
+          "desc": "Lavish holiday production with singers, dancers, and spectacular winter wonderland staging",
+          "price": "$69–$99"
         },
         {
           "name": "Legends in Concert",
@@ -109,20 +140,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Live tribute show featuring spot-on impersonations of music icons with band and dancers",
-          "price": "$73"
-        },
-        {
-          "name": "Presley's Country Jubilee Show",
-          "time": "8:00 PM",
-          "venue": "Presleys' Country Jubilee",
-          "type": null,
-          "url": "",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": false,
-          "desc": "Long-running family-friendly country, gospel, and comedy variety show",
-          "price": "$54"
+          "desc": "Evening performance of the hit-filled tribute show with Merry Country Christmas elements",
+          "price": "$79–$91"
         }
       ]
     }
@@ -131,26 +150,16 @@
     {
       "id": "classic",
       "label": "Classic",
-      "count": 2
+      "count": 5
     },
     {
       "id": "music",
       "label": "Music",
-      "count": 2
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy",
-      "count": 2
+      "count": 3
     },
     {
       "id": "thrill",
       "label": "Thrill",
-      "count": 1
-    },
-    {
-      "id": "family",
-      "label": "Family",
       "count": 1
     }
   ],
@@ -160,11 +169,11 @@
   "editor": {
     "stamp": "Tonight in Branson desk",
     "checked": "2026-11-01",
-    "note": "Show list from the 2026-10-31 scout (today's not in yet). Confirm times at the box office."
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-01.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 8,
+    "shows": 9,
     "withTickets": 0
   },
-  "generated_at": "2026-11-01T05:04:24-06:00"
+  "generated_at": "2026-11-01T05:48:50-06:00"
 }
