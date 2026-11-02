@@ -693,6 +693,7 @@ const UNITS = {
       houseRulesIntro: [
         "Welcome to Silver Dollar Adventure Escape — a 4-bedroom, 4-bath townhouse that sleeps 14. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
         "Please keep the door between upstairs and downstairs closed. On hot, humid days the AC takes a long time to cool the house back down if it's left open.",
+        "Morning Coffee: Start your day your way! The kitchen has two coffee makers, a Keurig for quick single cups with pods and a Black &amp; Decker drip machine for brewing a full pot. Enjoy! (Video: How-to tab → Coffee Makers)",
         "Coffee station in the kitchen, with a toaster and blender nearby. Washer and dryer are in the unit. [Brian to fill in: thermostat, washer, dryer, and other appliance models and how to use them.]",
         "Covered front patio, plus a deck with outdoor dining and Adirondack chairs. Free parking right outside your door. Boat parking is first come, first served.",
         "Catch-and-release fishing pond with a dock and picnic pavilion. Walking trails, playground, and basketball court. Community pools are seasonal and closed for the season."
@@ -812,6 +813,12 @@ const HOWTO = {
     { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
   ],
   "silver-dollar-adventure-escape": [
+    { title: "Coffee Makers (Keurig & Black & Decker)", id: "LPvmRArY4Qs" },
+    { title: "Microwave", id: "9LSLin-DBU4" },
+    { title: "Glass-Top Range", id: "kvYy4XFpz0s" },
+    { title: "Dishwasher", id: "dVR1ssnmWco" },
+    { title: "Washer & Dryer", id: "fZis6dNsSHE" },
+    { title: "Roku TV", id: "cSPPDr33s3E" },
     { title: "Playground", id: "unj-zG9wtdU" },
     { title: "Private Lake Trail", id: "VGmH8k_656A" },
     { title: "Boat & Trailer Parking", id: "nCJsHxMO_Ok" }
@@ -1108,7 +1115,7 @@ function renderWifi() {
     `}
     <div class="checkout" id="checkout-how">
       <div class="co-time">${checkoutHead}</div>
-      <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need — do not count on it.</p>
+      <p>Late checkout is rarely possible if guests are arriving that day. Please plan ahead. Text Brian at 314-565-0589 only if you have a special need.</p>
       <p>Before you leave:</p>
       <ul>
         ${leaveItems.map((item) => `<li>${item}</li>`).join("")}

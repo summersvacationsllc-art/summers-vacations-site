@@ -727,8 +727,9 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     appliances: {
       coffeeMaker: {
-        type: "Coffee station",
-        instructions: "Coffee station in the kitchen, with a toaster and blender nearby.",
+        type: "Keurig & Black & Decker drip",
+        instructions: "Morning Coffee: Start your day your way! The kitchen has two coffee makers, a Keurig for quick single cups with pods and a Black & Decker drip machine for brewing a full pot. Enjoy! The coffee station is in the kitchen, with a toaster and blender nearby.",
+        youtube: "https://youtu.be/LPvmRArY4Qs",
       },
       hvac: {
         type: "Heat & A/C",
@@ -740,6 +741,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       },
       washer: {
         instructions: "Washer and dryer are in the unit.",
+        youtube: "https://youtu.be/fZis6dNsSHE",
       },
     },
 
@@ -775,6 +777,12 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
+      { title: "Coffee Makers (Keurig & Black & Decker)", url: "https://youtu.be/LPvmRArY4Qs" },
+      { title: "Microwave", url: "https://youtu.be/9LSLin-DBU4" },
+      { title: "Glass-Top Range", url: "https://youtu.be/kvYy4XFpz0s" },
+      { title: "Dishwasher", url: "https://youtu.be/dVR1ssnmWco" },
+      { title: "Washer & Dryer", url: "https://youtu.be/fZis6dNsSHE" },
+      { title: "Roku TV", url: "https://youtu.be/cSPPDr33s3E" },
       { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
       { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
       { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
