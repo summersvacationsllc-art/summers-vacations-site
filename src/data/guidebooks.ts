@@ -164,13 +164,13 @@ const COMMON = {
   hospital: "Cox Medical Center Branson — 525 Branson Landing Blvd, Branson, MO",
   localContact: "Brian: 314-565-0589",
   call911: "Call 911 for life-threatening emergencies. For non-emergency police: Stone County Sheriff (417) 357-6116.",
-  trash: "Dumpster located behind the building complex. Recycling bins are marked.",
+  trash: "Please take your trash to the on-site dumpster.",
   houseRules: [
     "No smoking inside the unit",
     "Quiet hours: 10 PM – 8 AM",
     "No parties or events",
     "Pool rules must be followed at all times",
-    "Please start dishwasher and bag trash before checkout",
+    "Please start the dishwasher before checkout",
   ],
   commonVideos: [
     { title: "Access Codes & Instructions", url: "https://www.youtube.com/watch?v=2DvVB7xTuNk" },
@@ -514,9 +514,9 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Quiet hours: 10 PM – 8 AM",
       "No parties or events",
       "Community pool and hot tub rules must be followed at all times",
-      "Please start dishwasher and bag trash before checkout",
+      "Please start the dishwasher before checkout",
     ],
-    trash: "Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex.",
+    trash: "Please take your trash to the on-site dumpster.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: HAVEN_URGENT_CARE,
 
@@ -676,8 +676,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "19. HOST LIABILITY: The Guest shall hereby indemnify and hold harmless the Host against any and all claims of personal injury or property damage or loss arising from use of the premises regardless of the nature of the accident, injury or loss. Guest expressly recognize that any insurance for property damage or loss which the Host may maintain on the property does not cover the personal property of Guest, and that Guest should purchase their own insurance if such coverage is desired.",
       "20. TERMINATION: Should the Guest violate any of the terms of this agreement, the rental period shall be terminated immediately. The Guests waive all rights to process if they fail to vacate the premises upon termination of the rental period. The Guests shall vacate the premises at the expiration time and date of the agreement.",
     ],
-    trash:
-      "Dumpster is at the complex (typically out front/to the left of the building area — follow on-site dumpster signs). Bag household trash and take it out before checkout. Recycling bins are marked where provided.",
+    trash: "Please take your trash to the on-site dumpster.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 
@@ -771,7 +770,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Two exterior cameras, one at the front and one at the back. None inside.",
       "Charcoal grill outside only. Bring your own charcoal.",
     ],
-    trash: "Take the trash to the dumpster.",
+    trash: "Please take your trash to the on-site dumpster.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 

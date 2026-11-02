@@ -1204,7 +1204,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
     ],
     goodToKnow: [
       { label: "Parking", text: "Parking is available in front of the unit." },
-      { label: "Trash", text: "Take all trash out to the dumpster." },
+      { label: "Trash", text: "Please take your trash to the on-site dumpster." },
     ],
     gallery: KLEIN_GALLERY,
   },

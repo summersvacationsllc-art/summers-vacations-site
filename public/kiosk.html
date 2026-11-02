@@ -709,7 +709,7 @@ const UNITS = {
       ],
       checkoutItems: [
         "Load and start the dishwasher.",
-        "Take the trash to the dumpster.",
+        "Please take your trash to the on-site dumpster.",
         "Set the thermostat to 60°F for heat or 75°F for A/C.",
         "Turn off the lights, lock up, and close the doors behind you."
       ]
@@ -998,9 +998,6 @@ function renderWifi() {
   const towels = unit.isHaven
     ? "Used towels on the downstairs front bathroom shower floor."
     : "Used towels on the hallway bathroom shower floor.";
-  const trash = unit.isHaven
-    ? "Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex."
-    : "Take all trash to the dumpster in front of the building, to the left.";
   const dishes = unit.isHaven
     ? "Start the dishwasher with any remaining dishes."
     : "Hand wash remaining dishes and leave them to dry. Staff will put them away.";
@@ -1019,9 +1016,7 @@ function renderWifi() {
   const towelRule = unit.isHaven
     ? "All towels stay in the house — do not take them to the pool"
     : "All towels stay in the condo — do not take them to the pool";
-  const trashRule = unit.isHaven
-    ? "Take trash to the dumpster as needed. Trash goes in the dumpster by the Victory Point sign at the front, where you first come into the complex."
-    : "Take trash to the dumpster as needed";
+  const trashRule = "Please take your trash to the on-site dumpster.";
   const parkingCard = unit.isHaven
     ? `<div class="card" id="haven-parking">
       <div class="label">Boat &amp; Trailer Parking</div>
@@ -1040,7 +1035,6 @@ function renderWifi() {
     : [
         "Leave beds unmade. If you used the sleeper sofa, leave the cushions off.",
         towels,
-        trash,
         dishes,
         "Turn off the stove, heater, lights, and electronics.",
         "Move furniture back if you moved it.",
