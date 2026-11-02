@@ -149,7 +149,7 @@ export const PROPERTIES: PropertyCard[] = [
     vrboUrl: "",
   },
   {
-    name: "Silver Dollar City Adventure Escape",
+    name: "Silver Dollar Adventure Escape",
     tag: "Game Room · Bunk Room",
     sleeps: "14",
     beds: "4BR · 4BA",
@@ -202,7 +202,7 @@ export const GALLERY_PHOTOS: { src: string; alt: string; pos?: string }[] = [
   { src: "/property-photos/scotts-unit/aaa-living.jpg", alt: "No-Stairs Condo open living room" },
   { src: "/property-photos/scotts-unit/aaa-kitchen.jpg", alt: "Remodeled kitchen with island" },
   { src: "/property-photos/scotts-unit/aaa-living-deck.jpg", alt: "Living room looking out to the deck" },
-  // Klein's condo / Silver Dollar City Adventure Escape
+  // Klein's condo / Silver Dollar Adventure Escape
   { src: "/property-photos/silver-dollar-city-adventure-escape/04-gaming-zone-foosball.jpg", alt: "Gaming Zone with foosball" },
   { src: "/property-photos/silver-dollar-city-adventure-escape/01-bunk-game-room-cover.jpg", alt: "Bunk room meets game room, the kids' favorite hangout" },
   { src: "/property-photos/silver-dollar-city-adventure-escape/02-living-room-sectional.jpg", alt: "Living room with a big sectional" },

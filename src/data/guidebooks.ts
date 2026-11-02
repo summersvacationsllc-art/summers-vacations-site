@@ -236,7 +236,7 @@ const HAVEN_URGENT_CARE = [
   },
 ];
 
-/** Guest-facing climate note for Silver Dollar City Adventure Escape. */
+/** Guest-facing climate note for Silver Dollar Adventure Escape. */
 export const UPSTAIRS_DOWNSTAIRS_DOOR =
   "Please keep the door between upstairs and downstairs closed. On hot, humid days the AC takes a long time to cool the house back down if it's left open.";
 
@@ -689,11 +689,11 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
   },
 
-  // ─── SILVER DOLLAR CITY ADVENTURE ESCAPE (189 Notch, Bldg 21, Unit 1) ──
+  // ─── SILVER DOLLAR ADVENTURE ESCAPE (189 Notch, Bldg 21, Unit 1) ──
   "silver-dollar-city-adventure-escape": {
     id: "silver-dollar-city-adventure-escape",
     slug: "silver-dollar-city-adventure-escape",
-    name: "Silver Dollar City Adventure Escape",
+    name: "Silver Dollar Adventure Escape",
     shortName: "Adventure Escape",
     address: "189 Notch Lane, Bldg 21, Unit 1, Branson West, MO 65737",
     guestyListingId: "6ac5359ccf46940012ad0a4e",
@@ -758,7 +758,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "Community pools are seasonal and closed for the season",
     ],
     houseRulesIntro: [
-      "Welcome to Silver Dollar City Adventure Escape — a 4-bedroom, 4-bath townhouse that sleeps 14. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
+      "Welcome to Silver Dollar Adventure Escape — a 4-bedroom, 4-bath townhouse that sleeps 14. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
     ],
     houseRules: [
       "Up to 14 guests. No unregistered guests.",

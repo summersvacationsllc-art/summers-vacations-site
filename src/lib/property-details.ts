@@ -2,7 +2,7 @@
  * Per-property detail-page data for /property/[property].
  *
  * Every unit renders through the same template (src/app/property/[property]/page.tsx),
- * modeled on the Silver Dollar City Adventure Escape page: hero, big feature photo,
+ * modeled on the Silver Dollar Adventure Escape page: hero, big feature photo,
  * photo highlights, "About this home" + sleeping + details, highlights & amenities,
  * good-to-know notes, and the full photo gallery (grouped, uncropped, with a lightbox).
  *
@@ -405,7 +405,7 @@ const HAVEN_GALLERY: Photo[] = [
   ]),
 ];
 
-/* ───────────────────────── Silver Dollar City Adventure Escape (reference) ───────────────────────── */
+/* ───────────────────────── Silver Dollar Adventure Escape (reference) ───────────────────────── */
 
 const KLEIN_GALLERY: Photo[] = [
   ...group("Game Room & Bunk Room", [
@@ -1090,7 +1090,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
   },
 
   "silver-dollar-city-adventure-escape": {
-    name: "Silver Dollar City Adventure Escape",
+    name: "Silver Dollar Adventure Escape",
     tag: "New · Game Room · Bunk Room",
     sleeps: "14",
     beds: "4BR · 4BA",
