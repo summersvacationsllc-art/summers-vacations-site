@@ -1,34 +1,16 @@
 {
-  "date": "2026-11-01",
-  "generated_at": "2026-11-01T05:48:45-06:00",
+  "date": "2026-11-02",
+  "generated_at": "2026-11-02T10:20:55-06:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 1,
+    "check_ins": 0,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 2,
     "units_total": 5
   },
-  "check_ins": [
-    {
-      "property": "Penthouse",
-      "guest": "Carter May",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_6xv48fk",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Indian Point",
-      "guest": "David Brown",
-      "guests": 16,
-      "platform": "airbnb2",
-      "reservation_id": "res_zl3mrj4",
-      "time": "10:00 AM"
-    }
-  ],
+  "check_ins": [],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
