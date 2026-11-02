@@ -1,27 +1,26 @@
 {
   "ok": true,
-  "generated_at": "2026-10-28T01:34:28+00:00",
-  "checkedAt": "2026-10-27T20:34:28-05:00",
-  "todayCT": "2026-10-27",
-  "lastSyncAt": "2026-10-28T01:34:25+00:00",
-  "syncDataDate": "2026-10-27",
-  "liveDataDate": "2026-10-27",
+  "generated_at": "2026-11-02T20:28:38+00:00",
+  "checkedAt": "2026-11-02T14:28:38-06:00",
+  "todayCT": "2026-11-02",
+  "lastSyncAt": "2026-11-02T20:28:33+00:00",
+  "syncDataDate": "2026-11-02",
+  "liveDataDate": "2026-11-02",
   "liveSource": "github",
   "expectedInHouse": [
-    "Laurie Bush @ Penthouse",
-    "Hannah Harrington @ Rustic Ozark",
-    "Bill Stiles @ Woodland Retreat"
+    "Carter May @ Penthouse",
+    "Suellyn Melder @ Rustic Ozark"
   ],
   "kioskUnits": {
-    "the-penthouse": "Laurie Bush (Penthouse)",
-    "rustic-ozark-retreat": "Hannah Harrington (Rustic Ozark)",
+    "the-penthouse": "Carter May (Penthouse)",
+    "rustic-ozark-retreat": "Suellyn Melder (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": null,
-    "woodland-retreat": "Bill Stiles (Woodland Retreat)",
+    "woodland-retreat": null,
     "scotts-unit": null,
     "silver-dollar-adventure-escape": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/40615817843 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/41519486763"
 }
