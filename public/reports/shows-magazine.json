@@ -1,11 +1,11 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Sunday show day",
-  "deck": "Today's lineup features a strong mix of tribute concerts, holiday-themed productions, country music, gospel, and acrobatic spectacle as Branson's Christmas season programming begins in earnest.",
+  "hed": "Monday in Branson: Mild Fall Skies with Light Rain Chances",
+  "deck": "Monday, November 2 brings mild fall weather with highs in the upper 60s under mostly cloudy skies and a chance of light showers — ideal for first-timers to explore indoor theaters, Branson Landing, or a relaxed drive along the strip.",
   "pick": {
-    "title": "Clay Cooper's Country Express Show",
+    "title": "Dean Z: The Ultimate Elvis",
     "when": "7:30 PM",
     "where": "Clay Cooper Theatre",
     "why": "Core Branson mainstage energy.",
@@ -17,10 +17,46 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 3,
+      "count": 6,
       "shows": [
         {
-          "name": "#1 Hits of The 60s",
+          "name": "Broadway to Buble Christmas Show",
+          "time": "10:00 AM",
+          "venue": "Americana Theatre",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎭",
+          "ticketOk": false,
+          "desc": "Festive blend of Broadway hits and Michael Bublé-style crooning perfect for the holiday season",
+          "price": "$45–$65"
+        },
+        {
+          "name": "Shanghai Circus",
+          "time": "11:00 AM",
+          "venue": "Mickey Gilley Grand Shanghai Theatre",
+          "type": null,
+          "url": "",
+          "chip": "thrill",
+          "icon": "🤸",
+          "ticketOk": false,
+          "desc": "Spectacular acrobatics, magic, and circus arts in a high-energy production",
+          "price": ""
+        },
+        {
+          "name": "A Celtic Christmas",
+          "time": "2:00 PM",
+          "venue": "King's Castle Theatre",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎶",
+          "ticketOk": false,
+          "desc": "Heartwarming holiday celebration featuring Celtic music, dance, and seasonal favorites",
+          "price": "$45–$65"
+        },
+        {
+          "name": "Hot Rods & High Heels",
           "time": "2:00 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
@@ -28,20 +64,20 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Relive the biggest chart-toppers from the 1960s with an energetic live tribute performance",
-          "price": "$66–$82"
+          "desc": "High-octane musical revue celebrating classic cars, rock 'n' roll, and glamorous performances",
+          "price": "$45–$65"
         },
         {
-          "name": "Christmas In The Heartland",
+          "name": "The Sound of Simon and Garfunkel Show",
           "time": "2:00 PM",
-          "venue": "Americana Theatre",
+          "venue": "Hamner's Variety Theater",
           "type": null,
           "url": "",
-          "chip": "music",
-          "icon": "🎭",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Heartwarming holiday music and festive entertainment perfect for kicking off the Christmas season",
-          "price": "$64–$82"
+          "desc": "Faithful recreation of the iconic folk-rock duo's harmonious hits",
+          "price": "$45–$65"
         },
         {
           "name": "Legends in Concert",
@@ -52,8 +88,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "World-class tribute artists delivering hits from icons with a special Merry Country Christmas theme including The Judds, Shania Twain, Toby Keith, Blues Brothers, and Elvis gospel",
-          "price": "$79–$91"
+          "desc": "Star-studded tribute show featuring live impersonations of music legends",
+          "price": "$45–$65"
         }
       ]
     },
@@ -61,19 +97,31 @@
       "id": "late_afternoon",
       "label": "Late afternoon",
       "blurb": "4–7 PM",
-      "count": 1,
+      "count": 2,
       "shows": [
         {
-          "name": "Southern Gospel Sundays",
+          "name": "Back to The Bee Gees",
+          "time": "5:00 PM",
+          "venue": "Hamner's Variety Theater",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "High-energy tribute capturing the falsetto harmonies and disco hits of the Bee Gees",
+          "price": "$45–$65"
+        },
+        {
+          "name": "Patsy Cline and Friends - Tribute Show",
           "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "music",
-          "icon": "🎭",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Inspirational Southern gospel music performed live in a dedicated Sunday afternoon slot",
-          "price": "$64–$90"
+          "desc": "Emotional tribute to the country music icon with classic ballads and heartfelt performances",
+          "price": "$45–$65"
         }
       ]
     },
@@ -81,10 +129,10 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 5,
+      "count": 3,
       "shows": [
         {
-          "name": "Clay Cooper's Country Express Show",
+          "name": "Dean Z: The Ultimate Elvis",
           "time": "7:30 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
@@ -92,88 +140,85 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-energy country music, comedy, and family-friendly entertainment from the Cooper family cast",
-          "price": "$76–$91"
+          "desc": "World-class Elvis Presley tribute featuring hits from the 1950s through the Vegas years with a live band",
+          "price": "$45–$65"
         },
         {
-          "name": "Shanghai Circus (Amazing Acrobats of Shanghai)",
-          "time": "7:30 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
+          "name": "Presley's Country Christmas",
+          "time": "8:00 PM",
+          "venue": "Presleys' Country Jubilee",
           "type": null,
           "url": "",
-          "chip": "thrill",
-          "icon": "🤸",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Breathtaking acrobatics, aerial feats, dance, comedy, magic, and colorful production celebrating 25+ years in Branson",
-          "price": "$42–$83"
+          "desc": "Festive family-friendly country, gospel, and Christmas classics with comedy from the legendary Presley family",
+          "price": "$45–$65"
         },
         {
-          "name": "America's Top Country Hits",
+          "name": "Rick Thomas",
           "time": "8:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "classic",
-          "icon": "🎸",
+          "chip": "magic",
+          "icon": "🪄",
           "ticketOk": false,
-          "desc": "Crowd-pleasing medley of the biggest country music hits performed by talented artists",
-          "price": ""
-        },
-        {
-          "name": "Branson's Christmas Wonderland",
-          "time": "8:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Lavish holiday production with singers, dancers, and spectacular winter wonderland staging",
-          "price": "$69–$99"
-        },
-        {
-          "name": "Legends in Concert",
-          "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Evening performance of the hit-filled tribute show with Merry Country Christmas elements",
-          "price": "$79–$91"
+          "desc": "Award-winning illusionist and magician delivering family-friendly magic and wonder",
+          "price": "$45–$65"
         }
       ]
     }
   ],
   "chips": [
     {
-      "id": "classic",
-      "label": "Classic",
-      "count": 5
-    },
-    {
       "id": "music",
       "label": "Music",
-      "count": 3
+      "count": 2
     },
     {
       "id": "thrill",
       "label": "Thrill",
       "count": 1
+    },
+    {
+      "id": "classic",
+      "label": "Classic",
+      "count": 7
+    },
+    {
+      "id": "magic",
+      "label": "Magic",
+      "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country and comedy in climate-controlled comfort.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "Americana Theatre",
+      "detail": "Gospel, magic, and variety perfect for a mild November day.",
+      "url": "https://www.americanatheatre.com/"
+    },
+    {
+      "name": "Legends in Concert",
+      "detail": "World-class tributes with elaborate productions.",
+      "url": "https://www.legendsinconcert.com/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-01",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-01.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-02",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-11-02.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 9,
+    "shows": 11,
     "withTickets": 0
   },
-  "generated_at": "2026-11-01T05:48:50-06:00"
+  "generated_at": "2026-11-02T05:35:04-06:00"
 }
