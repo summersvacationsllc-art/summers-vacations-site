@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-02",
-  "biteOfDay": "Trout are responding well to light presentations in the lighter flows. Stocked rainbows and holdover browns are active in the seams and behind structure. On Table Rock, bass are pulling off shallow summer spots toward deeper points and creek-arm structure as the water cools.",
+  "date": "2026-11-03",
+  "biteOfDay": "Trout on Taneycomo are active in the lighter flows with rainbows and increasing browns responding well to natural colors and small presentations. On Table Rock, bass have moved to deeper points, gravel transitions, and offshore structure in 25\u201345 feet as the water cools further. Recent reports show consistent catches when anglers adjust to the clear, low conditions.",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.47 ft (USACE 14:00 CT)",
+      "level": "910.46 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 14:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~298 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: With light generation this morning, wade or drift a 1/16-oz micro jig (brown, black, or sculpin) or a zebra midge under an indicator through the current breaks below the dam. Stay light on 4-lb test or less when the water is off. When the units come on, switch to weight and tighter seam",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-02T14:28:32-06:00"
+  "tip": "Insider tip: With light generation early, wade or drift a 1/16-oz micro jig in brown, black, sculpin or olive (or a zebra midge under an indicator) through current seams and breaks below the dam on 2\u20134 lb test. Target the softer inside lanes. When units ramp later in the day (watch for the 75\u2013135 MW",
+  "source": "scout",
+  "last_verified": "2026-11-03T05:35:41-06:00"
 }
