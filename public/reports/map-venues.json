@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "venues": {
     "americana theatre": {
       "lat": 36.6386381,
@@ -17,6 +17,11 @@
       "address": "Shepherd of the Hills Expwy Branson"
     },
     "branson hillside theatre": {
+      "lat": 36.6501061,
+      "lng": -93.2917365,
+      "address": "W 76 Country Blvd Branson"
+    },
+    "the little opry theatre branson mo": {
       "lat": 36.6501061,
       "lng": -93.2917365,
       "address": "W 76 Country Blvd Branson"

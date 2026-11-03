@@ -4,13 +4,13 @@
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.46 ft (USACE)",
+      "level": "910.52 ft (USACE 11:00 CT)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~298 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~20 cfs at 11:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: With light generation early, wade or drift a 1/16-oz micro jig in brown, black, sculpin or olive (or a zebra midge under an indicator) through current seams and breaks below the dam on 2\u20134 lb test. Target the softer inside lanes. When units ramp later in the day (watch for the 75\u2013135 MW",
-  "source": "scout",
-  "last_verified": "2026-11-03T05:35:41-06:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-11-03T12:03:56-06:00"
 }
