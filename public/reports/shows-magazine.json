@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Tuesday ticket window",
-  "deck": "Today's lineup features a strong mix of holiday-themed productions, country music, variety acts, and tributes as Branson's Christmas season gains momentum, with multiple matinees and evening options across major theaters.",
-  "pick": {
-    "title": "Anthems of Rock",
-    "when": "8:00 PM",
-    "where": "King's Castle Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Midweek on the 76",
+  "deck": "Hump-day boards mix country classics, illusion, and family productions — confirm times at the box office.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -233,12 +226,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-03",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-03.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-04",
+    "note": "Show list from the 2026-11-03 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 14,
     "withTickets": 0
   },
-  "generated_at": "2026-11-03T12:03:56-06:00"
+  "generated_at": "2026-11-04T12:11:26-06:00"
 }

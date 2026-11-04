@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "shows": [
     {
       "name": "Absolutely Country, Definitely Gospel",
@@ -117,14 +117,14 @@
       "price": "",
       "ticketNote": "Tickets available",
       "sources": "bransonmoconcerts.com, concertfix.com (verified Tuesday, November 3, 2026)",
+      "lat": 36.6501061,
+      "lng": -93.2917365,
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "family",
       "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "for": "family",
       "ticketOk": false,
-      "lat": 36.6501061,
-      "lng": -93.2917365,
       "venueAddress": "W 76 Country Blvd Branson"
     },
     {
@@ -154,14 +154,14 @@
       "price": "$59\u2013$117",
       "ticketNote": "Tickets from ~$59\u2013$117+",
       "sources": "sight-sound.com, bransonshows.com, americanarenas.com (verified Tuesday, November 3, 2026)",
+      "lat": 36.6654,
+      "lng": -93.26219,
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "music",
       "icon": "\ud83c\udfad",
       "for": "music",
-      "ticketOk": false,
-      "lat": 36.6654,
-      "lng": -93.26219
+      "ticketOk": false
     },
     {
       "name": "The Texas Tenors",
@@ -255,12 +255,13 @@
     }
   ],
   "freeEvents": [],
-  "magazineBuilt": "2026-11-03",
-  "last_verified": "2026-11-03T12:03:56-06:00",
-  "status": "fresh",
+  "magazineBuilt": "2026-11-04",
+  "last_verified": "2026-11-04T12:11:26-06:00",
+  "status": "fallback",
   "scoutDate": "2026-11-03",
   "scoutFile": "2026-11-03.md",
   "source": "scout",
   "listHash": "948b3b3a515a",
-  "generated_at": "2026-11-03T12:03:56-06:00"
+  "note": "Show list from the 2026-11-03 scout (today's scout missing). Confirm times at the box office.",
+  "generated_at": "2026-11-04T12:11:26-06:00"
 }
