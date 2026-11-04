@@ -1,3 +1,4 @@
+import { createHash } from "crypto";
 import { get, list, put } from "@/lib/blob";
 import { clientIp } from "@/lib/contracts-store";
 import { writeInquiryArchive } from "@/lib/inquiry-archive";
@@ -42,6 +43,8 @@ export type ContractInvite = {
   createdAt: string;
   usedAt: string | null;
   contractId: string | null;
+  /** Contract template for this link (defaults to the standard owner co-hosting agreement). */
+  templateId?: string;
 };
 
 function slug(s: string): string {
@@ -146,11 +149,55 @@ export async function readPrivateFile(pathname: string): Promise<{ body: Uint8Ar
 
 export async function getInvite(token: string): Promise<ContractInvite | null> {
   if (!/^[A-Za-z0-9_-]{16,80}$/.test(token)) return null;
+  let stored: ContractInvite | null = null;
   try {
-    return await readJson<ContractInvite>(invitePath(token));
+    stored = await readJson<ContractInvite>(invitePath(token));
   } catch {
-    return null;
+    stored = null;
   }
+  if (stored) return stored;
+  return staticInviteFor(token);
+}
+
+/**
+ * Pre-issued one-time links that were created without the invite email (Brian sends them himself).
+ * Only the SHA-256 of each token is in the repo. After signing, the used invite is written to the
+ * blob store and that copy (usedAt set) wins, so the link stays one-time.
+ */
+const STATIC_INVITES: (Omit<ContractInvite, "token"> & { tokenSha256: string })[] = [
+  {
+    tokenSha256: "0135c37e7a5363aba34c01772763908909486ee71f138e0186c41797abcc7cdc",
+    inquiryId: null,
+    name: "MidwestAF Properties LLC (Phil Klein and Sydney Klein)",
+    email: "midwestaf21@gmail.com",
+    phone: "(308) 340-8267",
+    address: "189 Notch Ln, Bldg 21, Unit 1 (entire home), Branson West, MO 65737",
+    createdAt: "2026-11-04T18:30:00.000Z",
+    usedAt: null,
+    contractId: null,
+    templateId: "klein-adventure-escape-cohosting",
+  },
+  {
+    tokenSha256: "118576c804e98a6f25619e91e29004f74e3716167456d164c582630136d67002",
+    inquiryId: null,
+    name: "MidwestAF Properties LLC (Phil Klein and Sydney Klein)",
+    email: "midwestaf21@gmail.com",
+    phone: "(308) 340-8267",
+    address: "189 Notch Ln, Bldg 21, Unit 1 (top floor only), Branson West, MO 65737",
+    createdAt: "2026-11-04T18:30:00.000Z",
+    usedAt: null,
+    contractId: null,
+    templateId: "klein-silver-dollar-suite-cohosting",
+  },
+];
+
+function staticInviteFor(token: string): ContractInvite | null {
+  const h = createHash("sha256").update(token).digest("hex");
+  const hit = STATIC_INVITES.find((s) => s.tokenSha256 === h);
+  if (!hit) return null;
+  const { tokenSha256: _h, ...rest } = hit;
+  void _h;
+  return { ...rest, token };
 }
 
 export async function saveInvite(inv: ContractInvite, overwrite = false): Promise<void> {

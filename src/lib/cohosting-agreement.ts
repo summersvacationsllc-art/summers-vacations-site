@@ -219,8 +219,11 @@ Brian Summers, Authorized Person
   },
 ];
 
-export function renderedAgreement(fields: ContractFields): string {
-  return AGREEMENT_SECTIONS.map((s) => {
+export function renderedAgreement(
+  fields: ContractFields,
+  sections: { heading?: string; body: string }[] = AGREEMENT_SECTIONS,
+): string {
+  return sections.map((s) => {
     const body = fill(s.body, fields);
     return s.heading ? `${s.heading}\n\n${body}` : body;
   }).join("\n\n");

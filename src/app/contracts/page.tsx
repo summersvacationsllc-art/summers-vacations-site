@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getInvite } from "@/lib/owner-inquiries";
+import { templateFor } from "@/lib/contract-templates";
 import { ContractForm, type InitialInvite } from "./ContractForm";
 
 export const metadata: Metadata = {
@@ -40,6 +41,9 @@ export default async function ContractsPage({
           email: inv.email || "",
           phone: inv.phone || "",
           address: inv.address || "",
+          templateId: templateFor(inv.templateId).id,
+          title: templateFor(inv.templateId).title,
+          sections: templateFor(inv.templateId).sections,
         };
       }
     } catch {

@@ -15,6 +15,9 @@ export type InitialInvite =
       email: string;
       phone: string;
       address: string;
+      templateId?: string;
+      title?: string;
+      sections?: { heading?: string; body: string }[];
     }
   | { state: "bad"; error: string };
 
@@ -234,7 +237,11 @@ function FormInner({
             <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
           </fieldset>
 
-          <AgreementBody fields={fields} />
+          <AgreementBody
+            fields={fields}
+            sections={initialInvite.sections}
+            subtitle={initialInvite.title && initialInvite.templateId !== "owner-cohosting" ? initialInvite.title.replace(/^Summers Vacations LLC /, "") : undefined}
+          />
 
           <fieldset className="no-print rounded-2xl border border-[#bae6fd] bg-white p-5">
             <legend className="px-1 text-sm font-bold">Sign and send</legend>

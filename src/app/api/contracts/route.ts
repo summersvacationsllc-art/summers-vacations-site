@@ -10,7 +10,7 @@ import {
 } from "@/lib/cohosting-agreement";
 import { clientIp, newContractId, saveContract, type StoredContract } from "@/lib/contracts-store";
 import { executeSignedContract } from "@/lib/contract-execute";
-import { OWNER_COHOSTING_TEMPLATE_ID } from "@/lib/contract-templates";
+import { templateFor } from "@/lib/contract-templates";
 import { getInquiry, getInvite, saveInquiry, saveInvite } from "@/lib/owner-inquiries";
 
 const FIELD_KEYS = Object.keys(EMPTY_FIELDS) as (keyof ContractFields)[];
@@ -61,7 +61,8 @@ export async function POST(req: Request) {
       );
     }
 
-    const agreement = renderedAgreement(fields);
+    const tmpl = templateFor(inv.templateId);
+    const agreement = renderedAgreement(fields, tmpl.sections);
     const id = newContractId(fields.subscriberName);
 
     let inquiryId: string | null = inv.inquiryId || null;
@@ -93,7 +94,7 @@ export async function POST(req: Request) {
 
     const recordBase = {
       id,
-      templateId: OWNER_COHOSTING_TEMPLATE_ID,
+      templateId: tmpl.id,
       submittedAt: new Date().toISOString(),
       ip: clientIp(req),
       userAgent: (req.headers.get("user-agent") || "").slice(0, 300),

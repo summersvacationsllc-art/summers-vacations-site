@@ -1,3 +1,12 @@
+import { AGREEMENT_SECTIONS, CONTRACT_TITLE } from "@/lib/cohosting-agreement";
+import {
+  KLEIN_ADVENTURE_ESCAPE_SECTIONS,
+  KLEIN_ADVENTURE_ESCAPE_TITLE,
+  KLEIN_SILVER_DOLLAR_SUITE_SECTIONS,
+  KLEIN_SILVER_DOLLAR_SUITE_TITLE,
+  type AgreementSection,
+} from "@/lib/klein-agreements";
+
 /**
  * Every client-signable contract template on the site.
  * - All templates: after the client signs, the signed PDF is emailed to the signer(s) and to Brian.
@@ -10,16 +19,35 @@ export type ContractTemplate = {
   /** Public signing page. */
   signPath: string;
   autoCountersign: boolean;
+  /** Agreement text shown on the signing page and saved with the signed record. */
+  sections: AgreementSection[];
 };
 
 export const OWNER_COHOSTING_TEMPLATE_ID = "owner-cohosting";
+export const KLEIN_ADVENTURE_ESCAPE_TEMPLATE_ID = "klein-adventure-escape-cohosting";
+export const KLEIN_SILVER_DOLLAR_SUITE_TEMPLATE_ID = "klein-silver-dollar-suite-cohosting";
 
 export const CONTRACT_TEMPLATES: Record<string, ContractTemplate> = {
   [OWNER_COHOSTING_TEMPLATE_ID]: {
     id: OWNER_COHOSTING_TEMPLATE_ID,
-    title: "Summers Vacations LLC Co-Hosting Agreement",
+    title: CONTRACT_TITLE,
     signPath: "/contracts",
     autoCountersign: true,
+    sections: AGREEMENT_SECTIONS,
+  },
+  [KLEIN_ADVENTURE_ESCAPE_TEMPLATE_ID]: {
+    id: KLEIN_ADVENTURE_ESCAPE_TEMPLATE_ID,
+    title: KLEIN_ADVENTURE_ESCAPE_TITLE,
+    signPath: "/contracts",
+    autoCountersign: true,
+    sections: KLEIN_ADVENTURE_ESCAPE_SECTIONS,
+  },
+  [KLEIN_SILVER_DOLLAR_SUITE_TEMPLATE_ID]: {
+    id: KLEIN_SILVER_DOLLAR_SUITE_TEMPLATE_ID,
+    title: KLEIN_SILVER_DOLLAR_SUITE_TITLE,
+    signPath: "/contracts",
+    autoCountersign: true,
+    sections: KLEIN_SILVER_DOLLAR_SUITE_SECTIONS,
   },
 };
 
