@@ -76,6 +76,7 @@ const sa = dir("/property-photos/scotts-unit/airbnb");
 const hv = dir("/property-photos/branson-family-haven");
 const ha = dir("/property-photos/branson-family-haven/airbnb");
 const ne = dir("/property-photos/notch-estates");
+const ss = dir("/property-photos/silver-dollar-suite");
 
 const HOSTS = { label: "Your hosts", value: "Brian & Chantel Summers" };
 const CHECK_IN = { label: "Check-in", value: "4:00 PM" };
@@ -1087,6 +1088,70 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
     ],
     goodToKnow: NOTCH_GOOD_TO_KNOW,
     gallery: NOSTAIRS_GALLERY,
+  },
+
+  // Top floor only. Real photos only (front exterior + entrance + deck); interiors to come.
+  "silver-dollar-suite": {
+    name: "Silver Dollar Suite",
+    tag: "Top Floor · Suite",
+    sleeps: "4",
+    beds: "2BR · 2BA",
+    address: "189 Notch Lane, Building 21, Unit 1, Branson West, MO 65737",
+    guestyId: "6aea02aaf9dffe005a3939fc",
+    emoji: "⭐",
+    desc: "A smaller stay close to Silver Dollar City: the top floor of 189 Notch Lane, with two bedrooms, two bathrooms, and its own private, no-step entrance and carport.",
+    highlights: [
+      "Top floor only",
+      "King bed + queen bed",
+      "2 bathrooms",
+      "Private, no-step entrance",
+      "Own carport",
+      "Washer and dryer in the unit",
+      "~1 mile from Silver Dollar City",
+    ],
+    amenities: ["Kitchen", "Living room", "Washer and dryer in the unit", "Private, no-step entrance", "Own carport"],
+    heroPhoto: ss("front-exterior.jpg", "Front of the building at 189 Notch Lane"),
+    featurePhoto: ss("front-exterior.jpg", "Front of the building at 189 Notch Lane"),
+    hasGuidebook: false,
+    about: {
+      intro: [
+        "Silver Dollar Suite is the top-floor-only stay at 189 Notch Lane, Building 21, Unit 1. Your booking is for the Suite, not the whole-property Silver Dollar Adventure Escape: no game room, bunk room, or lower-level bedrooms and bathrooms are included.",
+      ],
+      groups: [
+        { title: "Easy Access", items: ["Private, no-step entrance", "Your own carport"] },
+        { title: "Living & Kitchen", items: ["Kitchen", "Living room", "Washer and dryer in the unit"] },
+        { title: "Bedrooms & Baths", items: ["Bedroom 1: king bed", "Bedroom 2: queen bed", "2 bathrooms"] },
+      ],
+    },
+    sleeping: [
+      { room: "Bedroom 1", beds: "King bed" },
+      { room: "Bedroom 2", beds: "Queen bed" },
+      { room: "Bathrooms", beds: "2 bathrooms" },
+    ],
+    details: [
+      { label: "Home", value: "Top-floor suite in Notch Estates, Branson West, MO" },
+      { label: "Sleeps", value: "4 · 2 bedrooms · 2 baths" },
+      CHECK_IN,
+      CHECK_OUT,
+      { label: "Minimum age", value: "Primary guest 25+" },
+      HOSTS,
+    ],
+    goodToKnow: [
+      { label: "Coming soon", text: "Online booking isn't open yet. Contact us to ask about the Silver Dollar Suite." },
+      { label: "Top floor only", text: "The Suite is the top floor of the building. The game room, bunk room, and lower level belong to a separate listing." },
+    ],
+    gallery: [
+      ...group("Outside & Entrance", [
+        ss("front-exterior.jpg", "Front of the building with a covered porch and no-step entry"),
+        ss("entrance-covered-walkway.jpg", "Covered, step-free walkway from parking to the door"),
+      ]),
+      ...group("Deck", [
+        ss("deck-dining-umbrella.jpg", "Deck with an umbrella dining table"),
+        ss("deck-seating-view.jpg", "Deck dining overlooking the Ozark treetops"),
+        ss("deck-dining-wide.jpg", "Wide view of the deck"),
+        ss("deck-adirondacks.jpg", "Adirondack chairs on the deck"),
+      ]),
+    ],
   },
 
   "silver-dollar-city-adventure-escape": {

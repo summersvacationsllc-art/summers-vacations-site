@@ -237,6 +237,8 @@ const HAVEN_URGENT_CARE = [
 ];
 
 /** Guest-facing climate note for Silver Dollar Adventure Escape. */
+export const SUITE_ARRIVAL =
+  "Private, no-step entrance next to your carport. Arrival details are sent privately for your reservation.";
 export const UPSTAIRS_DOWNSTAIRS_DOOR =
   "Please keep the door between upstairs and downstairs closed. On hot, humid days the AC takes a long time to cool the house back down if it's left open.";
 
@@ -786,6 +788,71 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
       { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
       { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
+    ],
+  },
+  // ─── SILVER DOLLAR SUITE (189 Notch Ln, Bldg 21, Unit 1 · TOP FLOOR ONLY) · Coming Soon ──
+  // Separate Guesty listing from the whole-property Adventure Escape. Public page: no access
+  // codes, no Wi-Fi password and no door-code explanation; those go in private arrival messages.
+  "silver-dollar-suite": {
+    id: "silver-dollar-suite",
+    slug: "silver-dollar-suite",
+    name: "Silver Dollar Suite",
+    shortName: "Silver Dollar Suite",
+    address: "189 Notch Ln, Building 21, Unit 1, Branson West, MO 65737",
+    guestyListingId: "6aea02aaf9dffe005a3939fc",
+    aliases: ["silver dollar suite", "silver-dollar-suite"],
+    hostName: COMMON.hostName,
+    hostBio: COMMON.hostBio,
+    hostPhone: COMMON.hostPhone,
+    hostEmail: COMMON.hostEmail,
+
+    checkIn: {
+      time: "4:00 PM",
+      type: "self",
+      doorCode: "",
+      directions:
+        "Turn into Notch Estates and continue to Building 21. Silver Dollar Suite is the top floor of Unit 1, with its own private, no-step entrance next to your carport.",
+      parking: "Park in your own carport.",
+      accessNote: "Private, no-step entrance. Follow the private arrival instructions sent for your reservation.",
+    },
+
+    // No network name or password on the public page.
+    wifi: { network: "", password: "" },
+
+    appliances: {
+      coffeeMaker: { type: "Coffee station", instructions: "Coffee station in the kitchen." },
+      hvac: { type: "Thermostat" },
+      tv: { type: "TV", streaming: [] },
+      washer: { instructions: "Washer and dryer inside the unit." },
+    },
+
+    amenities: [
+      "Top floor only: 2 bedrooms, 2 bathrooms, sleeps 4",
+      "Bedroom 1: king bed · Bedroom 2: queen bed",
+      "Kitchen",
+      "Living room",
+      "Washer and dryer in the unit",
+      "Private, no-step entrance",
+      "Your own carport",
+    ],
+    houseRulesIntro: [
+      "Welcome to Silver Dollar Suite, the top floor of 189 Notch Lane, Building 21, Unit 1. Up to 4 guests. The primary guest must be at least 25.",
+    ],
+    houseRules: [
+      "Up to 4 guests. No unregistered guests.",
+      "No pets.",
+      "No smoking, vaping, or marijuana.",
+      "No parties or events.",
+      "Quiet hours: 10 PM – 8 AM.",
+      "Checkout is at 10:00 AM. Please follow the checkout instructions sent with your reservation.",
+    ],
+    trash: "Please follow the trash instructions sent with your reservation.",
+    emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
+    urgentCare: NOTCH_URGENT_CARE,
+
+    videos: [
+      { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
+      { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
     ],
   },
 };

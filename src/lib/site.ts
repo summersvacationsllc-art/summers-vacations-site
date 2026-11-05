@@ -171,6 +171,23 @@ export const PROPERTIES: PropertyCard[] = [
     vrboUrl: "",
   },
   {
+    // Top floor only of 189 Notch Ln, Bldg 21, Unit 1 (Guesty 6aea02aaf9dffe005a3939fc).
+    // Not bookable yet: comingSoon keeps every Book/Airbnb/VRBO link off the site.
+    name: "Silver Dollar Suite",
+    tag: "Top Floor · Suite",
+    sleeps: "4",
+    beds: "2BR · 2BA",
+    area: "Branson West",
+    slug: "silver-dollar-suite",
+    photo: "/property-photos/silver-dollar-suite/front-exterior.jpg",
+    blurb: "Top-floor suite with a king and a queen bedroom, its own no-step entrance and carport. About a mile from Silver Dollar City.",
+    comingSoon: true,
+    bookUrl: "",
+    airbnbUrl: "",
+    vrboUrl: "",
+    guestyAliases: ["Silver Dollar Suite"],
+  },
+  {
     name: "Silver Dollar Adventure Escape",
     tag: "Game Room · Bunk Room",
     sleeps: "14",

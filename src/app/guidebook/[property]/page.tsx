@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { normalizeStayDate, stayMode, doorWindow, stayDateLabel, isIsoDate, type StayDate, type DoorState } from "@/lib/stay-window";
 import dynamic from "next/dynamic";
-import { getGuidebook, SEASONS, UPSTAIRS_DOWNSTAIRS_DOOR, ROKU_GUEST_MODE_OTHER, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
+import { getGuidebook, SEASONS, UPSTAIRS_DOWNSTAIRS_DOOR, SUITE_ARRIVAL, ROKU_GUEST_MODE_OTHER, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
 import { STREAMING_HELP_HTML, STREAMING_HELP_SUBTITLE, STREAMING_HELP_TITLE } from "@/data/streaming";
 import type { WeatherPayload } from "@/lib/weather";
 import FishingMagazine from "@/components/FishingMagazine";
@@ -178,7 +178,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   if (!prop) return <div className="min-h-screen bg-sky-50 flex items-center justify-center"><p className="text-sky-700">Loading...</p></div>;
 
   const T = season();
-  const isNotch = prop && prop.id !== 'branson-family-haven';
+  // Silver Dollar Suite (top floor only): only shows confirmed, secret-free content.
+  const isSuite = prop && prop.id === 'silver-dollar-suite';
+  const isNotch = prop && prop.id !== 'branson-family-haven' && !isSuite;
   const isPenthouse = prop && prop.id === 'the-penthouse';
   const isRustic = prop && prop.id === 'rustic-ozark-retreat';
   const isDouble = prop && prop.id === 'double-condo';
@@ -351,11 +353,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   </h1>
                   <div className="text-[13px] mt-0.5" style={{ color: '#ffffff' }}>{prop.name} • Check-in at {prop.checkIn.time}</div>
                 </div>
-                {isKlein ? (
+                {(isKlein || isSuite) ? (
                 <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 shadow-lg bg-white border border-sky-100">
                   <div className="text-[12px] font-semibold uppercase tracking-wider text-sky-900">Check-in</div>
                   <div className="text-[13px] font-bold text-sky-900 mt-1">Self check-in. Instructions were emailed before arrival.</div>
-                  <p className="text-[12px] text-sky-800 mt-2 mb-0 leading-relaxed">{UPSTAIRS_DOWNSTAIRS_DOOR}</p>
+                  <p className="text-[12px] text-sky-800 mt-2 mb-0 leading-relaxed">{isSuite ? SUITE_ARRIVAL : UPSTAIRS_DOWNSTAIRS_DOOR}</p>
                 </div>
                 ) : (
                 <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 flex items-center gap-2.5 shadow-lg" style={doorBg}>
@@ -428,8 +430,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
             {mode === 'guest' && (
             <>
             <div className="mx-3.5 mt-1.5 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100">
-              <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {isKlein ? '' : wifiNote}</div>
-              {isKlein ? (
+              <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {(isKlein || isSuite) ? '' : wifiNote}</div>
+              {(isKlein || isSuite) ? (
                 <div className="text-[13px] font-bold text-sky-900 mt-0.5">Details are in your pre-arrival email.</div>
               ) : isActive ? (
                 <>
@@ -552,7 +554,16 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     '💡 <strong>Turn off the lights</strong>, lock up, and close the doors behind you<br /><br />'+
                     '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel</div>',
                     true)}
-                  {!isKlein && guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure',
+                  {isSuite && guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure',
+                    '<strong>🛏️ Check-in:</strong> Anytime after 4:00 PM<br /><br />'+
+                    '<strong>🚪 Private, no-step entrance</strong> next to your own carport. Follow the private arrival instructions sent for your reservation. If you can&apos;t find them, contact your host.<br /><br />'+
+                    '<hr style="border:none;border-top:1px dashed #bae6fd;margin:12px 0;" />'+
+                    '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:8px 10px;margin-bottom:10px;">'+
+                    '<strong style="color:#b91c1c;">⏰ Check-out by 10:00 AM</strong></div>'+
+                    'Please follow the checkout instructions sent with your reservation.<br /><br />'+
+                    '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel</div>',
+                    true)}
+                  {!isKlein && !isSuite && guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure',
                     '<strong>🛏️ Check-in:</strong> Anytime after 4:00 PM<br /><br />'+
                     '<strong>🔑 Door Code:</strong> '+(doorState === "ready" || doorState === "early" ? doorDisplay : "Revealed on your check-in day")+'<br /><br />'+
                     '<strong>🚪 Keyless entry</strong> — code activates at 4 PM on check-in day.<br /><br />'+
@@ -577,7 +588,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                     '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel Summers</div>'
                   )}
                   {isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival. TVs and a game console are in the game zone.')}
-                  {!isKlein && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
+                  {isSuite && guideItem('#dbeafe','📶','Wi-Fi','In your arrival information','Wi-Fi details are in your private arrival information and in the suite.')}
+                  {!isKlein && !isSuite && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   <div className="bg-white rounded-lg mb-1 border border-sky-100 overflow-hidden">
                     <details className="group">
                       <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
@@ -602,26 +614,31 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                       </div>
                     </details>
                   </div>
+                  {isSuite && guideItem('#fef9c3','🏠','Your Suite','Top floor only',
+                    'Silver Dollar Suite is the top floor of Building 21, Unit 1: two bedrooms and two bathrooms for up to 4 guests.<br /><br />'+
+                    '<strong>Bedroom 1:</strong> king bed<br /><strong>Bedroom 2:</strong> queen bed<br /><br />'+
+                    'Kitchen, living room, and an in-unit washer and dryer.<br /><br />'+
+                    'Your stay is for the top-floor Suite only. The game room, bunk room, and lower-level bedrooms and bathrooms are not part of this booking.')}
                   {isKlein && guideItem('#fef9c3','🏠','The House','Kitchen, bedrooms, and living',
                     '<strong>Kitchen:</strong> Stainless appliances, dishwasher, coffee station, toaster, blender, a family-style dining table, and a breakfast bar.<br /><br />'+
                     '<strong>Bedrooms:</strong> Bedroom 1 is a king suite with doors out to the deck. Bedroom 2 has a queen. Bedroom 3 has two queens, a sitting nook, and a wet bar. Bedroom 4 is the bunk room. There are 4 full baths.<br /><br />'+
                     '<strong>Living:</strong> Open living area with a big sectional and extra seating.<br /><br />'+
                     '<strong>Desk</strong> for checking in on work.<br /><br />'+
                     'High chair and pack &apos;n play.')}
-                  {!isKlein && guideItem('#fef9c3','🍳','Kitchen & Supplies','Appliances, cookware & provided items','<strong>🧊 Fridge/Freezer:</strong> You shouldn&apos;t need to adjust any settings. '+(prop && prop.id === 'scotts-unit' ? 'There are ice trays in the freezer (no ice maker).' : 'There is an icemaker in the freezer.')+'<br><br><strong>🔥 Stovetop & Oven:</strong> Both the stovetop and oven are electric.<br><br><strong>📦 Supplies Provided:</strong><br>• Roll of paper towels<br>• Dish soap<br>• One dish sponge<br>• A couple trash bags<br>• Dish cloths<br>• Drying towel<br>• Pots, pans & skillet<br>• Casserole dish<br>• Pizza pan & pizza cutter<br>• Cookie sheet, cake pan & muffin pan<br>• Crockpot<br>• Coffee pot<br>• Strainers<br>• Tupperware<br>• Blender<br>• Toaster<br>• Electric can opener<br>• Measuring cups<br>• Spatula & whisk<br>• Grilling tools<br>• Large serving utensils<br>• Silverware<br>• Dinner plates<br>• Salad plates<br>• Cereal bowls<br>• Wine glasses<br>• Coffee cups<br>• Juice glasses & tumblers<br>• Mixing bowls<br>• Cutting board<br>• Knife set<br>• Wine opener<br>• Bottle opener<br>• Potholders')}
+                  {!isKlein && !isSuite && guideItem('#fef9c3','🍳','Kitchen & Supplies','Appliances, cookware & provided items','<strong>🧊 Fridge/Freezer:</strong> You shouldn&apos;t need to adjust any settings. '+(prop && prop.id === 'scotts-unit' ? 'There are ice trays in the freezer (no ice maker).' : 'There is an icemaker in the freezer.')+'<br><br><strong>🔥 Stovetop & Oven:</strong> Both the stovetop and oven are electric.<br><br><strong>📦 Supplies Provided:</strong><br>• Roll of paper towels<br>• Dish soap<br>• One dish sponge<br>• A couple trash bags<br>• Dish cloths<br>• Drying towel<br>• Pots, pans & skillet<br>• Casserole dish<br>• Pizza pan & pizza cutter<br>• Cookie sheet, cake pan & muffin pan<br>• Crockpot<br>• Coffee pot<br>• Strainers<br>• Tupperware<br>• Blender<br>• Toaster<br>• Electric can opener<br>• Measuring cups<br>• Spatula & whisk<br>• Grilling tools<br>• Large serving utensils<br>• Silverware<br>• Dinner plates<br>• Salad plates<br>• Cereal bowls<br>• Wine glasses<br>• Coffee cups<br>• Juice glasses & tumblers<br>• Mixing bowls<br>• Cutting board<br>• Knife set<br>• Wine opener<br>• Bottle opener<br>• Potholders')}
                   {guideItem('#d1fae5','☕',isKlein ? 'Morning Coffee' : 'Coffee Bar',prop.appliances.coffeeMaker.type,(isKlein ? (prop.appliances.coffeeMaker.instructions || '').replace(/&/g,'&amp;') : prop.appliances.coffeeMaker.instructions) + (prop.appliances.coffeeMaker.youtube ? ' ⏯️ <a href="' + prop.appliances.coffeeMaker.youtube + '" target="_blank" style="color:#166534;">Video guide</a>' : ''))}
                   {isKlein && guideItem('#e0f2fe','🧺','Washer & Dryer','In the unit', (prop.appliances.washer.instructions || 'Washer and dryer are in the unit.') + (prop.appliances.washer.youtube ? '<br><br>⏯️ <a href="' + prop.appliances.washer.youtube + '" target="_blank" rel="noopener" style="color:#166534;">Watch: How to use the washer and dryer</a>' : ''))}
                   {isKlein && guideItem('#fef9c3','📡','Microwave','Kitchen', '⏯️ <a href="https://youtu.be/9LSLin-DBU4" target="_blank" rel="noopener" style="color:#166534;">Watch: How to use the microwave</a>')}
                   {isKlein && guideItem('#fce7f3','🍳','Glass-Top Range','Kitchen', '⏯️ <a href="https://youtu.be/kvYy4XFpz0s" target="_blank" rel="noopener" style="color:#166534;">Watch: How to use the glass-top range</a>')}
                   {isKlein && guideItem('#dbeafe','🧼','Dishwasher','Kitchen', 'Please load and start the dishwasher before checkout.<br><br>' + '⏯️ <a href="https://youtu.be/dVR1ssnmWco" target="_blank" rel="noopener" style="color:#166534;">Watch: How to use the dishwasher</a>')}
-                  {!isHaven && !isKlein && guideItem('#e0f2fe','🧺','Washer & Dryer','In-unit laundry, iron & cleaning','<strong>📍 Location:</strong> Washer and separate dryer located in the hallway by the front door.<br><br><strong>🧼 Detergent:</strong> A starter supply of detergent pods is provided. For more washes, you&apos;ll need to pick up additional pods at the store.<br><br><strong>🧹 Cleaning Supplies:</strong> Broom located next to the washer/dryer. Iron, ironing board, and vacuum cleaner are in the bedroom closets.')}
+                  {!isHaven && !isKlein && !isSuite && guideItem('#e0f2fe','🧺','Washer & Dryer','In-unit laundry, iron & cleaning','<strong>📍 Location:</strong> Washer and separate dryer located in the hallway by the front door.<br><br><strong>🧼 Detergent:</strong> A starter supply of detergent pods is provided. For more washes, you&apos;ll need to pick up additional pods at the store.<br><br><strong>🧹 Cleaning Supplies:</strong> Broom located next to the washer/dryer. Iron, ironing board, and vacuum cleaner are in the bedroom closets.')}
                   {(isPenthouse) && guideItem('#fce7f3','🌸','Aroma 360','Essential oil diffuser','Aroma 360 diffuser pre-loaded. Plug in and enjoy. ⏯️ <a href="https://www.youtube.com/watch?v=Th_8nI2pdjM" target="_blank" style="color:#166534;">Demo</a>')}
                   {(isPenthouse || isRustic) && guideItem('#d1fae5','💧','Water Filter','Drinking water filtration system','Water filter system for clean drinking water. ⏯️ <a href="https://www.youtube.com/watch?v=awyb9DSggcg" target="_blank" style="color:#166534;">Demo</a>')}
                   {(isPenthouse || isRustic || isDouble) && guideItem('#fee2e2','🔥','Fireplace & Ambiance','Electric fireplace & candles','Electric fireplace with remote. Flame without heat in summer.')}
                   {prop.houseRulesIntro
                     ? guideItem('#fef3c7','📋','House Rules','Community guidelines & policies',[...prop.houseRulesIntro, ...prop.houseRules].map(s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')).join('<br><br>'))
                     : isHaven ? guideItem('#fef3c7','📋','House Rules','Community guidelines & policies','<strong>🏘️ Our Neighborhood:</strong> This home is in a residential neighborhood on Indian Point. Please be respectful of the neighbors and keep things peaceful. Quiet hours are 10 PM – 8 AM.<br><br><strong>🔨 Breakages:</strong> Accidents happen! Please let us know immediately if something breaks. Minor issues are usually no charge. Larger issues (like a TV screen) we&apos;ll agree on cost before you leave.<br><br><strong>🚭 Smoking Policy:</strong> No smoking tobacco, marijuana, or vaping inside the house or on the decks. Smoking tobacco (no marijuana) and vaping are permitted outside, away from the house (for example, in the driveway).<br><br><strong>📜 All Rules:</strong><br>• Use only plastic utensils on cookware (prevents scratching)<br>• No smoking or vaping inside the house or on the decks — outside away from the house only (e.g. the driveway)<br>• No pets<br>• No events, parties, or loud music<br>• No open flame or candles<br>• Discard all cooking oil in trash, not down drains<br>• Please take your trash to the on-site dumpster.<br>• Quiet hours: 10 PM – 8 AM<br>• No unregistered guests<br>• No food or drink in bedrooms<br>• No rearranging furniture<br>• Please wash your dishes<br>• No illegal substances on premises<br>• All towels stay in the house — do not take to pool') : guideItem('#fef3c7','📋','House Rules','Community guidelines & policies','<strong>🏘️ Our Community:</strong> We are located in a private community, and although this is a vacation destination, it&apos;s home to many people. Please respect their privacy and the right to a peaceful existence. Noise kept to a minimum between 10 PM and 8 AM.<br><br><strong>🔨 Breakages:</strong> Accidents happen! Please let us know immediately if something breaks. Minor issues are usually no charge. Larger issues (like a TV screen) we&apos;ll agree on cost before you leave.<br><br><strong>🚭 Smoking Policy:</strong> No smoking tobacco, marijuana, or vaping inside the buildings/units, on decks (front or rear), walkways, pool areas, or playgrounds. Smoking tobacco (no marijuana) and vaping are permitted in the parking lot and street only.<br><br><strong>📜 All Rules:</strong><br>• Use only plastic utensils on cookware (prevents scratching)<br>• No smoking or vaping inside or on the deck — parking lot only (per HOA rules)<br>• No pets<br>• No events, parties, or loud music<br>• No open flame or candles<br>• Discard all cooking oil in trash, not down drains<br>• Please take your trash to the on-site dumpster.<br>• Quiet hours: 10 PM – 8 AM<br>• No unregistered guests<br>• No food or drink in bedrooms<br>• No rearranging furniture<br>• Please wash your dishes<br>• No illegal substances on premises<br>• All towels stay in the condo — do not take to pool')}
-                  {(isHaven || isKlein) ? guideItem('#ede9fe','🏠','Amenities','Home features',prop.amenities.join(' • ')) : guideItem('#ede9fe','🏊','Amenities','Pool, grill, lake, deck','Pool 8AM–10PM • Charcoal grills by pool • Private lake trail • Playground on-site')}
+                  {(isHaven || isKlein || isSuite) ? guideItem('#ede9fe','🏠','Amenities','Home features',prop.amenities.join(' • ')) : guideItem('#ede9fe','🏊','Amenities','Pool, grill, lake, deck','Pool 8AM–10PM • Charcoal grills by pool • Private lake trail • Playground on-site')}
                   {isKlein && guideItem('#e0f2fe','🚗','Outside & Parking','Patio, deck, and parking',
                     'Covered front patio, plus a deck with outdoor dining and Adirondack chairs.<br /><br />Charcoal grill outside only. Bring your own charcoal.<br /><br />'+prop.checkIn.parking)}
                   {isKlein && guideItem('#d1fae5','🌿','Notch Estates','Pond, trails, and the seasonal pool',
@@ -636,7 +653,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {isNotch && !isKlein && guideItem('#d1fae5','🌿','Outdoor Recreation','Lake, trail, playground & more','<strong>🏞️ Private Lake (Pond):</strong> A short walk from the property. Catch-and-release fishing allowed. The walking trail circles the lake. Please supervise children near the water. <strong>⚠️ The path down to the lake is steep and rocky — proper footwear is a must for Ozarks terrain.</strong><br><br><strong>🚶 Walking Trail:</strong> Scenic trail circling the lake. <strong>⚠️ The trail is steep and rocky — wear sturdy shoes or hiking boots.</strong> Maintained year-round, but Ozarks terrain means uneven surfaces, roots, and rocks.<br><br><strong>🛝 Playground:</strong> Near the main pool — swings and a slide. Adult supervision required.<br><br><strong>🏀 Basketball:</strong> Court near the pool area. Basketballs are on the rack by the court.<br><br><strong>🥏 Horseshoes:</strong> Pits by the larger pool. Horseshoes are left at the pit.')}
                   {isHaven && guideItem('#fce7f3','🎮','Games','Board games under the TV','<strong>📍 Location:</strong> Board games are stored in the slide-out section of the small table under the TV in the living room.<br><br><strong>🎲 What you will find:</strong> A selection of board games and card games for family fun. Perfect for rainy days or quiet evenings in!')}
                   {isHaven && guideItem('#dbcafe','📺','Roku Streaming','Smart TV — guest mode','<strong>All TVs in the house are set up for Roku guest mode.</strong><br><br><strong>📋 How to use:</strong><br>1. Press the Home button on the Roku remote<br>2. Select your favorite streaming app (Netflix, Hulu, Disney+, Prime Video, and more)<br>3. Sign in with your own account — your credentials are automatically removed at checkout<br>4. To switch apps, press Home and select another<br><br><strong>💡 Tip:</strong> The TV remembers nothing between guests. Sign in, enjoy, and everything is cleared when you leave!')}
-                  {!isHaven && guideItem('#dbcafe','📺','Roku Streaming','Smart TV — guest mode', ROKU_GUEST_MODE_OTHER.replace('📋 How to use:', '<strong>📋 How to use:</strong>').replace('💡 Tip:', '<strong>💡 Tip:</strong>').split('\n').join('<br>').replace('<br><strong>📋', '<br><br><strong>📋').replace('<br><strong>💡', '<br><br><strong>💡'))}
+                  {!isHaven && !isSuite && guideItem('#dbcafe','📺','Roku Streaming','Smart TV — guest mode', ROKU_GUEST_MODE_OTHER.replace('📋 How to use:', '<strong>📋 How to use:</strong>').replace('💡 Tip:', '<strong>💡 Tip:</strong>').split('\n').join('<br>').replace('<br><strong>📋', '<br><br><strong>📋').replace('<br><strong>💡', '<br><br><strong>💡'))}
                   {isKlein && guideItem('#dbcafe','📺',STREAMING_HELP_TITLE,STREAMING_HELP_SUBTITLE,STREAMING_HELP_HTML + '<br><br>' + '⏯️ <a href="https://youtu.be/cSPPDr33s3E" target="_blank" rel="noopener" style="color:#166534;">Watch: How to use the Roku TV</a>')}
                   {isHaven && guideItem('#e0f2fe','🚗','Getting Around','Parking & layout','<strong>🅿️ Parking:</strong> ' + prop.checkIn.parking + '<br><img src="/property-photos/branson-family-haven/boat-trailer-parking.jpg" alt="Aerial photo showing the boat and trailer parking lot" style="width:100%;border-radius:8px;margin-top:6px;" loading="lazy"><br><br><strong>🏠 The Home:</strong> Branson Family Haven is a standalone house at 44 Timber Trace. The main entrance is at the front door. The downstairs living area has the kitchen, dining, and family room. Bedrooms are upstairs.<br><br><strong>🔑 Entry:</strong> Keyless entry — your door code is the last 4 digits of the phone number used when booking.')}
                   {isHaven && guideItem('#d1fae5','🏊','Community Amenities','2 pools, hot tub & playground','<strong>🏊 Pools & Hot Tub:</strong> 2 shared community pools and a hot tub are available for guest use. Pool 1 and the hot tub are in the cottage cluster across the paved lot; Pool 2 is behind the row of blue houses. Please follow posted rules and hours.<br><br><strong>🛝 Playground:</strong> Community playground for children. Adult supervision required.<br><br><strong>🍖 Gas Grill:</strong> Master Forge propane grill under the deck, next to the fence; see the Gas Grill card for how to use it. Propane is provided.<br><br><strong>🔥 Fire Pit:</strong> Outdoor fire pit available for guest use. Please extinguish completely after use and follow any burn restrictions.<br><br><strong>🚤 Boat & Trailer Parking:</strong> Designated parking in the upper lot by the blue shed.')}
