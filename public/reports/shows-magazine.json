@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Midweek on the 76",
-  "deck": "Today's lineup in Branson features a strong mix of holiday-themed productions and variety entertainment as the Christmas season gains momentum, with multiple matinees and evening options across popular theaters.",
-  "pick": {
-    "title": "Clay Cooper's Country Express Show",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Thursday warm-up",
+  "deck": "Pre-weekend energy on the Strip. Pick one matinee or go straight to an evening show.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -287,12 +280,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-04",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-04.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-05",
+    "note": "Show list from the 2026-11-04 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 17,
     "withTickets": 0
   },
-  "generated_at": "2026-11-04T05:33:54-06:00"
+  "generated_at": "2026-11-05T05:01:06-06:00"
 }

@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
-  "hed": "The Water Is Falling",
-  "deck": "Table Rock this morning: 910.5 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
+  "hed": "A Quiet Morning on the Desk",
+  "deck": "Table Rock this morning: 910.47 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
   "play": {
-    "title": "Don't quit at 10.",
-    "body": "Fall is the opposite of August. The bite can last until lunch."
+    "title": "Fish the wind.",
+    "body": "Fall bass set up where the shad get blown. A crankbait that bangs is better than a worm that sits."
   },
   "season": {
     "name": "Fall turnover",
@@ -19,19 +19,13 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "Table Rock held near 910.5 ft all week, a hair under full pool (915). 1 morning this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "Table Rock held near 910.47 ft all week, a hair under full pool (915). 1 morning this week the desk had no new gage (carry-forward). Numbers marked \u201cdesk\u201d were read from that day\u2019s scout; \u201ccarry\u201d was not. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-10-29",
-      "label": "Thu",
-      "level": "910.52",
-      "fresh": false
-    },
     {
       "date": "2026-10-30",
       "label": "Fri",
-      "level": "910.47",
-      "fresh": false
+      "level": "910.43",
+      "fresh": true
     },
     {
       "date": "2026-10-31",
@@ -49,7 +43,7 @@
       "date": "2026-11-02",
       "label": "Mon",
       "level": "910.46",
-      "fresh": false
+      "fresh": true
     },
     {
       "date": "2026-11-03",
@@ -62,28 +56,34 @@
       "label": "Wed",
       "level": "910.5",
       "fresh": true
+    },
+    {
+      "date": "2026-11-05",
+      "label": "Thu",
+      "level": "910.47",
+      "fresh": false
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "910.5 ft \u00b7 bass \u00b7 walleye \u00b7 crappie",
+    "dek": "910.47 ft \u00b7 bass \u00b7 walleye \u00b7 crappie",
     "now": {
-      "level": "910.5 ft",
+      "level": "910.47 ft",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "At approximately 910.5 ft the lake continues to show significant bank and structure. Stumps, laydowns, and hazards in creek arms and coves sit closer to the surface \u2014 boat slowly and watch electronics, particularly in the James, Kings, and Long Creek arms.",
-      "Surface water has cooled into the upper 50s to low 60s with excellent clarity. Bass are holding on long points, gravel transitions into deeper water, and offshore brush in 25\u201345 ft. Clean presentations with jigs, drop-shots, and finesse rigs are key in this clear water. Mixed-bag action continues for walleye on points and crappie around deeper docks and brush."
+      "At approximately 910.47 ft, the lake sits about 4.5 ft below full pool. More shoreline, stumps, and hazards are exposed in coves, creek arms, and near some ramps \u2014 boat slowly, especially in the James, Kings, and Long Creek arms, and check launch conditions.",
+      "Surface water has cooled into the low 60s\u2013upper 50s range with outstanding clarity. Bass are hitting topwaters and soft plastics early before transitioning to jigs, live bait, or drop-shot rigs around long points, gravel flats dropping into 20\u201340 ft, and offshore structure. Walleye show on points in 20\u201325 ft and crappie or spotted bass hold in deeper brush and around docks. Clean presentations in this clear, cooling water continue to produce solid catches for anglers dialed into the seasonal shift."
     ]
   },
   "taneycomo": {
     "hed": "Lake Taneycomo \u2014 The Trout Water",
     "dek": "Cold tailwater \u00b7 generation is the whole game",
     "now": {
-      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
+      "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~300 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
+      "generation": "Call SWPA 866-494-1993 before you wad. Do not guess the generators."
     },
     "working": [
       "Pink Power Worms",
@@ -94,13 +94,13 @@
       "PowerBait"
     ],
     "body": [
-      "Cold bottom releases from Table Rock keep this tailwater in the mid-50s. Generation remains the complete tactic book: light early flows allow wading or light-line drifting with indicators. When turbines ramp (typically afternoon into evening), fish weighted rigs in the seams and current breaks.",
-      "From Table Rock Dam downstream to Fall Creek it is artificial lures and flies only \u2014 no soft plastics, no scented or natural baits. Rainbows 12\u201320 inches must be released. Save pink worms, PowerBait, or other scented options for water below Fall Creek. A trout permit is required in the upper sections. Micro jigs, midges, scuds, and small streamers in natural colors are working well. Call 866-494-1993 for the live schedule so rising water does not catch you off guard."
+      "This cold tailwater remains highly productive thanks to consistent MDC stocking. Generation is the primary tactic book: stronger flows favor weighted rigs, drifting seams, and targeting current breaks with 2\u20134 lb test. Lower windows allow lighter indicator rigs or wading.",
+      "From Table Rock Dam down to Fall Creek is trophy water \u2014 artificial lures and flies only; no soft plastics or scented/natural baits. Rainbows 12\u201320 inches must be released. Save pink worms, PowerBait, Gulp eggs, or other soft plastics/scented baits for water below Fall Creek. A trout permit is required in many sections. Recent reports highlight improving rainbow numbers, active browns in the upper lake, and success on marabou jigs, midges, scuds, worms, and eggs. Water clarity is generally excellent. Call 866-494-1993 for the latest SWPA schedule before heading out."
     ]
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-11-04",
+    "checked": "2026-11-05",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }

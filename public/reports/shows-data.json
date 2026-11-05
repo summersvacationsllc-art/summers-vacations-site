@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "shows": [
     {
       "name": "Absolutely Country, Definitely Gospel",
@@ -15,7 +15,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
       "ticketOk": false
     },
@@ -51,7 +51,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "\ud83c\udfad",
+      "icon": "🎭",
       "for": "music",
       "ticketOk": false
     },
@@ -69,7 +69,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
       "ticketOk": false
     },
@@ -87,10 +87,9 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "family",
-      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
+      "icon": "👨‍👩‍👧",
       "for": "family",
-      "ticketOk": false,
-      "venueAddress": "W 76 Country Blvd Branson"
+      "ticketOk": false
     },
     {
       "name": "The Haygoods",
@@ -160,7 +159,7 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
       "ticketOk": false
     },
@@ -232,7 +231,7 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "music",
-      "icon": "\ud83c\udfad",
+      "icon": "🎭",
       "for": "music",
       "ticketOk": false
     },
@@ -268,7 +267,7 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
       "ticketOk": false
     },
@@ -309,12 +308,13 @@
     }
   ],
   "freeEvents": [],
-  "magazineBuilt": "2026-11-04",
-  "last_verified": "2026-11-04T05:33:54-06:00",
-  "status": "fresh",
+  "magazineBuilt": "2026-11-05",
+  "last_verified": "2026-11-05T05:01:06-06:00",
+  "status": "fallback",
   "scoutDate": "2026-11-04",
   "scoutFile": "2026-11-04.md",
   "source": "scout",
   "listHash": "cc22b9da2f59",
-  "generated_at": "2026-11-04T05:33:54-06:00"
+  "note": "Show list from the 2026-11-04 scout (today's scout missing). Confirm times at the box office.",
+  "generated_at": "2026-11-05T05:01:06-06:00"
 }
