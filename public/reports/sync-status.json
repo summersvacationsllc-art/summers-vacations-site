@@ -1,17 +1,18 @@
 {
   "ok": true,
-  "generated_at": "2026-11-05T02:41:59+00:00",
-  "checkedAt": "2026-11-04T20:41:59-06:00",
-  "todayCT": "2026-11-04",
-  "lastSyncAt": "2026-11-05T02:41:56+00:00",
-  "syncDataDate": "2026-11-04",
-  "liveDataDate": "2026-11-04",
+  "generated_at": "2026-11-05T18:12:31+00:00",
+  "checkedAt": "2026-11-05T12:12:31-06:00",
+  "todayCT": "2026-11-05",
+  "lastSyncAt": "2026-11-05T18:12:17+00:00",
+  "syncDataDate": "2026-11-05",
+  "liveDataDate": "2026-11-05",
   "liveSource": "github",
   "expectedInHouse": [
+    "Brian Summers @ Penthouse",
     "Suellyn Melder @ Rustic Ozark"
   ],
   "kioskUnits": {
-    "the-penthouse": null,
+    "the-penthouse": "Brian Summers (Penthouse)",
     "rustic-ozark-retreat": "Suellyn Melder (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": null,
@@ -21,5 +22,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/41956858187 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42081906405"
 }
