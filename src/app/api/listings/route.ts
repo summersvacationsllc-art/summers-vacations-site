@@ -119,6 +119,15 @@ export async function GET() {
         };
       });
 
+    // One card per home: Guesty can hold two listings for the same house
+    // (e.g. "Indian Point" + "Branson Family Haven"); keep the one with a photo.
+    const bySlug = new Map<string, ListingCard>();
+    for (const c of cards) {
+      const prev = bySlug.get(c.slug);
+      if (!prev || (!prev.photo && c.photo)) bySlug.set(c.slug, c);
+    }
+    cards.splice(0, cards.length, ...bySlug.values());
+
     // Homes with a site page that aren't in Guesty yet still get a homepage card.
     const missing = staticListings().filter((s) => !cards.some((c) => c.slug === s.slug));
     const valid = cards.length ? [...cards, ...missing] : staticListings();

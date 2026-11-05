@@ -147,6 +147,8 @@ export const PROPERTIES: PropertyCard[] = [
     area: "Indian Point",
     slug: "branson-family-haven",
     photo: "/property-photos/branson-family-haven/aaa-house.jpg",
+    // Guesty also has a second "Indian Point" listing for this same house.
+    guestyAliases: ["Indian Point", "Branson Family Haven / Indian Point"],
     blurb: "Standalone 5BR house with yard, fire pit, and room for the whole crew.",
     badge: "🏡 House",
     bookUrl: "https://bransonfamilyhaven.guestybookings.com/",
