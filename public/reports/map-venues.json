@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "venues": {
     "americana theatre": {
       "lat": 36.6386381,
@@ -25,6 +25,11 @@
       "lat": 36.6501061,
       "lng": -93.2917365,
       "address": "W 76 Country Blvd Branson"
+    },
+    "the mansion": {
+      "lat": 36.6654137,
+      "lng": -93.2540625,
+      "address": "Expressway Lane Branson"
     }
   }
 }
