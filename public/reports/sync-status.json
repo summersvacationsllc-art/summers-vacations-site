@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-11-05T19:58:34+00:00",
-  "checkedAt": "2026-11-05T13:58:34-06:00",
+  "generated_at": "2026-11-05T21:34:24+00:00",
+  "checkedAt": "2026-11-05T15:34:24-06:00",
   "todayCT": "2026-11-05",
-  "lastSyncAt": "2026-11-05T19:58:32+00:00",
+  "lastSyncAt": "2026-11-05T21:34:23+00:00",
   "syncDataDate": "2026-11-05",
   "liveDataDate": "2026-11-05",
   "liveSource": "github",
@@ -18,9 +18,10 @@
     "branson-family-haven": null,
     "woodland-retreat": null,
     "scotts-unit": null,
-    "silver-dollar-adventure-escape": null
+    "silver-dollar-adventure-escape": null,
+    "silver-dollar-suite": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42098934725 late=0 rebuild=success"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42113831573 late=0 rebuild=success"
 }
