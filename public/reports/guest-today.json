@@ -1,25 +1,25 @@
 {
-  "date": "2026-11-04",
-  "generated_at": "2026-11-05T02:41:56+00:00",
+  "date": "2026-11-05",
+  "generated_at": "2026-11-05T05:30:47-06:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 1,
+    "check_ins": 1,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 1,
+    "in_house_units": 2,
     "units_total": 5
   },
-  "check_ins": [],
-  "check_outs": [
+  "check_ins": [
     {
       "property": "Penthouse",
-      "guest": "Carter May",
+      "guest": "Brian Summers",
       "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_6xv48fk",
-      "time": "10:00 AM"
+      "platform": "owner",
+      "reservation_id": "res_8rwg282",
+      "time": "4:00 PM"
     }
   ],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
@@ -31,6 +31,16 @@
       "check_in": "2026-10-31",
       "check_out": "2026-11-07",
       "nights": 7
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Brian Summers",
+      "guests": 2,
+      "platform": "owner",
+      "reservation_id": "res_8rwg282",
+      "check_in": "2026-11-05",
+      "check_out": "2026-11-09",
+      "nights": 4
     }
   ],
   "sync_notes": {
