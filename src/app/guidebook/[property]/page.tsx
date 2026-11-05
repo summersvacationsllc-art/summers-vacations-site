@@ -589,7 +589,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   )}
                   {isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival. TVs and a game console are in the game zone.')}
                   {isSuite && guideItem('#dbeafe','📶','Wi-Fi','In your arrival information','Wi-Fi details are in your private arrival information and in the suite.')}
-                  {!isKlein && !isSuite && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? prop.wifi.password : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
+                  {!isKlein && !isSuite && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> Scan the Wi-Fi QR code in your unit.'+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
                   <div className="bg-white rounded-lg mb-1 border border-sky-100 overflow-hidden">
                     <details className="group">
                       <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">

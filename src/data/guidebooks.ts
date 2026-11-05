@@ -277,7 +277,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: COMMON.accessNote,
     },
 
-    wifi: { network: "MyAltice 3a35c7", password: "linen-680-659" },
+    wifi: { network: "MyAltice 3a35c7", password: "" },
 
     appliances: {
       coffeeMaker: {
@@ -338,7 +338,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: COMMON.accessNote,
     },
 
-    wifi: { network: "MyOptimum d6d285", password: "3616-cyan-52" },
+    wifi: { network: "MyOptimum d6d285", password: "" },
 
     appliances: {
       coffeeMaker: {
@@ -402,7 +402,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     wifi: {
       network: "Unit 7: MyOptimum d6d285 / Unit 11: MyAltice 3a35c7",
-      password: "Unit 7: 3616-cyan-52 / Unit 11: linen-680-659",
+      password: "",
     },
 
     appliances: {
@@ -470,7 +470,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         "We have keyless entry. Your door code is the last 4 digits of the phone number used when booking. Code is active at 4:00 PM on check-in day.",
     },
 
-    wifi: { network: "44 Timber Trace", password: "welcome44" },
+    wifi: { network: "44 Timber Trace", password: "" },
 
     appliances: {
       coffeeMaker: {
@@ -559,7 +559,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: COMMON.accessNote,
     },
 
-    wifi: { network: "My Optimum c950bf", password: "brick-148-543" },
+    wifi: { network: "My Optimum c950bf", password: "" },
 
     appliances: {
       coffeeMaker: {
@@ -613,7 +613,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         "Keyless entry (same lock system style as The Penthouse at Notch). Your door code is the last 4 digits of the phone number on your booking. The code works from 4:00 PM on arrival day until 10:00 AM on checkout day. We'll also email check-in details before you arrive. If the lock doesn't respond, wait a few seconds and try again, then text Brian at 314-565-0589.",
     },
 
-    wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
+    wifi: { network: "MyAltice 34f945", password: "" },
 
     appliances: {
       coffeeMaker: {
