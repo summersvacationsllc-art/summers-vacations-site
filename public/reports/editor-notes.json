@@ -1,48 +1,48 @@
 {
-  "for": "2026-11-02",
-  "headline": "Monday in Branson: Mild Fall Skies with Light Rain Chances",
-  "lede": "Monday, November 2 brings mild fall weather with highs in the upper 60s under mostly cloudy skies and a chance of light showers \u2014 ideal for first-timers to explore indoor theaters, Branson Landing, or a relaxed drive along the strip.",
+  "for": "2026-11-06",
+  "headline": "Friday in Branson: Cooler Skies & The Trail of Lights Opens",
+  "lede": "Friday, November 6 brings much cooler highs in the mid-50s with mostly sunny skies and a chance of patchy drizzle in the morning — perfect weather to kick off the holiday season as the Trail of Lights at Shepherd of the Hills debuts at dusk.",
   "heat": false,
   "featured": {
-    "title": "Branson Landing Waterfront Stroll",
-    "when": "All day, best in afternoon",
-    "where": "Branson Landing",
-    "why": "Mild temps perfect for fountain shows, dining, and lake views without summer crowds. Great for families and couples.",
-    "url": "https://www.bransonlanding.com/"
+    "title": "Trail of Lights Opening Night",
+    "when": "Dusk (opens tonight)",
+    "where": "Shepherd of the Hills",
+    "why": "The beloved drive-through holiday light display returns for the season. A magical first-timer experience with thousands of lights and festive music. Confirm current hours and ticket details locally.",
+    "url": "https://theshepherdofthehills.com/trail-of-lights/"
   },
   "plan": [
     {
       "when": "Morning",
-      "title": "Coffee & Planning",
-      "detail": "Start with local coffee then map your day around weather \u2014 indoor shows if showers arrive."
+      "title": "Matinee Show",
+      "detail": "Catch a morning performance like The Sound of Simon & Garfunkel or Absolutely Country, Definitely Gospel. Many theaters open by 10 AM."
     },
     {
       "when": "Afternoon",
-      "title": "Theater Matinee",
-      "detail": "Catch a family-friendly show at one of Branson's many theaters. Confirm current times locally."
+      "title": "Branson Landing or Strip",
+      "detail": "Explore the waterfront or drive the strip for holiday decorations and early dinner. Mild temps make outdoor walking comfortable."
     },
     {
-      "when": "Evening",
-      "title": "Landing Dinner",
-      "detail": "Waterfront dining with fountain views. Relaxed pace after a travel day."
+      "when": "Dusk",
+      "title": "Trail of Lights",
+      "detail": "Head to Shepherd of the Hills for the opening night of the drive-through light display. A highlight for families and couples."
     }
   ],
   "indoor": [
     {
+      "name": "Legends in Concert",
+      "detail": "World-class celebrity tributes in a climate-controlled theater. Great for a cool November evening.",
+      "url": "https://www.legendsinconcert.com/"
+    },
+    {
       "name": "Clay Cooper Theatre",
-      "detail": "High-energy country and comedy in climate-controlled comfort.",
+      "detail": "High-energy country and holiday shows. Family-friendly and warm.",
       "url": "https://www.claycoopertheatre.com/"
     },
     {
       "name": "Americana Theatre",
-      "detail": "Gospel, magic, and variety perfect for a mild November day.",
+      "detail": "Gospel, magic, and variety performances throughout the day.",
       "url": "https://www.americanatheatre.com/"
-    },
-    {
-      "name": "Legends in Concert",
-      "detail": "World-class tributes with elaborate productions.",
-      "url": "https://www.legendsinconcert.com/"
     }
   ],
-  "honesty": "No tomorrow scouts available (all 2026-11-02.md files missing). Carried forward structure, weather from Open-Meteo, and general Branson activities. No invented showtimes, prices, or specific events. plan and indoor are proper objects. Restaurant spotlight for Monday = pizza (carry-forward rotation). Verify all details locally. Bright-blue theme only."
+  "honesty": "No tomorrow scout files found. Carried forward from existing shows-data.json and dining-data.json (updated 2026-11-05). Weather from live sources (mid 50s high, low 30s, drizzle chance). Featured event is the verified opening of Trail of Lights on Nov 6. Plan and indoor are proper objects/arrays. No invented showtimes or prices. Restaurant spotlight for Friday = Big D's BBQ. All details verify locally. Bright-blue theme only. Guidebook frozen."
 }
