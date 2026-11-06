@@ -1,29 +1,29 @@
 {
-  "date": "2026-11-05",
-  "generated_at": "2026-11-06T02:45:02+00:00",
+  "date": "2026-11-06",
+  "generated_at": "2026-11-06T06:21:31-06:00",
   "headline": {
     "check_ins": 2,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 5,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Penthouse",
-      "guest": "Brian Summers",
-      "guests": 2,
-      "platform": "owner",
-      "reservation_id": "res_8rwg282",
+      "property": "Indian Point",
+      "guest": "Jake Tankersley",
+      "guests": 8,
+      "platform": "airbnb2",
+      "reservation_id": "res_2koipy7",
       "time": "4:00 PM"
     },
     {
-      "property": "Scotts unit",
-      "guest": "Tessa Steinhart",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_chow1ya",
+      "property": "Woodland Retreat",
+      "guest": "Michelle and David Barton",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_orx9la5",
       "time": "4:00 PM"
     }
   ],
@@ -59,6 +59,26 @@
       "check_in": "2026-11-05",
       "check_out": "2026-11-08",
       "nights": 3
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Jake Tankersley",
+      "guests": 8,
+      "platform": "airbnb2",
+      "reservation_id": "res_2koipy7",
+      "check_in": "2026-11-06",
+      "check_out": "2026-11-08",
+      "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Michelle and David Barton",
+      "guests": 1,
+      "platform": "owner",
+      "reservation_id": "res_orx9la5",
+      "check_in": "2026-11-06",
+      "check_out": "2026-11-08",
+      "nights": 2
     }
   ],
   "sync_notes": {
