@@ -1,13 +1,13 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Thursday warm-up",
-  "deck": "Today's lineup features a strong mix of holiday-themed productions and variety/country shows, coinciding with the start of Branson's Veterans Homecoming Week. Multiple matinees and evening performances celebrate Christmas and patriotic themes across major theaters.",
+  "hed": "Friday in Branson: Cooler Skies & The Trail of Lights Opens",
+  "deck": "Friday, November 6 brings much cooler highs in the mid-50s with mostly sunny skies and a chance of patchy drizzle in the morning — perfect weather to kick off the holiday season as the Trail of Lights at Shepherd of the Hills debuts at dusk.",
   "pick": {
-    "title": "Jimmy Fortune",
-    "when": "8:00 PM",
-    "where": "The Mansion",
+    "title": "Toast (Tribute to Bread)",
+    "when": "7:00 PM",
+    "where": "The Mansion Theatre",
     "why": "Core Branson mainstage energy.",
     "url": "",
     "source": "desk"
@@ -17,7 +17,7 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 8,
+      "count": 6,
       "shows": [
         {
           "name": "Absolutely Country, Definitely Gospel",
@@ -28,11 +28,11 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Uplifting blend of country and gospel favorites performed live",
+          "desc": "Uplifting country and gospel music performance",
           "price": ""
         },
         {
-          "name": "Beach Boys California Dreamin'",
+          "name": "The Sound of Simon and Garfunkel Show",
           "time": "10:00 AM",
           "venue": "Hamner's Variety Theater",
           "type": null,
@@ -40,35 +40,23 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Surf through classic Beach Boys hits in this lively tribute concert",
+          "desc": "A harmonious tribute capturing the folk-rock classics of Simon & Garfunkel",
           "price": "$58–$67"
         },
         {
           "name": "Branson's Christmas Wonderland",
-          "time": "10:00 AM",
+          "time": "2:00 PM",
           "venue": "King's Castle Theatre",
           "type": null,
           "url": "",
           "chip": "music",
           "icon": "🎭",
           "ticketOk": false,
-          "desc": "Festive holiday spectacle with music, lights, and seasonal entertainment",
-          "price": "$69"
+          "desc": "Festive holiday spectacular with music, dance, and Christmas cheer",
+          "price": "$69–$136"
         },
         {
           "name": "Clay Cooper's Country Express Show",
-          "time": "10:00 AM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "High-energy country music and comedy with the Cooper family and cast",
-          "price": "$76–$93"
-        },
-        {
-          "name": "#1 Hits of The 60s",
           "time": "2:00 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
@@ -76,44 +64,64 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Nostalgic revue celebrating the biggest hits and sounds of the 1960s",
-          "price": "$67–$83"
+          "desc": "High-energy country music and comedy with the Clay Cooper cast",
+          "price": "$61–$119"
         },
         {
-          "name": "A Celtic Christmas",
+          "name": "Thank You For The Music (ABBA Tribute)",
           "time": "2:00 PM",
-          "venue": "King's Castle Theatre",
+          "venue": "Hamner's Variety Theater",
           "type": null,
           "url": "",
-          "chip": "music",
-          "icon": "🎶",
+          "chip": "classic",
+          "icon": "🎸",
           "ticketOk": false,
-          "desc": "Irish-inspired holiday music and dance in a festive atmosphere",
-          "price": "$67"
+          "desc": "High-energy tribute to the hits of ABBA",
+          "price": "$33–$45"
         },
         {
-          "name": "The Gambler",
-          "time": "2:00 PM",
+          "name": "Legends in Concert",
+          "time": "3:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Live tributes to music icons with incredible look-alikes and vocals",
+          "price": "$80–$92"
+        }
+      ]
+    },
+    {
+      "id": "late_afternoon",
+      "label": "Late afternoon",
+      "blurb": "4–7 PM",
+      "count": 2,
+      "shows": [
+        {
+          "name": "Back to The Bee Gees",
+          "time": "5:00 PM",
+          "venue": "Hamner's Variety Theater",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Faithful tribute to the harmonies and disco hits of the Bee Gees",
+          "price": "$36–$67"
+        },
+        {
+          "name": "The Heatherlys / Hits on Route 66",
+          "time": "5:00 PM",
           "venue": "Americana Theatre",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Kenny Rogers tribute featuring classic country storytelling songs",
-          "price": ""
-        },
-        {
-          "name": "Miracle of Christmas",
-          "time": "3:30 PM",
-          "venue": "Sight & Sound Theatres",
           "type": null,
           "url": "",
           "chip": "music",
           "icon": "🎭",
           "ticketOk": false,
-          "desc": "Epic live staging of the biblical Christmas story with animals, sets, and effects",
-          "price": "$59–$79"
+          "desc": "Nostalgic musical journey along Route 66 with the Heatherlys",
+          "price": "$37–$72"
         }
       ]
     },
@@ -121,8 +129,32 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 6,
+      "count": 5,
       "shows": [
+        {
+          "name": "Toast (Tribute to Bread)",
+          "time": "7:00 PM",
+          "venue": "The Mansion Theatre",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Ultimate tribute to the soft rock classics of Bread",
+          "price": "$41–$68"
+        },
+        {
+          "name": "Dean Z: The Ultimate Elvis",
+          "time": "7:30 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Award-winning Elvis tribute artist delivering authentic rock 'n' roll",
+          "price": ""
+        },
         {
           "name": "The Texas Tenors: Deep in the Heart of Christmas",
           "time": "7:30 PM",
@@ -132,56 +164,20 @@
           "chip": "music",
           "icon": "🎶",
           "ticketOk": false,
-          "desc": "The acclaimed trio delivers powerful vocals on holiday and inspirational songs",
-          "price": "$82–$106"
+          "desc": "Three powerful voices deliver holiday favorites, country, and classics",
+          "price": "$55–$115"
         },
         {
-          "name": "Branson's Christmas Wonderland",
+          "name": "Anthems of Rock",
           "time": "8:00 PM",
           "venue": "King's Castle Theatre",
           "type": null,
           "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Festive holiday spectacle with music, lights, and seasonal entertainment",
-          "price": "$69"
-        },
-        {
-          "name": "C.J. Newsom's Country Classic and Comedy Christmas Show",
-          "time": "8:00 PM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": false,
-          "desc": "Humorous country classics and holiday favorites with engaging storytelling",
-          "price": ""
-        },
-        {
-          "name": "Jimmy Fortune",
-          "time": "8:00 PM",
-          "venue": "The Mansion",
-          "type": null,
-          "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Intimate evening of country, gospel, and Statler Brothers classics by the Hall of Famer",
-          "price": ""
-        },
-        {
-          "name": "Legends in Concert",
-          "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Spectacular tributes to music icons in a high-production Christmas-themed show",
-          "price": "$81–$93"
+          "desc": "High-octane rock anthems and hits from the greatest bands",
+          "price": "$41–$74"
         },
         {
           "name": "Presley's Country Christmas",
@@ -192,28 +188,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Family-style country music and comedy with a festive holiday twist",
-          "price": ""
-        }
-      ]
-    },
-    {
-      "id": "anytime",
-      "label": "Time TBA",
-      "blurb": "Confirm box office",
-      "count": 1,
-      "shows": [
-        {
-          "name": "Thank You For The Music",
-          "time": "Check times",
-          "venue": "Hamner's Variety Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "ABBA tribute delivering the band's iconic pop hits with energy and flair",
-          "price": ""
+          "desc": "Family-friendly holiday country music and comedy tradition",
+          "price": "$56–$91"
         }
       ]
     }
@@ -222,30 +198,41 @@
     {
       "id": "classic",
       "label": "Classic",
-      "count": 9
+      "count": 10
     },
     {
       "id": "music",
       "label": "Music",
-      "count": 5
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy",
-      "count": 1
+      "count": 3
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Legends in Concert",
+      "detail": "World-class celebrity tributes in a climate-controlled theater. Great for a cool November evening.",
+      "url": "https://www.legendsinconcert.com/"
+    },
+    {
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy country and holiday shows. Family-friendly and warm.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "Americana Theatre",
+      "detail": "Gospel, magic, and variety performances throughout the day.",
+      "url": "https://www.americanatheatre.com/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-05",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-05.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-06",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-11-06.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 15,
+    "shows": 13,
     "withTickets": 0
   },
-  "generated_at": "2026-11-05T12:12:13-06:00"
+  "generated_at": "2026-11-06T06:21:21-06:00"
 }
