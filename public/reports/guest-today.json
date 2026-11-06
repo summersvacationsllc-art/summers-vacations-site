@@ -1,12 +1,12 @@
 {
   "date": "2026-11-05",
-  "generated_at": "2026-11-05T21:34:23+00:00",
+  "generated_at": "2026-11-06T00:28:28+00:00",
   "headline": {
-    "check_ins": 1,
+    "check_ins": 2,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 2,
+    "in_house_units": 3,
     "units_total": 5
   },
   "check_ins": [
@@ -16,6 +16,14 @@
       "guests": 2,
       "platform": "owner",
       "reservation_id": "res_8rwg282",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Tessa Steinhart",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_chow1ya",
       "time": "4:00 PM"
     }
   ],
@@ -41,6 +49,16 @@
       "check_in": "2026-11-05",
       "check_out": "2026-11-09",
       "nights": 4
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Tessa Steinhart",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_chow1ya",
+      "check_in": "2026-11-05",
+      "check_out": "2026-11-08",
+      "nights": 3
     }
   ],
   "sync_notes": {
