@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday in Branson: Cooler Skies & The Trail of Lights Opens",
-  "deck": "Friday, November 6 brings much cooler highs in the mid-50s with mostly sunny skies and a chance of patchy drizzle in the morning — perfect weather to kick off the holiday season as the Trail of Lights at Shepherd of the Hills debuts at dusk.",
-  "pick": {
-    "title": "Toast (Tribute to Bread)",
-    "when": "7:00 PM",
-    "where": "The Mansion Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Saturday full board",
+  "deck": "Biggest day of the week for live entertainment — matinees for kids, evening for date night.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -206,33 +199,17 @@
       "count": 3
     }
   ],
-  "indoor": [
-    {
-      "name": "Legends in Concert",
-      "detail": "World-class celebrity tributes in a climate-controlled theater. Great for a cool November evening.",
-      "url": "https://www.legendsinconcert.com/"
-    },
-    {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy country and holiday shows. Family-friendly and warm.",
-      "url": "https://www.claycoopertheatre.com/"
-    },
-    {
-      "name": "Americana Theatre",
-      "detail": "Gospel, magic, and variety performances throughout the day.",
-      "url": "https://www.americanatheatre.com/"
-    }
-  ],
+  "indoor": [],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-06",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-11-06.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-07",
+    "note": "Show list from the 2026-11-06 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 13,
     "withTickets": 0
   },
-  "generated_at": "2026-11-06T11:39:02-06:00"
+  "generated_at": "2026-11-07T05:01:19-06:00"
 }
