@@ -1,22 +1,22 @@
 {
   "ok": true,
-  "generated_at": "2026-11-07T02:15:49+00:00",
-  "checkedAt": "2026-11-06T20:15:49-06:00",
-  "todayCT": "2026-11-06",
-  "lastSyncAt": "2026-11-07T02:15:47+00:00",
-  "syncDataDate": "2026-11-06",
-  "liveDataDate": "2026-11-06",
+  "generated_at": "2026-11-07T16:35:19+00:00",
+  "checkedAt": "2026-11-07T10:35:19-06:00",
+  "todayCT": "2026-11-07",
+  "lastSyncAt": "2026-11-07T16:35:14+00:00",
+  "syncDataDate": "2026-11-07",
+  "liveDataDate": "2026-11-07",
   "liveSource": "github",
   "expectedInHouse": [
     "Jake Tankersley @ Indian Point",
     "Brian Summers @ Penthouse",
-    "Suellyn Melder @ Rustic Ozark",
+    "Brian Summers @ Rustic Ozark",
     "Tessa Steinhart @ Scotts unit",
     "Michelle and David Barton @ Woodland Retreat"
   ],
   "kioskUnits": {
     "the-penthouse": "Brian Summers (Penthouse)",
-    "rustic-ozark-retreat": "Suellyn Melder (Rustic Ozark)",
+    "rustic-ozark-retreat": "Brian Summers (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": "Jake Tankersley (Indian Point)",
     "woodland-retreat": "Michelle and David Barton (Woodland Retreat)",
@@ -26,5 +26,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42328330867 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42392015315"
 }
