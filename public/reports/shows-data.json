@@ -15,7 +15,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
       "ticketOk": false
     },
@@ -33,7 +33,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
       "ticketOk": false
     },
@@ -49,9 +49,11 @@
       "sortMinutes": 690,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6654,
+      "lng": -93.26219
     },
     {
       "name": "#1 Hits of The 60s",
@@ -67,7 +69,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
@@ -85,7 +87,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "magic",
-      "icon": "🪄",
+      "icon": "\ud83e\ude84",
       "for": "magic",
       "ticketOk": false
     },
@@ -103,7 +105,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
       "ticketOk": false
     },
@@ -121,7 +123,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎶",
+      "icon": "\ud83c\udfb6",
       "for": "music",
       "ticketOk": false
     },
@@ -139,7 +141,7 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
       "ticketOk": false
     },
@@ -155,9 +157,11 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6654,
+      "lng": -93.26219
     },
     {
       "name": "Shanghai Circus / Amazing Acrobats of Shanghai",
@@ -165,15 +169,15 @@
       "venue": "Mickey Gilley Grand Shanghai Theatre",
       "venueAddress": "3455 W 76 Country Blvd",
       "desc": "Thrilling acrobatic performances with high-flying acts, balancing, and spectacular choreography",
-      "price": "$44–$73",
-      "ticketNote": "Tickets from ~$44–$73",
+      "price": "$44\u2013$73",
+      "ticketNote": "Tickets from ~$44\u2013$73",
       "sources": "discoverbranson.com, americanarenas.com (verified Saturday, November 7, 2026)",
       "lat": 36.64161,
       "lng": -93.28505,
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "thrill",
-      "icon": "🤸",
+      "icon": "\ud83e\udd38",
       "for": "thrill",
       "ticketOk": false
     },
@@ -183,15 +187,15 @@
       "venue": "King's Castle Theatre",
       "venueAddress": "2701 W 76 Country Blvd",
       "desc": "Magical Christmas production featuring holiday music, dazzling costumes, and festive entertainment",
-      "price": "$69–$71",
-      "ticketNote": "Tickets from ~$69–$71",
+      "price": "$69\u2013$71",
+      "ticketNote": "Tickets from ~$69\u2013$71",
       "sources": "americanarenas.com, bransonmoconcerts.com (verified Saturday, November 7, 2026)",
       "lat": 36.64044,
       "lng": -93.26808,
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "magic",
-      "icon": "🪄",
+      "icon": "\ud83e\ude84",
       "for": "magic",
       "ticketOk": false
     },
@@ -200,7 +204,7 @@
       "time": "8:00 PM",
       "venue": "The Mansion Theatre",
       "venueAddress": "189 Expressway Ln",
-      "desc": "Country music star performs hits like “Have You Forgotten?” plus favorites in an intimate setting",
+      "desc": "Country music star performs hits like \u201cHave You Forgotten?\u201d plus favorites in an intimate setting",
       "price": "",
       "ticketNote": "Tickets available",
       "sources": "bransonmoconcerts.com, jambase.com, americanarenas.com (verified Saturday, November 7, 2026)",
@@ -209,7 +213,7 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
@@ -219,15 +223,15 @@
       "venue": "Pepsi Legends Theater",
       "venueAddress": "1600 W 76 Country Blvd",
       "desc": "World-class tribute show featuring incredible impersonations (holiday lineup includes Johnny Cash, Kenny Chesney, Blues Brothers, and Elvis)",
-      "price": "$49–$79",
-      "ticketNote": "Tickets from ~$49–$79",
+      "price": "$49\u2013$79",
+      "ticketNote": "Tickets from ~$49\u2013$79",
       "sources": "pepsilegendstheatre.branson.direct, bransonmoconcerts.com, americanarenas.com (verified Saturday, November 7, 2026)",
       "lat": 36.64151,
       "lng": -93.24753,
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
@@ -245,18 +249,18 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     }
   ],
   "freeEvents": [],
   "magazineBuilt": "2026-11-07",
-  "last_verified": "2026-11-07T05:50:01-06:00",
+  "last_verified": "2026-11-07T10:35:13-06:00",
   "status": "fresh",
   "scoutDate": "2026-11-07",
   "scoutFile": "2026-11-07.md",
   "source": "scout",
   "listHash": "6da0611dcf14",
-  "generated_at": "2026-11-07T05:50:01-06:00"
+  "generated_at": "2026-11-07T10:35:13-06:00"
 }
