@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
   "hed": "The Water Is Falling",
-  "deck": "Table Rock this morning: 910.36 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
+  "deck": "Table Rock this morning: 910.27 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
   "play": {
-    "title": "Don't quit at 10.",
-    "body": "Fall is the opposite of August. The bite can last until lunch."
+    "title": "Fish the wind.",
+    "body": "Fall bass set up where the shad get blown. A crankbait that bangs is better than a worm that sits."
   },
   "season": {
     "name": "Fall turnover",
@@ -19,19 +19,13 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "Table Rock held near 910.34 ft all week, a hair under full pool (915). Live USACE reading 10:00 CT: 910.34 ft, 20 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "The pool walked down from 910.46 early in the week to 910.27 this morning \u2014 about 0.19 ft off that earlier mark, still under the 915 full pool. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-11-01",
-      "label": "Sun",
-      "level": "910.48",
-      "fresh": true
-    },
     {
       "date": "2026-11-02",
       "label": "Mon",
       "level": "910.46",
-      "fresh": false
+      "fresh": true
     },
     {
       "date": "2026-11-03",
@@ -60,21 +54,27 @@
     {
       "date": "2026-11-07",
       "label": "Sat",
-      "level": "910.34",
+      "level": "910.36",
+      "fresh": true
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Sun",
+      "level": "910.27",
       "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "910.34 ft \u00b7 live USACE",
+    "dek": "910.27 ft \u00b7 bass \u00b7 walleye \u00b7 crappie",
     "now": {
-      "level": "910.34 ft (USACE 10:00 CT)",
+      "level": "910.27 ft",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "At approximately 910.47 ft, the lake sits about 4.5 ft below full pool. More shoreline, stumps, and hazards are exposed in coves, creek arms, and near some ramps \u2014 boat slowly, especially in the James, Kings, and Long Creek arms, and check launch conditions.",
-      "Surface water has cooled into the low 60s\u2013upper 50s range with outstanding clarity. Bass are hitting topwaters and soft plastics early before transitioning to jigs, live bait, or drop-shot rigs around long points, gravel flats dropping into 20\u201340 ft, and offshore structure. Walleye show on points in 20\u201325 ft and crappie or spotted bass hold in deeper brush and around docks. Clean presentations in this clear, cooling water continue to produce solid catches for anglers dialed into the seasonal shift."
+      "At roughly 910.27 ft this morning, the lake is about 4.73 ft below full pool. More shoreline and hazards are exposed in the coves, creek arms (especially James, Kings, and Long Creek), and near some boat ramps \u2014 navigate carefully and check conditions before launching.",
+      "Surface water has cooled into the low-to-mid 50s\u00b0F with outstanding clarity. Bass are hitting topwaters and soft plastics early before transitioning to jigs, live bait, or drop-shot presentations around long points, gravel flats that drop into 20\u201340 ft, and offshore structure. Walleye are showing on points in 20\u201325 ft, while crappie and spotted bass hold in deeper brush and around docks. Clean, natural presentations in this clear cooling water continue to produce good catches for anglers dialed into the fall transition."
     ]
   },
   "taneycomo": {
@@ -83,7 +83,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 10:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
+      "generation": "~312 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
@@ -94,13 +94,13 @@
       "PowerBait"
     ],
     "body": [
-      "This cold tailwater remains highly productive thanks to consistent MDC stocking. Generation is the primary tactic book: stronger flows favor weighted rigs, drifting seams, and targeting current breaks with 2\u20134 lb test. Lower windows allow lighter indicator rigs or wading.",
-      "From Table Rock Dam down to Fall Creek is trophy water \u2014 artificial lures and flies only; no soft plastics or scented/natural baits. Rainbows 12\u201320 inches must be released. Save pink worms, PowerBait, Gulp eggs, or other soft plastics/scented baits for water below Fall Creek. A trout permit is required in many sections. Recent reports highlight improving rainbow numbers, active browns in the upper lake, and success on marabou jigs, midges, scuds, worms, and eggs. Water clarity is generally excellent. Call 866-494-1993 for the latest SWPA schedule before heading out."
+      "This cold tailwater fishery stays productive year-round thanks to consistent MDC stocking and cold releases from the bottom of Table Rock Dam. Generation remains the primary tactic book: low or no generation allows lighter rigs, wading, or indicator fishing in the seams; stronger flows call for added weight, drifting the current breaks, and 2\u20134 lb test.",
+      "From Table Rock Dam down to Fall Creek is trophy water \u2014 artificial lures and flies only; no soft plastics or scented/natural baits allowed. Rainbows 12 to 20 inches must be released. Save pink worms, PowerBait, or other soft plastics/scented baits for water below Fall Creek. A trout permit is required in many areas. Recent patterns show solid rainbow numbers with increasing brown activity in the upper stretches. Marabou jigs, midges, scuds, small streamers, and eggs work well. Water clarity is generally excellent. Always call 866-494-1993 for the latest SWPA generation schedule before heading out and stay clear of the closed zone below the dam."
     ]
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }
