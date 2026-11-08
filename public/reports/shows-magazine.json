@@ -1,14 +1,14 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Saturday full board",
-  "deck": "Branson is fully transitioning into the holiday season on this Saturday, with Christmas-themed productions dominating the lineup alongside a special concert. Multiple venues offer matinee and evening options celebrating the season with music, tributes, and theatrical spectacles.",
+  "hed": "Sunday in Branson: Mild Skies & Holiday Lights Glow",
+  "deck": "Sunday, November 8 brings mild highs near 64°F with mostly sunny skies and light winds — ideal for enjoying the growing holiday lights displays and a relaxed lakeside day.",
   "pick": {
     "title": "Branson's Christmas Wonderland",
     "when": "8:00 PM",
     "where": "King's Castle Theatre",
-    "why": "Illusion and live stage craft — a sure crowd-pleaser.",
+    "why": "Easy multi-age pick.",
     "url": "",
     "source": "desk"
   },
@@ -17,44 +17,8 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 7,
+      "count": 2,
       "shows": [
-        {
-          "name": "Broadway to Buble Christmas Show",
-          "time": "10:00 AM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Festive holiday production blending Broadway hits with classic Christmas songs in a high-energy show",
-          "price": "$72"
-        },
-        {
-          "name": "Spirit of America",
-          "time": "10:00 AM",
-          "venue": "King's Castle Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Patriotic musical revue featuring classic American songs and high-energy performances",
-          "price": "$65"
-        },
-        {
-          "name": "Miracle of Christmas",
-          "time": "11:30 AM",
-          "venue": "Sight & Sound Theatres",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Spectacular live retelling of the Christmas story with massive sets, live animals, and immersive staging",
-          "price": "$84"
-        },
         {
           "name": "#1 Hits of The 60s",
           "time": "2:00 PM",
@@ -64,20 +28,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-energy celebration of 1960s pop and rock classics with live performances",
-          "price": ""
-        },
-        {
-          "name": "Branson's Christmas Wonderland",
-          "time": "2:00 PM",
-          "venue": "King's Castle Theatre",
-          "type": null,
-          "url": "",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": false,
-          "desc": "Magical Christmas production featuring holiday music, dazzling costumes, and festive entertainment",
-          "price": "$71"
+          "desc": "Relive the biggest hits and classic sounds of the 1960s in this high-energy musical tribute",
+          "price": "$91–$120"
         },
         {
           "name": "Christmas In The Heartland",
@@ -88,20 +40,8 @@
           "chip": "music",
           "icon": "🎭",
           "ticketOk": false,
-          "desc": "Heartwarming holiday musical filled with classic Christmas songs and festive cheer",
-          "price": "$70"
-        },
-        {
-          "name": "The Texas Tenors: Deep in the Heart of Christmas",
-          "time": "2:00 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎶",
-          "ticketOk": false,
-          "desc": "The acclaimed trio delivers powerful vocals on holiday favorites and heartfelt Christmas songs",
-          "price": "$80"
+          "desc": "Heartwarming holiday music and festive performances celebrating the season",
+          "price": "$70–$92"
         }
       ]
     },
@@ -112,16 +52,16 @@
       "count": 1,
       "shows": [
         {
-          "name": "Aaron Wayne",
+          "name": "Southern Gospel Sundays",
           "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "comedy",
-          "icon": "😂",
+          "chip": "music",
+          "icon": "🎭",
           "ticketOk": false,
-          "desc": "Hilarious clean comedy show packed with relatable stories and audience interaction",
-          "price": ""
+          "desc": "Uplifting Southern gospel music perfect for a relaxing Sunday evening",
+          "price": "$72–$90"
         }
       ]
     },
@@ -129,22 +69,10 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 6,
+      "count": 3,
       "shows": [
         {
-          "name": "Miracle of Christmas",
-          "time": "7:30 PM",
-          "venue": "Sight & Sound Theatres",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Spectacular live retelling of the Christmas story with massive sets, live animals, and immersive staging",
-          "price": "$84"
-        },
-        {
-          "name": "Shanghai Circus / Amazing Acrobats of Shanghai",
+          "name": "Amazing Acrobats of Shanghai Circus / Shanghai Circus",
           "time": "7:30 PM",
           "venue": "Mickey Gilley Grand Shanghai Theatre",
           "type": null,
@@ -152,8 +80,8 @@
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": false,
-          "desc": "Thrilling acrobatic performances with high-flying acts, balancing, and spectacular choreography",
-          "price": "$44–$73"
+          "desc": "Spectacular acrobatics, juggling, and thrilling circus acts from China",
+          "price": "$69–$82"
         },
         {
           "name": "Branson's Christmas Wonderland",
@@ -161,89 +89,96 @@
           "venue": "King's Castle Theatre",
           "type": null,
           "url": "",
-          "chip": "magic",
-          "icon": "🪄",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
           "ticketOk": false,
-          "desc": "Magical Christmas production featuring holiday music, dazzling costumes, and festive entertainment",
-          "price": "$69–$71"
+          "desc": "Festive holiday spectacular filled with Christmas songs, lights, and family entertainment",
+          "price": "$69–$97"
         },
         {
-          "name": "Darryl Worley",
+          "name": "Randy Travis",
           "time": "8:00 PM",
-          "venue": "The Mansion Theatre",
+          "venue": "Clay Cooper Theatre",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Country music star performs hits like “Have You Forgotten?” plus favorites in an intimate setting",
-          "price": ""
-        },
+          "desc": "Country Music Hall of Famer Randy Travis performs timeless hits with his signature voice",
+          "price": "$78–$92"
+        }
+      ]
+    },
+    {
+      "id": "anytime",
+      "label": "Time TBA",
+      "blurb": "Confirm box office",
+      "count": 1,
+      "shows": [
         {
           "name": "Legends in Concert",
-          "time": "8:00 PM",
+          "time": "Check times",
           "venue": "Pepsi Legends Theater",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "World-class tribute show featuring incredible impersonations (holiday lineup includes Johnny Cash, Kenny Chesney, Blues Brothers, and Elvis)",
-          "price": "$49–$79"
-        },
-        {
-          "name": "Presley's Country Christmas",
-          "time": "8:00 PM",
-          "venue": "Presleys' Country Jubilee",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Family-friendly holiday show packed with country classics, comedy, and festive music",
-          "price": "$56"
+          "desc": "World-class tributes to stars like Johnny Cash, Kenny Chesney, The Blues Brothers, and Elvis in a holiday edition",
+          "price": ""
         }
       ]
     }
   ],
   "chips": [
     {
-      "id": "music",
-      "label": "Music",
-      "count": 6
-    },
-    {
       "id": "classic",
       "label": "Classic",
-      "count": 4
+      "count": 3
     },
     {
-      "id": "magic",
-      "label": "Magic",
+      "id": "music",
+      "label": "Music",
       "count": 2
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy",
-      "count": 1
     },
     {
       "id": "thrill",
       "label": "Thrill",
       "count": 1
+    },
+    {
+      "id": "family",
+      "label": "Family",
+      "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Sight & Sound Theatres",
+      "detail": "Miracle of Christmas production with spectacular sets and live animals. A first-timer favorite.",
+      "url": "https://www.sight-sound.com/"
+    },
+    {
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy Christmas and country shows in a comfortable theater.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "Americana Theatre",
+      "detail": "Holiday variety, gospel, and magic shows throughout the day.",
+      "url": "https://www.americanatheatre.com/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-07",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-07.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-08",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-11-08.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 14,
+    "shows": 7,
     "withTickets": 0
   },
-  "generated_at": "2026-11-07T10:35:13-06:00"
+  "generated_at": "2026-11-08T05:08:16-06:00"
 }
