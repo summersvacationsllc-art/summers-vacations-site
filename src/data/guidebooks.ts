@@ -771,6 +771,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "No parties or events.",
       "Quiet hours: 10 PM – 8 AM.",
       "The fireplace is decorative only.",
+      "Please keep stairwell doors closed — we run dual heating and cooling, so an open door wastes both.",
       "Two exterior cameras, one at the front and one at the back. None inside.",
       "Charcoal grill outside only. Bring your own charcoal.",
     ],
