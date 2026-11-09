@@ -357,6 +357,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                 <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 shadow-lg bg-white border border-sky-100">
                   <div className="text-[12px] font-semibold uppercase tracking-wider text-sky-900">Check-in</div>
                   <div className="text-[13px] font-bold text-sky-900 mt-1">Self check-in. Instructions were emailed before arrival.</div>
+                  {isKlein && <p className="text-[12px] text-sky-800 mt-2 mb-0 leading-relaxed">Your door code opens both the front door and the stairwell door.</p>}
                   <p className="text-[12px] text-sky-800 mt-2 mb-0 leading-relaxed">{isSuite ? SUITE_ARRIVAL : UPSTAIRS_DOWNSTAIRS_DOOR}</p>
                 </div>
                 ) : (
@@ -542,6 +543,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   {isKlein && guideItem('#fef3c7','🔑','Check In / Check Out','Check-in access & departure',
                     '<strong>🛏️ Check-in:</strong> Anytime after 4:00 PM<br /><br />'+
                     '<strong>🚪 Self check-in.</strong> Instructions were emailed before arrival.<br /><br />'+
+                    'Your door code opens both the front door and the stairwell door.<br /><br />'+
                     UPSTAIRS_DOWNSTAIRS_DOOR+'<br /><br />'+
                     '<hr style="border:none;border-top:1px dashed #bae6fd;margin:12px 0;" />'+
                     '<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:8px 10px;margin-bottom:10px;">'+

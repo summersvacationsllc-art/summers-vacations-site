@@ -721,7 +721,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         "189 Notch Lane, Bldg 21, Unit 1, Branson West. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
       parking:
         "Free parking right outside your door. Boat parking is first come, first served.",
-      accessNote: `Self check-in. Instructions were emailed before arrival. ${UPSTAIRS_DOWNSTAIRS_DOOR}`,
+      accessNote: `Self check-in. Instructions were emailed before arrival. Your door code opens both the front door and the stairwell door. ${UPSTAIRS_DOWNSTAIRS_DOOR}`,
     },
 
     // No network name or password in this guidebook. Details stay in the pre-arrival email.
