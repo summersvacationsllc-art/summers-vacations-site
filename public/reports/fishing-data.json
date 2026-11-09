@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "biteOfDay": "Bass on Table Rock have settled into fall patterns, holding on long points, gravel flats that drop into deeper water, and offshore structure as they feed ahead of winter. Walleye and crappie continue producing around brush piles and points. On Taneycomo, stocked rainbows stay active while brown trout activity increases with the cooler water. Marabou jigs, zebra midges, scuds, and small streamers a",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.25 ft (USACE 10:00 CT)",
+      "level": "910.25 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~3,486 cfs at 10:00 CT (USACE live). Overnight ~20; afternoon peak ~3,486. Call SWPA 866-494-1993 before you wad."
+      "generation": "~300 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: During early low-flow windows on Taneycomo (always confirm the current SWPA schedule at 866-494-1993), drift or wade the seams and current breaks with light 2-lb test and a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive (often with an orange head) or a #18-20 zebra midge ",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-08T10:45:43-06:00"
+  "source": "scout",
+  "last_verified": "2026-11-09T05:06:36-06:00"
 }

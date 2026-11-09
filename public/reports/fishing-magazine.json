@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
   "hed": "The Water Is Falling",
-  "deck": "Table Rock this morning: 910.27 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
+  "deck": "Table Rock this morning: 910.25 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
   "play": {
-    "title": "Fish the wind.",
-    "body": "Fall bass set up where the shad get blown. A crankbait that bangs is better than a worm that sits."
+    "title": "Streamer on the generate.",
+    "body": "When SWPA spins it, Taneycomo becomes a small river. A dark wooly bugger in the seams."
   },
   "season": {
     "name": "Fall turnover",
@@ -19,14 +19,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "The pool walked down from 910.46 early in the week to 910.25 this morning \u2014 about 0.21 ft off that earlier mark, still under the 915 full pool. Live USACE reading 10:00 CT: 910.25 ft, 3,486 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "The pool walked down from 910.46 early in the week to 910.25 this morning \u2014 about 0.21 ft off that earlier mark, still under the 915 full pool. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-11-02",
-      "label": "Mon",
-      "level": "910.46",
-      "fresh": false
-    },
     {
       "date": "2026-11-03",
       "label": "Tue",
@@ -60,20 +54,26 @@
     {
       "date": "2026-11-08",
       "label": "Sun",
+      "level": "910.27",
+      "fresh": true
+    },
+    {
+      "date": "2026-11-09",
+      "label": "Mon",
       "level": "910.25",
       "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "910.25 ft \u00b7 live USACE",
+    "dek": "910.25 ft \u00b7 bass \u00b7 walleye \u00b7 crappie",
     "now": {
-      "level": "910.25 ft (USACE 10:00 CT)",
+      "level": "910.25 ft",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "At roughly 910.27 ft this morning, the lake is about 4.73 ft below full pool. More shoreline and hazards are exposed in the coves, creek arms (especially James, Kings, and Long Creek), and near some boat ramps \u2014 navigate carefully and check conditions before launching.",
+      "At roughly 910.25 ft this morning, the lake is about 4.75 ft below full pool. More shoreline and hazards are exposed in the coves, creek arms (especially James, Kings, and Long Creek), and near some boat ramps \u2014 navigate carefully and check conditions before launching.",
       "Surface water has cooled into the low-to-mid 50s\u00b0F with outstanding clarity. Bass are hitting topwaters and soft plastics early before transitioning to jigs, live bait, or drop-shot presentations around long points, gravel flats that drop into 20\u201340 ft, and offshore structure. Walleye are showing on points in 20\u201325 ft, while crappie and spotted bass hold in deeper brush and around docks. Clean, natural presentations in this clear cooling water continue to produce good catches for anglers dialed into the fall transition."
     ]
   },
@@ -83,7 +83,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~3,486 cfs at 10:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
+      "generation": "~300 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
@@ -100,7 +100,7 @@
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-11-08",
+    "checked": "2026-11-09",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }
