@@ -1,22 +1,32 @@
 {
-  "date": "2026-11-08",
-  "generated_at": "2026-11-09T01:51:56+00:00",
+  "date": "2026-11-09",
+  "generated_at": "2026-11-09T05:33:43-06:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 3,
+    "check_ins": 1,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 3,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Scotts unit",
-      "guest": "Lindsey Altenhofen",
-      "guests": 4,
+      "property": "Penthouse",
+      "guest": "Madeline Vail",
+      "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_ag5js6d",
+      "reservation_id": "res_kpoyrbr",
       "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Penthouse",
+      "guest": "Brian Summers",
+      "guests": 2,
+      "platform": "owner",
+      "reservation_id": "res_8rwg282",
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
@@ -24,47 +34,11 @@
       "guests": 3,
       "platform": "airbnb2",
       "reservation_id": "res_34tnt2w",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Scotts unit",
-      "guest": "Tessa Steinhart",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_chow1ya",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Indian Point",
-      "guest": "Jake Tankersley",
-      "guests": 8,
-      "platform": "airbnb2",
-      "reservation_id": "res_2koipy7",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guest": "Michelle and David Barton",
-      "guests": 1,
-      "platform": "owner",
-      "reservation_id": "res_orx9la5",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Penthouse",
-      "guest": "Brian Summers",
-      "guests": 2,
-      "platform": "owner",
-      "reservation_id": "res_8rwg282",
-      "check_in": "2026-11-05",
-      "check_out": "2026-11-09",
-      "nights": 4
-    },
     {
       "property": "Rustic Ozark",
       "guest": "Brian Summers",
@@ -86,14 +60,14 @@
       "nights": 2
     },
     {
-      "property": "Woodland Retreat",
-      "guest": "Pam Oliver",
+      "property": "Penthouse",
+      "guest": "Madeline Vail",
       "guests": 3,
       "platform": "airbnb2",
-      "reservation_id": "res_34tnt2w",
-      "check_in": "2026-11-08",
-      "check_out": "2026-11-09",
-      "nights": 1
+      "reservation_id": "res_kpoyrbr",
+      "check_in": "2026-11-09",
+      "check_out": "2026-11-13",
+      "nights": 4
     }
   ],
   "sync_notes": {
