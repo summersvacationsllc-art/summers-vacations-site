@@ -1,28 +1,26 @@
 {
   "ok": true,
-  "generated_at": "2026-11-10T04:16:02+00:00",
-  "checkedAt": "2026-11-09T22:16:02-06:00",
-  "todayCT": "2026-11-09",
-  "lastSyncAt": "2026-11-10T04:16:00+00:00",
-  "syncDataDate": "2026-11-09",
-  "liveDataDate": "2026-11-09",
+  "generated_at": "2026-11-10T18:07:52+00:00",
+  "checkedAt": "2026-11-10T12:07:52-06:00",
+  "todayCT": "2026-11-10",
+  "lastSyncAt": "2026-11-10T18:07:45+00:00",
+  "syncDataDate": "2026-11-10",
+  "liveDataDate": "2026-11-10",
   "liveSource": "github",
   "expectedInHouse": [
-    "Madeline Vail @ Penthouse",
-    "Brian Summers @ Rustic Ozark",
-    "Lindsey Altenhofen @ Scotts unit"
+    "Madeline Vail @ Penthouse"
   ],
   "kioskUnits": {
     "the-penthouse": "Madeline Vail (Penthouse)",
-    "rustic-ozark-retreat": "Brian Summers (Rustic Ozark)",
+    "rustic-ozark-retreat": null,
     "double-condo": null,
     "branson-family-haven": null,
     "woodland-retreat": null,
-    "scotts-unit": "Lindsey Altenhofen (Scotts unit)",
+    "scotts-unit": null,
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42754730718 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42871878243"
 }
