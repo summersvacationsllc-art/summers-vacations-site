@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
         destination: "/property/silver-dollar-adventure-escape",
         permanent: true,
       },
+      {
+        source: "/property/scotts-unit",
+        destination: "/property/remodeled-condo",
+        permanent: true,
+      },
+      {
+        source: "/guidebook/scotts-unit",
+        destination: "/guidebook/remodeled-condo",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

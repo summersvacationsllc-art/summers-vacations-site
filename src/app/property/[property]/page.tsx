@@ -171,11 +171,6 @@ export default function PropertyPage() {
                   </div>
                 </>
               )}
-              {slug === "scotts-unit" && (
-                <p className="mt-3 text-sm text-amber-200/95 font-medium">
-                  Coming soon to VRBO, direct booking, and other channels.
-                </p>
-              )}
               {data.gallery.length > 0 && (
                 <a
                   href="#photos"

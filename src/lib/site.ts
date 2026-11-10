@@ -156,19 +156,19 @@ export const PROPERTIES: PropertyCard[] = [
     vrboUrl: "https://www.vrbo.com/5183812",
   },
   {
-    name: "No-Stairs Condo",
+    name: "Remodeled Condo",
     tag: "First Floor · Remodeled",
     sleeps: "6",
     beds: "2BR",
     area: "Branson West",
-    slug: "scotts-unit",
+    slug: "remodeled-condo",
     photo: "/property-photos/scotts-unit/aaa-living.jpg",
     blurb: "Fresh remodel, first-floor access — no stairs into the unit. About a mile from Silver Dollar City; 15–20 minutes from the shows.",
     badge: "✨ New",
-    // Airbnb-only for now — primary Book buttons go to Airbnb until VRBO/direct are live
-    bookUrl: "https://www.airbnb.com/rooms/1128338659082307697",
+    bookUrl: "https://notchcondos.guestybookings.com/properties/6abe3566a78519004a84f031",
     airbnbUrl: "https://www.airbnb.com/rooms/1128338659082307697",
     vrboUrl: "",
+    guestyAliases: ["No-Stairs Condo", "scotts-unit"],
   },
   {
     // Top floor only of 189 Notch Ln, Bldg 21, Unit 1 (Guesty 6aea02aaf9dffe005a3939fc).
@@ -238,7 +238,7 @@ export const GALLERY_PHOTOS: { src: string; alt: string; pos?: string }[] = [
   { src: "/property-photos/branson-family-haven/DJI_0197.jpeg", alt: "Family Haven from above" },
   { src: "/property-photos/branson-family-haven/IMG_9172.jpeg", alt: "Haven living room" },
   // Scott's unit / No-Stairs Condo
-  { src: "/property-photos/scotts-unit/aaa-living.jpg", alt: "No-Stairs Condo open living room" },
+  { src: "/property-photos/scotts-unit/aaa-living.jpg", alt: "Remodeled Condo open living room" },
   { src: "/property-photos/scotts-unit/aaa-kitchen.jpg", alt: "Remodeled kitchen with island" },
   { src: "/property-photos/scotts-unit/aaa-living-deck.jpg", alt: "Living room looking out to the deck" },
   // Klein's condo / Silver Dollar Adventure Escape

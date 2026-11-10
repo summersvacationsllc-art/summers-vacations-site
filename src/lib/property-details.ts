@@ -997,8 +997,8 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
     gallery: HAVEN_GALLERY,
   },
 
-  "scotts-unit": {
-    name: "No-Stairs Condo",
+  "remodeled-condo": {
+    name: "Remodeled Condo",
     tag: "✨ First Floor · Remodeled",
     sleeps: "6",
     beds: "2BR",

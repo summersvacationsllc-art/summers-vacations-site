@@ -591,14 +591,22 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     ],
   },
 
-  // ─── SCOTT'S UNIT (No-Stairs Condo · 289 Notch #6) ─────
-  "scotts-unit": {
-    id: "scotts-unit",
-    slug: "scotts-unit",
-    name: "No-Stairs Condo",
+  // ─── SCOTT'S UNIT (Remodeled Condo · 289 Notch #6) ─────
+  "remodeled-condo": {
+    id: "remodeled-condo",
+    slug: "remodeled-condo",
+    name: "Remodeled Condo",
     shortName: "Scotts unit",
     address: "289 Notch Lane, Unit 6, Branson West, MO 65737",
     guestyListingId: "6abe3566a78519004a84f031",
+    aliases: [
+      "scotts-unit",
+      "scotts unit",
+      "scott's unit",
+      "No-Stairs Condo",
+      "no-stairs",
+      "no stairs condo",
+    ],
     ...COMMON,
 
     checkIn: {
