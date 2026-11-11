@@ -239,6 +239,11 @@ const HAVEN_URGENT_CARE = [
 /** Guest-facing climate note for Silver Dollar Adventure Escape. */
 export const SUITE_ARRIVAL =
   "Private, no-step entrance next to your carport. Arrival details are sent privately for your reservation.";
+/** Silver Dollar Suite (Suite-only booking): front door only, per ACCESS-CODE-RULE-2026-11-09. */
+export const SUITE_FRONT_DOOR =
+  "Your door code opens the front door to the Suite. The stairwell door stays locked during your stay.";
+export const STAIRWELL_DOORS_CLOSED =
+  "Please keep stairwell doors closed — we run dual heating and cooling, so an open door wastes both.";
 export const UPSTAIRS_DOWNSTAIRS_DOOR =
   "Please keep the door between upstairs and downstairs closed. On hot, humid days the AC takes a long time to cool the house back down if it's left open.";
 
@@ -799,9 +804,11 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
     ],
   },
-  // ─── SILVER DOLLAR SUITE (189 Notch Ln, Bldg 21, Unit 1 · TOP FLOOR ONLY) · Coming Soon ──
-  // Separate Guesty listing from the whole-property Adventure Escape. Public page: no access
-  // codes, no Wi-Fi password and no door-code explanation; those go in private arrival messages.
+  // ─── SILVER DOLLAR SUITE (189 Notch Ln, Bldg 21, Unit 1 · TOP FLOOR ONLY) ──
+  // Copied from Silver Dollar Adventure Escape (Nov 11, 2026, per Brian) and adapted for the
+  // top floor only: 2BR/2BA, king + queen, sleeps 4, no lower-level rooms. Suite-only bookings
+  // get the front-door code only (ACCESS-CODE-RULE-2026-11-09). Public page: no access codes,
+  // no Wi-Fi password and no door-code explanation; those go in private arrival messages.
   "silver-dollar-suite": {
     id: "silver-dollar-suite",
     slug: "silver-dollar-suite",
@@ -820,32 +827,53 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       type: "self",
       doorCode: "",
       directions:
-        "Turn into Notch Estates and continue to Building 21. Silver Dollar Suite is the top floor of Unit 1, with its own private, no-step entrance next to your carport.",
-      parking: "Park in your own carport.",
-      accessNote: "Private, no-step entrance. Follow the private arrival instructions sent for your reservation.",
+        "189 Notch Lane, Bldg 21, Unit 1, Branson West. Silver Dollar Suite is the top floor, with its own private, no-step entrance next to your carport. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
+      parking:
+        "Park in your own carport. Boat parking is first come, first served.",
+      accessNote: `Self check-in. Instructions were emailed before arrival. ${SUITE_FRONT_DOOR} ${STAIRWELL_DOORS_CLOSED}`,
     },
 
-    // No network name or password on the public page.
+    // No network name or password in this guidebook. Details stay in the pre-arrival email.
     wifi: { network: "", password: "" },
 
     appliances: {
-      coffeeMaker: { type: "Coffee station", instructions: "Coffee station in the kitchen." },
-      hvac: { type: "Thermostat" },
-      tv: { type: "TV", streaming: [] },
-      washer: { instructions: "Washer and dryer inside the unit." },
+      coffeeMaker: {
+        type: "Keurig & Black & Decker drip",
+        instructions: "Morning Coffee: Start your day your way! The kitchen has two coffee makers, a Keurig for quick single cups with pods and a Black & Decker drip machine for brewing a full pot. Enjoy! The coffee station is in the kitchen, with a toaster and blender nearby.",
+        youtube: "https://youtu.be/LPvmRArY4Qs",
+      },
+      hvac: {
+        type: "Heat & A/C",
+        instructions: `${STAIRWELL_DOORS_CLOSED} Before checkout, set the thermostat to 60°F for heat or 75°F for A/C.`,
+      },
+      tv: {
+        type: "Roku TV",
+        streaming: [],
+      },
+      washer: {
+        instructions: "Washer and dryer are in the unit.",
+        youtube: "https://youtu.be/fZis6dNsSHE",
+      },
     },
 
     amenities: [
       "Top floor only: 2 bedrooms, 2 bathrooms, sleeps 4",
       "Bedroom 1: king bed · Bedroom 2: queen bed",
-      "Kitchen",
-      "Living room",
+      "Full kitchen with stainless appliances, dishwasher, coffee station, toaster, and blender",
       "Washer and dryer in the unit",
-      "Private, no-step entrance",
-      "Your own carport",
+      "Open living area with a big sectional",
+      "Desk",
+      "High chair and pack 'n play",
+      "Board games, children's books, and toys",
+      "Covered front patio and a deck with outdoor dining",
+      "Private, no-step entrance and your own carport",
+      "Catch-and-release fishing pond",
+      "Walking trails, playground, and basketball court",
+      "Community pools are seasonal and closed for the season",
     ],
     houseRulesIntro: [
-      "Welcome to Silver Dollar Suite, the top floor of 189 Notch Lane, Building 21, Unit 1. Up to 4 guests. The primary guest must be at least 25.",
+      "Welcome to Silver Dollar Suite — the top floor of 189 Notch Lane: 2 bedrooms, 2 baths, sleeps 4. Silver Dollar City is about a mile away, roughly 3 minutes by car.",
+      "Your stay is for the top-floor Suite only. The game room, bunk room, and lower-level bedrooms and bathrooms are not part of this booking.",
     ],
     houseRules: [
       "Up to 4 guests. No unregistered guests.",
@@ -853,15 +881,25 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       "No smoking, vaping, or marijuana.",
       "No parties or events.",
       "Quiet hours: 10 PM – 8 AM.",
-      "Checkout is at 10:00 AM. Please follow the checkout instructions sent with your reservation.",
+      "The fireplace is decorative only.",
+      "Please keep stairwell doors closed — we run dual heating and cooling, so an open door wastes both.",
+      "Two exterior cameras, one at the front and one at the back. None inside.",
+      "Charcoal grill outside only. Bring your own charcoal.",
     ],
-    trash: "Please follow the trash instructions sent with your reservation.",
+    trash: "Please take your trash to the on-site dumpster.",
     emergency: { hospital: COMMON.hospital, localContact: COMMON.localContact, call911: COMMON.call911 },
     urgentCare: NOTCH_URGENT_CARE,
 
     videos: [
+      { title: "Coffee Makers (Keurig & Black & Decker)", url: "https://youtu.be/LPvmRArY4Qs" },
+      { title: "Microwave", url: "https://youtu.be/9LSLin-DBU4" },
+      { title: "Glass-Top Range", url: "https://youtu.be/kvYy4XFpz0s" },
+      { title: "Dishwasher", url: "https://youtu.be/dVR1ssnmWco" },
+      { title: "Washer & Dryer", url: "https://youtu.be/fZis6dNsSHE" },
+      { title: "Roku TV", url: "https://youtu.be/cSPPDr33s3E" },
       { title: "Playground", url: "https://www.youtube.com/watch?v=unj-zG9wtdU" },
       { title: "Private Lake Trail", url: "https://www.youtube.com/watch?v=VGmH8k_656A" },
+      { title: "Boat & Trailer Parking", url: "https://www.youtube.com/watch?v=nCJsHxMO_Ok" },
     ],
   },
 };
