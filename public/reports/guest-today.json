@@ -1,33 +1,41 @@
 {
-  "date": "2026-11-10",
-  "generated_at": "2026-11-11T02:08:03+00:00",
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T05:37:54-06:00",
   "headline": {
-    "check_ins": 0,
-    "check_outs": 2,
+    "check_ins": 3,
+    "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 1,
+    "in_house_units": 4,
     "units_total": 5
   },
-  "check_ins": [],
-  "check_outs": [
+  "check_ins": [
+    {
+      "property": "Indian Point",
+      "guest": "Clair Crase",
+      "guests": 8,
+      "platform": "airbnb2",
+      "reservation_id": "res_vfy5f0l",
+      "time": "4:00 PM"
+    },
     {
       "property": "Rustic Ozark",
-      "guest": "Brian Summers",
-      "guests": 1,
-      "platform": "owner",
-      "reservation_id": "res_budpklk",
-      "time": "10:00 AM"
+      "guest": "Kenneth Cox",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_yj14w4g",
+      "time": "4:00 PM"
     },
     {
       "property": "Scotts unit",
-      "guest": "Lindsey Altenhofen",
-      "guests": 4,
+      "guest": "Eddie Fox",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_ag5js6d",
-      "time": "10:00 AM"
+      "reservation_id": "res_4y9kewx",
+      "time": "4:00 PM"
     }
   ],
+  "check_outs": [],
   "turnovers": [],
   "in_house": [
     {
@@ -39,6 +47,36 @@
       "check_in": "2026-11-09",
       "check_out": "2026-11-13",
       "nights": 4
+    },
+    {
+      "property": "Indian Point",
+      "guest": "Clair Crase",
+      "guests": 8,
+      "platform": "airbnb2",
+      "reservation_id": "res_vfy5f0l",
+      "check_in": "2026-11-11",
+      "check_out": "2026-11-15",
+      "nights": 4
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Kenneth Cox",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_yj14w4g",
+      "check_in": "2026-11-11",
+      "check_out": "2026-11-13",
+      "nights": 2
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Eddie Fox",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_4y9kewx",
+      "check_in": "2026-11-11",
+      "check_out": "2026-11-13",
+      "nights": 2
     }
   ],
   "sync_notes": {
