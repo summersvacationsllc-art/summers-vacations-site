@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-10",
-  "biteOfDay": "Bass on Table Rock hold on long points, gravel flats dropping into 20\u201340 ft, and offshore structure, hitting jigs, drop-shots, and live bait in the gin-clear conditions. Walleye and crappie continue producing around brush and points. On Taneycomo, stocked rainbows and increasing browns respond well to micro jigs, midges, scuds, and small streamers during low-flow windows.",
+  "date": "2026-11-11",
+  "biteOfDay": "Bass on Table Rock are fully in fall mode, holding on long points, gravel flats dropping into 20\u201340 ft, and offshore structure. Walleye and crappie are working brush piles and points. On Taneycomo, stocked rainbows remain aggressive while brown trout activity continues to build with the cooling water. Marabou jigs, zebra midges, scuds, small streamers, and eggs produce well during lower flows.",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "910.15 ft (USACE 11:00 CT)",
+      "level": "910.09 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
@@ -58,6 +58,6 @@
     "wind": "Verify locally"
   },
   "tip": "Insider tip: During confirmed early low-flow periods on Taneycomo (always call 866-494-1993 first), drift or wade seams and current breaks with 2-lb test and a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive, or hang a #18-20 zebra midge under an indicator. When generators come on late",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-10T12:07:44-06:00"
+  "source": "scout",
+  "last_verified": "2026-11-11T05:13:22-06:00"
 }
