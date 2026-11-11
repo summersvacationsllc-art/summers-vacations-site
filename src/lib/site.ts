@@ -167,8 +167,8 @@ export const PROPERTIES: PropertyCard[] = [
     badge: "✨ New",
     bookUrl: "https://notchcondos.guestybookings.com/properties/6abe3566a78519004a84f031",
     airbnbUrl: "https://www.airbnb.com/rooms/1128338659082307697",
-    vrboUrl: "",
-    guestyAliases: ["No-Stairs Condo", "scotts-unit"],
+    vrboUrl: "https://www.vrbo.com/5557690",
+    guestyAliases: ["No-Stairs Condo", "NEW Remodeled Condo w/NO Stairs", "scotts-unit"],
   },
   {
     // Top floor only of 189 Notch Ln, Bldg 21, Unit 1 (Guesty 6aea02aaf9dffe005a3939fc).

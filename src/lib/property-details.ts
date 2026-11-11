@@ -1026,7 +1026,7 @@ export const PROPERTY_DETAILS: Record<string, PropertyDetail> = {
       "Charcoal BBQ grills",
       "Coin laundry on property",
     ]),
-    // No Airbnb/VRBO card to show in the hero yet, so the hero shows a photo instead.
+    // Hero shows a photo (same pattern as Silver Dollar Adventure Escape); Book buttons go to the direct Guesty engine.
     heroPhoto: sc("aaa-living.jpg", "Freshly remodeled open living room"),
     featurePhoto: sc("aaa-living-deck.jpg", "Open living room with doors to the deck"),
     fun: {
