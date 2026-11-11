@@ -1,26 +1,29 @@
 {
   "ok": true,
-  "generated_at": "2026-11-11T02:08:05+00:00",
-  "checkedAt": "2026-11-10T20:08:05-06:00",
-  "todayCT": "2026-11-10",
-  "lastSyncAt": "2026-11-11T02:08:03+00:00",
-  "syncDataDate": "2026-11-10",
-  "liveDataDate": "2026-11-10",
+  "generated_at": "2026-11-11T18:00:18+00:00",
+  "checkedAt": "2026-11-11T12:00:18-06:00",
+  "todayCT": "2026-11-11",
+  "lastSyncAt": "2026-11-11T18:00:11+00:00",
+  "syncDataDate": "2026-11-11",
+  "liveDataDate": "2026-11-11",
   "liveSource": "github",
   "expectedInHouse": [
-    "Madeline Vail @ Penthouse"
+    "Clair Crase @ Indian Point",
+    "Madeline Vail @ Penthouse",
+    "Kenneth Cox @ Rustic Ozark",
+    "Eddie Fox @ Scotts unit"
   ],
   "kioskUnits": {
     "the-penthouse": "Madeline Vail (Penthouse)",
-    "rustic-ozark-retreat": null,
+    "rustic-ozark-retreat": "Kenneth Cox (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": null,
+    "branson-family-haven": "Clair Crase (Indian Point)",
     "woodland-retreat": null,
-    "scotts-unit": null,
+    "scotts-unit": "Eddie Fox (Scotts unit)",
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/42943850203 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43073473166"
 }
