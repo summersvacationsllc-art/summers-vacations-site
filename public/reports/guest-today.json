@@ -1,37 +1,21 @@
 {
-  "date": "2026-11-11",
-  "generated_at": "2026-11-12T03:16:27+00:00",
+  "date": "2026-11-12",
+  "generated_at": "2026-11-12T18:31:53+00:00",
   "headline": {
-    "check_ins": 3,
+    "check_ins": 1,
     "check_outs": 0,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guest": "Clair Crase",
-      "guests": 8,
+      "property": "Woodland Retreat",
+      "guest": "Sarah Davis",
+      "guests": 5,
       "platform": "airbnb2",
-      "reservation_id": "res_vfy5f0l",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guest": "Kenneth Cox",
-      "guests": 4,
-      "platform": "airbnb2",
-      "reservation_id": "res_yj14w4g",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Scotts unit",
-      "guest": "Eddie Fox",
-      "guests": 2,
-      "platform": "airbnb2",
-      "reservation_id": "res_4y9kewx",
+      "reservation_id": "res_f53xjfp",
       "time": "4:00 PM"
     }
   ],
@@ -77,6 +61,16 @@
       "check_in": "2026-11-11",
       "check_out": "2026-11-13",
       "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guest": "Sarah Davis",
+      "guests": 5,
+      "platform": "airbnb2",
+      "reservation_id": "res_f53xjfp",
+      "check_in": "2026-11-12",
+      "check_out": "2026-11-15",
+      "nights": 3
     }
   ],
   "sync_notes": {
