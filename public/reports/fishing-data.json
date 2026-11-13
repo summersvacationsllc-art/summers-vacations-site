@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-12",
-  "biteOfDay": "Bass on Table Rock continue their fall transition, holding on long points, gravel flats dropping into 20\u201340 ft, and offshore structure. Walleye work points in 20\u201325 ft while crappie and spotted bass use deeper brush. On Taneycomo, rainbows remain aggressive with brown trout activity increasing as water cools. Marabou jigs (black, sculpin, olive), zebra midges, scuds, small streamers, and eggs prod",
+  "date": "2026-11-13",
+  "biteOfDay": "Bass on Table Rock are fully in fall mode, holding on long points, gravel flats dropping into 20\u201340 ft, and offshore structure. Walleye and crappie are working brush piles and points. On Taneycomo, stocked rainbows remain aggressive while brown trout activity continues to build with the cooling water. Marabou jigs, zebra midges, scuds, small streamers, and eggs produce well during lower flows.",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "909.98 ft (USACE 12:00 CT)",
+      "level": "909.93 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~2,306 cfs at 12:00 CT (USACE live). Overnight ~20; afternoon peak ~2,306. Call SWPA 866-494-1993 before you wad."
+      "generation": "~920 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: During confirmed low-flow windows on Taneycomo early (always call 866-494-1993 for the current SWPA schedule), drift or wade seams and current breaks with light 2-lb test and a 1/16- to 1/8-oz marabou micro jig in black/sculpin/olive (orange head often best) or a #18\u201320 zebra midge unde",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-12T12:31:52-06:00"
+  "tip": "Insider tip: During early low-flow windows on Taneycomo (always confirm the current SWPA schedule at 866-494-1993), drift or wade the seams and current breaks with light 2-lb test and a 1/16- to 1/8-oz marabou micro jig in black, sculpin, or olive (often with an orange head) or a #18-20 zebra midge ",
+  "source": "scout",
+  "last_verified": "2026-11-13T05:10:45-06:00"
 }
