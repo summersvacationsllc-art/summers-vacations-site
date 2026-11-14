@@ -1,21 +1,21 @@
 {
   "ok": true,
-  "generated_at": "2026-11-14T02:37:36+00:00",
-  "checkedAt": "2026-11-13T20:37:36-06:00",
-  "todayCT": "2026-11-13",
-  "lastSyncAt": "2026-11-14T02:37:34+00:00",
-  "syncDataDate": "2026-11-13",
-  "liveDataDate": "2026-11-13",
+  "generated_at": "2026-11-14T16:41:15+00:00",
+  "checkedAt": "2026-11-14T10:41:15-06:00",
+  "todayCT": "2026-11-14",
+  "lastSyncAt": "2026-11-14T16:41:10+00:00",
+  "syncDataDate": "2026-11-14",
+  "liveDataDate": "2026-11-14",
   "liveSource": "github",
   "expectedInHouse": [
     "Clair Crase @ Indian Point",
-    "Amanda Mayo @ Penthouse",
+    "Shanyn Lee @ Penthouse",
     "Sarah Wallace @ Rustic Ozark",
     "Scott Thompson @ Scotts unit",
     "Sarah Davis @ Woodland Retreat"
   ],
   "kioskUnits": {
-    "the-penthouse": "Amanda Mayo (Penthouse)",
+    "the-penthouse": "Shanyn Lee (Penthouse)",
     "rustic-ozark-retreat": "Sarah Wallace (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": "Clair Crase (Indian Point)",
@@ -26,5 +26,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43547327596 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43616916608"
 }
