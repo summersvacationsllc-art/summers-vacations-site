@@ -1,30 +1,28 @@
 {
   "ok": true,
-  "generated_at": "2026-11-15T02:03:50+00:00",
-  "checkedAt": "2026-11-14T20:03:50-06:00",
-  "todayCT": "2026-11-14",
-  "lastSyncAt": "2026-11-15T02:03:48+00:00",
-  "syncDataDate": "2026-11-14",
-  "liveDataDate": "2026-11-14",
+  "generated_at": "2026-11-15T17:21:18+00:00",
+  "checkedAt": "2026-11-15T11:21:18-06:00",
+  "todayCT": "2026-11-15",
+  "lastSyncAt": "2026-11-15T17:21:15+00:00",
+  "syncDataDate": "2026-11-15",
+  "liveDataDate": "2026-11-15",
   "liveSource": "github",
   "expectedInHouse": [
-    "Clair Crase @ Indian Point",
     "Shanyn Lee @ Penthouse",
-    "Sarah Wallace @ Rustic Ozark",
-    "Scott Thompson @ Scotts unit",
-    "Sarah Davis @ Woodland Retreat"
+    "Chantel  Summers @ Rustic Ozark",
+    "Jd Washington @ Scotts unit"
   ],
   "kioskUnits": {
     "the-penthouse": "Shanyn Lee (Penthouse)",
-    "rustic-ozark-retreat": "Sarah Wallace (Rustic Ozark)",
+    "rustic-ozark-retreat": "Chantel  Summers (Rustic Ozark)",
     "double-condo": null,
-    "branson-family-haven": "Clair Crase (Indian Point)",
-    "woodland-retreat": "Sarah Davis (Woodland Retreat)",
-    "scotts-unit": "Scott Thompson (Scotts unit)",
+    "branson-family-haven": null,
+    "woodland-retreat": null,
+    "scotts-unit": "Jd Washington (Scotts unit)",
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43665962864 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43740600135"
 }
