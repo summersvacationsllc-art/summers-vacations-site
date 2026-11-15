@@ -1,6 +1,6 @@
 {
   "date": "2026-11-15",
-  "generated_at": "2026-11-15T05:33:48-06:00",
+  "generated_at": "2026-11-15T17:21:15+00:00",
   "units_total": 5,
   "turnovers": [],
   "sync_status": "Live \u00b7 cleaner_id read from /api/tasks \u00b7 honest 'unassigned' shown where null"
