@@ -1,45 +1,40 @@
 {
-  "date": "2026-11-14",
-  "generated_at": "2026-11-15T02:03:48+00:00",
+  "date": "2026-11-15",
+  "generated_at": "2026-11-15T05:33:46-06:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 1,
+    "check_ins": 2,
+    "check_outs": 4,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 5,
+    "in_house_units": 3,
     "units_total": 5
   },
   "check_ins": [
     {
-      "property": "Penthouse",
-      "guest": "Shanyn Lee",
-      "guests": 3,
+      "property": "Rustic Ozark",
+      "guest": "Chantel  Summers",
+      "guests": 1,
+      "platform": "owner-guest",
+      "reservation_id": "res_sh4grtl",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Jd Washington",
+      "guests": 6,
       "platform": "airbnb2",
-      "reservation_id": "res_an7ox3x",
+      "reservation_id": "res_bhhkfb1",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "Amanda Mayo",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_iwyx4ng",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Indian Point",
       "guest": "Clair Crase",
       "guests": 8,
       "platform": "airbnb2",
       "reservation_id": "res_vfy5f0l",
-      "check_in": "2026-11-11",
-      "check_out": "2026-11-15",
-      "nights": 4
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
@@ -47,9 +42,7 @@
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_f53xjfp",
-      "check_in": "2026-11-12",
-      "check_out": "2026-11-15",
-      "nights": 3
+      "time": "10:00 AM"
     },
     {
       "property": "Rustic Ozark",
@@ -57,9 +50,7 @@
       "guests": 1,
       "platform": "airbnb2",
       "reservation_id": "res_dt7kb3v",
-      "check_in": "2026-11-13",
-      "check_out": "2026-11-15",
-      "nights": 2
+      "time": "10:00 AM"
     },
     {
       "property": "Scotts unit",
@@ -67,10 +58,11 @@
       "guests": 1,
       "platform": "owner",
       "reservation_id": "res_6g8nkmc",
-      "check_in": "2026-11-13",
-      "check_out": "2026-11-15",
-      "nights": 2
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Penthouse",
       "guest": "Shanyn Lee",
@@ -79,6 +71,26 @@
       "reservation_id": "res_an7ox3x",
       "check_in": "2026-11-14",
       "check_out": "2026-11-16",
+      "nights": 2
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Chantel  Summers",
+      "guests": 1,
+      "platform": "owner-guest",
+      "reservation_id": "res_sh4grtl",
+      "check_in": "2026-11-15",
+      "check_out": "2026-11-18",
+      "nights": 3
+    },
+    {
+      "property": "Scotts unit",
+      "guest": "Jd Washington",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_bhhkfb1",
+      "check_in": "2026-11-15",
+      "check_out": "2026-11-17",
       "nights": 2
     }
   ],

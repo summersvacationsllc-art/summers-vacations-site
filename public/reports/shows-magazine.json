@@ -2,28 +2,23 @@
   "date": "2026-11-15",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Sunday show day",
-  "deck": "Family-friendly boards and indoor A/C picks. Verify Sunday times — some houses run a different schedule.",
-  "pick": null,
+  "hed": "Sunday in Branson: Crisp Skies & Holiday Cheer",
+  "deck": "Sunday, November 15 brings mostly sunny skies with a high near 55°F and a low around 31°F — perfect crisp weather for first-timers to enjoy the lakes, shows, and growing holiday lights across the Landing and Strip.",
+  "pick": {
+    "title": "Clay Cooper's Country Express Show",
+    "when": "7:30 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Core Branson mainstage energy.",
+    "url": "",
+    "source": "desk"
+  },
   "buckets": [
     {
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 5,
+      "count": 2,
       "shows": [
-        {
-          "name": "Broadway to Buble Christmas Show",
-          "time": "10:00 AM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Festive Broadway and Michael Bublé-style holiday music celebration",
-          "price": "$50–$70"
-        },
         {
           "name": "#1 Hits of The 60s",
           "time": "2:00 PM",
@@ -34,7 +29,7 @@
           "icon": "🎸",
           "ticketOk": false,
           "desc": "High-energy tribute to the greatest hits and artists of the 1960s",
-          "price": "$45–$65"
+          "price": "$47–$82"
         },
         {
           "name": "Christmas In The Heartland",
@@ -42,35 +37,11 @@
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "music",
-          "icon": "🎭",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
           "ticketOk": false,
-          "desc": "Heartwarming holiday music and storytelling celebrating the spirit of Christmas",
-          "price": "$45–$65"
-        },
-        {
-          "name": "The Lion, The Witch And The Wardrobe",
-          "time": "2:00 PM",
-          "venue": "Branson Hillside Theatre",
-          "type": null,
-          "url": "",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": false,
-          "desc": "Magical stage adaptation of the classic C.S. Lewis tale set in Narnia",
-          "price": "$79–$111"
-        },
-        {
-          "name": "The Texas Tenors: Deep in the Heart of Christmas",
-          "time": "2:00 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎶",
-          "ticketOk": false,
-          "desc": "The acclaimed trio delivers powerful vocals in a special Christmas performance",
-          "price": "$65–$105"
+          "desc": "Heartwarming holiday musical celebration perfect for the whole family",
+          "price": "$66–$85"
         }
       ]
     },
@@ -81,16 +52,16 @@
       "count": 1,
       "shows": [
         {
-          "name": "Aaron Wayne",
+          "name": "Southern Gospel Sundays",
           "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "comedy",
-          "icon": "😂",
+          "chip": "music",
+          "icon": "🎭",
           "ticketOk": false,
-          "desc": "Hilarious comedy hypnosis and audience-participation show",
-          "price": "$50–$75"
+          "desc": "Inspirational afternoon of traditional Southern Gospel music and hymns",
+          "price": "$72–$102"
         }
       ]
     },
@@ -98,10 +69,22 @@
       "id": "evening",
       "label": "Evening",
       "blurb": "7 PM and after",
-      "count": 8,
+      "count": 4,
       "shows": [
         {
-          "name": "Shanghai Circus / Amazing Acrobats of Shanghai",
+          "name": "Clay Cooper's Country Express Show",
+          "time": "7:30 PM",
+          "venue": "Clay Cooper Theatre",
+          "type": null,
+          "url": "",
+          "chip": "classic",
+          "icon": "🎸",
+          "ticketOk": false,
+          "desc": "Fast-paced country music, comedy, and family-friendly entertainment",
+          "price": "$45–$99"
+        },
+        {
+          "name": "Shanghai Circus (Amazing Acrobats of Shanghai Circus)",
           "time": "7:30 PM",
           "venue": "Mickey Gilley Grand Shanghai Theatre",
           "type": null,
@@ -109,20 +92,8 @@
           "chip": "thrill",
           "icon": "🤸",
           "ticketOk": false,
-          "desc": "Spectacular acrobatics, circus arts, and thrilling performances",
-          "price": "$45–$75"
-        },
-        {
-          "name": "The Haygoods",
-          "time": "7:30 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "",
-          "chip": "comedy",
-          "icon": "😂",
-          "ticketOk": false,
-          "desc": "Multi-talented family band delivering high-energy music, comedy, and holiday favorites",
-          "price": ""
+          "desc": "Spectacular acrobatic and circus performance with high-flying acts and artistry",
+          "price": "$45–$84"
         },
         {
           "name": "Branson's Christmas Wonderland",
@@ -133,20 +104,8 @@
           "chip": "music",
           "icon": "🎭",
           "ticketOk": false,
-          "desc": "Spectacular holiday musical revue filled with festive songs, dance, and seasonal cheer",
-          "price": "$55–$85"
-        },
-        {
-          "name": "Hamners' Unbelievable Variety",
-          "time": "8:00 PM",
-          "venue": "Hamner's Variety Theater",
-          "type": null,
-          "url": "",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": false,
-          "desc": "Family-friendly mix of magic, comedy, and astonishing variety acts",
-          "price": "$55–$80"
+          "desc": "Festive holiday production filled with Christmas songs, lights, and seasonal cheer",
+          "price": "$45–$93"
         },
         {
           "name": "Legends in Concert",
@@ -157,87 +116,26 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Tribute artists brilliantly recreate the music of legendary icons with live band",
-          "price": "$50–$80"
-        },
-        {
-          "name": "Presley's Country Christmas",
-          "time": "8:00 PM",
-          "venue": "Presleys' Country Jubilee",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Classic country music and holiday favorites from the Presley family tradition",
-          "price": "$45–$70"
-        },
-        {
-          "name": "Rick Thomas",
-          "time": "8:00 PM",
-          "venue": "Americana Theatre",
-          "type": null,
-          "url": "",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": false,
-          "desc": "World-class illusionist delivering breathtaking magic and grand-scale illusions",
-          "price": "$50–$75"
-        },
-        {
-          "name": "The Bellamy Brothers",
-          "time": "8:00 PM",
-          "venue": "The Mansion",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "Grammy-winning country duo performing their chart-topping hits like \"Let Your Love Flow.\"",
-          "price": "$60–$100"
-        }
-      ]
-    },
-    {
-      "id": "anytime",
-      "label": "Time TBA",
-      "blurb": "Confirm box office",
-      "count": 1,
-      "shows": [
-        {
-          "name": "Miracle of Christmas - Live On Stage",
-          "time": "Check times",
-          "venue": "Sight & Sound Theatres",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Immersive biblical retelling of the Christmas story with live animals and stunning production",
-          "price": "$89–$110"
+          "desc": "World-class live tribute show featuring iconic music legends with live band and dancers",
+          "price": "$49–$92"
         }
       ]
     }
   ],
   "chips": [
     {
-      "id": "music",
-      "label": "Music",
-      "count": 5
-    },
-    {
       "id": "classic",
       "label": "Classic",
-      "count": 4
-    },
-    {
-      "id": "magic",
-      "label": "Magic",
       "count": 3
     },
     {
-      "id": "comedy",
-      "label": "Comedy",
+      "id": "family",
+      "label": "Family",
+      "count": 1
+    },
+    {
+      "id": "music",
+      "label": "Music",
       "count": 2
     },
     {
@@ -246,17 +144,33 @@
       "count": 1
     }
   ],
-  "indoor": [],
+  "indoor": [
+    {
+      "name": "Sight & Sound Theatres",
+      "detail": "Miracle of Christmas production with spectacular sets and live animals. A first-timer favorite.",
+      "url": "https://www.sight-sound.com/"
+    },
+    {
+      "name": "Clay Cooper Theatre",
+      "detail": "High-energy Christmas and country shows in a comfortable theater.",
+      "url": "https://www.claycoopertheatre.com/"
+    },
+    {
+      "name": "Americana Theatre",
+      "detail": "Holiday variety, gospel, and magic shows throughout the day.",
+      "url": "https://www.americanatheatre.com/"
+    }
+  ],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
     "checked": "2026-11-15",
-    "note": "Show list from the 2026-11-14 scout (today's not in yet). Confirm times at the box office."
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-11-15.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 15,
+    "shows": 7,
     "withTickets": 0
   },
-  "generated_at": "2026-11-15T05:01:11-06:00"
+  "generated_at": "2026-11-15T05:33:54-06:00"
 }
