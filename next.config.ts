@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
       ...["/doublecondo", "/DoubleCondo", "/double-condo", "/book/double-condo"].map(
         (source) => ({ source, destination: doubleCondoBooking, permanent: false }),
       ),
+      // Short link for the Silver Dollar Suite direct booking page.
+      ...["/suite", "/book/silver-dollar-suite"].map((source) => ({
+        source,
+        destination: "/property/silver-dollar-suite",
+        permanent: false,
+      })),
       // Klein listing renamed: old property URL moves permanently (308).
       {
         source: "/property/silver-dollar-city-adventure-escape",

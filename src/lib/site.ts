@@ -172,17 +172,18 @@ export const PROPERTIES: PropertyCard[] = [
   },
   {
     // Top floor only of 189 Notch Ln, Bldg 21, Unit 1 (Guesty 6aea02aaf9dffe005a3939fc).
-    // Not bookable yet: comingSoon keeps every Book/Airbnb/VRBO link off the site.
+    // Direct booking via the same Guesty Booking Engine as Adventure Escape (live availability,
+    // quote, and Stripe checkout on the listing's own payment processor). Airbnb/VRBO left blank on purpose.
     name: "Silver Dollar Suite",
     tag: "Top Floor · Suite",
     sleeps: "4",
     beds: "2BR · 2BA",
     area: "Branson West",
     slug: "silver-dollar-suite",
-    photo: "/property-photos/silver-dollar-suite/front-exterior.jpg",
-    blurb: "Top-floor suite with a king and a queen bedroom, its own no-step entrance and carport. About a mile from Silver Dollar City.",
-    comingSoon: true,
-    bookUrl: "",
+    photo: "/property-photos/silver-dollar-suite/living-room-tree.jpg",
+    blurb: "Top-floor suite with a king and a queen bedroom (each with its own bath), a fireplace living room, and its own no-step entrance and carport. About a mile from Silver Dollar City.",
+    badge: "✨ New",
+    bookUrl: "https://notchcondos.guestybookings.com/properties/6aea02aaf9dffe005a3939fc",
     airbnbUrl: "",
     vrboUrl: "",
     guestyAliases: ["Silver Dollar Suite"],
