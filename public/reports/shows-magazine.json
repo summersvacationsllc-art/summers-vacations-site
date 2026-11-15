@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Saturday full board",
-  "deck": "Today's lineup features a strong mix of holiday-themed productions, family-friendly variety, Christmas classics, and a special country concert by the Bellamy Brothers during peak seasonal programming.",
-  "pick": {
-    "title": "Hamners' Unbelievable Variety",
-    "when": "8:00 PM",
-    "where": "Hamner's Variety Theater",
-    "why": "Illusion and live stage craft — a sure crowd-pleaser.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Sunday show day",
+  "deck": "Family-friendly boards and indoor A/C picks. Verify Sunday times — some houses run a different schedule.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -258,12 +251,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-14",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-14.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-15",
+    "note": "Show list from the 2026-11-14 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 15,
     "withTickets": 0
   },
-  "generated_at": "2026-11-14T10:41:07-06:00"
+  "generated_at": "2026-11-15T05:01:11-06:00"
 }

@@ -1,30 +1,30 @@
 {
-  "for": "2026-11-08",
-  "headline": "Sunday in Branson: Mild Skies & Holiday Lights Glow",
-  "lede": "Sunday, November 8 brings mild highs near 64°F with mostly sunny skies and light winds — ideal for enjoying the growing holiday lights displays and a relaxed lakeside day.",
+  "for": "2026-11-15",
+  "headline": "Sunday in Branson: Crisp Skies & Holiday Cheer",
+  "lede": "Sunday, November 15 brings mostly sunny skies with a high near 55°F and a low around 31°F — perfect crisp weather for first-timers to enjoy the lakes, shows, and growing holiday lights across the Landing and Strip.",
   "heat": false,
   "featured": {
-    "title": "Holiday Lights on the Landing & Strip",
+    "title": "Holiday Lights on the Landing",
     "when": "Dusk onward",
-    "where": "Branson Landing & Highway 76",
-    "why": "Holiday lights and decorations are in full glow across the Landing waterfront and the Strip. A festive, low-key evening stroll for first-timers. Confirm current hours locally.",
+    "where": "Branson Landing waterfront",
+    "why": "The fountain and waterfront are dressed in festive lights. A magical, low-key evening walk with views of Table Rock Lake — ideal for families and first-time visitors.",
     "url": "https://bransonlanding.com/"
   },
   "plan": [
     {
-      "when": "Morning",
-      "title": "Lake or Show",
-      "detail": "Enjoy a relaxed morning on Table Rock Lake or catch a holiday matinee. Many theaters offer morning or early afternoon performances."
+      "when": "Dawn",
+      "title": "Coffee & Lake View",
+      "detail": "Start with sunrise over Table Rock from the Notch or Indian Point. Grab coffee at a nearby cafe and watch the light hit the water."
     },
     {
       "when": "Afternoon",
-      "title": "Branson Landing",
-      "detail": "Stroll the waterfront promenade, enjoy the fountain show, and take in the holiday lights and decorations."
+      "title": "Matinee Show or Landing Stroll",
+      "detail": "Catch one of the many afternoon Christmas or variety shows, or walk the Branson Landing promenade and fountain."
     },
     {
       "when": "Dusk",
-      "title": "Holiday Lights",
-      "detail": "Drive or walk the Strip and Landing to see the festive lights. Mild evening temps are perfect for first-timers."
+      "title": "Holiday Lights Drive",
+      "detail": "Drive the Strip or return to the Landing as the lights come on. Mild evening temps make it comfortable for photos and exploration."
     }
   ],
   "indoor": [
@@ -44,5 +44,5 @@
       "url": "https://www.americanatheatre.com/"
     }
   ],
-  "honesty": "No tomorrow scout files found for 2026-11-08. Carried forward and adapted editor notes from prior day. Weather pulled from Open-Meteo/NWS (high ~64°F, mild, no heat). Featured is verified holiday lights on Landing/Strip. Plan and indoor are proper objects/arrays (fixed per 2026-08-29 lesson). No invented times/prices. Restaurant spotlight for Sunday = Lake House (per rotation). All details verify locally. Bright-blue theme only. Guidebook frozen. No guest/ops content."
+  "honesty": "No tomorrow scout files found for 2026-11-15. Carried forward shows, dining, and holiday theme from recent verified data. Weather from NWS/Open-Meteo (high 55°F, low 31°F, mostly sunny, no heat). Featured, plan, and indoor are proper objects/arrays per schema. Restaurant spotlight for Sunday is Lake House (rotation). All unconfirmed details verify locally. Bright-blue theme enforced. No guest names, ops, invented times/prices. Guidebook frozen."
 }
