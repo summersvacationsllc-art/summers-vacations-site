@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-15",
-  "biteOfDay": "Fall transition is in full swing on both lakes. On Table Rock bass are feeding aggressively on points, gravel flats, and offshore structure in 20\u201340 ft as they pack on weight ahead of winter. Walleye and crappie continue to produce around brush and points. On Taneycomo rainbows remain eager in the seams during low flows while brown trout activity builds with the cooling water. Recent local reports",
+  "date": "2026-11-16",
+  "biteOfDay": "Fall transition is well underway. On Table Rock, bass (largemouth, smallmouth, spotted/Kentucky) are feeding on points, gravel flats, and offshore structure in 20\u201340+ ft as they pack on weight for winter. Walleye and crappie remain active around brush and points. On Taneycomo, rainbows stay eager in the seams during variable flows while brown trout activity builds with the cooling water. Recent gu",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "909.69 ft (USACE 11:00 CT)",
+      "level": "909.65 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~4,531 cfs at 11:00 CT (USACE live). Overnight ~20; afternoon peak ~4,531. Call SWPA 866-494-1993 before you wad."
+      "generation": "~5683 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Use the early low-flow window on today's SWPA Sunday schedule (0 MW through early morning hours). Wade or drift light rigs on Taneycomo in the seams and current breaks with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive \u2014 orange head often best) or #16\u201320 zebra midges under an in",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-15T11:21:14-06:00"
+  "tip": "Insider tip: Target the early generation window (highest scheduled 5\u20139 AM per SWPA). On Taneycomo, drift or wade seams and current breaks with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive \u2014 orange head often best) or #16\u201320 zebra midges under an indicator on light line during lighter flows.",
+  "source": "scout",
+  "last_verified": "2026-11-16T05:02:40-06:00"
 }
