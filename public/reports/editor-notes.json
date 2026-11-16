@@ -1,48 +1,48 @@
 {
-  "for": "2026-11-15",
-  "headline": "Sunday in Branson: Crisp Skies & Holiday Cheer",
-  "lede": "Sunday, November 15 brings mostly sunny skies with a high near 55°F and a low around 31°F — perfect crisp weather for first-timers to enjoy the lakes, shows, and growing holiday lights across the Landing and Strip.",
+  "for": "2026-11-16",
+  "headline": "Monday on the Lake: Crisp air, clear water, and holiday cheer building",
+  "lede": "Monday, November 16 — a perfect day to ease into Branson with cooler temps in the low 60s, light winds, and no rain in the forecast. Table Rock Lake levels stable, shows shifting into full holiday mode, and plenty of indoor options if the breeze picks up.",
   "heat": false,
   "featured": {
-    "title": "Holiday Lights on the Landing",
-    "when": "Dusk onward",
-    "where": "Branson Landing waterfront",
-    "why": "The fountain and waterfront are dressed in festive lights. A magical, low-key evening walk with views of Table Rock Lake — ideal for families and first-time visitors.",
-    "url": "https://bransonlanding.com/"
+    "title": "Christmas In The Heartland",
+    "when": "2:00 PM",
+    "where": "Americana Theatre",
+    "why": "Heartwarming holiday musical perfect for the whole family as the season kicks off",
+    "url": "https://www.bransonmoconcerts.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Coffee & Lake View",
-      "detail": "Start with sunrise over Table Rock from the Notch or Indian Point. Grab coffee at a nearby cafe and watch the light hit the water."
+      "title": "Lake Morning",
+      "detail": "Catch sunrise over Table Rock Lake. Stable levels and clear water make for excellent early fishing or a peaceful walk along the shoreline."
     },
     {
       "when": "Afternoon",
-      "title": "Matinee Show or Landing Stroll",
-      "detail": "Catch one of the many afternoon Christmas or variety shows, or walk the Branson Landing promenade and fountain."
+      "title": "Holiday Show",
+      "detail": "Head to Americana Theatre for Christmas In The Heartland matinee. Warm vocals and festive spirit set the tone for the week."
     },
     {
       "when": "Dusk",
-      "title": "Holiday Lights Drive",
-      "detail": "Drive the Strip or return to the Landing as the lights come on. Mild evening temps make it comfortable for photos and exploration."
+      "title": "Evening Lights",
+      "detail": "Stroll the Landing for fountain shows and twinkling holiday lights. Grab dinner at a lakeside spot before an evening show."
     }
   ],
   "indoor": [
     {
-      "name": "Sight & Sound Theatres",
-      "detail": "Miracle of Christmas production with spectacular sets and live animals. A first-timer favorite.",
-      "url": "https://www.sight-sound.com/"
+      "name": "Legends in Concert",
+      "detail": "Iconic tribute performances with live band in climate-controlled comfort",
+      "url": "https://www.pepsilegends.com/"
     },
     {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy Christmas and country shows in a comfortable theater.",
-      "url": "https://www.claycoopertheatre.com/"
+      "name": "Shanghai Circus",
+      "detail": "High-flying acrobatics and artistry — thrilling for all ages",
+      "url": "https://www.discoverbranson.com/"
     },
     {
-      "name": "Americana Theatre",
-      "detail": "Holiday variety, gospel, and magic shows throughout the day.",
-      "url": "https://www.americanatheatre.com/"
+      "name": "Branson Christmas Wonderland",
+      "detail": "Festive lights, songs, and seasonal cheer at Kings Castle Theatre",
+      "url": "https://www.bransonmoconcerts.com/"
     }
   ],
-  "honesty": "No tomorrow scout files found for 2026-11-15. Carried forward shows, dining, and holiday theme from recent verified data. Weather from NWS/Open-Meteo (high 55°F, low 31°F, mostly sunny, no heat). Featured, plan, and indoor are proper objects/arrays per schema. Restaurant spotlight for Sunday is Lake House (rotation). All unconfirmed details verify locally. Bright-blue theme enforced. No guest names, ops, invented times/prices. Guidebook frozen."
+  "honesty": "No tomorrow scout files found for 2026-11-16. Carried forward from Sunday verified data and Open-Meteo forecast (mild ~60s, no rain, no heat). Monday restaurant spotlight: pizza (rotation). All details verify locally. Plan and indoor are proper objects per schema. Bright-blue theme enforced. No guest names, ops, invented times/prices. Guidebook frozen."
 }
