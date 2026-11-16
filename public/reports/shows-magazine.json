@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Sunday in Branson: Crisp Skies & Holiday Cheer",
-  "deck": "Sunday, November 15 brings mostly sunny skies with a high near 55°F and a low around 31°F — perfect crisp weather for first-timers to enjoy the lakes, shows, and growing holiday lights across the Landing and Strip.",
-  "pick": {
-    "title": "Clay Cooper's Country Express Show",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Monday matinees, then the Strip lights up",
+  "deck": "Early week is tribute-and-magic friendly — grab a 2 PM seat, dinner, then an 8 o’clock curtain.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -144,33 +137,17 @@
       "count": 1
     }
   ],
-  "indoor": [
-    {
-      "name": "Sight & Sound Theatres",
-      "detail": "Miracle of Christmas production with spectacular sets and live animals. A first-timer favorite.",
-      "url": "https://www.sight-sound.com/"
-    },
-    {
-      "name": "Clay Cooper Theatre",
-      "detail": "High-energy Christmas and country shows in a comfortable theater.",
-      "url": "https://www.claycoopertheatre.com/"
-    },
-    {
-      "name": "Americana Theatre",
-      "detail": "Holiday variety, gospel, and magic shows throughout the day.",
-      "url": "https://www.americanatheatre.com/"
-    }
-  ],
+  "indoor": [],
   "free": [],
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-15",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: night editor, scout 2026-11-15.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-16",
+    "note": "Show list from the 2026-11-15 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 7,
     "withTickets": 0
   },
-  "generated_at": "2026-11-15T11:21:14-06:00"
+  "generated_at": "2026-11-16T05:00:44-06:00"
 }
