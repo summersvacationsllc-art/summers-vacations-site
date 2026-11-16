@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "generated_at": "2026-11-15T23:26:37+00:00",
-  "checkedAt": "2026-11-15T17:26:37-06:00",
+  "generated_at": "2026-11-16T02:20:22+00:00",
+  "checkedAt": "2026-11-15T20:20:22-06:00",
   "todayCT": "2026-11-15",
-  "lastSyncAt": "2026-11-15T23:26:28+00:00",
+  "lastSyncAt": "2026-11-16T02:20:20+00:00",
   "syncDataDate": "2026-11-15",
   "liveDataDate": "2026-11-15",
   "liveSource": "github",
@@ -24,5 +24,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43774800070 late=0 rebuild=success"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/43791532281 late=0 rebuild=success"
 }
