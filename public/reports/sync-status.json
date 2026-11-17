@@ -1,28 +1,27 @@
 {
   "ok": true,
-  "generated_at": "2026-11-17T04:42:57+00:00",
-  "checkedAt": "2026-11-16T22:42:57-06:00",
-  "todayCT": "2026-11-16",
-  "lastSyncAt": "2026-11-17T04:42:54+00:00",
-  "syncDataDate": "2026-11-16",
-  "liveDataDate": "2026-11-16",
+  "generated_at": "2026-11-17T19:17:38+00:00",
+  "checkedAt": "2026-11-17T13:17:38-06:00",
+  "todayCT": "2026-11-17",
+  "lastSyncAt": "2026-11-17T19:17:33+00:00",
+  "syncDataDate": "2026-11-17",
+  "liveDataDate": "2026-11-17",
   "liveSource": "github",
   "expectedInHouse": [
-    "Nicole Bennett @ Penthouse",
     "Chantel  Summers @ Rustic Ozark",
-    "Jd Washington @ Scotts unit"
+    "Jerald Dawson @ Scotts unit"
   ],
   "kioskUnits": {
-    "the-penthouse": "Nicole Bennett (Penthouse)",
+    "the-penthouse": null,
     "rustic-ozark-retreat": "Chantel  Summers (Rustic Ozark)",
     "double-condo": null,
     "branson-family-haven": null,
     "woodland-retreat": null,
-    "scotts-unit": "Jd Washington (Scotts unit)",
+    "scotts-unit": "Jerald Dawson (Scotts unit)",
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": null
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/44019051014 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/44156949425"
 }
