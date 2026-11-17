@@ -160,7 +160,7 @@ const COMMON = {
   hostEmail: "summersvacationsllc@gmail.com",
   checkInTime: "4:00 PM",
   accessNote:
-    "We have keyless entry. Your door code will be emailed prior to arrival. Check your email for check-in instructions.",
+    "We have keyless entry. Your door code will be sent in your booking messages before check-in. Check your booking messages for check-in instructions.",
   hospital: "Cox Medical Center Branson — 525 Branson Landing Blvd, Branson, MO",
   localContact: "Brian: 314-565-0589",
   call911: "Call 911 for life-threatening emergencies. For non-emergency police: Stone County Sheriff (417) 357-6116.",
@@ -274,7 +274,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Last 4 digits of booking phone",
+      doorCode: "Sent in your booking messages before check-in.",
       directions:
         "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
       parking:
@@ -335,7 +335,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Last 4 digits of booking phone",
+      doorCode: "Sent in your booking messages before check-in.",
       directions:
         "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
       parking:
@@ -397,7 +397,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Same code for both units (emailed prior to arrival)",
+      doorCode: "Sent in your booking messages before check-in.",
       directions:
         "Drive down Notch Ln. Building 9 will be the last building on the right side just before the circle turn around.",
       parking:
@@ -466,13 +466,13 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Last 4 digits of booking phone",
+      doorCode: "Sent in your booking messages before check-in.",
       directions:
         "From Highway 76: Head west toward Table Rock Lake. Turn left onto Indian Point Road. Continue 3-4 miles, turn left onto Myrtle Lane, then left onto Timber Trace Lane. 44 Timber Trace will be on your right.",
       parking:
         "Park in the driveway. Boat and trailer parking is in the upper lot by the blue shed.",
       accessNote:
-        "We have keyless entry. Your door code is the last 4 digits of the phone number used when booking. Code is active at 4:00 PM on check-in day.",
+        "We have keyless entry. Your door code will be sent in your booking messages before check-in. It is active at 4:00 PM on check-in day.",
     },
 
     wifi: { network: "44 Timber Trace", password: "" },
@@ -556,7 +556,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Last 4 digits of booking phone",
+      doorCode: "Sent in your booking messages before check-in.",
       directions:
         "Turn into Notch Estates. Building 14 is directly across from the small pool on the left.",
       parking:
@@ -617,13 +617,13 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
     checkIn: {
       time: "4:00 PM",
       type: "keyless",
-      doorCode: "Last 4 digits of booking phone",
+      doorCode: "Sent in your booking messages before check-in.",
       directions:
         "While you're staying with us: turn into Notch Estates on Notch Lane. Your home is 289 Notch Lane, Unit 6 — a first-floor condo with no stairs into the unit. Look for building/unit signage for #6.",
       parking:
         "Park in the spaces near Unit 6 / 289 Notch Lane. Please don't block neighboring driveways, walkways, or dumpster access.",
       accessNote:
-        "Keyless entry (same lock system style as The Penthouse at Notch). Your door code is the last 4 digits of the phone number on your booking. The code works from 4:00 PM on arrival day until 10:00 AM on checkout day. We'll also email check-in details before you arrive. If the lock doesn't respond, wait a few seconds and try again, then text Brian at 314-565-0589.",
+        "We have keyless entry. Your door code will be sent in your booking messages before check-in. It works from 4:00 PM on arrival day until 10:00 AM checkout.",
     },
 
     wifi: { network: "MyAltice 34f945", password: "" },
