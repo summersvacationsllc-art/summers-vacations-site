@@ -1,16 +1,16 @@
 {
   "date": "2026-11-17",
-  "biteOfDay": "Fall transition is well underway. On Table Rock, bass (largemouth, smallmouth, spotted/Kentucky) are feeding on points, gravel flats, and offshore structure in 20\u201340+ ft as they pack on weight for winter. Walleye and crappie remain active around brush and points. On Taneycomo, rainbows stay eager in the seams during variable flows while brown trout activity builds with the cooling water. Recent gu",
+  "biteOfDay": "Recent reports show solid trout action on Taneycomo (20\u201330 fish days common when flows align) with rainbows eager in seams and browns becoming more active in the upper stretches. On Table Rock, bass are feeding on points, gravel flats, and offshore structure in 20\u201340+ ft as they pack on weight ahead of winter; walleye and crappie remain catchable around brush and points. The cooling water and clea",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "909.57 ft (USACE 14:00 CT)",
+      "level": "909.60 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~3,111 cfs at 14:00 CT (USACE live). Overnight ~20; afternoon peak ~3,111. Call SWPA 866-494-1993 before you wad."
+      "generation": "~6316 cfs (scout) \u2014 verify via SWPA 866-494-1993"
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Target the early generation window (highest scheduled 5\u20139 AM per SWPA). On Taneycomo, drift or wade seams and current breaks with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive \u2014 orange head often best) or #16\u201320 zebra midges under an indicator on light line during lighter flows. Deadline-guard carry from 2026-11-16.",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-16T14:38:29-06:00"
+  "tip": "Insider tip: Focus on the early or scheduled generation windows (confirm via 866-494-1993 or eddy.guide). On Taneycomo during lighter flows, drift or wade seams with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive \u2014 orange head favorite) or #16\u201320 zebra midges under an indicator on light line.",
+  "source": "scout",
+  "last_verified": "2026-11-17T06:31:55-06:00"
 }
