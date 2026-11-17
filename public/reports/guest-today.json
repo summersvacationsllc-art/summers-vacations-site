@@ -1,31 +1,39 @@
 {
-  "date": "2026-11-16",
-  "generated_at": "2026-11-17T04:42:54+00:00",
+  "date": "2026-11-17",
+  "generated_at": "2026-11-17T19:17:33+00:00",
   "headline": {
     "check_ins": 1,
-    "check_outs": 1,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 3,
+    "in_house_units": 2,
     "units_total": 8
   },
   "check_ins": [
+    {
+      "property": "Scotts unit",
+      "guest": "Jerald Dawson",
+      "guests": 2,
+      "platform": "airbnb2",
+      "reservation_id": "res_vmdwcuu",
+      "time": "4:00 PM"
+    }
+  ],
+  "check_outs": [
+    {
+      "property": "Scotts unit",
+      "guest": "Jd Washington",
+      "guests": 6,
+      "platform": "airbnb2",
+      "reservation_id": "res_bhhkfb1",
+      "time": "10:00 AM"
+    },
     {
       "property": "Penthouse",
       "guest": "Nicole Bennett",
       "guests": 5,
       "platform": "airbnb2",
       "reservation_id": "res_u3o6agl",
-      "time": "4:00 PM"
-    }
-  ],
-  "check_outs": [
-    {
-      "property": "Penthouse",
-      "guest": "Shanyn Lee",
-      "guests": 3,
-      "platform": "airbnb2",
-      "reservation_id": "res_an7ox3x",
       "time": "10:00 AM"
     }
   ],
@@ -43,23 +51,13 @@
     },
     {
       "property": "Scotts unit",
-      "guest": "Jd Washington",
-      "guests": 6,
+      "guest": "Jerald Dawson",
+      "guests": 2,
       "platform": "airbnb2",
-      "reservation_id": "res_bhhkfb1",
-      "check_in": "2026-11-15",
-      "check_out": "2026-11-17",
-      "nights": 2
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Nicole Bennett",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_u3o6agl",
-      "check_in": "2026-11-16",
-      "check_out": "2026-11-17",
-      "nights": 1
+      "reservation_id": "res_vmdwcuu",
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "nights": 3
     }
   ],
   "sync_notes": {
