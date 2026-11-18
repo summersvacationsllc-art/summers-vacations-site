@@ -100,7 +100,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       const gb = getGuidebook(raw);
       if (!gb) return;
       setProp(gb);
-      if (sp.code) setGuestCode(sp.code);
+      // Door codes are never read from the URL (links sent earlier may still carry ?code=).
       if (sp.name) setGuestName(sp.name);
       // Dates: raw YYYY-MM-DD (original), Guesty text ("Oct 20th, 2026"), or junk kept verbatim.
       const ci = normalizeStayDate(sp.checkin);
@@ -116,11 +116,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       // from Guesty. Any miss, error or timeout keeps the behavior set above.
       const usable = (d: StayDate | null) => !!d && d.source !== 'raw';
       const conf = sp.conf || sp.confirmation || '';
-      if (!(usable(ci) && usable(co)) && (sp.code || conf || sp.name)) {
+      if (!(usable(ci) && usable(co)) && (conf || sp.name)) {
         void (async () => {
           try {
             const q = new URLSearchParams({ property: gb.slug });
-            if (sp.code) q.set('code', sp.code);
             if (sp.name) q.set('name', sp.name);
             if (conf) q.set('conf', conf);
             const ctl = new AbortController();

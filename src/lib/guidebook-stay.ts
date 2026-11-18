@@ -160,7 +160,7 @@ export type StayMatch = { checkin: string; checkout: string };
 export async function findGuidebookStay(q: StayQuery): Promise<StayMatch | null> {
   const gb = getGuidebook(q.property);
   if (!gb) return null;
-  const code = (q.code || "").replace(/\D/g, "");
+  const code = ""; // door/phone-digit matching removed: codes are no longer accepted from links
   const conf = (q.conf || "").trim().toLowerCase();
   const name = firstToken(q.name);
   if (!conf && code.length < 4 && name.length < 2) return null;

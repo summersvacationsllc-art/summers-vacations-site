@@ -29,7 +29,7 @@ export async function GET(req: Request) {
   const u = new URL(req.url);
   const p = (k: string) => (u.searchParams.get(k) || "").slice(0, 80);
   const property = p("property");
-  const code = p("code");
+  const code = ""; // door codes in URLs are ignored on purpose
   const name = p("name");
   const conf = p("conf") || p("confirmation");
   if (!property || (!code && !conf && !name)) return miss();

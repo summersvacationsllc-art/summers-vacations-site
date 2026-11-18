@@ -140,7 +140,7 @@ export default function PropertyPage() {
                 </a>
                 {data.hasGuidebook !== false && (
                 <a
-                  href={`/guidebook/${slug}?code=demo&name=Guest`}
+                  href={`/guidebook/${slug}?name=Guest`}
                   className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-white/30 text-white font-semibold text-sm no-underline hover:bg-white/10 transition-colors"
                 >
                   Preview Guidebook
