@@ -128,10 +128,14 @@ async function listRows(listingId: string): Promise<Row[]> {
   return rows;
 }
 
-async function ensureFields(row: Row): Promise<void> {
-  if (row.fieldsLoaded) return;
+async function ensureFields(row: Row, fieldId: string): Promise<void> {
+  if (row.fieldsLoaded && row.fields.some((field) => field.fieldId === fieldId)) return;
+  // Same resource the mint PUT writes, so a token saved moments ago is visible
+  // even when the reservation list has not echoed customFields yet.
   const json = await guestyGetOptional(`/v1/reservations-v3/${row.id}/custom-fields`);
-  row.fields = readFields(json?.customFields ?? json);
+  const fresh = readFields(json?.customFields ?? json);
+  const rest = row.fields.filter((field) => field.fieldId !== fieldId);
+  row.fields = [...rest, ...fresh.filter((field) => field.fieldId === fieldId)];
   row.fieldsLoaded = true;
 }
 
@@ -167,7 +171,7 @@ export async function lookupStay(unit: TestUnit, token: string, now = Date.now()
   try {
     for (const row of rows) {
       if (row.listingId !== unit.listingId) continue;
-      await ensureFields(row);
+      await ensureFields(row, fieldId);
       if (rowMatches(row, token, fieldId)) hits.push(row);
     }
   } catch (e) {

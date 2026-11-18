@@ -2,6 +2,7 @@
  * Who may open the test guidebook, and how ?t= / ?demo= are read.
  * The door code is never accepted as a query param.
  */
+import { timingSafeEqual } from "node:crypto";
 
 /** 32-byte base64url, no padding (43 characters). */
 export const TOKEN_RE = /^[A-Za-z0-9_-]{43}$/;
@@ -50,4 +51,29 @@ export function firstQuery(value: string | string[] | undefined): string | undef
 /** True when any param is named "code" (any casing). The value is not returned. */
 export function hasCodeParam(keys: string[]): boolean {
   return keys.some((k) => k.toLowerCase() === "code");
+}
+
+/** Preview only, Rustic mint flag only, and never the live site host. */
+export function mintRouteAllowed(opts: {
+  vercelEnv: string | undefined;
+  hostHeader: string | null;
+  mintFlag: string | undefined;
+}): boolean {
+  if (PRODUCTION_HOSTS.has(hostname(opts.hostHeader))) return false;
+  if (opts.vercelEnv !== "preview") return false;
+  return opts.mintFlag === "rustic-ozark-retreat";
+}
+
+/** Constant-time compare. Empty or different-length keys do not match. */
+export function mintKeyMatches(header: string | null, expected: string | undefined): boolean {
+  if (!header || !expected) return false;
+  const given = Buffer.from(header);
+  const want = Buffer.from(expected);
+  const len = Math.max(given.length, want.length);
+  if (len === 0) return false;
+  const a = Buffer.alloc(len);
+  const b = Buffer.alloc(len);
+  given.copy(a);
+  want.copy(b);
+  return timingSafeEqual(a, b) && given.length === want.length;
 }

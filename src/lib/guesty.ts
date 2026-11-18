@@ -215,26 +215,38 @@ export async function guestyGetOptional(path: string): Promise<Record<string, un
 }
 
 /**
- * PUT with no logged body. Only the disabled guidebook token mint job calls this,
- * and only after its flag check. The response body is discarded.
+ * One Guesty call using the cached OAuth token. Does not request a new token
+ * unless the shared cache has none that is still valid. Never logs the body.
+ * Non-success bodies are discarded.
  */
-export async function guestyPut(path: string, body: Record<string, unknown>): Promise<void> {
+export async function guestySend(
+  method: "GET" | "PUT",
+  path: string,
+  body?: Record<string, unknown>,
+): Promise<{ status: number; body: Record<string, unknown> | null }> {
   const token = await guestyAuth();
   const res = await fetch(`${GUESTY_BASE}${path}`, {
-    method: "PUT",
+    method,
     headers: {
       Authorization: `Bearer ${token}`,
       accept: "application/json",
-      "content-type": "application/json",
+      ...(body ? { "content-type": "application/json" } : {}),
     },
-    body: JSON.stringify(body),
+    body: body ? JSON.stringify(body) : undefined,
     cache: "no-store",
   });
   if (res.status === 401) await invalidateToken(token);
-  await res.arrayBuffer().catch(() => undefined);
-  if (!res.ok) {
-    const where = path.split("?")[0].replace(/[0-9a-f]{24}/gi, ":id");
-    throw new Error(`Guesty PUT ${where} failed: ${res.status}`);
+  const status = res.status;
+  if (status === 204 || status < 200 || status >= 300) {
+    await res.arrayBuffer().catch(() => undefined);
+    return { status, body: null };
+  }
+  const text = await res.text();
+  if (!text.trim()) return { status, body: null };
+  try {
+    return { status, body: JSON.parse(text) as Record<string, unknown> };
+  } catch {
+    return { status, body: null };
   }
 }
 

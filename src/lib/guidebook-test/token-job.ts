@@ -9,9 +9,9 @@
  * The job only considers the Rustic Ozark Retreat listing. It never overwrites
  * a custom field that already has a value. It does not log the token.
  *
- * Do not run it until Brian approves writing tokens onto live reservations.
- * Run (only after that approval):
- *   npx tsx scripts/mint-guidebook-tokens.ts
+ * Run it only from POST /api/guidebook-test/mint on a Vercel preview, with
+ * GUIDEBOOK_MINT_KEY. Do not run it as a local script: the Guesty secrets are
+ * not available outside that preview.
  *
  * Guesty message variable, confirmed in the product: {{guidebook_link_token}}
  * Link shape: /guidebook-test/rustic-ozark-retreat?t={{guidebook_link_token}}
@@ -85,11 +85,12 @@ export type MintRow = {
   fieldValue: string | null;
 };
 
-/** Upcoming or in-house Rustic reservations whose token field is blank. */
+/** Confirmed Rustic stays that have not checked out, whose token field is blank. */
 export function reservationsToMint(rows: MintRow[], listingId: string, today: string): MintRow[] {
   return rows.filter((row) => {
     if (row.listingId !== listingId) return false;
     if (!/^[0-9a-f]{24}$/i.test(row.id)) return false;
+    if (row.status.toLowerCase() !== "confirmed") return false;
     if (DEAD.has(row.status.toLowerCase())) return false;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(row.checkOut) || row.checkOut < today) return false;
     return !row.fieldValue || !row.fieldValue.trim();
@@ -99,15 +100,34 @@ export function reservationsToMint(rows: MintRow[], listingId: string, today: st
 export type MintResult = {
   enabled: boolean;
   scanned: number;
-  minted: number;
+  written: number;
   skipped: number;
+  errors: number;
+  statuses: Record<string, number>;
   blocked: string | null;
 };
 
+export type GuestyCall = { status: number; body: Record<string, unknown> | null };
+
 export type GuestyMintClient = {
-  get(path: string): Promise<Record<string, unknown> | null>;
-  put(path: string, body: Record<string, unknown>): Promise<void>;
+  get(path: string): Promise<GuestyCall>;
+  put(path: string, body: Record<string, unknown>): Promise<GuestyCall>;
 };
+
+/** Counts the route is allowed to return. No tokens or reservation ids. */
+export function mintPublicCounts(result: MintResult): {
+  written: number;
+  skipped: number;
+  errors: number;
+  statuses: Record<string, number>;
+} {
+  return {
+    written: result.written,
+    skipped: result.skipped,
+    errors: result.errors,
+    statuses: result.statuses,
+  };
+}
 
 function addDays(ymd: string, n: number): string {
   const [y, m, d] = ymd.split("-").map(Number);
@@ -147,11 +167,13 @@ async function listMintRows(client: GuestyMintClient, listingId: string, fieldId
   const rows: MintRow[] = [];
   let skip = 0;
   for (let page = 0; page < 8; page++) {
-    const json = await client.get(
+    const res = await client.get(
       `/v1/reservations?limit=100&skip=${skip}&fields=${fields}&filters=${encodeURIComponent(filters)}`,
     );
-    if (!json) throw new Error("empty reservation list");
-    const results = (json.results as Record<string, unknown>[]) || [];
+    if (res.status < 200 || res.status >= 300 || !res.body) {
+      throw Object.assign(new Error("reservation list failed"), { status: res.status });
+    }
+    const results = (res.body.results as Record<string, unknown>[]) || [];
     for (const r of results) {
       const id = String(r._id ?? "");
       const lid = String(r.listingId ?? "");
@@ -162,7 +184,7 @@ async function listMintRows(client: GuestyMintClient, listingId: string, fieldId
       } else {
         const extra = await client.get(`/v1/reservations-v3/${id}/custom-fields`);
         // A failed read must not be treated as blank, or a later write could replace a token.
-        value = extra ? fieldValue(extra.customFields, fieldId) : "unreadable";
+        value = extra.status >= 200 && extra.status < 300 ? fieldValue(extra.body?.customFields, fieldId) : "unreadable";
       }
       rows.push({
         id,
@@ -173,16 +195,16 @@ async function listMintRows(client: GuestyMintClient, listingId: string, fieldId
       });
     }
     skip += 100;
-    if (results.length < 100 || skip >= Number(json.count ?? 0)) break;
+    if (results.length < 100 || skip >= Number(res.body.count ?? 0)) break;
   }
   return rows;
 }
 
 async function defaultClient(): Promise<GuestyMintClient> {
-  const { guestyGetOptional, guestyPut } = await import("../guesty");
+  const { guestySend } = await import("../guesty");
   return {
-    get: (path) => guestyGetOptional(path),
-    put: (path, body) => guestyPut(path, body),
+    get: (path) => guestySend("GET", path),
+    put: (path, body) => guestySend("PUT", path, body),
   };
 }
 
@@ -197,38 +219,54 @@ export async function mintRusticGuidebookTokens(options?: {
   generateToken?: () => string;
 }): Promise<MintResult> {
   const env = options?.env ?? process.env;
-  const idle = { enabled: false, scanned: 0, minted: 0, skipped: 0, blocked: null };
+  const idle: MintResult = { enabled: false, scanned: 0, written: 0, skipped: 0, errors: 0, statuses: {}, blocked: null };
   if (!mintEnabled(env)) return idle;
   const fieldId = readTokenFieldId(env);
   const unit = TEST_UNITS[MINT_SLUG];
-  if (!fieldId || !unit) return { ...idle, blocked: "field-id" };
+  if (!fieldId || !unit || unit.listingId !== "68eeb5866f48330013c65a7a") {
+    return { ...idle, blocked: "field-id" };
+  }
   if (!options?.client && (!env.GUESTY_CLIENT_ID || !env.GUESTY_CLIENT_SECRET)) {
-    return { enabled: true, scanned: 0, minted: 0, skipped: 0, blocked: "credentials" };
+    return { enabled: true, scanned: 0, written: 0, skipped: 0, errors: 1, statuses: {}, blocked: "credentials" };
   }
   const client = options?.client ?? await defaultClient();
+  const statuses: Record<string, number> = {};
+  const note = (status: number) => {
+    const key = String(status);
+    statuses[key] = (statuses[key] || 0) + 1;
+  };
+  const tracked: GuestyMintClient = {
+    async get(path) {
+      const res = await client.get(path);
+      note(res.status);
+      return res;
+    },
+    async put(path, body) {
+      const res = await client.put(path, body);
+      note(res.status);
+      return res;
+    },
+  };
   const today = options?.today ?? chicagoToday(new Date());
   const generate = options?.generateToken ?? generateGuidebookToken;
   let scanned = 0;
   try {
-    const rows = await listMintRows(client, unit.listingId, fieldId, today);
+    const rows = await listMintRows(tracked, unit.listingId, fieldId, today);
     scanned = rows.length;
     const todo = reservationsToMint(rows, unit.listingId, today);
-    let minted = 0;
-    let skipped = scanned - todo.length;
+    let written = 0;
+    let errors = 0;
+    const skipped = scanned - todo.length;
     for (const row of todo) {
       const plan = planTokenWrite(row.id, fieldId, generate());
-      try {
-        await client.put(plan.path, plan.body);
-        minted += 1;
-      } catch (e) {
-        skipped += 1;
-        console.log("guidebook-token-mint: write failed", e instanceof Error ? e.message.slice(0, 120) : "error");
-      }
+      const res = await tracked.put(plan.path, plan.body);
+      if (res.status >= 200 && res.status < 300) written += 1;
+      else errors += 1;
     }
-    console.log(`guidebook-token-mint: scanned=${scanned} minted=${minted} skipped=${skipped}`);
-    return { enabled: true, scanned, minted, skipped, blocked: null };
+    console.log(`guidebook-token-mint: scanned=${scanned} written=${written} skipped=${skipped} errors=${errors}`);
+    return { enabled: true, scanned, written, skipped, errors, statuses, blocked: null };
   } catch (e) {
     console.log("guidebook-token-mint: read failed", e instanceof Error ? e.message.slice(0, 120) : "error");
-    return { enabled: true, scanned, minted: 0, skipped: 0, blocked: "read-failed" };
+    return { enabled: true, scanned, written: 0, skipped: 0, errors: 1, statuses, blocked: "read-failed" };
   }
 }

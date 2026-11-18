@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { chicagoInstant } from "../stay-window";
-import { guidebookTestAllowed, parseDemoStage, tokenFromQuery, TOKEN_RE } from "./access";
+import { guidebookTestAllowed, mintKeyMatches, mintRouteAllowed, parseDemoStage, tokenFromQuery, TOKEN_RE } from "./access";
 import { codePhase, doorPanel, pickGuestCode } from "./display";
-import { generateGuidebookToken, mintEnabled, mintRusticGuidebookTokens, planTokenWrite, readTokenFieldId, reservationsToMint, tokensEqual, type GuestyMintClient, type MintRow } from "./token-job";
+import { generateGuidebookToken, mintEnabled, mintPublicCounts, mintRusticGuidebookTokens, planTokenWrite, readTokenFieldId, reservationsToMint, tokensEqual, type GuestyMintClient, type MintRow } from "./token-job";
 
 const PLACE = "Building 9, Unit 7";
 
@@ -108,8 +108,8 @@ test("the token job plans a custom-field write and stays disabled without the Ru
 
   let calls = 0;
   const client: GuestyMintClient = {
-    get: async () => { calls += 1; return { results: [], count: 0 }; },
-    put: async () => { calls += 1; },
+    get: async () => { calls += 1; return { status: 200, body: { results: [], count: 0 } }; },
+    put: async () => { calls += 1; return { status: 200, body: null }; },
   };
   const off = await mintRusticGuidebookTokens({ env: {}, client });
   assert.equal(off.enabled, false);
@@ -138,35 +138,70 @@ test("mint selects only blank upcoming Rustic reservations and writes one token 
     { id: "cccccccccccccccccccccccc", listingId: rustic, status: "canceled", checkOut: "2026-11-20", fieldValue: null },
     { id: "dddddddddddddddddddddddd", listingId: rustic, status: "confirmed", checkOut: "2026-11-01", fieldValue: null },
     { id: "eeeeeeeeeeeeeeeeeeeeeeee", listingId: other, status: "confirmed", checkOut: "2026-11-20", fieldValue: null },
+    { id: "ffffffffffffffffffffffff", listingId: rustic, status: "reserved", checkOut: "2026-11-20", fieldValue: null },
   ];
   assert.deepEqual(reservationsToMint(rows, rustic, "2026-11-18").map((r) => r.id), ["aaaaaaaaaaaaaaaaaaaaaaaa"]);
 
   const puts: { path: string; body: Record<string, unknown> }[] = [];
-  const client: GuestyMintClient = {
-    get: async () => ({
-      count: 2,
+  const stored = new Map<string, string>();
+  const listBody = () => ({
+    status: 200,
+    body: {
+      count: 3,
       results: [
-        { _id: "aaaaaaaaaaaaaaaaaaaaaaaa", listingId: rustic, status: "confirmed", checkOutDateLocalized: "2026-11-20", customFields: [] },
+        { _id: "aaaaaaaaaaaaaaaaaaaaaaaa", listingId: rustic, status: "confirmed", checkOutDateLocalized: "2026-11-20", customFields: stored.has("aaaaaaaaaaaaaaaaaaaaaaaa") ? [{ fieldId, value: stored.get("aaaaaaaaaaaaaaaaaaaaaaaa") }] : [] },
         { _id: "bbbbbbbbbbbbbbbbbbbbbbbb", listingId: rustic, status: "confirmed", checkOutDateLocalized: "2026-11-22", customFields: [{ fieldId, value: "keep" }] },
+        { _id: "ffffffffffffffffffffffff", listingId: rustic, status: "reserved", checkOutDateLocalized: "2026-11-22", customFields: [] },
         { _id: "eeeeeeeeeeeeeeeeeeeeeeee", listingId: other, status: "confirmed", checkOutDateLocalized: "2026-11-22", customFields: [] },
       ],
-    }),
-    put: async (path, body) => { puts.push({ path, body }); },
+    },
+  });
+  const client: GuestyMintClient = {
+    get: async () => listBody(),
+    put: async (path, body) => {
+      puts.push({ path, body });
+      const value = (body.customFields as { value: string }[])[0].value;
+      stored.set("aaaaaaaaaaaaaaaaaaaaaaaa", value);
+      return { status: 200, body: null };
+    },
+  };
+  const env = {
+    GUIDEBOOK_TOKEN_MINT: "rustic-ozark-retreat",
+    GUIDEBOOK_TOKEN_FIELD_ID: fieldId,
+    GUESTY_CLIENT_ID: "present",
+    GUESTY_CLIENT_SECRET: "present",
   };
   const result = await mintRusticGuidebookTokens({
-    env: {
-      GUIDEBOOK_TOKEN_MINT: "rustic-ozark-retreat",
-      GUIDEBOOK_TOKEN_FIELD_ID: fieldId,
-      GUESTY_CLIENT_ID: "present",
-      GUESTY_CLIENT_SECRET: "present",
-    },
+    env,
     today: "2026-11-18",
     client,
     generateToken: () => "a".repeat(43),
   });
   assert.equal(result.enabled, true);
-  assert.equal(result.minted, 1);
+  assert.equal(result.written, 1);
+  assert.equal(result.errors, 0);
   assert.equal(puts.length, 1);
   assert.equal(puts[0].path, "/v1/reservations-v3/aaaaaaaaaaaaaaaaaaaaaaaa/custom-fields");
   assert.deepEqual(puts[0].body, { customFields: [{ fieldId, value: "a".repeat(43) }] });
+  const again = await mintRusticGuidebookTokens({ env, today: "2026-11-18", client, generateToken: () => "b".repeat(43) });
+  assert.equal(again.written, 0);
+  assert.equal(puts.length, 1);
+  const pub = JSON.stringify(mintPublicCounts(result));
+  assert.equal(pub.includes("a".repeat(43)), false);
+  assert.equal(pub.includes("aaaaaaaaaaaaaaaaaaaaaaaa"), false);
+  assert.deepEqual(Object.keys(JSON.parse(pub)).sort(), ["errors", "skipped", "statuses", "written"]);
+});
+
+test("the mint route is preview-only and checks the key without echoing it", () => {
+  assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "branch.vercel.app", mintFlag: "rustic-ozark-retreat" }), true);
+  assert.equal(mintRouteAllowed({ vercelEnv: "production", hostHeader: "branch.vercel.app", mintFlag: "rustic-ozark-retreat" }), false);
+  assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "www.mybransonvacation.com", mintFlag: "rustic-ozark-retreat" }), false);
+  assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "mybransonvacation.com", mintFlag: "rustic-ozark-retreat" }), false);
+  assert.equal(mintRouteAllowed({ vercelEnv: "development", hostHeader: "localhost:3000", mintFlag: "rustic-ozark-retreat" }), false);
+  assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "branch.vercel.app", mintFlag: "1" }), false);
+  assert.equal(mintKeyMatches("correct-horse", "correct-horse"), true);
+  assert.equal(mintKeyMatches("correct-horse", "correct-horses"), false);
+  assert.equal(mintKeyMatches("wrong", "correct-horse"), false);
+  assert.equal(mintKeyMatches(null, "correct-horse"), false);
+  assert.equal(mintKeyMatches("correct-horse", ""), false);
 });

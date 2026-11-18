@@ -1,29 +1,24 @@
 /**
- * Mint guidebook link tokens for upcoming Rustic Ozark Retreat reservations.
+ * Minting does not run from this file.
  *
- * DISABLED by default. This file does not enable itself.
+ * Guesty credentials live only in the Vercel Preview environment. After that
+ * preview is deployed, with these Preview env vars set:
  *
- * Enable for Rustic only, in the shell that runs this command (preview credentials,
- * never production), and only after Brian approves writing to live Guesty:
+ *   GUIDEBOOK_TOKEN_MINT=rustic-ozark-retreat
+ *   GUIDEBOOK_TOKEN_FIELD_ID=<the Guesty custom field id>
+ *   GUIDEBOOK_MINT_KEY=<a long random secret>
  *
- *   GUIDEBOOK_TOKEN_MINT=rustic-ozark-retreat \
- *   GUIDEBOOK_TOKEN_FIELD_ID=<the Guesty custom field id> \
- *   npx tsx scripts/mint-guidebook-tokens.ts
+ * and the existing GUESTY_CLIENT_ID, GUESTY_CLIENT_SECRET, and
+ * BLOB_READ_WRITE_TOKEN available to Preview, call:
  *
- * Also required, already used by the site: GUESTY_CLIENT_ID, GUESTY_CLIENT_SECRET,
- * and BLOB_READ_WRITE_TOKEN so the shared Guesty OAuth token is reused.
+ *   curl -X POST -H "x-mint-key: $GUIDEBOOK_MINT_KEY" \
+ *     https://<preview-host>/api/guidebook-test/mint
  *
- * GUIDEBOOK_TOKEN_MINT must be exactly rustic-ozark-retreat. "1", "true", or
- * another slug does not write. The job refuses every listing except Rustic.
- * It does not print tokens, codes, names, or phones.
+ * The route is Rustic only, writes just the Guidebook link token field, skips
+ * reservations that already have a value, and returns counts. It 404s on the
+ * live site and on any deployment that is not a Vercel preview.
  */
-import { mintRusticGuidebookTokens } from "../src/lib/guidebook-test/token-job";
-
-const result = await mintRusticGuidebookTokens();
 console.log(JSON.stringify({
-  enabled: result.enabled,
-  scanned: result.scanned,
-  minted: result.minted,
-  skipped: result.skipped,
-  blocked: result.blocked,
+  enabled: false,
+  run: "POST /api/guidebook-test/mint on the preview deployment",
 }));
