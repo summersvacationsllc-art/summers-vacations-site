@@ -1,54 +1,44 @@
 {
-  "date": "2026-11-17",
-  "generated_at": "2026-11-18T03:48:27+00:00",
+  "date": "2026-11-18",
+  "generated_at": "2026-11-18T05:30:50-06:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 2,
+    "check_ins": 2,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 2,
+    "in_house_units": 3,
     "units_total": 8
   },
   "check_ins": [
     {
-      "property": "Scotts unit",
-      "guest": "Jerald Dawson",
-      "guests": 2,
+      "property": "Penthouse",
+      "guest": "Sara Stuckenbroker",
+      "guests": 4,
       "platform": "airbnb2",
-      "reservation_id": "res_vmdwcuu",
+      "reservation_id": "res_o8q1jrc",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Ryan William",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_26axwx3",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
-    {
-      "property": "Scotts unit",
-      "guest": "Jd Washington",
-      "guests": 6,
-      "platform": "airbnb2",
-      "reservation_id": "res_bhhkfb1",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guest": "Nicole Bennett",
-      "guests": 5,
-      "platform": "airbnb2",
-      "reservation_id": "res_u3o6agl",
-      "time": "10:00 AM"
-    }
-  ],
-  "turnovers": [],
-  "in_house": [
     {
       "property": "Rustic Ozark",
       "guest": "Chantel  Summers",
       "guests": 1,
       "platform": "owner-guest",
       "reservation_id": "res_sh4grtl",
-      "check_in": "2026-11-15",
-      "check_out": "2026-11-18",
-      "nights": 3
-    },
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Scotts unit",
       "guest": "Jerald Dawson",
@@ -58,6 +48,26 @@
       "check_in": "2026-11-17",
       "check_out": "2026-11-20",
       "nights": 3
+    },
+    {
+      "property": "Penthouse",
+      "guest": "Sara Stuckenbroker",
+      "guests": 4,
+      "platform": "airbnb2",
+      "reservation_id": "res_o8q1jrc",
+      "check_in": "2026-11-18",
+      "check_out": "2026-11-22",
+      "nights": 4
+    },
+    {
+      "property": "Rustic Ozark",
+      "guest": "Ryan William",
+      "guests": 3,
+      "platform": "airbnb2",
+      "reservation_id": "res_26axwx3",
+      "check_in": "2026-11-18",
+      "check_out": "2026-11-20",
+      "nights": 2
     }
   ],
   "sync_notes": {
