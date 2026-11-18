@@ -14,7 +14,6 @@ interface FleetToday {
     status: string;
     same_day: boolean;
     cleaner_assigned: boolean;
-    reservation_id?: string;
   }[];
 }
 
@@ -29,9 +28,9 @@ interface GuestToday {
     in_house_units?: number;
     units_total?: number;
   };
-  check_ins?: { property: string; guest: string; time?: string }[];
-  check_outs?: { property: string; guest: string; time?: string }[];
-  in_house?: { property: string; guest: string; check_out: string }[];
+  check_ins?: { property: string; time?: string }[];
+  check_outs?: { property: string; time?: string }[];
+  in_house?: { property: string; check_out: string }[];
 }
 
 interface BusinessToday {
@@ -201,7 +200,7 @@ export default function BusinessReport() {
               <ul className="mt-1 space-y-1 text-[14px]">
                 {guest!.check_ins!.map((c, i) => (
                   <li key={i}>
-                    <strong>{c.property}</strong> · {c.guest} {c.time ? `· ${c.time}` : ""}
+                    <strong>{c.property}</strong>{c.time ? ` · ${c.time}` : ""}
                   </li>
                 ))}
               </ul>
@@ -213,7 +212,7 @@ export default function BusinessReport() {
               <ul className="mt-1 space-y-1 text-[14px]">
                 {guest!.check_outs!.map((c, i) => (
                   <li key={i}>
-                    <strong>{c.property}</strong> · {c.guest} {c.time ? `· ${c.time}` : ""}
+                    <strong>{c.property}</strong>{c.time ? ` · ${c.time}` : ""}
                   </li>
                 ))}
               </ul>
@@ -253,7 +252,7 @@ export default function BusinessReport() {
               <ul className="mt-1 space-y-1 text-[14px]">
                 {guest!.in_house!.map((c, i) => (
                   <li key={i}>
-                    <strong>{c.property}</strong> · {c.guest} · out {c.check_out}
+                    <strong>{c.property}</strong> · out {c.check_out}
                   </li>
                 ))}
               </ul>

@@ -60,22 +60,14 @@ def get_json_optional(path: str) -> dict:
         raise
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--date")
-    args = ap.parse_args()
-    today = args.date or date.today().isoformat()
-
-    cal = get_json(
-        f"/api/cron/calendar?from={today}&to={today}"
-    )  # only today window is enough
-    res = cal.get("reservations", [])
-    t = get_json_optional("/api/tasks")
-    todays = [x for x in t.get("tasks", []) if x.get("scheduled_date") == today]
+def snapshot(date_str: str, cal: dict, tasks_payload: dict | None) -> dict:
+    """Public fleet-today body. No Guesty reservation ids."""
+    res = (cal or {}).get("reservations", [])
+    t = tasks_payload or {}
+    todays = [x for x in t.get("tasks", []) if x.get("scheduled_date") == date_str]
     names = {r["property_id"]: (r.get("property_name") or "?").strip() for r in res}
-
-    payload = {
-        "date": today,
+    return {
+        "date": date_str,
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "units_total": len({r["property_id"] for r in res}),
         "turnovers": [
@@ -88,7 +80,6 @@ def main() -> None:
                 "same_day": bool(x.get("is_same_day")),
                 "cleaner_id": x.get("cleaner_id"),
                 "cleaner_assigned": x.get("cleaner_id") is not None,
-                "reservation_id": x.get("guesty_reservation_id"),
             }
             for x in todays
         ],
@@ -97,6 +88,19 @@ def main() -> None:
             "honest 'unassigned' shown where null"
         ),
     }
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--date")
+    args = ap.parse_args()
+    today = args.date or date.today().isoformat()
+
+    cal = get_json(
+        f"/api/cron/calendar?from={today}&to={today}"
+    )  # only today window is enough
+    tasks = get_json_optional("/api/tasks")
+    payload = snapshot(today, cal, tasks)
     out = SITE / "public/reports/fleet-today.json"
     out.write_text(json.dumps(payload, indent=2))
     print(

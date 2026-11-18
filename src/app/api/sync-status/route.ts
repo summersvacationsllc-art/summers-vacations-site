@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { hourCT, loadLiveReport, todayCT } from "@/lib/live-report-json";
+import { redactSyncStatusRecord } from "@/lib/public-guest-redaction";
 import { readCloudJson, type CloudStatus } from "@/lib/shows-cloud";
 
 // Health of the daily guest sync → kiosk pipeline, computed live.
@@ -37,7 +38,9 @@ export async function GET(req: Request) {
   if (guest?.candidates.github?.error) {
     warnings.push(`GitHub read failed (${guest.candidates.github.error}); serving bundled copy`);
   }
-  const lv = lastVerify?.data as { ok?: boolean; checkedAt?: string; errors?: string[] } | undefined;
+  const lv = (
+    lastVerify ? redactSyncStatusRecord(lastVerify.data) : undefined
+  ) as { ok?: boolean; checkedAt?: string; errors?: string[] } | undefined;
   if (lv && lv.ok === false) errors.push(`last verifier run failed at ${lv.checkedAt}: ${(lv.errors || []).join("; ")}`);
 
   // Shows board freshness (no guest data: counts and dates only). A warning, not
