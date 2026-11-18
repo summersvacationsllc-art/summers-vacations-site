@@ -2,9 +2,9 @@
  * Server-only: find the reservation from the guidebook link context (unit + dates, or typed name + stay window), decide, optionally
  * write the phone to the guest profile. The Guesty token stays in guesty.ts.
  *
- * Environment switches (only honored outside production):
+ * Environment switches (MOCK only honored outside production):
  *   GUIDEBOOK_GATE_MOCK=1     -> canned fake reservations, no Guesty calls at all
- *   GUIDEBOOK_GATE_DRY_RUN=1  -> real reads, never write to a profile
+ *   GUIDEBOOK_GATE_DRY_RUN=1  -> real reads, never write to a profile (honored in every environment, incl. production)
  * In production a missing GUESTY_CLIENT_ID/SECRET means "lookup failed" (review list).
  */
 import { guestyGet, guestyPut } from "@/lib/guesty";
@@ -13,7 +13,8 @@ import { addDays, ctDay, decide, isAirbnbConf, stayDays, isIsoDay, WINDOW_DAYS, 
 
 const nonProd = () => process.env.VERCEL_ENV !== "production";
 const mockOn = () => nonProd() && process.env.GUIDEBOOK_GATE_MOCK === "1";
-const dryRun = () => nonProd() && process.env.GUIDEBOOK_GATE_DRY_RUN === "1";
+// Dry run only ever SUPPRESSES writes, so it is honored in production too (used for the read-only live check).
+const dryRun = () => process.env.GUIDEBOOK_GATE_DRY_RUN === "1";
 
 type RawGuest = Record<string, unknown>;
 
