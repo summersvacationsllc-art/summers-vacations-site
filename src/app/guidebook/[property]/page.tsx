@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, use } from "react";
 import { normalizeStayDate, stayMode, doorWindow, stayDateLabel, isIsoDate, type StayDate, type DoorState } from "@/lib/stay-window";
 import dynamic from "next/dynamic";
 import { getGuidebook, SEASONS, UPSTAIRS_DOWNSTAIRS_DOOR, SUITE_FRONT_DOOR, STAIRWELL_DOORS_CLOSED, ROKU_GUEST_MODE_OTHER, type PropertyGuidebook, type SeasonalTheme } from "@/data/guidebooks";
@@ -8,6 +8,8 @@ import { STREAMING_HELP_HTML, STREAMING_HELP_SUBTITLE, STREAMING_HELP_TITLE } fr
 import type { WeatherPayload } from "@/lib/weather";
 import FishingMagazine from "@/components/FishingMagazine";
 import ShowsMagazine from "@/components/ShowsMagazine";
+import GuidebookGate from "@/components/GuidebookGate";
+import { isGateSlug } from "@/lib/guidebook-gate-core";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -68,10 +70,55 @@ function homeHighlights(theme: SeasonalTheme, showsData: any, attractionsData: a
   return chips.slice(0, 4);
 }
 
-export default function GuidebookPage({ params, searchParams: spPromise }: {
+type GuidebookProps = {
   params: Promise<{ property: string }>;
   searchParams: Promise<{ code?: string; name?: string; conf?: string; confirmation?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string; from?: string; unit?: string }>;
-}) {
+};
+
+const GATE_KEY = (slug: string) => `svs_gb_gate_v1:${slug}`;
+const GATE_TTL_MS = 60 * 86400_000;
+
+/**
+ * Pilot units (Rustic, Woodland) show a name + phone form first. The choice is
+ * remembered on this device. Every other guidebook, and the in-unit kiosk
+ * (?from=kiosk), renders the guidebook directly.
+ */
+export default function GuidebookPage(props: GuidebookProps) {
+  const { property } = use(props.params);
+  const sp = use(props.searchParams);
+  let slug = "";
+  try { slug = getGuidebook(decodeURIComponent(property))?.slug || ""; } catch { /* bad encoding */ }
+  const gated = isGateSlug(slug) && sp.from !== "kiosk";
+  const [state, setState] = useState<"checking" | "gate" | "open">(gated ? "checking" : "open");
+  useEffect(() => {
+    if (!gated) return;
+    try {
+      const raw = localStorage.getItem(GATE_KEY(slug));
+      const v = raw ? JSON.parse(raw) : null;
+      if (v && typeof v.at === "number" && Date.now() - v.at < GATE_TTL_MS) { setState("open"); return; }
+    } catch { /* private mode: ask again */ }
+    setState("gate");
+  }, [gated, slug]);
+  if (!gated || state === "open") return <GuidebookInner {...props} />;
+  if (state === "checking") return <div className="min-h-screen bg-sky-50 flex items-center justify-center"><p className="text-sky-700">Loading...</p></div>;
+  const gb = getGuidebook(slug);
+  const conf = (sp.conf || sp.confirmation || "").trim();
+  return (
+    <GuidebookGate
+      slug={slug}
+      unitName={gb?.name || "Your stay"}
+      prefillConf={conf}
+      airbnbHint={/^hm/i.test(conf) || sp.from === "airbnb"}
+      onDone={(how) => {
+        try { localStorage.setItem(GATE_KEY(slug), JSON.stringify({ at: Date.now(), how })); } catch { /* ignore */ }
+        setState("open");
+        window.scrollTo(0, 0);
+      }}
+    />
+  );
+}
+
+function GuidebookInner({ params, searchParams: spPromise }: GuidebookProps) {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
   const [mode, setMode] = useState<'guest'|'branson'>('branson');

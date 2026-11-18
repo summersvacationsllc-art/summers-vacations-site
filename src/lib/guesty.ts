@@ -302,3 +302,21 @@ export async function fetchGuestyReviews(
     return [];
   }
 }
+
+/** Guesty Open API write (used only by the guidebook phone gate). Never logs bodies. */
+export async function guestyPut(path: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  const token = await guestyAuth();
+  const res = await fetch(`${GUESTY_BASE}${path}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
+      "content-type": "application/json",
+    } as HeadersInit,
+    body: JSON.stringify(body),
+    cache: "no-store",
+  });
+  if (res.status === 401) await invalidateToken(token);
+  if (!res.ok) throw new Error(`Guesty PUT ${path.split("?")[0].replace(/[0-9a-f]{24}/g, ":id")} failed: ${res.status}`);
+  return res.json().catch(() => ({}));
+}
