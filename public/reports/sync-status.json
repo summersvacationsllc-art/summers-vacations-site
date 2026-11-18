@@ -1,18 +1,19 @@
 {
   "ok": true,
-  "generated_at": "2026-11-18T03:48:29+00:00",
-  "checkedAt": "2026-11-17T21:48:29-06:00",
-  "todayCT": "2026-11-17",
-  "lastSyncAt": "2026-11-18T03:48:27+00:00",
-  "syncDataDate": "2026-11-17",
-  "liveDataDate": "2026-11-17",
+  "generated_at": "2026-11-18T18:58:56+00:00",
+  "checkedAt": "2026-11-18T12:58:56-06:00",
+  "todayCT": "2026-11-18",
+  "lastSyncAt": "2026-11-18T18:58:53+00:00",
+  "syncDataDate": "2026-11-18",
+  "liveDataDate": "2026-11-18",
   "liveSource": "github",
   "expectedInHouse": [
-    "Rustic Ozark",
-    "Scotts unit"
+    "Penthouse 2026-11-18 \u2192 2026-11-22",
+    "Rustic Ozark 2026-11-18 \u2192 2026-11-20",
+    "Scotts unit 2026-11-17 \u2192 2026-11-20"
   ],
   "kioskUnits": {
-    "the-penthouse": null,
+    "the-penthouse": "Penthouse",
     "rustic-ozark-retreat": "Rustic Ozark",
     "double-condo": null,
     "branson-family-haven": null,
@@ -23,5 +24,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/44232958106 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/44375501251"
 }
