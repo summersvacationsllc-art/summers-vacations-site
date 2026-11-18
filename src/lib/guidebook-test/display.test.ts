@@ -3,7 +3,7 @@ import test from "node:test";
 import { chicagoInstant } from "../stay-window";
 import { guidebookTestAllowed, parseDemoStage, tokenFromQuery, TOKEN_RE } from "./access";
 import { codePhase, doorPanel, pickGuestCode } from "./display";
-import { commitTokenWrite, generateGuidebookToken, planTokenWrite, tokensEqual } from "./token-job";
+import { generateGuidebookToken, mintEnabled, mintRusticGuidebookTokens, planTokenWrite, readTokenFieldId, reservationsToMint, tokensEqual, type GuestyMintClient, type MintRow } from "./token-job";
 
 const PLACE = "Building 9, Unit 7";
 
@@ -91,11 +91,82 @@ test("demo stages and tokens", () => {
   assert.equal(tokensEqual(token, generateGuidebookToken()), false);
 });
 
-test("the token job plans a custom-field write and refuses to perform it", () => {
+test("the token job plans a custom-field write and stays disabled without the Rustic flag", async () => {
   const token = "a".repeat(43);
   const plan = planTokenWrite("68eeb5866f48330013c65a7a", "68eeb5866f48330013c65a7b", token);
   assert.equal(plan.method, "PUT");
   assert.equal(plan.path, "/v1/reservations-v3/68eeb5866f48330013c65a7a/custom-fields");
   assert.deepEqual(plan.body.customFields, [{ fieldId: "68eeb5866f48330013c65a7b", value: token }]);
-  assert.throws(() => commitTokenWrite(plan), /Refusing to write to Guesty/);
+  assert.equal(mintEnabled({}), false);
+  assert.equal(mintEnabled({ GUIDEBOOK_TOKEN_MINT: "1" }), false);
+  assert.equal(mintEnabled({ GUIDEBOOK_TOKEN_MINT: "true" }), false);
+  assert.equal(mintEnabled({ GUIDEBOOK_TOKEN_MINT: "woodland-retreat" }), false);
+  assert.equal(mintEnabled({ GUIDEBOOK_TOKEN_MINT: "rustic-ozark-retreat" }), true);
+  assert.equal(readTokenFieldId({}), null);
+  assert.equal(readTokenFieldId({ GUIDEBOOK_TOKEN_FIELD_ID: "not-an-id" }), null);
+  assert.equal(readTokenFieldId({ GUIDEBOOK_TOKEN_FIELD_ID: "68eeb5866f48330013c65a7b" }), "68eeb5866f48330013c65a7b");
+
+  let calls = 0;
+  const client: GuestyMintClient = {
+    get: async () => { calls += 1; return { results: [], count: 0 }; },
+    put: async () => { calls += 1; },
+  };
+  const off = await mintRusticGuidebookTokens({ env: {}, client });
+  assert.equal(off.enabled, false);
+  assert.equal(calls, 0);
+  const wrong = await mintRusticGuidebookTokens({
+    env: { GUIDEBOOK_TOKEN_MINT: "true", GUIDEBOOK_TOKEN_FIELD_ID: "68eeb5866f48330013c65a7b" },
+    client,
+  });
+  assert.equal(wrong.enabled, false);
+  assert.equal(calls, 0);
+  const missingField = await mintRusticGuidebookTokens({
+    env: { GUIDEBOOK_TOKEN_MINT: "rustic-ozark-retreat" },
+    client,
+  });
+  assert.equal(missingField.blocked, "field-id");
+  assert.equal(calls, 0);
+});
+
+test("mint selects only blank upcoming Rustic reservations and writes one token each", async () => {
+  const rustic = "68eeb5866f48330013c65a7a";
+  const other = "68eeb5866f48330013c65a7c";
+  const fieldId = "68eeb5866f48330013c65a7b";
+  const rows: MintRow[] = [
+    { id: "aaaaaaaaaaaaaaaaaaaaaaaa", listingId: rustic, status: "confirmed", checkOut: "2026-11-20", fieldValue: null },
+    { id: "bbbbbbbbbbbbbbbbbbbbbbbb", listingId: rustic, status: "confirmed", checkOut: "2026-11-20", fieldValue: "already-set" },
+    { id: "cccccccccccccccccccccccc", listingId: rustic, status: "canceled", checkOut: "2026-11-20", fieldValue: null },
+    { id: "dddddddddddddddddddddddd", listingId: rustic, status: "confirmed", checkOut: "2026-11-01", fieldValue: null },
+    { id: "eeeeeeeeeeeeeeeeeeeeeeee", listingId: other, status: "confirmed", checkOut: "2026-11-20", fieldValue: null },
+  ];
+  assert.deepEqual(reservationsToMint(rows, rustic, "2026-11-18").map((r) => r.id), ["aaaaaaaaaaaaaaaaaaaaaaaa"]);
+
+  const puts: { path: string; body: Record<string, unknown> }[] = [];
+  const client: GuestyMintClient = {
+    get: async () => ({
+      count: 2,
+      results: [
+        { _id: "aaaaaaaaaaaaaaaaaaaaaaaa", listingId: rustic, status: "confirmed", checkOutDateLocalized: "2026-11-20", customFields: [] },
+        { _id: "bbbbbbbbbbbbbbbbbbbbbbbb", listingId: rustic, status: "confirmed", checkOutDateLocalized: "2026-11-22", customFields: [{ fieldId, value: "keep" }] },
+        { _id: "eeeeeeeeeeeeeeeeeeeeeeee", listingId: other, status: "confirmed", checkOutDateLocalized: "2026-11-22", customFields: [] },
+      ],
+    }),
+    put: async (path, body) => { puts.push({ path, body }); },
+  };
+  const result = await mintRusticGuidebookTokens({
+    env: {
+      GUIDEBOOK_TOKEN_MINT: "rustic-ozark-retreat",
+      GUIDEBOOK_TOKEN_FIELD_ID: fieldId,
+      GUESTY_CLIENT_ID: "present",
+      GUESTY_CLIENT_SECRET: "present",
+    },
+    today: "2026-11-18",
+    client,
+    generateToken: () => "a".repeat(43),
+  });
+  assert.equal(result.enabled, true);
+  assert.equal(result.minted, 1);
+  assert.equal(puts.length, 1);
+  assert.equal(puts[0].path, "/v1/reservations-v3/aaaaaaaaaaaaaaaaaaaaaaaa/custom-fields");
+  assert.deepEqual(puts[0].body, { customFields: [{ fieldId, value: "a".repeat(43) }] });
 });

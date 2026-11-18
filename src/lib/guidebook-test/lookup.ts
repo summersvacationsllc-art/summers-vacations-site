@@ -8,7 +8,7 @@
  */
 import { guestyGetOptional } from "@/lib/guesty";
 import { todayCT } from "@/lib/live-report-json";
-import { tokensEqual } from "./token-job";
+import { readTokenFieldId, tokensEqual } from "./token-job";
 import { codePhase, pickGuestCode, type CodePhase } from "./display";
 import type { TestUnit } from "./units";
 
@@ -23,7 +23,6 @@ const DEAD = new Set([
 ]);
 
 const RES_ID = /^[0-9a-f]{24}$/i;
-const FIELD_ID = /^[0-9a-f]{24}$/i;
 
 export type ResolvedStay = {
   checkIn: string;
@@ -79,14 +78,9 @@ function readFields(raw: unknown): { fieldId: string; value: string }[] {
   return out;
 }
 
-function configuredFieldId(): string | null {
-  const id = (process.env.GUIDEBOOK_TOKEN_FIELD_ID || "").trim();
-  return FIELD_ID.test(id) ? id : null;
-}
-
-function rowMatches(row: Row, token: string, fieldId: string | null): boolean {
+function rowMatches(row: Row, token: string, fieldId: string): boolean {
   for (const field of row.fields) {
-    if (fieldId && field.fieldId !== fieldId) continue;
+    if (field.fieldId !== fieldId) continue;
     if (field.value.length === token.length && tokensEqual(field.value, token)) return true;
   }
   return false;
@@ -155,11 +149,12 @@ async function guestCode(reservationId: string): Promise<string | null> {
  * could not be read; the dates are still the reservation's dates.
  */
 export async function lookupStay(unit: TestUnit, token: string, now = Date.now()): Promise<LookupResult> {
+  const fieldId = readTokenFieldId();
+  if (!fieldId) return { kind: "none" };
   if (!process.env.GUESTY_CLIENT_ID || !process.env.GUESTY_CLIENT_SECRET) {
     console.log("guidebook-test: guesty credentials unavailable");
     return { kind: "guesty-error" };
   }
-  const fieldId = configuredFieldId();
   let rows: Row[];
   try {
     rows = await listRows(unit.listingId);
@@ -197,7 +192,7 @@ export async function lookupStay(unit: TestUnit, token: string, now = Date.now()
 
   try {
     const code = await guestCode(hit.id);
-    console.log(`guidebook-test: guest-code ${code ? "present" : "absent"}`);
+    console.log(`guidebook-test: code-lookup ${code ? "ok" : "empty"}`);
     return {
       kind: "stay",
       stay: {

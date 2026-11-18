@@ -214,6 +214,30 @@ export async function guestyGetOptional(path: string): Promise<Record<string, un
   }
 }
 
+/**
+ * PUT with no logged body. Only the disabled guidebook token mint job calls this,
+ * and only after its flag check. The response body is discarded.
+ */
+export async function guestyPut(path: string, body: Record<string, unknown>): Promise<void> {
+  const token = await guestyAuth();
+  const res = await fetch(`${GUESTY_BASE}${path}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(body),
+    cache: "no-store",
+  });
+  if (res.status === 401) await invalidateToken(token);
+  await res.arrayBuffer().catch(() => undefined);
+  if (!res.ok) {
+    const where = path.split("?")[0].replace(/[0-9a-f]{24}/gi, ":id");
+    throw new Error(`Guesty PUT ${where} failed: ${res.status}`);
+  }
+}
+
 export interface GuestyPhoto {
   url: string;
   caption?: string;
