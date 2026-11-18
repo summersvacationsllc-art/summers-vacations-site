@@ -185,6 +185,71 @@ export async function guestyGet(path: string): Promise<Record<string, unknown>> 
   return res.json();
 }
 
+/**
+ * Read-only GET for responses that may be HTTP 204 (no body), such as
+ * /v1/guest-code when a reservation has no linked lock. Never logs the body.
+ * Does not write to Guesty.
+ */
+export async function guestyGetOptional(path: string): Promise<Record<string, unknown> | null> {
+  const token = await guestyAuth();
+  const res = await fetch(`${GUESTY_BASE}${path}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
+    },
+    cache: "no-store",
+  });
+  if (res.status === 401) await invalidateToken(token);
+  if (res.status === 204) return null;
+  if (!res.ok) {
+    const where = path.split("?")[0].replace(/[0-9a-f]{24}/gi, ":id");
+    throw new Error(`Guesty GET ${where} failed: ${res.status}`);
+  }
+  const text = await res.text();
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * One Guesty call using the cached OAuth token. Does not request a new token
+ * unless the shared cache has none that is still valid. Never logs the body.
+ * Non-success bodies are discarded.
+ */
+export async function guestySend(
+  method: "GET" | "PUT",
+  path: string,
+  body?: Record<string, unknown>,
+): Promise<{ status: number; body: Record<string, unknown> | null }> {
+  const token = await guestyAuth();
+  const res = await fetch(`${GUESTY_BASE}${path}`, {
+    method,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
+      ...(body ? { "content-type": "application/json" } : {}),
+    },
+    body: body ? JSON.stringify(body) : undefined,
+    cache: "no-store",
+  });
+  if (res.status === 401) await invalidateToken(token);
+  const status = res.status;
+  if (status === 204 || status < 200 || status >= 300) {
+    await res.arrayBuffer().catch(() => undefined);
+    return { status, body: null };
+  }
+  const text = await res.text();
+  if (!text.trim()) return { status, body: null };
+  try {
+    return { status, body: JSON.parse(text) as Record<string, unknown> };
+  } catch {
+    return { status, body: null };
+  }
+}
+
 export interface GuestyPhoto {
   url: string;
   caption?: string;

@@ -4,7 +4,7 @@ import {
   hasForbiddenGuestKey,
   publicJsonResponseText,
   redactSyncStatusRecord,
-} from "../../src/lib/public-guest-redaction.ts";
+} from "../../src/lib/public-guest-redaction";
 
 const NAME = "Casey Placeholder";
 const RES = "res_placeholder";
