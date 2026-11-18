@@ -57,6 +57,18 @@ const nextConfig: NextConfig = {
         source: "/kiosk-version.json",
         headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }],
       },
+      {
+        // Test guidebook only. The door code is rendered on this route and must
+        // not be cached, indexed, or leaked via Referer. No other route matches.
+        source: "/guidebook-test/:path*",
+        headers: [
+          { key: "Cache-Control", value: "private, no-store, max-age=0, must-revalidate" },
+          { key: "CDN-Cache-Control", value: "no-store" },
+          { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
+      },
     ];
   },
 };

@@ -185,6 +185,35 @@ export async function guestyGet(path: string): Promise<Record<string, unknown>> 
   return res.json();
 }
 
+/**
+ * Read-only GET for responses that may be HTTP 204 (no body), such as
+ * /v1/guest-code when a reservation has no linked lock. Never logs the body.
+ * Does not write to Guesty.
+ */
+export async function guestyGetOptional(path: string): Promise<Record<string, unknown> | null> {
+  const token = await guestyAuth();
+  const res = await fetch(`${GUESTY_BASE}${path}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      accept: "application/json",
+    },
+    cache: "no-store",
+  });
+  if (res.status === 401) await invalidateToken(token);
+  if (res.status === 204) return null;
+  if (!res.ok) {
+    const where = path.split("?")[0].replace(/[0-9a-f]{24}/gi, ":id");
+    throw new Error(`Guesty GET ${where} failed: ${res.status}`);
+  }
+  const text = await res.text();
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
 export interface GuestyPhoto {
   url: string;
   caption?: string;
