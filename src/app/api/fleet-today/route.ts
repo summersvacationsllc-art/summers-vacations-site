@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { readFile } from "fs/promises";
 import { join } from "path";
+import { publicJsonResponseText } from "@/lib/public-guest-redaction";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -8,7 +9,7 @@ export const revalidate = 0;
 export async function GET() {
   try {
     const path = join(process.cwd(), "public", "reports", "fleet-today.json");
-    const data = await readFile(path, "utf-8");
+    const data = publicJsonResponseText(await readFile(path, "utf-8"));
     return new NextResponse(data, {
       status: 200,
       headers: {

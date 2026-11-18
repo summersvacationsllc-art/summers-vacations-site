@@ -719,7 +719,7 @@ const UNITS = {
   // Silver Dollar Suite: TOP FLOOR ONLY of 189 Notch Ln, Bldg 21, Unit 1 (separate Guesty listing
   // 6aea02aaf9dffe005a3939fc, nickname "Silver Dollar Suite"). Copied from Adventure Escape (Nov 11, 2026)
   // and adapted: 2BR/2BA, king + queen, sleeps 4, no lower-level rooms. Suite-only bookings get the
-  // front-door code only. Guest name comes from /api/guest-today like every unit (alias match below).
+  // front-door code only. The welcome line is generic; the public feed is matched by unit alias only.
   // Never falls back to Adventure Escape. No door code or PIN here. Wi-Fi: the Suite's own network is
   // not confirmed yet, so no network/password is shown (wifiNote instead) until Brian confirms it.
   "silver-dollar-suite": {
@@ -899,9 +899,6 @@ function prettyDate(iso) {
   const [y, m, d] = iso.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
 }
-function firstName(full) {
-  return (full || "Guest").trim().split(/\s+/)[0];
-}
 function resolveSlug() {
   const fromUrl = (qs("unit") || "").trim().toLowerCase();
   if (fromUrl && UNITS[fromUrl]) return fromUrl;
@@ -1020,7 +1017,7 @@ function renderWelcome(stay) {
   const vacant = !stay;
   const headline = vacant
     ? `Your Branson<br>vacation starts <em>now</em>.`
-    : `${firstName(stay.guest)},<br>your Branson vacation<br>starts <em>now</em>.`;
+    : `Welcome!<br>Your Branson vacation<br>starts <em>now</em>.`;
   const lede = vacant
     ? `${unit.name} is between stays. The Ozarks are still out there.`
     : `Glad you're here. ${prettyDate(stay.check_in)} to ${prettyDate(stay.check_out)}.`;
@@ -1200,7 +1197,6 @@ function jebUrl() {
   const u = new URL("https://www.mybransonvacation.com/jeb");
   if (slug) u.searchParams.set("unit", slug);
   u.searchParams.set("from", "kiosk");
-  if (stayCache && stayCache.guest) u.searchParams.set("name", firstName(stayCache.guest));
   return u.toString();
 }
 
@@ -1210,7 +1206,6 @@ function stayGuideUrl() {
   u.searchParams.set("from", "kiosk");
   if (slug) u.searchParams.set("unit", slug);
   if (stayCache) {
-    if (stayCache.guest) u.searchParams.set("name", firstName(stayCache.guest));
     if (stayCache.check_in) u.searchParams.set("checkin", stayCache.check_in);
     if (stayCache.check_out) u.searchParams.set("checkout", stayCache.check_out);
   }
