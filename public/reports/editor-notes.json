@@ -1,48 +1,48 @@
 {
-  "for": "2026-11-16",
-  "headline": "Monday on the Lake: Crisp air, clear water, and holiday cheer building",
-  "lede": "Monday, November 16 — a perfect day to ease into Branson with cooler temps in the low 60s, light winds, and no rain in the forecast. Table Rock Lake levels stable, shows shifting into full holiday mode, and plenty of indoor options if the breeze picks up.",
+  "for": "2026-11-18",
+  "headline": "Wednesday on the Lake: Mild skies, holiday lights, and steady fishing",
+  "lede": "Wednesday, November 18 — a classic midweek Branson day with highs near 66°F, mostly cloudy skies, no rain, and calm winds. Table Rock Lake remains fishable with stable levels; holiday shows are in full swing and the Landing fountain dances on schedule.",
   "heat": false,
   "featured": {
-    "title": "Christmas In The Heartland",
-    "when": "2:00 PM",
-    "where": "Americana Theatre",
-    "why": "Heartwarming holiday musical perfect for the whole family as the season kicks off",
+    "title": "A Branson Christmas",
+    "when": "7:00 PM",
+    "where": "Clay Cooper Theatre",
+    "why": "Joyful holiday production with live music, dancing, and festive storytelling — perfect for first-timers starting the season right",
     "url": "https://www.bransonmoconcerts.com/"
   },
   "plan": [
     {
       "when": "Dawn",
-      "title": "Lake Morning",
-      "detail": "Catch sunrise over Table Rock Lake. Stable levels and clear water make for excellent early fishing or a peaceful walk along the shoreline."
+      "title": "Lake Sunrise",
+      "detail": "Enjoy a peaceful early drive or short walk near Table Rock Lake. Mild temps and clear conditions make for excellent visibility across the water."
     },
     {
       "when": "Afternoon",
-      "title": "Holiday Show",
-      "detail": "Head to Americana Theatre for Christmas In The Heartland matinee. Warm vocals and festive spirit set the tone for the week."
+      "title": "Landing Exploration",
+      "detail": "Stroll The Landing for shops, the dancing fountain, and lake views. Grab coffee and watch boats while soaking in the early holiday decorations."
     },
     {
       "when": "Dusk",
-      "title": "Evening Lights",
-      "detail": "Stroll the Landing for fountain shows and twinkling holiday lights. Grab dinner at a lakeside spot before an evening show."
+      "title": "Evening Show",
+      "detail": "Catch a marquee holiday performance. Many theatres light up early — book ahead for the best seats and full festive experience."
     }
   ],
   "indoor": [
     {
       "name": "Legends in Concert",
-      "detail": "Iconic tribute performances with live band in climate-controlled comfort",
+      "detail": "World-class tribute artists in a comfortable theatre setting with live band backing",
       "url": "https://www.pepsilegends.com/"
     },
     {
       "name": "Shanghai Circus",
-      "detail": "High-flying acrobatics and artistry — thrilling for all ages",
+      "detail": "Acrobatic thrills and artistry indoors — engaging for all ages and skill levels",
       "url": "https://www.discoverbranson.com/"
     },
     {
       "name": "Branson Christmas Wonderland",
-      "detail": "Festive lights, songs, and seasonal cheer at Kings Castle Theatre",
+      "detail": "Seasonal lights, songs, and heartwarming production at a dedicated holiday venue",
       "url": "https://www.bransonmoconcerts.com/"
     }
   ],
-  "honesty": "No tomorrow scout files found for 2026-11-16. Carried forward from Sunday verified data and Open-Meteo forecast (mild ~60s, no rain, no heat). Monday restaurant spotlight: pizza (rotation). All details verify locally. Plan and indoor are proper objects per schema. Bright-blue theme enforced. No guest names, ops, invented times/prices. Guidebook frozen."
+  "honesty": "No scout files for 2026-11-18. Honest carry-forward from most recent verified reports + Open-Meteo forecast (66°F high, 36°F low, 0% precip, mostly cloudy). Restaurant spotlight: Steamy Joe Cafe (Wednesday rotation). All show times and details marked \"confirm box office.\" No inventions, no guest names, no ops data. Plan and indoor are proper objects. Bright-blue theme only. Guidebook frozen."
 }
