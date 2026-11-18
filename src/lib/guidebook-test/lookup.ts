@@ -8,7 +8,7 @@
  */
 import { guestyGetOptional } from "@/lib/guesty";
 import { todayCT } from "@/lib/live-report-json";
-import { readTokenFieldId, tokensEqual } from "./token-job";
+import { readRusticReservationRows, readTokenFieldId, tokensEqual, type MintRow } from "./token-job";
 import { codePhase, pickGuestCode, type CodePhase } from "./display";
 import type { TestUnit } from "./units";
 
@@ -25,6 +25,7 @@ const DEAD = new Set([
 const RES_ID = /^[0-9a-f]{24}$/i;
 
 export type ResolvedStay = {
+  reservationId: string;
   checkIn: string;
   checkOut: string;
   phase: CodePhase;
@@ -152,7 +153,12 @@ async function guestCode(reservationId: string): Promise<string | null> {
  * `stay` = one reservation on this unit. `lookupFailed` means the code itself
  * could not be read; the dates are still the reservation's dates.
  */
-export async function lookupStay(unit: TestUnit, token: string, now = Date.now()): Promise<LookupResult> {
+export async function lookupStay(
+  unit: TestUnit,
+  token: string,
+  now = Date.now(),
+  options?: { includeCode?: boolean },
+): Promise<LookupResult> {
   const fieldId = readTokenFieldId();
   if (!fieldId) return { kind: "none" };
   if (!process.env.GUESTY_CLIENT_ID || !process.env.GUESTY_CLIENT_SECRET) {
@@ -187,10 +193,10 @@ export async function lookupStay(unit: TestUnit, token: string, now = Date.now()
   const phase = codePhase(hit.checkIn, hit.checkOut, now);
   if (!phase) return { kind: "none" };
 
-  if (phase !== "window") {
+  if (phase !== "window" || options?.includeCode === false) {
     return {
       kind: "stay",
-      stay: { checkIn: hit.checkIn, checkOut: hit.checkOut, phase, code: null, lookupFailed: false },
+      stay: { reservationId: hit.id, checkIn: hit.checkIn, checkOut: hit.checkOut, phase, code: null, lookupFailed: false },
     };
   }
 
@@ -200,6 +206,7 @@ export async function lookupStay(unit: TestUnit, token: string, now = Date.now()
     return {
       kind: "stay",
       stay: {
+        reservationId: hit.id,
         checkIn: hit.checkIn,
         checkOut: hit.checkOut,
         phase,
@@ -211,7 +218,54 @@ export async function lookupStay(unit: TestUnit, token: string, now = Date.now()
     console.log("guidebook-test: guest-code read failed", e instanceof Error ? e.message.slice(0, 160) : "error");
     return {
       kind: "stay",
-      stay: { checkIn: hit.checkIn, checkOut: hit.checkOut, phase, code: null, lookupFailed: true },
+      stay: { reservationId: hit.id, checkIn: hit.checkIn, checkOut: hit.checkOut, phase, code: null, lookupFailed: true },
     };
   }
+}
+
+export type VerifyCounts = { tokensFound: number; resolved: number; failed: number };
+
+/**
+ * For each confirmed Rustic stay that still has a checkout today or later and
+ * already has a token, run the same token-to-reservation lookup the page uses.
+ * Counts only. The token is not returned or logged. No Guesty writes.
+ */
+export async function verifyRusticGuidebookTokens(options?: {
+  rows?: MintRow[];
+  today?: string;
+  now?: number;
+  lookup?: (token: string) => Promise<LookupResult>;
+}): Promise<VerifyCounts> {
+  const unit = { slug: "rustic-ozark-retreat", place: "Building 9, Unit 7", listingId: "68eeb5866f48330013c65a7a" };
+  let rows = options?.rows;
+  let today = options?.today;
+  if (!rows || !today) {
+    const loaded = await readRusticReservationRows();
+    if (!loaded.ok) return { tokensFound: 0, resolved: 0, failed: 1 };
+    rows = loaded.rows;
+    today = loaded.today;
+  }
+  const lookup = options?.lookup ?? ((token: string) => lookupStay(unit, token, options?.now ?? Date.now(), { includeCode: false }));
+  let tokensFound = 0;
+  let resolved = 0;
+  let failed = 0;
+  for (const row of rows) {
+    if (row.listingId !== unit.listingId) continue;
+    if (row.status.toLowerCase() !== "confirmed") continue;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(row.checkOut) || row.checkOut < today) continue;
+    if (row.fieldValue === "unreadable") {
+      failed += 1;
+      continue;
+    }
+    if (!row.fieldValue || !row.fieldValue.trim()) continue;
+    tokensFound += 1;
+    try {
+      const found = await lookup(row.fieldValue);
+      if (found.kind === "stay" && found.stay.reservationId === row.id) resolved += 1;
+      else failed += 1;
+    } catch {
+      failed += 1;
+    }
+  }
+  return { tokensFound, resolved, failed };
 }

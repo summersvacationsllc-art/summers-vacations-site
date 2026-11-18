@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { chicagoInstant } from "../stay-window";
-import { guidebookTestAllowed, mintKeyMatches, mintRouteAllowed, parseDemoStage, tokenFromQuery, TOKEN_RE } from "./access";
+import { demoStatesAllowed, guidebookTestAllowed, mintKeyMatches, mintRouteAllowed, parseDemoStage, tokenFromQuery, TOKEN_RE } from "./access";
 import { codePhase, doorPanel, pickGuestCode } from "./display";
+import { verifyRusticGuidebookTokens } from "./lookup";
 import { generateGuidebookToken, mintEnabled, mintPublicCounts, mintRusticGuidebookTokens, planTokenWrite, readTokenFieldId, reservationsToMint, tokensEqual, type GuestyMintClient, type MintRow } from "./token-job";
 
 const PLACE = "Building 9, Unit 7";
@@ -65,14 +66,17 @@ test("door box copy follows the stay window and never invents a code", () => {
   }
 });
 
-test("the test route stays off production hosts and production deployments", () => {
+test("the Rustic page is served on the live host and demo states are not", () => {
   assert.equal(guidebookTestAllowed("preview", "summers-vacations-git-test.vercel.app"), true);
   assert.equal(guidebookTestAllowed("development", "localhost:3000"), true);
   assert.equal(guidebookTestAllowed(undefined, "localhost:3000"), true);
-  assert.equal(guidebookTestAllowed("production", "mybransonvacation.com"), false);
-  assert.equal(guidebookTestAllowed("preview", "www.mybransonvacation.com"), false);
-  assert.equal(guidebookTestAllowed("preview", "mybransonvacation.com"), false);
-  assert.equal(guidebookTestAllowed("production", "something.vercel.app"), false);
+  assert.equal(guidebookTestAllowed("production", "mybransonvacation.com"), true);
+  assert.equal(guidebookTestAllowed("production", "www.mybransonvacation.com"), true);
+  assert.equal(demoStatesAllowed("preview", "branch.vercel.app"), true);
+  assert.equal(demoStatesAllowed("development", "localhost:3000"), true);
+  assert.equal(demoStatesAllowed("production", "something.vercel.app"), false);
+  assert.equal(demoStatesAllowed("preview", "www.mybransonvacation.com"), false);
+  assert.equal(demoStatesAllowed("preview", "mybransonvacation.com"), false);
 });
 
 test("demo stages and tokens", () => {
@@ -192,16 +196,39 @@ test("mint selects only blank upcoming Rustic reservations and writes one token 
   assert.deepEqual(Object.keys(JSON.parse(pub)).sort(), ["errors", "skipped", "statuses", "written"]);
 });
 
-test("the mint route is preview-only and checks the key without echoing it", () => {
+test("mint and verify run on preview or production only when the Rustic flag is set", () => {
   assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "branch.vercel.app", mintFlag: "rustic-ozark-retreat" }), true);
-  assert.equal(mintRouteAllowed({ vercelEnv: "production", hostHeader: "branch.vercel.app", mintFlag: "rustic-ozark-retreat" }), false);
-  assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "www.mybransonvacation.com", mintFlag: "rustic-ozark-retreat" }), false);
-  assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "mybransonvacation.com", mintFlag: "rustic-ozark-retreat" }), false);
+  assert.equal(mintRouteAllowed({ vercelEnv: "production", hostHeader: "www.mybransonvacation.com", mintFlag: "rustic-ozark-retreat" }), true);
+  assert.equal(mintRouteAllowed({ vercelEnv: "production", hostHeader: "mybransonvacation.com", mintFlag: "rustic-ozark-retreat" }), true);
   assert.equal(mintRouteAllowed({ vercelEnv: "development", hostHeader: "localhost:3000", mintFlag: "rustic-ozark-retreat" }), false);
   assert.equal(mintRouteAllowed({ vercelEnv: "preview", hostHeader: "branch.vercel.app", mintFlag: "1" }), false);
+  assert.equal(mintRouteAllowed({ vercelEnv: "production", hostHeader: "www.mybransonvacation.com", mintFlag: undefined }), false);
   assert.equal(mintKeyMatches("correct-horse", "correct-horse"), true);
   assert.equal(mintKeyMatches("correct-horse", "correct-horses"), false);
   assert.equal(mintKeyMatches("wrong", "correct-horse"), false);
   assert.equal(mintKeyMatches(null, "correct-horse"), false);
   assert.equal(mintKeyMatches("correct-horse", ""), false);
+});
+
+test("verify counts token resolution and returns no token", async () => {
+  const token = "c".repeat(43);
+  const other = "d".repeat(43);
+  const counts = await verifyRusticGuidebookTokens({
+    today: "2026-11-18",
+    rows: [
+      { id: "aaaaaaaaaaaaaaaaaaaaaaaa", listingId: "68eeb5866f48330013c65a7a", status: "confirmed", checkOut: "2026-11-20", fieldValue: token },
+      { id: "bbbbbbbbbbbbbbbbbbbbbbbb", listingId: "68eeb5866f48330013c65a7a", status: "confirmed", checkOut: "2026-11-21", fieldValue: other },
+      { id: "cccccccccccccccccccccccc", listingId: "68eeb5866f48330013c65a7a", status: "confirmed", checkOut: "2026-11-21", fieldValue: null },
+      { id: "dddddddddddddddddddddddd", listingId: "68eeb5866f48330013c65a7a", status: "canceled", checkOut: "2026-11-21", fieldValue: token },
+      { id: "eeeeeeeeeeeeeeeeeeeeeeee", listingId: "68eeb5866f48330013c65a7c", status: "confirmed", checkOut: "2026-11-21", fieldValue: token },
+    ],
+    lookup: async (value) => value === token
+      ? { kind: "stay", stay: { reservationId: "aaaaaaaaaaaaaaaaaaaaaaaa", checkIn: "2026-11-18", checkOut: "2026-11-20", phase: "window", code: "9999", lookupFailed: false } }
+      : { kind: "none" },
+  });
+  assert.deepEqual(counts, { tokensFound: 2, resolved: 1, failed: 1 });
+  const pub = JSON.stringify(counts);
+  assert.equal(pub.includes(token), false);
+  assert.equal(pub.includes("9999"), false);
+  assert.deepEqual(Object.keys(JSON.parse(pub)).sort(), ["failed", "resolved", "tokensFound"]);
 });

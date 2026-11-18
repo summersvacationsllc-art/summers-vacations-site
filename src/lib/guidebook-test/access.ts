@@ -20,14 +20,18 @@ function hostname(hostHeader: string | null): string {
 }
 
 /**
- * Preview and local only. A production deployment, or any request whose host is
- * the live site (including a preview that was aliased onto it), does not serve
- * this page.
+ * The Rustic preview route is public, including on the live host. It stays
+ * noindex. Other slugs 404 on their own. Fake demo states are a separate check.
  */
-export function guidebookTestAllowed(vercelEnv: string | undefined, hostHeader: string | null): boolean {
-  if (PRODUCTION_HOSTS.has(hostname(hostHeader))) return false;
+export function guidebookTestAllowed(_vercelEnv: string | undefined, _hostHeader: string | null): boolean {
+  return true;
+}
+
+/** Fake ?demo= states never run on production or on the live host. */
+export function demoStatesAllowed(vercelEnv: string | undefined, hostHeader: string | null): boolean {
   if (vercelEnv === "production") return false;
-  return vercelEnv === "preview" || vercelEnv === "development" || !vercelEnv;
+  if (PRODUCTION_HOSTS.has(hostname(hostHeader))) return false;
+  return true;
 }
 
 export function parseDemoStage(raw: string | undefined): DemoStage | null {
@@ -53,14 +57,18 @@ export function hasCodeParam(keys: string[]): boolean {
   return keys.some((k) => k.toLowerCase() === "code");
 }
 
-/** Preview only, Rustic mint flag only, and never the live site host. */
+/**
+ * Mint and verify run on a Vercel preview or production deployment when the
+ * Rustic flag is set. The caller still has to match GUIDEBOOK_MINT_KEY.
+ * Any other environment, or any other flag value, is not allowed.
+ */
 export function mintRouteAllowed(opts: {
   vercelEnv: string | undefined;
   hostHeader: string | null;
   mintFlag: string | undefined;
 }): boolean {
-  if (PRODUCTION_HOSTS.has(hostname(opts.hostHeader))) return false;
-  if (opts.vercelEnv !== "preview") return false;
+  void opts.hostHeader;
+  if (opts.vercelEnv !== "preview" && opts.vercelEnv !== "production") return false;
   return opts.mintFlag === "rustic-ozark-retreat";
 }
 

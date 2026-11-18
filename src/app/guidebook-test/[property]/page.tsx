@@ -2,7 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { connection } from "next/server";
 import { headers } from "next/headers";
 import { getGuidebook } from "@/data/guidebooks";
-import { guidebookTestAllowed, firstQuery, hasCodeParam, parseDemoStage, tokenFromQuery, type DemoStage } from "@/lib/guidebook-test/access";
+import { demoStatesAllowed, guidebookTestAllowed, firstQuery, hasCodeParam, parseDemoStage, tokenFromQuery, type DemoStage } from "@/lib/guidebook-test/access";
 import { codePhase, doorPanel } from "@/lib/guidebook-test/display";
 import { lookupStay } from "@/lib/guidebook-test/lookup";
 import { testUnit } from "@/lib/guidebook-test/units";
@@ -75,7 +75,9 @@ export default async function GuidebookTestPage({
   }
 
   const now = new Date();
-  const demo = parseDemoStage(firstQuery(sp.demo));
+  const demo = demoStatesAllowed(process.env.VERCEL_ENV, host)
+    ? parseDemoStage(firstQuery(sp.demo))
+    : null;
   let checkin: string | null = null;
   let checkout: string | null = null;
   let door: GuidebookDoor = { kind: "hidden" };

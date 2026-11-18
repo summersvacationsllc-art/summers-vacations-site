@@ -208,6 +208,27 @@ async function defaultClient(): Promise<GuestyMintClient> {
   };
 }
 
+/** Read-only list of Rustic reservations. Does not write. Field values stay in memory. */
+export async function readRusticReservationRows(options?: {
+  env?: EnvLike;
+  today?: string;
+  client?: GuestyMintClient;
+}): Promise<{ ok: true; rows: MintRow[]; today: string } | { ok: false }> {
+  const env = options?.env ?? process.env;
+  const fieldId = readTokenFieldId(env);
+  const unit = TEST_UNITS[MINT_SLUG];
+  if (!fieldId || !unit || unit.listingId !== "68eeb5866f48330013c65a7a") return { ok: false };
+  if (!options?.client && (!env.GUESTY_CLIENT_ID || !env.GUESTY_CLIENT_SECRET)) return { ok: false };
+  const client = options?.client ?? await defaultClient();
+  const today = options?.today ?? chicagoToday(new Date());
+  try {
+    const rows = await listMintRows(client, unit.listingId, fieldId, today);
+    return { ok: true, rows, today };
+  } catch {
+    return { ok: false };
+  }
+}
+
 /**
  * Writes a fresh token onto each eligible Rustic reservation.
  * Returns immediately, with no Guesty call, unless the flag and field id are set.
