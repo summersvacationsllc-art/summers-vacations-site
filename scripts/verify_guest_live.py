@@ -5,8 +5,10 @@ Checks (stdlib only, safe to run anywhere):
   1. Expected file (the sync's own public/reports/guest-today.json) is for
      today's America/Chicago date (unless --allow-stale-expected).
   2. Live GET <base>/api/guest-today returns the same snapshot (same date and
-     generated_at, same property -> guest pairs in in_house). Retries up to
+     generated_at, same in-house property and stay dates). Retries up to
      --wait seconds because the API reads GitHub main through a ~5 min CDN.
+     Guest names and reservation ids are not part of the comparison and are
+     never written into the status file.
   3. Live <base>/kiosk.html still points at the guest API, and every in-house
      property maps to a kiosk unit using the kiosk's own alias matching (this
      is the check that would have caught Guesty 'Indian Point' not matching
@@ -38,11 +40,23 @@ def get(url: str, timeout: int = 20) -> tuple[int, dict, str]:
         return r.status, dict(r.headers), r.read().decode("utf-8", "replace")
 
 
-def pairs(data: dict) -> list[tuple[str, str]]:
-    return sorted(
-        (str(r.get("property", "")).strip(), str(r.get("guest", "")).strip())
-        for r in (data.get("in_house") or [])
+def stay_identity(row: dict) -> tuple[str, str, str]:
+    return (
+        str(row.get("property") or "").strip(),
+        str(row.get("check_in") or "").strip(),
+        str(row.get("check_out") or "").strip(),
     )
+
+
+def in_house_label(row: dict) -> str:
+    """Property and stay dates only. Ignores any guest name on the row."""
+    prop, check_in, check_out = stay_identity(row)
+    when = f"{check_in} → {check_out}".strip() if check_in or check_out else ""
+    return f"{prop} {when}".strip()
+
+
+def pairs(data: dict) -> list[tuple[str, str, str]]:
+    return sorted(stay_identity(r) for r in (data.get("in_house") or []))
 
 
 def kiosk_units(html: str) -> dict[str, list[str]]:
@@ -128,12 +142,12 @@ def main() -> int:
         matched_props: set[str] = set()
         for slug, aliases in units.items():
             row = match_stay(in_house, aliases)
-            unit_report[slug] = f"{row.get('guest')} ({row.get('property')})" if row else None
+            unit_report[slug] = str(row.get("property")) if row else None
             if row:
                 matched_props.add(str(row.get("property")))
         for row in in_house:
             if str(row.get("property")) not in matched_props:
-                errors.append(f"kiosk has no unit matching Guesty property '{row.get('property')}' (guest {row.get('guest')}) — guest would not show")
+                errors.append(f"kiosk has no unit matching Guesty property '{row.get('property')}'")
     except Exception as e:  # noqa: BLE001
         errors.append(f"kiosk check failed: {str(e)[:200]}")
 
@@ -147,7 +161,7 @@ def main() -> int:
         "syncDataDate": expected.get("date"),
         "liveDataDate": live.get("date"),
         "liveSource": live_src,
-        "expectedInHouse": [f"{g} @ {p}" for p, g in exp_pairs],
+        "expectedInHouse": sorted(in_house_label(r) for r in (expected.get("in_house") or [])),
         "kioskUnits": unit_report,
         "errors": errors,
         "notes": notes,

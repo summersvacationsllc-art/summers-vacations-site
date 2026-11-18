@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import { loadLiveReport } from "@/lib/live-report-json";
+import { publicJsonResponseText } from "@/lib/public-guest-redaction";
 
-// Live Guesty snapshot for the kiosk and /reports. The body is guest-today.json
-// exactly as the daily guest sync wrote it, read at request time from the
-// latest commit on GitHub main (falls back to the copy bundled in this deploy),
-// so a sync push shows up without a Vercel redeploy. See src/lib/live-report-json.ts.
+// Live stay snapshot for the kiosk and /reports. The body is guest-today.json
+// as the daily guest sync wrote it, read at request time from the latest commit
+// on GitHub main (falls back to the copy bundled in this deploy), so a sync
+// push shows up without a Vercel redeploy. See src/lib/live-report-json.ts.
+// Guest names and reservation ids are removed before the response is sent.
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -16,7 +18,7 @@ export async function GET() {
       { status: 503 },
     );
   }
-  return new NextResponse(report.text, {
+  return new NextResponse(publicJsonResponseText(report.text), {
     status: 200,
     headers: {
       "Content-Type": "application/json",

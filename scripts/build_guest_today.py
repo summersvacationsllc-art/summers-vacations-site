@@ -1,5 +1,8 @@
 """build_guest_today.py — pull live Guesty state from str-manager-one and write
-public/reports/guest-today.json for the magazine guest report.
+public/reports/guest-today.json for the kiosk and ops counts.
+
+The public file keeps property, party size, channel, and stay dates.
+It never includes guest names or Guesty reservation ids.
 
 Honesty rules:
   - NEVER invent cleaner names. If `cleaner_id = null` on a task, mark
@@ -51,7 +54,7 @@ def get_json(path: str) -> dict:
 
 def get_json_optional(path: str) -> dict:
     """Best-effort fetch. /api/tasks is session-gated after StayKeeper hardening
-    and returns 401 to CRON_SECRET callers; guest names still come from calendar.
+    and returns 401 to CRON_SECRET callers; stay rows still come from calendar.
     """
     try:
         return get_json(path)
@@ -61,13 +64,10 @@ def get_json_optional(path: str) -> dict:
         raise
 
 
-def build(date_str: str) -> dict:
-    today = date.fromisoformat(date_str)
-    qfrom = (today - timedelta(days=1)).isoformat()
-    qto = (today + timedelta(days=8)).isoformat()
-    cal = get_json(f"/api/cron/calendar?from={qfrom}&to={qto}")
-    res = cal.get("reservations", [])
-    t = get_json_optional("/api/tasks")
+def snapshot(date_str: str, cal: dict, tasks_payload: dict | None) -> dict:
+    """Public guest-today body. Caller supplies calendar and tasks payloads."""
+    res = (cal or {}).get("reservations", [])
+    t = tasks_payload or {}
     todays = [x for x in t.get("tasks", []) if x.get("scheduled_date") == date_str]
     tasks_unavailable = "tasks" not in t
     names = {r["property_id"]: (r.get("property_name") or "?").strip() for r in res}
@@ -78,10 +78,8 @@ def build(date_str: str) -> dict:
     def norm(r: dict) -> dict:
         return {
             "property": names[r["property_id"]],
-            "guest": (r.get("guest_name") or "").strip(),
             "guests": r.get("guests"),
             "platform": (r.get("source") or "").lower(),
-            "reservation_id": r.get("id"),
         }
 
     payload = {
@@ -112,7 +110,6 @@ def build(date_str: str) -> dict:
                     else "Unassigned in cleaners app — sync wanted"
                 ),
                 "same_day": bool(x.get("is_same_day")),
-                "reservation_id": x.get("guesty_reservation_id"),
             }
             for x in todays
         ],
@@ -132,8 +129,7 @@ def build(date_str: str) -> dict:
             "cleaner_app": (
                 (
                     "Cleaner assignments unavailable: str-manager-one /api/tasks "
-                    "rejected cron auth (session-only after hardening). Kiosk "
-                    "guest names still come from /api/cron/calendar."
+                    "rejected cron auth (session-only after hardening)."
                 )
                 if tasks_unavailable
                 else (
@@ -149,6 +145,15 @@ def build(date_str: str) -> dict:
         },
     }
     return payload
+
+
+def build(date_str: str) -> dict:
+    today = date.fromisoformat(date_str)
+    qfrom = (today - timedelta(days=1)).isoformat()
+    qto = (today + timedelta(days=8)).isoformat()
+    cal = get_json(f"/api/cron/calendar?from={qfrom}&to={qto}")
+    tasks = get_json_optional("/api/tasks")
+    return snapshot(date_str, cal, tasks)
 
 
 def main() -> None:
