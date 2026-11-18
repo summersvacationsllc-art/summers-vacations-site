@@ -22,12 +22,6 @@ export function normalizeName(raw: unknown): string | null {
   return s;
 }
 
-export function normalizeConf(raw: unknown): string | null {
-  const s = String(raw ?? "").replace(/\s+/g, "").toUpperCase();
-  if (!/^[A-Z0-9-]{4,24}$/.test(s)) return null;
-  return s;
-}
-
 /** Returns +E.164 or null. US numbers: 10 digits, or 11 with a leading 1. */
 export function normalizePhone(raw: unknown): string | null {
   const s = String(raw ?? "").trim();
@@ -125,12 +119,10 @@ export type GateResult =
   | "matched_dry_run"
   | "matched_same_phone"
   | "matched_airbnb_db_only"
-  | "unverified_no_code"
   | "review_name_mismatch"
-  | "review_unit_mismatch"
+  | "review_no_match"
+  | "review_ambiguous"
   | "review_existing_different_phone"
-  | "review_not_found"
-  | "review_inactive_reservation"
   | "review_lookup_failed"
   | "review_write_failed";
 
@@ -143,52 +135,120 @@ export type GateReservation = {
   listingId: string;
   status: string;
   confirmationCode: string;
-  checkOut: string; // ISO date or timestamp
+  checkIn: string; // ISO timestamp or date
+  checkOut: string;
+  checkInLocalized?: string; // YYYY-MM-DD at the property
+  checkOutLocalized?: string;
   guestId: string;
   guest: { fullName?: string; firstName?: string; lastName?: string; phone?: string; phones?: string[] };
   source: string; // e.g. airbnb2, vrbo, manual, website
 };
 
-const DEAD = new Set(["canceled", "cancelled", "declined", "expired", "inquiry", "closed", "awaiting_payment_canceled"]);
+const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
+
+export function isIsoDay(s: unknown): s is string {
+  return typeof s === "string" && ISO_DAY.test(s) && Number.isFinite(Date.parse(`${s}T00:00:00Z`));
+}
+
+/** YYYY-MM-DD in America/Chicago for a timestamp (or the date itself if it is already a plain date). */
+export function ctDay(v: string): string | null {
+  if (ISO_DAY.test(v)) return v;
+  const t = Date.parse(v);
+  if (!Number.isFinite(t)) return null;
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(t));
+}
+
+export function addDays(ymd: string, n: number): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10);
+}
+
+export function stayDays(r: GateReservation): { ci: string | null; co: string | null } {
+  const ci = r.checkInLocalized && ISO_DAY.test(r.checkInLocalized) ? r.checkInLocalized : ctDay(r.checkIn);
+  const co = r.checkOutLocalized && ISO_DAY.test(r.checkOutLocalized) ? r.checkOutLocalized : ctDay(r.checkOut);
+  return { ci, co };
+}
+
+/** Days ahead (and the day before today) counted as "active or upcoming" when the link has no dates. */
+export const WINDOW_DAYS = 14;
 
 export type Decision = {
   result: GateResult;
+  matched: GateReservation | null;
+  matchBy: "dates" | "window";
   /** Only set when a profile write is allowed (caller still honors dry-run). */
   write: { guestId: string; phone: string } | null;
 };
 
 /**
- * Decide what to do. `guestPhones` is what the guest PROFILE currently holds
- * (fetched fresh), `reservations` are all rows Guesty returned for the code.
+ * Decide what to do. `reservations` are the listing's rows Guesty returned for
+ * the lookup (already scoped to this unit). Only CONFIRMED stays count.
+ * With link dates: exactly one stay with those dates. Without: stays active or
+ * starting within WINDOW_DAYS whose guest name matches what was typed; exactly one.
+ * `guestPhones` is what the guest PROFILE holds (fetched fresh), or null.
  */
 export function decide(opts: {
-  slug: string;
-  listingId: string;
-  name: string;
+  typedName: string;
   phoneE164: string;
+  link: { checkin?: string; checkout?: string };
   reservations: GateReservation[];
   guestPhones: string[] | null;
-  nowMs: number;
+  today: string; // YYYY-MM-DD, property time
   allowAirbnbWrite?: boolean;
 }): Decision {
-  const live = opts.reservations.filter((r) => !DEAD.has(String(r.status || "").toLowerCase()));
-  if (!opts.reservations.length) return { result: "review_not_found", write: null };
-  if (!live.length) return { result: "review_inactive_reservation", write: null };
-  if (live.length > 1) return { result: "review_not_found", write: null }; // ambiguous code
-  const r = live[0];
-  const co = Date.parse(r.checkOut);
-  if (Number.isFinite(co) && co < opts.nowMs - 3 * 86400_000) return { result: "review_inactive_reservation", write: null };
-  if (r.listingId !== opts.listingId) return { result: "review_unit_mismatch", write: null };
-  if (!nameMatches(opts.name, r.guest)) return { result: "review_name_mismatch", write: null };
-  const profile = opts.guestPhones ?? [r.guest.phone, ...(r.guest.phones || [])].filter(Boolean) as string[];
+  const hasDates = isIsoDay(opts.link.checkin) && isIsoDay(opts.link.checkout);
+  const matchBy: "dates" | "window" = hasDates ? "dates" : "window";
+  const out = (result: GateResult, matched: GateReservation | null = null, write: Decision["write"] = null): Decision =>
+    ({ result, matched, matchBy, write });
+
+  const live = opts.reservations.filter((r) => String(r.status || "").toLowerCase() === "confirmed");
+  let r: GateReservation;
+  if (hasDates) {
+    const hits = live.filter((x) => {
+      const d = stayDays(x);
+      return d.ci === opts.link.checkin && d.co === opts.link.checkout;
+    });
+    if (hits.length === 0) return out("review_no_match");
+    if (hits.length > 1) return out("review_ambiguous");
+    r = hits[0];
+    if (!nameMatches(opts.typedName, r.guest)) return out("review_name_mismatch", r);
+  } else {
+    const horizon = addDays(opts.today, WINDOW_DAYS);
+    const inWindow = live.filter((x) => {
+      const d = stayDays(x);
+      return !!d.ci && !!d.co && d.co >= opts.today && d.ci <= horizon;
+    });
+    if (inWindow.length === 0) return out("review_no_match");
+    const named = inWindow.filter((x) => nameMatches(opts.typedName, x.guest));
+    if (named.length === 0) return out("review_name_mismatch", inWindow.length === 1 ? inWindow[0] : null);
+    if (named.length > 1) return out("review_ambiguous");
+    r = named[0];
+  }
+  const profile = opts.guestPhones ?? ([r.guest.phone, ...(r.guest.phones || [])].filter(Boolean) as string[]);
   const existing = profile.map(phoneKey).filter(Boolean);
   const want = phoneKey(opts.phoneE164);
   if (existing.length) {
-    if (existing.includes(want)) return { result: "matched_same_phone", write: null };
-    return { result: "review_existing_different_phone", write: null };
+    return existing.includes(want) ? out("matched_same_phone", r) : out("review_existing_different_phone", r);
   }
   const airbnb = /airbnb/i.test(r.source || "") || isAirbnbConf(r.confirmationCode || "");
-  if (airbnb && !opts.allowAirbnbWrite) return { result: "matched_airbnb_db_only", write: null };
-  if (!r.guestId) return { result: "review_lookup_failed", write: null };
-  return { result: "matched_written", write: { guestId: r.guestId, phone: opts.phoneE164 } };
+  if (airbnb && !opts.allowAirbnbWrite) return out("matched_airbnb_db_only", r);
+  if (!r.guestId) return out("review_lookup_failed", r);
+  return out("matched_written", r, { guestId: r.guestId, phone: opts.phoneE164 });
+}
+
+/**
+ * Pick the guest's door code from a Guesty /v1/guest-code response.
+ * Purpose GUEST only (never GUEST_BACKUP). Returns null for empty/unlinked/failed.
+ */
+export function pickGuestCode(json: unknown): string | null {
+  const codes = (json as { codes?: unknown } | null)?.codes;
+  if (!Array.isArray(codes)) return null;
+  for (const c of codes) {
+    const o = c as { code?: unknown; purpose?: unknown; status?: unknown };
+    if (String(o?.purpose ?? "").toUpperCase() !== "GUEST") continue;
+    if (/fail|error|delet|remov|expire|cancel|revok/i.test(String(o?.status ?? ""))) continue;
+    const code = typeof o.code === "string" ? o.code.trim() : "";
+    if (/^[0-9A-Za-z#*]{3,12}$/.test(code)) return code;
+  }
+  return null;
 }

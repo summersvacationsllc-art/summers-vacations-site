@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 import {
   CONSENT_TEXT, CONSENT_VERSION, isGateSlug, maskPhone, needsReview,
-  normalizeConf, normalizeName, normalizePhone, isAirbnbConf, type GateResult,
+  isIsoDay, normalizeName, normalizePhone, type GateResult,
 } from "@/lib/guidebook-gate-core";
 import { processGateSubmission } from "@/lib/guidebook-gate-service";
+import { stayFor } from "@/lib/guidebook-gate-access";
+import { sealSession, setCookieHeader, type GateSession } from "@/lib/guidebook-gate-session";
 import { bumpHourly, saveSubmission } from "@/lib/guidebook-gate-store";
 
 // Guidebook name + phone gate (pilot units). The browser only ever sees {ok}.
@@ -41,27 +43,46 @@ export async function POST(req: Request) {
   const mode = body.mode === "airbnb-optional" ? "airbnb-optional" : "required";
   const name = normalizeName(body.name);
   const phone = normalizePhone(body.phone);
-  const rawConf = String(body.conf ?? "").trim();
-  const conf = rawConf ? normalizeConf(rawConf) : "";
+  const checkin = isIsoDay(body.checkin) ? body.checkin : "";
+  const checkout = isIsoDay(body.checkout) && checkin && body.checkout > checkin ? body.checkout : "";
   if (!name) return NextResponse.json({ ok: false, field: "name", error: "Please enter your name." }, { status: 400, headers: NO_STORE });
   if (!phone) return NextResponse.json({ ok: false, field: "phone", error: "Please enter a valid mobile number, like 417-555-0123." }, { status: 400, headers: NO_STORE });
-  if (conf === null) return NextResponse.json({ ok: false, field: "conf", error: "That confirmation code doesn't look right. Check your booking message." }, { status: 400, headers: NO_STORE });
-  if (!conf && mode === "required") return NextResponse.json({ ok: false, field: "conf", error: "Please enter your booking confirmation code." }, { status: 400, headers: NO_STORE });
   const consent = body.consent === true;
 
+  // Dates only count when both are present and valid; otherwise match by typed name + stay window.
+  const linkDates = checkin && checkout ? { checkin, checkout } : { checkin: "", checkout: "" };
   let result: GateResult;
   let note: string | undefined;
+  let confirmationCode = "";
+  let verified: { resId: string; ci: string; co: string; airbnb: boolean } | undefined;
+  let matchBy: "dates" | "window" = linkDates.checkin ? "dates" : "window";
   try {
-    ({ result, note } = await processGateSubmission({ slug, name, phoneE164: phone, conf: conf || "" }));
+    ({ result, note, confirmationCode, matchBy, verified } = await processGateSubmission({ slug, name, phoneE164: phone, ...linkDates }));
   } catch {
     result = "review_lookup_failed";
     note = "unexpected error";
   }
+  // Verified match only: sealed httpOnly session + (inside the stay window) the guest's door code.
+  // Everything else (skip, no match, review cases) gets a plain OK and no code.
+  let stay: Awaited<ReturnType<typeof stayFor>> | null = null;
+  let cookie: string | null = null;
+  if (verified) {
+    const sess: GateSession = {
+      slug, resId: verified.resId, ci: verified.ci, co: verified.co, ab: verified.airbnb,
+      fn: (name.split(/\s+/)[0] || "").replace(/[^\p{L}'’-]/gu, "").slice(0, 30),
+      exp: Date.parse(`${verified.co}T00:00:00Z`) + 3 * 86400_000,
+    };
+    const token = sealSession(sess);
+    if (token) {
+      cookie = setCookieHeader(slug, token, sess.exp);
+      try { stay = await stayFor(sess); } catch { stay = null; }
+    }
+  }
   try {
     await saveSubmission({
-      unit: slug, name, phone, confirmationCode: conf || "", consent,
+      unit: slug, name, phone, confirmationCode, linkCheckin: linkDates.checkin, linkCheckout: linkDates.checkout, matchBy, consent,
       consentText: consent ? CONSENT_TEXT : null, consentVersion: CONSENT_VERSION,
-      mode, result, review: needsReview(result), reviewNote: note,
+      mode, result, codeShown: !!stay?.code, review: needsReview(result), reviewNote: note,
       ip, userAgent: (req.headers.get("user-agent") || "").slice(0, 200),
     });
   } catch (e) {
@@ -70,6 +91,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Something went wrong saving that. Please try again." }, { status: 500, headers: NO_STORE });
   }
   // Redacted diagnostics only.
-  console.log(`guidebook-gate: ${slug} ${result} phone=${maskPhone(phone)} consent=${consent} airbnbCode=${conf ? isAirbnbConf(conf) : false}`);
-  return NextResponse.json({ ok: true }, { headers: NO_STORE });
+  console.log(`guidebook-gate: ${slug} ${result} phone=${maskPhone(phone)} consent=${consent} by=${matchBy}`);
+  const res = NextResponse.json(stay ? { ok: true, stay } : { ok: true }, { headers: NO_STORE });
+  if (cookie) res.headers.append("Set-Cookie", cookie);
+  return res;
 }

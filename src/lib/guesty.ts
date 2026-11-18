@@ -320,3 +320,22 @@ export async function guestyPut(path: string, body: Record<string, unknown>): Pr
   if (!res.ok) throw new Error(`Guesty PUT ${path.split("?")[0].replace(/[0-9a-f]{24}/g, ":id")} failed: ${res.status}`);
   return res.json().catch(() => ({}));
 }
+
+/** GET that returns null for 204 / empty bodies (e.g. /v1/guest-code with no linked lock). Never logs the body. */
+export async function guestyGetOptional(path: string): Promise<Record<string, unknown> | null> {
+  const token = await guestyAuth();
+  const res = await fetch(`${GUESTY_BASE}${path}`, {
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" } as HeadersInit,
+    cache: "no-store",
+  });
+  if (res.status === 401) await invalidateToken(token);
+  if (res.status === 204) return null;
+  if (!res.ok) throw new Error(`Guesty GET ${path.split("?")[0]} failed: ${res.status}`);
+  const text = await res.text();
+  if (!text.trim()) return null;
+  try {
+    return JSON.parse(text) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}

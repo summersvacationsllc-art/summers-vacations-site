@@ -16,12 +16,16 @@ export type GateSubmission = {
   unit: string;
   name: string;
   phone: string; // +E.164
-  confirmationCode: string;
+  confirmationCode: string; // taken from the matched reservation, never typed by the guest ("" when no match)
+  linkCheckin: string;
+  linkCheckout: string;
+  matchBy: "dates" | "window";
   consent: boolean;
   consentText: string | null; // exact text shown when consent was ticked
   consentVersion: string;
   mode: "required" | "airbnb-optional";
   result: GateResult;
+  codeShown: boolean; // whether a door code was offered to the browser (the code itself is never stored)
   review: boolean;
   reviewNote?: string;
   ip: string;
@@ -109,7 +113,7 @@ export async function bumpHourly(ip: string, cap: number): Promise<boolean> {
 }
 
 const CSV_COLS: (keyof GateSubmission)[] = [
-  "at", "atCT", "env", "unit", "name", "phone", "confirmationCode", "consent", "consentVersion", "mode", "result", "review", "reviewNote", "ip",
+  "at", "atCT", "env", "unit", "name", "phone", "confirmationCode", "linkCheckin", "linkCheckout", "matchBy", "consent", "consentVersion", "mode", "result", "codeShown", "review", "reviewNote", "ip",
 ];
 
 function csvCell(v: unknown): string {

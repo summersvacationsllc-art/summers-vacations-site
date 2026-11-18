@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 type Row = {
-  id: string; at: string; atCT: string; unit: string; name: string; phone: string; confirmationCode: string;
+  id: string; at: string; atCT: string; unit: string; name: string; phone: string; confirmationCode: string; linkCheckin?: string; linkCheckout?: string; matchBy?: string;
   consent: boolean; mode: string; result: string; review: boolean; reviewNote?: string;
 };
 
@@ -61,17 +61,18 @@ export function SignupsAdmin() {
       </div>
       <div style={{ overflowX: "auto" }}>
         <table style={{ borderCollapse: "collapse", minWidth: 900 }}>
-          <thead><tr>{["When", "Unit", "Name", "Phone", "Code", "Promo OK", "Form", "Result", "Note"].map((h) => <th key={h} style={th}>{h}</th>)}</tr></thead>
+          <thead><tr>{["When", "Unit", "Name", "Phone", "Code (from reservation)", "Link dates", "Promo OK", "Form", "Result", "Note"].map((h) => <th key={h} style={th}>{h}</th>)}</tr></thead>
           <tbody>
             {shown.map((r) => (
               <tr key={r.id} style={r.review ? { background: "#fff7ed" } : undefined}>
                 <td style={td}>{r.atCT}</td><td style={td}>{r.unit}</td><td style={td}>{r.name}</td><td style={td}>{r.phone}</td>
-                <td style={td}>{r.confirmationCode || "—"}</td><td style={td}>{r.consent ? "yes" : "no"}</td>
+                <td style={td}>{r.confirmationCode || "—"}</td>
+                <td style={td}>{r.linkCheckin ? `${r.linkCheckin} → ${r.linkCheckout}` : "none (name + window)"}</td><td style={td}>{r.consent ? "yes" : "no"}</td>
                 <td style={td}>{r.mode === "airbnb-optional" ? "Airbnb optional" : "required"}</td>
                 <td style={td}>{r.result}</td><td style={td}>{r.reviewNote || ""}</td>
               </tr>
             ))}
-            {!shown.length && <tr><td style={td} colSpan={9}>Nothing here yet.</td></tr>}
+            {!shown.length && <tr><td style={td} colSpan={10}>Nothing here yet.</td></tr>}
           </tbody>
         </table>
       </div>
