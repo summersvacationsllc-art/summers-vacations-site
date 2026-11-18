@@ -14,9 +14,9 @@ interface GuestToday {
     in_house_units?: number;
     units_total?: number;
   };
-  check_ins?: { property: string; guest: string; time?: string; guests?: number; platform?: string }[];
-  check_outs?: { property: string; guest: string; time?: string; guests?: number; platform?: string }[];
-  in_house?: { property: string; guest: string; check_in: string; check_out: string; guests?: number; platform?: string; nights?: number }[];
+  check_ins?: { property: string; time?: string; guests?: number; platform?: string }[];
+  check_outs?: { property: string; time?: string; guests?: number; platform?: string }[];
+  in_house?: { property: string; check_in: string; check_out: string; guests?: number; platform?: string; nights?: number }[];
   turnovers?: { property: string; checkout_time?: string; next_checkin?: string; status: string; same_day: boolean; cleaner_assigned: boolean; cleaner_note?: string }[];
   sync_notes?: { cleaner_app?: string; guesty_window?: string };
 }
@@ -149,7 +149,7 @@ export default function GuestOps() {
               {data.check_ins!.map((r, i) => (
                 <li key={i} className="flex justify-between">
                   <span>
-                    <strong>{r.property}</strong> · {r.guest}
+                    <strong>{r.property}</strong>
                     {r.guests ? ` · ${r.guests} guests` : ""}
                   </span>
                   <span className="text-sky-700">
@@ -168,7 +168,7 @@ export default function GuestOps() {
               {data.check_outs!.map((r, i) => (
                 <li key={i} className="flex justify-between">
                   <span>
-                    <strong>{r.property}</strong> · {r.guest}
+                    <strong>{r.property}</strong>
                     {r.guests ? ` · ${r.guests} guests` : ""}
                   </span>
                   <span className="text-sky-700">
@@ -186,7 +186,7 @@ export default function GuestOps() {
             <ul className="mt-2 space-y-1.5 text-[14px]">
               {inHouse.map((r, i) => (
                 <li key={i}>
-                  <strong>{r.property}</strong> — {r.guest}
+                  <strong>{r.property}</strong>
                   {r.nights != null ? ` · ${r.nights}n` : ""} · {Plat(r.platform || "")}
                   <div className="text-[11px] text-slate-500">
                     {r.check_in} → {r.check_out}

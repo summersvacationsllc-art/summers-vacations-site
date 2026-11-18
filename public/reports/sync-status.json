@@ -8,16 +8,16 @@
   "liveDataDate": "2026-11-17",
   "liveSource": "github",
   "expectedInHouse": [
-    "Chantel  Summers @ Rustic Ozark",
-    "Jerald Dawson @ Scotts unit"
+    "Rustic Ozark",
+    "Scotts unit"
   ],
   "kioskUnits": {
     "the-penthouse": null,
-    "rustic-ozark-retreat": "Chantel  Summers (Rustic Ozark)",
+    "rustic-ozark-retreat": "Rustic Ozark",
     "double-condo": null,
     "branson-family-haven": null,
     "woodland-retreat": null,
-    "scotts-unit": "Jerald Dawson (Scotts unit)",
+    "scotts-unit": "Scotts unit",
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": null
   },
