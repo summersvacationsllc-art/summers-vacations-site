@@ -7,6 +7,15 @@
 export const GATE_SLUGS = ["rustic-ozark-retreat", "woodland-retreat"] as const;
 export type GateSlug = (typeof GATE_SLUGS)[number];
 
+/**
+ * Real Guesty listing ids for the pilot units (verified live against /v1/listings on 2026-11-17).
+ * guidebooks.ts carries different (stale) guestyListingId values for these units, so the gate does not use them.
+ */
+export const GATE_LISTING_IDS: Record<GateSlug, string> = {
+  "rustic-ozark-retreat": "68eeb5866f48330013c65a7a",
+  "woodland-retreat": "68eecd33a359660012ca951c",
+};
+
 export function isGateSlug(s: string): s is GateSlug {
   return (GATE_SLUGS as readonly string[]).includes(s);
 }

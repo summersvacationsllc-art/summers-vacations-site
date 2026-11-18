@@ -9,7 +9,7 @@
  */
 import { guestyGet, guestyPut } from "@/lib/guesty";
 import { getGuidebook } from "@/data/guidebooks";
-import { addDays, ctDay, decide, isAirbnbConf, stayDays, isIsoDay, WINDOW_DAYS, type GateReservation, type GateResult } from "@/lib/guidebook-gate-core";
+import { GATE_LISTING_IDS, isGateSlug, addDays, ctDay, decide, isAirbnbConf, stayDays, isIsoDay, WINDOW_DAYS, type GateReservation, type GateResult } from "@/lib/guidebook-gate-core";
 
 const nonProd = () => process.env.VERCEL_ENV !== "production";
 const mockOn = () => nonProd() && process.env.GUIDEBOOK_GATE_MOCK === "1";
@@ -99,7 +99,8 @@ export async function processGateSubmission(opts: {
   const hasDates = isIsoDay(opts.checkin) && isIsoDay(opts.checkout);
   const matchBy: "dates" | "window" = hasDates ? "dates" : "window";
   const fail = (result: GateResult, note: string) => ({ result, confirmationCode: "", matchBy, note });
-  if (!gb) return fail("review_no_match", "unknown unit");
+  if (!gb || !isGateSlug(opts.slug)) return fail("review_no_match", "unknown unit");
+  const listingId = GATE_LISTING_IDS[opts.slug];
 
   const today = ctDay(new Date().toISOString()) as string;
   let rows: GateReservation[] = [];
@@ -109,23 +110,22 @@ export async function processGateSubmission(opts: {
     if (mockOn()) {
       isMock = true;
       if (hasDates && opts.checkin === "2030-09-09") throw new Error("mock lookup failure");
-      rows = mockReservations(gb.guestyListingId, today).rows;
+      rows = mockReservations(listingId, today).rows;
     } else {
       if (!process.env.GUESTY_CLIENT_ID || !process.env.GUESTY_CLIENT_SECRET) {
         return fail("review_lookup_failed", "Guesty credentials are not configured in this environment");
       }
-      // Scope by listing, and by a date range around the stay; status and exact dates are re-checked in code.
+      // Guesty's listingId $eq filter returns nothing on this account (verified live), so scope by DATE range only and
+      // filter by listing, status and exact dates in code (same approach as guidebook-stay.ts).
       const lo = hasDates ? addDays(opts.checkin as string, -2) : addDays(today, -1);
       const hi = hasDates ? addDays(opts.checkin as string, 2) : addDays(today, WINDOW_DAYS + 1);
       const filters = JSON.stringify(
         hasDates
           ? [
-              { field: "listingId", operator: "$eq", value: gb.guestyListingId },
               { field: "checkIn", operator: "$gte", value: `${lo}T00:00:00.000Z` },
               { field: "checkIn", operator: "$lte", value: `${hi}T23:59:59.000Z` },
             ]
           : [
-              { field: "listingId", operator: "$eq", value: gb.guestyListingId },
               { field: "checkOut", operator: "$gte", value: `${lo}T00:00:00.000Z` },
               { field: "checkIn", operator: "$lte", value: `${hi}T23:59:59.000Z` },
             ],
@@ -135,8 +135,12 @@ export async function processGateSubmission(opts: {
         "guestId", "source", "integration.platform",
         "guest._id", "guest.fullName", "guest.firstName", "guest.lastName", "guest.phone", "guest.phones",
       ].join(" ");
-      const json = await guestyGet(`/v1/reservations?limit=50&sort=checkIn&fields=${encodeURIComponent(fields)}&filters=${encodeURIComponent(filters)}`);
-      rows = ((json.results as Record<string, unknown>[]) || []).map(toReservation).filter((r) => r.listingId === gb.guestyListingId);
+      for (let page = 0; page < 4; page++) {
+        const json = await guestyGet(`/v1/reservations?limit=100&skip=${page * 100}&sort=checkIn&fields=${encodeURIComponent(fields)}&filters=${encodeURIComponent(filters)}`);
+        const results = (json.results as Record<string, unknown>[]) || [];
+        rows.push(...results.map(toReservation).filter((r) => r.listingId === listingId));
+        if (results.length < 100) break;
+      }
     }
   } catch (e) {
     return fail("review_lookup_failed", e instanceof Error ? e.message.slice(0, 120) : "lookup error");
@@ -149,7 +153,7 @@ export async function processGateSubmission(opts: {
   if (d.matched) {
     const m = d.matched;
     if (isMock) {
-      profile = mockReservations(gb.guestyListingId, today).profiles[m.guestId] || [];
+      profile = mockReservations(listingId, today).profiles[m.guestId] || [];
     } else if (m.guestId) {
       try {
         const g = await guestyGet(`/v1/guests-crud/${encodeURIComponent(m.guestId)}`);
