@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "generated_at": "2026-11-18T18:58:53+00:00",
+  "generated_at": "2026-11-18T13:24:12-06:00",
   "headline": {
     "check_ins": 2,
     "check_outs": 1,
@@ -12,22 +12,28 @@
   "check_ins": [
     {
       "property": "Penthouse",
+      "guest": "Sara Stuckenbroker",
       "guests": 4,
       "platform": "airbnb2",
+      "reservation_id": "res_o8q1jrc",
       "time": "4:00 PM"
     },
     {
       "property": "Rustic Ozark",
+      "guest": "Ryan William",
       "guests": 3,
       "platform": "airbnb2",
+      "reservation_id": "res_26axwx3",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
       "property": "Rustic Ozark",
+      "guest": "Chantel  Summers",
       "guests": 1,
       "platform": "owner-guest",
+      "reservation_id": "res_sh4grtl",
       "time": "10:00 AM"
     }
   ],
@@ -35,31 +41,37 @@
   "in_house": [
     {
       "property": "Scotts unit",
+      "guest": "Jerald Dawson",
       "guests": 2,
       "platform": "airbnb2",
+      "reservation_id": "res_vmdwcuu",
       "check_in": "2026-11-17",
       "check_out": "2026-11-20",
       "nights": 3
     },
     {
       "property": "Penthouse",
+      "guest": "Sara Stuckenbroker",
       "guests": 4,
       "platform": "airbnb2",
+      "reservation_id": "res_o8q1jrc",
       "check_in": "2026-11-18",
       "check_out": "2026-11-22",
       "nights": 4
     },
     {
       "property": "Rustic Ozark",
+      "guest": "Ryan William",
       "guests": 3,
       "platform": "airbnb2",
+      "reservation_id": "res_26axwx3",
       "check_in": "2026-11-18",
       "check_out": "2026-11-20",
       "nights": 2
     }
   ],
   "sync_notes": {
-    "cleaner_app": "Cleaner assignments unavailable: str-manager-one /api/tasks rejected cron auth (session-only after hardening).",
+    "cleaner_app": "Cleaner assignments unavailable: str-manager-one /api/tasks rejected cron auth (session-only after hardening). Kiosk guest names still come from /api/cron/calendar.",
     "guesty_window": "Guesty Pro data appears from Jul 2026 forward. Pre-July actuals live in Airbnb/Vrbo CSV exports."
   }
 }
