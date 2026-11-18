@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {
-  CONSENT_TEXT, CONSENT_VERSION, isGateSlug, maskPhone, needsReview,
+  CONSENT_TEXT, CONSENT_VERSION, isGateSlug, needsReview,
   isIsoDay, normalizeName, normalizePhone, type GateResult,
 } from "@/lib/guidebook-gate-core";
 import { processGateSubmission } from "@/lib/guidebook-gate-service";
@@ -8,8 +8,9 @@ import { stayFor } from "@/lib/guidebook-gate-access";
 import { sealSession, setCookieHeader, type GateSession } from "@/lib/guidebook-gate-session";
 import { bumpHourly, saveSubmission } from "@/lib/guidebook-gate-store";
 
-// Guidebook name + phone gate (pilot units). The browser only ever sees {ok}.
-// It never learns whether a reservation matched, so it cannot be used to probe codes.
+// Guidebook name + phone gate (pilot units). A verified stay may include the door code
+// already on file in Guesty. The typed phone is saved only in the private promotions
+// store. This route makes no write call to Guesty.
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
 const NO_STORE = { "Cache-Control": "no-store, max-age=0", "X-Robots-Tag": "noindex" };
@@ -54,10 +55,13 @@ export async function POST(req: Request) {
   let result: GateResult;
   let note: string | undefined;
   let confirmationCode = "";
+  let reservationId = "";
+  let checkIn = linkDates.checkin;
+  let checkOut = linkDates.checkout;
   let verified: { resId: string; ci: string; co: string; airbnb: boolean } | undefined;
   let matchBy: "dates" | "window" = linkDates.checkin ? "dates" : "window";
   try {
-    ({ result, note, confirmationCode, matchBy, verified } = await processGateSubmission({ slug, name, phoneE164: phone, ...linkDates }));
+    ({ result, note, confirmationCode, matchBy, verified, reservationId, checkIn, checkOut } = await processGateSubmission({ slug, name, phoneE164: phone, ...linkDates }));
   } catch {
     result = "review_lookup_failed";
     note = "unexpected error";
@@ -80,18 +84,19 @@ export async function POST(req: Request) {
   }
   try {
     await saveSubmission({
-      unit: slug, name, phone, confirmationCode, linkCheckin: linkDates.checkin, linkCheckout: linkDates.checkout, matchBy, consent,
+      unit: slug, firstName: name.split(/\s+/)[0] || "", name, phone, reservationId, confirmationCode,
+      checkIn, checkOut, linkCheckin: linkDates.checkin, linkCheckout: linkDates.checkout, matchBy, consent,
       consentText: consent ? CONSENT_TEXT : null, consentVersion: CONSENT_VERSION,
       mode, result, codeShown: !!stay?.code, review: needsReview(result), reviewNote: note,
       ip, userAgent: (req.headers.get("user-agent") || "").slice(0, 200),
     });
-  } catch (e) {
-    // The copy outside Guesty is the point of this form: if it cannot be saved, say so.
-    console.error("guidebook-gate: save failed:", e instanceof Error ? e.message.slice(0, 120) : "error");
+  } catch {
+    // The private copy is the only copy. If it cannot be saved, say so. Never log the submission.
+    console.error("guidebook-gate: save failed");
     return NextResponse.json({ ok: false, error: "Something went wrong saving that. Please try again." }, { status: 500, headers: NO_STORE });
   }
-  // Redacted diagnostics only.
-  console.log(`guidebook-gate: ${slug} ${result} phone=${maskPhone(phone)} consent=${consent} by=${matchBy}`);
+  // Unit and result only. Never log a name, phone, token, reservation id, or door code.
+  console.log(`guidebook-gate: unit=${slug} result=${result} consent=${consent} by=${matchBy}`);
   const res = NextResponse.json(stay ? { ok: true, stay } : { ok: true }, { headers: NO_STORE });
   if (cookie) res.headers.append("Set-Cookie", cookie);
   return res;

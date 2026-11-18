@@ -1,22 +1,29 @@
 /**
- * Server-only storage for the guidebook phone gate: one private Vercel Blob per
- * submission (no read-modify-write races), kept OUTSIDE Guesty so an Airbnb
- * sync can never wipe a collected number. Previews write under their own prefix
- * so test data never mixes with production.
+ * Server-only promotions list for the guidebook phone form.
+ * One private Vercel Blob per submission (no read-modify-write races) under
+ * private/guidebook-contacts/<env>/, access "private". This is the only place a
+ * submitted phone is written. Records are not public, and they are not copied
+ * into a public route, a public JSON file, or the kiosk feeds.
+ * Previews write under their own env prefix so test data never mixes with production.
  */
+export const CONTACTS_PREFIX = "private/guidebook-contacts";
 import { createHash, randomBytes } from "crypto";
 import { get as blobGet, put as blobPut, list as blobList } from "@/lib/blob";
 import type { GateResult } from "@/lib/guidebook-gate-core";
 
 export type GateSubmission = {
   id: string;
-  at: string; // ISO UTC
+  at: string; // ISO UTC, when the form was submitted
   atCT: string; // America/Chicago, human readable
   env: string;
-  unit: string;
-  name: string;
+  unit: string; // guidebook slug
+  firstName: string; // first token of the typed name
+  name: string; // full name as typed
   phone: string; // +E.164
+  reservationId: string; // Guesty reservation id when a stay was identified, else ""
   confirmationCode: string; // taken from the matched reservation, never typed by the guest ("" when no match)
+  checkIn: string; // stay check-in YYYY-MM-DD, or the link date, or ""
+  checkOut: string;
   linkCheckin: string;
   linkCheckout: string;
   matchBy: "dates" | "window";
@@ -37,7 +44,7 @@ export function gateEnv(): string {
 }
 
 function root(env = gateEnv()) {
-  return `guidebook-gate/${env}`;
+  return `${CONTACTS_PREFIX}/${env}`;
 }
 
 function blobEnabled(): boolean {
@@ -113,7 +120,9 @@ export async function bumpHourly(ip: string, cap: number): Promise<boolean> {
 }
 
 const CSV_COLS: (keyof GateSubmission)[] = [
-  "at", "atCT", "env", "unit", "name", "phone", "confirmationCode", "linkCheckin", "linkCheckout", "matchBy", "consent", "consentVersion", "mode", "result", "codeShown", "review", "reviewNote", "ip",
+  "at", "atCT", "env", "unit", "firstName", "name", "phone", "reservationId", "confirmationCode",
+  "checkIn", "checkOut", "linkCheckin", "linkCheckout", "matchBy", "consent", "consentVersion",
+  "mode", "result", "codeShown", "review", "reviewNote", "ip",
 ];
 
 function csvCell(v: unknown): string {

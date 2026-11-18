@@ -3,7 +3,9 @@
 import { useCallback, useEffect, useState } from "react";
 
 type Row = {
-  id: string; at: string; atCT: string; unit: string; name: string; phone: string; confirmationCode: string; linkCheckin?: string; linkCheckout?: string; matchBy?: string;
+  id: string; at: string; atCT: string; unit: string; firstName?: string; name: string; phone: string;
+  reservationId?: string; confirmationCode: string; checkIn?: string; checkOut?: string;
+  linkCheckin?: string; linkCheckout?: string; matchBy?: string;
   consent: boolean; mode: string; result: string; review: boolean; reviewNote?: string;
 };
 
@@ -51,7 +53,9 @@ export function SignupsAdmin() {
   return (
     <div style={{ padding: 16, fontFamily: "system-ui", fontSize: 14 }}>
       <h1 style={{ fontSize: 20, margin: "0 0 4px" }}>Guidebook signups <small style={{ color: "#666" }}>({env})</small></h1>
-      <p style={{ color: "#555", marginTop: 0 }}>Promotions list only. Do not text anyone without their consent box ticked.</p>
+      <p style={{ color: "#555", marginTop: 0 }}>
+        Promotions list only. Numbers are saved outside Guesty, in the private store. Do not text anyone without their consent box ticked. This page does not send texts.
+      </p>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "8px 0 12px" }}>
         <button onClick={() => setTab("review")} style={{ fontWeight: tab === "review" ? 700 : 400 }}>Review list ({rows.filter((r) => r.review).length})</button>
         <button onClick={() => setTab("all")} style={{ fontWeight: tab === "all" ? 700 : 400 }}>All submissions ({rows.length})</button>
@@ -61,18 +65,20 @@ export function SignupsAdmin() {
       </div>
       <div style={{ overflowX: "auto" }}>
         <table style={{ borderCollapse: "collapse", minWidth: 900 }}>
-          <thead><tr>{["When", "Unit", "Name", "Phone", "Code (from reservation)", "Link dates", "Promo OK", "Form", "Result", "Note"].map((h) => <th key={h} style={th}>{h}</th>)}</tr></thead>
+          <thead><tr>{["When", "Unit", "Name", "Phone", "Reservation", "Stay", "Code (from reservation)", "Link dates", "Promo OK", "Form", "Result", "Note"].map((h) => <th key={h} style={th}>{h}</th>)}</tr></thead>
           <tbody>
             {shown.map((r) => (
               <tr key={r.id} style={r.review ? { background: "#fff7ed" } : undefined}>
                 <td style={td}>{r.atCT}</td><td style={td}>{r.unit}</td><td style={td}>{r.name}</td><td style={td}>{r.phone}</td>
+                <td style={td}>{r.reservationId || "—"}</td>
+                <td style={td}>{r.checkIn ? `${r.checkIn} → ${r.checkOut || ""}` : "—"}</td>
                 <td style={td}>{r.confirmationCode || "—"}</td>
                 <td style={td}>{r.linkCheckin ? `${r.linkCheckin} → ${r.linkCheckout}` : "none (name + window)"}</td><td style={td}>{r.consent ? "yes" : "no"}</td>
                 <td style={td}>{r.mode === "airbnb-optional" ? "Airbnb optional" : "required"}</td>
                 <td style={td}>{r.result}</td><td style={td}>{r.reviewNote || ""}</td>
               </tr>
             ))}
-            {!shown.length && <tr><td style={td} colSpan={10}>Nothing here yet.</td></tr>}
+            {!shown.length && <tr><td style={td} colSpan={12}>Nothing here yet.</td></tr>}
           </tbody>
         </table>
       </div>

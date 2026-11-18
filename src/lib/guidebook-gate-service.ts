@@ -1,20 +1,18 @@
 /**
- * Server-only: find the reservation from the guidebook link context (unit + dates, or typed name + stay window), decide, optionally
- * write the phone to the guest profile. The Guesty token stays in guesty.ts.
+ * Server-only: find the reservation from the guidebook link context (unit + dates, or typed name + stay window) and decide.
+ * Guesty is read-only here (reservation search, guest profile phones, nothing else). The typed phone is never sent to Guesty.
+ * The caller stores the submission outside Guesty. The Guesty token stays in guesty.ts.
  *
  * Environment switches (MOCK only honored outside production):
  *   GUIDEBOOK_GATE_MOCK=1     -> canned fake reservations, no Guesty calls at all
- *   GUIDEBOOK_GATE_DRY_RUN=1  -> real reads, never write to a profile (honored in every environment, incl. production)
  * In production a missing GUESTY_CLIENT_ID/SECRET means "lookup failed" (review list).
  */
-import { guestyGet, guestyPut } from "@/lib/guesty";
+import { guestyGet } from "@/lib/guesty";
 import { getGuidebook } from "@/data/guidebooks";
-import { GATE_LISTING_IDS, isGateSlug, addDays, ctDay, decide, isAirbnbConf, stayDays, isIsoDay, WINDOW_DAYS, type GateReservation, type GateResult } from "@/lib/guidebook-gate-core";
+import { GATE_LISTING_IDS, isGateSlug, addDays, ctDay, decide, isAirbnbConf, stayDays, isIsoDay, WINDOW_DAYS, type Decision, type GateReservation, type GateResult } from "@/lib/guidebook-gate-core";
 
 const nonProd = () => process.env.VERCEL_ENV !== "production";
 const mockOn = () => nonProd() && process.env.GUIDEBOOK_GATE_MOCK === "1";
-// Dry run only ever SUPPRESSES writes, so it is honored in production too (used for the read-only live check).
-const dryRun = () => process.env.GUIDEBOOK_GATE_DRY_RUN === "1";
 
 type RawGuest = Record<string, unknown>;
 
@@ -81,24 +79,37 @@ function mockReservations(listingId: string, today: string): { rows: GateReserva
   return { rows, profiles: { "g-m2": ["+14175550100"], "g-m6": ["+14175550199"] } };
 }
 
-export async function processGateSubmission(opts: {
-  slug: string;
-  name: string; // what the guest typed
-  phoneE164: string;
-  checkin?: string; // from the guidebook link (YYYY-MM-DD), optional
-  checkout?: string;
-}): Promise<{
+export type GateOutcome = {
   result: GateResult;
   confirmationCode: string;
   matchBy: "dates" | "window";
   note?: string;
   /** Set only for a verified match (single confirmed stay, name OK). Drives the door-code session. */
   verified?: { resId: string; ci: string; co: string; airbnb: boolean };
-}> {
+  /** Guesty reservation id when a stay was identified, otherwise "". */
+  reservationId: string;
+  /** Stay dates when known (matched reservation, otherwise the link dates). */
+  checkIn: string;
+  checkOut: string;
+};
+
+export async function processGateSubmission(opts: {
+  slug: string;
+  name: string; // what the guest typed
+  phoneE164: string;
+  checkin?: string; // from the guidebook link (YYYY-MM-DD), optional
+  checkout?: string;
+}): Promise<GateOutcome> {
   const gb = getGuidebook(opts.slug);
   const hasDates = isIsoDay(opts.checkin) && isIsoDay(opts.checkout);
   const matchBy: "dates" | "window" = hasDates ? "dates" : "window";
-  const fail = (result: GateResult, note: string) => ({ result, confirmationCode: "", matchBy, note });
+  const linkStay = {
+    checkIn: hasDates ? (opts.checkin as string) : "",
+    checkOut: hasDates ? (opts.checkout as string) : "",
+  };
+  const fail = (result: GateResult, note: string): GateOutcome => ({
+    result, confirmationCode: "", matchBy, note, reservationId: "", ...linkStay,
+  });
   if (!gb || !isGateSlug(opts.slug)) return fail("review_no_match", "unknown unit");
   const listingId = GATE_LISTING_IDS[opts.slug];
 
@@ -146,9 +157,10 @@ export async function processGateSubmission(opts: {
     return fail("review_lookup_failed", e instanceof Error ? e.message.slice(0, 120) : "lookup error");
   }
 
-  // First pass picks the reservation; then (real mode only) read that guest's profile fresh before deciding on a write.
+  // First pass picks the reservation; then read that guest's profile (GET only) so an
+  // existing phone on file can still gate the door code. The typed number is not sent.
   const link = { checkin: opts.checkin, checkout: opts.checkout };
-  const common = { typedName: opts.name, phoneE164: opts.phoneE164, link, reservations: rows, today, allowAirbnbWrite: process.env.GUIDEBOOK_GATE_WRITE_AIRBNB === "1" };
+  const common = { typedName: opts.name, phoneE164: opts.phoneE164, link, reservations: rows, today };
   let d = decide({ ...common, guestPhones: null });
   if (d.matched) {
     const m = d.matched;
@@ -159,23 +171,32 @@ export async function processGateSubmission(opts: {
         const g = await guestyGet(`/v1/guests-crud/${encodeURIComponent(m.guestId)}`);
         profile = phonesOf((g.guest as RawGuest) || g);
       } catch {
-        return { result: "review_lookup_failed", confirmationCode: m.confirmationCode, matchBy, note: "could not read guest profile" };
+        const days = stayDays(m);
+        return {
+          result: "review_lookup_failed", confirmationCode: m.confirmationCode, matchBy,
+          note: "could not read guest profile", reservationId: m.id,
+          checkIn: days.ci || linkStay.checkIn, checkOut: days.co || linkStay.checkOut,
+        };
       }
     }
     d = decide({ ...common, guestPhones: profile });
   }
-  const code = d.matched?.confirmationCode || "";
-  const days = d.matched ? stayDays(d.matched) : null;
-  const verified = d.matched && days?.ci && days.co && d.result.startsWith("matched_") && d.matched.id
-    ? { resId: d.matched.id, ci: days.ci, co: days.co, airbnb: /airbnb/i.test(d.matched.source || "") || isAirbnbConf(d.matched.confirmationCode || "") }
+  return outcome(d, linkStay);
+}
+
+function outcome(d: Decision, linkStay: { checkIn: string; checkOut: string }): GateOutcome {
+  const matched = d.matched;
+  const days = matched ? stayDays(matched) : null;
+  const verified = matched && days?.ci && days.co && d.result.startsWith("matched_") && matched.id
+    ? { resId: matched.id, ci: days.ci, co: days.co, airbnb: /airbnb/i.test(matched.source || "") || isAirbnbConf(matched.confirmationCode || "") }
     : undefined;
-  if (!d.write) return { result: d.result, confirmationCode: code, matchBy: d.matchBy, verified };
-  if (isMock || dryRun()) return { result: "matched_dry_run", confirmationCode: code, matchBy, verified, note: isMock ? "mock mode: no Guesty call" : "dry run: no write" };
-  try {
-    const digits = d.write.phone.replace(/\D/g, ""); // Guesty wants area code, no plus sign
-    await guestyPut(`/v1/guests-crud/${encodeURIComponent(d.write.guestId)}`, { phone: digits, phones: [digits] });
-    return { result: "matched_written", confirmationCode: code, matchBy, verified };
-  } catch (e) {
-    return { result: "review_write_failed", confirmationCode: code, matchBy, note: e instanceof Error ? e.message.slice(0, 120) : "write error" };
-  }
+  return {
+    result: d.result,
+    confirmationCode: matched?.confirmationCode || "",
+    matchBy: d.matchBy,
+    verified,
+    reservationId: matched?.id || "",
+    checkIn: days?.ci || linkStay.checkIn,
+    checkOut: days?.co || linkStay.checkOut,
+  };
 }

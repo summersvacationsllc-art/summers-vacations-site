@@ -1,6 +1,6 @@
 /**
  * Pure helpers for the guidebook name + phone gate (no imports, unit-testable).
- * Pilot units only. Never log full phones; callers redact with maskPhone().
+ * Pilot units only. Never log phones, names, tokens, or door codes.
  */
 
 /** Guidebook slugs that show the gate. Everything else is untouched. */
@@ -124,16 +124,14 @@ export function nameMatches(entered: string, guest: { fullName?: string; firstNa
 }
 
 export type GateResult =
-  | "matched_written"
-  | "matched_dry_run"
+  | "matched_external"
   | "matched_same_phone"
   | "matched_airbnb_db_only"
   | "review_name_mismatch"
   | "review_no_match"
   | "review_ambiguous"
   | "review_existing_different_phone"
-  | "review_lookup_failed"
-  | "review_write_failed";
+  | "review_lookup_failed";
 
 export function needsReview(r: GateResult): boolean {
   return r.startsWith("review_");
@@ -185,8 +183,6 @@ export type Decision = {
   result: GateResult;
   matched: GateReservation | null;
   matchBy: "dates" | "window";
-  /** Only set when a profile write is allowed (caller still honors dry-run). */
-  write: { guestId: string; phone: string } | null;
 };
 
 /**
@@ -195,6 +191,8 @@ export type Decision = {
  * With link dates: exactly one stay with those dates. Without: stays active or
  * starting within WINDOW_DAYS whose guest name matches what was typed; exactly one.
  * `guestPhones` is what the guest PROFILE holds (fetched fresh), or null.
+ * The typed phone is never a match factor, and this function never asks the
+ * caller to write anything to Guesty. A collected number is stored outside Guesty.
  */
 export function decide(opts: {
   typedName: string;
@@ -203,12 +201,11 @@ export function decide(opts: {
   reservations: GateReservation[];
   guestPhones: string[] | null;
   today: string; // YYYY-MM-DD, property time
-  allowAirbnbWrite?: boolean;
 }): Decision {
   const hasDates = isIsoDay(opts.link.checkin) && isIsoDay(opts.link.checkout);
   const matchBy: "dates" | "window" = hasDates ? "dates" : "window";
-  const out = (result: GateResult, matched: GateReservation | null = null, write: Decision["write"] = null): Decision =>
-    ({ result, matched, matchBy, write });
+  const out = (result: GateResult, matched: GateReservation | null = null): Decision =>
+    ({ result, matched, matchBy });
 
   const live = opts.reservations.filter((r) => String(r.status || "").toLowerCase() === "confirmed");
   let r: GateReservation;
@@ -240,9 +237,9 @@ export function decide(opts: {
     return existing.includes(want) ? out("matched_same_phone", r) : out("review_existing_different_phone", r);
   }
   const airbnb = /airbnb/i.test(r.source || "") || isAirbnbConf(r.confirmationCode || "");
-  if (airbnb && !opts.allowAirbnbWrite) return out("matched_airbnb_db_only", r);
+  if (airbnb) return out("matched_airbnb_db_only", r);
   if (!r.guestId) return out("review_lookup_failed", r);
-  return out("matched_written", r, { guestId: r.guestId, phone: opts.phoneE164 });
+  return out("matched_external", r);
 }
 
 /**

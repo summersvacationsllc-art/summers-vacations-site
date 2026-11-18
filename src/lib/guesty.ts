@@ -218,6 +218,8 @@ export async function guestyGetOptional(path: string): Promise<Record<string, un
  * One Guesty call using the cached OAuth token. Does not request a new token
  * unless the shared cache has none that is still valid. Never logs the body.
  * Non-success bodies are discarded.
+ * The guidebook name and phone form does not call this. Phones from that form
+ * are stored outside Guesty and are never sent here.
  */
 export async function guestySend(
   method: "GET" | "PUT",
@@ -365,42 +367,5 @@ export async function fetchGuestyReviews(
   } catch (e) {
     console.error("Failed to fetch Guesty reviews:", e);
     return [];
-  }
-}
-
-/** Guesty Open API write (used only by the guidebook phone gate). Never logs bodies. */
-export async function guestyPut(path: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
-  const token = await guestyAuth();
-  const res = await fetch(`${GUESTY_BASE}${path}`, {
-    method: "PUT",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      accept: "application/json",
-      "content-type": "application/json",
-    } as HeadersInit,
-    body: JSON.stringify(body),
-    cache: "no-store",
-  });
-  if (res.status === 401) await invalidateToken(token);
-  if (!res.ok) throw new Error(`Guesty PUT ${path.split("?")[0].replace(/[0-9a-f]{24}/g, ":id")} failed: ${res.status}`);
-  return res.json().catch(() => ({}));
-}
-
-/** GET that returns null for 204 / empty bodies (e.g. /v1/guest-code with no linked lock). Never logs the body. */
-export async function guestyGetOptional(path: string): Promise<Record<string, unknown> | null> {
-  const token = await guestyAuth();
-  const res = await fetch(`${GUESTY_BASE}${path}`, {
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" } as HeadersInit,
-    cache: "no-store",
-  });
-  if (res.status === 401) await invalidateToken(token);
-  if (res.status === 204) return null;
-  if (!res.ok) throw new Error(`Guesty GET ${path.split("?")[0]} failed: ${res.status}`);
-  const text = await res.text();
-  if (!text.trim()) return null;
-  try {
-    return JSON.parse(text) as Record<string, unknown>;
-  } catch {
-    return null;
   }
 }
