@@ -282,7 +282,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: COMMON.accessNote,
     },
 
-    wifi: { network: "MyAltice 3a35c7", password: "" },
+    wifi: { network: "MyAltice 3a35c7", password: "linen-680-659" },
 
     appliances: {
       coffeeMaker: {
@@ -343,7 +343,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: COMMON.accessNote,
     },
 
-    wifi: { network: "MyOptimum d6d285", password: "" },
+    wifi: { network: "MyOptimum d6d285", password: "3616-cyan-52" },
 
     appliances: {
       coffeeMaker: {
@@ -407,7 +407,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
 
     wifi: {
       network: "Unit 7: MyOptimum d6d285 / Unit 11: MyAltice 3a35c7",
-      password: "",
+      password: "Unit 7: 3616-cyan-52 / Unit 11: linen-680-659",
     },
 
     appliances: {
@@ -475,7 +475,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         "We have keyless entry. Your door code will be sent in your booking messages before check-in. It is active at 4:00 PM on check-in day.",
     },
 
-    wifi: { network: "44 Timber Trace", password: "" },
+    wifi: { network: "44 Timber Trace", password: "welcome44" },
 
     appliances: {
       coffeeMaker: {
@@ -564,7 +564,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: COMMON.accessNote,
     },
 
-    wifi: { network: "My Optimum c950bf", password: "" },
+    wifi: { network: "My Optimum c950bf", password: "brick-148-543" },
 
     appliances: {
       coffeeMaker: {
@@ -626,7 +626,7 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
         "We have keyless entry. Your door code will be sent in your booking messages before check-in. It works from 4:00 PM on arrival day until 10:00 AM checkout.",
     },
 
-    wifi: { network: "MyAltice 34f945", password: "" },
+    wifi: { network: "MyAltice 34f945", password: "3259-lavender-11" },
 
     appliances: {
       coffeeMaker: {
@@ -737,8 +737,8 @@ export const guidebooks: Record<string, PropertyGuidebook> = {
       accessNote: `Self check-in. Instructions were emailed before arrival. Your door code opens both the front door and the stairwell door. ${UPSTAIRS_DOWNSTAIRS_DOOR}`,
     },
 
-    // No network name or password in this guidebook. Details stay in the pre-arrival email.
-    wifi: { network: "", password: "" },
+    // Wi-Fi network and password match the in-unit kiosk.
+    wifi: { network: "midwestaf", password: "Nebraska!!" },
 
     appliances: {
       coffeeMaker: {

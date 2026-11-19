@@ -185,6 +185,7 @@ export default function GuidebookScreen({
     : "";
   const wifiVisible = isActive ? prop.wifi.network : 'Available at check-in';
   const wifiNote = isActive ? '' : '🔒';
+  const hasWifiCreds = !!(prop.wifi.network || prop.wifi.password);
   const todayFormatted = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const todayWx = weather?.days?.[0];
   const upcomingWx = (weather?.days || []).slice(1, 3);
@@ -378,8 +379,8 @@ export default function GuidebookScreen({
             {mode === 'guest' && (
             <>
             <div className="mx-3.5 mt-1.5 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100">
-              <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {(isKlein || isSuite) ? '' : wifiNote}</div>
-              {(isKlein || isSuite) ? (
+              <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {hasWifiCreds ? wifiNote : ''}</div>
+              {!hasWifiCreds ? (
                 <div className="text-[13px] font-bold text-sky-900 mt-0.5">Details are in your pre-arrival email.</div>
               ) : isActive ? (
                 <>
@@ -532,9 +533,9 @@ export default function GuidebookScreen({
                     '<span style="color:#0f766e;font-size:12px;">VRBO and Airbnb will send a review request. If you can\'t give 5 stars, please tell us why — your feedback helps our next guests.</span></div>'+
                     '<div style="text-align:center;margin-top:10px;font-size:12px;color:#0369a1;">Thank you for staying with us!<br />— Brian &amp; Chantel Summers</div>'
                   )}
-                  {isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival. TVs and a game console are in the game zone.')}
-                  {isSuite && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival.')}
-                  {!isKlein && !isSuite && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> Scan the Wi-Fi QR code in your unit.'+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.')}
+                  {!hasWifiCreds && isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival. TVs and a game console are in the game zone.')}
+                  {!hasWifiCreds && !isKlein && guideItem('#dbeafe','📶','Wi-Fi','In your pre-arrival email','Wi-Fi details are in the check-in email sent before arrival.')}
+                  {hasWifiCreds && guideItem('#dbeafe','📶','WiFi & Entertainment','Network, password, streaming','<strong>Network:</strong> '+(isActive ? prop.wifi.network : 'Revealed on your check-in day')+'<br><strong>Password:</strong> '+(isActive ? (prop.wifi.password || 'Scan the Wi-Fi QR code in your unit.') : 'Revealed on your check-in day')+'<br><br>Smart TV with Roku. Netflix, Hulu, Disney+, Prime Video.'+(isKlein ? '<br><br>TVs and a game console are in the game zone.' : ''))}
                   <div className="bg-white rounded-lg mb-1 border border-sky-100 overflow-hidden">
                     <details className="group">
                       <summary className="flex items-center gap-2 px-3.5 py-3 cursor-pointer list-none">
