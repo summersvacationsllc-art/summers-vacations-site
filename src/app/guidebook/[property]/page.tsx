@@ -8,6 +8,8 @@ import { STREAMING_HELP_HTML, STREAMING_HELP_SUBTITLE, STREAMING_HELP_TITLE } fr
 import type { WeatherPayload } from "@/lib/weather";
 import FishingMagazine from "@/components/FishingMagazine";
 import ShowsMagazine from "@/components/ShowsMagazine";
+import GuidebookGate, { type StayInfo } from "@/components/GuidebookGate";
+import { isGateSlug } from "@/lib/guidebook-gate-core";
 
 const GuideMap = dynamic(() => import("@/app/map/GuideMap"), { ssr: false });
 
@@ -68,6 +70,9 @@ function homeHighlights(theme: SeasonalTheme, showsData: any, attractionsData: a
   return chips.slice(0, 4);
 }
 
+const GATE_KEY = (slug: string) => `svs_gb_gate_v1:${slug}`;
+const GATE_TTL_MS = 60 * 86400_000; // remember a submit or skip on this device for 60 days
+
 export default function GuidebookPage({ params, searchParams: spPromise }: {
   params: Promise<{ property: string }>;
   searchParams: Promise<{ code?: string; name?: string; conf?: string; confirmation?: string; checkin?: string; checkout?: string; checkintime?: string; listing?: string; from?: string; unit?: string }>;
@@ -75,7 +80,11 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   const [prop, setProp] = useState<PropertyGuidebook | null>(null);
   const [tab, setTab] = useState('home');
   const [mode, setMode] = useState<'guest'|'branson'>('branson');
-  const [guestCode, setGuestCode] = useState('');
+  // Pilot units (Rustic, Woodland): the unit-specific stay info (stay card, door code, address, Wi-Fi,
+  // house manual) stays locked until the visitor submits the inline form. All public Branson content is open.
+  const [gateState, setGateState] = useState<'checking' | 'form' | 'collapsed' | 'thanks' | 'unlocked'>('checking');
+  const [stay, setStay] = useState<StayInfo | null>(null);
+  const [fromAirbnb, setFromAirbnb] = useState(false);
   const [guestName, setGuestName] = useState('');
   const [checkin, setCheckin] = useState<StayDate | null>(null);
   const [checkout, setCheckout] = useState<StayDate | null>(null);
@@ -101,7 +110,8 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
       if (!gb) return;
       setProp(gb);
       // Door codes are never read from the URL (links sent earlier may still carry ?code=).
-      if (sp.name) setGuestName(sp.name);
+      if (sp.name && !isGateSlug(gb.slug)) setGuestName(sp.name);
+      if (sp.from === 'airbnb') setFromAirbnb(true);
       // Dates: raw YYYY-MM-DD (original), Guesty text ("Oct 20th, 2026"), or junk kept verbatim.
       const ci = normalizeStayDate(sp.checkin);
       const co = normalizeStayDate(sp.checkout);
@@ -160,6 +170,41 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     })();
   }, [params, spPromise]);
 
+  const gatedUnit = !!prop && isGateSlug(prop.slug) && !fromKiosk;
+  const applyStay = (st: StayInfo) => {
+    setStay(st);
+    setGuestName(st.firstName);
+    const lci: StayDate = { value: st.ci, source: 'lookup' };
+    const lco: StayDate = { value: st.co, source: 'lookup' };
+    setCheckin(lci);
+    setCheckout(lco);
+    setMode(stayMode(lci, lco, Date.now()));
+    setGateState('unlocked');
+  };
+  useEffect(() => {
+    if (!prop || !isGateSlug(prop.slug) || fromKiosk) return;
+    const slug = prop.slug;
+    (async () => {
+      let how = '';
+      try {
+        const v = JSON.parse(localStorage.getItem(GATE_KEY(slug)) || 'null');
+        if (v && typeof v.at === 'number' && Date.now() - v.at < GATE_TTL_MS) how = String(v.how || '');
+      } catch { /* private mode: ask again */ }
+      if (how === 'skipped') { setGateState('collapsed'); return; }
+      if (how === 'submitted') {
+        try {
+          const r = await fetch('/api/guidebook-gate/stay', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug }), cache: 'no-store' });
+          const d = r.ok ? await r.json() : null;
+          if (d?.stay) { applyStay(d.stay as StayInfo); return; }
+        } catch { /* fall through */ }
+        setGateState('thanks');
+        return;
+      }
+      setGateState('form');
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prop, fromKiosk]);
+
   // Handle browser back button for tab navigation
   useEffect(() => {
     const handler = (e: PopStateEvent) => {
@@ -192,7 +237,9 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
   // ── Time-gated door code (all properties) ──────
   const win = doorWindow(checkin, checkout, checkinTime, today.getTime());
   const doorState: DoorState = win.state;
-  let doorDisplay = guestCode || prop.checkIn.doorCode;
+  const locked = gatedUnit && gateState !== 'unlocked';
+  // Door code only ever comes from the verified stay (server, inside the stay window); never from the URL or storage.
+  let doorDisplay = (gatedUnit && stay?.state === 'ready' && stay.code) ? stay.code : prop.checkIn.doorCode;
   let checkinLabel = '';
   let doorNote = '';
   if (doorState === 'before') {
@@ -302,6 +349,81 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
     window.location.href = unit ? `/kiosk.html?unit=${encodeURIComponent(unit)}` : '/kiosk.html';
   };
 
+  const showCard = gatedUnit && gateState !== 'checking' && (mode === 'guest' || !checkout);
+  const rememberGate = (how: 'submitted' | 'skipped') => {
+    try { localStorage.setItem(GATE_KEY(prop.slug), JSON.stringify({ at: Date.now(), how })); } catch { /* ignore */ }
+  };
+  const lnk = 'underline text-sky-800 bg-transparent border-0 cursor-pointer p-0 text-[12.5px]';
+  const renderStayCard = () => {
+    if (gateState === 'form') {
+      const lciOk = checkin && checkin.source !== 'raw' && isIsoDate(checkin.value);
+      const lcoOk = checkout && checkout.source !== 'raw' && isIsoDate(checkout.value);
+      return (
+        <GuidebookGate
+          slug={prop.slug}
+          checkin={lciOk && lcoOk ? checkin!.value : ''}
+          checkout={lciOk && lcoOk ? checkout!.value : ''}
+          airbnbHint={fromAirbnb}
+          onSkip={() => { rememberGate('skipped'); setGateState('collapsed'); }}
+          onSubmitted={(st) => { rememberGate('submitted'); if (st) applyStay(st); else setGateState('thanks'); window.scrollTo?.(0, 0); }}
+        />
+      );
+    }
+    if (gateState === 'collapsed') {
+      return (
+        <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl bg-white border border-sky-200 shadow-md px-3.5 py-2.5 flex items-center gap-2">
+          <span className="text-lg">🔑</span>
+          <span className="text-[12.5px] text-slate-700 flex-1">Your door code and stay details are in your booking messages.</span>
+          <button type="button" className={lnk} onClick={() => setGateState('form')}>Unlock here</button>
+        </div>
+      );
+    }
+    if (gateState === 'thanks') {
+      return (
+        <div className="mx-3.5 mt-[-10px] relative z-10 rounded-2xl bg-white border border-sky-200 shadow-lg p-4">
+          <div className="text-[15px] font-extrabold text-sky-950">Thanks! We&apos;ve got your details.</div>
+          <p className="text-[13px] text-slate-700 mt-1.5 mb-2 leading-snug">
+            We couldn&apos;t match this page to your booking yet, so your door code and check-in details are in your booking messages. The rest of this guidebook is yours to keep.
+          </p>
+          <button type="button" className={lnk} onClick={() => setGateState('form')}>Enter different details</button>
+        </div>
+      );
+    }
+    if (gateState === 'unlocked' && stay) {
+      const label = stayDateLabel({ value: stay.ci, source: 'lookup' }, 0) + ' → ' + stayDateLabel({ value: stay.co, source: 'lookup' }, 0);
+      const channel = stay.airbnb ? 'Your door code is also in your Airbnb messages.' : 'Also sent in your booking messages before check-in.';
+      let big = '';
+      let small = '';
+      if (stay.state === 'ready' && stay.code) { big = stay.code; if (doorState === 'early') small = 'Not active until ' + win.ciTime; }
+      else if (stay.state === 'before') small = 'Your code will appear here on check-in day';
+      else if (stay.state === 'after') small = 'Stay ended';
+      else small = stay.airbnb ? 'Your door code is in your Airbnb messages.' : prop.checkIn.doorCode;
+      return (
+        <section aria-label="Your stay" className="mx-3.5 mt-[-10px] relative z-10 rounded-2xl bg-white border border-sky-200 shadow-lg p-4">
+          <p className="text-[13.5px] text-slate-800 mt-0 mb-3 leading-snug">
+            <strong>Welcome, {stay.firstName}!</strong>{' '}Your stay info is below. Save this guidebook to your home screen. It updates every morning with what&apos;s happening in Branson, and it&apos;s yours to keep long after checkout.
+          </p>
+          <div className="rounded-xl px-3.5 py-3 mb-3" style={doorBg}>
+            <div className="text-[12px] font-semibold uppercase tracking-wider" style={{ color: '#1e3a5f' }}>Your Door Code</div>
+            {big ? (
+              <div className="font-extrabold tracking-[4px] text-3xl" style={{ color: '#0b2540' }} data-testid="door-code">{big}</div>
+            ) : (
+              <div className="text-[15px] font-bold mt-0.5" style={{ color: '#1e3a5f' }} data-testid="door-code-note">{small}</div>
+            )}
+            {big && small && <div className="text-[11px] mt-0.5 font-semibold" style={{ color: '#92400e' }}>⏳ {small}</div>}
+            {stay.state !== 'after' && (big || stay.state === 'before') && <div className="text-[11.5px] mt-1" style={{ color: '#1e3a5f' }}>{channel}</div>}
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-[12.5px]">
+            <div className="bg-sky-50 rounded-lg px-3 py-2"><div className="text-[10.5px] uppercase tracking-wide text-sky-700 font-semibold">Your dates</div><div className="font-bold text-sky-950">{label}</div></div>
+            <div className="bg-sky-50 rounded-lg px-3 py-2"><div className="text-[10.5px] uppercase tracking-wide text-sky-700 font-semibold">Times</div><div className="font-bold text-sky-950">In {prop.checkIn.time} · Out 10:00 AM</div></div>
+          </div>
+          <p className="text-[12px] text-slate-600 mt-3 mb-0">Address, Wi‑Fi, parking and your house manual are unlocked below and in the Guide tab.</p>
+        </section>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className={`${tab === 'map' ? 'h-[100dvh] overflow-hidden' : 'min-h-screen'} w-full bg-sky-50 flex flex-col max-w-md mx-auto relative`} style={{ fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif" }}>
       {fromKiosk && (
@@ -355,7 +477,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
                   </h1>
                   <div className="text-[13px] mt-0.5" style={{ color: '#ffffff' }}>{prop.name} • Check-in at {prop.checkIn.time}</div>
                 </div>
-                {(isKlein || isSuite) ? (
+                {gatedUnit ? null : (isKlein || isSuite) ? (
                 <div className="mx-3.5 mt-[-10px] relative z-10 rounded-xl px-3.5 py-3 shadow-lg bg-white border border-sky-100">
                   <div className="text-[12px] font-semibold uppercase tracking-wider text-sky-900">Check-in</div>
                   <div className="text-[13px] font-bold text-sky-900 mt-1">Self check-in. Instructions were emailed before arrival.</div>
@@ -386,8 +508,10 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             )}
 
+            {showCard && renderStayCard()}
+
             {/* Address — stay only (unit street, not city mode) */}
-            {mode === 'guest' && (
+            {mode === 'guest' && !locked && (
             <a href={`https://maps.google.com/?q=${encodeURIComponent(prop.address)}`} target="_blank" rel="noopener"
               className="block mx-3.5 mt-2 bg-white rounded-lg px-3.5 py-2.5 border border-sky-100 no-underline text-inherit">
               <div className="flex items-center gap-2">
@@ -431,7 +555,7 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
               </div>
             </div>
 
-            {mode === 'guest' && (
+            {mode === 'guest' && !locked && (
             <>
             <div className="mx-3.5 mt-1.5 bg-white rounded-lg px-3 py-2.5 text-center border border-sky-100">
               <div className="text-[10px] uppercase tracking-wide text-sky-900 font-semibold">WiFi {hasWifiCreds ? wifiNote : ''}</div>
@@ -528,7 +652,22 @@ export default function GuidebookPage({ params, searchParams: spPromise }: {
         )}
 
         {/* ═══ GUIDE ═══ */}
-        {tab === 'guide' && (
+        {tab === 'guide' && locked && (
+          <div className="px-3.5 pt-6">
+            <div className="bg-white rounded-2xl border border-sky-200 p-4 shadow-sm">
+              <div className="text-[15px] font-extrabold text-sky-950">🔒 Your house manual unlocks with your stay info</div>
+              <p className="text-[13px] text-slate-700 mt-2 mb-3 leading-snug">
+                Check-in and check-out steps, address and parking, Wi-Fi and house notes for {prop.name} appear here once you enter your name and phone number on the Home tab. Everything else in this guidebook is open to you.
+              </p>
+              <button type="button"
+                onClick={() => { setTab('home'); if (gateState === 'collapsed') setGateState('form'); contentRef.current?.scrollTo(0, 0); }}
+                className="w-full rounded-xl bg-sky-700 text-white font-bold text-[15px] py-3 cursor-pointer border-0">
+                Go to Home to unlock
+              </button>
+            </div>
+          </div>
+        )}
+        {tab === 'guide' && !locked && (
           <>
             {mode === 'guest' ? (
               <>
