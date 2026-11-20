@@ -1,33 +1,50 @@
 {
-  "date": "2026-11-19",
-  "generated_at": "2026-11-20T03:40:21+00:00",
+  "date": "2026-11-20",
+  "generated_at": "2026-11-20T05:30:23-06:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 0,
+    "check_ins": 3,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 8
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
-      "guests": 3,
+      "property": "Rustic Ozark",
+      "guests": 5,
+      "platform": "airbnb2",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Scotts unit",
+      "guests": 5,
+      "platform": "airbnb2",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Silver Dollar Suite",
+      "guests": 2,
       "platform": "airbnb2",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_outs": [
     {
       "property": "Scotts unit",
       "guests": 2,
       "platform": "airbnb2",
-      "check_in": "2026-11-17",
-      "check_out": "2026-11-20",
-      "nights": 3
+      "time": "10:00 AM"
     },
+    {
+      "property": "Rustic Ozark",
+      "guests": 3,
+      "platform": "airbnb2",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
     {
       "property": "Penthouse",
       "guests": 4,
@@ -37,19 +54,35 @@
       "nights": 4
     },
     {
-      "property": "Rustic Ozark",
-      "guests": 3,
-      "platform": "airbnb2",
-      "check_in": "2026-11-18",
-      "check_out": "2026-11-20",
-      "nights": 2
-    },
-    {
       "property": "Woodland Retreat",
       "guests": 3,
       "platform": "airbnb2",
       "check_in": "2026-11-19",
       "check_out": "2026-11-21",
+      "nights": 2
+    },
+    {
+      "property": "Rustic Ozark",
+      "guests": 5,
+      "platform": "airbnb2",
+      "check_in": "2026-11-20",
+      "check_out": "2026-11-23",
+      "nights": 3
+    },
+    {
+      "property": "Scotts unit",
+      "guests": 5,
+      "platform": "airbnb2",
+      "check_in": "2026-11-20",
+      "check_out": "2026-11-24",
+      "nights": 4
+    },
+    {
+      "property": "Silver Dollar Suite",
+      "guests": 2,
+      "platform": "airbnb2",
+      "check_in": "2026-11-20",
+      "check_out": "2026-11-22",
       "nights": 2
     }
   ],
