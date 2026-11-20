@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Thursday warm-up",
-  "deck": "Today's lineup in Branson features a strong mix of holiday-themed productions, country and classic hits, tributes, and family-friendly entertainment, with many shows running matinees and evenings during the busy pre-Thanksgiving season.",
-  "pick": {
-    "title": "Jimmy Fortune",
-    "when": "8:00 PM",
-    "where": "The Mansion Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Friday night Branson",
+  "deck": "Curtains stack after dinner. Arrive early for parking; popular houses sell the best seats first.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -264,12 +257,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-19",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-19.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-20",
+    "note": "Show list from the 2026-11-19 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 17,
     "withTickets": 0
   },
-  "generated_at": "2026-11-19T13:07:18-06:00"
+  "generated_at": "2026-11-20T05:00:40-06:00"
 }
