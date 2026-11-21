@@ -16,9 +16,9 @@ name: Guest Sync Monitor
 on:
   schedule:
     - cron: '15 12 * * *'   # 7:15 AM CDT  (6:15 AM CST)
-    - cron: '45 15 * * *'   # 10:45 AM CDT
-    - cron: '30 19 * * *'   # 2:30 PM CDT (before 4 PM check-ins)
-    - cron: '30 22 * * *'   # 5:30 PM CDT (late same-day bookings)
+    - cron: '45 15 * * *'   # 10:45 AM CDT (9:45 AM CST)
+    - cron: '0 18 * * *'    # 1:00 PM CDT (12:00 PM CST, before 4 PM check-ins)
+    - cron: '0 20 * * *'    # 3:00 PM CDT (2:00 PM CST, before 4 PM check-ins)
   workflow_dispatch:
     inputs:
       rebuild:
