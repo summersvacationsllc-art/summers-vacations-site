@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-20",
-  "generated_at": "2026-11-21T03:23:46+00:00",
+  "date": "2026-11-21",
+  "generated_at": "2026-11-21T05:32:18-06:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 2,
+    "check_ins": 1,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
     "in_house_units": 5,
@@ -11,33 +11,15 @@
   },
   "check_ins": [
     {
-      "property": "Rustic Ozark",
-      "guests": 5,
-      "platform": "airbnb2",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Scotts unit",
-      "guests": 5,
-      "platform": "airbnb2",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Silver Dollar Suite",
-      "guests": 2,
-      "platform": "airbnb2",
+      "property": "Woodland Retreat",
+      "guests": 6,
+      "platform": "vrbo",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Scotts unit",
-      "guests": 2,
-      "platform": "airbnb2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
+      "property": "Woodland Retreat",
       "guests": 3,
       "platform": "airbnb2",
       "time": "10:00 AM"
@@ -52,14 +34,6 @@
       "check_in": "2026-11-18",
       "check_out": "2026-11-22",
       "nights": 4
-    },
-    {
-      "property": "Woodland Retreat",
-      "guests": 3,
-      "platform": "airbnb2",
-      "check_in": "2026-11-19",
-      "check_out": "2026-11-21",
-      "nights": 2
     },
     {
       "property": "Rustic Ozark",
@@ -84,6 +58,14 @@
       "check_in": "2026-11-20",
       "check_out": "2026-11-22",
       "nights": 2
+    },
+    {
+      "property": "Woodland Retreat",
+      "guests": 6,
+      "platform": "vrbo",
+      "check_in": "2026-11-21",
+      "check_out": "2026-11-22",
+      "nights": 1
     }
   ],
   "sync_notes": {
