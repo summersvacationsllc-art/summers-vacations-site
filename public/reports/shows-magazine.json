@@ -1,14 +1,14 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday night Branson",
-  "deck": "Today's lineup features a strong mix of holiday-themed productions and tribute shows, with multiple matinees and evening performances across Branson's major theaters. Christmas shows dominate the afternoon while evening slots highlight tribute acts and variety.",
+  "hed": "Saturday full board",
+  "deck": "Today's lineup in Branson is packed with holiday-themed productions and classic variety shows, reflecting the peak of the Christmas entertainment season with matinees and evening performances across major theaters.",
   "pick": {
-    "title": "Dean Z: The Ultimate Elvis",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Core Branson mainstage energy.",
+    "title": "Hamners' Unbelievable Variety",
+    "when": "8:00 PM",
+    "where": "Hamner's Variety Theater",
+    "why": "Illusion and live stage craft — a sure crowd-pleaser.",
     "url": "",
     "source": "desk"
   },
@@ -17,43 +17,43 @@
       "id": "matinee",
       "label": "Matinee",
       "blurb": "Before 4 PM",
-      "count": 10,
+      "count": 8,
       "shows": [
         {
-          "name": "Absolutely Country, Definitely Gospel",
+          "name": "Broadway to Buble Christmas Show",
           "time": "10:00 AM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "classic",
-          "icon": "🎸",
+          "chip": "music",
+          "icon": "🎭",
           "ticketOk": false,
-          "desc": "Uplifting country and gospel music performance",
-          "price": "$43–$53"
+          "desc": "Festive Broadway and Michael Bublé-style holiday music celebration",
+          "price": "$72–$90"
         },
         {
-          "name": "Hot Rods & High Heels",
-          "time": "10:00 AM",
+          "name": "Miracle of Christmas",
+          "time": "11:30 AM",
+          "venue": "Sight & Sound Theatres",
+          "type": null,
+          "url": "",
+          "chip": "music",
+          "icon": "🎭",
+          "ticketOk": false,
+          "desc": "Spectacular live biblical retelling of the Christmas story with elaborate sets, animals, and cast",
+          "price": "$128–$156"
+        },
+        {
+          "name": "#1 Hits of The 60s",
+          "time": "2:00 PM",
           "venue": "Clay Cooper Theatre",
           "type": null,
           "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-energy musical revue with classic cars and dance",
-          "price": "$61–$74"
-        },
-        {
-          "name": "The Sound of Simon and Garfunkel Show",
-          "time": "10:00 AM",
-          "venue": "Hamner's Variety Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "A harmonious tribute to the folk-rock duo's timeless hits",
-          "price": "$58–$67"
+          "desc": "High-energy tribute to the biggest hits and artists of the 1960s",
+          "price": "$47–$66"
         },
         {
           "name": "Branson's Christmas Wonderland",
@@ -64,59 +64,47 @@
           "chip": "music",
           "icon": "🎭",
           "ticketOk": false,
-          "desc": "Festive holiday musical spectacular with songs and dance",
-          "price": "$66–$165"
+          "desc": "Lavish Christmas spectacular with singing, dancing, and festive production numbers",
+          "price": "$66–$93"
         },
         {
-          "name": "Clay Cooper's Country Express Show",
-          "time": "2:00 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "High-energy country music and comedy entertainment",
-          "price": "$77–$99"
-        },
-        {
-          "name": "Rick Thomas",
+          "name": "Christmas In The Heartland",
           "time": "2:00 PM",
           "venue": "Americana Theatre",
+          "type": null,
+          "url": "",
+          "chip": "family",
+          "icon": "👨‍👩‍👧",
+          "ticketOk": false,
+          "desc": "Heartwarming family-friendly Christmas musical filled with holiday songs and storytelling",
+          "price": "$66–$84"
+        },
+        {
+          "name": "Shanghai Circus / Amazing Acrobats of Shanghai",
+          "time": "2:00 PM",
+          "venue": "Mickey Gilley Grand Shanghai Theatre",
+          "type": null,
+          "url": "",
+          "chip": "thrill",
+          "icon": "🤸",
+          "ticketOk": false,
+          "desc": "Thrilling acrobatic performances, contortionists, and circus acts from China",
+          "price": "$45–$75"
+        },
+        {
+          "name": "The Lion, The Witch And The Wardrobe",
+          "time": "2:00 PM",
+          "venue": "Branson Hillside Theatre",
           "type": null,
           "url": "",
           "chip": "magic",
           "icon": "🪄",
           "ticketOk": false,
-          "desc": "Award-winning magic and illusion show",
-          "price": ""
+          "desc": "Live stage adaptation of the classic C.S. Lewis tale with magical effects and costumes",
+          "price": "$79–$115"
         },
         {
-          "name": "Thank You For The Music",
-          "time": "2:00 PM",
-          "venue": "Hamner's Variety Theater",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "ABBA tribute show celebrating their iconic hits",
-          "price": ""
-        },
-        {
-          "name": "The Texas Tenors: Deep in the Heart of Christmas",
-          "time": "2:00 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎶",
-          "ticketOk": false,
-          "desc": "The trio delivers powerful Christmas classics and more",
-          "price": "$83–$107"
-        },
-        {
-          "name": "Legends in Concert",
+          "name": "The SIX Show",
           "time": "3:00 PM",
           "venue": "Pepsi Legends Theater",
           "type": null,
@@ -124,20 +112,8 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "World-class live tributes to music icons with a holiday twist",
-          "price": "$82–$95"
-        },
-        {
-          "name": "Miracle of Christmas",
-          "time": "3:30 PM",
-          "venue": "Sight & Sound Theatres (Branson, MO)",
-          "type": null,
-          "url": "",
-          "chip": "music",
-          "icon": "🎭",
-          "ticketOk": false,
-          "desc": "Spectacular live retelling of the Christmas story with animals and massive sets",
-          "price": "$59–$79"
+          "desc": "Dynamic a cappella group performing hits from the 60s through today with tight harmonies",
+          "price": "$45–$81"
         }
       ]
     },
@@ -145,31 +121,19 @@
       "id": "late_afternoon",
       "label": "Late afternoon",
       "blurb": "4–7 PM",
-      "count": 2,
+      "count": 1,
       "shows": [
         {
-          "name": "Back to The Bee Gees",
-          "time": "5:00 PM",
-          "venue": "Hamner's Variety Theater",
-          "type": null,
-          "url": "",
-          "chip": "magic",
-          "icon": "🪄",
-          "ticketOk": false,
-          "desc": "Faithful recreation of the Bee Gees' harmonies and disco hits",
-          "price": "$37–$67"
-        },
-        {
-          "name": "The Heatherlys / Hits on Route 66",
+          "name": "Aaron Wayne",
           "time": "5:00 PM",
           "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "classic",
-          "icon": "🎸",
+          "chip": "comedy",
+          "icon": "😂",
           "ticketOk": false,
-          "desc": "Nostalgic country and Route 66-themed variety performance",
-          "price": ""
+          "desc": "Hilarious comedy hypnosis and audience-participation show",
+          "price": "$42–$72"
         }
       ]
     },
@@ -180,40 +144,40 @@
       "count": 5,
       "shows": [
         {
-          "name": "Amazing Acrobats of Shanghai Circus",
-          "time": "7:30 PM",
-          "venue": "Mickey Gilley Grand Shanghai Theatre",
-          "type": null,
-          "url": "",
-          "chip": "thrill",
-          "icon": "🤸",
-          "ticketOk": false,
-          "desc": "Thrilling acrobatic and circus performances",
-          "price": "$45–$55"
-        },
-        {
-          "name": "Dean Z: The Ultimate Elvis",
-          "time": "7:30 PM",
-          "venue": "Clay Cooper Theatre",
-          "type": null,
-          "url": "",
-          "chip": "classic",
-          "icon": "🎸",
-          "ticketOk": false,
-          "desc": "High-energy tribute to Elvis Presley spanning his legendary career",
-          "price": "$45–$65"
-        },
-        {
-          "name": "Anthems of Rock",
+          "name": "Branson's Christmas Wonderland",
           "time": "8:00 PM",
           "venue": "King's Castle Theatre",
           "type": null,
           "url": "",
+          "chip": "music",
+          "icon": "🎭",
+          "ticketOk": false,
+          "desc": "Lavish Christmas spectacular with singing, dancing, and festive production numbers",
+          "price": "$66–$103"
+        },
+        {
+          "name": "Hamners' Unbelievable Variety",
+          "time": "8:00 PM",
+          "venue": "Hamner's Variety Theater",
+          "type": null,
+          "url": "",
+          "chip": "magic",
+          "icon": "🪄",
+          "ticketOk": false,
+          "desc": "Fast-paced variety show with comedy, magic, music, and surprise acts",
+          "price": "$69–$79"
+        },
+        {
+          "name": "Legends in Concert",
+          "time": "8:00 PM",
+          "venue": "Pepsi Legends Theater",
+          "type": null,
+          "url": "",
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "High-octane rock anthems tribute show",
-          "price": "$41–$49"
+          "desc": "Tribute artists delivering spot-on performances of music legends with live band",
+          "price": ""
         },
         {
           "name": "Presley's Country Christmas",
@@ -224,43 +188,53 @@
           "chip": "classic",
           "icon": "🎸",
           "ticketOk": false,
-          "desc": "Family-friendly holiday country music and comedy",
-          "price": "$56–$108"
+          "desc": "Family-style country music Christmas show featuring the Presleys' cast and holiday favorites",
+          "price": "$56–$77"
         },
         {
-          "name": "Six - The Capella Brothers",
+          "name": "Rick Thomas",
           "time": "8:00 PM",
-          "venue": "Pepsi Legends Theater",
+          "venue": "Americana Theatre",
           "type": null,
           "url": "",
-          "chip": "classic",
-          "icon": "🎸",
+          "chip": "magic",
+          "icon": "🪄",
           "ticketOk": false,
-          "desc": "Dynamic a cappella group performing hits",
-          "price": ""
+          "desc": "Award-winning illusionist and magician presenting grand-scale illusions and birds",
+          "price": "$72–$90"
         }
       ]
     }
   ],
   "chips": [
     {
-      "id": "classic",
-      "label": "Classic",
-      "count": 11
-    },
-    {
       "id": "music",
       "label": "Music",
-      "count": 3
+      "count": 4
     },
     {
-      "id": "magic",
-      "label": "Magic",
-      "count": 2
+      "id": "classic",
+      "label": "Classic",
+      "count": 4
+    },
+    {
+      "id": "family",
+      "label": "Family",
+      "count": 1
     },
     {
       "id": "thrill",
       "label": "Thrill",
+      "count": 1
+    },
+    {
+      "id": "magic",
+      "label": "Magic",
+      "count": 3
+    },
+    {
+      "id": "comedy",
+      "label": "Comedy",
       "count": 1
     }
   ],
@@ -269,12 +243,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-20",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-20.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-21",
+    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-21.md, shows-data board. Scout prose on file."
   },
   "counts": {
-    "shows": 17,
+    "shows": 14,
     "withTickets": 0
   },
-  "generated_at": "2026-11-20T12:44:37-06:00"
+  "generated_at": "2026-11-21T05:20:42-06:00"
 }
