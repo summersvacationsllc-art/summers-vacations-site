@@ -1,29 +1,30 @@
 {
   "ok": true,
-  "generated_at": "2026-11-23T00:39:45+00:00",
-  "checkedAt": "2026-11-22T18:39:45-06:00",
-  "todayCT": "2026-11-22",
-  "lastSyncAt": "2026-11-23T00:39:42+00:00",
-  "syncDataDate": "2026-11-22",
-  "liveDataDate": "2026-11-22",
+  "generated_at": "2026-11-23T22:11:00+00:00",
+  "checkedAt": "2026-11-23T16:11:00-06:00",
+  "todayCT": "2026-11-23",
+  "lastSyncAt": "2026-11-23T22:10:56+00:00",
+  "syncDataDate": "2026-11-23",
+  "liveDataDate": "2026-11-23",
   "liveSource": "github",
   "expectedInHouse": [
     "Penthouse 2026-11-22 \u2192 2026-11-24",
-    "Rustic Ozark 2026-11-20 \u2192 2026-11-23",
+    "Rustic Ozark 2026-11-23 \u2192 2026-11-24",
     "Scotts unit 2026-11-20 \u2192 2026-11-24",
-    "Silver Dollar Suite 2026-11-22 \u2192 2026-11-24"
+    "Silver Dollar Suite 2026-11-22 \u2192 2026-11-24",
+    "Woodland Retreat 2026-11-23 \u2192 2026-11-26"
   ],
   "kioskUnits": {
     "the-penthouse": "Penthouse",
     "rustic-ozark-retreat": "Rustic Ozark",
     "double-condo": null,
     "branson-family-haven": null,
-    "woodland-retreat": null,
+    "woodland-retreat": "Woodland Retreat",
     "scotts-unit": "Scotts unit",
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": "Silver Dollar Suite"
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/45090054547 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/45277095922"
 }
