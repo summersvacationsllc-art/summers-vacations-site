@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-22",
-  "biteOfDay": "Cooling water has bass on Table Rock feeding on points, gravel flats, and offshore structure in 20\u201340+ ft as they pack on weight ahead of deeper winter patterns. Walleye and crappie stay active around brush and points. On Taneycomo rainbows are eager in the seams during light flows while brown trout activity continues to build. Recent local reports show solid numbers when anglers time the lighter ",
+  "date": "2026-11-23",
+  "biteOfDay": "Cooling surface water on Table Rock has bass transitioning to deeper patterns on points, gravel flats and offshore structure in 20\u201340 ft as they pack on weight ahead of winter. Walleye and crappie remain active around brush piles and points. On Taneycomo, rainbows stay eager in the seams during lighter flows while brown trout activity builds in the upper stretches. Recent local reports (Captain Ex",
   "conditions": {
     "tableRock": {
       "temp": "verify locally",
-      "level": "909.44 ft (USACE 11:00 CT)",
+      "level": "909.42 ft (USACE)",
       "clarity": "Gin-clear near dam; verify arms locally"
     },
     "taneycomo": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~20 cfs at 11:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad."
+      "generation": "~22 cfs at 11:00 CT (USACE live). Overnight ~20; afternoon peak ~22. Call SWPA 866-494-1993 before you wad."
     }
   },
   "species": [
@@ -57,7 +57,7 @@
     "low": "Verify locally",
     "wind": "Verify locally"
   },
-  "tip": "Insider tip: Take advantage of the low-flow window this morning on Taneycomo. Drift or wade seams and current breaks with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive \u2014 orange head often best) or #16\u201320 zebra midges under an indicator on light line. When any generation arrives, add weight, ",
-  "source": "usace-always-on",
-  "last_verified": "2026-11-22T11:59:22-06:00"
+  "tip": "Insider tip: Hit the low-flow window this morning on Taneycomo. Drift or wade seams and current breaks with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive with orange head) or #16\u201320 zebra midges under an indicator on light line. When generation ramps, add weight, target the breaks, and step ",
+  "source": "scout",
+  "last_verified": "2026-11-23T05:44:46-06:00"
 }
