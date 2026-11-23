@@ -1,58 +1,38 @@
 {
-  "date": "2026-11-22",
-  "generated_at": "2026-11-23T00:39:42+00:00",
+  "date": "2026-11-23",
+  "generated_at": "2026-11-23T22:10:56+00:00",
   "headline": {
     "check_ins": 2,
-    "check_outs": 3,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 8
   },
   "check_ins": [
     {
-      "property": "Penthouse",
-      "guests": 3,
-      "platform": "airbnb2",
+      "property": "Rustic Ozark",
+      "guests": 1,
+      "platform": "owner-guest",
       "time": "4:00 PM"
     },
     {
-      "property": "Silver Dollar Suite",
-      "guests": 3,
-      "platform": "airbnb2",
+      "property": "Woodland Retreat",
+      "guests": 1,
+      "platform": "website",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
-      "property": "Penthouse",
-      "guests": 4,
+      "property": "Rustic Ozark",
+      "guests": 5,
       "platform": "airbnb2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Silver Dollar Suite",
-      "guests": 2,
-      "platform": "airbnb2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Woodland Retreat",
-      "guests": 6,
-      "platform": "vrbo",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Rustic Ozark",
-      "guests": 5,
-      "platform": "airbnb2",
-      "check_in": "2026-11-20",
-      "check_out": "2026-11-23",
-      "nights": 3
-    },
     {
       "property": "Scotts unit",
       "guests": 5,
@@ -76,6 +56,22 @@
       "check_in": "2026-11-22",
       "check_out": "2026-11-24",
       "nights": 2
+    },
+    {
+      "property": "Rustic Ozark",
+      "guests": 1,
+      "platform": "owner-guest",
+      "check_in": "2026-11-23",
+      "check_out": "2026-11-24",
+      "nights": 1
+    },
+    {
+      "property": "Woodland Retreat",
+      "guests": 1,
+      "platform": "website",
+      "check_in": "2026-11-23",
+      "check_out": "2026-11-26",
+      "nights": 3
     }
   ],
   "sync_notes": {

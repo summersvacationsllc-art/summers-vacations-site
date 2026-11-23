@@ -6,7 +6,7 @@
       "time": "10:00 AM",
       "venue": "Americana Theatre",
       "venueAddress": "2905 W 76 Country Blvd, Branson, MO 65616",
-      "desc": "Festive Broadway and Michael Bublé-style Christmas music celebration",
+      "desc": "Festive Broadway and Michael Bubl\u00e9-style Christmas music celebration",
       "price": "$72",
       "ticketNote": "Tickets from ~$72",
       "sources": "bransonmoconcerts.com, americanarenas.com, ticketron.com (verified Monday, November 23, 2026)",
@@ -15,7 +15,7 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
       "ticketOk": false
     },
@@ -33,7 +33,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎶",
+      "icon": "\ud83c\udfb6",
       "for": "music",
       "ticketOk": false
     },
@@ -51,7 +51,7 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
       "ticketOk": false
     },
@@ -66,9 +66,12 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6539477,
+      "lng": -93.2795662,
+      "venueAddress": "Shepherd of the Hills Expwy Branson"
     },
     {
       "name": "Legends in Concert",
@@ -84,7 +87,7 @@
       "sortMinutes": 900,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
@@ -93,15 +96,18 @@
       "time": "5:00 PM",
       "venue": "Hamner's Variety Theater (Branson, MO)",
       "desc": "High-energy tribute to the Bee Gees' disco and pop classics",
-      "price": "$45–$65",
-      "ticketNote": "Tickets from ~$45–$65",
+      "price": "$45\u2013$65",
+      "ticketNote": "Tickets from ~$45\u2013$65",
       "sources": "bransonmoconcerts.com, discoverbranson.com (verified Monday, November 23, 2026)",
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6539477,
+      "lng": -93.2795662,
+      "venueAddress": "Shepherd of the Hills Expwy Branson"
     },
     {
       "name": "Branson Comedy Bash",
@@ -109,15 +115,17 @@
       "venue": "Playhouse Theatre at The Shepherd of the Hills",
       "venueAddress": "5586 W 76 Country Blvd, Branson, MO 65616",
       "desc": "Family-friendly dinner show packed with stand-up, sketch comedy, magic, and music",
-      "price": "$50–$135",
-      "ticketNote": "Tickets from ~$50–$135",
+      "price": "$50\u2013$135",
+      "ticketNote": "Tickets from ~$50\u2013$135",
       "sources": "theshepherdofthehills.com, nightout.com (verified Monday, November 23, 2026)",
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.667,
+      "lng": -93.30589
     },
     {
       "name": "Dean Z: The Ultimate Elvis",
@@ -133,7 +141,7 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
@@ -151,7 +159,7 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "thrill",
-      "icon": "🤸",
+      "icon": "\ud83e\udd38",
       "for": "thrill",
       "ticketOk": false
     },
@@ -167,9 +175,11 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64035,
+      "lng": -93.24015
     },
     {
       "name": "Rick Thomas",
@@ -185,7 +195,7 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "magic",
-      "icon": "🪄",
+      "icon": "\ud83e\ude84",
       "for": "magic",
       "ticketOk": false
     },
@@ -203,18 +213,18 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     }
   ],
   "freeEvents": [],
   "magazineBuilt": "2026-11-23",
-  "last_verified": "2026-11-23T05:44:46-06:00",
+  "last_verified": "2026-11-23T16:10:54-06:00",
   "status": "fresh",
   "scoutDate": "2026-11-23",
   "scoutFile": "2026-11-23.md",
   "source": "scout",
   "listHash": "fdcea095174f",
-  "generated_at": "2026-11-23T05:44:46-06:00"
+  "generated_at": "2026-11-23T16:10:54-06:00"
 }
