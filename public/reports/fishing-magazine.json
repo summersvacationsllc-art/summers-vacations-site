@@ -19,7 +19,7 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "The pool walked down from 909.55 early in the week to 909.28 this morning \u2014 about 0.27 ft off that earlier mark, still under the 915 full pool. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "The pool walked down from 909.55 early in the week to 909.24 this morning \u2014 about 0.31 ft off that earlier mark, still under the 915 full pool. Live USACE reading 14:00 CT: 909.24 ft, 216 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
     {
       "date": "2026-11-18",
@@ -49,26 +49,26 @@
       "date": "2026-11-22",
       "label": "Sun",
       "level": "909.37",
-      "fresh": true
+      "fresh": false
     },
     {
       "date": "2026-11-23",
       "label": "Mon",
       "level": "909.42",
-      "fresh": true
+      "fresh": false
     },
     {
       "date": "2026-11-24",
       "label": "Tue",
-      "level": "909.28",
+      "level": "909.24",
       "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "909.28 ft \u00b7 bass \u00b7 walleye \u00b7 crappie",
+    "dek": "909.24 ft \u00b7 live USACE",
     "now": {
-      "level": "909.28 ft",
+      "level": "909.24 ft (USACE 14:00 CT)",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
@@ -83,7 +83,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~306 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
+      "generation": "~216 cfs at 14:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
