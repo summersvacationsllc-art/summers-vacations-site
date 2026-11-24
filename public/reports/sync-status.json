@@ -1,18 +1,18 @@
 {
-  "ok": true,
-  "generated_at": "2026-11-24T03:38:25+00:00",
-  "checkedAt": "2026-11-23T21:38:25-06:00",
+  "ok": false,
+  "generated_at": "2026-11-24T04:40:31+00:00",
+  "checkedAt": "2026-11-23T22:40:31-06:00",
   "todayCT": "2026-11-23",
-  "lastSyncAt": "2026-11-24T03:38:23+00:00",
+  "lastSyncAt": "2026-11-24T04:40:29+00:00",
   "syncDataDate": "2026-11-23",
-  "liveDataDate": "2026-11-23",
-  "liveSource": "github",
+  "liveDataDate": "2026-11-24",
+  "liveSource": "bundled",
   "expectedInHouse": [
-    "Penthouse 2026-11-22 \u2192 2026-11-24",
-    "Rustic Ozark 2026-11-23 \u2192 2026-11-24",
-    "Scotts unit 2026-11-20 \u2192 2026-11-24",
-    "Silver Dollar Suite 2026-11-22 \u2192 2026-11-24",
-    "Woodland Retreat 2026-11-23 \u2192 2026-11-26"
+    "Penthouse 2026-11-22 → 2026-11-24",
+    "Rustic Ozark 2026-11-23 → 2026-11-24",
+    "Scotts unit 2026-11-20 → 2026-11-24",
+    "Silver Dollar Suite 2026-11-22 → 2026-11-24",
+    "Woodland Retreat 2026-11-23 → 2026-11-26"
   ],
   "kioskUnits": {
     "the-penthouse": "Penthouse",
@@ -24,7 +24,10 @@
     "silver-dollar-adventure-escape": null,
     "silver-dollar-suite": "Silver Dollar Suite"
   },
-  "errors": [],
+  "errors": [
+    "live /api/guest-today does not match sync data after 600s: live date=2026-11-24 generated_at=2026-11-23T22:00:29-06:00 in_house=[('Double Condo', '2026-11-24', '2026-11-29'), (\"Klein's condo\", '2026-11-24', '2026-11-29'), ('Scotts unit', '2026-11-24', '2026-11-25'), ('Woodland Retreat', '2026-11-23', '2026-11-26')]; expected date=2026-11-23 generated_at=2026-11-24T04:40:29+00:00 in_house=[('Penthouse', '2026-11-22', '2026-11-24'), ('Rustic Ozark', '2026-11-23', '2026-11-24'), ('Scotts unit', '2026-11-20', '2026-11-24'), ('Silver Dollar Suite', '2026-11-22', '2026-11-24'), ('Woodland Retreat', '2026-11-23', '2026-11-26')]",
+    "daily sync had not published guest data for today by the 7 AM CT deadline (monitor rebuilt it)"
+  ],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/45320887042 late=0 rebuild=success"
+  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/45327991010 late=1 rebuild=success"
 }
