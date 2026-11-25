@@ -1,23 +1,24 @@
 {
   "ok": true,
-  "generated_at": "2026-11-25T03:26:44+00:00",
-  "checkedAt": "2026-11-24T21:26:44-06:00",
-  "todayCT": "2026-11-24",
-  "lastSyncAt": "2026-11-25T03:26:43+00:00",
-  "syncDataDate": "2026-11-24",
-  "liveDataDate": "2026-11-24",
+  "generated_at": "2026-11-25T20:04:44+00:00",
+  "checkedAt": "2026-11-25T14:04:44-06:00",
+  "todayCT": "2026-11-25",
+  "lastSyncAt": "2026-11-25T20:04:39+00:00",
+  "syncDataDate": "2026-11-25",
+  "liveDataDate": "2026-11-25",
   "liveSource": "github",
   "expectedInHouse": [
     "Double Condo 2026-11-24 \u2192 2026-11-29",
+    "Indian Point 2026-11-25 \u2192 2026-11-29",
     "Klein's condo 2026-11-24 \u2192 2026-11-29",
-    "Scotts unit 2026-11-24 \u2192 2026-11-25",
+    "Scotts unit 2026-11-25 \u2192 2026-11-26",
     "Woodland Retreat 2026-11-23 \u2192 2026-11-26"
   ],
   "kioskUnits": {
     "the-penthouse": null,
     "rustic-ozark-retreat": null,
     "double-condo": "Double Condo",
-    "branson-family-haven": null,
+    "branson-family-haven": "Indian Point",
     "woodland-retreat": "Woodland Retreat",
     "scotts-unit": "Scotts unit",
     "silver-dollar-adventure-escape": "Klein's condo",
@@ -25,5 +26,5 @@
   },
   "errors": [],
   "notes": [],
-  "context": "guest-sync-monitor run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/45540002868 late=0 rebuild=success"
+  "context": "guest-daily-sync run https://github.com/summersvacationsllc-art/summers-vacations-site/actions/runs/45691381363"
 }
