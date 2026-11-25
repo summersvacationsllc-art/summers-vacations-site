@@ -1,30 +1,24 @@
 {
-  "date": "2026-11-24",
-  "generated_at": "2026-11-25T03:26:43+00:00",
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T05:56:59-06:00",
   "headline": {
-    "check_ins": 3,
-    "check_outs": 4,
+    "check_ins": 2,
+    "check_outs": 1,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 4,
+    "in_house_units": 5,
     "units_total": 8
   },
   "check_ins": [
     {
-      "property": "Double Condo",
-      "guests": 5,
-      "platform": "website",
-      "time": "4:00 PM"
-    },
-    {
-      "property": "Klein's condo",
-      "guests": 8,
+      "property": "Indian Point",
+      "guests": 15,
       "platform": "airbnb2",
       "time": "4:00 PM"
     },
     {
       "property": "Scotts unit",
-      "guests": 6,
+      "guests": 4,
       "platform": "airbnb2",
       "time": "4:00 PM"
     }
@@ -32,26 +26,8 @@
   "check_outs": [
     {
       "property": "Scotts unit",
-      "guests": 5,
+      "guests": 6,
       "platform": "airbnb2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Penthouse",
-      "guests": 3,
-      "platform": "airbnb2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Silver Dollar Suite",
-      "guests": 3,
-      "platform": "airbnb2",
-      "time": "10:00 AM"
-    },
-    {
-      "property": "Rustic Ozark",
-      "guests": 1,
-      "platform": "owner-guest",
       "time": "10:00 AM"
     }
   ],
@@ -82,11 +58,19 @@
       "nights": 5
     },
     {
-      "property": "Scotts unit",
-      "guests": 6,
+      "property": "Indian Point",
+      "guests": 15,
       "platform": "airbnb2",
-      "check_in": "2026-11-24",
-      "check_out": "2026-11-25",
+      "check_in": "2026-11-25",
+      "check_out": "2026-11-29",
+      "nights": 4
+    },
+    {
+      "property": "Scotts unit",
+      "guests": 4,
+      "platform": "airbnb2",
+      "check_in": "2026-11-25",
+      "check_out": "2026-11-26",
       "nights": 1
     }
   ],
