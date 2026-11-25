@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "kicker": "Hooked on Branson",
   "brand": "The daily read",
   "hed": "The Water Is Falling",
-  "deck": "Table Rock this morning: 909.28 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
+  "deck": "Table Rock this morning: 909.21 ft. Taneycomo still eats on a pink worm if the generators give you a window.",
   "play": {
-    "title": "Vertical or go trout.",
-    "body": "A jigging spoon on Table Rock is a specialist's game in January. Taneycomo will treat a first-timer better."
+    "title": "Warm the hands, not the water.",
+    "body": "Fish the warmest part of the afternoon on the lake. Fish first light on the trout water. Different climates."
   },
   "season": {
     "name": "Winter trout",
@@ -19,14 +19,8 @@
     ]
   },
   "tomorrow": "Tomorrow we print a new level, a new play, and whether the dam spun overnight. Open it before you drive. The water will have moved.",
-  "weekGraf": "The pool walked down from 909.55 early in the week to 909.24 this morning \u2014 about 0.31 ft off that earlier mark, still under the 915 full pool. Live USACE reading 14:00 CT: 909.24 ft, 216 cfs through the dam. Ramps are still in. Shallow coves feel a falling pool first.",
+  "weekGraf": "The pool walked down from 909.55 early in the week to 909.21 this morning \u2014 about 0.34 ft off that earlier mark, still under the 915 full pool. Ramps are still in. Shallow coves feel a falling pool first.",
   "week": [
-    {
-      "date": "2026-11-18",
-      "label": "Wed",
-      "level": "909.55",
-      "fresh": true
-    },
     {
       "date": "2026-11-19",
       "label": "Thu",
@@ -49,31 +43,37 @@
       "date": "2026-11-22",
       "label": "Sun",
       "level": "909.37",
-      "fresh": false
+      "fresh": true
     },
     {
       "date": "2026-11-23",
       "label": "Mon",
       "level": "909.42",
-      "fresh": false
+      "fresh": true
     },
     {
       "date": "2026-11-24",
       "label": "Tue",
-      "level": "909.24",
+      "level": "909.28",
+      "fresh": true
+    },
+    {
+      "date": "2026-11-25",
+      "label": "Wed",
+      "level": "909.21",
       "fresh": true
     }
   ],
   "tableRock": {
     "hed": "Table Rock Lake",
-    "dek": "909.24 ft \u00b7 live USACE",
+    "dek": "909.21 ft \u00b7 bass \u00b7 walleye \u00b7 crappie",
     "now": {
-      "level": "909.24 ft (USACE 14:00 CT)",
+      "level": "909.21 ft",
       "temp": "Verify at the ramp \u2014 scout does not invent dawn temps",
       "clarity": "Clear near the dam; arms can stain. Verify locally."
     },
     "body": [
-      "At approximately 909.27 ft the lake is more than 5.7 ft below full pool. Exposed shoreline, shallow coves and longer walks at some ramps are the norm \u2014 navigate carefully in the James, Kings and Long Creek arms where hazards sit closer to the surface.",
+      "At approximately 909.21 ft the lake is nearly 5.8 ft below full pool. Exposed shoreline, shallow coves and longer walks at some ramps are the norm \u2014 navigate carefully in the James, Kings and Long Creek arms where hazards sit closer to the surface.",
       "Surface water has cooled into the upper 50s with gin-clear clarity. Bass are hitting topwaters and soft plastics in low light before transitioning to jigs, live bait, drop-shot or tubes around long points, gravel flats dropping into 20\u201340 ft and offshore structure. Walleye and crappie continue to produce around brush piles and points. In this clear, cooling water, precise natural presentations win the day as fish feed heavily ahead of winter."
     ]
   },
@@ -83,7 +83,7 @@
     "now": {
       "temp": "Tailwater cold (typically ~50\u201354\u00b0F below the dam). Verify at the bank.",
       "clarity": "Very clear",
-      "generation": "~216 cfs at 14:00 CT (USACE live). Call SWPA 866-494-1993 before you wad."
+      "generation": "~6,509 cfs on the last printed reading. Not a live hourly. Call SWPA 866-494-1993 before you wad."
     },
     "working": [
       "Pink Power Worms",
@@ -100,7 +100,7 @@
   },
   "editor": {
     "stamp": "Hooked on Branson",
-    "checked": "2026-11-24",
+    "checked": "2026-11-25",
     "note": "Two-lake daily rebuilt from the morning fishing scout plus the prior week of files. We print a level only when the scout had one. Carry-forward mornings are labeled. No invented bite ratings. Call 866-494-1993 before wading Taneycomo."
   }
 }
