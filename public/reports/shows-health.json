@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-11-25T14:04:38-06:00",
-  "date": "2026-11-25",
+  "checkedAt": "2026-11-26T05:23:24-06:00",
+  "date": "2026-11-26",
   "ok": true,
-  "unchangedDays": 1,
+  "unchangedDays": 2,
   "unchangedSince": "2026-11-25",
-  "scoutsInWindow": 1,
-  "distinctScoutLists": 1,
+  "scoutsInWindow": 2,
+  "distinctScoutLists": 2,
   "threshold": 3,
   "message": "ok"
 }

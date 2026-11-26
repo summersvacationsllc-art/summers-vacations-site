@@ -1,7 +1,8 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "shows": [
     {
+<<<<<<< HEAD
       "name": "Absolutely Country, Definitely Gospel",
       "time": "10:00 AM",
       "venue": "Americana Theatre",
@@ -20,14 +21,16 @@
       "ticketOk": false
     },
     {
+=======
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "name": "Branson's Christmas Wonderland",
       "time": "10:00 AM",
       "venue": "King's Castle Theatre",
       "venueAddress": "2701 W 76 Country Blvd",
-      "desc": "Festive musical production filled with holiday songs, dazzling costumes, and seasonal cheer",
+      "desc": "A sparkling large-scale holiday production with singers, dancers, festive costumes, and classic Christmas songs in an elaborate stage show",
       "price": "",
       "ticketNote": "Tickets available",
-      "sources": "discoverbranson.com, ticketron.com, concertfix.com (verified Wednesday, November 25, 2026)",
+      "sources": "ticketron.com, concertfix.com, bransonmoconcerts.com (verified Thursday, November 26, 2026)",
       "lat": 36.64044,
       "lng": -93.26808,
       "sortMinutes": 600,
@@ -38,6 +41,7 @@
       "ticketOk": false
     },
     {
+<<<<<<< HEAD
       "name": "Hot Rods & High Heels",
       "time": "10:00 AM",
       "venue": "Clay Cooper Theatre",
@@ -68,24 +72,48 @@
       "bucket": "matinee",
       "chip": "music",
       "icon": "\ud83c\udfad",
+=======
+      "name": "A Celtic Christmas",
+      "time": "2:00 PM",
+      "venue": "King's Castle Theatre",
+      "venueAddress": "2701 W 76 Country Blvd",
+      "desc": "Energetic Celtic-style holiday performance featuring traditional Irish and Scottish music, dance, and festive cheer",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "bransonmoconcerts.com, ticketron.com, americanarenas.com (verified Thursday, November 26, 2026)",
+      "lat": 36.64044,
+      "lng": -93.26808,
+      "sortMinutes": 840,
+      "bucket": "matinee",
+      "chip": "music",
+      "icon": "🎶",
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "for": "music",
       "ticketOk": false,
       "lat": 36.6654,
       "lng": -93.26219
     },
     {
-      "name": "Christmas In The Heartland",
+      "name": "The Gambler",
       "time": "2:00 PM",
       "venue": "Americana Theatre",
       "venueAddress": "2905 W 76 Country Blvd",
+<<<<<<< HEAD
       "desc": "Heartwarming holiday musical celebrating family, faith, and the spirit of Christmas",
       "price": "$72\u2013$90",
       "ticketNote": "Tickets from ~$72\u2013$90",
       "sources": "bransonmoconcerts.com, americanarenas.com, ticketron.com (verified Wednesday, November 25, 2026)",
+=======
+      "desc": "A popular country music tribute or themed show performing the hits associated with the iconic song and artist",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "bransonmoconcerts.com, ticketron.com, americanarenas.com (verified Thursday, November 26, 2026)",
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "lat": 36.6386381,
       "lng": -93.2735125,
       "sortMinutes": 840,
       "bucket": "matinee",
+<<<<<<< HEAD
       "chip": "family",
       "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "for": "family",
@@ -104,12 +132,15 @@
       "lng": -93.27964,
       "sortMinutes": 840,
       "bucket": "matinee",
+=======
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "chip": "classic",
       "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
     },
     {
+<<<<<<< HEAD
       "name": "The Lion, The Witch And The Wardrobe",
       "time": "2:00 PM",
       "venue": "Branson Hillside Theatre",
@@ -190,6 +221,34 @@
       "price": "$75\u2013$87",
       "ticketNote": "Tickets from ~$75\u2013$87",
       "sources": "americanarenas.com, discoverbranson.com (verified Wednesday, November 25, 2026)",
+=======
+      "name": "Aaron Wayne",
+      "time": "5:00 PM",
+      "venue": "Americana Theatre",
+      "venueAddress": "2905 W 76 Country Blvd",
+      "desc": "Comedy hypnosis show delivering laughs and audience participation in a fun, light-hearted evening performance",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "discoverbranson.com, ticketron.com, americanarenas.com (verified Thursday, November 26, 2026)",
+      "lat": 36.6386381,
+      "lng": -93.2735125,
+      "sortMinutes": 1020,
+      "bucket": "late_afternoon",
+      "chip": "comedy",
+      "icon": "😂",
+      "for": "comedy",
+      "ticketOk": false
+    },
+    {
+      "name": "Shanghai Circus",
+      "time": "7:30 PM",
+      "venue": "Mickey Gilley Grand Shanghai Theatre",
+      "venueAddress": "3455 W 76 Country Blvd",
+      "desc": "Spectacular acrobatic and circus performance featuring amazing feats, gymnastics, and theatrical staging",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "americanarenas.com, ticketron.com, discoverbranson.com (verified Thursday, November 26, 2026)",
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "lat": 36.64161,
       "lng": -93.28505,
       "sortMinutes": 1170,
@@ -200,14 +259,39 @@
       "ticketOk": false
     },
     {
+      "name": "The Haygoods",
+      "time": "7:30 PM",
+      "venue": "Clay Cooper Theatre",
+      "venueAddress": "3216 W 76 Country Blvd",
+      "desc": "High-energy family music show by the sibling group performing a wide range of hits on numerous instruments with impressive production and effects (Christmas edition)",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "ticketron.com, vividseats.com, thehaygoods.com (verified Thursday, November 26, 2026)",
+      "lat": 36.63733,
+      "lng": -93.27964,
+      "sortMinutes": 1170,
+      "bucket": "evening",
+      "chip": "family",
+      "icon": "👨‍👩‍👧",
+      "for": "family",
+      "ticketOk": false
+    },
+    {
       "name": "Branson's Christmas Wonderland",
       "time": "8:00 PM",
       "venue": "King's Castle Theatre",
       "venueAddress": "2701 W 76 Country Blvd",
+<<<<<<< HEAD
       "desc": "Festive musical production filled with holiday songs, dazzling costumes, and seasonal cheer",
       "price": "$69\u2013$87",
       "ticketNote": "Tickets from ~$69\u2013$87",
       "sources": "bransonmoconcerts.com, americanarenas.com, concertfix.com (verified Wednesday, November 25, 2026)",
+=======
+      "desc": "A sparkling large-scale holiday production with singers, dancers, festive costumes, and classic Christmas songs in an elaborate stage show",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "ticketron.com, concertfix.com, bransonmoconcerts.com (verified Thursday, November 26, 2026)",
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "lat": 36.64044,
       "lng": -93.26808,
       "sortMinutes": 1200,
@@ -218,8 +302,9 @@
       "ticketOk": false
     },
     {
-      "name": "Hamners' Unbelievable Variety",
+      "name": "Legends in Concert",
       "time": "8:00 PM",
+<<<<<<< HEAD
       "venue": "Hamner's Variety Theater",
       "venueAddress": "3090 Shepherd of the Hills Expy",
       "desc": "Fast-paced variety show featuring comedy, music, and astonishing acts",
@@ -246,12 +331,21 @@
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Wednesday, November 25, 2026)",
       "lat": 36.64035,
       "lng": -93.24015,
+=======
+      "venue": "Pepsi Legends Theater",
+      "venueAddress": "1600 W 76 Country Blvd",
+      "desc": "Tribute show featuring outstanding impersonations of music legends with live bands and high production values (holiday version)",
+      "price": "",
+      "ticketNote": "Tickets available",
+      "sources": "bransonmoconcerts.com, ticketron.com, americanarenas.com (verified Thursday, November 26, 2026)",
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
       "icon": "\ud83c\udfb8",
       "for": "classic",
       "ticketOk": false
+<<<<<<< HEAD
     },
     {
       "name": "Rick Thomas",
@@ -275,10 +369,22 @@
   "freeEvents": [],
   "magazineBuilt": "2026-11-25",
   "last_verified": "2026-11-25T14:04:38-06:00",
+=======
+    }
+  ],
+  "freeEvents": [],
+  "magazineBuilt": "2026-11-26",
+  "last_verified": "2026-11-26T05:23:24-06:00",
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
   "status": "fresh",
-  "scoutDate": "2026-11-25",
-  "scoutFile": "2026-11-25.md",
+  "scoutDate": "2026-11-26",
+  "scoutFile": "2026-11-26.md",
   "source": "scout",
+<<<<<<< HEAD
   "listHash": "6976c786e2d4",
   "generated_at": "2026-11-25T14:04:38-06:00"
+=======
+  "listHash": "52295d98be10",
+  "generated_at": "2026-11-26T05:23:24-06:00"
+>>>>>>> b162b169 (guest daily sync: 2026-11-26 Branson report data)
 }
