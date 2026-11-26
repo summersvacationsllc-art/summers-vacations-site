@@ -1,46 +1,38 @@
 {
-  "date": "2026-11-25",
-  "generated_at": "2026-11-26T02:43:22+00:00",
+  "date": "2026-11-26",
+  "generated_at": "2026-11-26T05:30:38-06:00",
   "headline": {
-    "check_ins": 2,
-    "check_outs": 1,
+    "check_ins": 1,
+    "check_outs": 2,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 5,
-    "units_total": 8
+    "in_house_units": 4,
+    "units_total": 7
   },
   "check_ins": [
     {
-      "property": "Indian Point",
-      "guests": 15,
-      "platform": "airbnb2",
-      "time": "4:00 PM"
-    },
-    {
       "property": "Scotts unit",
-      "guests": 4,
+      "guests": 6,
       "platform": "airbnb2",
       "time": "4:00 PM"
     }
   ],
   "check_outs": [
     {
+      "property": "Woodland Retreat",
+      "guests": 1,
+      "platform": "website",
+      "time": "10:00 AM"
+    },
+    {
       "property": "Scotts unit",
-      "guests": 6,
+      "guests": 4,
       "platform": "airbnb2",
       "time": "10:00 AM"
     }
   ],
   "turnovers": [],
   "in_house": [
-    {
-      "property": "Woodland Retreat",
-      "guests": 1,
-      "platform": "website",
-      "check_in": "2026-11-23",
-      "check_out": "2026-11-26",
-      "nights": 3
-    },
     {
       "property": "Double Condo",
       "guests": 5,
@@ -67,11 +59,11 @@
     },
     {
       "property": "Scotts unit",
-      "guests": 4,
+      "guests": 6,
       "platform": "airbnb2",
-      "check_in": "2026-11-25",
-      "check_out": "2026-11-26",
-      "nights": 1
+      "check_in": "2026-11-26",
+      "check_out": "2026-11-28",
+      "nights": 2
     }
   ],
   "sync_notes": {
