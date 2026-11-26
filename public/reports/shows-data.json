@@ -13,9 +13,11 @@
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64044,
+      "lng": -93.26808
     },
     {
       "name": "A Celtic Christmas",
@@ -29,9 +31,11 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "🎶",
+      "icon": "\ud83c\udfb6",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64044,
+      "lng": -93.26808
     },
     {
       "name": "The Gambler",
@@ -45,9 +49,11 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6386381,
+      "lng": -93.2735125
     },
     {
       "name": "Aaron Wayne",
@@ -61,9 +67,11 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "comedy",
-      "icon": "😂",
+      "icon": "\ud83d\ude02",
       "for": "comedy",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.6386381,
+      "lng": -93.2735125
     },
     {
       "name": "Shanghai Circus",
@@ -77,9 +85,11 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "thrill",
-      "icon": "🤸",
+      "icon": "\ud83e\udd38",
       "for": "thrill",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64161,
+      "lng": -93.28505
     },
     {
       "name": "The Haygoods",
@@ -93,9 +103,11 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "family",
-      "icon": "👨‍👩‍👧",
+      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "for": "family",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.63733,
+      "lng": -93.27964
     },
     {
       "name": "Branson's Christmas Wonderland",
@@ -109,9 +121,11 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "music",
-      "icon": "🎭",
+      "icon": "\ud83c\udfad",
       "for": "music",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64044,
+      "lng": -93.26808
     },
     {
       "name": "Legends in Concert",
@@ -125,18 +139,20 @@
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "🎸",
+      "icon": "\ud83c\udfb8",
       "for": "classic",
-      "ticketOk": false
+      "ticketOk": false,
+      "lat": 36.64151,
+      "lng": -93.24753
     }
   ],
   "freeEvents": [],
   "magazineBuilt": "2026-11-26",
-  "last_verified": "2026-11-26T05:30:50-06:00",
+  "last_verified": "2026-11-26T13:45:38-06:00",
   "status": "fresh",
   "scoutDate": "2026-11-26",
   "scoutFile": "2026-11-26.md",
   "source": "scout",
   "listHash": "52295d98be10",
-  "generated_at": "2026-11-26T05:30:50-06:00"
+  "generated_at": "2026-11-26T13:45:38-06:00"
 }

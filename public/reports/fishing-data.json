@@ -1,60 +1,15 @@
 {
   "date": "2026-11-26",
-  "biteOfDay": "Cooler water on Table Rock has bass feeding on points, gravel flats and offshore structure in 20\u201340 ft as they pack on weight for winter. Walleye and crappie remain active around brush and points. On Taneycomo, rainbows stay eager during lighter flows while brown trout activity builds in the upper reaches. Recent guide reports show solid catches when anglers time the low-flow windows.",
   "conditions": {
     "tableRock": {
-      "temp": "verify locally",
-      "clarity": "Gin-clear near dam; verify arms locally"
+      "level": "909.04 ft (USACE 13:00 CT)"
     },
     "taneycomo": {
-      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank.",
+      "generation": "~20 cfs at 13:00 CT (USACE live). Overnight ~20; afternoon peak ~20. Call SWPA 866-494-1993 before you wad.",
       "clarity": "Very clear",
-      "generation": "~22 cfs at 13:00 CT (USACE live). Overnight ~20; afternoon peak ~22. Call SWPA 866-494-1993 before you wad."
+      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank."
     }
   },
-  "species": [
-    {
-      "name": "Bass",
-      "rating": "GOOD",
-      "depth": "Dawn points/gravel; mid-day 15-35 ft brush",
-      "technique": "Topwater at dawn; deep spoon, shakey head, deep crank mid-day"
-    },
-    {
-      "name": "Walleye",
-      "rating": "GOOD",
-      "depth": "Gravel points, 15-25 ft",
-      "technique": "Crankbaits, live bait (carried mid-summer pattern \u2014 not freshly guide-verified 07-21)"
-    },
-    {
-      "name": "Crappie",
-      "rating": "FAIR-GOOD",
-      "depth": "Deep timber & brush piles (James River/Long Creek arms)",
-      "technique": "Small white or yellow jigs under deep-water docks"
-    },
-    {
-      "name": "Trout",
-      "rating": "GOOD",
-      "depth": "Varies with flow",
-      "technique": "Low-flow morning window; pink worms/jigs/midges; drift when generation heavy (Trophy Area nightcrawlers)"
-    },
-    {
-      "name": "Bluegill",
-      "rating": "EXCELLENT",
-      "depth": "Shallows, shoreline",
-      "technique": "Worms, small poppers \u2014 great for kids (mid-summer pattern carry)"
-    },
-    {
-      "name": "Catfish",
-      "rating": "GOOD",
-      "depth": "Indian Point & near dam, shallows after dark",
-      "technique": "Stink bait, hot dogs, cut/frozen bait \u2014 evening/night"
-    }
-  ],
-  "weather": {
-    "high": "Verify locally",
-    "heatIndex": "Verify locally",
-    "low": "Verify locally",
-    "wind": "Verify locally"
-  },
-  "tip": "Insider tip: Target the low-flow window this morning on Taneycomo. Drift or wade seams and current breaks with 1/16\u20131/8 oz marabou micro jigs (black, sculpin, olive with orange head) or #16\u201320 zebra midges under an indicator on light line (2\u20134 lb test). When generation ramps, add weight and target t",
+  "source": "usace-always-on",
+  "last_verified": "2026-11-26T13:45:38-06:00"
 }
