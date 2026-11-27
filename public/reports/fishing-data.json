@@ -2,10 +2,12 @@
   "date": "2026-11-27",
   "conditions": {
     "tableRock": {
-      "level": "908.99 ft (USACE)"
+      "level": "908.96 ft (USACE 13:00 CT)"
     },
     "taneycomo": {
-      "generation": "~296 cfs (scout) \u2014 verify via SWPA 866-494-1993"
+      "generation": "~223 cfs at 13:00 CT (USACE live). Overnight ~20; afternoon peak ~223. Call SWPA 866-494-1993 before you wad.",
+      "clarity": "Very clear",
+      "temp": "Tailwater cold (typically ~50\u201354\u00b0F). Verify at the bank."
     }
   },
   "biteOfDay": "Trout on Taneycomo are responding well to light presentations in the low morning flows. Stocked rainbows and holdover browns are active in the clear, cold tailwater. On Table Rock, bass are holding tighter to deeper structure and points as water cools.",
@@ -54,6 +56,6 @@
     "wind": "verify locally"
   },
   "tip": "Insider tip: In the low morning flows on Taneycomo, drift or wade with a 1/16-oz micro jig (brown, black, or sculpin) or a zebra midge under an indicator. Focus on current seams and structure below the dam (outside the closed zone). When generation increases, switch to heavier rigs and target the br",
-  "source": "scout",
-  "last_verified": "2026-11-27T05:27:10-06:00"
+  "source": "usace-always-on",
+  "last_verified": "2026-11-27T13:36:26-06:00"
 }
