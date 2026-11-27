@@ -218,6 +218,8 @@ export async function guestyGetOptional(path: string): Promise<Record<string, un
  * One Guesty call using the cached OAuth token. Does not request a new token
  * unless the shared cache has none that is still valid. Never logs the body.
  * Non-success bodies are discarded.
+ * The guidebook name and phone form does not call this. Phones from that form
+ * are stored outside Guesty and are never sent here.
  */
 export async function guestySend(
   method: "GET" | "PUT",
