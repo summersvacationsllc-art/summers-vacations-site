@@ -1,17 +1,10 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "kicker": "Tonight in Branson",
   "brand": "The daily board",
-  "hed": "Friday night Branson",
-  "deck": "Black Friday in Branson brings a full day of holiday-themed performances, tributes, variety shows, and the popular *Miracle of Christmas* production as the Christmas season hits full stride the day after Thanksgiving.",
-  "pick": {
-    "title": "Dean Z: The Ultimate Elvis",
-    "when": "7:30 PM",
-    "where": "Clay Cooper Theatre",
-    "why": "Core Branson mainstage energy.",
-    "url": "",
-    "source": "desk"
-  },
+  "hed": "Saturday full board",
+  "deck": "Biggest day of the week for live entertainment — matinees for kids, evening for date night.",
+  "pick": null,
   "buckets": [
     {
       "id": "matinee",
@@ -257,12 +250,12 @@
   "tomorrow": "Boards reshuffle overnight — open this tab tomorrow for a fresh pick and times.",
   "editor": {
     "stamp": "Tonight in Branson desk",
-    "checked": "2026-11-27",
-    "note": "Times and seats change — confirm at the box office before you drive. Sources: scout 2026-11-27.md, shows-data board. Scout prose on file."
+    "checked": "2026-11-28",
+    "note": "Show list from the 2026-11-27 scout (today's not in yet). Confirm times at the box office."
   },
   "counts": {
     "shows": 16,
     "withTickets": 0
   },
-  "generated_at": "2026-11-27T13:36:26-06:00"
+  "generated_at": "2026-11-28T05:01:38-06:00"
 }

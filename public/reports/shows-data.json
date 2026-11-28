@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "shows": [
     {
       "name": "Hot Rods & High Heels",
@@ -7,17 +7,15 @@
       "venue": "Clay Cooper Theatre",
       "venueAddress": "3216 W. Highway 76",
       "desc": "High-energy musical revue celebrating classic cars and 1950s-60s style",
-      "price": "$61\u2013$81",
-      "ticketNote": "Tickets from ~$61\u2013$81",
+      "price": "$61–$81",
+      "ticketNote": "Tickets from ~$61–$81",
       "sources": "americanarenas.com, ticketron.com (verified Friday, November 27, 2026)",
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.63733,
-      "lng": -93.27964
+      "ticketOk": false
     },
     {
       "name": "The Sound of Simon and Garfunkel Show",
@@ -25,17 +23,15 @@
       "venue": "Hamner's Variety Theater",
       "venueAddress": "3090 Shepherd of the Hills Expy",
       "desc": "A harmonious tribute to the folk-rock duo featuring their timeless hits",
-      "price": "$58\u2013$75",
-      "ticketNote": "Tickets from ~$58\u2013$75",
+      "price": "$58–$75",
+      "ticketNote": "Tickets from ~$58–$75",
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 600,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.6539477,
-      "lng": -93.2795662
+      "ticketOk": false
     },
     {
       "name": "Branson's Christmas Wonderland",
@@ -43,17 +39,15 @@
       "venue": "King's Castle Theatre",
       "venueAddress": "2701 W 76 Country Blvd",
       "desc": "Festive holiday production filled with seasonal music, lights, and cheer",
-      "price": "$85\u2013$115",
-      "ticketNote": "Tickets from ~$85\u2013$115",
+      "price": "$85–$115",
+      "ticketNote": "Tickets from ~$85–$115",
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "\ud83c\udfad",
+      "icon": "🎭",
       "for": "music",
-      "ticketOk": false,
-      "lat": 36.64044,
-      "lng": -93.26808
+      "ticketOk": false
     },
     {
       "name": "Clay Cooper's Country Express Show",
@@ -61,17 +55,15 @@
       "venue": "Clay Cooper Theatre",
       "venueAddress": "3216 W. Highway 76",
       "desc": "High-energy country music, comedy, and family-friendly entertainment",
-      "price": "$99\u2013$104",
-      "ticketNote": "Tickets from ~$99\u2013$104",
+      "price": "$99–$104",
+      "ticketNote": "Tickets from ~$99–$104",
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.63733,
-      "lng": -93.27964
+      "ticketOk": false
     },
     {
       "name": "Rick Thomas",
@@ -79,17 +71,15 @@
       "venue": "Americana Theatre",
       "venueAddress": "2905 W 76 Country Blvd",
       "desc": "World-class illusionist and magic show with audience participation",
-      "price": "$93\u2013$100",
-      "ticketNote": "Tickets from ~$93\u2013$100",
+      "price": "$93–$100",
+      "ticketNote": "Tickets from ~$93–$100",
       "sources": "americanarenas.com, ticketron.com (verified Friday, November 27, 2026)",
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "magic",
-      "icon": "\ud83e\ude84",
+      "icon": "🪄",
       "for": "magic",
-      "ticketOk": false,
-      "lat": 36.6386381,
-      "lng": -93.2735125
+      "ticketOk": false
     },
     {
       "name": "Thank You For The Music",
@@ -103,11 +93,9 @@
       "sortMinutes": 840,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.6539477,
-      "lng": -93.2795662
+      "ticketOk": false
     },
     {
       "name": "Legends in Concert",
@@ -115,17 +103,15 @@
       "venue": "Pepsi Legends Theater",
       "venueAddress": "1600 W 76 Country Blvd",
       "desc": "Live tributes to music icons with outstanding vocals and production",
-      "price": "$103\u2013$104",
-      "ticketNote": "Tickets from ~$103\u2013$104",
+      "price": "$103–$104",
+      "ticketNote": "Tickets from ~$103–$104",
       "sources": "americanarenas.com, concertfix.com (verified Friday, November 27, 2026)",
       "sortMinutes": 900,
       "bucket": "matinee",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.64151,
-      "lng": -93.24753
+      "ticketOk": false
     },
     {
       "name": "Miracle of Christmas",
@@ -133,17 +119,15 @@
       "venue": "Sight & Sound Theatres",
       "venueAddress": "1001 Shepherd of the Hills Expy",
       "desc": "Spectacular live retelling of the Nativity story with massive sets and live animals",
-      "price": "$59\u2013$164",
-      "ticketNote": "Tickets from ~$59\u2013$164",
+      "price": "$59–$164",
+      "ticketNote": "Tickets from ~$59–$164",
       "sources": "sight-sound.com, nightout.com (verified Friday, November 27, 2026)",
       "sortMinutes": 930,
       "bucket": "matinee",
       "chip": "music",
-      "icon": "\ud83c\udfad",
+      "icon": "🎭",
       "for": "music",
-      "ticketOk": false,
-      "lat": 36.6654,
-      "lng": -93.26219
+      "ticketOk": false
     },
     {
       "name": "Back to The Bee Gees",
@@ -157,11 +141,9 @@
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.6539477,
-      "lng": -93.2795662
+      "ticketOk": false
     },
     {
       "name": "Hits On Route 66 / The Heatherlys",
@@ -169,17 +151,15 @@
       "venue": "Americana Theatre",
       "venueAddress": "2905 W 76 Country Blvd",
       "desc": "Nostalgic musical journey along Route 66 with country and classic hits",
-      "price": "$93\u2013$100",
-      "ticketNote": "Tickets from ~$93\u2013$100",
+      "price": "$93–$100",
+      "ticketNote": "Tickets from ~$93–$100",
       "sources": "americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 1020,
       "bucket": "late_afternoon",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.6386381,
-      "lng": -93.2735125
+      "ticketOk": false
     },
     {
       "name": "Dean Z: The Ultimate Elvis",
@@ -193,11 +173,9 @@
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.63733,
-      "lng": -93.27964
+      "ticketOk": false
     },
     {
       "name": "Miracle of Christmas",
@@ -205,17 +183,15 @@
       "venue": "Sight & Sound Theatres",
       "venueAddress": "1001 Shepherd of the Hills Expy",
       "desc": "Spectacular live retelling of the Nativity story with massive sets and live animals",
-      "price": "$59\u2013$204",
-      "ticketNote": "Tickets from ~$59\u2013$204",
+      "price": "$59–$204",
+      "ticketNote": "Tickets from ~$59–$204",
       "sources": "sight-sound.com, nightout.com (verified Friday, November 27, 2026)",
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "music",
-      "icon": "\ud83c\udfad",
+      "icon": "🎭",
       "for": "music",
-      "ticketOk": false,
-      "lat": 36.6654,
-      "lng": -93.26219
+      "ticketOk": false
     },
     {
       "name": "Shanghai Circus",
@@ -223,17 +199,15 @@
       "venue": "Mickey Gilley Grand Shanghai Theatre",
       "venueAddress": "3455 W 76 Country Blvd",
       "desc": "Acrobatic thrills, juggling, and spectacular circus performances",
-      "price": "$95\u2013$97",
-      "ticketNote": "Tickets from ~$95\u2013$97",
+      "price": "$95–$97",
+      "ticketNote": "Tickets from ~$95–$97",
       "sources": "americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 1170,
       "bucket": "evening",
       "chip": "thrill",
-      "icon": "\ud83e\udd38",
+      "icon": "🤸",
       "for": "thrill",
-      "ticketOk": false,
-      "lat": 36.64161,
-      "lng": -93.28505
+      "ticketOk": false
     },
     {
       "name": "Anthems of Rock",
@@ -241,17 +215,15 @@
       "venue": "King's Castle Theatre",
       "venueAddress": "2701 W 76 Country Blvd",
       "desc": "High-voltage rock anthems and classic hits performed live",
-      "price": "$73\u2013$105",
-      "ticketNote": "Tickets from ~$73\u2013$105",
+      "price": "$73–$105",
+      "ticketNote": "Tickets from ~$73–$105",
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.64044,
-      "lng": -93.26808
+      "ticketOk": false
     },
     {
       "name": "Presley's Country Christmas",
@@ -259,17 +231,15 @@
       "venue": "Presleys' Country Jubilee",
       "venueAddress": "2920 West 76 Country Blvd",
       "desc": "Family-style country Christmas show with holiday favorites and comedy",
-      "price": "$72\u2013$89",
-      "ticketNote": "Tickets from ~$72\u2013$89",
+      "price": "$72–$89",
+      "ticketNote": "Tickets from ~$72–$89",
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.64035,
-      "lng": -93.24015
+      "ticketOk": false
     },
     {
       "name": "The SIX Show",
@@ -277,26 +247,25 @@
       "venue": "Pepsi Legends Theater",
       "venueAddress": "1600 W 76 Country Blvd",
       "desc": "Dynamic a cappella group performing hits from the 60s through today",
-      "price": "$96\u2013$101",
-      "ticketNote": "Tickets from ~$96\u2013$101",
+      "price": "$96–$101",
+      "ticketNote": "Tickets from ~$96–$101",
       "sources": "bransonmoconcerts.com, americanarenas.com (verified Friday, November 27, 2026)",
       "sortMinutes": 1200,
       "bucket": "evening",
       "chip": "classic",
-      "icon": "\ud83c\udfb8",
+      "icon": "🎸",
       "for": "classic",
-      "ticketOk": false,
-      "lat": 36.64151,
-      "lng": -93.24753
+      "ticketOk": false
     }
   ],
   "freeEvents": [],
-  "magazineBuilt": "2026-11-27",
-  "last_verified": "2026-11-27T13:36:26-06:00",
-  "status": "fresh",
+  "magazineBuilt": "2026-11-28",
+  "last_verified": "2026-11-28T05:01:38-06:00",
+  "status": "fallback",
   "scoutDate": "2026-11-27",
   "scoutFile": "2026-11-27.md",
   "source": "scout",
   "listHash": "5b00e2838155",
-  "generated_at": "2026-11-27T13:36:26-06:00"
+  "note": "Show list from the 2026-11-27 scout (today's scout missing). Confirm times at the box office.",
+  "generated_at": "2026-11-28T05:01:38-06:00"
 }
