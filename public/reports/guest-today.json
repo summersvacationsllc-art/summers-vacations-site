@@ -1,64 +1,91 @@
 {
-  "date": "2026-11-27",
-  "generated_at": "2026-11-28T02:32:56+00:00",
+  "date": "2026-11-29",
+  "generated_at": "2026-11-28T05:01:57-06:00",
   "headline": {
-    "check_ins": 1,
-    "check_outs": 0,
+    "check_ins": 3,
+    "check_outs": 5,
     "turnovers": 0,
     "same_day_turnovers": 0,
-    "in_house_units": 5,
+    "in_house_units": 3,
     "units_total": 7
   },
   "check_ins": [
     {
-      "property": "Woodland Retreat",
+      "property": "Rustic Ozark",
       "guests": 1,
+      "platform": "owner-guest",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Scotts unit",
+      "guests": 5,
+      "platform": "airbnb2",
+      "time": "4:00 PM"
+    },
+    {
+      "property": "Woodland Retreat",
+      "guests": 2,
       "platform": "airbnb2",
       "time": "4:00 PM"
     }
   ],
-  "check_outs": [],
-  "turnovers": [],
-  "in_house": [
+  "check_outs": [
     {
       "property": "Double Condo",
       "guests": 5,
       "platform": "website",
-      "check_in": "2026-11-24",
-      "check_out": "2026-11-29",
-      "nights": 5
+      "time": "10:00 AM"
     },
     {
       "property": "Klein's condo",
       "guests": 8,
       "platform": "airbnb2",
-      "check_in": "2026-11-24",
-      "check_out": "2026-11-29",
-      "nights": 5
+      "time": "10:00 AM"
     },
     {
       "property": "Indian Point",
       "guests": 15,
       "platform": "airbnb2",
-      "check_in": "2026-11-25",
-      "check_out": "2026-11-29",
-      "nights": 4
-    },
-    {
-      "property": "Scotts unit",
-      "guests": 6,
-      "platform": "airbnb2",
-      "check_in": "2026-11-26",
-      "check_out": "2026-11-28",
-      "nights": 2
+      "time": "10:00 AM"
     },
     {
       "property": "Woodland Retreat",
       "guests": 1,
       "platform": "airbnb2",
-      "check_in": "2026-11-27",
-      "check_out": "2026-11-29",
-      "nights": 2
+      "time": "10:00 AM"
+    },
+    {
+      "property": "Scotts unit",
+      "guests": 6,
+      "platform": "airbnb2",
+      "time": "10:00 AM"
+    }
+  ],
+  "turnovers": [],
+  "in_house": [
+    {
+      "property": "Rustic Ozark",
+      "guests": 1,
+      "platform": "owner-guest",
+      "check_in": "2026-11-29",
+      "check_out": "2026-11-30",
+      "nights": 1
+    },
+    {
+      "property": "Scotts unit",
+      "guests": 5,
+      "platform": "airbnb2",
+      "check_in": "2026-11-29",
+      "check_out": "2026-11-30",
+      "nights": 1
+    },
+    {
+      "property": "Woodland Retreat",
+      "guests": 2,
+      "platform": "airbnb2",
+      "check_in": "2026-11-29",
+      "check_out": "2026-12-04",
+      "nights": 5
     }
   ],
   "sync_notes": {
